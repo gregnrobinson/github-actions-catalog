@@ -38,14 +38,61 @@ def get_categories():
 
     return sorted(list(categories))
 
+def get_action_type(action):
+    """Determine if action is marketplace or internal."""
+    source = action.get("source", {})
+
+    # Check source.type field first (most reliable)
+    if source.get("type") == "marketplace":
+        return "marketplace"
+    elif source.get("type") == "internal":
+        return "internal"
+
+    # Fallback: check action_id or publisher
+    action_id = action.get("action_id", "").lower()
+    if action_id.startswith("marketplace/"):
+        return "marketplace"
+
+    return "internal"
+
+def get_catalog_stats():
+    """Get catalog statistics."""
+    actions = get_all_actions()
+
+    internal_count = 0
+    marketplace_count = 0
+    verified_count = 0
+
+    for action in actions:
+        action_type = get_action_type(action)
+
+        if action_type == "marketplace":
+            marketplace_count += 1
+        else:
+            internal_count += 1
+
+        if action.get("source", {}).get("verified"):
+            verified_count += 1
+
+    return {
+        "total": len(actions),
+        "internal": internal_count,
+        "marketplace": marketplace_count,
+        "verified": verified_count
+    }
+
 @app.route("/")
 def index():
     """Main catalog page."""
     actions = get_all_actions()
     categories = get_categories()
+    stats = get_catalog_stats()
 
     return render_template("index.html",
-                         total_actions=len(actions),
+                         total_actions=stats["total"],
+                         internal_actions=stats["internal"],
+                         marketplace_actions=stats["marketplace"],
+                         verified_actions=stats["verified"],
                          categories=categories)
 
 @app.route("/api/actions")
@@ -53,11 +100,18 @@ def api_actions():
     """API endpoint to get filtered actions."""
     search_query = request.args.get("search", "").lower()
     category_filter = request.args.get("category", "")
+    action_type = request.args.get("type", "")  # "internal", "marketplace", or ""
 
     actions = get_all_actions()
     filtered = []
 
     for action in actions:
+        # Type filter (internal vs marketplace)
+        if action_type:
+            detected_type = get_action_type(action)
+            if action_type != detected_type:
+                continue
+
         # Category filter
         if category_filter:
             if category_filter not in action.get("annotations", {}).get("categories", []):
@@ -74,6 +128,9 @@ def api_actions():
                    search_query in description):
                 continue
 
+        # Determine action type
+        detected_type = get_action_type(action)
+
         # Add to results
         filtered.append({
             "action_id": action.get("action_id"),
@@ -82,9 +139,10 @@ def api_actions():
             "categories": action.get("annotations", {}).get("categories", []),
             "confidence": action.get("annotations", {}).get("confidence", ""),
             "author": action.get("definition", {}).get("author", ""),
-            "source_type": action.get("source", {}).get("type", ""),
             "publisher": action.get("source", {}).get("publisher"),
-            "verified": action.get("source", {}).get("verified", False)
+            "verified": action.get("source", {}).get("verified", False),
+            "origin": action.get("source", {}).get("origin", ""),
+            "type": detected_type
         })
 
     return jsonify(filtered)
@@ -92,10 +150,20 @@ def api_actions():
 @app.route("/api/actions/<path:action_id>")
 def api_action_detail(action_id):
     """API endpoint to get full action details."""
-    # Sanitize action_id for filesystem
+    # Handle both regular and sanitized action IDs
+    original_id = action_id.replace("__", "/")
     sanitized_id = action_id.replace("/", "__")
 
-    entry_dir = CATALOG_DIR / sanitized_id
+    # Try to find the action directory
+    entry_dir = None
+    for potential_dir in [CATALOG_DIR / sanitized_id, CATALOG_DIR / original_id]:
+        if potential_dir.exists():
+            entry_dir = potential_dir
+            break
+
+    if not entry_dir:
+        return jsonify({"error": "Action not found"}), 404
+
     latest_file = entry_dir / "latest.json"
 
     if not latest_file.exists():
@@ -104,7 +172,25 @@ def api_action_detail(action_id):
     with open(latest_file, "r") as f:
         action = json.load(f)
 
+    # Determine action type
+    detected_type = get_action_type(action)
+    action["type"] = detected_type
+
     return jsonify(action)
+
+@app.route("/api/stats")
+def api_stats():
+    """API endpoint to get catalog statistics."""
+    stats = get_catalog_stats()
+    categories = get_categories()
+
+    return jsonify({
+        "total_actions": stats["total"],
+        "internal_actions": stats["internal"],
+        "marketplace_actions": stats["marketplace"],
+        "verified_actions": stats["verified"],
+        "categories": categories
+    })
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
