@@ -103,6 +103,13 @@ body {
     margin-bottom: 3rem;
 }
 
+.action-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
 .action-card {
     background: white;
     border: 1px solid var(--gray-200);
@@ -112,6 +119,7 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .action-card:hover {
@@ -163,7 +171,7 @@ body {
     margin-top: auto;
 }
 
-.card-link:hover {
+.action-card:hover .card-link {
     text-decoration: underline;
 }
 
@@ -192,6 +200,7 @@ body {
     color: var(--gray-800);
 }
 
+/* Detail page styles */
 .back-link {
     display: inline-block;
     color: var(--primary);
