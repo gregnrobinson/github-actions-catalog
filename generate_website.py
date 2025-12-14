@@ -419,6 +419,10 @@ body {
     height: 100%;
 }
 
+.action-card-link:hover {
+    text-decoration: none;
+}
+
 .action-card {
     background: white;
     border: 1px solid var(--gray-200);
@@ -475,7 +479,6 @@ body {
 
 .card-link {
     color: var(--primary);
-    text-decoration: none;
     font-weight: 500;
     margin-top: auto;
 }
