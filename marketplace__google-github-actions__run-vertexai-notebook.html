@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex AI Notebook Review Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Vertex AI Notebook Review Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/run-vertexai-notebook</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/run-vertexai-notebook" target="_blank">github.com/google-github-actions/run-vertexai-notebook</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Execute notebooks and create links to their output files</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Documentation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> This action executes notebooks, which is often part of a testing or validation process in data science workflows. It also involves managing outputs and documentation related to the execution of these notebooks.</p>
+            <p><strong>Tags:</strong> <span class="tag">Vertex AI</span> <span class="tag">notebook</span> <span class="tag">Google Cloud</span> <span class="tag">testing</span> <span class="tag">infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>gcs_source_bucket</code></td>
+                <td>Yes</td>
+                <td>Google Cloud Storage bucket to store notebooks to be run by Vertex AI. e.g. &lt;project-id&gt;/nbr/source</td>
+            </tr><tr>
+                <td><code>gcs_output_bucket</code></td>
+                <td>Yes</td>
+                <td>Google Cloud Storage bucket to store the results of the notebooks executed by Vertex AI. e.g. &lt;project-id&gt;/nbr/output</td>
+            </tr><tr>
+                <td><code>allowlist</code></td>
+                <td>Yes</td>
+                <td>Comma separated list of files to run on Vertex AI. e.g. mynotebook.ipynb, somedir/**.pynb. It is expected that this is the output from an action like ```dorny/paths-filter```</td>
+            </tr><tr>
+                <td><code>vertex_machine_type</code></td>
+                <td>No</td>
+                <td>Type of Vertex AI machine to run notebooks on e.g. n1-standard-4</td>
+            </tr><tr>
+                <td><code>region</code></td>
+                <td>No</td>
+                <td>Google Cloud region e.g. us-central1, us-east4</td>
+            </tr><tr>
+                <td><code>add_comment</code></td>
+                <td>No</td>
+                <td>Add a comment to an open PR as the final step - defaults to &quot;true&quot;</td>
+            </tr><tr>
+                <td><code>kernel_name</code></td>
+                <td>No</td>
+                <td>Notebook kernel to use for the execution environment - defaults to python3</td>
+            </tr><tr>
+                <td><code>vertex_container_name</code></td>
+                <td>No</td>
+                <td>The base container image to use. Defaults to the basic Python container.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

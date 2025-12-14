@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure MYSQL Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure MYSQL Deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/mysql</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/mysql" target="_blank">github.com/azure/mysql</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy to Azure MySQL database using SQL script files</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy to an Azure MySQL database, which falls under the Deployment category, while also involving infrastructure management.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">MySQL</span> <span class="tag">Deployment</span> <span class="tag">Database</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>server-name</code></td>
+                <td>Yes</td>
+                <td>Server name of Azure DB for Mysql. Example: fabrikam.mysql.database.azure.com. When you connect using Mysql Workbench, this is the same value that is used for Hostname in Parameters</td>
+            </tr><tr>
+                <td><code>connection-string</code></td>
+                <td>No</td>
+                <td>The connection string, including authentication information, for the Azure MySQL Server. (deprecated)</td>
+            </tr><tr>
+                <td><code>username</code></td>
+                <td>No</td>
+                <td>Azure MySQL Server username for login</td>
+            </tr><tr>
+                <td><code>password</code></td>
+                <td>No</td>
+                <td>Azure MySQL Server password for login</td>
+            </tr><tr>
+                <td><code>database</code></td>
+                <td>No</td>
+                <td>Azure MySQL Server database (optional) to connect to. No database will be used automatically.</td>
+            </tr><tr>
+                <td><code>sql-file</code></td>
+                <td>Yes</td>
+                <td>Path to SQL script file to deploy</td>
+            </tr><tr>
+                <td><code>arguments</code></td>
+                <td>No</td>
+                <td>Additional options supported by mysql simple SQL shell. These options will be applied when executing the given file on the Azure DB for Mysql.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

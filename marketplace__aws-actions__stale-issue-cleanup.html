@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&#39;Stale Issue Cleanup&#39; Action for GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>&#39;Stale Issue Cleanup&#39; Action for GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/stale-issue-cleanup</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/stale-issue-cleanup" target="_blank">github.com/aws-actions/stale-issue-cleanup</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Close issues and pull requests with no recent activity</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on managing stale issues and pull requests, which involves communication with users about the status of their contributions. It also includes notifications to users when issues are marked as stale.</p>
+            <p><strong>Tags:</strong> <span class="tag">stale issues</span> <span class="tag">cleanup</span> <span class="tag">GitHub Actions</span> <span class="tag">automation</span> <span class="tag">notifications</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>repo-token</code></td>
+                <td>Yes</td>
+                <td>Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}</td>
+            </tr><tr>
+                <td><code>issue-types</code></td>
+                <td>No</td>
+                <td>Issue types to process (&quot;issues&quot;, &quot;pull_requests&quot;, or &quot;issues,pull_requests&quot;)</td>
+            </tr><tr>
+                <td><code>stale-issue-message</code></td>
+                <td>No</td>
+                <td>The message to post on the issue when tagging it. If none provided, will not mark issues stale.</td>
+            </tr><tr>
+                <td><code>stale-pr-message</code></td>
+                <td>No</td>
+                <td>The message to post on the pr when tagging it. If none provided, will not mark pull requests stale.</td>
+            </tr><tr>
+                <td><code>days-before-stale</code></td>
+                <td>No</td>
+                <td>The number of days old an issue can be before marking it stale.</td>
+            </tr><tr>
+                <td><code>days-before-close</code></td>
+                <td>No</td>
+                <td>The number of days to wait to close an issue or pull request after it being marked stale.</td>
+            </tr><tr>
+                <td><code>stale-issue-label</code></td>
+                <td>No</td>
+                <td>The label to apply when an issue is stale.</td>
+            </tr><tr>
+                <td><code>exempt-issue-labels</code></td>
+                <td>No</td>
+                <td>The labels to apply when an issue is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;)</td>
+            </tr><tr>
+                <td><code>stale-pr-label</code></td>
+                <td>No</td>
+                <td>The label to apply when a pull request is stale.</td>
+            </tr><tr>
+                <td><code>exempt-pr-labels</code></td>
+                <td>No</td>
+                <td>The labels to apply when a pull request is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;)</td>
+            </tr><tr>
+                <td><code>ancient-issue-message</code></td>
+                <td>No</td>
+                <td>The message to post when an issue is very old.</td>
+            </tr><tr>
+                <td><code>ancient-pr-message</code></td>
+                <td>No</td>
+                <td>The message to post when a pr is very old.</td>
+            </tr><tr>
+                <td><code>days-before-ancient</code></td>
+                <td>No</td>
+                <td>The number of days old an issue can be before marking it ancient.</td>
+            </tr><tr>
+                <td><code>response-requested-label</code></td>
+                <td>No</td>
+                <td>The label that gets applied when a response is requested.</td>
+            </tr><tr>
+                <td><code>closed-for-staleness-label</code></td>
+                <td>No</td>
+                <td>The label that gets applied when an issue is closed for staleness.</td>
+            </tr><tr>
+                <td><code>minimum-upvotes-to-exempt</code></td>
+                <td>No</td>
+                <td>The minimum number of &quot;upvotes&quot; that an issue needs to have before not marking as ancient.</td>
+            </tr><tr>
+                <td><code>loglevel</code></td>
+                <td>No</td>
+                <td>Set to DEBUG to enable debug logging</td>
+            </tr><tr>
+                <td><code>dry-run</code></td>
+                <td>No</td>
+                <td>Set to true to not perform repository changes</td>
+            </tr><tr>
+                <td><code>use-created-date-for-ancient</code></td>
+                <td>No</td>
+                <td>Set to true to use issue created date instead of modified date for determining an ancient issue.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

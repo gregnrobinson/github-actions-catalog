@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Spring Cloud - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Spring Cloud</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/spring-cloud-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/spring-cloud-deploy" target="_blank">github.com/azure/spring-cloud-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy applications to Azure Spring Cloud and manage deployments.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed for deploying applications to Azure Spring Cloud, which falls under the Deployment category. It also involves managing infrastructure resources in Azure.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Spring Cloud</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">Cloud Services</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>azure-subscription</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Resource Manager subscription for the deployment.</td>
+            </tr><tr>
+                <td><code>action</code></td>
+                <td>Yes</td>
+                <td>Action to be performed on Azure Spring Cloud.</td>
+            </tr><tr>
+                <td><code>service-name</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Spring Cloud service to which to deploy.</td>
+            </tr><tr>
+                <td><code>app-name</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Spring Cloud app to deploy.</td>
+            </tr><tr>
+                <td><code>use-staging-deployment</code></td>
+                <td>Yes</td>
+                <td>Automatically select the deployment that&#39;s set as Staging at the time the task runs.</td>
+            </tr><tr>
+                <td><code>create-new-deployment</code></td>
+                <td>No</td>
+                <td>Whether to target the deployment that&#39;s set as Staging at the time of execution. If unchecked, the &#39;Deployment Name&#39; setting must be set.</td>
+            </tr><tr>
+                <td><code>deployment-name</code></td>
+                <td>No</td>
+                <td>The deployment to which this task will apply. Lowercase letters, - and numbers only; must start with a letter.</td>
+            </tr><tr>
+                <td><code>package</code></td>
+                <td>No</td>
+                <td>File path to the package or a folder containing the Spring Cloud app contents.</td>
+            </tr><tr>
+                <td><code>environment-variables</code></td>
+                <td>No</td>
+                <td>Edit the app&#39;s environment variables.</td>
+            </tr><tr>
+                <td><code>jvm-options</code></td>
+                <td>No</td>
+                <td>Edit the app&#39;s JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`</td>
+            </tr><tr>
+                <td><code>runtime-version</code></td>
+                <td>No</td>
+                <td>The runtime on which the app will run.</td>
+            </tr><tr>
+                <td><code>dotnetcore-mainentry-path</code></td>
+                <td>No</td>
+                <td>The path to the .NET executable relative to zip root.</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>The runtime on which the app will run.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

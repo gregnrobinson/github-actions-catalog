@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Velociraptor - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup Velociraptor</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/lowlighter/setup-velociraptor</code></p>
+            <p><strong>Author:</strong> JurassiScripts</p>
+            <p><strong>Publisher:</strong> lowlighter</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/lowlighter/setup-velociraptor" target="_blank">github.com/lowlighter/setup-velociraptor</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Install Velociraptor scripts manager</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action installs the Velociraptor scripts manager, which is primarily related to managing dependencies and versions of scripts. It also involves building the environment by specifying versions of Deno and Velociraptor.</p>
+            <p><strong>Tags:</strong> <span class="tag">Velociraptor</span> <span class="tag">Deno</span> <span class="tag">Dependency Management</span> <span class="tag">Setup</span> <span class="tag">Scripts</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>checkout</code></td>
+                <td>No</td>
+                <td>Whether to checkout repository first</td>
+            </tr><tr>
+                <td><code>deno-version</code></td>
+                <td>No</td>
+                <td>Deno version to use</td>
+            </tr><tr>
+                <td><code>velociraptor-version</code></td>
+                <td>No</td>
+                <td>Velociraptor version to use</td>
+            </tr><tr>
+                <td><code>velociraptor-alias</code></td>
+                <td>No</td>
+                <td>Velociraptor alias name</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>deno-is-canary</code></td>
+                <td>Whether installed Deno version is a canary version</td>
+            </tr><tr>
+                <td><code>deno-version</code></td>
+                <td>Deno version that was installed</td>
+            </tr><tr>
+                <td><code>velociraptor-version</code></td>
+                <td>Velociraptor version that was installed</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

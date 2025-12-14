@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Lambda Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AWS Lambda Deploy</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/lambda-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/lambda-action" target="_blank">github.com/appleboy/lambda-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploying Lambda code to an existing function</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on deploying code to AWS Lambda, which falls under the Deployment category. It also requires AWS credentials for authentication, placing it in the Authentication and Infrastructure categories as well.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">Lambda</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">Authentication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>aws_region</code></td>
+                <td>No</td>
+                <td>AWS Region</td>
+            </tr><tr>
+                <td><code>aws_access_key_id</code></td>
+                <td>No</td>
+                <td>AWS ACCESS KEY</td>
+            </tr><tr>
+                <td><code>aws_secret_access_key</code></td>
+                <td>No</td>
+                <td>AWS SECRET KEY</td>
+            </tr><tr>
+                <td><code>aws_session_token</code></td>
+                <td>No</td>
+                <td>AWS Session token</td>
+            </tr><tr>
+                <td><code>aws_profile</code></td>
+                <td>No</td>
+                <td>AWS profile</td>
+            </tr><tr>
+                <td><code>function_name</code></td>
+                <td>No</td>
+                <td>AWS lambda function name</td>
+            </tr><tr>
+                <td><code>s3_bucket</code></td>
+                <td>No</td>
+                <td>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</td>
+            </tr><tr>
+                <td><code>s3_key</code></td>
+                <td>No</td>
+                <td>The Amazon S3 key of the deployment package.</td>
+            </tr><tr>
+                <td><code>s3_object_version</code></td>
+                <td>No</td>
+                <td>AWS lambda s3 object version</td>
+            </tr><tr>
+                <td><code>zip_file</code></td>
+                <td>No</td>
+                <td>AWS lambda zip file</td>
+            </tr><tr>
+                <td><code>source</code></td>
+                <td>No</td>
+                <td>zip file list</td>
+            </tr><tr>
+                <td><code>dry_run</code></td>
+                <td>No</td>
+                <td>Set to true to validate the request parameters and access permissions without modifying the function code.</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Show debug message after upload the lambda successfully.</td>
+            </tr><tr>
+                <td><code>publish</code></td>
+                <td>No</td>
+                <td>Set to true to publish a new version of the function after updating the code.</td>
+            </tr><tr>
+                <td><code>reversion_id</code></td>
+                <td>No</td>
+                <td>Only update the function if the revision ID matches the ID that is specified.</td>
+            </tr><tr>
+                <td><code>memory_size</code></td>
+                <td>No</td>
+                <td>The amount of memory that your function has access to. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.</td>
+            </tr><tr>
+                <td><code>handler</code></td>
+                <td>No</td>
+                <td>The name of the method within your code that Lambda calls to execute your function.</td>
+            </tr><tr>
+                <td><code>role</code></td>
+                <td>No</td>
+                <td>The Amazon Resource Name (ARN) of the function execution role.</td>
+            </tr><tr>
+                <td><code>runtime</code></td>
+                <td>No</td>
+                <td>The identifier of the function runtime.</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>Lambda Environment variables.</td>
+            </tr><tr>
+                <td><code>layers</code></td>
+                <td>No</td>
+                <td>A list of function layers, to add to the function execution environment. Specify each layer by its ARN, including the version</td>
+            </tr><tr>
+                <td><code>image_uri</code></td>
+                <td>No</td>
+                <td>URI of a container image in the Amazon ECR registry.</td>
+            </tr><tr>
+                <td><code>subnets</code></td>
+                <td>No</td>
+                <td>Select the VPC subnets for Lambda to use to set up your VPC configuration.</td>
+            </tr><tr>
+                <td><code>securitygroups</code></td>
+                <td>No</td>
+                <td>Choose the VPC security groups for Lambda to use to set up your VPC configuration.</td>
+            </tr><tr>
+                <td><code>description</code></td>
+                <td>No</td>
+                <td>A description of the function.</td>
+            </tr><tr>
+                <td><code>tracing_mode</code></td>
+                <td>No</td>
+                <td>Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray.</td>
+            </tr><tr>
+                <td><code>max_attempts</code></td>
+                <td>No</td>
+                <td>the maximum number of times the waiter should attempt to check the resource for the target state</td>
+            </tr><tr>
+                <td><code>architectures</code></td>
+                <td>No</td>
+                <td>The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is x86_64.</td>
+            </tr><tr>
+                <td><code>ipv6_dual_stack</code></td>
+                <td>No</td>
+                <td>Enables or disables dual-stack IPv6 support in the VPC configuration</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

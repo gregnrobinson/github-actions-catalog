@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bundle comparison - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Bundle comparison</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/webpack-bundlesize-compare-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/webpack-bundlesize-compare-action" target="_blank">github.com/github/webpack-bundlesize-compare-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Compare the bundle size between the base branch and the current branch</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is focused on comparing bundle sizes, which is a key aspect of code quality and performance testing. It helps developers ensure that changes do not negatively impact the size of their bundles.</p>
+            <p><strong>Tags:</strong> <span class="tag">bundle size</span> <span class="tag">code quality</span> <span class="tag">webpack</span> <span class="tag">comparison</span> <span class="tag">testing</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>current-stats-json-path</code></td>
+                <td>Yes</td>
+                <td>The path to the current stats.json file</td>
+            </tr><tr>
+                <td><code>base-stats-json-path</code></td>
+                <td>Yes</td>
+                <td>The path to the base stats.json file</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>Yes</td>
+                <td>The Github token</td>
+            </tr><tr>
+                <td><code>title</code></td>
+                <td>No</td>
+                <td>An optional addition to the title, which also helps key comments, useful if running more than 1 copy of this action</td>
+            </tr><tr>
+                <td><code>describe-assets</code></td>
+                <td>No</td>
+                <td>Optional specification describing asset changes. May be one of the convenience
+keywords &quot;all&quot;, &quot;none&quot;, or &quot;changed-only&quot; (for all except the unchanged section), OR
+a string of space-separated section names, e.g. &quot;added bigger unchanged&quot;, where
+all sections are:
+  - added
+  - removed
+  - bigger
+  - smaller
+  - unchanged
+If not provided, &quot;all&quot; is used (equivalent to &quot;added removed bigger smaller unchanged&quot;)
+</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

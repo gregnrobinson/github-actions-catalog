@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analyze Code Security - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Analyze Code Security</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/analyze-code-security-scc</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/analyze-code-security-scc" target="_blank">github.com/google-github-actions/analyze-code-security-scc</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Scan and analyze code for security risks using Google Cloud.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on scanning code for security risks, which directly relates to the Security category. Additionally, it involves analyzing Infrastructure as Code (IaC) files, linking it to both Code quality and Infrastructure categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">security</span> <span class="tag">code analysis</span> <span class="tag">iac</span> <span class="tag">terraform</span> <span class="tag">google-cloud</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>organization_id</code></td>
+                <td>Yes</td>
+                <td>Google Cloud organization ID for the organization which includes the
+resources that you want to modify. For example, &#39;1234&#39;.</td>
+            </tr><tr>
+                <td><code>scan_file_ref</code></td>
+                <td>Yes</td>
+                <td>Path to a file, relative to the local workspace, for the IaC file to scan.
+For example:
+
+    ./tf_plan.json
+
+or
+
+    ./artifacts/tf_plan.json</td>
+            </tr><tr>
+                <td><code>iac_type</code></td>
+                <td>Yes</td>
+                <td>The IaC template type. Currently only Terraform is supported.</td>
+            </tr><tr>
+                <td><code>scan_timeout</code></td>
+                <td>No</td>
+                <td>The maximum time before the scanning stops. The value must be between &quot;1m&quot;
+and `10m`.</td>
+            </tr><tr>
+                <td><code>ignore_violations</code></td>
+                <td>No</td>
+                <td>Whether violations found in IaC file should be ignored when determining
+the build status. This input doesn&#39;t apply to violations that are related
+to generating SARIF reports and determining the `iac_scan_result`.</td>
+            </tr><tr>
+                <td><code>failure_criteria</code></td>
+                <td>No</td>
+                <td>The failure criteria that determines the workflow build status. You can
+set a threshold for the number of critical, high, medium, and low severity
+issues and use an aggregator (either `and` or `or`) to evaluate the
+criteria.
+
+To determine whether a build has failed, the threshold for each severity
+is evaluated against the count of issues with that severity in the IaC
+scan results and then severity level evaluations are aggregated using
+`AND` or `OR` to arrive at `failure_criteria` value. You must include an
+aggregator in the string. The aggregator value is case-sensitive.
+
+For example, if you set the failure criteria to `HIGH:1,LOW:1,OPERATOR:OR`,
+the workflow fails if there is 1 or more HIGH severity findings or 1 or
+more LOW severity findings. If you set the failure criteria to
+`HIGH:1,LOW:1,OPERATOR:AND`, the workflow fails if there is 1 or more HIGH
+severity findings and 1 or more LOW severity findings.
+
+If the `failure_criteria` evaluates to `true`, the workflow is marked as
+`FAILED`. Otherwise, the workflow is marked as `SUCCESS`.</td>
+            </tr><tr>
+                <td><code>fail_silently</code></td>
+                <td>No</td>
+                <td>If set to true, the workflow will not fail in case of any internal error
+including invalid credentials and plugin dependency failure.
+
+Note: This GitHub Action will always fail in case of any input validation
+errors.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>iac_scan_result</code></td>
+                <td>The result of the security scan. One of:
+
+- `passed`: No violations were found or the `failure_criteria` was not
+satisfied.
+
+- `failed`: The `failure_criteria` was satisfied.
+
+- `error`: The action ran into an execution error, generally due to a
+misconfiguration or invalid credentials.</td>
+            </tr><tr>
+                <td><code>iac_scan_result_sarif_path</code></td>
+                <td>Path for the SARIF report file. This file is only available when
+violations are found in the scan file.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

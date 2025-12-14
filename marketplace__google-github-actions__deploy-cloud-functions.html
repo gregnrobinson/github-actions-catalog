@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy to Cloud Functions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy to Cloud Functions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/deploy-cloud-functions</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/deploy-cloud-functions" target="_blank">github.com/google-github-actions/deploy-cloud-functions</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use this action to deploy code to Google Cloud Functions.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy code to Google Cloud Functions, which falls under the Deployment category. It also relates to Infrastructure as it involves cloud services.</p>
+            <p><strong>Tags:</strong> <span class="tag">Google Cloud</span> <span class="tag">Deployment</span> <span class="tag">Cloud Functions</span> <span class="tag">Infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>project_id</code></td>
+                <td>No</td>
+                <td>ID of the Google Cloud project in which to deploy the service. The default
+value is computed from the environment.</td>
+            </tr><tr>
+                <td><code>region</code></td>
+                <td>No</td>
+                <td>Region in which the function should be deployed.</td>
+            </tr><tr>
+                <td><code>universe</code></td>
+                <td>No</td>
+                <td>The Google Cloud universe to use for constructing API endpoints. Trusted
+Partner Cloud and Google Distributed Hosted Cloud should set this to their
+universe address.
+
+You can also override individual API endpoints by setting the environment
+variable `GHA_ENDPOINT_OVERRIDE_&lt;endpoint&gt;` where `&lt;endpoint&gt;` is the API
+endpoint to override. For example:
+
+```yaml
+env:
+  GHA_ENDPOINT_OVERRIDE_oauth2: &#39;https://oauth2.myapi.endpoint/v1&#39;
+```
+
+For more information about universes, see the Google Cloud documentation.</td>
+            </tr><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>Name of the Cloud Function.</td>
+            </tr><tr>
+                <td><code>description</code></td>
+                <td>No</td>
+                <td>Human-friendly description of the Cloud Function.</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>Runtime environment for the Cloud Function. Allowed values are &quot;GEN_1&quot; and
+&quot;GEN_2&quot;, but this GitHub Action only provides support for &quot;GEN_2&quot;.</td>
+            </tr><tr>
+                <td><code>kms_key_name</code></td>
+                <td>No</td>
+                <td>Resource name of a Google Cloud KMS crypto key used to encrypt/decrypt
+function resources. If specified, you must also provide an artifact
+registry repository using the &#39;docker_repository&#39; field that was created
+with the same key.</td>
+            </tr><tr>
+                <td><code>labels</code></td>
+                <td>No</td>
+                <td>List of labels that should be set on the function. These are
+comma-separated or newline-separated `KEY=VALUE`. Keys or values that
+contain separators must be escaped with a backslash (e.g. `\,` or `\\n`)
+unless quoted. Any leading or trailing whitespace is trimmed unless values
+are quoted.
+
+```yaml
+labels: |-
+  labela=my-label
+  labelb=my-other-label
+```
+
+This value will only be set if the input is a non-empty value. If a
+non-empty value is given, the field values will be overwritten (not
+merged). To remove all values, set the value to the literal string `{}`.
+
+Google Cloud restricts the allowed values and length for labels. Please
+see the Google Cloud documentation for labels for more information.</td>
+            </tr><tr>
+                <td><code>source_dir</code></td>
+                <td>No</td>
+                <td>Path on disk to the root of the the function&#39;s source code. Defaults to
+current directory. This does NOT follow symlinks to directories or files
+when generating the upload artifact.
+
+**NOTE:** The function source code must exist on the GitHub Actions
+filesystem. This means you must have `use: actions/checkout@v4` before the
+deployment step!.</td>
+            </tr><tr>
+                <td><code>runtime</code></td>
+                <td>Yes</td>
+                <td>Runtime for the function, such as &quot;nodejs20&quot;. For a list of all available
+runtimes, run:
+
+```sh
+$ gcloud functions runtimes list
+```
+
+The available runtimes change over time.</td>
+            </tr><tr>
+                <td><code>build_environment_variables</code></td>
+                <td>No</td>
+                <td>List of environment variables that should be set in the build environment.
+These are comma-separated or newline-separated `KEY=VALUE`. Keys or values
+that contain separators must be escaped with a backslash (e.g. `\,` or
+`\\n`) unless quoted. Any leading or trailing whitespace is trimmed unless
+values are quoted.
+
+```yaml
+build_environment_variables: |-
+  FRUIT=apple
+  SENTENCE=&quot; this will retain leading and trailing spaces &quot;
+```
+
+This value will only be set if the input is a non-empty value. If a
+non-empty value is given, the field values will be overwritten (not
+merged). To remove all values, set the value to the literal string `{}`.
+
+Previous versions of this GitHub Action also included a separate input for
+sourcing values from a value, but this is no longer supported. Use a
+community action or script to read the file in a separate step and import
+the contents as an output.</td>
+            </tr><tr>
+                <td><code>build_service_account</code></td>
+                <td>No</td>
+                <td>Service account to be used for building the container.</td>
+            </tr><tr>
+                <td><code>build_worker_pool</code></td>
+                <td>No</td>
+                <td>Name of the Cloud Build Custom Worker Pool that should be used to build
+the function. The format of this field is:
+
+    projects/[PROJECT]/locations/[REGION]/workerPools/[WORKER_POOL]
+
+where `[PROJECT]` and `[REGION]` are the project id and region
+respectively where the worker pool is defined and `[WORKER_POOL]` is the
+short name of the worker pool.
+
+If the project ID is not the same as the function, then the Cloud
+Functions Service Agent must be granted the role Cloud Build Custom
+Workers Builder in the project.</td>
+            </tr><tr>
+                <td><code>docker_repository</code></td>
+                <td>No</td>
+                <td>Repository in Artifact Registry to which the function docker image will be
+pushed after it is built by Cloud Build. If unspecified, Cloud Functions
+will create and use a repository named &#39;gcf-artifacts&#39; for every deployed
+region.
+
+The value must match the pattern:
+
+    projects/[PROJECT]/locations/[LOCATION]/repositories/[REPOSITORY].
+
+Cross-project repositories are not supported. Cross-location repositories
+are not supported. Repository format must be &#39;DOCKER&#39;.</td>
+            </tr><tr>
+                <td><code>entry_point</code></td>
+                <td>No</td>
+                <td>Name of a Google Cloud Function (as defined in source code) that will be
+executed. Defaults to the resource name suffix (ID of the function), if
+not specified.</td>
+            </tr><tr>
+                <td><code>all_traffic_on_latest_revision</code></td>
+                <td>No</td>
+                <td>If true, the latest function revision will be served all traffic.</td>
+            </tr><tr>
+                <td><code>cpu</code></td>
+                <td>No</td>
+                <td>The number of available CPUs to set (e.g. 0.5, 2, 2000m). By default, a
+new function&#39;s available CPUs is determined based on its memory value.</td>
+            </tr><tr>
+                <td><code>memory</code></td>
+                <td>No</td>
+                <td>The amount of memory available for the function to use. Allowed values are
+of the format: &lt;number&gt;&lt;unit&gt; with allowed units of &quot;k&quot;, &quot;M&quot;, &quot;G&quot;, &quot;Ki&quot;,
+&quot;Mi&quot;, &quot;Gi&quot; (e.g 128M, 10Mb, 1024Gi).
+
+For all generations, the default value is 256MB of memory.</td>
+            </tr><tr>
+                <td><code>environment_variables</code></td>
+                <td>No</td>
+                <td>List of environment variables that should be set in the runtime
+environment. These are comma-separated or newline-separated `KEY=VALUE`.
+Keys or values that contain separators must be escaped with a backslash
+(e.g. `\,` or `\\n`) unless quoted. Any leading or trailing whitespace is
+trimmed unless values are quoted.
+
+```yaml
+environment_variables: |-
+  FRUIT=apple
+  SENTENCE=&quot; this will retain leading and trailing spaces &quot;
+```
+
+This value will only be set if the input is a non-empty value. If a
+non-empty value is given, the field values will be overwritten (not
+merged). To remove all values, set the value to the literal string `{}`.
+
+Previous versions of this GitHub Action also included a separate input for
+sourcing values from a value, but this is no longer supported. Use a
+community action or script to read the file in a separate step and import
+the contents as an output.</td>
+            </tr><tr>
+                <td><code>ingress_settings</code></td>
+                <td>No</td>
+                <td>Ingress settings controls what traffic can reach the function. Valid
+values are &quot;ALLOW_ALL&quot;, &quot;ALLOW_INTERNAL_ONLY&quot;, and
+&quot;ALLOW_INTERNAL_AND_GCLB&quot;.</td>
+            </tr><tr>
+                <td><code>max_instance_count</code></td>
+                <td>No</td>
+                <td>Sets the maximum number of instances for the function. A function
+execution that would exceed max-instances times out.</td>
+            </tr><tr>
+                <td><code>max_instance_request_concurrency</code></td>
+                <td>No</td>
+                <td>Sets the maximum number of concurrent requests allowed per container
+instance.</td>
+            </tr><tr>
+                <td><code>min_instance_count</code></td>
+                <td>No</td>
+                <td>Sets the minimum number of instances for the function. This is helpful for
+reducing cold start times.</td>
+            </tr><tr>
+                <td><code>secrets</code></td>
+                <td>No</td>
+                <td>List of KEY=VALUE pairs to use as secrets. These are comma-separated or
+newline-separated `KEY=VALUE`. Keys or values that contain separators must
+be escaped with a backslash (e.g. `\,` or `\\n`) unless quoted. Any
+leading or trailing whitespace is trimmed unless values are quoted.
+
+These can either be injected as environment variables or mounted as
+volumes. Keys starting with a forward slash &#39;/&#39; are mount paths. All other
+keys correspond to environment variables:
+
+```yaml
+with:
+  secrets: |-
+    # As an environment variable:
+    KEY1=projects/my-project/secrets/my-secret/versions/latest
+
+    # As a volume mount:
+    /secrets/api/key=projects/my-project/secrets/my-secret/versions/123
+```
+
+This value will only be set if the input is a non-empty value. If a
+non-empty value is given, the field values will be overwritten (not
+merged). To remove all values, set the value to the literal string `{}`.</td>
+            </tr><tr>
+                <td><code>service_account</code></td>
+                <td>No</td>
+                <td>The email address of the IAM service account associated with the Cloud Run
+service for the function. The service account represents the identity of
+the running function, and determines what permissions the function has. If
+not provided, the function will use the project&#39;s default service account
+for Compute Engine.
+
+Note this differs from the service account used to deploy the Cloud
+Function, which is the currently-authenticated principal. However, the
+deploying service account must have permission to impersonate the runtime
+service account, which can be achieved by granting the deployment service
+account &quot;roles/iam.serviceAccountUser&quot; permission on the runtime service
+account.</td>
+            </tr><tr>
+                <td><code>service_timeout</code></td>
+                <td>No</td>
+                <td>The function execution timeout, specified as a time duration (e.g. &quot;30s&quot;
+for 30 seconds).</td>
+            </tr><tr>
+                <td><code>vpc_connector</code></td>
+                <td>No</td>
+                <td>ID of the connector or fully qualified identifier for the connector.</td>
+            </tr><tr>
+                <td><code>vpc_connector_egress_settings</code></td>
+                <td>No</td>
+                <td>Egress settings controls what traffic is diverted through the VPC Access
+Connector resource. Allowed values are &quot;PRIVATE_RANGES_ONLY&quot; and
+&quot;ALL_TRAFFIC&quot;.</td>
+            </tr><tr>
+                <td><code>event_trigger_location</code></td>
+                <td>No</td>
+                <td>The location of the trigger, which must be a region or multi-region where
+the relevant events originate.</td>
+            </tr><tr>
+                <td><code>event_trigger_type</code></td>
+                <td>No</td>
+                <td>Specifies which action should trigger the function. For a list of
+acceptable values, run:
+
+```sh
+$ gcloud functions event-types list
+```
+
+This usually requires the eventarc API to be enabled:
+
+```sh
+$ gcloud services enable eventarc.googleapis.com
+```
+
+The available trigger types may change over time.</td>
+            </tr><tr>
+                <td><code>event_trigger_filters</code></td>
+                <td>No</td>
+                <td>List of event filters that the trigger should monitor. An event that
+matches all the filteres will trigger calls to the function. These are
+comma-separated or newline-separated `ATTRIBUTE=VALUE`. Attributes or
+values that contain separators must be escaped with a backslash (e.g. `\,`
+or `\\n`) unless quoted. To treat a value as a path pattern, prefix the
+value with the literal string `PATTERN:`. Any leading or trailing
+whitespace is trimmed unless values are quoted.
+
+```yaml
+event_trigger_type: &#39;google.cloud.audit.log.v1.written&#39;
+event_trigger_filters: |-
+  serviceName=compute.googleapis.com
+  methodName=PATTERN:compute.instances.*
+```
+
+This value will only be set if the input is a non-empty value. If a
+non-empty value is given, the field values will be overwritten (not
+merged). To remove all values, set the value to the literal string `{}`.
+
+For more information, see [Eventarc
+Triggers](https://cloud.google.com/functions/docs/calling/eventarc) and
+[Eventarc Path
+Patterns](https://cloud.google.com/eventarc/docs/path-patterns).</td>
+            </tr><tr>
+                <td><code>event_trigger_pubsub_topic</code></td>
+                <td>No</td>
+                <td>Name of Google Cloud Pub/Sub topic. Every message published in this topic
+will trigger function execution with message contents passed as input
+data of the format:
+
+    projects/[PROJECT]/topics/[TOPIC]
+
+The service account must have permissions on this topic.</td>
+            </tr><tr>
+                <td><code>event_trigger_service_account</code></td>
+                <td>No</td>
+                <td>The email address of the IAM service account associated with the Eventarc
+trigger for the function. This is used for authenticated invocation.</td>
+            </tr><tr>
+                <td><code>event_trigger_retry</code></td>
+                <td>No</td>
+                <td>Describes whether event triggers should retry in case of function&#39;s
+execution failure.</td>
+            </tr><tr>
+                <td><code>event_trigger_channel</code></td>
+                <td>No</td>
+                <td>The name of the channel associated with the trigger in the format:
+
+    projects/[PROJECT]/locations/[LOCATION]/channels/&lt;channel&gt;
+
+You must provide a channel to receive events from Eventarc SaaS partners.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Full resource name of the Cloud Function, of the format:
+
+    projects/[PROJECT]/locations/[LOCATION]/functions/&lt;function&gt;</td>
+            </tr><tr>
+                <td><code>url</code></td>
+                <td>The URL of your Cloud Function.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

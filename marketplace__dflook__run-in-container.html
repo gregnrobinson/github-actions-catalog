@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run in container - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Run in container</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/dflook/run-in-container</code></p>
+            <p><strong>Author:</strong> Daniel Flook</p>
+            <p><strong>Publisher:</strong> dflook</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/dflook/run-in-container" target="_blank">github.com/dflook/run-in-container</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Run a command in a container</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Build</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to run commands within a container, which is a key aspect of infrastructure management and build processes.</p>
+            <p><strong>Tags:</strong> <span class="tag">container</span> <span class="tag">command</span> <span class="tag">infrastructure</span> <span class="tag">build</span> <span class="tag">docker</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>image</code></td>
+                <td>Yes</td>
+                <td>The image to run the command in</td>
+            </tr><tr>
+                <td><code>run</code></td>
+                <td>Yes</td>
+                <td>The command to run</td>
+            </tr><tr>
+                <td><code>volumes</code></td>
+                <td>No</td>
+                <td>Volumes to mount, one per line. Each line of the form &#39;source:target&#39;</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

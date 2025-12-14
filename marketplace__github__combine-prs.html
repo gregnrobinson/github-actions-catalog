@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>combine-prs - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>combine-prs</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/combine-prs</code></p>
+            <p><strong>Author:</strong> Grant Birkinbine</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/combine-prs" target="_blank">github.com/github/combine-prs</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Combine multiple PRs into a single PR</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action combines multiple pull requests into a single one, facilitating collaboration and communication among developers. It also relates to code quality and dependency management by consolidating changes from various branches.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">combine</span> <span class="tag">GitHub</span> <span class="tag">dependencies</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>Yes</td>
+                <td>The GitHub token used to create an authenticated client - Provided for you by default!</td>
+            </tr><tr>
+                <td><code>branch_prefix</code></td>
+                <td>Yes</td>
+                <td>The prefix of the branches to combine</td>
+            </tr><tr>
+                <td><code>pr_title</code></td>
+                <td>Yes</td>
+                <td>The title of the pull request to create</td>
+            </tr><tr>
+                <td><code>pr_body_header</code></td>
+                <td>Yes</td>
+                <td>The header of the pull request body</td>
+            </tr><tr>
+                <td><code>min_combine_number</code></td>
+                <td>Yes</td>
+                <td>The minimum number of PRs that have to match criteria in order to create a combined PR</td>
+            </tr><tr>
+                <td><code>branch_regex</code></td>
+                <td>No</td>
+                <td>The regex to match the branches to combine - more control than branch_prefix</td>
+            </tr><tr>
+                <td><code>ci_required</code></td>
+                <td>Yes</td>
+                <td>Whether or not CI should be passing to combine the PR</td>
+            </tr><tr>
+                <td><code>review_required</code></td>
+                <td>No</td>
+                <td>Whether or not a review should be required to combine the PR</td>
+            </tr><tr>
+                <td><code>combine_branch_name</code></td>
+                <td>Yes</td>
+                <td>The name of the branch to combine the PRs into</td>
+            </tr><tr>
+                <td><code>ignore_label</code></td>
+                <td>Yes</td>
+                <td>The label to ignore when combining PRs</td>
+            </tr><tr>
+                <td><code>select_label</code></td>
+                <td>No</td>
+                <td>The label marking PRs that should be combined</td>
+            </tr><tr>
+                <td><code>labels</code></td>
+                <td>No</td>
+                <td>A comma seperated list of labels to add to the combined PR</td>
+            </tr><tr>
+                <td><code>assignees</code></td>
+                <td>No</td>
+                <td>A comma seperated list of assignees to add to the combined PR</td>
+            </tr><tr>
+                <td><code>autoclose</code></td>
+                <td>No</td>
+                <td>Whether or not to close combined PRs if the combined PR is merged</td>
+            </tr><tr>
+                <td><code>update_branch</code></td>
+                <td>No</td>
+                <td>Whether or not to update the combined branch with the latest changes from the base branch after creating the combined pull request</td>
+            </tr><tr>
+                <td><code>create_from_scratch</code></td>
+                <td>No</td>
+                <td>Whether or not to start from a clean base branch when (re)creating the combined PR</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>pr_url</code></td>
+                <td>The pull request URL if a PR was created</td>
+            </tr><tr>
+                <td><code>pr_number</code></td>
+                <td>The pull request number if a PR was created</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

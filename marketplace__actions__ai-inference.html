@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Inference - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AI Inference</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/ai-inference</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/ai-inference" target="_blank">github.com/actions/ai-inference</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Generate an AI response based on a provided prompt</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> The action generates AI responses based on prompts, which can be considered a form of communication. It may also be used in testing scenarios to validate AI outputs.</p>
+            <p><strong>Tags:</strong> <span class="tag">AI</span> <span class="tag">inference</span> <span class="tag">communication</span> <span class="tag">testing</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>prompt</code></td>
+                <td>No</td>
+                <td>The prompt for the model</td>
+            </tr><tr>
+                <td><code>prompt-file</code></td>
+                <td>No</td>
+                <td>Path to a file containing the prompt (supports .txt and .prompt.yml formats)</td>
+            </tr><tr>
+                <td><code>input</code></td>
+                <td>No</td>
+                <td>Template variables in YAML format for .prompt.yml files</td>
+            </tr><tr>
+                <td><code>file_input</code></td>
+                <td>No</td>
+                <td>Template variables in YAML format mapping variable names to file paths. The file contents will be used for templating.</td>
+            </tr><tr>
+                <td><code>model</code></td>
+                <td>No</td>
+                <td>The model to use</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>No</td>
+                <td>The endpoint to use</td>
+            </tr><tr>
+                <td><code>system-prompt</code></td>
+                <td>No</td>
+                <td>The system prompt for the model</td>
+            </tr><tr>
+                <td><code>system-prompt-file</code></td>
+                <td>No</td>
+                <td>Path to a file containing the system prompt</td>
+            </tr><tr>
+                <td><code>max-tokens</code></td>
+                <td>No</td>
+                <td>The maximum number of tokens to generate</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>The token to use</td>
+            </tr><tr>
+                <td><code>enable-github-mcp</code></td>
+                <td>No</td>
+                <td>Enable Model Context Protocol integration with GitHub tools</td>
+            </tr><tr>
+                <td><code>github-mcp-token</code></td>
+                <td>No</td>
+                <td>The token to use for GitHub MCP server (defaults to the main token if not specified). This must be a PAT for MCP to work.</td>
+            </tr><tr>
+                <td><code>github-mcp-toolsets</code></td>
+                <td>No</td>
+                <td>Comma-separated list of toolsets to enable for GitHub MCP (e.g., &quot;repos,issues,pull_requests,actions&quot;). Use &quot;all&quot; for all toolsets, &quot;default&quot; for default set. If not specified, uses default toolsets (context,repos,issues,pull_requests,users).</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>response</code></td>
+                <td>The response from the model</td>
+            </tr><tr>
+                <td><code>response-file</code></td>
+                <td>The file path where the response is saved</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

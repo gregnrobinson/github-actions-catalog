@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAgent Runner - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>CAgent Runner</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/docker/cagent-action</code></p>
+            <p><strong>Author:</strong> Docker</p>
+            <p><strong>Publisher:</strong> docker</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/docker/cagent-action" target="_blank">github.com/docker/cagent-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Run a CAgent AI agent with a single line</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action runs an AI agent that likely analyzes code or prompts for quality and security issues, making it primarily a testing tool with a focus on security and code quality.</p>
+            <p><strong>Tags:</strong> <span class="tag">CAgent</span> <span class="tag">AI</span> <span class="tag">Docker</span> <span class="tag">Testing</span> <span class="tag">Security</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>agent</code></td>
+                <td>Yes</td>
+                <td>Agent identifier (e.g., docker/code-analyzer from Docker Hub, or path to .yaml file)</td>
+            </tr><tr>
+                <td><code>prompt</code></td>
+                <td>No</td>
+                <td>Prompt to pass to the agent. If not provided, uses a default based on the agent type</td>
+            </tr><tr>
+                <td><code>cagent-version</code></td>
+                <td>No</td>
+                <td>Version of cagent to use</td>
+            </tr><tr>
+                <td><code>mcp-gateway</code></td>
+                <td>No</td>
+                <td>Install mcp-gateway (true/false)</td>
+            </tr><tr>
+                <td><code>mcp-gateway-version</code></td>
+                <td>No</td>
+                <td>Version of mcp-gateway to use (specifying this will enable mcp-gateway installation)</td>
+            </tr><tr>
+                <td><code>anthropic-api-key</code></td>
+                <td>No</td>
+                <td>Anthropic API key (defaults to ANTHROPIC_API_KEY secret)</td>
+            </tr><tr>
+                <td><code>openai-api-key</code></td>
+                <td>No</td>
+                <td>OpenAI API key (defaults to OPENAI_API_KEY secret)</td>
+            </tr><tr>
+                <td><code>google-api-key</code></td>
+                <td>No</td>
+                <td>Google API key for Gemini (defaults to GOOGLE_API_KEY secret)</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>GitHub token for API access (defaults to GITHUB_TOKEN env var)</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>Timeout in seconds for agent execution (0 for no timeout)</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Enable debug mode with verbose logging (true/false)</td>
+            </tr><tr>
+                <td><code>working-directory</code></td>
+                <td>No</td>
+                <td>Working directory to run the agent in</td>
+            </tr><tr>
+                <td><code>yolo</code></td>
+                <td>No</td>
+                <td>Enable yolo mode - auto-approve all prompts (true/false)</td>
+            </tr><tr>
+                <td><code>extra-args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to cagent exec</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>exit-code</code></td>
+                <td>Exit code from cagent exec</td>
+            </tr><tr>
+                <td><code>output-file</code></td>
+                <td>Path to the output log file</td>
+            </tr><tr>
+                <td><code>cagent-version</code></td>
+                <td>Version of cagent that was used</td>
+            </tr><tr>
+                <td><code>mcp-gateway-installed</code></td>
+                <td>Whether mcp-gateway was installed (true/false)</td>
+            </tr><tr>
+                <td><code>execution-time</code></td>
+                <td>Agent execution time in seconds</td>
+            </tr><tr>
+                <td><code>security-blocked</code></td>
+                <td>Whether execution was blocked due to security concerns</td>
+            </tr><tr>
+                <td><code>secrets-detected</code></td>
+                <td>Whether secrets were detected in output</td>
+            </tr><tr>
+                <td><code>prompt-suspicious</code></td>
+                <td>Whether suspicious patterns were detected in user prompt</td>
+            </tr><tr>
+                <td><code>input-risk-level</code></td>
+                <td>Risk level of input (low/medium/high)</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

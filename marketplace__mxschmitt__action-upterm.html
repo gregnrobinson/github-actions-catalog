@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug with ssh - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Debug with ssh</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/mxschmitt/action-upterm</code></p>
+            <p><strong>Author:</strong> Owen Ou</p>
+            <p><strong>Publisher:</strong> mxschmitt</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/mxschmitt/action-upterm" target="_blank">github.com/mxschmitt/action-upterm</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This GitHub Action enables direct interaction with the host system running your GitHub Actions via SSH</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action enables direct interaction with the host system via SSH, which primarily relates to infrastructure management, while also involving authentication aspects for secure access.</p>
+            <p><strong>Tags:</strong> <span class="tag">SSH</span> <span class="tag">infrastructure</span> <span class="tag">authentication</span> <span class="tag">debugging</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>limit-access-to-actor</code></td>
+                <td>No</td>
+                <td>If only the public SSH keys of the user triggering the workflow should be authorized</td>
+            </tr><tr>
+                <td><code>limit-access-to-users</code></td>
+                <td>No</td>
+                <td>If only the public SSH keys of the listed GitHub users should be authorized</td>
+            </tr><tr>
+                <td><code>upterm-server</code></td>
+                <td>Yes</td>
+                <td>upterm server address (required), supported protocols are ssh, ws, or wss.</td>
+            </tr><tr>
+                <td><code>ssh-known-hosts</code></td>
+                <td>No</td>
+                <td>Content for ~/.ssh/known_hosts file on the server</td>
+            </tr><tr>
+                <td><code>wait-timeout-minutes</code></td>
+                <td>No</td>
+                <td>Integer number of minutes to wait for user to connect before shutting down server. Once a user connects, the server will stay up.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

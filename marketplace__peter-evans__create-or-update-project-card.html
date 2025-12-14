@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or Update Project Card - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Create or Update Project Card</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/create-or-update-project-card</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/create-or-update-project-card" target="_blank">github.com/peter-evans/create-or-update-project-card</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>A GitHub action to create or update a project card</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Documentation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action facilitates the creation or updating of project cards, which is primarily a communication tool within GitHub projects. It also relates to documentation as it helps in organizing project tasks.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitHub</span> <span class="tag">project management</span> <span class="tag">automation</span> <span class="tag">project card</span> <span class="tag">communication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GITHUB_TOKEN or a repo scoped PAT</td>
+            </tr><tr>
+                <td><code>project-location</code></td>
+                <td>No</td>
+                <td>The location of the project. Either a repository, organization, or user.
+</td>
+            </tr><tr>
+                <td><code>project-number</code></td>
+                <td>No</td>
+                <td>The number of the project. Semi-required. Either `project-number` OR `project-name` must be supplied.
+</td>
+            </tr><tr>
+                <td><code>project-name</code></td>
+                <td>No</td>
+                <td>The name of the project. Semi-required. Either `project-number` OR `project-name` must be supplied. Note that a project&#39;s name is not unique. The action will use the first matching project found.
+</td>
+            </tr><tr>
+                <td><code>column-name</code></td>
+                <td>Yes</td>
+                <td>The name of the column to add a card to, or move an existing card to.</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>The GitHub repository containing the issue or pull request.</td>
+            </tr><tr>
+                <td><code>issue-number</code></td>
+                <td>No</td>
+                <td>The issue or pull request number to associate with the card.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>card-id</code></td>
+                <td>The ID of the card.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

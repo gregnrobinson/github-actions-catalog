@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Dependency Submission - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Go Dependency Submission</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/go-dependency-submission</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/go-dependency-submission" target="_blank">github.com/actions/go-dependency-submission</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Calculates dependencies for a Go build-target and submits the list to the Dependency Submission API</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Documentation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action focuses on calculating and submitting dependencies for a Go project, which directly relates to dependency management. It also allows for metadata submission, which can be considered part of documentation.</p>
+            <p><strong>Tags:</strong> <span class="tag">Go</span> <span class="tag">dependencies</span> <span class="tag">GitHub Action</span> <span class="tag">submission</span> <span class="tag">API</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GitHub Personal Access Token (PAT). Defaults to PAT provided by Action runner</td>
+            </tr><tr>
+                <td><code>metadata</code></td>
+                <td>No</td>
+                <td>User provided map of max key/value pairs of metadata to include with the snapshot e.g. {&quot;lastModified&quot;: &quot;12-31-2022&quot;}</td>
+            </tr><tr>
+                <td><code>go-mod-path</code></td>
+                <td>Yes</td>
+                <td>Repo path to the go.mod file used to detect dependencies for the Go build target. Defaults to go.mod in the root of the repository.</td>
+            </tr><tr>
+                <td><code>go-build-target</code></td>
+                <td>Yes</td>
+                <td>Build target to detect build dependencies. If unspecified, will use &quot;all&quot;, with will detect all dependencies used in all build targets (including tests and tools).</td>
+            </tr><tr>
+                <td><code>snapshot-sha</code></td>
+                <td>No</td>
+                <td>The SHA that the results will be linked to in the dependency snapshot</td>
+            </tr><tr>
+                <td><code>snapshot-ref</code></td>
+                <td>No</td>
+                <td>The ref that the results will be linked to in the dependency snapshot</td>
+            </tr><tr>
+                <td><code>detector-name</code></td>
+                <td>No</td>
+                <td>The name of the detector that generated the dependency snapshot</td>
+            </tr><tr>
+                <td><code>detector-version</code></td>
+                <td>No</td>
+                <td>The version of the detector that generated the dependency snapshot</td>
+            </tr><tr>
+                <td><code>detector-url</code></td>
+                <td>No</td>
+                <td>The URL to the detector that generated the dependency snapshot</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

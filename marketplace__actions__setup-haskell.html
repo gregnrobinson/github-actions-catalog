@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Haskell - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup Haskell</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/setup-haskell</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/setup-haskell" target="_blank">github.com/actions/setup-haskell</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Set up a specific version of GHC and Cabal and add the command-line tools to the PATH</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action sets up specific versions of GHC, Cabal, and Stack, which are essential for managing dependencies in Haskell projects. It also prepares the environment for building Haskell applications.</p>
+            <p><strong>Tags:</strong> <span class="tag">Haskell</span> <span class="tag">GHC</span> <span class="tag">Cabal</span> <span class="tag">Stack</span> <span class="tag">Dependency Management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>ghc-version</code></td>
+                <td>No</td>
+                <td>Version of GHC to use. If set to &quot;latest&quot;, it will always get the latest stable version.</td>
+            </tr><tr>
+                <td><code>cabal-version</code></td>
+                <td>No</td>
+                <td>Version of Cabal to use. If set to &quot;latest&quot;, it will always get the latest stable version.</td>
+            </tr><tr>
+                <td><code>stack-version</code></td>
+                <td>No</td>
+                <td>Version of Stack to use. If set to &quot;latest&quot;, it will always get the latest stable version.</td>
+            </tr><tr>
+                <td><code>enable-stack</code></td>
+                <td>No</td>
+                <td>If specified, will setup Stack</td>
+            </tr><tr>
+                <td><code>stack-no-global</code></td>
+                <td>No</td>
+                <td>If specified, enable-stack must be set. Prevents installing GHC and Cabal globally</td>
+            </tr><tr>
+                <td><code>stack-setup-ghc</code></td>
+                <td>No</td>
+                <td>If specified, enable-stack must be set. Will run stack setup to install the specified GHC</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>ghc-path</code></td>
+                <td>The path of the ghc executable _directory_</td>
+            </tr><tr>
+                <td><code>cabal-path</code></td>
+                <td>The path of the cabal executable _directory_</td>
+            </tr><tr>
+                <td><code>stack-path</code></td>
+                <td>The path of the stack executable _directory_</td>
+            </tr><tr>
+                <td><code>cabal-store</code></td>
+                <td>The path to the cabal store</td>
+            </tr><tr>
+                <td><code>ghc-exe</code></td>
+                <td>The path of the ghc _executable_</td>
+            </tr><tr>
+                <td><code>cabal-exe</code></td>
+                <td>The path of the cabal _executable_</td>
+            </tr><tr>
+                <td><code>stack-exe</code></td>
+                <td>The path of the stack _executable_</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

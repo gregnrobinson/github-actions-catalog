@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger GitLab CI Pipeline - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Trigger GitLab CI Pipeline</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/gitlab-ci-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/gitlab-ci-action" target="_blank">github.com/appleboy/gitlab-ci-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Triggering GitLab CI Pipeline through the API</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on triggering a CI pipeline, which is a form of communication between systems to initiate a deployment process. It also involves the use of an API, reinforcing its role in communication.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitLab</span> <span class="tag">CI</span> <span class="tag">API</span> <span class="tag">Pipeline</span> <span class="tag">Automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>host</code></td>
+                <td>No</td>
+                <td>gitlab-ci base url</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>gitlab-ci token</td>
+            </tr><tr>
+                <td><code>ref</code></td>
+                <td>No</td>
+                <td>gitlab-ci valid refs are only the branches and tags</td>
+            </tr><tr>
+                <td><code>project_id</code></td>
+                <td>Yes</td>
+                <td>gitlab project id</td>
+            </tr><tr>
+                <td><code>insecure</code></td>
+                <td>No</td>
+                <td>insecure mode</td>
+            </tr><tr>
+                <td><code>variables</code></td>
+                <td>No</td>
+                <td>pass CI/CD variables</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>debug mode</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>timeout waiting for pipeline to complete</td>
+            </tr><tr>
+                <td><code>interval</code></td>
+                <td>No</td>
+                <td>interval waiting for pipeline to complete</td>
+            </tr><tr>
+                <td><code>wait</code></td>
+                <td>No</td>
+                <td>wait for pipeline to complete</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

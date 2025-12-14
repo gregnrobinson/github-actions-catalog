@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app-configuration-import - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>app-configuration-import</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/app-configuration-import-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/app-configuration-import-action" target="_blank">github.com/azure/app-configuration-import-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Import application key-values and feature flags into an Azure App Configuration</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Configuration Management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> The action is focused on importing configuration settings into Azure App Configuration, which is primarily an infrastructure-related task. It may also touch on configuration management as it deals with application settings.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">App Configuration</span> <span class="tag">Import</span> <span class="tag">Infrastructure</span> <span class="tag">Configuration Management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>App Configuration name.</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>Configuration file path</td>
+            </tr><tr>
+                <td><code>sourceName</code></td>
+                <td>No</td>
+                <td>App Configuration source of importing. Note that importing feature flags from App Service is not supported.</td>
+            </tr><tr>
+                <td><code>appServiceAccountName</code></td>
+                <td>No</td>
+                <td>App service account name</td>
+            </tr><tr>
+                <td><code>prefix</code></td>
+                <td>No</td>
+                <td>Prefix to be appended to the front of imported keys.</td>
+            </tr><tr>
+                <td><code>label</code></td>
+                <td>No</td>
+                <td>Label to be assigned to imported key-values and feature flags.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

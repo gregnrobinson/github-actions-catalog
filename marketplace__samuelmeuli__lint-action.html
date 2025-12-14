@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lint Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Lint Action</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/samuelmeuli/lint-action</code></p>
+            <p><strong>Author:</strong> Samuel Meuli</p>
+            <p><strong>Publisher:</strong> samuelmeuli</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/samuelmeuli/lint-action" target="_blank">github.com/samuelmeuli/lint-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>GitHub Action for detecting and fixing linting errors</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The Lint Action is focused on detecting and fixing linting errors, which directly relates to maintaining code quality. Additionally, it can be considered a testing tool as it checks the code for style issues.</p>
+            <p><strong>Tags:</strong> <span class="tag">linting</span> <span class="tag">code quality</span> <span class="tag">testing</span> <span class="tag">GitHub Action</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>No</td>
+                <td>The GitHub token used to authenticated with GitHub.</td>
+            </tr><tr>
+                <td><code>continue_on_error</code></td>
+                <td>No</td>
+                <td>Whether the workflow run should also fail when linter failures are detected</td>
+            </tr><tr>
+                <td><code>auto_fix</code></td>
+                <td>No</td>
+                <td>Whether linters should try to fix code style issues automatically</td>
+            </tr><tr>
+                <td><code>commit</code></td>
+                <td>No</td>
+                <td>Whether to commit and push the changes made by auto_fix</td>
+            </tr><tr>
+                <td><code>git_no_verify</code></td>
+                <td>No</td>
+                <td>Bypass the pre-commit and pre-push git hooks</td>
+            </tr><tr>
+                <td><code>git_name</code></td>
+                <td>No</td>
+                <td>Username for auto-fix commits</td>
+            </tr><tr>
+                <td><code>git_email</code></td>
+                <td>No</td>
+                <td>Email address for auto-fix commits</td>
+            </tr><tr>
+                <td><code>commit_message</code></td>
+                <td>No</td>
+                <td>Template for auto-fix commit messages. The &quot;${linter}&quot; variable can be used to insert the name of the linter which has created the auto-fix</td>
+            </tr><tr>
+                <td><code>check_name</code></td>
+                <td>No</td>
+                <td>Template for the name of the check run. The &quot;${linter}&quot; and &quot;${dir}&quot; variables can be used to insert the name and directory of the linter.</td>
+            </tr><tr>
+                <td><code>neutral_check_on_warning</code></td>
+                <td>No</td>
+                <td>Whether the check run should conclude with a neutral status instead of success when the linter finds only warnings</td>
+            </tr><tr>
+                <td><code>stylelint</code></td>
+                <td>No</td>
+                <td>Enable or disable stylelint checks</td>
+            </tr><tr>
+                <td><code>stylelint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>stylelint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the stylelint command should be run</td>
+            </tr><tr>
+                <td><code>stylelint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with stylelint</td>
+            </tr><tr>
+                <td><code>stylelint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>stylelint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>gofmt</code></td>
+                <td>No</td>
+                <td>Enable or disable gofmt checks</td>
+            </tr><tr>
+                <td><code>gofmt_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>gofmt_dir</code></td>
+                <td>No</td>
+                <td>Directory where the gofmt command should be run</td>
+            </tr><tr>
+                <td><code>gofmt_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with gofmt</td>
+            </tr><tr>
+                <td><code>gofmt_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>gofmt_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>golint</code></td>
+                <td>No</td>
+                <td>Enable or disable golint checks</td>
+            </tr><tr>
+                <td><code>golint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>golint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the golint command should be run</td>
+            </tr><tr>
+                <td><code>golint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with golint</td>
+            </tr><tr>
+                <td><code>golint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>golint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>eslint</code></td>
+                <td>No</td>
+                <td>Enable or disable ESLint checks</td>
+            </tr><tr>
+                <td><code>eslint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>eslint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the ESLint command should be run</td>
+            </tr><tr>
+                <td><code>eslint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with ESLint</td>
+            </tr><tr>
+                <td><code>eslint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.</td>
+            </tr><tr>
+                <td><code>eslint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>prettier</code></td>
+                <td>No</td>
+                <td>Enable or disable Prettier checks</td>
+            </tr><tr>
+                <td><code>prettier_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>prettier_dir</code></td>
+                <td>No</td>
+                <td>Directory where the Prettier command should be run</td>
+            </tr><tr>
+                <td><code>prettier_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with Prettier</td>
+            </tr><tr>
+                <td><code>prettier_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.</td>
+            </tr><tr>
+                <td><code>prettier_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>xo</code></td>
+                <td>No</td>
+                <td>Enable or disable XO checks</td>
+            </tr><tr>
+                <td><code>xo_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>xo_dir</code></td>
+                <td>No</td>
+                <td>Directory where the XO command should be run</td>
+            </tr><tr>
+                <td><code>xo_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with XO</td>
+            </tr><tr>
+                <td><code>xo_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.</td>
+            </tr><tr>
+                <td><code>xo_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>tsc</code></td>
+                <td>No</td>
+                <td>Enable or disable TypeScript checks</td>
+            </tr><tr>
+                <td><code>tsc_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>tsc_dir</code></td>
+                <td>No</td>
+                <td>Directory where the TSC command should be run</td>
+            </tr><tr>
+                <td><code>tsc_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with TSC</td>
+            </tr><tr>
+                <td><code>tsc_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn.</td>
+            </tr><tr>
+                <td><code>tsc_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>php_codesniffer</code></td>
+                <td>No</td>
+                <td>Enable or disable PHP_CodeSniffer checks</td>
+            </tr><tr>
+                <td><code>php_codesniffer_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>php_codesniffer_dir</code></td>
+                <td>No</td>
+                <td>Directory where the PHP_CodeSniffer command should be run</td>
+            </tr><tr>
+                <td><code>php_codesniffer_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with PHP_CodeSniffer</td>
+            </tr><tr>
+                <td><code>php_codesniffer_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>php_codesniffer_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>autopep8</code></td>
+                <td>No</td>
+                <td>Enable or disable autopep8 checks</td>
+            </tr><tr>
+                <td><code>autopep8_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>autopep8_dir</code></td>
+                <td>No</td>
+                <td>Directory where the autopep8 command should be run</td>
+            </tr><tr>
+                <td><code>autopep8_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with autopep8</td>
+            </tr><tr>
+                <td><code>autopep8_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>autopep8_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>black</code></td>
+                <td>No</td>
+                <td>Enable or disable Black checks</td>
+            </tr><tr>
+                <td><code>black_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>black_dir</code></td>
+                <td>No</td>
+                <td>Directory where the Black command should be run</td>
+            </tr><tr>
+                <td><code>black_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with Black</td>
+            </tr><tr>
+                <td><code>black_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>black_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>clang_format</code></td>
+                <td>No</td>
+                <td>Enable or disable ClangFormat checks</td>
+            </tr><tr>
+                <td><code>clang_format_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>clang_format_dir</code></td>
+                <td>No</td>
+                <td>Directory where the ClangFormat command should be run</td>
+            </tr><tr>
+                <td><code>clang_format_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with ClangFormat</td>
+            </tr><tr>
+                <td><code>clang_format_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>clang_format_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>flake8</code></td>
+                <td>No</td>
+                <td>Enable or disable Flake8 checks</td>
+            </tr><tr>
+                <td><code>flake8_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>flake8_dir</code></td>
+                <td>No</td>
+                <td>Directory where the Flake8 command should be run</td>
+            </tr><tr>
+                <td><code>flake8_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with Flake8</td>
+            </tr><tr>
+                <td><code>flake8_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>flake8_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>mypy</code></td>
+                <td>No</td>
+                <td>Enable or disable Mypy checks</td>
+            </tr><tr>
+                <td><code>mypy_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>mypy_dir</code></td>
+                <td>No</td>
+                <td>Directory where the Mypy command should be run</td>
+            </tr><tr>
+                <td><code>mypy_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with Mypy</td>
+            </tr><tr>
+                <td><code>mypy_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>mypy_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>oitnb</code></td>
+                <td>No</td>
+                <td>Enable or disable oitnb checks</td>
+            </tr><tr>
+                <td><code>oitnb_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>oitnb_dir</code></td>
+                <td>No</td>
+                <td>Directory where the oitnb command should be run</td>
+            </tr><tr>
+                <td><code>oitnb_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with oitnb</td>
+            </tr><tr>
+                <td><code>oitnb_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>oitnb_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>pylint</code></td>
+                <td>No</td>
+                <td>Enable or disable Pylint checks</td>
+            </tr><tr>
+                <td><code>pylint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>pylint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the Pylint command should be run</td>
+            </tr><tr>
+                <td><code>pylint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with Pylint</td>
+            </tr><tr>
+                <td><code>pylint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>pylint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>rubocop</code></td>
+                <td>No</td>
+                <td>Enable or disable RuboCop checks</td>
+            </tr><tr>
+                <td><code>rubocop_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>rubocop_dir</code></td>
+                <td>No</td>
+                <td>Directory where the RuboCop command should be run</td>
+            </tr><tr>
+                <td><code>rubocop_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with RuboCop</td>
+            </tr><tr>
+                <td><code>rubocop_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>rubocop_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>erblint</code></td>
+                <td>No</td>
+                <td>Enable or disable ERB Lint checks</td>
+            </tr><tr>
+                <td><code>erblint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>erblint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the ERB Lint command should be run</td>
+            </tr><tr>
+                <td><code>erblint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with ERB Lint</td>
+            </tr><tr>
+                <td><code>erblint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>erblint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>clippy</code></td>
+                <td>No</td>
+                <td>Enable or disable clippy</td>
+            </tr><tr>
+                <td><code>clippy_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>clippy_dir</code></td>
+                <td>No</td>
+                <td>Directory where the RuboCop command should be run</td>
+            </tr><tr>
+                <td><code>clippy_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with RuboCop</td>
+            </tr><tr>
+                <td><code>clippy_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>clippy_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>rustfmt</code></td>
+                <td>No</td>
+                <td>Enable or disable rustfmt</td>
+            </tr><tr>
+                <td><code>rustfmt_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>rustfmt_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with rustfmt</td>
+            </tr><tr>
+                <td><code>rustfmt_dir</code></td>
+                <td>No</td>
+                <td>Directory where the rustfmt command should be run</td>
+            </tr><tr>
+                <td><code>rustfmt_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>swiftformat</code></td>
+                <td>No</td>
+                <td>Enable or disable SwiftFormat checks</td>
+            </tr><tr>
+                <td><code>swiftformat_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>swiftformat_dir</code></td>
+                <td>No</td>
+                <td>Directory where the SwiftFormat command should be run</td>
+            </tr><tr>
+                <td><code>swiftformat_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with SwiftFormat</td>
+            </tr><tr>
+                <td><code>swiftformat_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>swiftformat_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood</code></td>
+                <td>No</td>
+                <td>Enable or disable SwiftFormat checks</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood_dir</code></td>
+                <td>No</td>
+                <td>Directory where the SwiftFormat command should be run</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with SwiftFormat</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>swift_format_lockwood_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>swift_format_official</code></td>
+                <td>No</td>
+                <td>Enable or disable swift-format checks</td>
+            </tr><tr>
+                <td><code>swift_format_official_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>swift_format_official_dir</code></td>
+                <td>No</td>
+                <td>Directory where the swift-format command should be run</td>
+            </tr><tr>
+                <td><code>swift_format_official_extensions</code></td>
+                <td>No</td>
+                <td>Extrensions of files to check with swift-format</td>
+            </tr><tr>
+                <td><code>swift_format_official_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>swift_format_official_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>swiftlint</code></td>
+                <td>No</td>
+                <td>Enable or disable SwiftLint checks</td>
+            </tr><tr>
+                <td><code>swiftlint_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>swiftlint_dir</code></td>
+                <td>No</td>
+                <td>Directory where the SwiftLint command should be run</td>
+            </tr><tr>
+                <td><code>swiftlint_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with SwiftLint</td>
+            </tr><tr>
+                <td><code>swiftlint_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>swiftlint_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr><tr>
+                <td><code>dotnet_format</code></td>
+                <td>No</td>
+                <td>Enable or disable dotnet-format checks</td>
+            </tr><tr>
+                <td><code>dotnet_format_args</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass to the linter</td>
+            </tr><tr>
+                <td><code>dotnet_format_dir</code></td>
+                <td>No</td>
+                <td>Directory where the dotnet-format command should be run</td>
+            </tr><tr>
+                <td><code>dotnet_format_extensions</code></td>
+                <td>No</td>
+                <td>Extensions of files to check with dotnet-format</td>
+            </tr><tr>
+                <td><code>dotnet_format_command_prefix</code></td>
+                <td>No</td>
+                <td>Shell command to prepend to the linter command</td>
+            </tr><tr>
+                <td><code>dotnet_format_auto_fix</code></td>
+                <td>No</td>
+                <td>Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if &quot;auto_fix&quot; is set to `true` as well</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

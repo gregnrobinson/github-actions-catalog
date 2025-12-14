@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure App Configuration Sync (Deprecated) - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure App Configuration Sync (Deprecated)</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/AppConfiguration-Sync</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/AppConfiguration-Sync" target="_blank">github.com/azure/AppConfiguration-Sync</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>DEPRECATED: Use Azure CLI action instead. Follow [these instructions](https://aka.ms/appconfig/githubactions) to set up.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Configuration Management</span> <span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Configuration Management</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> This action is focused on syncing configuration files with Azure App Configuration, which relates to managing dependencies and infrastructure settings. However, it is deprecated, which affects its relevance.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">App Configuration</span> <span class="tag">Configuration Management</span> <span class="tag">GitHub Actions</span> <span class="tag">Deprecated</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>configurationFile</code></td>
+                <td>Yes</td>
+                <td>Path to the configuration file in the repo, relative to the repo root. Also supports glob patterns and multiple files</td>
+            </tr><tr>
+                <td><code>format</code></td>
+                <td>Yes</td>
+                <td>Format of the configuration file. Valid values are: json, yaml, properties</td>
+            </tr><tr>
+                <td><code>connectionString</code></td>
+                <td>Yes</td>
+                <td>Connection string for the App Configuration instance</td>
+            </tr><tr>
+                <td><code>separator</code></td>
+                <td>Yes</td>
+                <td>Separator used when flattening the configuration file to key-value pairs</td>
+            </tr><tr>
+                <td><code>strict</code></td>
+                <td>No</td>
+                <td>Specifies whether to use a strict sync which will make the App Configuration instance exactly match the configuration file (deleting key-values not in the configuration file). Defaults to false</td>
+            </tr><tr>
+                <td><code>prefix</code></td>
+                <td>No</td>
+                <td>Prefix that will be added to the front of the keys</td>
+            </tr><tr>
+                <td><code>label</code></td>
+                <td>No</td>
+                <td>Label to use when setting the key-value pairs. If not specified, a null label will be used</td>
+            </tr><tr>
+                <td><code>depth</code></td>
+                <td>No</td>
+                <td>Max depth (positive number) for flattening the configuration file</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>Stringified form of a JSON object with the following shape: { [propertyName: string]: string; }</td>
+            </tr><tr>
+                <td><code>contentType</code></td>
+                <td>No</td>
+                <td>Content type associated with the values</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

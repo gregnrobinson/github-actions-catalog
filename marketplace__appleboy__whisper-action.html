@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech to Text OpenAI Whisper - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Speech to Text OpenAI Whisper</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/whisper-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/whisper-action" target="_blank">github.com/appleboy/whisper-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>High-performance inference of OpenAI Whisper automatic speech recognition (ASR) model</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> This action performs speech recognition, which can be used for testing audio inputs and ensuring quality in applications that rely on voice data. It also relates to code quality as it can help verify the functionality of audio processing features.</p>
+            <p><strong>Tags:</strong> <span class="tag">speech recognition</span> <span class="tag">OpenAI</span> <span class="tag">Whisper</span> <span class="tag">ASR</span> <span class="tag">audio processing</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>model</code></td>
+                <td>No</td>
+                <td>public whisper model. (available: small, medium and large)</td>
+            </tr><tr>
+                <td><code>audio_path</code></td>
+                <td>No</td>
+                <td>Audio Path.</td>
+            </tr><tr>
+                <td><code>output_folder</code></td>
+                <td>No</td>
+                <td>output folder.</td>
+            </tr><tr>
+                <td><code>output_format</code></td>
+                <td>No</td>
+                <td>output format, support txt, srt, csv.</td>
+            </tr><tr>
+                <td><code>output_filename</code></td>
+                <td>No</td>
+                <td>output filename.</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>enable debug mode.</td>
+            </tr><tr>
+                <td><code>print_progress</code></td>
+                <td>No</td>
+                <td>print progress.</td>
+            </tr><tr>
+                <td><code>print_segment</code></td>
+                <td>No</td>
+                <td>print segment.</td>
+            </tr><tr>
+                <td><code>youtube_url</code></td>
+                <td>No</td>
+                <td>youtube url</td>
+            </tr><tr>
+                <td><code>translate</code></td>
+                <td>No</td>
+                <td>translate from source language to english</td>
+            </tr><tr>
+                <td><code>cut_silences</code></td>
+                <td>No</td>
+                <td>cut silences</td>
+            </tr><tr>
+                <td><code>prompt</code></td>
+                <td>No</td>
+                <td>initial prompt</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

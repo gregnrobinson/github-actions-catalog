@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Spring Apps - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Spring Apps</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/spring-apps-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/spring-apps-deploy" target="_blank">github.com/azure/spring-apps-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy applications to Azure Spring Apps and manage deployments.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to deploy applications to Azure Spring Apps, which falls under the deployment category, and it also involves managing infrastructure on Azure.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Deployment</span> <span class="tag">Spring Apps</span> <span class="tag">Infrastructure</span> <span class="tag">Cloud</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>azure-subscription</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Resource Manager subscription for the deployment.</td>
+            </tr><tr>
+                <td><code>action</code></td>
+                <td>Yes</td>
+                <td>Action to be performed on Azure Spring Apps.</td>
+            </tr><tr>
+                <td><code>service-name</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Spring Apps service to which to deploy.</td>
+            </tr><tr>
+                <td><code>app-name</code></td>
+                <td>Yes</td>
+                <td>Select the Azure Spring Apps app to deploy.</td>
+            </tr><tr>
+                <td><code>use-staging-deployment</code></td>
+                <td>Yes</td>
+                <td>Automatically select the deployment that&#39;s set as Staging at the time the task runs.</td>
+            </tr><tr>
+                <td><code>create-new-deployment</code></td>
+                <td>No</td>
+                <td>Whether to target the deployment that&#39;s set as Staging at the time of execution. If unchecked, the &#39;Deployment Name&#39; setting must be set.</td>
+            </tr><tr>
+                <td><code>deployment-name</code></td>
+                <td>No</td>
+                <td>The deployment to which this task will apply. Lowercase letters, - and numbers only; must start with a letter.</td>
+            </tr><tr>
+                <td><code>package</code></td>
+                <td>No</td>
+                <td>File path to the package or a folder containing the Spring Apps app contents.</td>
+            </tr><tr>
+                <td><code>target-module</code></td>
+                <td>No</td>
+                <td>Child module to be deployed, required for multiple jar packages built from source code.</td>
+            </tr><tr>
+                <td><code>cpu</code></td>
+                <td>No</td>
+                <td>The CPU resource quantity. It should be 500m or number of CPU cores. It is effective only when creating new deployment.</td>
+            </tr><tr>
+                <td><code>memory</code></td>
+                <td>No</td>
+                <td>The memory resource quantity. It should be 512Mi or #Gi, e.g., 1Gi, 3Gi. It is effective only when creating new deployment.</td>
+            </tr><tr>
+                <td><code>environment-variables</code></td>
+                <td>No</td>
+                <td>Edit the app&#39;s environment variables.</td>
+            </tr><tr>
+                <td><code>jvm-options</code></td>
+                <td>No</td>
+                <td>Edit the app&#39;s JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`</td>
+            </tr><tr>
+                <td><code>runtime-version</code></td>
+                <td>No</td>
+                <td>The runtime on which the app will run.</td>
+            </tr><tr>
+                <td><code>dotnetcore-mainentry-path</code></td>
+                <td>No</td>
+                <td>The path to the .NET executable relative to zip root.</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>The runtime on which the app will run.</td>
+            </tr><tr>
+                <td><code>build-name</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) The build name.</td>
+            </tr><tr>
+                <td><code>builder</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) Build service builder used to build the executable.</td>
+            </tr><tr>
+                <td><code>build-cpu</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) CPU resource quantity for build container. Should be 500m or number of CPU cores. Default: 1</td>
+            </tr><tr>
+                <td><code>build-memory</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) Memory resource quantity for build container. Should be 512Mi or #Gi, e.g., 1Gi, 3Gi. Default: 2Gi.</td>
+            </tr><tr>
+                <td><code>build-env</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) Space-separated environment variables for the build process in &#39;key[=value]&#39; format.</td>
+            </tr><tr>
+                <td><code>config-file-patterns</code></td>
+                <td>No</td>
+                <td>(Enterprise Tier Only) Config file patterns separated with &#39;,&#39; to decide which patterns of Application Configuration Service will be used. Use &#39;&quot;&quot;&#39; to clear existing configurations.</td>
+            </tr><tr>
+                <td><code>container-registry</code></td>
+                <td>No</td>
+                <td>The registry of the container image.  Default: docker.io.</td>
+            </tr><tr>
+                <td><code>registry-username</code></td>
+                <td>No</td>
+                <td>The username of the container registry.</td>
+            </tr><tr>
+                <td><code>registry-password</code></td>
+                <td>No</td>
+                <td>The password of the container registry.</td>
+            </tr><tr>
+                <td><code>container-image</code></td>
+                <td>No</td>
+                <td>The container image.</td>
+            </tr><tr>
+                <td><code>container-command</code></td>
+                <td>No</td>
+                <td>The command of the container.</td>
+            </tr><tr>
+                <td><code>container-args</code></td>
+                <td>No</td>
+                <td>The arguments of the container.</td>
+            </tr><tr>
+                <td><code>language-framework</code></td>
+                <td>No</td>
+                <td>The language framework of the container.</td>
+            </tr><tr>
+                <td><code>enable-liveness-probe</code></td>
+                <td>No</td>
+                <td>If false, will disable the liveness probe of the app instance.  Allowed values: false, true.</td>
+            </tr><tr>
+                <td><code>enable-readiness-probe</code></td>
+                <td>No</td>
+                <td>If false, will disable the readiness probe of the app instance.  Allowed values: false, true.</td>
+            </tr><tr>
+                <td><code>enable-startup-probe</code></td>
+                <td>No</td>
+                <td>If false, will disable the startup probe of the app instance.  Allowed values: false, true.</td>
+            </tr><tr>
+                <td><code>termination-grace-period-seconds</code></td>
+                <td>No</td>
+                <td>Optional duration in seconds the app instance needs to terminate gracefully.</td>
+            </tr><tr>
+                <td><code>liveness-probe-config</code></td>
+                <td>No</td>
+                <td>A json file path indicates the liveness probe config</td>
+            </tr><tr>
+                <td><code>readiness-probe-config</code></td>
+                <td>No</td>
+                <td>A json file path indicates the readiness probe config</td>
+            </tr><tr>
+                <td><code>startup-probe-config</code></td>
+                <td>No</td>
+                <td>A json file path indicates the startup probe config</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

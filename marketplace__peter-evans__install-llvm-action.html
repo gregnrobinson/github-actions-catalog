@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install LLVM and Clang - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Install LLVM and Clang</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/install-llvm-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/install-llvm-action" target="_blank">github.com/peter-evans/install-llvm-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Downloads and installs LLVM and Clang binaries.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is focused on downloading and installing specific versions of LLVM and Clang, which are dependencies needed for building software. It also relates to the build process as these tools are commonly used in compilation.</p>
+            <p><strong>Tags:</strong> <span class="tag">LLVM</span> <span class="tag">Clang</span> <span class="tag">installation</span> <span class="tag">dependencies</span> <span class="tag">build</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>Yes</td>
+                <td>The version of LLVM and Clang binaries to install.</td>
+            </tr><tr>
+                <td><code>force-version</code></td>
+                <td>No</td>
+                <td>Whether to accept unsupported LLVM and Clang versions.</td>
+            </tr><tr>
+                <td><code>ubuntu-version</code></td>
+                <td>No</td>
+                <td>The version override of Ubuntu to use for the Linux platform.</td>
+            </tr><tr>
+                <td><code>directory</code></td>
+                <td>No</td>
+                <td>The directory to install LLVM and Clang binaries to.</td>
+            </tr><tr>
+                <td><code>cached</code></td>
+                <td>No</td>
+                <td>Whether the LLVM and Clang binaries were cached.</td>
+            </tr><tr>
+                <td><code>download-url</code></td>
+                <td>No</td>
+                <td>The URL to download LLVM and Clang binaries from.</td>
+            </tr><tr>
+                <td><code>auth</code></td>
+                <td>No</td>
+                <td>The Authorization header to use when downloading LLVM and Clang binaries.</td>
+            </tr><tr>
+                <td><code>env</code></td>
+                <td>No</td>
+                <td>Whether to set CC and CXX environment variables to Clang paths.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>The full version of LLVM and Clang binaries installed.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

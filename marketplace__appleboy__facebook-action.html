@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Message Notify - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Facebook Message Notify</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/facebook-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/facebook-action" target="_blank">github.com/appleboy/facebook-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Sending a Facebook message</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to send messages via Facebook, which clearly falls under communication and notification categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">facebook</span> <span class="tag">notification</span> <span class="tag">communication</span> <span class="tag">message</span> <span class="tag">action</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>fb_page_token</code></td>
+                <td>No</td>
+                <td>Token is the access token of the Facebook page to send messages from..</td>
+            </tr><tr>
+                <td><code>fb_verify_token</code></td>
+                <td>No</td>
+                <td>The token used to verify facebook.</td>
+            </tr><tr>
+                <td><code>to</code></td>
+                <td>No</td>
+                <td>Recipient is who the message was sent to (required).</td>
+            </tr><tr>
+                <td><code>app_secret</code></td>
+                <td>No</td>
+                <td>The app secret from the facebook developer portal.</td>
+            </tr><tr>
+                <td><code>verify</code></td>
+                <td>No</td>
+                <td>verifying webhooks on the Facebook Developer Portal.</td>
+            </tr><tr>
+                <td><code>images</code></td>
+                <td>No</td>
+                <td>send the image message. Ex: https://golang.org/doc/gopher/gophercolor.png</td>
+            </tr><tr>
+                <td><code>audios</code></td>
+                <td>No</td>
+                <td>send the audio message.</td>
+            </tr><tr>
+                <td><code>files</code></td>
+                <td>No</td>
+                <td>send the file message.</td>
+            </tr><tr>
+                <td><code>videos</code></td>
+                <td>No</td>
+                <td>send the video message.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

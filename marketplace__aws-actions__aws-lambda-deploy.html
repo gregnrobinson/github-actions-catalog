@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Lambda Deploy Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AWS Lambda Deploy Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/aws-lambda-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/aws-lambda-deploy" target="_blank">github.com/aws-actions/aws-lambda-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Updates the code and configuration of AWS Lambda functions. If the function does not exist, a new one will be created.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on deploying AWS Lambda functions, which falls under the Deployment category. It also involves managing AWS infrastructure, hence the secondary category of Infrastructure.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">Lambda</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>function-name</code></td>
+                <td>Yes</td>
+                <td>Name of the Lambda function.</td>
+            </tr><tr>
+                <td><code>package-type</code></td>
+                <td>No</td>
+                <td>The package type of the Lambda function. Set to &quot;Image&quot; for container image functions, defaults to &quot;Zip&quot; for .zip file functions.</td>
+            </tr><tr>
+                <td><code>image-uri</code></td>
+                <td>No</td>
+                <td>The URI of the container image in Amazon ECR. Required when package-type is &quot;Image&quot;.</td>
+            </tr><tr>
+                <td><code>code-artifacts-dir</code></td>
+                <td>No</td>
+                <td>The path to a directory of code artifacts to zip and deploy to Lambda. Required when package-type is &quot;Zip&quot;.</td>
+            </tr><tr>
+                <td><code>handler</code></td>
+                <td>No</td>
+                <td>The name of the method within your code that Lambda calls to run your function. Required when package-type is &quot;Zip&quot;.</td>
+            </tr><tr>
+                <td><code>runtime</code></td>
+                <td>No</td>
+                <td>The identifier of the runtime. Required when package-type is &quot;Zip&quot;.</td>
+            </tr><tr>
+                <td><code>s3-bucket</code></td>
+                <td>No</td>
+                <td>S3 bucket name to use for Lambda deployment package. If provided, S3 deployment method will be used instead of direct upload.</td>
+            </tr><tr>
+                <td><code>s3-key</code></td>
+                <td>No</td>
+                <td>S3 key for the Lambda deployment package in the bucket. If not provided, a key will be auto-generated using the format: lambda-deployments/{function-name}/{timestamp}-{commit-hash}.zip.</td>
+            </tr><tr>
+                <td><code>publish</code></td>
+                <td>No</td>
+                <td>Set to true to publish a new version of the function after updating the code.</td>
+            </tr><tr>
+                <td><code>dry-run</code></td>
+                <td>No</td>
+                <td>Set true to validate the request parameters and access permissions without modifying the function code. Applicable for updating function code only. Creating and updating function configuration will be skipped since they do not support dry run.</td>
+            </tr><tr>
+                <td><code>revision-id</code></td>
+                <td>No</td>
+                <td>Update the function only if the revision ID matches the ID that is specified.</td>
+            </tr><tr>
+                <td><code>architectures</code></td>
+                <td>No</td>
+                <td>The instruction set architecture that the function supports.</td>
+            </tr><tr>
+                <td><code>source-kms-key-arn</code></td>
+                <td>No</td>
+                <td>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your functions .zip deployment package.</td>
+            </tr><tr>
+                <td><code>role</code></td>
+                <td>No</td>
+                <td>The Amazon Resource Name (ARN) of the functions execution role. Required when creating a new function.</td>
+            </tr><tr>
+                <td><code>function-description</code></td>
+                <td>No</td>
+                <td>A description of the function.</td>
+            </tr><tr>
+                <td><code>memory-size</code></td>
+                <td>No</td>
+                <td>The amount of memory available to the function at runtime.</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>The amount of time (in seconds) that Lambda allows a function to run before stopping it.</td>
+            </tr><tr>
+                <td><code>vpc-config</code></td>
+                <td>No</td>
+                <td>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>Environment variables as a JSON string</td>
+            </tr><tr>
+                <td><code>dead-letter-config</code></td>
+                <td>No</td>
+                <td>Specifies the queue or topic where Lambda sends asynchronous events when they fail processing.</td>
+            </tr><tr>
+                <td><code>kms-key-arn</code></td>
+                <td>No</td>
+                <td>The ARN of the Key Management Service (KMS) customer managed key</td>
+            </tr><tr>
+                <td><code>tracing-config</code></td>
+                <td>No</td>
+                <td>Set Mode to Active to sample and trace a subset of incoming requests with X-Ray.</td>
+            </tr><tr>
+                <td><code>layers</code></td>
+                <td>No</td>
+                <td>A list of function layers to add to the functions execution environment.</td>
+            </tr><tr>
+                <td><code>file-system-configs</code></td>
+                <td>No</td>
+                <td>Connection settings for an Amazon EFS file system.</td>
+            </tr><tr>
+                <td><code>image-config</code></td>
+                <td>No</td>
+                <td>Configuration for the Lambda functions container image.</td>
+            </tr><tr>
+                <td><code>ephemeral-storage</code></td>
+                <td>No</td>
+                <td>The size of the functions /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.</td>
+            </tr><tr>
+                <td><code>snap-start</code></td>
+                <td>No</td>
+                <td>The functions SnapStart setting.</td>
+            </tr><tr>
+                <td><code>logging-config</code></td>
+                <td>No</td>
+                <td>The Amazon CloudWatch Logs configuration settings for the function.</td>
+            </tr><tr>
+                <td><code>code-signing-config-arn</code></td>
+                <td>No</td>
+                <td>The ARN of a code-signing configuration to use on this function.</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>Tags to apply to the function as a JSON string (e.g. {&quot;Environment&quot;:&quot;Production&quot;,&quot;Team&quot;:&quot;DevOps&quot;})</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>function-arn</code></td>
+                <td>The ARN of the updated Lambda function.</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>The function version if a new version was published.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

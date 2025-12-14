@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Container Apps Build and Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Container Apps Build and Deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/container-apps-deploy-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/container-apps-deploy-action" target="_blank">github.com/azure/container-apps-deploy-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>&#39;GitHub Action for building and deploying Azure Container Apps&#39;
+</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on deploying applications to Azure Container Apps, which falls under the Deployment category. It also involves building the application, thus fitting into the Build category as well as Infrastructure due to its interaction with Azure services.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Container Apps</span> <span class="tag">Deployment</span> <span class="tag">Build</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>appSourcePath</code></td>
+                <td>No</td>
+                <td>Absolute path on the GitHub runner of the source application code to be built.</td>
+            </tr><tr>
+                <td><code>acrName</code></td>
+                <td>No</td>
+                <td>The name of the Azure Container Registry that the runnable application image will be pushed to.</td>
+            </tr><tr>
+                <td><code>acrUsername</code></td>
+                <td>No</td>
+                <td>&#39;The username used to authenticate push requests to the provided Azure Container Registry. If not provided, an
+access token will be generated via &quot;az acr login&quot; and provided to &quot;docker login&quot; to authenticate the requests.&#39;
+</td>
+            </tr><tr>
+                <td><code>acrPassword</code></td>
+                <td>No</td>
+                <td>&#39;The password used to authenticate push requests to the provided Azure Container Registry. If not provided, an
+access token will be generated via &quot;az acr login&quot; and provided to &quot;docker login&quot; to authenticate the requests.&#39;
+</td>
+            </tr><tr>
+                <td><code>registryUrl</code></td>
+                <td>No</td>
+                <td>The base URL of the Container Registry that the runnable application image will be pushed to.</td>
+            </tr><tr>
+                <td><code>registryUsername</code></td>
+                <td>No</td>
+                <td>The username used to authenticate push requests to the provided Container Registry using the &quot;docker login&quot; action.</td>
+            </tr><tr>
+                <td><code>registryPassword</code></td>
+                <td>No</td>
+                <td>The password used to authenticate push requests to the provided Container Registry using the &quot;docker login&quot; action.</td>
+            </tr><tr>
+                <td><code>azureCredentials</code></td>
+                <td>No</td>
+                <td>&#39;Azure credentials used by the `azure/login` action to authenticate Azure CLI requests if the user has not
+previously authenticated in the workflow calling this action.&#39;
+</td>
+            </tr><tr>
+                <td><code>imageToBuild</code></td>
+                <td>No</td>
+                <td>&#39;The custom name of the image that is to be built, pushed to the Container Registry and deployed to the Container App by this action.
+Note: this image name should include the registry server; e.g., &lt;registryUrl&gt;/&lt;repo&gt;:&lt;tag&gt;. If this argument is
+not provided, a default image name will be constructed in the form of
+&lt;acr-name&gt;.azurecr.io/github-action/container-app:&lt;github-run-id&gt;.&lt;github-run-attempt&gt;.&#39;
+</td>
+            </tr><tr>
+                <td><code>imageToDeploy</code></td>
+                <td>No</td>
+                <td>&#39;The custom name of an image that has already been pushed to the Container Registry and will be deployed to the Container App by this
+action. Note: this image name should include the registry server; e.g., &lt;registryUrl&gt;/&lt;repo&gt;:&lt;tag&gt;. If this
+argument is not provided, the value provided (or determined) for the &quot;imageToBuild&quot; argument will be used.&#39;
+</td>
+            </tr><tr>
+                <td><code>dockerfilePath</code></td>
+                <td>No</td>
+                <td>&#39;Relative path to the Dockerfile in the provided application source that should be used to build the image that is
+then pushed to the Container Registry and deployed to the Container App. If not provided, this action will check if there is a file
+named &quot;Dockerfile&quot; in the provided application source and use that to build the image. Otherwise, the Oryx++
+Builder will be used to create the image.&#39;
+</td>
+            </tr><tr>
+                <td><code>containerAppName</code></td>
+                <td>No</td>
+                <td>&#39;The name of the Azure Container App that will be created or updated. If not provided, this value will be
+gh-action-app-&lt;github-run-id&gt;-&lt;github-run-attempt&gt;.&#39;
+</td>
+            </tr><tr>
+                <td><code>resourceGroup</code></td>
+                <td>No</td>
+                <td>&#39;The existing resource group that the Azure Container App will be created in. If not provided, this value will be
+&lt;container-app-name&gt;-rg and its existence will first be checked before attempting to create it.&#39;
+</td>
+            </tr><tr>
+                <td><code>containerAppEnvironment</code></td>
+                <td>No</td>
+                <td>&#39;The name of the Azure Container App environment to use with the application. If not provided, an existing
+environment in the resource group of the Container App will be used, otherwise, an environment will be created in
+the format &lt;container-app-name&gt;-env&#39;
+</td>
+            </tr><tr>
+                <td><code>runtimeStack</code></td>
+                <td>No</td>
+                <td>&#39;The platform version stack that the application runs in when deployed to the Azure Container App. This should
+be provided in the format &lt;platform&gt;:&lt;version&gt;. If not provided, this value is determined by Oryx based on the
+contents of the provided application. Please view the following document for more information on the supported
+runtime stacks for Oryx:
+https://github.com/microsoft/Oryx/blob/main/doc/supportedRuntimeVersions.md&#39;
+</td>
+            </tr><tr>
+                <td><code>builderStack</code></td>
+                <td>No</td>
+                <td>&#39;The stack (OS) that should be used to build the provided application source and produce the runnable application
+image. You can provide a specific image tag for the stack, such as &quot;debian-bullseye-20231107.2&quot;, or you can
+provide a supported stack name, such as &quot;debian-bookworm&quot; or &quot;debian-bullseye&quot;, and the latest supported image tag
+for that stack will be used. If no stack is provided, this action will attempt to build the provided application
+source with each supported stack until there&#39;s a successful build.&#39;
+</td>
+            </tr><tr>
+                <td><code>buildArguments</code></td>
+                <td>No</td>
+                <td>&#39;A list of build arguments provided as KEY=VALUE pairings and are space-separated. If a Dockerfile has been
+provided or is discovered in the application source, each build argument will be passed to the &quot;docker build&quot;
+command via the --build-arg flag. If the Oryx++ builder is used to create a runnable application image, each
+build argument will be passed to the &quot;pack build&quot; command via the --env flag.&#39;
+</td>
+            </tr><tr>
+                <td><code>targetPort</code></td>
+                <td>No</td>
+                <td>&#39;The designated port for the application to run on. If no value is provided and the builder is used to build the
+runnable application image, the target port will be set to 80 for Python applications and 8080 for all other
+platform applications. If no value is provided when creating a Container App, the target port will be set to 80 by
+default. Note: when using this action to update a Container App, the target port may be updated if not provided
+based on changes to the ingress property.
+</td>
+            </tr><tr>
+                <td><code>location</code></td>
+                <td>No</td>
+                <td>&#39;The location that the Container App (and other created resources) will be deployed to. To view locations suitable
+for creating the Container App in, please run the following: az provider show -n Microsoft.App --query &quot;resourceTypes[?resourceType==&#39;containerApps&#39;].locations&quot;&#39;
+</td>
+            </tr><tr>
+                <td><code>environmentVariables</code></td>
+                <td>No</td>
+                <td>&#39;A list of environment variable(s) for the container. Space-separated values in &#39;key=value&#39; format. Empty string
+to clear existing values. Prefix value with &#39;secretref:&#39; to reference a secret.&#39;
+</td>
+            </tr><tr>
+                <td><code>ingress</code></td>
+                <td>No</td>
+                <td>&#39;Possible options: external, internal, disabled. If set to &quot;external&quot; (default value if not provided when creating
+a Container App), the Container App will be visible from the internet or a VNET, depending on the app environment
+endpoint configured. If set to &quot;internal&quot;, the Container App will be visible from within the app environment only.
+If set to &quot;disabled&quot;, ingress will be disabled for this Container App and will not have an HTTP or TCP endpoint.&#39;
+</td>
+            </tr><tr>
+                <td><code>yamlConfigPath</code></td>
+                <td>No</td>
+                <td>&#39;Full path (on the executing GitHub runner) to the YAML file detailing the configuration of the Container App.
+The &#39;resourceGroup&#39; property in the YAML file will not be used; the value for this either comes from the
+&#39;resourceGroup&#39; argument provided to the action, or the default resource group name generated by the action.
+Image and application source arguments (e.g., &#39;appSourcePath&#39;, &#39;imageToDeploy&#39;) will still be used to first build
+and/or push an image that is used by the Container App; in this case, the provided YAML configuration file will
+need to reference the image specified by &#39;imageToDeploy&#39; (or &#39;imageToBuild&#39;, depending on your scenario). When
+creating a new Container App, all properties listed in the file will be set when the Container App is created.
+When updating an existing Container App, only the properties listed in the file will be updated on the Container
+App. For more information on the structure of this YAML configuration file, please visit
+https://aka.ms/azure-container-apps-yaml&#39;
+</td>
+            </tr><tr>
+                <td><code>disableTelemetry</code></td>
+                <td>No</td>
+                <td>&#39;If set to &quot;true&quot;, no telemetry will be collected by this GitHub Action. If set to &quot;false&quot;, or if this argument is
+not provided, telemetry will be sent to Microsoft about the Container App build and deploy scenario targeted by
+this GitHub Action.&#39;
+</td>
+            </tr><tr>
+                <td><code>targetLabel</code></td>
+                <td>No</td>
+                <td>&#39;Specifies the target label for the Azure Container App revision. 
+This will replace any prior revision with the given label. This is required when using ActiveRevisionMode: Labels.&#39;
+</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

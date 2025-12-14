@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy Azure Resource Manager (ARM) Template - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy Azure Resource Manager (ARM) Template</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/arm-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/arm-deploy" target="_blank">github.com/azure/arm-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use this GitHub Action task to deploy Azure Resource Manager (ARM) template</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to deploy Azure Resource Manager templates, which falls under the deployment category, and it also involves managing cloud infrastructure.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">ARM</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Action</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>scope</code></td>
+                <td>Yes</td>
+                <td>Provide the scope of the deployment. Valid values are: &#39;resourcegroup&#39;, &#39;tenant&#39;, &#39;managementgroup&#39;, &#39;subscription&#39;</td>
+            </tr><tr>
+                <td><code>subscriptionId</code></td>
+                <td>No</td>
+                <td>Override the Subscription Id set by Azure Login.</td>
+            </tr><tr>
+                <td><code>managementGroupId</code></td>
+                <td>No</td>
+                <td>Specify the Id for the Management Group, only required for Management Group Deployments.</td>
+            </tr><tr>
+                <td><code>region</code></td>
+                <td>No</td>
+                <td>Provide the target region, only required for tenant, management Group or Subscription deployments.</td>
+            </tr><tr>
+                <td><code>resourceGroupName</code></td>
+                <td>No</td>
+                <td>Provide the name of a resource group, only required for resource Group deployments.</td>
+            </tr><tr>
+                <td><code>template</code></td>
+                <td>Yes</td>
+                <td>Specify the path or URL to the Azure Resource Manager template.</td>
+            </tr><tr>
+                <td><code>deploymentMode</code></td>
+                <td>No</td>
+                <td>Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template).</td>
+            </tr><tr>
+                <td><code>deploymentName</code></td>
+                <td>No</td>
+                <td>Specifies the name of the resource group deployment to create.</td>
+            </tr><tr>
+                <td><code>parameters</code></td>
+                <td>No</td>
+                <td>Supply deployment parameter values.</td>
+            </tr><tr>
+                <td><code>failOnStdErr</code></td>
+                <td>No</td>
+                <td>Specify whether to fail the action if some data is written to stderr stream of az cli. Valid values are: true, false</td>
+            </tr><tr>
+                <td><code>additionalArguments</code></td>
+                <td>No</td>
+                <td>Specify any additional arguments for the deployment.</td>
+            </tr><tr>
+                <td><code>maskedOutputs</code></td>
+                <td>No</td>
+                <td>Specify list of output keys that its value need to be register to github action as secret. (checkout https://github.com/actions/toolkit/issues/184#issuecomment-1198653452 for valid multiline string)</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

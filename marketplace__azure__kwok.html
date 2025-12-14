@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup kwok - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup kwok</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/kwok</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/kwok" target="_blank">github.com/azure/kwok</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This action sets up kwok/kwokctl for use in your workflow</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action sets up a specific tool (kwok/kwokctl) for use in workflows, which involves managing dependencies necessary for the workflow&#39;s execution. It also relates to infrastructure as it prepares a tool that interacts with Kubernetes.</p>
+            <p><strong>Tags:</strong> <span class="tag">kwok</span> <span class="tag">setup</span> <span class="tag">dependency</span> <span class="tag">infrastructure</span> <span class="tag">kubernetes</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>command</code></td>
+                <td>Yes</td>
+                <td>Command to install</td>
+            </tr><tr>
+                <td><code>kwok-version</code></td>
+                <td>No</td>
+                <td>Specific version of command to install, defaults to latest release</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>Repository is kwok&#39;s repository, will use release from this repository, defaults same as uses in this step</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

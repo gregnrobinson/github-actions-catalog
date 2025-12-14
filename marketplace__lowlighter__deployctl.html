@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy to Deno Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy to Deno Deploy</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/lowlighter/deployctl</code></p>
+            <p><strong>Author:</strong> Deno Land Inc</p>
+            <p><strong>Publisher:</strong> lowlighter</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/lowlighter/deployctl" target="_blank">github.com/lowlighter/deployctl</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy your applications to Deno Deploy, right from GitHub Actions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy applications to Deno Deploy, which falls under the Deployment category, while also relating to Infrastructure as it involves managing application deployment environments.</p>
+            <p><strong>Tags:</strong> <span class="tag">Deno</span> <span class="tag">Deployment</span> <span class="tag">GitHub Actions</span> <span class="tag">Infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>deno-config</code></td>
+                <td>No</td>
+                <td>The path to a deno config file that will populate other inputs (optional, deno.json and deno.jsonc are auto-discovered)</td>
+            </tr><tr>
+                <td><code>project</code></td>
+                <td>No</td>
+                <td>The name or ID of the project to deploy (required)</td>
+            </tr><tr>
+                <td><code>entrypoint</code></td>
+                <td>No</td>
+                <td>The path or URL to the entrypoint file (required)</td>
+            </tr><tr>
+                <td><code>import-map</code></td>
+                <td>No</td>
+                <td>The path or URL to an import map file</td>
+            </tr><tr>
+                <td><code>include</code></td>
+                <td>No</td>
+                <td>Only upload files that match this pattern (multiline and/or comma-separated)</td>
+            </tr><tr>
+                <td><code>exclude</code></td>
+                <td>No</td>
+                <td>Exclude files that match this pattern (multiline and/or comma-separated)</td>
+            </tr><tr>
+                <td><code>root</code></td>
+                <td>No</td>
+                <td>The path to the directory containing the code and assets to upload</td>
+            </tr><tr>
+                <td><code>import-map-autogen-temp</code></td>
+                <td>No</td>
+                <td>The path to store the auto-generated import map if deno config file is present (relative to root)</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>deployment-id</code></td>
+                <td>The ID of the created deployment</td>
+            </tr><tr>
+                <td><code>url</code></td>
+                <td>The URL where the deployment is reachable</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

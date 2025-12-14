@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATS - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>ATS</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/codecov/codecov-ats-docker</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> codecov</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/codecov/codecov-ats-docker" target="_blank">github.com/codecov/codecov-ats-docker</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>RUN ATS</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to run tests and upload coverage reports, which falls under Testing and Code quality. It also requires authentication tokens for Codecov, categorizing it under Authentication.</p>
+            <p><strong>Tags:</strong> <span class="tag">codecov</span> <span class="tag">testing</span> <span class="tag">code quality</span> <span class="tag">docker</span> <span class="tag">CI</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>container</code></td>
+                <td>Yes</td>
+                <td>container to run in</td>
+            </tr><tr>
+                <td><code>static_token</code></td>
+                <td>Yes</td>
+                <td>Codecov static token</td>
+            </tr><tr>
+                <td><code>codecov_token</code></td>
+                <td>Yes</td>
+                <td>Codecov upload token</td>
+            </tr><tr>
+                <td><code>output_path</code></td>
+                <td>No</td>
+                <td>output path for test file in container, must be a fully qualified path</td>
+            </tr><tr>
+                <td><code>local_output_path</code></td>
+                <td>No</td>
+                <td>where to copy the files out of the container</td>
+            </tr><tr>
+                <td><code>install_cli</code></td>
+                <td>No</td>
+                <td>Whether to install the Codecov CLI. Set to false if you have previously installed the CLI.</td>
+            </tr><tr>
+                <td><code>main_branch</code></td>
+                <td>No</td>
+                <td>The main branch to compare against</td>
+            </tr><tr>
+                <td><code>run_tests</code></td>
+                <td>No</td>
+                <td>Whether to run the tests with the given command in the container. If set to true, this will run the test command and upload to Codecov</td>
+            </tr><tr>
+                <td><code>test_command</code></td>
+                <td>No</td>
+                <td>Command to run in container to execute tests. Required when run_tests is true. This should be `pytest` with the desired args at this point.</td>
+            </tr><tr>
+                <td><code>codecov_url</code></td>
+                <td>No</td>
+                <td>URL of Codecov</td>
+            </tr><tr>
+                <td><code>codecov_cli_version</code></td>
+                <td>No</td>
+                <td>Version of CLI to use</td>
+            </tr><tr>
+                <td><code>codecov_cli_upload_args</code></td>
+                <td>No</td>
+                <td>List of args to pass to cli on upload. This is kind of a hack pending a more robust solution</td>
+            </tr><tr>
+                <td><code>codecov_cli_yml_path</code></td>
+                <td>No</td>
+                <td>Path to codecov cli yml. Currently expected to include flag as well --codecov-yml-path=codecov_cli.yml for ex.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>test_skip_list</code></td>
+                <td>the tests to skip</td>
+            </tr><tr>
+                <td><code>runner_options</code></td>
+                <td>the runner options</td>
+            </tr><tr>
+                <td><code>test_list</code></td>
+                <td>the tests to run</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

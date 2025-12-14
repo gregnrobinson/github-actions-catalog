@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>release-please-action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>release-please-action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/release-please-action</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/release-please-action" target="_blank">github.com/google-github-actions/release-please-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>automated releases based on conventional commits</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Publishing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action automates the release process based on conventional commits, which falls under Deployment and also contributes to Code quality and Publishing by ensuring consistent release practices.</p>
+            <p><strong>Tags:</strong> <span class="tag">release</span> <span class="tag">automation</span> <span class="tag">conventional commits</span> <span class="tag">GitHub Actions</span> <span class="tag">deployment</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GitHub token for creating and grooming release PRs, defaults to using secrets.GITHUB_TOKEN</td>
+            </tr><tr>
+                <td><code>release-type</code></td>
+                <td>No</td>
+                <td>what type of release is this, one of (ruby, python, node, terraform-module)</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>create a release from a path other than the repository&#39;s root</td>
+            </tr><tr>
+                <td><code>target-branch</code></td>
+                <td>No</td>
+                <td>branch to open pull release PR against (detected by default)</td>
+            </tr><tr>
+                <td><code>config-file</code></td>
+                <td>No</td>
+                <td>where can the config file be found in the project?</td>
+            </tr><tr>
+                <td><code>manifest-file</code></td>
+                <td>No</td>
+                <td>where can the manifest file be found in the project?</td>
+            </tr><tr>
+                <td><code>repo-url</code></td>
+                <td>No</td>
+                <td>configure github repository URL. Default `process.env.GITHUB_REPOSITORY`</td>
+            </tr><tr>
+                <td><code>github-api-url</code></td>
+                <td>No</td>
+                <td>configure github API URL. Default `https://api.github.com`</td>
+            </tr><tr>
+                <td><code>github-graphql-url</code></td>
+                <td>No</td>
+                <td>configure github GraphQL URL. Default `https://api.github.com`</td>
+            </tr><tr>
+                <td><code>fork</code></td>
+                <td>No</td>
+                <td>If true, send the PR from a fork. This requires the token to be a user that can create forks (e.g. not the default GITHUB_TOKEN)</td>
+            </tr><tr>
+                <td><code>include-component-in-tag</code></td>
+                <td>No</td>
+                <td>If true, add prefix to tags and branches, allowing multiple libraries to be released from the same repository</td>
+            </tr><tr>
+                <td><code>proxy-server</code></td>
+                <td>No</td>
+                <td>set proxy sever when you run this action behind a proxy. format is host:port e.g. proxy-host.com:8080</td>
+            </tr><tr>
+                <td><code>skip-github-release</code></td>
+                <td>No</td>
+                <td>if set to true, then do not try to tag releases</td>
+            </tr><tr>
+                <td><code>skip-github-pull-request</code></td>
+                <td>No</td>
+                <td>if set to true, then do not try to open pull requests</td>
+            </tr><tr>
+                <td><code>changelog-host</code></td>
+                <td>No</td>
+                <td>The proto://host where commits live. Default `https://github.com`</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>branch-deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>branch-deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/branch-deploy</code></p>
+            <p><strong>Author:</strong> Grant Birkinbine</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/branch-deploy" target="_blank">github.com/github/branch-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Enabling Branch Deployments through IssueOps with GitHub Actions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Communication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on enabling branch deployments, which falls under the Deployment category. It also involves communication aspects related to issue operations and status updates during the deployment process.</p>
+            <p><strong>Tags:</strong> <span class="tag">branch-deploy</span> <span class="tag">GitHub Actions</span> <span class="tag">deployment</span> <span class="tag">IssueOps</span> <span class="tag">infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>Yes</td>
+                <td>The GitHub token used to create an authenticated client - Provided for you by default!</td>
+            </tr><tr>
+                <td><code>status</code></td>
+                <td>Yes</td>
+                <td>The status of the GitHub Actions - For use in the post run workflow - Provided for you by default!</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>The name of the default environment to deploy to. Example: by default, if you type `.deploy`, it will assume &quot;production&quot; as the default environment</td>
+            </tr><tr>
+                <td><code>environment_targets</code></td>
+                <td>No</td>
+                <td>Optional (or additional) target environments to select for use with deployments. Example, &quot;production,development,staging&quot;. Example  usage: `.deploy to development`, `.deploy to production`, `.deploy to staging`</td>
+            </tr><tr>
+                <td><code>draft_permitted_targets</code></td>
+                <td>No</td>
+                <td>Optional environments which can allow &quot;draft&quot; pull requests to be deployed. By default, this input option is empty and no environments allow deployments sourced from a pull request in a &quot;draft&quot; state. Examples: &quot;development,staging&quot;</td>
+            </tr><tr>
+                <td><code>environment_urls</code></td>
+                <td>No</td>
+                <td>Optional target environment URLs to use with deployments. This input option is a mapping of environment names to URLs and the environment names must match the &quot;environment_targets&quot; input option. This option is a comma separated list with pipes (|) separating the environment from the URL. Note: &quot;disabled&quot; is a special keyword to disable an environment url if you enable this option. Format: &quot;&lt;environment1&gt;|&lt;url1&gt;,&lt;environment2&gt;|&lt;url2&gt;,etc&quot; Example: &quot;production|https://myapp.com,development|https://dev.myapp.com,staging|disabled&quot;</td>
+            </tr><tr>
+                <td><code>environment_url_in_comment</code></td>
+                <td>No</td>
+                <td>If the environment_url detected in the deployment should be appended to the successful deployment comment or not. Examples: &quot;true&quot; or &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>production_environments</code></td>
+                <td>No</td>
+                <td>A comma separated list of environments that should be treated as &quot;production&quot;. GitHub defines &quot;production&quot; as an environment that end users or systems interact with. Example: &quot;production,production-eu&quot;. By default, GitHub will set the &quot;production_environment&quot; to &quot;true&quot; if the environment name is &quot;production&quot;. This option allows you to override that behavior so you can use &quot;prod&quot;, &quot;prd&quot;, &quot;main&quot;, &quot;production-eu&quot;, etc. as your production environment name. ref: https://github.com/github/branch-deploy/issues/208</td>
+            </tr><tr>
+                <td><code>reaction</code></td>
+                <td>No</td>
+                <td>If set, the specified emoji &quot;reaction&quot; is put on the comment to indicate that the trigger was detected. For example, &quot;rocket&quot; or &quot;eyes&quot;</td>
+            </tr><tr>
+                <td><code>trigger</code></td>
+                <td>No</td>
+                <td>The string to look for in comments as an IssueOps trigger. Example: &quot;.deploy&quot;</td>
+            </tr><tr>
+                <td><code>noop_trigger</code></td>
+                <td>No</td>
+                <td>The string to look for in comments as an IssueOps noop trigger. Example: &quot;.noop&quot;</td>
+            </tr><tr>
+                <td><code>lock_trigger</code></td>
+                <td>No</td>
+                <td>The string to look for in comments as an IssueOps lock trigger. Used for locking branch deployments on a specific branch. Example: &quot;.lock&quot;</td>
+            </tr><tr>
+                <td><code>unlock_trigger</code></td>
+                <td>No</td>
+                <td>The string to look for in comments as an IssueOps unlock trigger. Used for unlocking branch deployments. Example: &quot;.unlock&quot;</td>
+            </tr><tr>
+                <td><code>help_trigger</code></td>
+                <td>No</td>
+                <td>The string to look for in comments as an IssueOps help trigger. Example: &quot;.help&quot;</td>
+            </tr><tr>
+                <td><code>lock_info_alias</code></td>
+                <td>No</td>
+                <td>An alias or shortcut to get details about the current lock (if it exists) Example: &quot;.info&quot;</td>
+            </tr><tr>
+                <td><code>permissions</code></td>
+                <td>Yes</td>
+                <td>The allowed GitHub permissions an actor can have to invoke IssueOps commands - Example: &quot;write,admin&quot;</td>
+            </tr><tr>
+                <td><code>commit_verification</code></td>
+                <td>No</td>
+                <td>Whether or not to enforce commit verification before a deployment can continue. Default is &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>param_separator</code></td>
+                <td>No</td>
+                <td>The separator to use for parsing parameters in comments in deployment requests. Parameters will are saved as outputs and can be used in subsequent steps</td>
+            </tr><tr>
+                <td><code>global_lock_flag</code></td>
+                <td>No</td>
+                <td>The flag to pass into the lock command to lock all environments. Example: &quot;--global&quot;</td>
+            </tr><tr>
+                <td><code>stable_branch</code></td>
+                <td>No</td>
+                <td>The name of a stable branch to deploy to (rollbacks). Example: &quot;main&quot;</td>
+            </tr><tr>
+                <td><code>update_branch</code></td>
+                <td>No</td>
+                <td>Determine how you want this Action to handle &quot;out-of-date&quot; branches. Available options: &quot;disabled&quot;, &quot;warn&quot;, &quot;force&quot;. &quot;disabled&quot; means that the Action will not care if a branch is out-of-date. &quot;warn&quot; means that the Action will warn the user that a branch is out-of-date and exit without deploying. &quot;force&quot; means that the Action will force update the branch. Note: The &quot;force&quot; option is not recommended due to Actions not being able to re-run CI on commits originating from Actions itself</td>
+            </tr><tr>
+                <td><code>outdated_mode</code></td>
+                <td>No</td>
+                <td>The mode to use for determining if a branch is up-to-date or not before allowing deployments. This option is closely related to the &quot;update_branch&quot; input option above. There are three available modes to choose from &quot;pr_base&quot;, &quot;default_branch&quot;, or &quot;strict&quot;. The default is &quot;strict&quot; to help ensure that deployments are using the most up-to-date code. Please see the docs/outdated_mode.md document for more details.</td>
+            </tr><tr>
+                <td><code>required_contexts</code></td>
+                <td>No</td>
+                <td>Manually enforce commit status checks before a deployment can continue. Only use this option if you wish to manually override the settings you have configured for your branch protection settings for your GitHub repository. Default is &quot;false&quot; - Example value: &quot;context1,context2,context3&quot; - In most cases you will not need to touch this option</td>
+            </tr><tr>
+                <td><code>skip_ci</code></td>
+                <td>No</td>
+                <td>A comma separated list of environments that will not use passing CI as a requirement for deployment. Use this option to explicitly bypass branch protection settings for a certain environment in your repository. Default is an empty string &quot;&quot; - Example: &quot;development,staging&quot;</td>
+            </tr><tr>
+                <td><code>checks</code></td>
+                <td>No</td>
+                <td>This input defines how the branch-deploy Action will handle the status of CI checks on your PR/branch before deployments can continue. `&quot;all&quot;` requires that all CI checks must pass in order for a deployment to be triggered. `&quot;required&quot;` only waits for required CI checks to be passing. You can also pass in the names of your CI jobs in a comma separated list. View the documentation (docs/checks.md) for more details.</td>
+            </tr><tr>
+                <td><code>ignored_checks</code></td>
+                <td>No</td>
+                <td>A comma separated list of checks that will be ignored when determining if a deployment can continue. This setting allows you to skip failing, pending, or incomplete checks regardless of the `checks` setting above. Example: &quot;lint,markdown-formatting,update-pr-label&quot;. View the documentation (docs/checks.md) for more details.</td>
+            </tr><tr>
+                <td><code>skip_reviews</code></td>
+                <td>No</td>
+                <td>A comma separated list of environment that will not use reviews/approvals as a requirement for deployment. Use this options to explicitly bypass branch protection settings for a certain environment in your repository. Default is an empty string &quot;&quot; - Example: &quot;development,staging&quot;</td>
+            </tr><tr>
+                <td><code>allow_forks</code></td>
+                <td>No</td>
+                <td>Allow branch deployments to run on repository forks. If you want to harden your workflows, this option can be set to false. Default is &quot;true&quot;</td>
+            </tr><tr>
+                <td><code>admins</code></td>
+                <td>No</td>
+                <td>A comma separated list of GitHub usernames or teams that should be considered admins by this Action. Admins can deploy pull requests without the need for branch protection approvals. Example: &quot;monalisa,octocat,my-org/my-team&quot;</td>
+            </tr><tr>
+                <td><code>admins_pat</code></td>
+                <td>No</td>
+                <td>A GitHub personal access token with &quot;read:org&quot; scopes. This is only needed if you are using the &quot;admins&quot; option with a GitHub org team. For example: &quot;my-org/my-team&quot;</td>
+            </tr><tr>
+                <td><code>merge_deploy_mode</code></td>
+                <td>No</td>
+                <td>This is an advanced option that is an alternate workflow bundled into this Action. You can control how merge commits are handled when a PR is merged into your repository&#39;s default branch. If the merge commit SHA matches the latest deployment for the same environment, then the &#39;continue&#39; output will be set to &#39;false&#39; which indicates that a deployment should not be performed again as the latest deployment is identical. If the merge commit SHA does not match the latest deployment for the same environment, then the &#39;continue&#39; output will be set to &#39;true&#39; which indicates that a deployment should be performed. With this option, the &#39;environment&#39; output is also set for subsequent steps to reference</td>
+            </tr><tr>
+                <td><code>unlock_on_merge_mode</code></td>
+                <td>No</td>
+                <td>This is an advanced option that is an alternate workflow bundled into this Action. You can optionally use this mode in a custom workflow to automatically release all locks that came from a pull request when the pull request is merged. This is useful if you want to ensure that locks are not left behind when a pull request is merged.</td>
+            </tr><tr>
+                <td><code>skip_completing</code></td>
+                <td>No</td>
+                <td>If set to &quot;true&quot;, skip the process of completing a deployment. You must manually create a deployment status after the deployment is complete. Default is &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>deploy_message_path</code></td>
+                <td>No</td>
+                <td>The path to a markdown file which is used as a template for custom deployment messages. Example: &quot;.github/deployment_message.md&quot;</td>
+            </tr><tr>
+                <td><code>sticky_locks</code></td>
+                <td>No</td>
+                <td>If set to &quot;true&quot;, locks will not be released after a deployment run completes. This applies to both successful, and failed deployments.Sticky locks are also known as &quot;hubot style deployment locks&quot;. They will persist until they are manually released by a user, or if you configure another workflow with the &quot;unlock on merge&quot; mode to remove them automatically on PR merge.</td>
+            </tr><tr>
+                <td><code>sticky_locks_for_noop</code></td>
+                <td>No</td>
+                <td>If set to &quot;true&quot;, then sticky_locks will also be used for noop deployments. This can be useful in some cases but it often leads to locks being left behind when users test noop deployments.</td>
+            </tr><tr>
+                <td><code>allow_sha_deployments</code></td>
+                <td>No</td>
+                <td>If set to &quot;true&quot;, then you can deploy a specific sha instead of a branch. Example: &quot;.deploy 1234567890abcdef1234567890abcdef12345678 to production&quot; - This is dangerous and potentially unsafe, view the docs to learn more: https://github.com/github/branch-deploy/blob/main/docs/sha-deployments.md</td>
+            </tr><tr>
+                <td><code>disable_naked_commands</code></td>
+                <td>No</td>
+                <td>If set to &quot;true&quot;, then naked commands will be disabled. Example: &quot;.deploy&quot; will not trigger a deployment. Instead, you must use &quot;.deploy to production&quot; to trigger a deployment. This is useful if you want to prevent accidental deployments from happening. Read more about naked commands here: https://github.com/github/branch-deploy/blob/main/docs/naked-commands.md</td>
+            </tr><tr>
+                <td><code>successful_deploy_labels</code></td>
+                <td>No</td>
+                <td>A comma separated list of labels to add to the pull request when a deployment is successful. Example: &quot;deployed,success&quot;</td>
+            </tr><tr>
+                <td><code>successful_noop_labels</code></td>
+                <td>No</td>
+                <td>A comma separated list of labels to add to the pull request when a noop deployment is successful. Example: &quot;noop,success&quot;</td>
+            </tr><tr>
+                <td><code>failed_deploy_labels</code></td>
+                <td>No</td>
+                <td>A comma separated list of labels to add to the pull request when a deployment fails. Example: &quot;failed,deploy-failed&quot;</td>
+            </tr><tr>
+                <td><code>failed_noop_labels</code></td>
+                <td>No</td>
+                <td>A comma separated list of labels to add to the pull request when a noop deployment fails. Example: &quot;failed,noop-failed&quot;</td>
+            </tr><tr>
+                <td><code>skip_successful_noop_labels_if_approved</code></td>
+                <td>No</td>
+                <td>Whether or not the post run logic should skip adding successful noop labels if the pull request is approved. This can be useful if you add a label such as &quot;ready-for-review&quot; after a .noop completes but want to skip adding that label in situations where the pull request is already approved.</td>
+            </tr><tr>
+                <td><code>skip_successful_deploy_labels_if_approved</code></td>
+                <td>No</td>
+                <td>Whether or not the post run logic should skip adding successful deploy labels if the pull request is approved. This can be useful if you add a label such as &quot;ready-for-review&quot; after a .deploy completes but want to skip adding that label in situations where the pull request is already approved.</td>
+            </tr><tr>
+                <td><code>enforced_deployment_order</code></td>
+                <td>No</td>
+                <td>A comma separated list of environments that must be deployed in a specific order. Example: `&quot;development,staging,production&quot;`. If this is set then you cannot deploy to latter environments unless the former ones have a successful and active deployment on the latest commit first.</td>
+            </tr><tr>
+                <td><code>use_security_warnings</code></td>
+                <td>No</td>
+                <td>Whether or not to leave security related warnings in log messages during deployments. Default is &quot;true&quot;</td>
+            </tr><tr>
+                <td><code>allow_non_default_target_branch_deployments</code></td>
+                <td>No</td>
+                <td>Whether or not to allow deployments of pull requests that target a branch other than the default branch (aka stable branch) as their merge target. By default, this Action would reject the deployment of a branch named &quot;feature-branch&quot; if it was targeting &quot;foo&quot; instead of &quot;main&quot; (or whatever your default branch is). This option allows you to override that behavior and be able to deploy any branch in your repository regardless of the target branch. This option is potentially unsafe and should be used with caution as most default branches contain branch protection rules. Often times non-default branches do not contain these same branch protection rules. Follow along in this issue thread to learn more https://github.com/github/branch-deploy/issues/340</td>
+            </tr><tr>
+                <td><code>deployment_confirmation</code></td>
+                <td>No</td>
+                <td>Whether or not to require an additional confirmation before a deployment can continue. Default is &quot;false&quot;. If your project requires elevated security, it is highly recommended to enable this option - especially in open source projects where you might be deploying forks. docs/deployment-confirmation.md</td>
+            </tr><tr>
+                <td><code>deployment_confirmation_timeout</code></td>
+                <td>No</td>
+                <td>The number of seconds to wait for a deployment confirmation before timing out. Default is &quot;60&quot; seconds (1 minute).</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>continue</code></td>
+                <td>The string &quot;true&quot; if the deployment should continue, otherwise empty - Use this to conditionally control if your deployment should proceed or not</td>
+            </tr><tr>
+                <td><code>triggered</code></td>
+                <td>The string &quot;true&quot; if the trigger was found, otherwise the string &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>comment_body</code></td>
+                <td>The comment body</td>
+            </tr><tr>
+                <td><code>issue_number</code></td>
+                <td>The issue number of the pull request (or issue) that was commented on</td>
+            </tr><tr>
+                <td><code>actor</code></td>
+                <td>The GitHub handle of the actor that invoked the IssueOps command</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>The environment that has been selected for a deployment</td>
+            </tr><tr>
+                <td><code>params</code></td>
+                <td>The raw parameters that were passed into the deployment command (see param_separator)</td>
+            </tr><tr>
+                <td><code>parsed_params</code></td>
+                <td>A stringified JSON object of the parsed parameters that were passed into the deployment command</td>
+            </tr><tr>
+                <td><code>noop</code></td>
+                <td>The string &quot;true&quot; if the noop trigger was found, otherwise the string &quot;false&quot; - Use this to conditionally control whether your deployment runs as a noop or not</td>
+            </tr><tr>
+                <td><code>sha</code></td>
+                <td>The sha of the branch to be deployed</td>
+            </tr><tr>
+                <td><code>default_branch_tree_sha</code></td>
+                <td>The sha of the default branch tree (useful for subsequent workflow steps if they need to do commit comparisons)</td>
+            </tr><tr>
+                <td><code>base_ref</code></td>
+                <td>The base ref that the pull request is merging into</td>
+            </tr><tr>
+                <td><code>ref</code></td>
+                <td>The ref (branch or sha) to use with deployment</td>
+            </tr><tr>
+                <td><code>comment_id</code></td>
+                <td>The comment id which triggered this deployment</td>
+            </tr><tr>
+                <td><code>type</code></td>
+                <td>The type of trigger that was detected (examples: deploy, lock, unlock, lock-info-alias, help)</td>
+            </tr><tr>
+                <td><code>fork</code></td>
+                <td>The string &quot;true&quot; if the pull request is a fork, otherwise &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>fork_ref</code></td>
+                <td>The true ref of the fork</td>
+            </tr><tr>
+                <td><code>fork_label</code></td>
+                <td>The API label field returned for the fork</td>
+            </tr><tr>
+                <td><code>fork_checkout</code></td>
+                <td>The console command presented in the GitHub UI to checkout a given fork locally</td>
+            </tr><tr>
+                <td><code>fork_full_name</code></td>
+                <td>The full name of the fork in &quot;org/repo&quot; format</td>
+            </tr><tr>
+                <td><code>deployment_id</code></td>
+                <td>The ID of the deployment created by running this action</td>
+            </tr><tr>
+                <td><code>environment_url</code></td>
+                <td>The environment URL detected and used for the deployment (sourced from the environment_urls input)</td>
+            </tr><tr>
+                <td><code>initial_reaction_id</code></td>
+                <td>The reaction id for the initial reaction on the trigger comment</td>
+            </tr><tr>
+                <td><code>initial_comment_id</code></td>
+                <td>The comment id for the &quot;Deployment Triggered 🚀&quot; comment created by the action</td>
+            </tr><tr>
+                <td><code>actor_handle</code></td>
+                <td>The handle of the user who triggered the action</td>
+            </tr><tr>
+                <td><code>global_lock_claimed</code></td>
+                <td>The string &quot;true&quot; if the global lock was claimed</td>
+            </tr><tr>
+                <td><code>global_lock_released</code></td>
+                <td>The string &quot;true&quot; if the global lock was released</td>
+            </tr><tr>
+                <td><code>unlocked_environments</code></td>
+                <td>Only exposed when using the &quot;unlock on merge&quot; mode - This output variable will contain a comma separated list of the environments that were unlocked</td>
+            </tr><tr>
+                <td><code>sha_deployment</code></td>
+                <td>If &quot;allow_sha_deployments&quot; is enabled, and a sha deployment is performed instead of a branch deployment, this output variable will contain the sha that was deployed. Otherwise, this output variable will be empty</td>
+            </tr><tr>
+                <td><code>review_decision</code></td>
+                <td>The pull request review status. Can be one of a few values - examples: APPROVED, REVIEW_REQUIRED, CHANGES_REQUESTED, skip_reviews,, null</td>
+            </tr><tr>
+                <td><code>is_outdated</code></td>
+                <td>The string &quot;true&quot; if the branch is outdated, otherwise &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>merge_state_status</code></td>
+                <td>The status of the merge state. Can be one of a few values - examples: &quot;DIRTY&quot;, &quot;DRAFT&quot;, &quot;CLEAN&quot;, etc</td>
+            </tr><tr>
+                <td><code>commit_status</code></td>
+                <td>The status of the commit. Can be one of a few values - examples: &quot;SUCCESS&quot;, null, &quot;skip_ci&quot;, &quot;PENDING&quot;, &quot;FAILURE&quot; etc</td>
+            </tr><tr>
+                <td><code>approved_reviews_count</code></td>
+                <td>The number of approved reviews on the pull request</td>
+            </tr><tr>
+                <td><code>needs_to_be_deployed</code></td>
+                <td>A comma separated list of environments that need successful and active deployments before the current environment (that was requested) can be deployed. This output is tied to the &quot;enforced_deployment_order&quot; input option.</td>
+            </tr><tr>
+                <td><code>commit_verified</code></td>
+                <td>The string &quot;true&quot; if the commit has a verified signature, otherwise &quot;false&quot;</td>
+            </tr><tr>
+                <td><code>total_seconds</code></td>
+                <td>The total number of seconds that the deployment took to complete (Integer)</td>
+            </tr><tr>
+                <td><code>non_default_target_branch_used</code></td>
+                <td>The string &quot;true&quot; if the pull request is targeting a branch other than the default branch (aka stable branch) for the merge, otherwise unset</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

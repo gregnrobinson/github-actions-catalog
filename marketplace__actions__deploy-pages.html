@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy GitHub Pages site - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy GitHub Pages site</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/deploy-pages</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/deploy-pages" target="_blank">github.com/actions/deploy-pages</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>A GitHub Action to deploy an artifact as a GitHub Pages site</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Publishing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy an artifact as a GitHub Pages site, which falls under the Deployment category. It also involves publishing the site, making Publishing a relevant secondary category.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitHub Pages</span> <span class="tag">Deployment</span> <span class="tag">Publishing</span> <span class="tag">CI/CD</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>GitHub token</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)</td>
+            </tr><tr>
+                <td><code>error_count</code></td>
+                <td>No</td>
+                <td>Maximum number of status report errors before cancelling a deployment (default: 10)</td>
+            </tr><tr>
+                <td><code>reporting_interval</code></td>
+                <td>No</td>
+                <td>Time in milliseconds between two deployment status report (default: 5 seconds)</td>
+            </tr><tr>
+                <td><code>artifact_name</code></td>
+                <td>No</td>
+                <td>Name of the artifact to deploy</td>
+            </tr><tr>
+                <td><code>preview</code></td>
+                <td>No</td>
+                <td>Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>page_url</code></td>
+                <td>URL to deployed GitHub Pages</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure SQL Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure SQL Deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/sql-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/sql-action" target="_blank">github.com/azure/sql-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy a database project, DACPAC, or a SQL script to Azure SQL database</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy database projects or scripts to Azure SQL, making deployment its primary function. It also involves infrastructure as it interacts with Azure SQL databases.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">SQL</span> <span class="tag">Deployment</span> <span class="tag">Database</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>connection-string</code></td>
+                <td>Yes</td>
+                <td>The connection string, including authentication information, for the Azure SQL Server database.</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>Path to the file used for this action. Supported file types are .sql, .dacpac, or .sqlproj.</td>
+            </tr><tr>
+                <td><code>action</code></td>
+                <td>No</td>
+                <td>If not using a .sql file, the sqlpackage action to execute.</td>
+            </tr><tr>
+                <td><code>arguments</code></td>
+                <td>No</td>
+                <td>In case of .dacpac or .sqlproj file types, additional sqlpackage arguments that will be applied. In case of .sql file type, additional go-sqlcmd argument that will be applied.</td>
+            </tr><tr>
+                <td><code>sqlpackage-path</code></td>
+                <td>No</td>
+                <td>Specify a SqlPackage executable location to override the default locations.</td>
+            </tr><tr>
+                <td><code>build-arguments</code></td>
+                <td>No</td>
+                <td>In case of a .sqlproj file, additional arguments that will be applied to dotnet build when building the database project.</td>
+            </tr><tr>
+                <td><code>skip-firewall-check</code></td>
+                <td>No</td>
+                <td>Skip the firewall check when connecting to the Azure SQL Server.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

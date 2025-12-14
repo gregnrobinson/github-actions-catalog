@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGuru Security - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>CodeGuru Security</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/codeguru-security</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/codeguru-security" target="_blank">github.com/aws-actions/codeguru-security</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>AWS CodeGuru Security Action</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The CodeGuru Security Action focuses on scanning code for security vulnerabilities, which places it primarily in the Security category, while also contributing to Code quality by improving the overall integrity of the codebase.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">CodeGuru</span> <span class="tag">Security</span> <span class="tag">Code quality</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>source_path</code></td>
+                <td>No</td>
+                <td>Path to source repository</td>
+            </tr><tr>
+                <td><code>aws_region</code></td>
+                <td>Yes</td>
+                <td>AWS region where you want to run workflow</td>
+            </tr><tr>
+                <td><code>scan_name</code></td>
+                <td>Yes</td>
+                <td>The name of the scan</td>
+            </tr><tr>
+                <td><code>analysis_type</code></td>
+                <td>No</td>
+                <td>The type of analysis you want CodeGuru Security to perform in the scan, either Security or All. Defaults to Security type if missing.</td>
+            </tr><tr>
+                <td><code>fail_on_severity</code></td>
+                <td>No</td>
+                <td>Fails the action run if any finding is higher than or equal to severity is provided. Default the script does not break the action run. [example: Info, Low, Medium, High, Critical]</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

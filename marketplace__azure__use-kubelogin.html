@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup kubelogin - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup kubelogin</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/use-kubelogin</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/use-kubelogin" target="_blank">github.com/azure/use-kubelogin</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Setup kubelogin in GitHub Actions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action sets up kubelogin, which is primarily used for managing authentication with Kubernetes clusters, thus falling under Infrastructure. It also involves aspects of Authentication as it helps in logging into Kubernetes securely.</p>
+            <p><strong>Tags:</strong> <span class="tag">kubelogin</span> <span class="tag">Kubernetes</span> <span class="tag">GitHub Actions</span> <span class="tag">setup</span> <span class="tag">authentication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>kubelogin-version</code></td>
+                <td>No</td>
+                <td>The version of kubelogin to use. Defaults to the latest version.</td>
+            </tr><tr>
+                <td><code>skip-cache</code></td>
+                <td>No</td>
+                <td>Skip cache check? When set to &quot;true&quot;, the action will always download the latest version of kubelogin.</td>
+            </tr><tr>
+                <td><code>github-api-base-url</code></td>
+                <td>No</td>
+                <td>The base URL of GitHub API. Defaults to https://api.github.com.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

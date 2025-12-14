@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Miniconda - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup Miniconda</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/mxschmitt/setup-miniconda</code></p>
+            <p><strong>Author:</strong> Gonzalo Peña-Castellanos (@goanpeca)</p>
+            <p><strong>Publisher:</strong> mxschmitt</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/mxschmitt/setup-miniconda" target="_blank">github.com/mxschmitt/setup-miniconda</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Set up Conda package and environment manager with Miniconda.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to set up Miniconda, which is primarily used for managing dependencies and environments in Python projects. It also involves building and packaging software using Conda.</p>
+            <p><strong>Tags:</strong> <span class="tag">miniconda</span> <span class="tag">dependency management</span> <span class="tag">environment setup</span> <span class="tag">packaging</span> <span class="tag">python</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>installer-url</code></td>
+                <td>No</td>
+                <td>If provided, this installer will be used instead of a miniconda installer, and cached based on its full URL Visit https://github.com/conda/constructor for more information on creating installers</td>
+            </tr><tr>
+                <td><code>miniconda-version</code></td>
+                <td>No</td>
+                <td>If provided, this version of Miniconda3 will be downloaded and installed. Visit https://repo.continuum.io/miniconda/ for more information on available versions.</td>
+            </tr><tr>
+                <td><code>miniforge-variant</code></td>
+                <td>No</td>
+                <td>If provided, this variant of Miniforge will be downloaded and installed. If `miniforge-version` is not provided, the `latest` version will be used. Currently-known values: - Miniforge3 (default) - Miniforge-pypy3 - Mambaforge - Mambaforge-pypy3 Visit https://github.com/conda-forge/miniforge/releases/ for more information on available variants</td>
+            </tr><tr>
+                <td><code>miniforge-version</code></td>
+                <td>No</td>
+                <td>If provided, this version of the given Miniforge variant will be downloaded and installed. If `miniforge-variant` is not provided, `Miniforge3` will be used. Visit https://github.com/conda-forge/miniforge/releases/ for more information on available versions</td>
+            </tr><tr>
+                <td><code>conda-version</code></td>
+                <td>No</td>
+                <td>Specific version of Conda to install after miniconda is located or installed. See https://anaconda.org/anaconda/conda for available &quot;conda&quot; versions.</td>
+            </tr><tr>
+                <td><code>conda-build-version</code></td>
+                <td>No</td>
+                <td>Version of conda build to install. If not provided conda-build is not installed. See https://anaconda.org/anaconda/conda-build for available &quot;conda-build&quot; versions.</td>
+            </tr><tr>
+                <td><code>environment-file</code></td>
+                <td>No</td>
+                <td>Environment.yml to create an environment. See https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-from-an-environment-yml-file for more information.</td>
+            </tr><tr>
+                <td><code>activate-environment</code></td>
+                <td>No</td>
+                <td>Environment name (or path) to activate on all shells. Default is `test` which will be created in `$CONDA/envs/test`. If an empty string is used, no environment is activated by default (For `base` activation see the `auto-activate-base` option). If the environment does not exist, it will be created and activated. If `environment-file` is used and you want that to be the environment used, you need to explicitely provide the name of that environment on `activate-environment`. If using sh/bash/cmd.exe shells please read the IMPORTANT! section on the README.md! to properly activate conda environments on these shells.</td>
+            </tr><tr>
+                <td><code>python-version</code></td>
+                <td>No</td>
+                <td>Exact version of a Python version to use on &quot;activate-environment&quot;. If provided, this will be installed before the &quot;environment-file&quot;. See https://anaconda.org/anaconda/python for available &quot;python&quot; versions.</td>
+            </tr><tr>
+                <td><code>add-anaconda-token</code></td>
+                <td>No</td>
+                <td>Conda configuration. When the channel alias is Anaconda.org or an Anaconda Server GUI, you can set the system configuration so that users automatically see private packages. Anaconda.org was formerly known as binstar.org. This uses the Anaconda command-line client, which you can install with conda install anaconda-client, to automatically add the token to the channel URLs. The default is &quot;true&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#add-anaconda-org-token-to-automatically-see-private-packages-add-anaconda-token for more information.</td>
+            </tr><tr>
+                <td><code>add-pip-as-python-dependency</code></td>
+                <td>No</td>
+                <td>Conda configuration. Add pip, wheel, and setuptools as dependencies of Python. This ensures that pip, wheel, and setuptools are always installed any time Python is installed. The default is &quot;true&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#add-pip-as-python-dependency-add-pip-as-python-dependency for more information.</td>
+            </tr><tr>
+                <td><code>allow-softlinks</code></td>
+                <td>No</td>
+                <td>Conda configuration. When allow_softlinks is &quot;true&quot;, conda uses hard-links when possible and soft-links---symlinks---when hard-links are not possible, such as when installing on a different file system than the one that the package cache is on. When allow_softlinks is &quot;false&quot;, conda still uses hard-links when possible, but when it is not possible, conda copies files. Individual packages can override this option, specifying that certain files should never be soft-linked. The default is &quot;true&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#disallow-soft-linking-allow-softlinks for more information.</td>
+            </tr><tr>
+                <td><code>auto-activate-base</code></td>
+                <td>No</td>
+                <td>Conda configuration. If you’d prefer that conda’s base environment not be activated on startup, set the to &quot;false&quot;. Default is &quot;true&quot;. This setting always overrides if set to &quot;true&quot; or &quot;false&quot;. If you want to use the &quot;condarc-file&quot; setting pass and empty string. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/ for more information.</td>
+            </tr><tr>
+                <td><code>auto-update-conda</code></td>
+                <td>No</td>
+                <td>Conda configuration. When &quot;true&quot;, conda updates itself any time a user updates or installs a package in the base environment. When &quot;false&quot;, conda updates itself only if the user manually issues a conda update command. The default is &quot;true&quot;.  This setting always overrides if set to &quot;true&quot; or &quot;false&quot;. If you want to use the &quot;condarc-file&quot; setting pass and empty string. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/ for more information.</td>
+            </tr><tr>
+                <td><code>condarc-file</code></td>
+                <td>No</td>
+                <td>Conda configuration. Path to a conda configuration file to use for the runner. This file will be copied to &quot;~/.condarc&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/ for more information.</td>
+            </tr><tr>
+                <td><code>channel-alias</code></td>
+                <td>No</td>
+                <td>Conda configuration. Whenever you use the -c or --channel flag to give conda a channel name that is not a URL, conda prepends the channel_alias to the name that it was given. The default channel_alias is https://conda.anaconda.org. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#set-a-channel-alias-channel-alias for more information.</td>
+            </tr><tr>
+                <td><code>channel-priority</code></td>
+                <td>No</td>
+                <td>Conda configuration. Accepts values of &quot;strict&quot;, &quot;flexible&quot;, and &quot;disabled&quot;. The default value is &quot;flexible&quot;. With strict channel priority, packages in lower priority channels are not considered if a package with the same name appears in a higher priority channel. With flexible channel priority, the solver may reach into lower priority channels to fulfill dependencies, rather than raising an unsatisfiable error. With channel priority disabled, package version takes precedence, and the configured priority of channels is used only to break ties. In previous versions of conda, this parameter was configured as either &quot;true&quot; or &quot;false&quot;. &quot;true&quot; is now an alias to &quot;flexible&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html#strict-channel-priority for more information.</td>
+            </tr><tr>
+                <td><code>channels</code></td>
+                <td>No</td>
+                <td>Conda configuration. Comma separated list of channels to use in order of priority. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/ for more information.</td>
+            </tr><tr>
+                <td><code>show-channel-urls</code></td>
+                <td>No</td>
+                <td>Conda configuration. Show channel URLs when displaying what is going to be downloaded and in conda list. The default is &quot;false&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#show-channel-urls-show-channel-urls for more information.</td>
+            </tr><tr>
+                <td><code>use-only-tar-bz2</code></td>
+                <td>No</td>
+                <td>Conda configuration. Conda 4.7 introduced a new .conda package file format. .conda is a more compact and faster alternative to .tar.bz2 packages. It is thus the preferred file format to use where available. Nevertheless, it is possible to force conda to only download .tar.bz2 packages by setting the use_only_tar_bz2 boolean to &quot;true&quot;. The default is &quot;false&quot;. See https://docs.conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#force-conda-to-download-only-tar-bz2-packages-use-only-tar-bz2 for more information.</td>
+            </tr><tr>
+                <td><code>remove-profiles</code></td>
+                <td>No</td>
+                <td>Advanced. Prior to runnning &quot;conda init&quot; all shell profiles will be removed from the runner. Default is &quot;true&quot;.</td>
+            </tr><tr>
+                <td><code>mamba-version</code></td>
+                <td>No</td>
+                <td>Experimental. Use mamba (https://github.com/QuantStack/mamba) as a faster drop-in replacement for conda installs. Disabled by default. To enable, use &quot;*&quot; or a &quot;x.y&quot; version string.</td>
+            </tr><tr>
+                <td><code>use-mamba</code></td>
+                <td>No</td>
+                <td>Experimental. Use mamba as soon as available (either as provided by `mamba-in-installer` or installation by `mamba-version`)</td>
+            </tr><tr>
+                <td><code>architecture</code></td>
+                <td>No</td>
+                <td>Architecture of Miniconda that should be installed. Available options on GitHub-hosted runners are &quot;x86&quot; and &quot;x64&quot;. Default is &quot;x64&quot;.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Node.js environment - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup Node.js environment</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/setup-node</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/setup-node" target="_blank">github.com/actions/setup-node</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on setting up a Node.js environment, which is essential for managing dependencies and building applications. It also involves infrastructure setup by configuring the environment for Node.js.</p>
+            <p><strong>Tags:</strong> <span class="tag">Node.js</span> <span class="tag">setup</span> <span class="tag">environment</span> <span class="tag">dependency</span> <span class="tag">build</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>node-version</code></td>
+                <td>No</td>
+                <td>Version Spec of the version to use. Examples: 12.x, 10.15.1, &gt;=10.15.0.</td>
+            </tr><tr>
+                <td><code>node-version-file</code></td>
+                <td>No</td>
+                <td>File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions.</td>
+            </tr><tr>
+                <td><code>architecture</code></td>
+                <td>No</td>
+                <td>Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.</td>
+            </tr><tr>
+                <td><code>check-latest</code></td>
+                <td>No</td>
+                <td>Set this option if you want the action to check for the latest available version that satisfies the version spec.</td>
+            </tr><tr>
+                <td><code>registry-url</code></td>
+                <td>No</td>
+                <td>Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN.</td>
+            </tr><tr>
+                <td><code>scope</code></td>
+                <td>No</td>
+                <td>Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/).</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>Used to pull node distributions from node-versions. Since there&#39;s a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.</td>
+            </tr><tr>
+                <td><code>cache</code></td>
+                <td>No</td>
+                <td>Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm.</td>
+            </tr><tr>
+                <td><code>package-manager-cache</code></td>
+                <td>No</td>
+                <td>Set to false to disable automatic caching. By default, caching is enabled when either devEngines.packageManager or the top-level packageManager field in package.json specifies npm as the package manager.</td>
+            </tr><tr>
+                <td><code>cache-dependency-path</code></td>
+                <td>No</td>
+                <td>Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.</td>
+            </tr><tr>
+                <td><code>mirror</code></td>
+                <td>No</td>
+                <td>Used to specify an alternative mirror to downlooad Node.js binaries from</td>
+            </tr><tr>
+                <td><code>mirror-token</code></td>
+                <td>No</td>
+                <td>The token used as Authorization header when fetching from the mirror</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>cache-hit</code></td>
+                <td>A boolean value to indicate if a cache was hit.</td>
+            </tr><tr>
+                <td><code>node-version</code></td>
+                <td>The installed node version.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

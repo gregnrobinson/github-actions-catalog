@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cibuildwheel - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>cibuildwheel</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/pypa/cibuildwheel</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> pypa</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/pypa/cibuildwheel" target="_blank">github.com/pypa/cibuildwheel</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Installs and runs cibuildwheel on the current runner</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Build</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Build</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on building Python wheels, which falls under the Build category, and it also involves packaging the output as Python distributions.</p>
+            <p><strong>Tags:</strong> <span class="tag">cibuildwheel</span> <span class="tag">python</span> <span class="tag">build</span> <span class="tag">packaging</span> <span class="tag">CI</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>package-dir</code></td>
+                <td>No</td>
+                <td>Input directory, defaults to &quot;.&quot;</td>
+            </tr><tr>
+                <td><code>output-dir</code></td>
+                <td>No</td>
+                <td>Folder to place the outputs in, defaults to &quot;wheelhouse&quot;</td>
+            </tr><tr>
+                <td><code>config-file</code></td>
+                <td>No</td>
+                <td>File containing the config, defaults to {package}/pyproject.toml</td>
+            </tr><tr>
+                <td><code>only</code></td>
+                <td>No</td>
+                <td>Build a specific wheel only. No need for arch/platform if this is set</td>
+            </tr><tr>
+                <td><code>extras</code></td>
+                <td>No</td>
+                <td>Comma-separated list of extras to install</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Java JDK - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Setup Java JDK</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/setup-java</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/setup-java" target="_blank">github.com/actions/setup-java</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Set up a specific version of the Java JDK and add the command-line tools to the PATH</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action sets up a specific version of the Java JDK, which is essential for managing dependencies in Java projects. It also facilitates the build process by ensuring the correct environment is available.</p>
+            <p><strong>Tags:</strong> <span class="tag">Java</span> <span class="tag">JDK</span> <span class="tag">setup</span> <span class="tag">dependency</span> <span class="tag">build</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>java-version</code></td>
+                <td>No</td>
+                <td>The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file</td>
+            </tr><tr>
+                <td><code>java-version-file</code></td>
+                <td>No</td>
+                <td>The path to the `.java-version` file. See examples of supported syntax in README file</td>
+            </tr><tr>
+                <td><code>distribution</code></td>
+                <td>Yes</td>
+                <td>Java distribution. See the list of supported distributions in README file</td>
+            </tr><tr>
+                <td><code>java-package</code></td>
+                <td>No</td>
+                <td>The package type (jdk, jre, jdk+fx, jre+fx)</td>
+            </tr><tr>
+                <td><code>architecture</code></td>
+                <td>No</td>
+                <td>The architecture of the package (defaults to the action runner&#39;s architecture)</td>
+            </tr><tr>
+                <td><code>jdkFile</code></td>
+                <td>No</td>
+                <td>Path to where the compressed JDK is located</td>
+            </tr><tr>
+                <td><code>check-latest</code></td>
+                <td>No</td>
+                <td>Set this option if you want the action to check for the latest available version that satisfies the version spec</td>
+            </tr><tr>
+                <td><code>server-id</code></td>
+                <td>No</td>
+                <td>ID of the distributionManagement repository in the pom.xml file. Default is `github`</td>
+            </tr><tr>
+                <td><code>server-username</code></td>
+                <td>No</td>
+                <td>Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR</td>
+            </tr><tr>
+                <td><code>server-password</code></td>
+                <td>No</td>
+                <td>Environment variable name for password or token for authentication to the Apache Maven repository. Default is $GITHUB_TOKEN</td>
+            </tr><tr>
+                <td><code>settings-path</code></td>
+                <td>No</td>
+                <td>Path to where the settings.xml file will be written. Default is ~/.m2.</td>
+            </tr><tr>
+                <td><code>overwrite-settings</code></td>
+                <td>No</td>
+                <td>Overwrite the settings.xml file if it exists. Default is &quot;true&quot;.</td>
+            </tr><tr>
+                <td><code>gpg-private-key</code></td>
+                <td>No</td>
+                <td>GPG private key to import. Default is empty string.</td>
+            </tr><tr>
+                <td><code>gpg-passphrase</code></td>
+                <td>No</td>
+                <td>Environment variable name for the GPG private key passphrase. Default is $GPG_PASSPHRASE.</td>
+            </tr><tr>
+                <td><code>cache</code></td>
+                <td>No</td>
+                <td>Name of the build platform to cache dependencies. It can be &quot;maven&quot;, &quot;gradle&quot; or &quot;sbt&quot;.</td>
+            </tr><tr>
+                <td><code>cache-dependency-path</code></td>
+                <td>No</td>
+                <td>The path to a dependency file: pom.xml, build.gradle, build.sbt, etc. This option can be used with the `cache` option. If this option is omitted, the action searches for the dependency file in the entire repository. This option supports wildcards and a list of file names for caching multiple dependencies.</td>
+            </tr><tr>
+                <td><code>job-status</code></td>
+                <td>No</td>
+                <td>Workaround to pass job status to post job step. This variable is not intended for manual setting</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>The token used to authenticate when fetching version manifests hosted on github.com, such as for the Microsoft Build of OpenJDK. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.</td>
+            </tr><tr>
+                <td><code>mvn-toolchain-id</code></td>
+                <td>No</td>
+                <td>Name of Maven Toolchain ID if the default name of &quot;${distribution}_${java-version}&quot; is not wanted. See examples of supported syntax in Advanced Usage file</td>
+            </tr><tr>
+                <td><code>mvn-toolchain-vendor</code></td>
+                <td>No</td>
+                <td>Name of Maven Toolchain Vendor if the default name of &quot;${distribution}&quot; is not wanted. See examples of supported syntax in Advanced Usage file</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>distribution</code></td>
+                <td>Distribution of Java that has been installed</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>Actual version of the java environment that has been installed</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>Path to where the java environment has been installed (same as $JAVA_HOME)</td>
+            </tr><tr>
+                <td><code>cache-hit</code></td>
+                <td>A boolean value to indicate an exact match was found for the primary key</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

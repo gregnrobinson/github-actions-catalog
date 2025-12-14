@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCP Command to Transfer Files - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>SCP Command to Transfer Files</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/scp-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/scp-action" target="_blank">github.com/appleboy/scp-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Easily transfer files and folders using the SCP command in Linux.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to transfer files using the SCP command, which is primarily used for deployment purposes. It also involves infrastructure as it connects to remote hosts.</p>
+            <p><strong>Tags:</strong> <span class="tag">SCP</span> <span class="tag">file transfer</span> <span class="tag">deployment</span> <span class="tag">infrastructure</span> <span class="tag">Linux</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>host</code></td>
+                <td>No</td>
+                <td>Remote host address for SCP (e.g., example.com or 192.168.1.1).</td>
+            </tr><tr>
+                <td><code>port</code></td>
+                <td>No</td>
+                <td>Remote SSH port for SCP. Default: 22.</td>
+            </tr><tr>
+                <td><code>username</code></td>
+                <td>No</td>
+                <td>Username for SSH authentication.</td>
+            </tr><tr>
+                <td><code>password</code></td>
+                <td>No</td>
+                <td>Password for SSH authentication (not recommended; use SSH keys if possible).</td>
+            </tr><tr>
+                <td><code>protocol</code></td>
+                <td>No</td>
+                <td>IP protocol to use. Valid values: &#39;tcp&#39;, &#39;tcp4&#39;, or &#39;tcp6&#39;. Default: tcp.</td>
+            </tr><tr>
+                <td><code>timeout</code></td>
+                <td>No</td>
+                <td>Timeout for establishing SSH connection to the remote host. Default: 30s.</td>
+            </tr><tr>
+                <td><code>command_timeout</code></td>
+                <td>No</td>
+                <td>Timeout for the SCP command execution. Default: 10m.</td>
+            </tr><tr>
+                <td><code>key</code></td>
+                <td>No</td>
+                <td>Content of the SSH private key (e.g., the raw content of ~/.ssh/id_rsa).</td>
+            </tr><tr>
+                <td><code>key_path</code></td>
+                <td>No</td>
+                <td>Path to the SSH private key file.</td>
+            </tr><tr>
+                <td><code>passphrase</code></td>
+                <td>No</td>
+                <td>Passphrase for the SSH private key, if required.</td>
+            </tr><tr>
+                <td><code>fingerprint</code></td>
+                <td>No</td>
+                <td>SHA256 fingerprint of the host&#39;s public key. If not set, host key verification is skipped (not recommended for production).</td>
+            </tr><tr>
+                <td><code>use_insecure_cipher</code></td>
+                <td>No</td>
+                <td>Enable additional, less secure ciphers for compatibility. Not recommended unless required.</td>
+            </tr><tr>
+                <td><code>target</code></td>
+                <td>No</td>
+                <td>Target directory path on the remote server. Must be a directory.</td>
+            </tr><tr>
+                <td><code>source</code></td>
+                <td>No</td>
+                <td>List of files or directories to transfer (local paths).</td>
+            </tr><tr>
+                <td><code>rm</code></td>
+                <td>No</td>
+                <td>Remove the target directory on the server before uploading new data.</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Enable debug messages for troubleshooting.</td>
+            </tr><tr>
+                <td><code>strip_components</code></td>
+                <td>No</td>
+                <td>Remove the specified number of leading path elements when extracting files.</td>
+            </tr><tr>
+                <td><code>overwrite</code></td>
+                <td>No</td>
+                <td>Use the --overwrite flag with tar to overwrite existing files.</td>
+            </tr><tr>
+                <td><code>tar_dereference</code></td>
+                <td>No</td>
+                <td>Use the --dereference flag with tar to follow symlinks.</td>
+            </tr><tr>
+                <td><code>tar_tmp_path</code></td>
+                <td>No</td>
+                <td>Temporary path for the tar file on the destination host.</td>
+            </tr><tr>
+                <td><code>tar_exec</code></td>
+                <td>No</td>
+                <td>Path to the tar executable on the destination host. Default: tar.</td>
+            </tr><tr>
+                <td><code>proxy_host</code></td>
+                <td>No</td>
+                <td>Remote host address for SSH proxy.</td>
+            </tr><tr>
+                <td><code>proxy_port</code></td>
+                <td>No</td>
+                <td>SSH proxy port. Default: 22.</td>
+            </tr><tr>
+                <td><code>proxy_username</code></td>
+                <td>No</td>
+                <td>Username for SSH proxy authentication.</td>
+            </tr><tr>
+                <td><code>proxy_password</code></td>
+                <td>No</td>
+                <td>Password for SSH proxy authentication.</td>
+            </tr><tr>
+                <td><code>proxy_passphrase</code></td>
+                <td>No</td>
+                <td>Passphrase for the SSH proxy private key, if required.</td>
+            </tr><tr>
+                <td><code>proxy_timeout</code></td>
+                <td>No</td>
+                <td>Timeout for establishing SSH connection to the proxy host. Default: 30s.</td>
+            </tr><tr>
+                <td><code>proxy_key</code></td>
+                <td>No</td>
+                <td>Content of the SSH proxy private key (e.g., the raw content of ~/.ssh/id_rsa).</td>
+            </tr><tr>
+                <td><code>proxy_key_path</code></td>
+                <td>No</td>
+                <td>Path to the SSH proxy private key file.</td>
+            </tr><tr>
+                <td><code>proxy_fingerprint</code></td>
+                <td>No</td>
+                <td>SHA256 fingerprint of the proxy host&#39;s public key. If not set, host key verification is skipped (not recommended for production).</td>
+            </tr><tr>
+                <td><code>proxy_use_insecure_cipher</code></td>
+                <td>No</td>
+                <td>Enable additional, less secure ciphers for the proxy connection. Not recommended unless required.</td>
+            </tr><tr>
+                <td><code>curl_insecure</code></td>
+                <td>No</td>
+                <td>When true, uses the --insecure option with curl for insecure downloads.</td>
+            </tr><tr>
+                <td><code>capture_stdout</code></td>
+                <td>No</td>
+                <td>When true, captures and returns standard output from the commands as action output.</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>The version of drone-scp to use.
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>stdout</code></td>
+                <td>Standard output of the executed commands when capture_stdout is enabled.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Test - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Checkout Test</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/checkout</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/checkout" target="_blank">github.com/actions/checkout</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Checkout a Git repository at a particular version</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on checking out a Git repository, which is a key part of managing dependencies in a project. It also involves authentication through the use of a personal access token to fetch the repository.</p>
+            <p><strong>Tags:</strong> <span class="tag">checkout</span> <span class="tag">git</span> <span class="tag">repository</span> <span class="tag">actions</span> <span class="tag">dependency management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>Repository name with owner. For example, actions/checkout</td>
+            </tr><tr>
+                <td><code>ref</code></td>
+                <td>No</td>
+                <td>The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.
+</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>Personal access token (PAT) used to fetch the repository. The PAT is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the PAT.
+
+We recommend using a service account with the least permissions necessary. Also when generating a new PAT, select the least scopes necessary.
+
+[Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+</td>
+            </tr><tr>
+                <td><code>ssh-key</code></td>
+                <td>No</td>
+                <td>SSH key used to fetch the repository. The SSH key is configured with the local git config, which enables your scripts to run authenticated git commands. The post-job step removes the SSH key.
+
+We recommend using a service account with the least permissions necessary.
+
+[Learn more about creating and using encrypted secrets](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+</td>
+            </tr><tr>
+                <td><code>ssh-known-hosts</code></td>
+                <td>No</td>
+                <td>Known hosts in addition to the user and global host key database. The public SSH keys for a host may be obtained using the utility `ssh-keyscan`. For example, `ssh-keyscan github.com`. The public key for github.com is always implicitly added.
+</td>
+            </tr><tr>
+                <td><code>ssh-strict</code></td>
+                <td>No</td>
+                <td>Whether to perform strict host key checking. When true, adds the options `StrictHostKeyChecking=yes` and `CheckHostIP=no` to the SSH command line. Use the input `ssh-known-hosts` to configure additional hosts.
+</td>
+            </tr><tr>
+                <td><code>ssh-user</code></td>
+                <td>No</td>
+                <td>The user to use when connecting to the remote SSH host. By default &#39;git&#39; is used.
+</td>
+            </tr><tr>
+                <td><code>persist-credentials</code></td>
+                <td>No</td>
+                <td>Whether to configure the token or SSH key with the local git config</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>Relative path under $GITHUB_WORKSPACE to place the repository</td>
+            </tr><tr>
+                <td><code>clean</code></td>
+                <td>No</td>
+                <td>Whether to execute `git clean -ffdx &amp;&amp; git reset --hard HEAD` before fetching</td>
+            </tr><tr>
+                <td><code>filter</code></td>
+                <td>No</td>
+                <td>Partially clone against a given filter. Overrides sparse-checkout if set.
+</td>
+            </tr><tr>
+                <td><code>sparse-checkout</code></td>
+                <td>No</td>
+                <td>Do a sparse checkout on given patterns. Each pattern should be separated with new lines.
+</td>
+            </tr><tr>
+                <td><code>sparse-checkout-cone-mode</code></td>
+                <td>No</td>
+                <td>Specifies whether to use cone-mode when doing a sparse checkout.
+</td>
+            </tr><tr>
+                <td><code>fetch-depth</code></td>
+                <td>No</td>
+                <td>Number of commits to fetch. 0 indicates all history for all branches and tags.</td>
+            </tr><tr>
+                <td><code>fetch-tags</code></td>
+                <td>No</td>
+                <td>Whether to fetch tags, even if fetch-depth &gt; 0.</td>
+            </tr><tr>
+                <td><code>show-progress</code></td>
+                <td>No</td>
+                <td>Whether to show progress status output when fetching.</td>
+            </tr><tr>
+                <td><code>lfs</code></td>
+                <td>No</td>
+                <td>Whether to download Git-LFS files</td>
+            </tr><tr>
+                <td><code>submodules</code></td>
+                <td>No</td>
+                <td>Whether to checkout submodules: `true` to checkout submodules or `recursive` to recursively checkout submodules.
+
+When the `ssh-key` input is not provided, SSH URLs beginning with `git@github.com:` are converted to HTTPS.
+</td>
+            </tr><tr>
+                <td><code>set-safe-directory</code></td>
+                <td>No</td>
+                <td>Add repository path as safe.directory for Git global config by running `git config --global --add safe.directory &lt;path&gt;`</td>
+            </tr><tr>
+                <td><code>github-server-url</code></td>
+                <td>No</td>
+                <td>The base URL for the GitHub instance that you are trying to clone from, will use environment defaults to fetch from the same instance that the workflow is running from unless specified. Example URLs are https://github.com or https://my-ghes-server.example.com</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>ref</code></td>
+                <td>The branch, tag or SHA that was checked out</td>
+            </tr><tr>
+                <td><code>commit</code></td>
+                <td>The commit SHA that was checked out</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CloudFormation &quot;Deploy CloudFormation Stack&quot; Action for GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AWS CloudFormation &quot;Deploy CloudFormation Stack&quot; Action for GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/aws-cloudformation-github-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/aws-cloudformation-github-deploy" target="_blank">github.com/aws-actions/aws-cloudformation-github-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploys a AWS CloudFormation stack</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to deploy AWS CloudFormation stacks, which falls under the Deployment category, and it also relates to Infrastructure as it manages cloud resources.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">CloudFormation</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>The name of the CloudFormation stack</td>
+            </tr><tr>
+                <td><code>template</code></td>
+                <td>Yes</td>
+                <td>The path or URL to the CloudFormation template</td>
+            </tr><tr>
+                <td><code>capabilities</code></td>
+                <td>No</td>
+                <td>The comma-delimited list of stack template capabilities to acknowledge. Defaults to &#39;CAPABILITY_IAM&#39;</td>
+            </tr><tr>
+                <td><code>parameter-overrides</code></td>
+                <td>No</td>
+                <td>The parameters to override in the stack inputs. You can pass a comma-delimited list or a file URL. Comma-delimited list has each entry formatted as &lt;ParameterName&gt;=&lt;ParameterValue&gt; or &lt;ParameterName&gt;=&quot;&lt;ParameterValue&gt;,&lt;ParameterValue&gt;&quot;. A JSON file can be a local file with a &quot;file://&quot; prefix or remote URL. The file should look like: [ { &quot;ParameterKey&quot;: &quot;KeyPairName&quot;, &quot;ParameterValue&quot;: &quot;MyKey&quot; }]</td>
+            </tr><tr>
+                <td><code>no-execute-changeset</code></td>
+                <td>No</td>
+                <td>Indicates whether to execute to the change set or have it reviewed. Default to &#39;0&#39; (will execute the change set)</td>
+            </tr><tr>
+                <td><code>no-delete-failed-changeset</code></td>
+                <td>No</td>
+                <td>Indicates whether to delete to a failed change set. Default to &#39;0&#39; (will delete the failed changeset)</td>
+            </tr><tr>
+                <td><code>no-fail-on-empty-changeset</code></td>
+                <td>No</td>
+                <td>If the CloudFormation change set is empty, do not fail. Defaults to &#39;0&#39; (will fail on empty change set)</td>
+            </tr><tr>
+                <td><code>disable-rollback</code></td>
+                <td>No</td>
+                <td>Disable rollback of the stack if stack creation fails. Defaults to &#39;0&#39; (will rollback if stack creation fails). This input is only used for stack creation, not for stack update</td>
+            </tr><tr>
+                <td><code>timeout-in-minutes</code></td>
+                <td>No</td>
+                <td>The amount of time that can pass before the stack status becomes CREATE_FAILED. This input is only used for stack creation, not for stack update</td>
+            </tr><tr>
+                <td><code>notification-arns</code></td>
+                <td>No</td>
+                <td>The comma-delimited list of Amazon SNS topic ARNs to publish stack related events</td>
+            </tr><tr>
+                <td><code>role-arn</code></td>
+                <td>No</td>
+                <td>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role&#39;s credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don&#39;t have permission to pass it. Ensure that the role grants least privilege. If you don&#39;t specify a value, AWS CloudFormation uses the role that was previously associated with the stack</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>Key-value pairs to associate with this stack. This input should be JSON-formatted, for example [ { &quot;Key&quot;: &quot;string&quot;, &quot;Value&quot;: &quot;string&quot; } ]</td>
+            </tr><tr>
+                <td><code>termination-protection</code></td>
+                <td>No</td>
+                <td>Whether to enable termination protection on the specified stack. Defaults to &#39;0&#39; (terminated protection will be disabled) This input is only used for stack creation, not for stack update</td>
+            </tr><tr>
+                <td><code>http-proxy</code></td>
+                <td>No</td>
+                <td>Proxy to use for the AWS SDK agent</td>
+            </tr><tr>
+                <td><code>change-set-name</code></td>
+                <td>No</td>
+                <td>The name of the change set to create. Defaults to &#39;&lt;stack-name&gt;-CS&#39;</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>stack-id</code></td>
+                <td>The id of the deployed stack. In addition, any outputs declared in the deployed CloudFormation stack will also be set as outputs for the action, e.g. if the stack has a stack output named &#39;foo&#39;, this action will also have an output named &#39;foo&#39;.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

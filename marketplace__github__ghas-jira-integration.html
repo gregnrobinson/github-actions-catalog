@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sync GitHub Advanced Security and Jira - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Sync GitHub Advanced Security and Jira</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/ghas-jira-integration</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/ghas-jira-integration" target="_blank">github.com/github/ghas-jira-integration</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This helps sync GHAS alerts to JIRA by creating an issue for each alert.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span> <span class="badge badge-category">Security</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action facilitates communication between GitHub Advanced Security and Jira by creating issues for alerts, which falls under both Communication and Notification. Additionally, it involves security aspects by handling alerts related to GitHub Advanced Security.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitHub</span> <span class="tag">Jira</span> <span class="tag">security</span> <span class="tag">integration</span> <span class="tag">alerts</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>jira_url</code></td>
+                <td>Yes</td>
+                <td>URL of the JIRA instance</td>
+            </tr><tr>
+                <td><code>jira_user</code></td>
+                <td>Yes</td>
+                <td>JIRA account with the required permissions</td>
+            </tr><tr>
+                <td><code>jira_token</code></td>
+                <td>Yes</td>
+                <td>JIRA password or token</td>
+            </tr><tr>
+                <td><code>jira_project</code></td>
+                <td>Yes</td>
+                <td>JIRA project key</td>
+            </tr><tr>
+                <td><code>jira_labels</code></td>
+                <td>No</td>
+                <td>JIRA bug label(s). (e.g. valid format can be &quot;red-team,blue-team,green-team&quot;, or &quot;red-team&quot;) This tool will split the values entered by commas. Spaces in the double quotes will be respected and saved.</td>
+            </tr><tr>
+                <td><code>github_token</code></td>
+                <td>No</td>
+                <td>GitHub API token with the required permissions</td>
+            </tr><tr>
+                <td><code>sync_direction</code></td>
+                <td>No</td>
+                <td>Which direction to synchronize in (&quot;gh2jira&quot;, &quot;jira2gh&quot; or &quot;both&quot;)</td>
+            </tr><tr>
+                <td><code>issue_end_state</code></td>
+                <td>No</td>
+                <td>Custom end state</td>
+            </tr><tr>
+                <td><code>issue_reopen_state</code></td>
+                <td>No</td>
+                <td>Custom reopen state</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

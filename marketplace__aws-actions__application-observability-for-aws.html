@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application observability for AWS - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Application observability for AWS</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/application-observability-for-aws</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/application-observability-for-aws" target="_blank">github.com/aws-actions/application-observability-for-aws</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Support Agentic AI–driven performance investigation and resolution using live production telemetry.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Monitoring</span> <span class="badge badge-category">Testing</span> <span class="badge badge-category">Communication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Monitoring</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on performance investigation and resolution using live telemetry, which aligns closely with monitoring. It also involves communication aspects through comments and branch management.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">observability</span> <span class="tag">performance</span> <span class="tag">telemetry</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>bot_name</code></td>
+                <td>No</td>
+                <td>The bot name to respond to in comments (e.g., @awsapm)</td>
+            </tr><tr>
+                <td><code>target_branch</code></td>
+                <td>No</td>
+                <td>The branch to merge PRs into (defaults to repository default branch)</td>
+            </tr><tr>
+                <td><code>branch_prefix</code></td>
+                <td>No</td>
+                <td>Prefix for branches created by the action (e.g., &#39;awsapm/&#39;, &#39;awsapm-&#39;)</td>
+            </tr><tr>
+                <td><code>allowed_non_write_users</code></td>
+                <td>No</td>
+                <td>Comma-separated list of GitHub usernames allowed to use this action even without write access. Empty string (default) means only users with write/admin access can use it.</td>
+            </tr><tr>
+                <td><code>github_token</code></td>
+                <td>No</td>
+                <td>GitHub token to use for API calls. If not provided, uses the default GitHub Actions token.</td>
+            </tr><tr>
+                <td><code>custom_prompt</code></td>
+                <td>No</td>
+                <td>Custom instructions to guide the AI agent&#39;s analysis and actions</td>
+            </tr><tr>
+                <td><code>cli_tool</code></td>
+                <td>No</td>
+                <td>CLI tool to use for investigation</td>
+            </tr><tr>
+                <td><code>output_file</code></td>
+                <td>No</td>
+                <td>Path to AI agent execution output file (used to post results back to GitHub). For claude_code path, pass this from claude-code-base-action outputs in a second call to this action.</td>
+            </tr><tr>
+                <td><code>output_status</code></td>
+                <td>No</td>
+                <td>Execution status from AI agent (success or failure). Only used when output_file is provided.</td>
+            </tr><tr>
+                <td><code>comment_id</code></td>
+                <td>No</td>
+                <td>GitHub comment ID to update with results (required for Step 3 - pass from Step 1 output: steps.prepare.outputs.awsapm_comment_id)</td>
+            </tr><tr>
+                <td><code>enable_cloudwatch_mcp</code></td>
+                <td>No</td>
+                <td>Enable CloudWatch MCP server for metrics, alarms, and log insights</td>
+            </tr><tr>
+                <td><code>test_mode</code></td>
+                <td>No</td>
+                <td>Enable integration test mode (internal use only)</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>prompt_file</code></td>
+                <td>Path to the generated prompt file for claude-code-base-action</td>
+            </tr><tr>
+                <td><code>mcp_config_file</code></td>
+                <td>Path to the MCP servers configuration JSON file</td>
+            </tr><tr>
+                <td><code>allowed_tools</code></td>
+                <td>Comma-separated list of allowed tools</td>
+            </tr><tr>
+                <td><code>awsapm_comment_id</code></td>
+                <td>GitHub comment ID for tracking the investigation</td>
+            </tr><tr>
+                <td><code>branch_name</code></td>
+                <td>The branch created by Application observability for AWS Action for this execution</td>
+            </tr><tr>
+                <td><code>github_token</code></td>
+                <td>The GitHub token used by the action</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

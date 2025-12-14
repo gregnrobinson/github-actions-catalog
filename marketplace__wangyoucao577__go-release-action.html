@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Release Binaries - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Go Release Binaries</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/wangyoucao577/go-release-action</code></p>
+            <p><strong>Author:</strong> Jay Zhang &lt;wangyoucao577@gmail.com&gt;</p>
+            <p><strong>Publisher:</strong> wangyoucao577</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/wangyoucao577/go-release-action" target="_blank">github.com/wangyoucao577/go-release-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Build and Release Go Binaries to GitHub Release Assets</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Build</span> <span class="badge badge-category">Deployment</span> <span class="badge badge-category">Publishing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Build</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on building Go binaries and releasing them as GitHub Release Assets, which aligns it closely with the Build category. Additionally, it involves deployment and publishing of those binaries.</p>
+            <p><strong>Tags:</strong> <span class="tag">Go</span> <span class="tag">Release</span> <span class="tag">GitHub Actions</span> <span class="tag">Binaries</span> <span class="tag">Deployment</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>Yes</td>
+                <td>GITHUB_TOKEN for uploading releases to Github asserts.</td>
+            </tr><tr>
+                <td><code>goos</code></td>
+                <td>Yes</td>
+                <td>GOOS is the running programs operating system target: one of darwin, freebsd, linux, and so on.</td>
+            </tr><tr>
+                <td><code>goarch</code></td>
+                <td>Yes</td>
+                <td>GOARCH is the running programs architecture target: one of 386, amd64, arm, s390x, loong64 and so on.</td>
+            </tr><tr>
+                <td><code>goamd64</code></td>
+                <td>No</td>
+                <td>GOAMD64 is the running programs amd64 microarchitecture level: one of v1, v2, v3, v4.</td>
+            </tr><tr>
+                <td><code>goarm</code></td>
+                <td>No</td>
+                <td>GOARM is the running programs arm microarchitecture level: ARMv5,ARMv6,ARMv7</td>
+            </tr><tr>
+                <td><code>gomips</code></td>
+                <td>No</td>
+                <td>GOMIPS is the running programs mips microarchitecture level: hardfloat,softfloat</td>
+            </tr><tr>
+                <td><code>goversion</code></td>
+                <td>No</td>
+                <td>The `Go` compiler version.</td>
+            </tr><tr>
+                <td><code>build_flags</code></td>
+                <td>No</td>
+                <td>Additional arguments to pass the go build command.</td>
+            </tr><tr>
+                <td><code>ldflags</code></td>
+                <td>No</td>
+                <td>Values to provide to the -ldflags argument</td>
+            </tr><tr>
+                <td><code>project_path</code></td>
+                <td>No</td>
+                <td>Where to run `go build .`</td>
+            </tr><tr>
+                <td><code>binary_name</code></td>
+                <td>No</td>
+                <td>Specify another binary name if do not want to use repository basename</td>
+            </tr><tr>
+                <td><code>pre_command</code></td>
+                <td>No</td>
+                <td>Extra command that will be executed before `go build`, may for solving dependency</td>
+            </tr><tr>
+                <td><code>build_command</code></td>
+                <td>No</td>
+                <td>The actual command to build binary, typically `go build`.</td>
+            </tr><tr>
+                <td><code>executable_compression</code></td>
+                <td>No</td>
+                <td>Compression executable binary by some third-party tools. Only `upx` is supported at the moment.</td>
+            </tr><tr>
+                <td><code>extra_files</code></td>
+                <td>No</td>
+                <td>Extra files that will be packaged into artifacts either.</td>
+            </tr><tr>
+                <td><code>md5sum</code></td>
+                <td>No</td>
+                <td>Publish `.md5` along with artifacts.</td>
+            </tr><tr>
+                <td><code>sha256sum</code></td>
+                <td>No</td>
+                <td>Publish `.sha256` along with artifacts.</td>
+            </tr><tr>
+                <td><code>release_tag</code></td>
+                <td>No</td>
+                <td>Upload binaries to specified release page that indicated by Git tag.</td>
+            </tr><tr>
+                <td><code>release_name</code></td>
+                <td>No</td>
+                <td>Upload binaries to specified release page that indicated by release name.</td>
+            </tr><tr>
+                <td><code>release_repo</code></td>
+                <td>No</td>
+                <td>Repository to upload the binaries</td>
+            </tr><tr>
+                <td><code>overwrite</code></td>
+                <td>No</td>
+                <td>Overwrite asset if it&#39;s already exist.</td>
+            </tr><tr>
+                <td><code>asset_name</code></td>
+                <td>No</td>
+                <td>Customize asset name if do not want to use the default format.</td>
+            </tr><tr>
+                <td><code>retry</code></td>
+                <td>No</td>
+                <td>How many times retrying if upload fails.</td>
+            </tr><tr>
+                <td><code>post_command</code></td>
+                <td>No</td>
+                <td>Extra command that will be executed for teardown work</td>
+            </tr><tr>
+                <td><code>compress_assets</code></td>
+                <td>No</td>
+                <td>Compress assets before uploading</td>
+            </tr><tr>
+                <td><code>upload</code></td>
+                <td>No</td>
+                <td>Upload release assets or not</td>
+            </tr><tr>
+                <td><code>multi_binaries</code></td>
+                <td>No</td>
+                <td>Build and package multiple binaries together</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>release_asset_dir</code></td>
+                <td>Release file directory provided for use by other workflows</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

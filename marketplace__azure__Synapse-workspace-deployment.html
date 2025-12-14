@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synapse workspace deployment - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Synapse workspace deployment</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/Synapse-workspace-deployment</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/Synapse-workspace-deployment" target="_blank">github.com/azure/Synapse-workspace-deployment</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use this GitHub action to deploy synapse workspace.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed for deploying a Synapse workspace, which falls under the Deployment category, and it also involves infrastructure management.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Synapse</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Action</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>TargetWorkspaceName</code></td>
+                <td>Yes</td>
+                <td>Provide the Synapse workspace name where you want to deploy the artifacts.</td>
+            </tr><tr>
+                <td><code>TemplateFile</code></td>
+                <td>Yes</td>
+                <td>Specify the path to the workspace artifacts template.</td>
+            </tr><tr>
+                <td><code>ParametersFile</code></td>
+                <td>Yes</td>
+                <td>Specify the path to the template parameter file.</td>
+            </tr><tr>
+                <td><code>OverrideArmParameters</code></td>
+                <td>No</td>
+                <td>Specify deployment parameter values.</td>
+            </tr><tr>
+                <td><code>Environment</code></td>
+                <td>Yes</td>
+                <td>Provide the type of cloud environment. Valid values are: Azure Public, Azure China, Azure US Government, Azure Germany</td>
+            </tr><tr>
+                <td><code>resourceGroup</code></td>
+                <td>Yes</td>
+                <td>Provide the resource group of the target Synapse workspace.</td>
+            </tr><tr>
+                <td><code>clientId</code></td>
+                <td>No</td>
+                <td>Provide client id of service principal.</td>
+            </tr><tr>
+                <td><code>clientSecret</code></td>
+                <td>No</td>
+                <td>Provide client secret of the service principal.</td>
+            </tr><tr>
+                <td><code>subscriptionId</code></td>
+                <td>Yes</td>
+                <td>Provide subscription id.</td>
+            </tr><tr>
+                <td><code>tenantId</code></td>
+                <td>No</td>
+                <td>Provide tenant id.</td>
+            </tr><tr>
+                <td><code>DeleteArtifactsNotInTemplate</code></td>
+                <td>No</td>
+                <td>Delete the artifacts which are in the workspace but not in the template.</td>
+            </tr><tr>
+                <td><code>managedIdentity</code></td>
+                <td>No</td>
+                <td>Use managed identity to generate the bearer token?</td>
+            </tr><tr>
+                <td><code>deployManagedPrivateEndpoint</code></td>
+                <td>No</td>
+                <td>Deploy managed private endpoints in the template.</td>
+            </tr><tr>
+                <td><code>FailOnMissingOverrides</code></td>
+                <td>No</td>
+                <td>Mark the pipeline as failed if ARM overrides are missing.</td>
+            </tr><tr>
+                <td><code>ArtifactsFolder</code></td>
+                <td>No</td>
+                <td>Provide path to the root folder.</td>
+            </tr><tr>
+                <td><code>operation</code></td>
+                <td>Yes</td>
+                <td>Provide name of the operation.</td>
+            </tr><tr>
+                <td><code>npmpackage</code></td>
+                <td>No</td>
+                <td>Source for the npm package. Only for dev testing.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

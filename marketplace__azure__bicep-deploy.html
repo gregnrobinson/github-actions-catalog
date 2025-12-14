@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicep Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Bicep Deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/bicep-deploy</code></p>
+            <p><strong>Author:</strong> Microsoft</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/bicep-deploy" target="_blank">github.com/azure/bicep-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>GitHub Action for deploying to Azure</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed for deploying resources to Azure, which falls under the Deployment category, and it also involves managing infrastructure as part of the deployment process.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Bicep</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Action</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>type</code></td>
+                <td>Yes</td>
+                <td>Specifies the execution type, which can be either &#39;deployment&#39; or &#39;deploymentStack&#39;.</td>
+            </tr><tr>
+                <td><code>operation</code></td>
+                <td>Yes</td>
+                <td>Specifies the operation to perform. For deployment, choose from &#39;create&#39;, &#39;validate&#39;, &#39;whatIf&#39;. For deploymentStack, choose from &#39;create&#39;, &#39;delete&#39;, &#39;validate&#39;.</td>
+            </tr><tr>
+                <td><code>scope</code></td>
+                <td>Yes</td>
+                <td>Specifies the scope of the deployment or deploymentStack. For deployment, choose from &#39;resourceGroup&#39;, &#39;subscription&#39;, &#39;managementGroup&#39;, &#39;tenant&#39;. For deploymentStack, choose from &#39;resourceGroup&#39;, &#39;subscription&#39;, &#39;managementGroup&#39;.</td>
+            </tr><tr>
+                <td><code>name</code></td>
+                <td>No</td>
+                <td>Specifies the name of the deployment or deploymentStack.</td>
+            </tr><tr>
+                <td><code>location</code></td>
+                <td>No</td>
+                <td>Specifies the location of the deployment or deploymentStack. Must be provided if the &#39;scope&#39; parameter is &#39;subscription&#39;, &#39;managementGroup&#39; or &#39;tenant&#39;.</td>
+            </tr><tr>
+                <td><code>tenant-id</code></td>
+                <td>No</td>
+                <td>Specifies the tenant ID. Required if the &#39;scope&#39; parameter is &#39;tenant&#39;.</td>
+            </tr><tr>
+                <td><code>management-group-id</code></td>
+                <td>No</td>
+                <td>Specifies the management group ID. Required if the &#39;scope&#39; parameter is &#39;managementGroup&#39;.</td>
+            </tr><tr>
+                <td><code>subscription-id</code></td>
+                <td>No</td>
+                <td>Specifies the subscription ID. Required if the &#39;scope&#39; parameter is &#39;subscription&#39; or &#39;resourceGroup&#39;.</td>
+            </tr><tr>
+                <td><code>resource-group-name</code></td>
+                <td>No</td>
+                <td>Specifies the resource group name. Required if the &#39;scope&#39; parameter is &#39;resourceGroup&#39;.</td>
+            </tr><tr>
+                <td><code>template-file</code></td>
+                <td>No</td>
+                <td>Specifies the path to the template file.</td>
+            </tr><tr>
+                <td><code>parameters-file</code></td>
+                <td>No</td>
+                <td>Specifies the path to the parameters file (.json or .bicepparam).</td>
+            </tr><tr>
+                <td><code>parameters</code></td>
+                <td>No</td>
+                <td>Specifies the inline parameters to use (as json object).</td>
+            </tr><tr>
+                <td><code>masked-outputs</code></td>
+                <td>No</td>
+                <td>Specifies output names to mask values for.</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>Specifies the Azure environment to use. Choose from &#39;azureCloud&#39;, &#39;azureChinaCloud&#39;, &#39;azureGermanCloud&#39;, &#39;azureUSGovernment&#39;.</td>
+            </tr><tr>
+                <td><code>what-if-exclude-change-types</code></td>
+                <td>No</td>
+                <td>Specifies the change types to exclude from the &#39;What If&#39; operation.</td>
+            </tr><tr>
+                <td><code>validation-level</code></td>
+                <td>No</td>
+                <td>Specifies the validation level. Only supported for deployment what-if and validate operations. Choose from &#39;provider&#39;, &#39;template&#39;, or &#39;providerNoRbac&#39;.</td>
+            </tr><tr>
+                <td><code>action-on-unmanage-resources</code></td>
+                <td>No</td>
+                <td>Specifies the action to take on unmanaged resources. Choose from &#39;delete&#39; or &#39;detach&#39;.</td>
+            </tr><tr>
+                <td><code>action-on-unmanage-resourcegroups</code></td>
+                <td>No</td>
+                <td>Specifies the action to take on unmanaged resource groups. Choose from &#39;delete&#39; or &#39;detach&#39;.</td>
+            </tr><tr>
+                <td><code>action-on-unmanage-managementgroup</code></td>
+                <td>No</td>
+                <td>Specifies the action to take on unmanaged management groups. Choose from &#39;delete&#39; or &#39;detach&#39;.</td>
+            </tr><tr>
+                <td><code>deny-settings-mode</code></td>
+                <td>No</td>
+                <td>Specifies the mode of the deny settings. Choose from &#39;denyDelete&#39;, &#39;denyWriteAndDelete&#39;, &#39;none&#39;.</td>
+            </tr><tr>
+                <td><code>deny-settings-excluded-actions</code></td>
+                <td>No</td>
+                <td>Specifies the excluded actions for the deny settings.</td>
+            </tr><tr>
+                <td><code>deny-settings-excluded-principals</code></td>
+                <td>No</td>
+                <td>Specifies the excluded principals for the deny settings.</td>
+            </tr><tr>
+                <td><code>deny-settings-apply-to-child-scopes</code></td>
+                <td>No</td>
+                <td>When specified, the deny setting mode configuration also applies to the child scope of the managed resources.</td>
+            </tr><tr>
+                <td><code>bypass-stack-out-of-sync-error</code></td>
+                <td>No</td>
+                <td>Specifies whether to bypass the stack out of sync error. Choose from &#39;true&#39; or &#39;false&#39;.</td>
+            </tr><tr>
+                <td><code>description</code></td>
+                <td>No</td>
+                <td>Specifies the description of the deploymentStack.</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>Specifies the tags for the deploymentStack.</td>
+            </tr><tr>
+                <td><code>bicep-version</code></td>
+                <td>No</td>
+                <td>Specifies the version of Bicep to use for compilation. If not provided, the latest version will be used. Example string: &#39;0.38.5&#39;</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

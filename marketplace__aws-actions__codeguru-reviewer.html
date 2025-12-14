@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGuru Reviewer - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>CodeGuru Reviewer</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/codeguru-reviewer</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/codeguru-reviewer" target="_blank">github.com/aws-actions/codeguru-reviewer</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>AWS CodeGuru Reviewer Action</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The CodeGuru Reviewer Action is focused on analyzing code quality through reviews, which directly falls under the Code quality category. It also involves testing aspects by reviewing the code for potential issues.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">CodeGuru</span> <span class="tag">Code quality</span> <span class="tag">Review</span> <span class="tag">Testing</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>No</td>
+                <td>Repository name</td>
+            </tr><tr>
+                <td><code>source_path</code></td>
+                <td>No</td>
+                <td>Path to Java source repository</td>
+            </tr><tr>
+                <td><code>build_path</code></td>
+                <td>No</td>
+                <td>Path to build artifact(s) - jar or class files in this directory will be uploaded for review</td>
+            </tr><tr>
+                <td><code>destination_commit</code></td>
+                <td>No</td>
+                <td>SHA of next commit to be committed to source code repository after an event</td>
+            </tr><tr>
+                <td><code>source_commit</code></td>
+                <td>No</td>
+                <td>SHA of previous commit in the source code repository existed before an event</td>
+            </tr><tr>
+                <td><code>merge_base_commit</code></td>
+                <td>No</td>
+                <td>SHA of a commit thats the merge base for before and after commits in a pull or merge request</td>
+            </tr><tr>
+                <td><code>source_branch</code></td>
+                <td>No</td>
+                <td>Source branch of the event</td>
+            </tr><tr>
+                <td><code>destination_branch</code></td>
+                <td>No</td>
+                <td>Destination branch of the event</td>
+            </tr><tr>
+                <td><code>kms_key_id</code></td>
+                <td>No</td>
+                <td>AWS KMS Key ID to use for encrypting source code/build artifacts. By default, Amazon-owned encryption key is used. Supplying this value overrides it to use Customer-owned encryption key</td>
+            </tr><tr>
+                <td><code>author</code></td>
+                <td>No</td>
+                <td>Author/Actor who triggered an event in the source code repository</td>
+            </tr><tr>
+                <td><code>event_id</code></td>
+                <td>No</td>
+                <td>An identifier for the event that triggered CodeGuru Reviewer Analysis, e.g. Pull or Merge request id</td>
+            </tr><tr>
+                <td><code>event_name</code></td>
+                <td>No</td>
+                <td>Name of the event that triggered the CI/CD workflow [supported Events: push, pull, merge_request_event, schedule, workflow_dispatch]</td>
+            </tr><tr>
+                <td><code>event_state</code></td>
+                <td>No</td>
+                <td>State of the event that triggered the CI/CD workflow [example: pull_request: &quot;opened&quot;]</td>
+            </tr><tr>
+                <td><code>client_id</code></td>
+                <td>No</td>
+                <td>Unique identifier referring to a specific client version</td>
+            </tr><tr>
+                <td><code>s3_bucket</code></td>
+                <td>Yes</td>
+                <td>S3 Bucket which will be used for code reviews</td>
+            </tr><tr>
+                <td><code>vendor_name</code></td>
+                <td>No</td>
+                <td>Vendor Name(e.g. GITHUB, GITLAB) for CI/CD.</td>
+            </tr><tr>
+                <td><code>output_format</code></td>
+                <td>No</td>
+                <td>Expected format for the results (e.g SARIF, SAST, JENKINS)</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

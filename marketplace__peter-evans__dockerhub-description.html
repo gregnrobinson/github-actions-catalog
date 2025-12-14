@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Hub Description - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Docker Hub Description</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/dockerhub-description</code></p>
+            <p><strong>Author:</strong> Peter Evans</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/dockerhub-description" target="_blank">github.com/peter-evans/dockerhub-description</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>An action to update a Docker Hub repository description from README.md</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Documentation</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Publishing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Documentation</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action updates the Docker Hub repository description, which falls under documentation. It also requires authentication credentials to access the Docker Hub, categorizing it under authentication and publishing.</p>
+            <p><strong>Tags:</strong> <span class="tag">Docker</span> <span class="tag">Hub</span> <span class="tag">Description</span> <span class="tag">Update</span> <span class="tag">Action</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>username</code></td>
+                <td>Yes</td>
+                <td>Docker Hub username</td>
+            </tr><tr>
+                <td><code>password</code></td>
+                <td>Yes</td>
+                <td>Docker Hub password or Personal Access Token with read/write/delete scope</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>Docker Hub repository in the format `&lt;namespace&gt;/&lt;name&gt;` Default: `github.repository`
+</td>
+            </tr><tr>
+                <td><code>short-description</code></td>
+                <td>No</td>
+                <td>Docker Hub repository short description</td>
+            </tr><tr>
+                <td><code>readme-filepath</code></td>
+                <td>No</td>
+                <td>Path to the repository readme Default: `./README.md`
+</td>
+            </tr><tr>
+                <td><code>enable-url-completion</code></td>
+                <td>No</td>
+                <td>Enables completion of relative URLs to absolute ones Default: `false`
+</td>
+            </tr><tr>
+                <td><code>image-extensions</code></td>
+                <td>No</td>
+                <td>File extensions that will be treated as images Default: `bmp,gif,jpg,jpeg,png,svg,webp`
+</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish to npm - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Publish to npm</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/pascalgn/npm-publish-action</code></p>
+            <p><strong>Author:</strong> pascalgn</p>
+            <p><strong>Publisher:</strong> pascalgn</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/pascalgn/npm-publish-action" target="_blank">github.com/pascalgn/npm-publish-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Automatically publish new versions to npm</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Publishing</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Publishing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to publish new versions to npm, which falls under the Publishing category. It also involves managing dependencies by updating package versions.</p>
+            <p><strong>Tags:</strong> <span class="tag">npm</span> <span class="tag">publish</span> <span class="tag">versioning</span> <span class="tag">automation</span> <span class="tag">dependency</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>commit_pattern</code></td>
+                <td>No</td>
+                <td>The pattern that matches version update commits.</td>
+            </tr><tr>
+                <td><code>tag_name</code></td>
+                <td>No</td>
+                <td>The name of the tag that you want to create for the version.</td>
+            </tr><tr>
+                <td><code>tag_message</code></td>
+                <td>No</td>
+                <td>The message of the tag that you want to create for the version.</td>
+            </tr><tr>
+                <td><code>create_tag</code></td>
+                <td>No</td>
+                <td>Whether to create a git tag or not.</td>
+            </tr><tr>
+                <td><code>workspace</code></td>
+                <td>No</td>
+                <td>Custom workspace directory that contains the package.json file.</td>
+            </tr><tr>
+                <td><code>publish_command</code></td>
+                <td>No</td>
+                <td>Custom publish command.</td>
+            </tr><tr>
+                <td><code>publish_args</code></td>
+                <td>No</td>
+                <td>Publish command arguments.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>changed</code></td>
+                <td>Whether the version has changed in the examined commits</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>The detected version number</td>
+            </tr><tr>
+                <td><code>commit</code></td>
+                <td>The SHA of the commit where the version change has been detected</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

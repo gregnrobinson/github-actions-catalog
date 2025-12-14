@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privileged Requester - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Privileged Requester</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/privileged-requester</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/privileged-requester" target="_blank">github.com/github/privileged-requester</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Checks a PR against configurable criteria to determine whether or not the PR should be automatically approved</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span> <span class="badge badge-category">Security</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action checks pull requests against criteria for approval, which relates to code quality and security by ensuring commits are verified. It also involves testing the conditions for automatic approval.</p>
+            <p><strong>Tags:</strong> <span class="tag">PR approval</span> <span class="tag">code review</span> <span class="tag">security checks</span> <span class="tag">GitHub Actions</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>Yes</td>
+                <td>&#39;The GitHub token used to create an authenticated client - Provided for you by default! - Repository scoped token&#39;
+
+You can use the default provided token or you can provide a PAT as an alternative robot user token
+</td>
+            </tr><tr>
+                <td><code>handle</code></td>
+                <td>Yes</td>
+                <td>When using the default github.token (from above), the &quot;handle&quot; is fetched from this input since the token is repository scoped and it cannot even read its own handle. You should not need to change this input.</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>Path where the privileged requester configuration can be found</td>
+            </tr><tr>
+                <td><code>prCreator</code></td>
+                <td>Yes</td>
+                <td>The creator of the PR for this pull request event</td>
+            </tr><tr>
+                <td><code>prNumber</code></td>
+                <td>Yes</td>
+                <td>The number of the PR for this pull request event</td>
+            </tr><tr>
+                <td><code>checkCommits</code></td>
+                <td>Yes</td>
+                <td>An option to check that every commit in the PR is made from the privileged requester</td>
+            </tr><tr>
+                <td><code>checkDiff</code></td>
+                <td>Yes</td>
+                <td>An option to check that the PR diff only has a removal diff, with no additions</td>
+            </tr><tr>
+                <td><code>checkLabels</code></td>
+                <td>Yes</td>
+                <td>An option to check that the labels on the PR match those defined in the privileged requester config</td>
+            </tr><tr>
+                <td><code>commitVerification</code></td>
+                <td>Yes</td>
+                <td>Whether or not to validate all commits have proper verification via GPG signed commits</td>
+            </tr><tr>
+                <td><code>fallback_to_commit_author</code></td>
+                <td>Yes</td>
+                <td>Whether or not to fallback to the commit author value if the commit login value is missing</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>approved</code></td>
+                <td>Whether or not the PR was approved - &#39;true&#39; or &#39;false&#39;</td>
+            </tr><tr>
+                <td><code>commits_verified</code></td>
+                <td>The string &quot;true&quot; if all commits in the PR are signed/verified</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Issue and Comment Moderator - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AI Issue and Comment Moderator</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/ai-moderator</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/ai-moderator" target="_blank">github.com/github/ai-moderator</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Scan new issues and comments with GitHub Models AI prompts; label or hide spam automatically.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Communication</span> <span class="badge badge-category">Security</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action moderates issues and comments, improving code quality by filtering spam and potentially harmful content. It also involves communication by interacting with user-generated content and enhances security by managing spam.</p>
+            <p><strong>Tags:</strong> <span class="tag">AI</span> <span class="tag">moderation</span> <span class="tag">spam</span> <span class="tag">GitHub</span> <span class="tag">issues</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GitHub token with `issues`, `pull-requests`, and `models: read` permissions</td>
+            </tr><tr>
+                <td><code>spam-label</code></td>
+                <td>No</td>
+                <td>Label to add when generic spam is detected</td>
+            </tr><tr>
+                <td><code>ai-label</code></td>
+                <td>No</td>
+                <td>Label to add when AI-generated content is detected</td>
+            </tr><tr>
+                <td><code>minimize-detected-comments</code></td>
+                <td>No</td>
+                <td>Whether to minimize comments detected as spam</td>
+            </tr><tr>
+                <td><code>dry-run</code></td>
+                <td>No</td>
+                <td>If true, only evaluate without adding labels or minimizing comments</td>
+            </tr><tr>
+                <td><code>custom-prompt-path</code></td>
+                <td>No</td>
+                <td>Path to a custom YAML prompt file in your repository (relative to repository root)</td>
+            </tr><tr>
+                <td><code>enable-spam-detection</code></td>
+                <td>No</td>
+                <td>Enable built-in spam detection prompt</td>
+            </tr><tr>
+                <td><code>enable-link-spam-detection</code></td>
+                <td>No</td>
+                <td>Enable built-in link spam detection prompt</td>
+            </tr><tr>
+                <td><code>enable-ai-detection</code></td>
+                <td>No</td>
+                <td>Enable built-in AI-generated content detection prompt</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>No</td>
+                <td>The endpoint to use for inference</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

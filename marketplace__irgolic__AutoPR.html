@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Pull Request - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Automatic Pull Request</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/irgolic/AutoPR</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> irgolic</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/irgolic/AutoPR" target="_blank">github.com/irgolic/AutoPR</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Fix issues with AI-generated pull requests, powered by ChatGPT GPT-4 (AutoPR)</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span> <span class="badge badge-category">Communication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on automatically generating pull requests to fix issues, which directly relates to improving code quality. It also involves communication aspects by potentially notifying users about the PRs being created.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">automation</span> <span class="tag">AI</span> <span class="tag">code quality</span> <span class="tag">GitHub</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github_token</code></td>
+                <td>Yes</td>
+                <td>GitHub token</td>
+            </tr><tr>
+                <td><code>base_branch</code></td>
+                <td>No</td>
+                <td>Base branch</td>
+            </tr><tr>
+                <td><code>loading_gif_url</code></td>
+                <td>No</td>
+                <td>URL of the gif to display while the PR is being generated</td>
+            </tr><tr>
+                <td><code>model</code></td>
+                <td>No</td>
+                <td>Name of the OpenAI chat model</td>
+            </tr><tr>
+                <td><code>context_limit</code></td>
+                <td>No</td>
+                <td>Maximum size of the context window to use, varies depending on the model and preference</td>
+            </tr><tr>
+                <td><code>min_tokens</code></td>
+                <td>No</td>
+                <td>Minimum number of tokens to be made available for generation</td>
+            </tr><tr>
+                <td><code>max_tokens</code></td>
+                <td>No</td>
+                <td>Maximum number of tokens to generate</td>
+            </tr><tr>
+                <td><code>num_reasks</code></td>
+                <td>No</td>
+                <td>Number of times to re-ask the model in file exploration and commit generation</td>
+            </tr><tr>
+                <td><code>agent_id</code></td>
+                <td>No</td>
+                <td>ID of the brain to use</td>
+            </tr><tr>
+                <td><code>agent_config</code></td>
+                <td>No</td>
+                <td>Configuration for the coordinating agent in yaml format</td>
+            </tr><tr>
+                <td><code>target_branch_name_template</code></td>
+                <td>No</td>
+                <td>Template for the name of the target branch</td>
+            </tr><tr>
+                <td><code>temperature</code></td>
+                <td>No</td>
+                <td>Temperature for the model</td>
+            </tr><tr>
+                <td><code>rail_temperture</code></td>
+                <td>No</td>
+                <td>Temperature for the guardrails calls</td>
+            </tr><tr>
+                <td><code>overwrite_existing</code></td>
+                <td>No</td>
+                <td>Whether to overwrite existing branches and pull requests when creating from issues</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes bake - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Kubernetes bake</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/k8s-bake</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/k8s-bake" target="_blank">github.com/azure/k8s-bake</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use this action to bake manifest file to be used for deployments using helm, kustomize or kompose</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on preparing Kubernetes manifest files for deployment, which falls under the Deployment category. It also involves packaging the manifests, making it relevant for the Packaging category.</p>
+            <p><strong>Tags:</strong> <span class="tag">Kubernetes</span> <span class="tag">Helm</span> <span class="tag">Kustomize</span> <span class="tag">Deployment</span> <span class="tag">Manifest</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>renderEngine</code></td>
+                <td>Yes</td>
+                <td>Acceptable values: helm or kompose or kustomize</td>
+            </tr><tr>
+                <td><code>helmChart</code></td>
+                <td>No</td>
+                <td>Required if renderEngine == helm. Helm chart to bake.</td>
+            </tr><tr>
+                <td><code>namespace</code></td>
+                <td>No</td>
+                <td>Relevant if renderEngine == helm. Namespace to be used for Helm option.</td>
+            </tr><tr>
+                <td><code>arguments</code></td>
+                <td>No</td>
+                <td>Acceptable values: helm or kustomize. Arguments to be passed to the Helm or kustomize template command</td>
+            </tr><tr>
+                <td><code>overrideFiles</code></td>
+                <td>No</td>
+                <td>Relevant if renderEngine == helm. Array of path to override files. Each path should be mentioned on a newline</td>
+            </tr><tr>
+                <td><code>overrides</code></td>
+                <td>No</td>
+                <td>Relevant if renderEngine == helm. Override values to set.</td>
+            </tr><tr>
+                <td><code>releaseName</code></td>
+                <td>No</td>
+                <td>Relevant if renderEngine == helm. Release name to be used for Helm option.</td>
+            </tr><tr>
+                <td><code>kustomizationPath</code></td>
+                <td>No</td>
+                <td>Required if renderEngine == kustomize. Path to directory or the Git repository containing kustomization.yaml file.</td>
+            </tr><tr>
+                <td><code>dockerComposeFile</code></td>
+                <td>No</td>
+                <td>Required if renderEngine == kompose. Path(s) to Docker compose files</td>
+            </tr><tr>
+                <td><code>helm-version</code></td>
+                <td>No</td>
+                <td>Version of helm. Installs a specific version of helm binary. Supports semver ranges like ^3.0.0</td>
+            </tr><tr>
+                <td><code>kubectl-version</code></td>
+                <td>No</td>
+                <td>Version of kubectl. Installs a specific version of kubectl binary</td>
+            </tr><tr>
+                <td><code>kompose-version</code></td>
+                <td>No</td>
+                <td>Version of kompose. Installs a specific version of kompose binary</td>
+            </tr><tr>
+                <td><code>silent</code></td>
+                <td>No</td>
+                <td>When set to true, the output of the bake command would not be shown.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>manifestsBundle</code></td>
+                <td>The location of the manifest bundles created by bake action</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

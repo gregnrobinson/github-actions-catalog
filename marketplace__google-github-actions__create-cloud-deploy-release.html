@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Cloud Deploy Release - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Create Cloud Deploy Release</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/create-cloud-deploy-release</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/create-cloud-deploy-release" target="_blank">github.com/google-github-actions/create-cloud-deploy-release</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use this action to create a release in Cloud Deploy.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to create a release in Cloud Deploy, which falls under the Deployment category, and it also involves infrastructure management within the Google Cloud environment.</p>
+            <p><strong>Tags:</strong> <span class="tag">Cloud Deploy</span> <span class="tag">Google Cloud</span> <span class="tag">Deployment</span> <span class="tag">Release Management</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>The name of the release.</td>
+            </tr><tr>
+                <td><code>delivery_pipeline</code></td>
+                <td>Yes</td>
+                <td>The delivery pipeline to use for the release.</td>
+            </tr><tr>
+                <td><code>region</code></td>
+                <td>No</td>
+                <td>Region in which the delivery pipeline can be found.</td>
+            </tr><tr>
+                <td><code>source</code></td>
+                <td>No</td>
+                <td>The location of the files to be included in the release.</td>
+            </tr><tr>
+                <td><code>build_artifacts</code></td>
+                <td>No</td>
+                <td>Path to a Skaffold output file containing the details of the image(s) to be released.</td>
+            </tr><tr>
+                <td><code>images</code></td>
+                <td>No</td>
+                <td>The images to be released.</td>
+            </tr><tr>
+                <td><code>disable_initial_rollout</code></td>
+                <td>No</td>
+                <td>Prevent the release being deployed to the first target in the delivery pipeline.</td>
+            </tr><tr>
+                <td><code>gcs_source_staging_dir</code></td>
+                <td>No</td>
+                <td>A directory in Google Cloud Storage to copy the source used for staging the build.</td>
+            </tr><tr>
+                <td><code>skaffold_file</code></td>
+                <td>No</td>
+                <td>Path of the skaffold file absolute or relative to the source directory.</td>
+            </tr><tr>
+                <td><code>annotations</code></td>
+                <td>No</td>
+                <td>Add additional annotations to the release.</td>
+            </tr><tr>
+                <td><code>labels</code></td>
+                <td>No</td>
+                <td>Add additional labels to the release.</td>
+            </tr><tr>
+                <td><code>description</code></td>
+                <td>No</td>
+                <td>Include a description of the release.</td>
+            </tr><tr>
+                <td><code>deploy_parameters</code></td>
+                <td>No</td>
+                <td>Additional parameters to supply at release creation time.</td>
+            </tr><tr>
+                <td><code>project_id</code></td>
+                <td>No</td>
+                <td>The Google Cloud Project ID. If unset, this is inherited from the environment.</td>
+            </tr><tr>
+                <td><code>flags</code></td>
+                <td>No</td>
+                <td>Space separated list of other Cloud Deploy flags, examples can be found:
+https://cloud.google.com/sdk/gcloud/reference/deploy/releases/create#FLAGS
+Example: &#39;--from-k8s-manifest=manifest.yaml --skaffold-version=skaffold_preview&#39;</td>
+            </tr><tr>
+                <td><code>gcloud_version</code></td>
+                <td>No</td>
+                <td>Version of the Cloud SDK to install. If unspecified or set to &quot;latest&quot;,
+the latest available gcloud SDK version for the target platform will be
+installed. Example: &quot;290.0.1&quot;.</td>
+            </tr><tr>
+                <td><code>gcloud_component</code></td>
+                <td>No</td>
+                <td>Version of the Cloud SDK components to install and use. If unspecified, the latest
+or released version will be used. This is the equivalent of running
+&#39;gcloud alpha run&#39; or &#39;gcloud beta run&#39;. Valid values are `alpha` or `beta`.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>The full name of the release in Cloud Deploy, including project and
+pipeline names, as well as the chosen name of the release itself.</td>
+            </tr><tr>
+                <td><code>link</code></td>
+                <td>A link to the Cloud Deploy release in the Google Cloud Web Console.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

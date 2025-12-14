@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Amazon Cloudwatch Metrics - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Post Amazon Cloudwatch Metrics</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/action-cloudwatch-metrics</code></p>
+            <p><strong>Author:</strong> ROS Tooling Working Group</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/action-cloudwatch-metrics" target="_blank">github.com/aws-actions/action-cloudwatch-metrics</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Publishes a metric to Amazon CloudWatch.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Monitoring</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Monitoring</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is focused on publishing metrics to Amazon CloudWatch, which falls under monitoring and infrastructure categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">CloudWatch</span> <span class="tag">Metrics</span> <span class="tag">Monitoring</span> <span class="tag">AWS</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>metric-name</code></td>
+                <td>No</td>
+                <td>Name of the metric to be published</td>
+            </tr><tr>
+                <td><code>metric-value</code></td>
+                <td>No</td>
+                <td>Value of the metric to be published
+true, and false are respectfully converted to 1.0, and 0.0 automatically</td>
+            </tr><tr>
+                <td><code>metric-dimensions</code></td>
+                <td>No</td>
+                <td>Dimension of the metric to be published, as a JSON object</td>
+            </tr><tr>
+                <td><code>metric-data</code></td>
+                <td>No</td>
+                <td>Path to a JSON file containing CloudWatch-compatible metrics, according to https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html If this input is specified, the action will ignore the single-value inputs &quot;metric-name&quot;, &quot;metric-value&quot;, &quot;metric-dimensions&quot; and only publish the data from this file.</td>
+            </tr><tr>
+                <td><code>namespace</code></td>
+                <td>No</td>
+                <td>The namespace for the metric data.</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

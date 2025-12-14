@@ -1,0 +1,331 @@
+* {{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}}
+
+:root {{
+    --primary: #0969da;
+    --primary-dark: #0860ca;
+    --success: #1a7f37;
+    --danger: #d1242f;
+    --warning: #9e6a03;
+    --gray-100: #f6f8fa;
+    --gray-200: #eaeef2;
+    --gray-300: #d0d7de;
+    --gray-600: #57606a;
+    --gray-700: #424a53;
+    --gray-800: #2d333b;
+    --gray-900: #0d1117;
+}}
+
+body {{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-800);
+    background: var(--gray-100);
+}}
+
+.navbar {{
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}}
+
+.navbar-brand {{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}}
+
+.navbar-subtitle {{
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+}}
+
+.container {{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}}
+
+.search-section {{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}}
+
+.search-input {{
+    flex: 1;
+    min-width: 250px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}}
+
+.search-input:focus {{
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+}}
+
+.category-filter {{
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray-300);
+    border-radius: 6px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}}
+
+.category-filter:focus {{
+    outline: none;
+    border-color: var(--primary);
+}}
+
+.results-info {{
+    margin-bottom: 1.5rem;
+    color: var(--gray-600);
+}}
+
+.actions-grid {{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}}
+
+.action-card {{
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}}
+
+.action-card:hover {{
+    border-color: var(--primary);
+    box-shadow: 0 3px 12px rgba(9, 105, 218, 0.15);
+    transform: translateY(-2px);
+}}
+
+.card-header {{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}}
+
+.card-title-section {{
+    flex: 1;
+}}
+
+.card-header h3 {{
+    font-size: 1.1rem;
+    margin: 0;
+    word-break: break-word;
+}}
+
+.card-description {{
+    color: var(--gray-600);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}}
+
+.card-meta {{
+    margin-bottom: 1rem;
+    color: var(--gray-600);
+}}
+
+.card-categories {{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}}
+
+.card-link {{
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: auto;
+}}
+
+.card-link:hover {{
+    text-decoration: underline;
+}}
+
+.badge {{
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+}}
+
+.badge-category {{
+    background: var(--gray-200);
+    color: var(--gray-800);
+}}
+
+.badge-verified {{
+    background: var(--success);
+    color: white;
+    flex-shrink: 0;
+}}
+
+.badge-more {{
+    background: var(--gray-300);
+    color: var(--gray-800);
+}}
+
+/* Detail page styles */
+.back-link {{
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+}}
+
+.back-link:hover {{
+    text-decoration: underline;
+}}
+
+.detail-header {{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+}}
+
+.detail-header h1 {{
+    margin: 0;
+}}
+
+.detail-meta {{
+    background: var(--gray-100);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}}
+
+.detail-meta p {{
+    margin: 0.5rem 0;
+}}
+
+.detail-meta code {{
+    background: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+    border: 1px solid var(--gray-200);
+}}
+
+.section {{
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--gray-200);
+}}
+
+.section h2,
+.section h3 {{
+    margin: 0 0 1rem 0;
+}}
+
+.inputs-table,
+.outputs-table {{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}}
+
+.inputs-table thead,
+.outputs-table thead {{
+    background: var(--gray-100);
+}}
+
+.inputs-table th,
+.outputs-table th {{
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--gray-200);
+}}
+
+.inputs-table td,
+.outputs-table td {{
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--gray-200);
+}}
+
+.inputs-table code,
+.outputs-table code {{
+    background: var(--gray-100);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-family: monospace;
+}}
+
+.tag {{
+    display: inline-block;
+    background: var(--gray-200);
+    color: var(--gray-800);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+}}
+
+footer {{
+    background: var(--gray-900);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}}
+
+footer a {{
+    color: var(--primary);
+    text-decoration: none;
+}}
+
+footer a:hover {{
+    text-decoration: underline;
+}}
+
+@media (max-width: 768px) {{
+    .actions-grid {{
+        grid-template-columns: 1fr;
+    }}
+
+    .search-section {{
+        flex-direction: column;
+    }}
+
+    .search-input {{
+        min-width: auto;
+    }}
+
+    .detail-header {{
+        flex-direction: column;
+        align-items: flex-start;
+    }}
+}}

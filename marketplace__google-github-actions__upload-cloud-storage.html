@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage Uploader - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Cloud Storage Uploader</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/upload-cloud-storage</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/upload-cloud-storage" target="_blank">github.com/google-github-actions/upload-cloud-storage</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Upload files or folders to GCS buckets</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on uploading files to Google Cloud Storage, which is a deployment task. It also involves aspects of infrastructure management as it interacts with cloud resources.</p>
+            <p><strong>Tags:</strong> <span class="tag">GCS</span> <span class="tag">Google Cloud</span> <span class="tag">upload</span> <span class="tag">deployment</span> <span class="tag">infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>project_id</code></td>
+                <td>No</td>
+                <td>Google Cloud project ID to use for billing and API requests. If not
+provided, the project will be inferred from the environment, best-effort.
+To explicitly set the value:
+
+```yaml
+project_id: &#39;my-project&#39;
+```</td>
+            </tr><tr>
+                <td><code>universe</code></td>
+                <td>No</td>
+                <td>The Google Cloud universe to use for constructing API endpoints. Trusted
+Partner Cloud and Google Distributed Hosted Cloud should set this to their
+universe address.
+
+You can also override individual API endpoints by setting the environment
+variable `GHA_ENDPOINT_OVERRIDE_&lt;endpoint&gt;` where `&lt;endpoint&gt;` is the API
+endpoint to override. For example:
+
+```yaml
+env:
+  GHA_ENDPOINT_OVERRIDE_oauth2: &#39;https://oauth2.myapi.endpoint/v1&#39;
+```
+
+For more information about universes, see the Google Cloud documentation.</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>The path to a file or folder inside the action&#39;s filesystem that should be
+uploaded to the bucket.
+
+You can specify either the absolute path or the relative path from the
+action:
+
+```yaml
+path: &#39;/path/to/file&#39;
+```
+
+```yaml
+path: &#39;../path/to/file&#39;
+```</td>
+            </tr><tr>
+                <td><code>destination</code></td>
+                <td>Yes</td>
+                <td>The destination for the file/folder in the form bucket-name or with an
+optional prefix in the form `bucket-name/prefix`. For example, to upload a
+file named `file` to the GCS bucket `bucket-name`:
+
+```yaml
+destination: &#39;bucket-name&#39;
+```
+
+To upload to a subfolder:
+
+```yaml
+destination: &#39;bucket-name/prefix&#39;
+```</td>
+            </tr><tr>
+                <td><code>gzip</code></td>
+                <td>No</td>
+                <td>Upload file(s) with gzip content encoding. To disable gzip
+content-encoding, set the value to false:
+
+```yaml
+gzip: false
+```</td>
+            </tr><tr>
+                <td><code>resumable</code></td>
+                <td>No</td>
+                <td>Enable resumable uploads. To disable resumable uploads, set the value to
+false:
+
+```yaml
+resumable: false
+```</td>
+            </tr><tr>
+                <td><code>predefinedAcl</code></td>
+                <td>No</td>
+                <td>Apply a predefined set of access controls to the files being uploaded. For
+example, to grant project team members access to the uploaded files
+according to their roles:
+
+```yaml
+predefinedAcl: &#39;projectPrivate&#39;
+```
+
+Acceptable values are: `authenticatedRead`, `bucketOwnerFullControl`,
+`bucketOwnerRead`, `private`, `projectPrivate`, `publicRead`. See [the
+document](https://googleapis.dev/nodejs/storage/latest/global.html#UploadOptions)
+for details.</td>
+            </tr><tr>
+                <td><code>headers</code></td>
+                <td>No</td>
+                <td>Set object metadata. For example, to set the `Content-Type` header to
+`application/json` and custom metadata with key `custom-field` and value
+`custom-value`:
+
+```yaml
+headers: |-
+  content-type: &#39;application/json&#39;
+  x-goog-meta-custom-field: &#39;custom-value&#39;
+```
+
+Settable fields are: `cache-control`, `content-disposition`,
+`content-encoding`, `content-language`, `content-type`, `custom-time`. See
+[the
+document](https://cloud.google.com/storage/docs/gsutil/addlhelp/WorkingWithObjectMetadata#settable-fields;-field-values)
+for details. All custom metadata fields must be prefixed with
+`x-goog-meta-`.</td>
+            </tr><tr>
+                <td><code>parent</code></td>
+                <td>No</td>
+                <td>Whether the parent directory should be included in GCS destination path. To disable this:
+
+```yaml
+parent: false
+```</td>
+            </tr><tr>
+                <td><code>glob</code></td>
+                <td>No</td>
+                <td>Glob pattern to match for files to upload.
+
+```yaml
+glob: &#39;*.txt&#39;
+```</td>
+            </tr><tr>
+                <td><code>concurrency</code></td>
+                <td>No</td>
+                <td>Number of files to simultaneously upload.
+
+```yaml
+concurrency: &#39;10&#39;
+```</td>
+            </tr><tr>
+                <td><code>gcloudignore_path</code></td>
+                <td>No</td>
+                <td>Path to a gcloudignore file within the repository.
+
+```yaml
+gcloudignore_path: &#39;.gcloudignore.dev&#39;
+```</td>
+            </tr><tr>
+                <td><code>process_gcloudignore</code></td>
+                <td>No</td>
+                <td>Process a `.gcloudignore` file present in the top-level of the repository.
+If true, the file is parsed and any filepaths that match are not uploaded
+to the storage bucket. To disable, set the value to false:
+
+```yaml
+process_gcloudignore: false
+```</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>uploaded</code></td>
+                <td>Comma-separated list of files that were uploaded.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

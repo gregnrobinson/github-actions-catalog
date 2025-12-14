@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terraform-fmt-check - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>terraform-fmt-check</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/dflook/terraform-fmt-check</code></p>
+            <p><strong>Author:</strong> Daniel Flook</p>
+            <p><strong>Publisher:</strong> dflook</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/dflook/terraform-fmt-check" target="_blank">github.com/dflook/terraform-fmt-check</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Check that OpenTofu configuration files are in canonical format</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action checks the formatting of Terraform configuration files, which directly relates to code quality. It also serves a testing purpose by verifying that the files adhere to a specified format.</p>
+            <p><strong>Tags:</strong> <span class="tag">terraform</span> <span class="tag">code quality</span> <span class="tag">format check</span> <span class="tag">testing</span> <span class="tag">OpenTofu</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>The path containing Terraform files to check the formatting of.</td>
+            </tr><tr>
+                <td><code>workspace</code></td>
+                <td>No</td>
+                <td>Terraform workspace to inspect when discovering the Terraform version to use, if the version is not otherwise specified.
+See [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.
+</td>
+            </tr><tr>
+                <td><code>backend_config</code></td>
+                <td>No</td>
+                <td>List of Terraform backend config values, one per line. This is used for discovering the Terraform version to use, if the version is not otherwise specified.
+See [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.
+</td>
+            </tr><tr>
+                <td><code>backend_config_file</code></td>
+                <td>No</td>
+                <td>List of Terraform backend config files to use, one per line. This is used for discovering the Terraform version to use, if the version is not otherwise specified.
+See [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.
+Paths should be relative to the GitHub Actions workspace
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>failure-reason</code></td>
+                <td>When the job outcome is `failure` because the format check failed, this will be set to &#39;check-failed&#39;.
+If the job fails for any other reason this will not be set.
+This can be used with the Actions expression syntax to conditionally run a step when the format check fails.
+</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

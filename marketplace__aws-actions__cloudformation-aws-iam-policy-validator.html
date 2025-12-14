@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy checks to validate AWS IAM policies in CloudFormation templates&quot; Action For GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Policy checks to validate AWS IAM policies in CloudFormation templates&quot; Action For GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/cloudformation-aws-iam-policy-validator</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/cloudformation-aws-iam-policy-validator" target="_blank">github.com/aws-actions/cloudformation-aws-iam-policy-validator</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Validate IAM Policies in CFN templates using ValidatePolicy, CheckAccessNotGranted &amp; CheckNoNewAccess API in Access Analyzer</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on validating AWS IAM policies, which is primarily a security concern, while also ensuring the quality of the CloudFormation templates used in infrastructure deployment.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">IAM</span> <span class="tag">CloudFormation</span> <span class="tag">policy validation</span> <span class="tag">security</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>policy-check-type</code></td>
+                <td>Yes</td>
+                <td>Type of the policy check. Valid values: VALIDATE_POLICY, CHECK_NO_NEW_ACCESS, CHECK_ACCESS_NOT_GRANTED</td>
+            </tr><tr>
+                <td><code>template-path</code></td>
+                <td>Yes</td>
+                <td>The path to the CloudFormation template.</td>
+            </tr><tr>
+                <td><code>region</code></td>
+                <td>Yes</td>
+                <td>The destination region the resources will be deployed to.</td>
+            </tr><tr>
+                <td><code>parameters</code></td>
+                <td>No</td>
+                <td>Keys and values for CloudFormation template parameters. Only parameters that are referenced by IAM policies in the template are required. Example format - KEY=VALUE [KEY=VALUE ...]</td>
+            </tr><tr>
+                <td><code>template-configuration-file</code></td>
+                <td>No</td>
+                <td>A JSON formatted file that specifies template parameter values, a stack policy, and tags. Only parameters are used from this file. Everything else is ignored. Identical values passed in the --parameters flag override parameters in this file. See CloudFormation documentation for file format: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.html</td>
+            </tr><tr>
+                <td><code>ignore-finding</code></td>
+                <td>No</td>
+                <td>Allow validation failures to be ignored. Specify as a comma separated list of findings to be ignored. Can be individual finding codes (e.g. &quot;PASS_ROLE_WITH_STAR_IN_RESOURCE&quot;), a specific resource name (e.g. &quot;MyResource&quot;), or a combination of both separated by a period.(e.g. &quot;MyResource.PASS_ROLE_WITH_STAR_IN_RESOURCE&quot;). Names of finding codes may change in IAM Access Analyzer over time. Valid options: FINDING_CODE,RESOURCE_NAME,RESOURCE_NAME.FINDING_CODE</td>
+            </tr><tr>
+                <td><code>actions</code></td>
+                <td>No</td>
+                <td>List of comma-separated actions. Example format - ACTION,ACTION,ACTION. This attribute is considered when policy-check-type is &quot;CHECK_ACCESS_NOT_GRANTED&quot;. At least one of &quot;actions&quot; or &quot;resources&quot; must be specified.</td>
+            </tr><tr>
+                <td><code>resources</code></td>
+                <td>No</td>
+                <td>List of comma-separated resource ARNs. Example format - RESOURCE,RESOURCE,RESOURCE. This attribute is considered when policy-check-type is &quot;CHECK_ACCESS_NOT_GRANTED&quot; At least one of &quot;actions&quot; or &quot;resources&quot; must be specified.</td>
+            </tr><tr>
+                <td><code>reference-policy</code></td>
+                <td>No</td>
+                <td>A JSON formatted file that specifies the path to the reference policy that is used for a permissions comparison. This attribute is considered and required when policy-check-type is &quot;CHECK_NO_NEW_ACCESS&quot;</td>
+            </tr><tr>
+                <td><code>reference-policy-type</code></td>
+                <td>No</td>
+                <td>The policy type associated with the IAM policy under analysis and the reference policy. Valid values: IDENTITY, RESOURCE. This attribute is considered and required when policy-check-type is &quot;CHECK_NO_NEW_ACCESS&quot;</td>
+            </tr><tr>
+                <td><code>treat-finding-type-as-blocking</code></td>
+                <td>No</td>
+                <td>Specify which finding types should be treated as blocking. Other finding types are treated as non blocking. If the tool detects any blocking finding types, it will exit with a non-zero exit code. If all findings are non blocking or there are no findings, the tool exits with an exit code of 0. Defaults to &quot;ERROR&quot; and &quot;SECURITY_WARNING&quot;. Specify as a comma separated list of finding types that should be blocking. Pass &quot;NONE&quot; to ignore all findings. This attribute is considered only when policy-check-type is &quot;VALIDATE_POLICY&quot;</td>
+            </tr><tr>
+                <td><code>treat-findings-as-non-blocking</code></td>
+                <td>No</td>
+                <td>When not specified, the tool detects any findings, it will exit with a non-zero exit code. When specified, the tool exits with an exit code of 0. This attribute is considered only when policy-check-type is &quot;CHECK_NO_NEW_ACCESS&quot; or &quot;CHECK_ACCESS_NOT_GRANTED&quot;</td>
+            </tr><tr>
+                <td><code>allow-external-principals</code></td>
+                <td>No</td>
+                <td>A comma separated list of external principals that should be ignored. Specify as a comma separated list of a 12 digit AWS account ID, a federated web identity user, a federated SAML user, or an ARN. Specify \&quot;*\&quot; to allow anonymous access. (e.g. 123456789123,arn:aws:iam::111111111111:role/MyOtherRole,graph.facebook.com). Valid options: ACCOUNT,ARN&quot;. This attribute is considered only when policy-check-type is &quot;VALIDATE_POLICY&quot;</td>
+            </tr><tr>
+                <td><code>allow-dynamic-ref-without-version</code></td>
+                <td>No</td>
+                <td>Override the default behavior and allow dynamic SSM references without version numbers. The version number ensures that the SSM parameter value that was validated is the one that is deployed.</td>
+            </tr><tr>
+                <td><code>exclude-resource-types</code></td>
+                <td>No</td>
+                <td>List of comma-separated resource types. Resource types should be the same as Cloudformation template resource names such as AWS::IAM::Role, AWS::S3::Bucket. Valid option syntax: AWS::SERVICE::RESOURCE</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>result</code></td>
+                <td>Result of the policy checks</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

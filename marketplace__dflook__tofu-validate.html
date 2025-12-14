@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tofu-validate - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>tofu-validate</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/dflook/tofu-validate</code></p>
+            <p><strong>Author:</strong> Daniel Flook</p>
+            <p><strong>Publisher:</strong> dflook</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/dflook/tofu-validate" target="_blank">github.com/dflook/tofu-validate</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Validate an OpenTofu configuration directory</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action validates an OpenTofu configuration directory, which directly relates to ensuring code quality. Additionally, it involves aspects of infrastructure as it deals with configuration management.</p>
+            <p><strong>Tags:</strong> <span class="tag">OpenTofu</span> <span class="tag">validation</span> <span class="tag">infrastructure</span> <span class="tag">code quality</span> <span class="tag">terraform</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>The path to the OpenTofu module to validate</td>
+            </tr><tr>
+                <td><code>workspace</code></td>
+                <td>No</td>
+                <td>OpenTofu workspace to use for the `terraform.workspace` value while validating. Note that for remote operations in a cloud backend, this is always `default`.
+
+Also used for discovering the OpenTofu version to use, if not otherwise specified.
+See [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.
+</td>
+            </tr><tr>
+                <td><code>backend_config</code></td>
+                <td>No</td>
+                <td>List of OpenTofu backend config values, one per line.
+This is used for discovering the OpenTofu version to use, if not otherwise specified.
+See [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.
+</td>
+            </tr><tr>
+                <td><code>backend_config_file</code></td>
+                <td>No</td>
+                <td>List of OpenTofu backend config files to use, one per line.
+Paths should be relative to the GitHub Actions workspace
+This is used for discovering the OpenTofu version to use, if not otherwise specified.
+See [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>failure-reason</code></td>
+                <td>When the job outcome is `failure` because the validation failed, this will be set to &#39;validate-failed&#39;.
+If the job fails for any other reason this will not be set.
+This can be used with the Actions expression syntax to conditionally run a step when the validate fails.
+</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Pull Request - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Create Pull Request</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/create-pull-request</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/create-pull-request" target="_blank">github.com/peter-evans/create-pull-request</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Creates a pull request for changes to your repository in the actions workspace</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on creating pull requests, which facilitates communication and collaboration among developers. It also indirectly contributes to code quality by enabling code reviews and testing through pull requests.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">GitHub</span> <span class="tag">collaboration</span> <span class="tag">automation</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>The token that the action will use to create and update the pull request.</td>
+            </tr><tr>
+                <td><code>branch-token</code></td>
+                <td>No</td>
+                <td>The token that the action will use to create and update the branch. Defaults to the value of `token`.
+</td>
+            </tr><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>Relative path under $GITHUB_WORKSPACE to the repository. Defaults to $GITHUB_WORKSPACE.
+</td>
+            </tr><tr>
+                <td><code>add-paths</code></td>
+                <td>No</td>
+                <td>A comma or newline-separated list of file paths to commit. Paths should follow git&#39;s pathspec syntax. Defaults to adding all new and modified files.
+</td>
+            </tr><tr>
+                <td><code>commit-message</code></td>
+                <td>No</td>
+                <td>The message to use when committing changes.</td>
+            </tr><tr>
+                <td><code>committer</code></td>
+                <td>No</td>
+                <td>The committer name and email address in the format `Display Name &lt;email@address.com&gt;`. Defaults to the GitHub Actions bot user.
+</td>
+            </tr><tr>
+                <td><code>author</code></td>
+                <td>No</td>
+                <td>The author name and email address in the format `Display Name &lt;email@address.com&gt;`. Defaults to the user who triggered the workflow run.
+</td>
+            </tr><tr>
+                <td><code>signoff</code></td>
+                <td>No</td>
+                <td>Add `Signed-off-by` line by the committer at the end of the commit log message.</td>
+            </tr><tr>
+                <td><code>branch</code></td>
+                <td>No</td>
+                <td>The pull request branch name.</td>
+            </tr><tr>
+                <td><code>delete-branch</code></td>
+                <td>No</td>
+                <td>Delete the `branch` if it doesn&#39;t have an active pull request associated with it.
+</td>
+            </tr><tr>
+                <td><code>branch-suffix</code></td>
+                <td>No</td>
+                <td>The branch suffix type when using the alternative branching strategy.</td>
+            </tr><tr>
+                <td><code>base</code></td>
+                <td>No</td>
+                <td>The pull request base branch. Defaults to the branch checked out in the workflow.
+</td>
+            </tr><tr>
+                <td><code>push-to-fork</code></td>
+                <td>No</td>
+                <td>A fork of the checked out parent repository to which the pull request branch will be pushed. e.g. `owner/repo-fork`. The pull request will be created to merge the fork&#39;s branch into the parent&#39;s base.
+</td>
+            </tr><tr>
+                <td><code>sign-commits</code></td>
+                <td>No</td>
+                <td>Sign commits as `github-actions[bot]` when using `GITHUB_TOKEN`, or your own bot when using GitHub App tokens.</td>
+            </tr><tr>
+                <td><code>title</code></td>
+                <td>No</td>
+                <td>The title of the pull request.</td>
+            </tr><tr>
+                <td><code>body</code></td>
+                <td>No</td>
+                <td>The body of the pull request.</td>
+            </tr><tr>
+                <td><code>body-path</code></td>
+                <td>No</td>
+                <td>The path to a file containing the pull request body. Takes precedence over `body`.</td>
+            </tr><tr>
+                <td><code>labels</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of labels.</td>
+            </tr><tr>
+                <td><code>assignees</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of assignees (GitHub usernames).</td>
+            </tr><tr>
+                <td><code>reviewers</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of reviewers (GitHub usernames) to request a review from.</td>
+            </tr><tr>
+                <td><code>team-reviewers</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of GitHub teams to request a review from. Note that a `repo` scoped Personal Access Token (PAT) may be required.
+</td>
+            </tr><tr>
+                <td><code>milestone</code></td>
+                <td>No</td>
+                <td>The number of the milestone to associate the pull request with.</td>
+            </tr><tr>
+                <td><code>draft</code></td>
+                <td>No</td>
+                <td>Create a draft pull request. Valid values are `true` (only on create), `always-true` (on create and update), and `false`.
+</td>
+            </tr><tr>
+                <td><code>maintainer-can-modify</code></td>
+                <td>No</td>
+                <td>Indicates whether maintainers can modify the pull request.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>pull-request-number</code></td>
+                <td>The pull request number</td>
+            </tr><tr>
+                <td><code>pull-request-url</code></td>
+                <td>The URL of the pull request.</td>
+            </tr><tr>
+                <td><code>pull-request-operation</code></td>
+                <td>The pull request operation performed by the action, `created`, `updated` or `closed`.</td>
+            </tr><tr>
+                <td><code>pull-request-head-sha</code></td>
+                <td>The commit SHA of the pull request branch.</td>
+            </tr><tr>
+                <td><code>pull-request-branch</code></td>
+                <td>The pull request branch name</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Benchmark - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Continuous Benchmark</h1>
+            
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/benchmark-action/github-action-benchmark</code></p>
+            <p><strong>Author:</strong> github-action-benchmark developers &lt;https://github.com/benchmark-action&gt;</p>
+            <p><strong>Publisher:</strong> benchmark-action</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/benchmark-action/github-action-benchmark" target="_blank">github.com/benchmark-action/github-action-benchmark</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Continuous Benchmark using GitHub pages as dash board for keeping performance</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Monitoring</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on continuous benchmarking, which is a form of testing to evaluate performance over time, and it also provides a dashboard for monitoring these benchmarks.</p>
+            <p><strong>Tags:</strong> <span class="tag">benchmark</span> <span class="tag">performance</span> <span class="tag">testing</span> <span class="tag">monitoring</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>Name of the benchmark. This value must be identical among all benchmarks</td>
+            </tr><tr>
+                <td><code>tool</code></td>
+                <td>Yes</td>
+                <td>Tool to use get benchmark output. One of &quot;cargo&quot;, &quot;go&quot;, &quot;benchmarkjs&quot;, &quot;pytest&quot;, &quot;googlecpp&quot;, &quot;catch2&quot;, &quot;julia&quot;, &quot;benchmarkdotnet&quot;, &quot;customBiggerIsBetter&quot;, &quot;customSmallerIsBetter&quot;</td>
+            </tr><tr>
+                <td><code>output-file-path</code></td>
+                <td>Yes</td>
+                <td>A path to file which contains the benchmark output</td>
+            </tr><tr>
+                <td><code>gh-pages-branch</code></td>
+                <td>Yes</td>
+                <td>Branch for gh-pages</td>
+            </tr><tr>
+                <td><code>gh-repository</code></td>
+                <td>No</td>
+                <td>Url to an optional different repository to store benchmark results</td>
+            </tr><tr>
+                <td><code>benchmark-data-dir-path</code></td>
+                <td>Yes</td>
+                <td>Path to directory which contains benchmark files on GitHub pages branch</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>GitHub API token to pull/push GitHub pages branch and deploy GitHub pages. For public repository, this must be personal access token for now. Please read README.md for more details</td>
+            </tr><tr>
+                <td><code>ref</code></td>
+                <td>No</td>
+                <td>optional Ref to use when finding commit</td>
+            </tr><tr>
+                <td><code>auto-push</code></td>
+                <td>No</td>
+                <td>Push GitHub Pages branch to remote automatically. This option requires github-token input</td>
+            </tr><tr>
+                <td><code>skip-fetch-gh-pages</code></td>
+                <td>No</td>
+                <td>Skip pulling GitHub Pages branch before generating an auto commit</td>
+            </tr><tr>
+                <td><code>comment-always</code></td>
+                <td>No</td>
+                <td>Leave a comment with benchmark result comparison. To enable this feature, github-token input must be given as well</td>
+            </tr><tr>
+                <td><code>summary-always</code></td>
+                <td>No</td>
+                <td>Leave a job summary with benchmark result comparison</td>
+            </tr><tr>
+                <td><code>save-data-file</code></td>
+                <td>No</td>
+                <td>Save the benchmark data to external file</td>
+            </tr><tr>
+                <td><code>comment-on-alert</code></td>
+                <td>No</td>
+                <td>Leave an alert comment when current benchmark result is worse than previous. Threshold is specified with alert-threshold input. To enable this feature, github-token input must be given as well</td>
+            </tr><tr>
+                <td><code>alert-threshold</code></td>
+                <td>No</td>
+                <td>Threshold which determines if an alert should happen or not. Percentage value such as &quot;150%&quot;. For example, 150% means that an alert happens when current benchmark result is 1.5x worse than previous</td>
+            </tr><tr>
+                <td><code>fail-on-alert</code></td>
+                <td>No</td>
+                <td>Workflow fails when alert comment happens</td>
+            </tr><tr>
+                <td><code>fail-threshold</code></td>
+                <td>No</td>
+                <td>Threshold which determines if the current workflow fails. Format is the same as alert-threshold input. If this value is not specified, the same value as alert-threshold is used</td>
+            </tr><tr>
+                <td><code>alert-comment-cc-users</code></td>
+                <td>No</td>
+                <td>Comma separated GitHub user names which start with @ (e.g. &quot;@foo,@bar&quot;). They will be mentioned in commit comment for alert.</td>
+            </tr><tr>
+                <td><code>external-data-json-path</code></td>
+                <td>No</td>
+                <td>JSON data file for storing benchmark results. When this input is set, github-action-benchmark no longer uses Git branch to store data. Instead, it reads and appends benchmark data from/to the file. User must store the file anywhere</td>
+            </tr><tr>
+                <td><code>max-items-in-chart</code></td>
+                <td>No</td>
+                <td>Max data points in a benchmark chart to avoid making the chart too busy. Value must be unsigned integer. No limit by default</td>
+            </tr></tbody></table></div>
+        
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Static Web Apps Deploy - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Static Web Apps Deploy</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/static-web-apps-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/static-web-apps-deploy" target="_blank">github.com/azure/static-web-apps-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploys an application to Azure Static Web Apps</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy applications to Azure Static Web Apps, which falls under the Deployment category, and it also involves infrastructure management in the Azure environment.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Static Web Apps</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>action</code></td>
+                <td>Yes</td>
+                <td>Action to perform</td>
+            </tr><tr>
+                <td><code>app_location</code></td>
+                <td>Yes</td>
+                <td>Directory location of the application source code</td>
+            </tr><tr>
+                <td><code>azure_static_web_apps_api_token</code></td>
+                <td>Yes</td>
+                <td>Required token</td>
+            </tr><tr>
+                <td><code>api_build_command</code></td>
+                <td>No</td>
+                <td>Custom command for Oryx to run when building Azure Functions source code</td>
+            </tr><tr>
+                <td><code>api_location</code></td>
+                <td>No</td>
+                <td>Directory location of the Azure Functions source code</td>
+            </tr><tr>
+                <td><code>app_artifact_location</code></td>
+                <td>No</td>
+                <td>Identical in use to output_location</td>
+            </tr><tr>
+                <td><code>output_location</code></td>
+                <td>No</td>
+                <td>Directory location of the compiled application code after building</td>
+            </tr><tr>
+                <td><code>app_build_command</code></td>
+                <td>No</td>
+                <td>Custom command for Oryx to run when building application source code</td>
+            </tr><tr>
+                <td><code>repo_token</code></td>
+                <td>No</td>
+                <td>Token for interacting with the Github repository. Currently used only for commenting on Pull Requests.</td>
+            </tr><tr>
+                <td><code>routes_location</code></td>
+                <td>No</td>
+                <td>Directory location where the routes.json file can be found in the source code</td>
+            </tr><tr>
+                <td><code>skip_app_build</code></td>
+                <td>No</td>
+                <td>Skips the build step for the application source code if set to true.</td>
+            </tr><tr>
+                <td><code>config_file_location</code></td>
+                <td>No</td>
+                <td>Directory location where the staticwebapp.config.json file can be found in the source code</td>
+            </tr><tr>
+                <td><code>skip_api_build</code></td>
+                <td>No</td>
+                <td>Skips the build step for the Azure Functions source code if set to true.</td>
+            </tr><tr>
+                <td><code>production_branch</code></td>
+                <td>No</td>
+                <td>When specified, deployments from other branches will be considered preview environments.</td>
+            </tr><tr>
+                <td><code>deployment_environment</code></td>
+                <td>No</td>
+                <td>Name of the Azure Static Web Apps environment to deploy to.</td>
+            </tr><tr>
+                <td><code>is_static_export</code></td>
+                <td>No</td>
+                <td>Indicates you are using `next export` to generate a static site if set to true.</td>
+            </tr><tr>
+                <td><code>data_api_location</code></td>
+                <td>No</td>
+                <td>Directory location of the Data API configuration files</td>
+            </tr><tr>
+                <td><code>github_id_token</code></td>
+                <td>No</td>
+                <td>GitHub Auth id token</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>static_web_app_url</code></td>
+                <td>Url of the application</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>

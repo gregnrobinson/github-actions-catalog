@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Setup Docker - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Docker Setup Docker</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/docker/setup-docker-action</code></p>
+            <p><strong>Author:</strong> docker</p>
+            <p><strong>Publisher:</strong> docker</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/docker/setup-docker-action" target="_blank">github.com/docker/setup-docker-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Set up Docker for use in GitHub Actions by downloading and installing a version of Docker CE</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action sets up Docker, which is essential for building and managing containerized applications, thus falling under Infrastructure. It also supports the build process by providing the necessary environment for running Docker commands.</p>
+            <p><strong>Tags:</strong> <span class="tag">docker</span> <span class="tag">setup</span> <span class="tag">infrastructure</span> <span class="tag">build</span> <span class="tag">dependency</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>Docker CE version. (e.g, v24.0.9)</td>
+            </tr><tr>
+                <td><code>channel</code></td>
+                <td>No</td>
+                <td>Docker CE channel. (e.g, stable, edge or test)</td>
+            </tr><tr>
+                <td><code>daemon-config</code></td>
+                <td>No</td>
+                <td>Docker daemon JSON configuration</td>
+            </tr><tr>
+                <td><code>tcp-port</code></td>
+                <td>No</td>
+                <td>TCP port to expose the Docker API locally</td>
+            </tr><tr>
+                <td><code>context</code></td>
+                <td>No</td>
+                <td>Docker context name. (default setup-docker-action)</td>
+            </tr><tr>
+                <td><code>set-host</code></td>
+                <td>No</td>
+                <td>Set DOCKER_HOST environment variable to docker socket path</td>
+            </tr><tr>
+                <td><code>rootless</code></td>
+                <td>No</td>
+                <td>Enable Docker rootless mode</td>
+            </tr><tr>
+                <td><code>runtime-basedir</code></td>
+                <td>No</td>
+                <td>Docker runtime base directory</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>GitHub Token used to get releases and download assets</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>sock</code></td>
+                <td>Docker socket path</td>
+            </tr><tr>
+                <td><code>tcp</code></td>
+                <td>Docker TCP address if tcp-port is set</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 23:13 UTC</p>
+    </footer>
+</body>
+</html>
