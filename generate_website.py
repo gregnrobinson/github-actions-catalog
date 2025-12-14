@@ -72,22 +72,24 @@ def generate_action_card(action):
         verified_badge = '<span class="badge badge-verified">✓ Verified</span>'
 
     return f'''
-    <div class="action-card" data-action="{escape_html(action_id)}" data-categories="{','.join(categories)}">
-        <div class="card-header">
-            <div class="card-title-section">
-                <h3>{escape_html(name or action_id)}</h3>
+    <a href="{escape_html(sanitized_id)}.html" class="action-card-link">
+        <div class="action-card" data-action="{escape_html(action_id)}" data-categories="{','.join(categories)}">
+            <div class="card-header">
+                <div class="card-title-section">
+                    <h3>{escape_html(name or action_id)}</h3>
+                </div>
+                {verified_badge}
             </div>
-            {verified_badge}
+            <p class="card-description">{escape_html(description)}</p>
+            <div class="card-meta">
+                <small>Publisher: <strong>{escape_html(publisher or "internal")}</strong></small>
+            </div>
+            <div class="card-categories">
+                {category_badges}
+            </div>
+            <div class="card-link">View Details →</div>
         </div>
-        <p class="card-description">{escape_html(description)}</p>
-        <div class="card-meta">
-            <small>Publisher: <strong>{escape_html(publisher or "internal")}</strong></small>
-        </div>
-        <div class="card-categories">
-            {category_badges}
-        </div>
-        <a href="{escape_html(sanitized_id)}.html" class="card-link">View Details →</a>
-    </div>
+    </a>
 '''
 
 def generate_action_detail(action):
@@ -287,10 +289,10 @@ def generate_index():
                 const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
 
                 if (matchesSearch && matchesCategory) {{
-                    card.style.display = 'block';
+                    card.parentElement.style.display = 'block';
                     visibleCount++;
                 }} else {{
-                    card.style.display = 'none';
+                    card.parentElement.style.display = 'none';
                 }}
             }});
 
@@ -410,6 +412,13 @@ body {
     margin-bottom: 3rem;
 }
 
+.action-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
 .action-card {
     background: white;
     border: 1px solid var(--gray-200);
@@ -419,6 +428,7 @@ body {
     cursor: pointer;
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .action-card:hover {
@@ -470,7 +480,7 @@ body {
     margin-top: auto;
 }
 
-.card-link:hover {
+.action-card:hover .card-link {
     text-decoration: underline;
 }
 
@@ -499,6 +509,7 @@ body {
     color: var(--gray-800);
 }
 
+/* Detail page styles */
 .back-link {
     display: inline-block;
     color: var(--primary);
@@ -660,7 +671,15 @@ def main():
     styles = generate_styles()
     with open(DOCS_DIR / "styles.css", "w") as f:
         f.write(styles)
-    print("   ✅ styles.css")
+
+    # Verify file was written
+    css_file = DOCS_DIR / "styles.css"
+    if css_file.exists():
+        file_size = css_file.stat().st_size
+        print(f"   ✅ styles.css ({file_size} bytes)")
+    else:
+        print("   ❌ styles.css failed to write!")
+        return
 
     # Generate detail pages for each action
     print("📄 Generating detail pages...")
