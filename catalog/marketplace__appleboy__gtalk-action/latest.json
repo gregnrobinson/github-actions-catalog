@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/appleboy/gtalk-action",
+  "version_id": "fc6df474c664",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/gtalk-action/action.yml",
+    "origin": "github.com/appleboy/gtalk-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Gtalk Message Notify",
+    "description": "Sending a Gtalk message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "username",
+        "required": true,
+        "default": null,
+        "description": "gtalk user email"
+      },
+      {
+        "name": "oauth_token",
+        "required": true,
+        "default": null,
+        "description": "AuthToken provides go-xmpp with the required OAuth2 token used to authenticate."
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": null,
+        "description": "message - optional."
+      },
+      {
+        "name": "to",
+        "required": false,
+        "default": null,
+        "description": "send message to user"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on sending messages, which falls under Communication and Notification. It also requires an OAuth token for authentication, placing it in the Authentication category as well.",
+        "tags": [
+          "gtalk",
+          "notification",
+          "communication",
+          "oauth",
+          "message"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "fc6df474c664759f59d85f81cd20042b1918dd29f9dc314a2abacd9ca448e690",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.155748Z"
+  }
+}

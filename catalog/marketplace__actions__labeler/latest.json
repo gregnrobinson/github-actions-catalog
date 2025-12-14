@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/actions/labeler",
+  "version_id": "0b101d5cbc41",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/labeler/action.yml",
+    "origin": "github.com/actions/labeler",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Labeler",
+    "description": "Automatically label new pull requests based on the paths of files being changed",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to manage labels"
+      },
+      {
+        "name": "configuration-path",
+        "required": false,
+        "default": ".github/labeler.yml",
+        "description": "The path for the label configurations"
+      },
+      {
+        "name": "sync-labels",
+        "required": false,
+        "default": false,
+        "description": "Whether or not to remove labels when matching files are reverted"
+      },
+      {
+        "name": "dot",
+        "required": false,
+        "default": true,
+        "description": "Whether or not to auto-include paths starting with dot (e.g. `.github`)"
+      },
+      {
+        "name": "pr-number",
+        "required": false,
+        "default": null,
+        "description": "The pull request number(s)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "new-labels",
+        "description": "A comma-separated list of all new labels"
+      },
+      {
+        "name": "all-labels",
+        "description": "A comma-separated list of all labels that the PR contains"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The Labeler action automatically applies labels to pull requests, which facilitates communication about the status and type of changes. It also contributes to code quality by organizing and categorizing changes based on file paths.",
+        "tags": [
+          "labeling",
+          "pull requests",
+          "automation",
+          "GitHub Actions",
+          "code organization"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0b101d5cbc415779d2a4494945d3c62198c5c3782b429826314af900099b690c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.328558Z"
+  }
+}

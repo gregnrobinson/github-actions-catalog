@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/github/measure-innersource",
+  "version_id": "f8323dad20c3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/measure-innersource/action.yml",
+    "origin": "github.com/github/measure-innersource",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "measure-innersource",
+    "description": "A GitHub Action to measure and report how much innersource collaboration in a repo",
+    "author": "github",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/measure_innersource:v1"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f8323dad20c36e2a02d635d42c0ae6e6c5bcdbbeb588402e66a59aa00faf64b5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.961294Z"
+  }
+}

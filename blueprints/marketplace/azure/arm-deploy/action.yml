@@ -1,0 +1,46 @@
+name: "Deploy Azure Resource Manager (ARM) Template"
+description: "Use this GitHub Action task to deploy Azure Resource Manager (ARM) template"
+inputs:
+  scope:
+    description: "Provide the scope of the deployment. Valid values are: 'resourcegroup', 'tenant', 'managementgroup', 'subscription'"
+    required: true
+  subscriptionId:
+    description: "Override the Subscription Id set by Azure Login."
+    required: false
+  managementGroupId:
+    description: "Specify the Id for the Management Group, only required for Management Group Deployments."
+    required: false
+  region:
+    description: "Provide the target region, only required for tenant, management Group or Subscription deployments."
+    required: false
+  resourceGroupName:
+    description: "Provide the name of a resource group, only required for resource Group deployments."
+    required: false
+  template:
+    description: "Specify the path or URL to the Azure Resource Manager template."
+    required: true
+  deploymentMode:
+    description: "Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template)."
+    required: false
+  deploymentName:
+    description: "Specifies the name of the resource group deployment to create."
+    required: false
+  parameters:
+    description: "Supply deployment parameter values."
+    required: false
+  failOnStdErr:
+    description: "Specify whether to fail the action if some data is written to stderr stream of az cli. Valid values are: true, false"
+    required: false
+    default: true
+  additionalArguments:
+    description: "Specify any additional arguments for the deployment."
+    required: false
+  maskedOutputs:
+    description: "Specify list of output keys that its value need to be register to github action as secret. (checkout https://github.com/actions/toolkit/issues/184#issuecomment-1198653452 for valid multiline string)"
+    required: false
+branding:
+  color: orange
+  icon: package
+runs:
+  using: "node20"
+  main: "dist/index.js"

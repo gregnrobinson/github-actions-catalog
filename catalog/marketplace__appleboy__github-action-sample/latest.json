@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/appleboy/github-action-sample",
+  "version_id": "5491e4779a02",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/github-action-sample/action.yml",
+    "origin": "github.com/appleboy/github-action-sample",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Action Sample",
+    "description": "GitHub Action Sample",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "",
+        "description": "github token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action involves a GitHub token, which suggests it is related to authentication, but without more context on its functionality, the categorization is less certain.",
+        "tags": [
+          "GitHub",
+          "Action",
+          "Authentication",
+          "Token",
+          "Sample"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5491e4779a0214bde718837eabf54d5431a2a30bc8f16e4a5c00b02031218b3d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.133956Z"
+  }
+}

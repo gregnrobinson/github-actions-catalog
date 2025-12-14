@@ -1,0 +1,129 @@
+{
+  "action_id": "marketplace/azure/spring-cloud-deploy",
+  "version_id": "60fe19a4168b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/spring-cloud-deploy/action.yml",
+    "origin": "github.com/azure/spring-cloud-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Spring Cloud",
+    "description": "Deploy applications to Azure Spring Cloud and manage deployments.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "azure-subscription",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Resource Manager subscription for the deployment."
+      },
+      {
+        "name": "action",
+        "required": true,
+        "default": "deploy",
+        "description": "Action to be performed on Azure Spring Cloud."
+      },
+      {
+        "name": "service-name",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Spring Cloud service to which to deploy."
+      },
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Spring Cloud app to deploy."
+      },
+      {
+        "name": "use-staging-deployment",
+        "required": true,
+        "default": true,
+        "description": "Automatically select the deployment that's set as Staging at the time the task runs."
+      },
+      {
+        "name": "create-new-deployment",
+        "required": false,
+        "default": false,
+        "description": "Whether to target the deployment that's set as Staging at the time of execution. If unchecked, the 'Deployment Name' setting must be set."
+      },
+      {
+        "name": "deployment-name",
+        "required": false,
+        "default": null,
+        "description": "The deployment to which this task will apply. Lowercase letters, - and numbers only; must start with a letter."
+      },
+      {
+        "name": "package",
+        "required": false,
+        "default": "${{ github.workspace }}/**/*.jar",
+        "description": "File path to the package or a folder containing the Spring Cloud app contents."
+      },
+      {
+        "name": "environment-variables",
+        "required": false,
+        "default": null,
+        "description": "Edit the app's environment variables."
+      },
+      {
+        "name": "jvm-options",
+        "required": false,
+        "default": null,
+        "description": "Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`"
+      },
+      {
+        "name": "runtime-version",
+        "required": false,
+        "default": null,
+        "description": "The runtime on which the app will run."
+      },
+      {
+        "name": "dotnetcore-mainentry-path",
+        "required": false,
+        "default": null,
+        "description": "The path to the .NET executable relative to zip root."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The runtime on which the app will run."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed for deploying applications to Azure Spring Cloud, which falls under the Deployment category. It also involves managing infrastructure resources in Azure.",
+        "tags": [
+          "Azure",
+          "Spring Cloud",
+          "Deployment",
+          "Infrastructure",
+          "Cloud Services"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "60fe19a4168b27e9f6510d58a5ec5cb470582bd0de92ae0a194dbadcb865736b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.508356Z"
+  }
+}

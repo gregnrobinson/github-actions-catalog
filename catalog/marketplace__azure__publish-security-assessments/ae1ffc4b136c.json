@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/azure/publish-security-assessments",
+  "version_id": "ae1ffc4b136c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/publish-security-assessments/action.yml",
+    "origin": "github.com/azure/publish-security-assessments",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Publish security assessments to Azure",
+    "description": "Publish security assessments to Azure",
+    "author": "",
+    "inputs": [
+      {
+        "name": "artifact-type",
+        "required": true,
+        "default": "containerImage",
+        "description": "The artifact that was scanned. Supported values - \u201ccontainerImage\u201d"
+      },
+      {
+        "name": "artifact-id",
+        "required": false,
+        "default": null,
+        "description": "Unique identifier for the artifact. For artifact-type \u201ccontainerImage\u201d, the action will take the image digest by default by using docker cli"
+      },
+      {
+        "name": "subscription-token",
+        "required": true,
+        "default": null,
+        "description": "ASC subscription token which can be found on the ASC portal"
+      },
+      {
+        "name": "instrumentation-key",
+        "required": false,
+        "default": null,
+        "description": "Instrumentation key of the application insights instance"
+      },
+      {
+        "name": "connection-string",
+        "required": false,
+        "default": null,
+        "description": "Connection string of the application insights instance"
+      },
+      {
+        "name": "scan-provider",
+        "required": true,
+        "default": null,
+        "description": "The tool used to scan the artifact. Supported values - \"trivy\""
+      },
+      {
+        "name": "scan-results-path",
+        "required": true,
+        "default": null,
+        "description": "Path to the file containing scan results"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/run.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ae1ffc4b136c1d453ae955e9455dfd67f9ea768eb0bc66d551ba0b93864e24b9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.522453Z"
+  }
+}

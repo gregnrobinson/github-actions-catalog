@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/aws-actions/setup-sam",
+  "version_id": "1851098fbf95",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/setup-sam/action.yml",
+    "origin": "github.com/aws-actions/setup-sam",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup AWS SAM CLI",
+    "description": "Setup AWS SAM CLI and add it to the PATH",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The AWS SAM CLI version to install"
+      },
+      {
+        "name": "python",
+        "required": false,
+        "default": null,
+        "description": "The Python interpreter to use for AWS SAM CLI"
+      },
+      {
+        "name": "use-installer",
+        "required": false,
+        "default": false,
+        "description": "Set to true to install using native installers instead of pip"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Authentication token to be used to call GITHUB Apis"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1851098fbf95618f9888fccd6ae6a9f0151f3a5591b1a17d8073179e4c9176b1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.996003Z"
+  }
+}

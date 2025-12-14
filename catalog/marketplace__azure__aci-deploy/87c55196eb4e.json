@@ -1,0 +1,231 @@
+{
+  "action_id": "marketplace/azure/aci-deploy",
+  "version_id": "87c55196eb4e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aci-deploy/action.yml",
+    "origin": "github.com/azure/aci-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy to Azure Container Instances",
+    "description": "Deploy to Containers to Azure Container Instances. github.com/Azure/Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "resource-group",
+        "required": true,
+        "default": null,
+        "description": "Name of the Resource Group in which the Container Instance will be created"
+      },
+      {
+        "name": "azure-file-volume-account-key",
+        "required": false,
+        "default": "",
+        "description": "The storage account access key used to access the Azure File Share"
+      },
+      {
+        "name": "azure-file-volume-account-name",
+        "required": false,
+        "default": "",
+        "description": "The name of the storage account that contains the Azure File Share"
+      },
+      {
+        "name": "azure-file-volume-mount-path",
+        "required": false,
+        "default": "",
+        "description": "The path within the container where the Azure File Volume should be mounted. Must not contain \":\""
+      },
+      {
+        "name": "azure-file-volume-share-name",
+        "required": false,
+        "default": "",
+        "description": "The name of the Azure File Share to be mounted as a volume"
+      },
+      {
+        "name": "azure-file-volume-read-only",
+        "required": false,
+        "default": "",
+        "description": "Should the Azure File Share be Mounted as Read Only. Accepted { true, false }"
+      },
+      {
+        "name": "command-line",
+        "required": false,
+        "default": "",
+        "description": "The command line to run when the container is started, e.g. \"/bin/bash -c myscript.sh\""
+      },
+      {
+        "name": "cpu",
+        "required": false,
+        "default": 1,
+        "description": "Number of CPU Cores Required"
+      },
+      {
+        "name": "dns-name-label",
+        "required": true,
+        "default": null,
+        "description": "The DNS Name Label for Container with Public IP"
+      },
+      {
+        "name": "environment-variables",
+        "required": false,
+        "default": "",
+        "description": "List of environment variables for the container. Space-seperated in \"key=value\" format"
+      },
+      {
+        "name": "gitrepo-dir",
+        "required": false,
+        "default": "",
+        "description": "The target directory path in the git repository. Must not contain \"..\""
+      },
+      {
+        "name": "gitrepo-mount-path",
+        "required": false,
+        "default": "",
+        "description": "The path within the container where the git repo volume should be mounted. Must not contain \":\""
+      },
+      {
+        "name": "gitrepo-revision",
+        "required": false,
+        "default": "",
+        "description": "The commit hash for the specified revision"
+      },
+      {
+        "name": "gitrepo-url",
+        "required": false,
+        "default": "",
+        "description": "The URL of a git repository to be mounted as a volume"
+      },
+      {
+        "name": "gpu-count",
+        "required": false,
+        "default": "",
+        "description": "The Number of GPU Resources needed in the Container"
+      },
+      {
+        "name": "gpu-sku",
+        "required": false,
+        "default": "",
+        "description": "The SKU for the GPUs specified. Accepted Values are { K80, P100, V100 }"
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "Specify the fully qualified container image name. For example, \"myregistry.azurecr.io/nginx:latest\" or \"python:3.7.2-alpine/\""
+      },
+      {
+        "name": "ip-address",
+        "required": false,
+        "default": "Public",
+        "description": "IP Address type of the Container Group. Accepted Values are { Private, Public }.Currently it only supports { Public }"
+      },
+      {
+        "name": "location",
+        "required": true,
+        "default": null,
+        "description": "Location where the Container will be deployed"
+      },
+      {
+        "name": "log-analytics-workspace",
+        "required": false,
+        "default": null,
+        "description": "The Log Analytics Workspace Name or Id"
+      },
+      {
+        "name": "log-analytics-workspace-key",
+        "required": false,
+        "default": null,
+        "description": "The Log Analytics Workspace Key"
+      },
+      {
+        "name": "log-type",
+        "required": false,
+        "default": null,
+        "description": "The Log type to be used. Accepted Values are { ContainerInsights, ContainerInstanceLogs }"
+      },
+      {
+        "name": "memory",
+        "required": false,
+        "default": 1.5,
+        "description": "Required Memory of the Containers in GB, accurate to one decimal place"
+      },
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Container Group Instance"
+      },
+      {
+        "name": "os-type",
+        "required": false,
+        "default": "Linux",
+        "description": "The OS type of the Containers. Accepted Values are  { Linux, Windows }"
+      },
+      {
+        "name": "ports",
+        "required": false,
+        "default": "80",
+        "description": "The Ports to Open on the Container. Space seperate the ports for multiple values"
+      },
+      {
+        "name": "protocol",
+        "required": false,
+        "default": "TCP",
+        "description": "The Network protocol to use. Accepted Values are { TCP, UDP }"
+      },
+      {
+        "name": "registry-login-server",
+        "required": false,
+        "default": "",
+        "description": "The container image registry login server"
+      },
+      {
+        "name": "registry-username",
+        "required": false,
+        "default": "",
+        "description": "Username to log in Container Image Registry Server"
+      },
+      {
+        "name": "registry-password",
+        "required": false,
+        "default": "",
+        "description": "Password to log in Container Image Registry Server"
+      },
+      {
+        "name": "restart-policy",
+        "required": false,
+        "default": "Always",
+        "description": "Restart Policy for the container(s). Accepted Values are { Always, OnFailure, Never }"
+      },
+      {
+        "name": "secure-environment-variables",
+        "required": false,
+        "default": "",
+        "description": "List of secure environment variables for the container. Space seperated values in \"key=value\" format"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "URL of the Deployed Application"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "87c55196eb4ea66cba2e1cef1444912769077a1ef7ce5c66122039d0cdbdb270",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.636845Z"
+  }
+}

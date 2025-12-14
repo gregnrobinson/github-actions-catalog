@@ -1,0 +1,12 @@
+name: 'Link Checker'
+description: 'An action for link checking repository Markdown and HTML files'
+inputs:
+  args:
+    description: 'Liche arguments'
+    default: '-v -r *'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'external-link'
+  color: 'purple'

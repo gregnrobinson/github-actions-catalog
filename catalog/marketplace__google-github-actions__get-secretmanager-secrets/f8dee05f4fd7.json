@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/google-github-actions/get-secretmanager-secrets",
+  "version_id": "f8dee05f4fd7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/get-secretmanager-secrets/action.yml",
+    "origin": "github.com/google-github-actions/get-secretmanager-secrets",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Get Secret Manager secrets",
+    "description": "Get secrets from Google Secret Manager and make their results available as\noutput variables.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "secrets",
+        "required": true,
+        "default": null,
+        "description": "List of secrets to access and inject into the environment. These are\ncomma-separated or newline-separated `OUTPUTNAME:SECRET`. Output names or\nsecret names that contain separators must be escaped with a backslash\n(e.g. `\\,` or `\\\\n`) unless quoted. Any leading or trailing whitespace is\ntrimmed unless values are quoted.\n\n```yaml\nsecrets: |-\n  output1:my-project/my-secret1\n  output2:my-project/my-secret2\n```\n\nSecrets can be referenced using the following formats:\n\n```text\n# Long form\nprojects/<project-id>/secrets/<secret-id>/versions/<version-id>\n\n# Long form - \"latest\" version\nprojects/<project-id>/secrets/<secret-id>\n\n# Short form\n<project-id>/<secret-id>/<version-id>\n\n# Short form - \"latest\" version\n<project-id>/<secret-id>\n```"
+      },
+      {
+        "name": "min_mask_length",
+        "required": false,
+        "default": "4",
+        "description": "Minimum line length for a secret to be masked. Extremely short secrets\n(e.g. `{` or `a`) can make GitHub Actions log output unreadable. This is\nespecially important for multi-line secrets, since each line of the secret\nis masked independently."
+      },
+      {
+        "name": "export_to_environment",
+        "required": false,
+        "default": false,
+        "description": "Make the fetched secrets additionally available as environment variables."
+      },
+      {
+        "name": "encoding",
+        "required": false,
+        "default": "utf8",
+        "description": "Encoding in which secrets will be exported into outputs (and environment\nvariables if `export_to_environment` is true). For secrets that cannot be\nrepresented in text, such as encryption key bytes, choose an encoding that\nhas a safe character such as `base64` or `hex`. For more information about\navailable encoding types, please see the [Node.js Buffer and character\nencodings](https://nodejs.org/docs/latest/api/buffer.html#buffers-and-character-encodings)."
+      },
+      {
+        "name": "universe",
+        "required": false,
+        "default": "googleapis.com",
+        "description": "The Google Cloud universe to use for constructing API endpoints. The\ndefault universe is \"googleapis.com\", which corresponds to\nhttps://cloud.google.com. Trusted Partner Cloud and Google Distributed\nHosted Cloud should set this to their universe address."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "secrets",
+        "description": "Each secret is prefixed with an output name. The secret's resolved access\nvalue will be available at that output in future build steps. For example:\n\n```yaml\njobs:\n  job_id:\n    steps:\n    - id: 'secrets'\n      uses: 'google-github-actions/get-secretmanager-secrets@v3'\n      with:\n        secrets: |-\n          token:my-project/docker-registry-token\n```\n\nwill be available in future steps as the output:\n\n```text\nsteps.secrets.outputs.token\n```"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f8dee05f4fd7e8ced6264f6542b9985c42761f1913fb22a43ef997c88290a09e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.793847Z"
+  }
+}

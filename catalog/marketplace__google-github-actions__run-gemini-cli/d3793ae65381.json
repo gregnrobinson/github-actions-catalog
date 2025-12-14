@@ -1,0 +1,273 @@
+{
+  "action_id": "marketplace/google-github-actions/run-gemini-cli",
+  "version_id": "d3793ae65381",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/run-gemini-cli/action.yml",
+    "origin": "github.com/google-github-actions/run-gemini-cli",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Run Gemini CLI",
+    "description": "Invoke the Gemini CLI from a GitHub Action.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "gcp_location",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud location."
+      },
+      {
+        "name": "gcp_project_id",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud project ID."
+      },
+      {
+        "name": "gcp_service_account",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud service account email."
+      },
+      {
+        "name": "gcp_workload_identity_provider",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud Workload Identity Provider."
+      },
+      {
+        "name": "gcp_token_format",
+        "required": false,
+        "default": "access_token",
+        "description": "The token format for authentication. Set to \"access_token\" to generate access tokens (requires service account), or set to empty string for direct WIF. Can be \"access_token\" or \"id_token\"."
+      },
+      {
+        "name": "gcp_access_token_scopes",
+        "required": false,
+        "default": "https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile",
+        "description": "The access token scopes when using token_format \"access_token\". Comma-separated list of OAuth 2.0 scopes."
+      },
+      {
+        "name": "gemini_api_key",
+        "required": false,
+        "default": null,
+        "description": "The API key for the Gemini API."
+      },
+      {
+        "name": "gemini_cli_version",
+        "required": false,
+        "default": "latest",
+        "description": "The version of the Gemini CLI to install. Can be \"latest\", \"preview\", \"nightly\", a specific version number, or a git branch, tag, or commit. For more information, see [Gemini CLI releases](https://github.com/google-gemini/gemini-cli/blob/main/docs/releases.md)."
+      },
+      {
+        "name": "gemini_debug",
+        "required": false,
+        "default": null,
+        "description": "Enable debug logging and output streaming."
+      },
+      {
+        "name": "gemini_model",
+        "required": false,
+        "default": null,
+        "description": "The model to use with Gemini."
+      },
+      {
+        "name": "google_api_key",
+        "required": false,
+        "default": null,
+        "description": "The Vertex AI API key to use with Gemini."
+      },
+      {
+        "name": "prompt",
+        "required": false,
+        "default": "You are a helpful assistant.",
+        "description": "A string passed to the Gemini CLI's [`--prompt` argument](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md#command-line-arguments)."
+      },
+      {
+        "name": "settings",
+        "required": false,
+        "default": null,
+        "description": "A JSON string written to `.gemini/settings.json` to configure the CLI's _project_ settings.\nFor more details, see the documentation on [settings files](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md#settings-files)."
+      },
+      {
+        "name": "use_gemini_code_assist",
+        "required": false,
+        "default": "false",
+        "description": "Whether to use Code Assist for Gemini model access instead of the default Gemini API key.\nFor more information, see the [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/authentication.md)."
+      },
+      {
+        "name": "use_vertex_ai",
+        "required": false,
+        "default": "false",
+        "description": "Whether to use Vertex AI for Gemini model access instead of the default Gemini API key.\nFor more information, see the [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/authentication.md)."
+      },
+      {
+        "name": "extensions",
+        "required": false,
+        "default": null,
+        "description": "A list of Gemini CLI extensions to install."
+      },
+      {
+        "name": "upload_artifacts",
+        "required": false,
+        "default": "false",
+        "description": "Whether to upload artifacts to the github action."
+      },
+      {
+        "name": "use_pnpm",
+        "required": false,
+        "default": "false",
+        "description": "Whether or not to use pnpm instead of npm to install gemini-cli"
+      },
+      {
+        "name": "workflow_name",
+        "required": false,
+        "default": "${{ github.workflow }}",
+        "description": "The GitHub workflow name, used for telemetry purposes."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "summary",
+        "description": "The summarized output from the Gemini CLI execution."
+      },
+      {
+        "name": "error",
+        "description": "The error output from the Gemini CLI execution, if any."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Validate Inputs",
+          "id": "validate_inputs",
+          "shell": "bash",
+          "run": "set -exuo pipefail\n\n# Emit a clear warning in three places without failing the step\nwarn() {\n  local msg=\"$1\"\n  echo \"WARNING: ${msg}\" >&2\n  echo \"::warning title=Input validation::${msg}\"\n  if [[ -n \"${GITHUB_STEP_SUMMARY:-}\" ]]; then\n    {\n      echo \"### Input validation warnings\"\n      echo\n      echo \"- ${msg}\"\n    } >> \"${GITHUB_STEP_SUMMARY}\"\n  fi\n}\n\n# Validate the count of authentication methods\nauth_methods=0\nif [[ \"${INPUT_GEMINI_API_KEY_PRESENT:-false}\" == \"true\" ]]; then ((++auth_methods)); fi\nif [[ \"${INPUT_GOOGLE_API_KEY_PRESENT:-false}\" == \"true\" ]]; then ((++auth_methods)); fi\nif [[ \"${INPUT_GCP_WORKLOAD_IDENTITY_PROVIDER_PRESENT:-false}\" == \"true\" ]]; then ((++auth_methods)); fi\n\nif [[ ${auth_methods} -eq 0 ]]; then\n  warn \"No authentication method provided. Please provide one of 'gemini_api_key', 'google_api_key', or 'gcp_workload_identity_provider'.\"\nfi\n\nif [[ ${auth_methods} -gt 1 ]]; then\n  warn \"Multiple authentication methods provided. Please use only one of 'gemini_api_key', 'google_api_key', or 'gcp_workload_identity_provider'.\"\nfi\n\n# Validate Workload Identity Federation inputs\nif [[ \"${INPUT_GCP_WORKLOAD_IDENTITY_PROVIDER_PRESENT:-false}\" == \"true\" ]]; then\n  if [[ \"${INPUT_GCP_PROJECT_ID_PRESENT:-false}\" != \"true\" ]]; then\n    warn \"When using Workload Identity Federation ('gcp_workload_identity_provider'), you must also provide 'gcp_project_id'.\"\n  fi\n  # Service account is required when using token_format (default behavior)\n  # Only optional when explicitly set to empty for direct WIF\n  if [[ \"${INPUT_GCP_TOKEN_FORMAT}\" != \"\" && \"${INPUT_GCP_SERVICE_ACCOUNT_PRESENT:-false}\" != \"true\" ]]; then\n    warn \"When using Workload Identity Federation with token generation ('gcp_token_format'), you must also provide 'gcp_service_account'. To use direct WIF without a service account, explicitly set 'gcp_token_format' to an empty string.\"\n  fi\n  if [[ \"${INPUT_USE_VERTEX_AI:-false}\" == \"${INPUT_USE_GEMINI_CODE_ASSIST:-false}\" ]]; then\n    warn \"When using Workload Identity Federation, you must set exactly one of 'use_vertex_ai' or 'use_gemini_code_assist' to 'true'.\"\n  fi\nfi\n\n# Validate Vertex AI API Key\nif [[ \"${INPUT_GOOGLE_API_KEY_PRESENT:-false}\" == \"true\" ]]; then\n  if [[ \"${INPUT_USE_VERTEX_AI:-false}\" != \"true\" ]]; then\n    warn \"When using 'google_api_key', you must set 'use_vertex_ai' to 'true'.\"\n  fi\n  if [[ \"${INPUT_USE_GEMINI_CODE_ASSIST:-false}\" == \"true\" ]]; then\n    warn \"When using 'google_api_key', 'use_gemini_code_assist' cannot be 'true'.\"\n  fi\nfi\n\n# Validate Gemini API Key\nif [[ \"${INPUT_GEMINI_API_KEY_PRESENT:-false}\" == \"true\" ]]; then\n  if [[ \"${INPUT_USE_VERTEX_AI:-false}\" == \"true\" || \"${INPUT_USE_GEMINI_CODE_ASSIST:-false}\" == \"true\" ]]; then\n    warn \"When using 'gemini_api_key', both 'use_vertex_ai' and 'use_gemini_code_assist' must be 'false'.\"\n  fi\nfi",
+          "env": {
+            "INPUT_GEMINI_API_KEY_PRESENT": "${{ inputs.gemini_api_key != '' }}",
+            "INPUT_GOOGLE_API_KEY_PRESENT": "${{ inputs.google_api_key != '' }}",
+            "INPUT_GCP_WORKLOAD_IDENTITY_PROVIDER_PRESENT": "${{ inputs.gcp_workload_identity_provider != '' }}",
+            "INPUT_GCP_PROJECT_ID_PRESENT": "${{ inputs.gcp_project_id != '' }}",
+            "INPUT_GCP_SERVICE_ACCOUNT_PRESENT": "${{ inputs.gcp_service_account != '' }}",
+            "INPUT_GCP_TOKEN_FORMAT": "${{ inputs.gcp_token_format }}",
+            "INPUT_USE_VERTEX_AI": "${{ inputs.use_vertex_ai }}",
+            "INPUT_USE_GEMINI_CODE_ASSIST": "${{ inputs.use_gemini_code_assist }}"
+          }
+        },
+        {
+          "name": "Sanitize workflow name",
+          "id": "sanitize_workflow_name",
+          "shell": "bash",
+          "run": "SANITIZED=$(echo \"${WORKFLOW_NAME}\" | sed 's/[^ a-zA-Z0-9-]//g' | xargs | tr ' ' '_' | tr '[:upper:]' '[:lower:]')\necho \"gh_workflow_name=$SANITIZED\" >> $GITHUB_OUTPUT\n",
+          "env": {
+            "WORKFLOW_NAME": "${{ inputs.workflow_name }}"
+          }
+        },
+        {
+          "name": "Configure Gemini CLI",
+          "if": "${{ inputs.settings != '' }}",
+          "run": "mkdir -p .gemini/\necho \"${SETTINGS}\" > \".gemini/settings.json\"",
+          "shell": "bash",
+          "env": {
+            "SETTINGS": "${{ inputs.settings }}"
+          }
+        },
+        {
+          "name": "Install Custom Commands",
+          "shell": "bash",
+          "run": "set -euo pipefail\nmkdir -p .gemini/commands\ncp -r \"${GITHUB_ACTION_PATH}/.github/commands/\"* .gemini/commands/",
+          "env": {
+            "GITHUB_ACTION_PATH": "${{ github.action_path }}"
+          }
+        },
+        {
+          "name": "Authenticate to Google Cloud",
+          "if": "${{ inputs.gcp_workload_identity_provider != '' }}",
+          "id": "auth",
+          "uses": "google-github-actions/auth@v2",
+          "with": {
+            "project_id": "${{ inputs.gcp_project_id }}",
+            "workload_identity_provider": "${{ inputs.gcp_workload_identity_provider }}",
+            "service_account": "${{ inputs.gcp_service_account }}",
+            "token_format": "${{ inputs.gcp_token_format }}",
+            "access_token_scopes": "${{ inputs.gcp_access_token_scopes }}"
+          }
+        },
+        {
+          "name": "Install pnpm",
+          "if": "${{ inputs.use_pnpm == 'true' }}",
+          "uses": "pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061",
+          "with": {
+            "version": 10
+          }
+        },
+        {
+          "name": "Install Gemini CLI",
+          "id": "install",
+          "env": {
+            "GEMINI_CLI_VERSION": "${{ inputs.gemini_cli_version }}",
+            "EXTENSIONS": "${{ inputs.extensions }}",
+            "USE_PNPM": "${{ inputs.use_pnpm }}"
+          },
+          "shell": "bash",
+          "run": "set -euo pipefail\n\nVERSION_INPUT=\"${GEMINI_CLI_VERSION:-latest}\"\n\nif [[ \"${VERSION_INPUT}\" == \"latest\" || \"${VERSION_INPUT}\" == \"preview\" || \"${VERSION_INPUT}\" == \"nightly\" || \"${VERSION_INPUT}\" =~ ^[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9\\.-]+)?(\\+[a-zA-Z0-9\\.-]+)?$ ]]; then\n  echo \"Installing Gemini CLI from npm: @google/gemini-cli@${VERSION_INPUT}\"\n  if [[ \"${USE_PNPM}\" == \"true\" ]]; then\n    pnpm add --silent --global @google/gemini-cli@\"${VERSION_INPUT}\"\n  else\n    npm install --silent --no-audit --prefer-offline --global @google/gemini-cli@\"${VERSION_INPUT}\"\n  fi\nelse\n  echo \"Installing Gemini CLI from GitHub: github:google-gemini/gemini-cli#${VERSION_INPUT}\"\n  git clone https://github.com/google-gemini/gemini-cli.git\n  cd gemini-cli\n  git checkout \"${VERSION_INPUT}\"\n  npm install\n  npm run bundle\n  npm install --silent --no-audit --prefer-offline --global .\nfi\necho \"Verifying installation:\"\nif command -v gemini >/dev/null 2>&1; then\n  gemini --version || echo \"Gemini CLI installed successfully (version command not available)\"\nelse\n  echo \"Error: Gemini CLI not found in PATH\"\n  exit 1\nfi\nif [[ -n \"${EXTENSIONS}\" ]]; then\n  echo \"Installing Gemini CLI extensions:\"\n  echo \"${EXTENSIONS}\" | jq -r '.[]' | while IFS= read -r extension; do\n    extension=$(echo \"${extension}\" | xargs)\n    if [[ -n \"${extension}\" ]]; then\n      echo \"Installing ${extension}...\"\n      echo \"Y\" | gemini extensions install \"${extension}\"\n    fi\n  done\nfi"
+        },
+        {
+          "name": "Run Gemini CLI",
+          "id": "gemini_run",
+          "shell": "bash",
+          "run": "set -euo pipefail\n\n# Create a temporary directory for storing the output, and ensure it's\n# cleaned up later\nTEMP_STDOUT=\"$(mktemp -p \"${RUNNER_TEMP}\" gemini-out.XXXXXXXXXX)\"\nTEMP_STDERR=\"$(mktemp -p \"${RUNNER_TEMP}\" gemini-err.XXXXXXXXXX)\"\nfunction cleanup {\n  rm -f \"${TEMP_STDOUT}\" \"${TEMP_STDERR}\"\n}\ntrap cleanup EXIT\n\n# Keep track of whether we've failed\nFAILED=false\n\n# Run Gemini CLI with the provided prompt, using JSON output format\n# We capture stdout (JSON) to TEMP_STDOUT and stderr to TEMP_STDERR\nif [[ \"${GEMINI_DEBUG}\" = true ]]; then\n  echo \"::warning::Gemini CLI debug logging is enabled. This will stream responses, which could reveal sensitive information if processed with untrusted inputs.\"\n  echo \"::: Start Gemini CLI STDOUT :::\"\n  if ! gemini --debug --yolo --prompt \"${PROMPT}\" --output-format json 2> >(tee \"${TEMP_STDERR}\" >&2) | tee \"${TEMP_STDOUT}\"; then\n    FAILED=true\n  fi\n  # Wait for async stderr logging to complete. This is because process substitution in Bash is async so let tee finish writing to ${TEMP_STDERR}\n  sleep 1\n  echo \"::: End Gemini CLI STDOUT :::\"\nelse\n  if ! gemini --yolo --prompt \"${PROMPT}\" --output-format json 2> \"${TEMP_STDERR}\" 1> \"${TEMP_STDOUT}\"; then\n    FAILED=true\n  fi\nfi\n\n# Create the artifacts directory and copy full logs\nmkdir -p gemini-artifacts\ncp \"${TEMP_STDOUT}\" gemini-artifacts/stdout.log\ncp \"${TEMP_STDERR}\" gemini-artifacts/stderr.log\nif [[ -f .gemini/telemetry.log ]]; then\n  cp .gemini/telemetry.log gemini-artifacts/telemetry.log\nelse\n  # Create an empty file so the artifact upload doesn't fail if telemetry is missing\n  touch gemini-artifacts/telemetry.log\nfi\n\n# Parse JSON output to extract response and errors\n# If output is not valid JSON, RESPONSE will be empty and we'll rely on stderr for errors\nRESPONSE=\"\"\nERROR_JSON=\"\"\nif jq -e . \"${TEMP_STDOUT}\" >/dev/null 2>&1; then\n   RESPONSE=$(jq -r '.response // \"\"' \"${TEMP_STDOUT}\")\nfi\nif jq -e . \"${TEMP_STDERR}\" >/dev/null 2>&1; then\n   ERROR_JSON=$(jq -c '.error // empty' \"${TEMP_STDERR}\")\nfi\nif ! jq -e . \"${TEMP_STDOUT}\" >/dev/null 2>&1; then\n  echo \"::warning::Gemini CLI output was not valid JSON\"\n  # If we failed to parse JSON and the command didn't fail, this is likely a silent failure (e.g. resource limit)\n  if [[ \"${FAILED}\" == \"false\" ]]; then\n     echo \"::error title=Gemini CLI execution failed::Gemini CLI produced invalid or empty JSON output, which usually indicates a silent failure.\"\n     FAILED=true\n  fi\nfi\n\n\n# Set the captured response as a step output, supporting multiline\necho \"gemini_response<<EOF\" >> \"${GITHUB_OUTPUT}\"\nif [[ -n \"${RESPONSE}\" ]]; then\n  echo \"${RESPONSE}\" >> \"${GITHUB_OUTPUT}\"\nelse\n  cat \"${TEMP_STDOUT}\" >> \"${GITHUB_OUTPUT}\"\nfi\necho \"EOF\" >> \"${GITHUB_OUTPUT}\"\n\n# Set the captured errors as a step output, supporting multiline\necho \"gemini_errors<<EOF\" >> \"${GITHUB_OUTPUT}\"\nif [[ -n \"${ERROR_JSON}\" ]]; then\n  echo \"${ERROR_JSON}\" >> \"${GITHUB_OUTPUT}\"\nelse\n  cat \"${TEMP_STDERR}\" >> \"${GITHUB_OUTPUT}\"\nfi\necho \"EOF\" >> \"${GITHUB_OUTPUT}\"\n\nif [[ \"${FAILED}\" = true ]]; then\n  # If we have a structured error from JSON, use it for the error message\n  if [[ -n \"${ERROR_JSON}\" ]]; then\n     ERROR_MSG=$(jq -r '.message // .' <<< \"${ERROR_JSON}\")\n     echo \"::error title=Gemini CLI execution failed::${ERROR_MSG}\"\n  fi\n  echo \"::: Start Gemini CLI STDERR :::\"\n  cat \"${TEMP_STDERR}\"\n  echo \"::: End Gemini CLI STDERR :::\"\n  exit 1\nfi",
+          "env": {
+            "GEMINI_DEBUG": "${{ fromJSON(inputs.gemini_debug || false) }}",
+            "GEMINI_API_KEY": "${{ inputs.gemini_api_key }}",
+            "SURFACE": "GitHub",
+            "GOOGLE_CLOUD_PROJECT": "${{ inputs.gcp_project_id }}",
+            "GOOGLE_CLOUD_LOCATION": "${{ inputs.gcp_location }}",
+            "GOOGLE_GENAI_USE_VERTEXAI": "${{ inputs.use_vertex_ai }}",
+            "GOOGLE_API_KEY": "${{ inputs.google_api_key }}",
+            "GOOGLE_GENAI_USE_GCA": "${{ inputs.use_gemini_code_assist }}",
+            "GOOGLE_CLOUD_ACCESS_TOKEN": "${{steps.auth.outputs.access_token}}",
+            "PROMPT": "${{ inputs.prompt }}",
+            "GEMINI_MODEL": "${{ inputs.gemini_model }}",
+            "GH_WORKFLOW_NAME": "${{ steps.sanitize_workflow_name.outputs.gh_workflow_name }}"
+          }
+        },
+        {
+          "name": "Upload Gemini CLI outputs",
+          "if": "${{ inputs.upload_artifacts == 'true' }}",
+          "uses": "actions/upload-artifact@v4",
+          "with": {
+            "name": "gemini-output",
+            "path": "gemini-artifacts/"
+          }
+        },
+        {
+          "name": "Upload Telemetry to Google Cloud",
+          "if": "${{ inputs.gcp_workload_identity_provider != '' }}",
+          "shell": "bash",
+          "run": "set -euo pipefail\n\n# If the telemetry log doesn't exist or is empty, do nothing.\nif [[ ! -s \".gemini/telemetry.log\" ]]; then\n  echo \"No telemetry log found, skipping upload.\"\n  exit 0\nfi\n\n# Generate the real config file from the template\nsed -e \"s#OTLP_GOOGLE_CLOUD_PROJECT#${OTLP_GOOGLE_CLOUD_PROJECT}#g\" \\\n    -e \"s#GITHUB_REPOSITORY_PLACEHOLDER#${GITHUB_REPOSITORY}#g\" \\\n    -e \"s#GITHUB_RUN_ID_PLACEHOLDER#${GITHUB_RUN_ID}#g\" \\\n  \"${GITHUB_ACTION_PATH}/scripts/collector-gcp.yaml.template\" > \".gemini/collector-gcp.yaml\"\n\n# Ensure credentials file has the right permissions\nchmod 444 \"$GOOGLE_APPLICATION_CREDENTIALS\"\n\n# Run the collector in the background with a known name\ndocker run --rm --name gemini-telemetry-collector --network host \\\n  -v \"${GITHUB_WORKSPACE}:/github/workspace\" \\\n  -e \"GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS/$GITHUB_WORKSPACE//github/workspace}\" \\\n  -w \"/github/workspace\" \\\n  otel/opentelemetry-collector-contrib:0.108.0 \\\n  --config /github/workspace/.gemini/collector-gcp.yaml &\n\n# Wait for the collector to start up\necho \"Waiting for collector to initialize...\"\nsleep 10\n\n# Monitor the queue until it's empty or we time out\necho \"Monitoring exporter queue...\"\nATTEMPTS=0\nMAX_ATTEMPTS=12 # 12 * 5s = 60s timeout\nwhile true; do\n    # Use -f to fail silently if the server isn't ready yet\n    # Filter out the prometheus help/type comments before grabbing the value\n    QUEUE_SIZE=$(curl -sf http://localhost:8888/metrics | grep otelcol_exporter_queue_size | grep -v '^#' | awk '{print $2}' || echo \"-1\")\n\n    if [ \"$QUEUE_SIZE\" == \"0\" ]; then\n        echo \"Exporter queue is empty, all data processed.\"\n        break\n    fi\n\n    if [ \"$ATTEMPTS\" -ge \"$MAX_ATTEMPTS\" ]; then\n        echo \"::warning::Timed out waiting for exporter queue to empty. Proceeding with shutdown.\"\n        break\n    fi\n\n    echo \"Queue size: $QUEUE_SIZE, waiting...\"\n    sleep 5\n    ATTEMPTS=$((ATTEMPTS + 1))\ndone\n\n# Gracefully shut down the collector\necho \"Stopping collector...\"\ndocker stop gemini-telemetry-collector\necho \"Collector stopped.\"",
+          "env": {
+            "OTLP_GOOGLE_CLOUD_PROJECT": "${{ inputs.gcp_project_id }}",
+            "GITHUB_ACTION_PATH": "${{ github.action_path }}",
+            "GITHUB_REPOSITORY": "${{ github.repository }}",
+            "GITHUB_RUN_ID": "${{ github.run_id }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d3793ae65381944efd334f0e62771fecbd7d7230ca5ff665c30e39db30765981",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.781189Z"
+  }
+}

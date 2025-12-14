@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/azure/webapps-container-deploy",
+  "version_id": "21dde1b6a84c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/webapps-container-deploy/action.yml",
+    "origin": "github.com/azure/webapps-container-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure WebApp Container",
+    "description": "Deploy Container Web Apps to Azure. github.com/Azure/Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Azure Web App"
+      },
+      {
+        "name": "slot-name",
+        "required": false,
+        "default": "production",
+        "description": "Enter an existing Slot other than the Production slot"
+      },
+      {
+        "name": "images",
+        "required": true,
+        "default": null,
+        "description": "Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated)"
+      },
+      {
+        "name": "configuration-file",
+        "required": false,
+        "default": null,
+        "description": "Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container scenario"
+      },
+      {
+        "name": "container-command",
+        "required": false,
+        "default": null,
+        "description": "Enter the start up command. For ex. dotnet run or dotnet filename.dll"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "webapp-url",
+        "description": "URL to work with your webapp"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "21dde1b6a84ca1b5ebf3769e55b432e5bf335f93939b159971d31e6d451ad822",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.559998Z"
+  }
+}

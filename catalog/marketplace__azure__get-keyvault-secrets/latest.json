@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/azure/get-keyvault-secrets",
+  "version_id": "8e46b220cc93",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/get-keyvault-secrets/action.yml",
+    "origin": "github.com/azure/get-keyvault-secrets",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure key vault - Get Secrets",
+    "description": "Get Secrets from Azure Key Vault instance and set as output variables. github.com/azure/actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "keyvault",
+        "required": true,
+        "default": null,
+        "description": "Name of the azure key vault"
+      },
+      {
+        "name": "secrets",
+        "required": true,
+        "default": null,
+        "description": "Name of the secret to be fetched"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action retrieves secrets from Azure Key Vault, which is primarily related to authentication and managing sensitive information in an infrastructure context.",
+        "tags": [
+          "Azure",
+          "Key Vault",
+          "Secrets",
+          "Authentication",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8e46b220cc933e526caf033a8203d8a256ccd14b4b94bf35498287fd1e5ae48d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.702151Z"
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-ecs-deploy-express-service",
+  "version_id": "30bc4cb22888",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecs-deploy-express-service/action.yml",
+    "origin": "github.com/aws-actions/amazon-ecs-deploy-express-service",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Amazon ECS \"Deploy Express Service\" Action for GitHub Actions",
+    "description": "Creates or updates an Amazon ECS Express Mode service",
+    "author": "",
+    "inputs": [
+      {
+        "name": "service-name",
+        "required": true,
+        "default": null,
+        "description": "The name of the ECS Express service. Used for both creating new services and updating existing ones."
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "The container image URI to deploy (e.g., 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest)"
+      },
+      {
+        "name": "execution-role-arn",
+        "required": true,
+        "default": null,
+        "description": "The ARN of the task execution role that grants the ECS agent permission to pull container images and publish logs"
+      },
+      {
+        "name": "infrastructure-role-arn",
+        "required": true,
+        "default": null,
+        "description": "The ARN of the infrastructure role that grants ECS permission to create and manage AWS resources (ALB, target groups, etc.)"
+      },
+      {
+        "name": "cluster",
+        "required": false,
+        "default": "default",
+        "description": "The name of the ECS cluster. Will default to the 'default' cluster."
+      },
+      {
+        "name": "container-port",
+        "required": false,
+        "default": null,
+        "description": "The port number on the container that receives traffic (containerPort in primaryContainer). If not specified, Express Mode will use port 80."
+      },
+      {
+        "name": "environment-variables",
+        "required": false,
+        "default": null,
+        "description": "Environment variables to set in the container (environment in primaryContainer). Provide as JSON array: [{\"name\":\"KEY\",\"value\":\"VALUE\"}]"
+      },
+      {
+        "name": "secrets",
+        "required": false,
+        "default": null,
+        "description": "Secrets to inject into the container (secrets in primaryContainer). Provide as JSON array: [{\"name\":\"KEY\",\"valueFrom\":\"arn:aws:secretsmanager:...\"}]"
+      },
+      {
+        "name": "command",
+        "required": false,
+        "default": null,
+        "description": "Override the default container command (command in primaryContainer). Provide as JSON array: [\"node\",\"server.js\"]"
+      },
+      {
+        "name": "log-group",
+        "required": false,
+        "default": null,
+        "description": "CloudWatch Logs log group name for container logs (logGroup in awsLogsConfiguration). If not specified, Express Mode creates a log group automatically."
+      },
+      {
+        "name": "log-stream-prefix",
+        "required": false,
+        "default": null,
+        "description": "CloudWatch Logs stream prefix for container logs (logStreamPrefix in awsLogsConfiguration). If not specified, Express Mode uses a default prefix."
+      },
+      {
+        "name": "repository-credentials",
+        "required": false,
+        "default": null,
+        "description": "ARN of the secret containing credentials for private container registry (credentialsParameter in repositoryCredentials). Required for private registries outside ECR."
+      },
+      {
+        "name": "cpu",
+        "required": false,
+        "default": null,
+        "description": "The number of CPU units to allocate (256, 512, 1024, 2048, 4096, 8192, 16384). If not specified, Express Mode defaults to 256 (.25 vCPU)."
+      },
+      {
+        "name": "memory",
+        "required": false,
+        "default": null,
+        "description": "The amount of memory in MiB to allocate (512, 1024, 2048, 4096, 8192, 16384, 30720, 61440, 122880). If not specified, Express Mode defaults to 512 MiB."
+      },
+      {
+        "name": "task-role-arn",
+        "required": false,
+        "default": null,
+        "description": "The ARN of the IAM role that the container can assume to make AWS API calls (taskRoleArn)"
+      },
+      {
+        "name": "subnets",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of subnet IDs for the service (subnets in networkConfiguration). If not specified, Express Mode uses the default VPC."
+      },
+      {
+        "name": "security-groups",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of security group IDs for the service (securityGroups in networkConfiguration)."
+      },
+      {
+        "name": "health-check-path",
+        "required": false,
+        "default": null,
+        "description": "The path for ALB health checks (healthCheckPath). If not specified, Express Mode defaults to /ping."
+      },
+      {
+        "name": "min-task-count",
+        "required": false,
+        "default": null,
+        "description": "Minimum number of tasks for auto-scaling (minTaskCount in scalingTarget). Must be less than or equal to max-task-count."
+      },
+      {
+        "name": "max-task-count",
+        "required": false,
+        "default": null,
+        "description": "Maximum number of tasks for auto-scaling (maxTaskCount in scalingTarget). Must be greater than or equal to min-task-count."
+      },
+      {
+        "name": "auto-scaling-metric",
+        "required": false,
+        "default": null,
+        "description": "The metric to use for auto-scaling (autoScalingMetric in scalingTarget): AVERAGE_CPU, AVERAGE_MEMORY, or REQUEST_COUNT_PER_TARGET"
+      },
+      {
+        "name": "auto-scaling-target-value",
+        "required": false,
+        "default": null,
+        "description": "The target value for the auto-scaling metric (autoScalingTargetValue in scalingTarget). For example, 60 for 60% CPU utilization."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "service-arn",
+        "description": "The ARN of the deployed Express service"
+      },
+      {
+        "name": "endpoint",
+        "description": "The endpoint URL of the service (from the Application Load Balancer)"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "30bc4cb22888c88bc368bd2eec6bf01aebb204ede646d2b275e9d36acf39c7e5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.052117Z"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "action_id": "marketplace/github/stale-repos",
+  "version_id": "ce5931b80c83",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/stale-repos/action.yml",
+    "origin": "github.com/github/stale-repos",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "stale-repos",
+    "description": "A GitHub Action to identify stale repos within an organization",
+    "author": "github",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "inactiveRepos",
+        "description": "Inactive Repos in the organization"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/stale_repos:v6"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ce5931b80c835e7bf9427cfd2c5b4925c59236222e55a6f6e12a0d589e5c35a3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.897421Z"
+  }
+}

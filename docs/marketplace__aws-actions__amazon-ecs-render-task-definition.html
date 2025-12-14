@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon ECS &quot;Render Task Definition&quot; Action for GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Amazon ECS &quot;Render Task Definition&quot; Action for GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/amazon-ecs-render-task-definition</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/amazon-ecs-render-task-definition" target="_blank">github.com/aws-actions/amazon-ecs-render-task-definition</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Inserts a container image URI into a container definition in an Amazon ECS task definition JSON file, creating a new file.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on modifying and preparing an ECS task definition, which is a key part of deploying applications on AWS infrastructure. It also relates to deployment as it prepares the task definition for use in deploying containers.</p>
+            <p><strong>Tags:</strong> <span class="tag">ECS</span> <span class="tag">AWS</span> <span class="tag">task definition</span> <span class="tag">infrastructure</span> <span class="tag">deployment</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>task-definition</code></td>
+                <td>No</td>
+                <td>The path to the ECS task definition JSON file</td>
+            </tr><tr>
+                <td><code>task-definition-arn</code></td>
+                <td>No</td>
+                <td>The full Amazon Resource Name (ARN) of the task definition to be used</td>
+            </tr><tr>
+                <td><code>task-definition-family</code></td>
+                <td>No</td>
+                <td>The name of a family that the task definition is registered to</td>
+            </tr><tr>
+                <td><code>task-definition-revision</code></td>
+                <td>No</td>
+                <td>The revision of the task definition being used</td>
+            </tr><tr>
+                <td><code>container-name</code></td>
+                <td>Yes</td>
+                <td>The name of the container or containers defined in the containerDefinitions section of the ECS task definition. If more than one container, add the names comma separated.</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>Yes</td>
+                <td>The URI of the container image to insert into the ECS task definition</td>
+            </tr><tr>
+                <td><code>environment-variables</code></td>
+                <td>No</td>
+                <td>Variables to add to the container. Each variable is of the form KEY=value, you can specify multiple variables with multi-line YAML strings.</td>
+            </tr><tr>
+                <td><code>log-configuration-log-driver</code></td>
+                <td>No</td>
+                <td>Create/Override logDriver inside logConfiguration</td>
+            </tr><tr>
+                <td><code>log-configuration-options</code></td>
+                <td>No</td>
+                <td>Create/Override options inside logConfiguration. Each variable is of the form key=value, you can specify multiple variables with multi-line YAML strings.</td>
+            </tr><tr>
+                <td><code>docker-labels</code></td>
+                <td>No</td>
+                <td>Create/Override options inside dockerLabels. Each variable is key=value, you can specify multiple variables with multi-line YAML.</td>
+            </tr><tr>
+                <td><code>command</code></td>
+                <td>No</td>
+                <td>The command used by ECS to start the container image</td>
+            </tr><tr>
+                <td><code>env-files</code></td>
+                <td>No</td>
+                <td>S3 object arns to set env variables onto the container. You can specify multiple files with multi-line YAML strings.</td>
+            </tr><tr>
+                <td><code>secrets</code></td>
+                <td>No</td>
+                <td>Secrets to add to the container. Each secret is of the form KEY=valueFrom, where valueFrom is a secret arn. You can specify multiple secrets with multi-line YAML strings.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>task-definition</code></td>
+                <td>The path to the rendered task definition file</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

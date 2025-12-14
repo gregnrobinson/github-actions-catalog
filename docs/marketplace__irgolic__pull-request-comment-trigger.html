@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pull Request Comment Trigger fork - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Pull Request Comment Trigger fork</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/irgolic/pull-request-comment-trigger</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> irgolic</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/irgolic/pull-request-comment-trigger" target="_blank">github.com/irgolic/pull-request-comment-trigger</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Look for a &quot;trigger word&quot; in a pull-request description or comment, so that later steps can know whether or not to run.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on detecting specific comments in pull requests, which falls under communication. It also serves to notify subsequent steps based on the presence of a trigger word, linking it to notification and testing as it influences the workflow execution.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">trigger</span> <span class="tag">comment</span> <span class="tag">notification</span> <span class="tag">workflow</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>reaction</code></td>
+                <td>No</td>
+                <td>If set, the specified emoji &quot;reaction&quot; is put on the comment to indicate that the trigger was detected. For example, &quot;rocket&quot;.</td>
+            </tr><tr>
+                <td><code>trigger</code></td>
+                <td>Yes</td>
+                <td>The string to look for in pull-request descriptions and comments. For example &quot;#build/android&quot;</td>
+            </tr><tr>
+                <td><code>prefix_only</code></td>
+                <td>No</td>
+                <td>If &#39;true&#39;, the trigger must match the start of the comment.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>triggered</code></td>
+                <td>the string &#39;true&#39; if the trigger was found, otherwise the string &#39;false&#39;</td>
+            </tr><tr>
+                <td><code>comment_body</code></td>
+                <td>The comment body.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

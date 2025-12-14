@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/tibdex/auto-update",
+  "version_id": "8d6c8e341bc4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tibdex/auto-update/action.yml",
+    "origin": "github.com/tibdex/auto-update",
+    "publisher": "tibdex",
+    "verified": false
+  },
+  "definition": {
+    "name": "Auto-update",
+    "description": "Automatically keep pull requests with auto-merged enabled up to date with their base branch.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token for the GitHub API."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Automation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action automatically updates pull requests to keep them in sync with their base branch, which relates to managing dependencies in a project. It also involves automation of the process.",
+        "tags": [
+          "auto-update",
+          "pull requests",
+          "GitHub Actions",
+          "dependency management",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8d6c8e341bc46b527aa1b0d7c3405066c571fef4a54f1830fc5c2c71dc81f2b8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.399122Z"
+  }
+}

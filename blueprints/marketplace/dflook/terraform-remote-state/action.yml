@@ -1,0 +1,55 @@
+name: terraform-remote-state
+description: Retrieves the root-level outputs from a Terraform remote state.
+author: Daniel Flook
+
+inputs:
+  backend_type:
+    description: The name of the Terraform plugin used for backend state
+    required: true
+  workspace:
+    description: Terraform workspace to get the outputs for
+    required: false
+    default: "default"
+  backend_config:
+    description: List of Terraform backend config values, one per line.
+    required: false
+    default: ""
+  backend_config_file:
+    description: |
+      List of Terraform backend config files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+    required: false
+    default: ""
+
+outputs:
+  json_output_path:
+    description: |
+      This is the path to all the root module outputs in a JSON file.
+      The path is relative to the Actions workspace.
+
+      For example, with the Terraform config:
+
+      ```hcl
+      output "service_hostname" {
+        value = "example.com"
+      }
+      ```
+
+      The file pointed to by this output will contain:
+
+      ```json
+      {
+        "service_hostname": "example.com"
+      }
+      ```
+
+      Terraform list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.
+
+runs:
+  using: docker
+  image: docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc
+  entrypoint: /entrypoints/remote-state.sh
+
+branding:
+  icon: globe
+  color: purple

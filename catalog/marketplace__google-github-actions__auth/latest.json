@@ -1,0 +1,175 @@
+{
+  "action_id": "marketplace/google-github-actions/auth",
+  "version_id": "e42c1d07b2c2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/auth/action.yml",
+    "origin": "github.com/google-github-actions/auth",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Authenticate to Google Cloud",
+    "description": "Authenticate to Google Cloud from GitHub Actions via Workload Identity\nFederation or service account keys.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "ID of the default project to use for future API calls and invocations. If\nunspecified, this action will attempt to extract the value from other\ninputs such as \"service_account\" or \"credentials_json\"."
+      },
+      {
+        "name": "workload_identity_provider",
+        "required": false,
+        "default": null,
+        "description": "The full identifier of the Workload Identity Provider, including the\nproject number, pool name, and provider name. If provided, this must be\nthe full identifier which includes all parts, for example:\n\"projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider\".\nThis is mutually exclusive with \"credentials_json\"."
+      },
+      {
+        "name": "service_account",
+        "required": false,
+        "default": null,
+        "description": "Email address or unique identifier of the Google Cloud service account for\nwhich to generate credentials. This is required if\n\"workload_identity_provider\" is specified."
+      },
+      {
+        "name": "audience",
+        "required": false,
+        "default": "",
+        "description": "The value for the audience (aud) parameter in GitHub's generated OIDC\ntoken. This value defaults to the value of \"workload_identity_provider\",\nwhich is also the default value Google Cloud expects for the audience\nparameter on the token."
+      },
+      {
+        "name": "credentials_json",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud JSON service account key to use for authentication. This\nis mutually exclusive with \"workload_identity_provider\"."
+      },
+      {
+        "name": "create_credentials_file",
+        "required": false,
+        "default": "true",
+        "description": "If true, the action will securely generate a credentials file which can be\nused for authentication via gcloud and Google Cloud SDKs."
+      },
+      {
+        "name": "export_environment_variables",
+        "required": false,
+        "default": "true",
+        "description": "If true, the action will export common environment variables which are\nknown to be consumed by popular downstream libraries and tools, including:\n\n- CLOUDSDK_PROJECT\n- CLOUDSDK_CORE_PROJECT\n- GCP_PROJECT\n- GCLOUD_PROJECT\n- GOOGLE_CLOUD_PROJECT\n\nIf \"create_credentials_file\" is true, additional environment variables are\nexported:\n\n- CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE\n- GOOGLE_APPLICATION_CREDENTIALS\n- GOOGLE_GHA_CREDS_PATH\n\nIf false, the action will not export any environment variables, meaning\nfuture steps are unlikely to be automatically authenticated to Google\nCloud."
+      },
+      {
+        "name": "token_format",
+        "required": false,
+        "default": "",
+        "description": "Output format for the generated authentication token. For OAuth 2.0 access\ntokens, specify \"access_token\". For OIDC tokens, specify \"id_token\". To\nskip token generation, leave this value empty."
+      },
+      {
+        "name": "delegates",
+        "required": false,
+        "default": "",
+        "description": "List of additional service account emails or unique identities to use for\nimpersonation in the chain."
+      },
+      {
+        "name": "universe",
+        "required": false,
+        "default": "googleapis.com",
+        "description": "The Google Cloud universe to use for constructing API endpoints. The\ndefault universe is \"googleapis.com\", which corresponds to\nhttps://cloud.google.com. Trusted Partner Cloud and Google Distributed\nHosted Cloud should set this to their universe address."
+      },
+      {
+        "name": "request_reason",
+        "required": false,
+        "default": null,
+        "description": "An optional Reason Request System Parameter for each API call made by the\nGitHub Action. This will inject the \"X-Goog-Request-Reason\" HTTP header,\nwhich will provide user-supplied information in Google Cloud audit logs."
+      },
+      {
+        "name": "cleanup_credentials",
+        "required": false,
+        "default": "true",
+        "description": "If true, the action will remove any created credentials from the\nfilesystem upon completion. This only applies if \"create_credentials_file\"\nis true."
+      },
+      {
+        "name": "access_token_lifetime",
+        "required": false,
+        "default": "3600s",
+        "description": "Desired lifetime duration of the access token, in seconds. This must be\nspecified as the number of seconds with a trailing \"s\" (e.g. 30s). This is\nonly valid when \"token_format\" is \"access_token\"."
+      },
+      {
+        "name": "access_token_scopes",
+        "required": false,
+        "default": "https://www.googleapis.com/auth/cloud-platform",
+        "description": "List of OAuth 2.0 access scopes to be included in the generated token.\nThis is only valid when \"token_format\" is \"access_token\"."
+      },
+      {
+        "name": "access_token_subject",
+        "required": false,
+        "default": "",
+        "description": "Email address of a user to impersonate for Domain-Wide Delegation Access\ntokens created for Domain-Wide Delegation cannot have a lifetime beyond 1\nhour. This is only valid when \"token_format\" is \"access_token\"."
+      },
+      {
+        "name": "id_token_audience",
+        "required": false,
+        "default": "",
+        "description": "The audience (aud) for the generated Google Cloud ID Token. This is only\nvalid when \"token_format\" is \"id_token\"."
+      },
+      {
+        "name": "id_token_include_email",
+        "required": false,
+        "default": "false",
+        "description": "Optional parameter of whether to include the service account email in the\ngenerated token. If true, the token will contain \"email\" and\n\"email_verified\" claims. This is only valid when \"token_format\" is\n\"id_token\"."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "project_id",
+        "description": "Provided or extracted value for the Google Cloud project ID."
+      },
+      {
+        "name": "credentials_file_path",
+        "description": "Path on the local filesystem where the generated credentials file resides.\nThis is only available if \"create_credentials_file\" was set to true."
+      },
+      {
+        "name": "auth_token",
+        "description": "The intermediate authentication token, which could be used to call other\nGoogle Cloud APIs, depending on how you configured IAM."
+      },
+      {
+        "name": "access_token",
+        "description": "The Google Cloud access token for calling other Google Cloud APIs. This is\nonly available when \"token_format\" is \"access_token\"."
+      },
+      {
+        "name": "id_token",
+        "description": "The Google Cloud ID token. This is only available when \"token_format\" is\n\"id_token\"."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js",
+      "post": "dist/post/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action is primarily focused on authenticating to Google Cloud, which falls under the Authentication category. It also relates to Infrastructure as it enables interaction with cloud resources.",
+        "tags": [
+          "Google Cloud",
+          "Authentication",
+          "Workload Identity",
+          "GitHub Actions",
+          "Cloud Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e42c1d07b2c211b52c2d64d9a232d3f7ed194562c9fecdea63dfba6abfca08bd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.752897Z"
+  }
+}

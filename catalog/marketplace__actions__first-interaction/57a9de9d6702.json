@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/actions/first-interaction",
+  "version_id": "57a9de9d6702",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/first-interaction/action.yml",
+    "origin": "github.com/actions/first-interaction",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "First Interaction",
+    "description": "Greet first-time contributors when they open an issue or PR",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "issue_message",
+        "required": false,
+        "default": null,
+        "description": "Comment to post on an individual's first issue"
+      },
+      {
+        "name": "pr_message",
+        "required": false,
+        "default": null,
+        "description": "Comment to post on an individual's first pull request"
+      },
+      {
+        "name": "repo_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "Token with permissions to post issue and PR comments"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "57a9de9d6702af1f3d683efcdd22c97d53c9884de36473c543613c8d44c1d8e8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.260858Z"
+  }
+}

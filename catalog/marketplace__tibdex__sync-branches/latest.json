@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/tibdex/sync-branches",
+  "version_id": "05e4d02f530d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tibdex/sync-branches/action.yml",
+    "origin": "github.com/tibdex/sync-branches",
+    "publisher": "tibdex",
+    "verified": false
+  },
+  "definition": {
+    "name": "Sync branches",
+    "description": "Automatically merge a repository branch into other branches to keep them in sync.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "body_template",
+        "required": false,
+        "default": "Sync `<%= base %>` with `<%= head %>`.",
+        "description": "Lodash template for the syncing PR's body.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n"
+      },
+      {
+        "name": "branches_pattern",
+        "required": false,
+        "default": "",
+        "description": "Branches matching this `minimatch` pattern will be synced with the branch from which this action is run.\nIf empty, all the protected branches will be synced.\n"
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token for the GitHub API."
+      },
+      {
+        "name": "head_template",
+        "required": false,
+        "default": "sync-<%= base %>-with-<%= head %>",
+        "description": "Lodash template for the syncing PR's head branch.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n"
+      },
+      {
+        "name": "labels_template",
+        "required": false,
+        "default": "[]",
+        "description": "Lodash template compiling to a JSON array of labels to add to the syncing PR.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n"
+      },
+      {
+        "name": "title_template",
+        "required": false,
+        "default": "Sync `<%= base %>` with `<%= head %>`",
+        "description": "Lodash template for the syncing PR's title.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "created_pull_requests",
+        "description": "A JSON stringified object mapping the base branch of the created pull requests to their number."
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is designed to keep branches in sync, which falls under dependency management, as it ensures that different branches maintain consistent code. Additionally, it involves creating pull requests, which relates to communication and code quality.",
+        "tags": [
+          "sync",
+          "branches",
+          "GitHub",
+          "automation",
+          "pull requests"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "05e4d02f530d80065a66afab167519fd9fae791860628d2b14881ac256a2b88c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.397910Z"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "action_id": "marketplace/dflook/terraform-test",
+  "version_id": "e20f8d86770a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-test/action.yml",
+    "origin": "github.com/dflook/terraform-test",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-test",
+    "description": "Execute automated tests for a Terraform module",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the Terraform module under test"
+      },
+      {
+        "name": "test_directory",
+        "required": false,
+        "default": "",
+        "description": "The directory within the module path that contains the test files."
+      },
+      {
+        "name": "test_filter",
+        "required": false,
+        "default": "",
+        "description": "The test files to run, one per line.\n\nIf not specified, all test files in the `test_directory` will be run.\nThe are paths relative to the module path.\n"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the tests. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "junit-xml-path",
+        "description": "A test report in JUnit XML format.\n\nThe path is relative to the Actions workspace.\n\nThis will only be available when using Terraform 1.11.0 or later.\n"
+      },
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `no-tests` - No tests were found to run.\n- `tests-failed` - One or more tests failed.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/test.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e20f8d86770ae031f66d64790597942dfd23bd8761aa15dc0c00f0bd2d17b92f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.357321Z"
+  }
+}

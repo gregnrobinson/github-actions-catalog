@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/actions/javascript-action",
+  "version_id": "00ff2612fae7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/javascript-action/action.yml",
+    "origin": "github.com/actions/javascript-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "required": true,
+        "default": "1000",
+        "description": "Your input description here"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "Your output description here"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action appears to be a JavaScript action, which is typically used in the build process, and it may also involve testing based on the input and output descriptions.",
+        "tags": [
+          "javascript",
+          "action",
+          "build",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "00ff2612fae77e2f9c51b6f634935ed80309f17f69f4cd0ad68b0890a1d6b0a2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.210678Z"
+  }
+}

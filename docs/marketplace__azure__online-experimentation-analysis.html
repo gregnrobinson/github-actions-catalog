@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Experimentation Analysis - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Online Experimentation Analysis</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/online-experimentation-analysis</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/online-experimentation-analysis" target="_blank">github.com/azure/online-experimentation-analysis</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Download the latest analysis results for an online experiment of an Azure App Configuration feature flag</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Monitoring</span> <span class="badge badge-category">Documentation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Monitoring</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on downloading analysis results for online experiments, which falls under monitoring activities. Additionally, it outputs a summary in Markdown format, contributing to documentation.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Experimentation</span> <span class="tag">Analysis</span> <span class="tag">Monitoring</span> <span class="tag">Log Analytics</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>subscription-id</code></td>
+                <td>Yes</td>
+                <td>The subscription ID of the Log Analytics workspace.</td>
+            </tr><tr>
+                <td><code>resource-group</code></td>
+                <td>Yes</td>
+                <td>The resource group of the Log Analytics workspace.</td>
+            </tr><tr>
+                <td><code>log-analytics-workspace</code></td>
+                <td>Yes</td>
+                <td>The name of the Log Analytics workspace.</td>
+            </tr><tr>
+                <td><code>app-configuration-feature-flag</code></td>
+                <td>Yes</td>
+                <td>The App Configuration feature flag of the experiment.</td>
+            </tr><tr>
+                <td><code>app-configuration-label</code></td>
+                <td>No</td>
+                <td>The App Configuration label. Default to no label.</td>
+            </tr><tr>
+                <td><code>metric-category-order</code></td>
+                <td>No</td>
+                <td>The analysis summary displays metrics grouped by their categories. This input specifies the display order of metric categories as a comma separated list. Unspecified categories are appended in alphabetical order, followed by the group of uncategorized metrics. Default: &#39;&#39;.
+</td>
+            </tr><tr>
+                <td><code>lookback-days</code></td>
+                <td>No</td>
+                <td>The number of previous days to search the Log Analytics workspace for the latest analysis results. Default: 30.</td>
+            </tr><tr>
+                <td><code>github-actions-summary</code></td>
+                <td>No</td>
+                <td>If the analysis summary should be displayed in the GitHub Action job summary. Default: true.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>analysis-start-time</code></td>
+                <td>The start time of the analysis (ISO 8601 format).</td>
+            </tr><tr>
+                <td><code>analysis-end-time</code></td>
+                <td>The end time of the analysis (ISO 8601 format).</td>
+            </tr><tr>
+                <td><code>summary-md</code></td>
+                <td>Summary of the analysis results (GitHub Flavored Markdown format).</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

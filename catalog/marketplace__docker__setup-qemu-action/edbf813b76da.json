@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/docker/setup-qemu-action",
+  "version_id": "edbf813b76da",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/docker/setup-qemu-action/action.yml",
+    "origin": "github.com/docker/setup-qemu-action",
+    "publisher": "docker",
+    "verified": true
+  },
+  "definition": {
+    "name": "Docker Setup QEMU",
+    "description": "Install QEMU static binaries",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "image",
+        "required": false,
+        "default": "docker.io/tonistiigi/binfmt:latest",
+        "description": "QEMU static binaries Docker image (e.g. tonistiigi/binfmt:latest)"
+      },
+      {
+        "name": "platforms",
+        "required": false,
+        "default": "all",
+        "description": "Platforms to install (e.g. arm64,riscv64,arm)"
+      },
+      {
+        "name": "cache-image",
+        "required": false,
+        "default": "true",
+        "description": "Cache binfmt image to GitHub Actions cache backend"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "platforms",
+        "description": "Available platforms (comma separated)"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "edbf813b76da75e74220791b28e766e7ec0da4cc17c5022dc25269f0f430e144",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.488243Z"
+  }
+}

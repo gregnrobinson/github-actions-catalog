@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/stefanzweifel/oh-dear-request-run-action",
+  "version_id": "b6d36b5adbb3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/stefanzweifel/oh-dear-request-run-action/action.yml",
+    "origin": "github.com/stefanzweifel/oh-dear-request-run-action",
+    "publisher": "stefanzweifel",
+    "verified": false
+  },
+  "definition": {
+    "name": "Request Run for Oh Dear",
+    "description": "Trigger a new run for an Oh Dear site.",
+    "author": "Stefan Zweifel <stefan@stefanzweifel.dev>",
+    "inputs": [
+      {
+        "name": "oh_dear_token",
+        "required": true,
+        "default": null,
+        "description": "Valid API token to communicate with the Oh Dear API."
+      },
+      {
+        "name": "check_id",
+        "required": true,
+        "default": null,
+        "description": "The ID of the check that should run."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "curl -X POST \"https://ohdear.app/api/checks/${{ inputs.CHECK_ID }}/request-run\" \\\n-H \"Authorization: Bearer ${{ inputs.OH_DEAR_TOKEN }}\" \\\n-H \"Accept: application/json\" \\\n-H \"Content-Type: application/json\"\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b6d36b5adbb3778238848f49cc6707a534671d2665d24312c6fa193f31e589de",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.418382Z"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/appleboy/gosec",
+  "version_id": "ef92d83e3123",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/gosec/action.yml",
+    "origin": "github.com/appleboy/gosec",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Gosec Security Checker",
+    "description": "Runs the gosec security checker",
+    "author": "@ccojocar",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": "-h",
+        "description": "Arguments for gosec"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://securego/gosec:2.22.10",
+      "args": [
+        "${{ inputs.args }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ef92d83e31232d97f85960bfee69896c46cdcc6823c94485f727f8930614c094",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.170386Z"
+  }
+}

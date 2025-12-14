@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set up gcloud Cloud SDK environment - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Set up gcloud Cloud SDK environment</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/setup-gcloud</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/setup-gcloud" target="_blank">github.com/google-github-actions/setup-gcloud</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Downloads, installs, and configures a Google Cloud SDK environment.
+Adds the `gcloud` CLI command to the $PATH.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action sets up the Google Cloud SDK environment, which is primarily related to infrastructure management. It also involves authentication with Google Cloud services and manages dependencies by installing specific versions of the SDK.</p>
+            <p><strong>Tags:</strong> <span class="tag">gcloud</span> <span class="tag">Google Cloud</span> <span class="tag">infrastructure</span> <span class="tag">setup</span> <span class="tag">SDK</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>A string representing the version or version constraint of the Cloud SDK
+(`gcloud`) to install (e.g. `&quot;290.0.1&quot;` or `&quot;&gt;= 197.0.1&quot;`). The default
+value is `&quot;latest&quot;`, which will always download and install the latest
+available Cloud SDK version.
+
+    - uses: &#39;google-github-actions/setup-gcloud@v3&#39;
+      with:
+        version: &#39;&gt;= 416.0.0&#39;
+
+If there is no installed `gcloud` version that matches the given
+constraint, this GitHub Action will download and install the latest
+available version that still matches the constraint.
+
+Authenticating via Workload Identity Federation requires version
+[363.0.0](https://cloud.google.com/sdk/docs/release-notes#36300_2021-11-02)
+or newer. If you need support for Workload Identity Federation, specify
+your version constraint as such:
+
+    - uses: &#39;google-github-actions/setup-gcloud@v3&#39;
+      with:
+        version: &#39;&gt;= 363.0.0&#39;
+
+You are responsible for ensuring the `gcloud` version matches the features
+and components required.</td>
+            </tr><tr>
+                <td><code>project_id</code></td>
+                <td>No</td>
+                <td>ID of the Google Cloud project. If provided, this will configure gcloud to
+use this project ID by default for commands. Individual commands can still
+override the project using the `--project` flag which takes precedence. If
+unspecified, the action attempts to find the &quot;best&quot; project ID by looking
+at other inputs and environment variables.</td>
+            </tr><tr>
+                <td><code>install_components</code></td>
+                <td>No</td>
+                <td>List of additional [gcloud
+components](https://cloud.google.com/sdk/docs/components) to install,
+specified as a comma-separated list of strings:
+
+    install_components: &#39;alpha,cloud-datastore-emulator&#39;</td>
+            </tr><tr>
+                <td><code>skip_install</code></td>
+                <td>No</td>
+                <td>Skip installation of gcloud and use the [system-supplied
+version](https://github.com/actions/runner-images) instead. If specified,
+the `version` input is ignored.
+
+⚠️ You will not be able to install additional gcloud components, because the
+system installation is locked.</td>
+            </tr><tr>
+                <td><code>cache</code></td>
+                <td>No</td>
+                <td>Transfer the downloaded artifacts into the runner&#39;s tool cache. On
+GitHub-managed runners, this have very little impact since runneres are
+ephemeral. On self-hosted runners, this could improve future runs by
+skipping future gcloud installations.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>Version of gcloud that was installed.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

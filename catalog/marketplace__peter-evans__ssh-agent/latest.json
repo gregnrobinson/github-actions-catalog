@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/peter-evans/ssh-agent",
+  "version_id": "0c90207c649d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/ssh-agent/action.yml",
+    "origin": "github.com/peter-evans/ssh-agent",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "webfactory/ssh-agent",
+    "description": "Run `ssh-agent` and load an SSH key to access other private repositories",
+    "author": "",
+    "inputs": [
+      {
+        "name": "ssh-private-key",
+        "required": true,
+        "default": null,
+        "description": "Private SSH key to register in the SSH agent"
+      },
+      {
+        "name": "ssh-auth-sock",
+        "required": false,
+        "default": null,
+        "description": "Where to place the SSH Agent auth socket"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js",
+      "post": "dist/cleanup.js",
+      "post-if": "always()"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action is primarily focused on setting up an SSH agent for authentication purposes, allowing access to private repositories. It also relates to infrastructure as it facilitates secure connections to remote resources.",
+        "tags": [
+          "ssh",
+          "authentication",
+          "infrastructure",
+          "agent",
+          "security"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0c90207c649d6cf1ebd9b041465acdf4742b5245da018bfb9c3b8bc03df3dc9f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.491695Z"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/azure/apim-policy-update",
+  "version_id": "6ea35fe18709",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/apim-policy-update/action.yml",
+    "origin": "github.com/azure/apim-policy-update",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure API Management Policy Update",
+    "description": "Update Azure API Management policies from Git repository using REST API",
+    "author": "Azure",
+    "inputs": [
+      {
+        "name": "subscription_id",
+        "required": true,
+        "default": null,
+        "description": "Azure subscription ID"
+      },
+      {
+        "name": "resource_group",
+        "required": true,
+        "default": null,
+        "description": "Azure resource group name"
+      },
+      {
+        "name": "apim_name",
+        "required": true,
+        "default": null,
+        "description": "Azure API Management service name"
+      },
+      {
+        "name": "policy_manifest_path",
+        "required": false,
+        "default": "",
+        "description": "Path to policy manifest file (optional)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "etag",
+        "description": "ETag of the last updated resource"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action updates Azure API Management policies, which is primarily an infrastructure-related task, and it involves deploying changes to the API Management service.",
+        "tags": [
+          "Azure",
+          "API Management",
+          "Infrastructure",
+          "Deployment",
+          "REST API"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6ea35fe187095e13bccc3367e96c6db13d8bb93db22eb394575c4c908fe4c3b9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.557967Z"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "action_id": "marketplace/azure/load-testing",
+  "version_id": "2653fdcaeacb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/load-testing/action.yml",
+    "origin": "github.com/azure/load-testing",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Load Testing",
+    "description": "Automate continous regression testing with Azure Load Testing",
+    "author": "",
+    "inputs": [
+      {
+        "name": "loadtestConfigFile",
+        "required": true,
+        "default": null,
+        "description": "Path of the YAML file. Should be fully qualified path or relative to the default working directory"
+      },
+      {
+        "name": "loadtestResource",
+        "required": true,
+        "default": null,
+        "description": "Enter or Select the name of an existing Azure Load Testing resource"
+      },
+      {
+        "name": "loadtestRunName",
+        "required": false,
+        "default": null,
+        "description": "Custom name for the load test run"
+      },
+      {
+        "name": "loadtestRunDescription",
+        "required": false,
+        "default": null,
+        "description": "Custom description for the load test run"
+      },
+      {
+        "name": "resourceGroup",
+        "required": true,
+        "default": null,
+        "description": "Enter or Select the Azure Resource Group that contains the Load test resource specified above"
+      },
+      {
+        "name": "secrets",
+        "required": false,
+        "default": null,
+        "description": "Enter secrets in JSON"
+      },
+      {
+        "name": "env",
+        "required": false,
+        "default": null,
+        "description": "Enter env in JSON"
+      },
+      {
+        "name": "overrideParameters",
+        "required": false,
+        "default": null,
+        "description": "Override parameters in the YAML config file using the JSON format with testId, displayName, description, engineInstances, autoStop supported."
+      },
+      {
+        "name": "outputVariableName",
+        "required": false,
+        "default": null,
+        "description": "Name of the output variable that stores the test run ID for use in subsequent tasks."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js",
+      "post": "lib/postProcessJob.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2653fdcaeacbe366cf1eef83b03b7ddbe2345105f52e9d1ca605424e37df0998",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.677023Z"
+  }
+}

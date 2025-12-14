@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Load Testing - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Load Testing</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/load-testing</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/load-testing" target="_blank">github.com/azure/load-testing</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Automate continous regression testing with Azure Load Testing</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on automating load testing, which falls under the Testing category, while also involving Azure resources for deployment purposes.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Load Testing</span> <span class="tag">Automation</span> <span class="tag">Regression Testing</span> <span class="tag">Continuous Integration</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>loadtestConfigFile</code></td>
+                <td>Yes</td>
+                <td>Path of the YAML file. Should be fully qualified path or relative to the default working directory</td>
+            </tr><tr>
+                <td><code>loadtestResource</code></td>
+                <td>Yes</td>
+                <td>Enter or Select the name of an existing Azure Load Testing resource</td>
+            </tr><tr>
+                <td><code>loadtestRunName</code></td>
+                <td>No</td>
+                <td>Custom name for the load test run</td>
+            </tr><tr>
+                <td><code>loadtestRunDescription</code></td>
+                <td>No</td>
+                <td>Custom description for the load test run</td>
+            </tr><tr>
+                <td><code>resourceGroup</code></td>
+                <td>Yes</td>
+                <td>Enter or Select the Azure Resource Group that contains the Load test resource specified above</td>
+            </tr><tr>
+                <td><code>secrets</code></td>
+                <td>No</td>
+                <td>Enter secrets in JSON</td>
+            </tr><tr>
+                <td><code>env</code></td>
+                <td>No</td>
+                <td>Enter env in JSON</td>
+            </tr><tr>
+                <td><code>overrideParameters</code></td>
+                <td>No</td>
+                <td>Override parameters in the YAML config file using the JSON format with testId, displayName, description, engineInstances, autoStop supported.</td>
+            </tr><tr>
+                <td><code>outputVariableName</code></td>
+                <td>No</td>
+                <td>Name of the output variable that stores the test run ID for use in subsequent tasks.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

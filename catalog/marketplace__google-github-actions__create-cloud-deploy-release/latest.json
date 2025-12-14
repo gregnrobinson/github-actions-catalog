@@ -1,0 +1,162 @@
+{
+  "action_id": "marketplace/google-github-actions/create-cloud-deploy-release",
+  "version_id": "c3b7f104512c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/create-cloud-deploy-release/action.yml",
+    "origin": "github.com/google-github-actions/create-cloud-deploy-release",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Create Cloud Deploy Release",
+    "description": "Use this action to create a release in Cloud Deploy.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "The name of the release."
+      },
+      {
+        "name": "delivery_pipeline",
+        "required": true,
+        "default": null,
+        "description": "The delivery pipeline to use for the release."
+      },
+      {
+        "name": "region",
+        "required": false,
+        "default": null,
+        "description": "Region in which the delivery pipeline can be found."
+      },
+      {
+        "name": "source",
+        "required": false,
+        "default": null,
+        "description": "The location of the files to be included in the release."
+      },
+      {
+        "name": "build_artifacts",
+        "required": false,
+        "default": null,
+        "description": "Path to a Skaffold output file containing the details of the image(s) to be released."
+      },
+      {
+        "name": "images",
+        "required": false,
+        "default": null,
+        "description": "The images to be released."
+      },
+      {
+        "name": "disable_initial_rollout",
+        "required": false,
+        "default": false,
+        "description": "Prevent the release being deployed to the first target in the delivery pipeline."
+      },
+      {
+        "name": "gcs_source_staging_dir",
+        "required": false,
+        "default": null,
+        "description": "A directory in Google Cloud Storage to copy the source used for staging the build."
+      },
+      {
+        "name": "skaffold_file",
+        "required": false,
+        "default": null,
+        "description": "Path of the skaffold file absolute or relative to the source directory."
+      },
+      {
+        "name": "annotations",
+        "required": false,
+        "default": null,
+        "description": "Add additional annotations to the release."
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "Add additional labels to the release."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Include a description of the release."
+      },
+      {
+        "name": "deploy_parameters",
+        "required": false,
+        "default": null,
+        "description": "Additional parameters to supply at release creation time."
+      },
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "The Google Cloud Project ID. If unset, this is inherited from the environment."
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": null,
+        "description": "Space separated list of other Cloud Deploy flags, examples can be found:\nhttps://cloud.google.com/sdk/gcloud/reference/deploy/releases/create#FLAGS\nExample: '--from-k8s-manifest=manifest.yaml --skaffold-version=skaffold_preview'"
+      },
+      {
+        "name": "gcloud_version",
+        "required": false,
+        "default": null,
+        "description": "Version of the Cloud SDK to install. If unspecified or set to \"latest\",\nthe latest available gcloud SDK version for the target platform will be\ninstalled. Example: \"290.0.1\"."
+      },
+      {
+        "name": "gcloud_component",
+        "required": false,
+        "default": null,
+        "description": "Version of the Cloud SDK components to install and use. If unspecified, the latest\nor released version will be used. This is the equivalent of running\n'gcloud alpha run' or 'gcloud beta run'. Valid values are `alpha` or `beta`."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "description": "The full name of the release in Cloud Deploy, including project and\npipeline names, as well as the chosen name of the release itself."
+      },
+      {
+        "name": "link",
+        "description": "A link to the Cloud Deploy release in the Google Cloud Web Console."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is specifically designed to create a release in Cloud Deploy, which falls under the Deployment category, and it also involves infrastructure management within the Google Cloud environment.",
+        "tags": [
+          "Cloud Deploy",
+          "Google Cloud",
+          "Deployment",
+          "Release Management",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c3b7f104512cb64e2dba976880d08b3da13034f6dead6799aca1066095423aaa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.759578Z"
+  }
+}

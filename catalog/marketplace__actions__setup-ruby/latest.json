@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/actions/setup-ruby",
+  "version_id": "262702497614",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-ruby/action.yml",
+    "origin": "github.com/actions/setup-ruby",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Ruby",
+    "description": "Set up a specific version of Ruby and add the command-line tools to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "ruby-version",
+        "required": false,
+        "default": ">= 2.4",
+        "description": "Version range or exact version of a Ruby version to use."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Deprecated. Use ruby-version instead. Will not be supported after October 1, 2019"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is primarily focused on setting up a specific version of Ruby, which is essential for managing dependencies in a project. It also plays a role in the build process by ensuring the correct Ruby environment is available.",
+        "tags": [
+          "Ruby",
+          "setup",
+          "dependency management",
+          "build",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "262702497614ac6e9bb80dda75acd96b67332e8f09ae5b9fb956645a88de1c57",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.253680Z"
+  }
+}

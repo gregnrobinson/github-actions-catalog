@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/actions/github-script",
+  "version_id": "2155c7b84863",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/github-script/action.yml",
+    "origin": "github.com/actions/github-script",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "GitHub Script",
+    "description": "Run simple scripts using the GitHub client",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "script",
+        "required": true,
+        "default": null,
+        "description": "The script to run"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "${{ runner.debug == '1' }}",
+        "description": "Whether to tell the GitHub client to log details of its requests. true or false. Default is to run in debug mode when the GitHub Actions step debug logging is turned on."
+      },
+      {
+        "name": "user-agent",
+        "required": false,
+        "default": "actions/github-script",
+        "description": "An optional user-agent string"
+      },
+      {
+        "name": "previews",
+        "required": false,
+        "default": null,
+        "description": "A comma-separated list of GraphQL API previews to accept"
+      },
+      {
+        "name": "result-encoding",
+        "required": false,
+        "default": "json",
+        "description": "Either \"string\" or \"json\" (default \"json\")\u2014how the result will be encoded"
+      },
+      {
+        "name": "retries",
+        "required": false,
+        "default": "0",
+        "description": "The number of times to retry a request"
+      },
+      {
+        "name": "retry-exempt-status-codes",
+        "required": false,
+        "default": "400,401,403,404,422",
+        "description": "A comma separated list of status codes that will NOT be retried e.g. \"400,500\". No effect unless `retries` is set"
+      },
+      {
+        "name": "base-url",
+        "required": false,
+        "default": null,
+        "description": "An optional GitHub REST API URL to connect to a different GitHub instance. For example, https://my.github-enterprise-server.com/api/v3"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The return value of the script, stringified with `JSON.stringify`"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2155c7b84863afcfe81a73ab8eafcb2c2f304a995cbe282c31617aa847dff1d8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.218535Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/peter-evans/approve-pull-request-action",
+  "version_id": "b47a93def0c2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/approve-pull-request-action/action.yml",
+    "origin": "github.com/peter-evans/approve-pull-request-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Approve Pull Request",
+    "description": "A GitHub Action for approving pull requests",
+    "author": "juliangruber",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "GitHub Token"
+      },
+      {
+        "name": "number",
+        "required": true,
+        "default": null,
+        "description": "Pull Request number"
+      },
+      {
+        "name": "repo",
+        "required": false,
+        "default": null,
+        "description": "Pull Request repo in owner/repo format"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b47a93def0c299ef81082dd9b1e32676e71912d0829379cf9b1173f78519daaa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.503832Z"
+  }
+}

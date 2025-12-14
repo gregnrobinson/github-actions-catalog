@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/mxschmitt/playwright-github-action",
+  "version_id": "caad80895249",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mxschmitt/playwright-github-action/action.yml",
+    "origin": "github.com/mxschmitt/playwright-github-action",
+    "publisher": "mxschmitt",
+    "verified": false
+  },
+  "definition": {
+    "name": "Run Playwright tests",
+    "description": "Run Playwright tests on GitHub Actions",
+    "author": "Microsoft",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is specifically designed to run Playwright tests, which falls under the Testing category, and it also contributes to Code quality by ensuring that the application behaves as expected.",
+        "tags": [
+          "Playwright",
+          "testing",
+          "GitHub Actions",
+          "automation",
+          "quality assurance"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "caad808952498117e2c4fd3abd6861f8f752c5f0261c8f149170b530fc918c1a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.538021Z"
+  }
+}

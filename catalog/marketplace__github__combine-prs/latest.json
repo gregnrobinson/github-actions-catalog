@@ -1,0 +1,157 @@
+{
+  "action_id": "marketplace/github/combine-prs",
+  "version_id": "ed0a1fad564d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/combine-prs/action.yml",
+    "origin": "github.com/github/combine-prs",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "combine-prs",
+    "description": "Combine multiple PRs into a single PR",
+    "author": "Grant Birkinbine",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client - Provided for you by default!"
+      },
+      {
+        "name": "branch_prefix",
+        "required": true,
+        "default": "dependabot",
+        "description": "The prefix of the branches to combine"
+      },
+      {
+        "name": "pr_title",
+        "required": true,
+        "default": "Combined PRs",
+        "description": "The title of the pull request to create"
+      },
+      {
+        "name": "pr_body_header",
+        "required": true,
+        "default": "# Combined PRs \u27a1\ufe0f\ud83d\udce6\u2b05\ufe0f",
+        "description": "The header of the pull request body"
+      },
+      {
+        "name": "min_combine_number",
+        "required": true,
+        "default": "2",
+        "description": "The minimum number of PRs that have to match criteria in order to create a combined PR"
+      },
+      {
+        "name": "branch_regex",
+        "required": false,
+        "default": "",
+        "description": "The regex to match the branches to combine - more control than branch_prefix"
+      },
+      {
+        "name": "ci_required",
+        "required": true,
+        "default": "true",
+        "description": "Whether or not CI should be passing to combine the PR"
+      },
+      {
+        "name": "review_required",
+        "required": false,
+        "default": "false",
+        "description": "Whether or not a review should be required to combine the PR"
+      },
+      {
+        "name": "combine_branch_name",
+        "required": true,
+        "default": "combined-prs-branch",
+        "description": "The name of the branch to combine the PRs into"
+      },
+      {
+        "name": "ignore_label",
+        "required": true,
+        "default": "nocombine",
+        "description": "The label to ignore when combining PRs"
+      },
+      {
+        "name": "select_label",
+        "required": false,
+        "default": "",
+        "description": "The label marking PRs that should be combined"
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated list of labels to add to the combined PR"
+      },
+      {
+        "name": "assignees",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated list of assignees to add to the combined PR"
+      },
+      {
+        "name": "autoclose",
+        "required": false,
+        "default": "true",
+        "description": "Whether or not to close combined PRs if the combined PR is merged"
+      },
+      {
+        "name": "update_branch",
+        "required": false,
+        "default": "true",
+        "description": "Whether or not to update the combined branch with the latest changes from the base branch after creating the combined pull request"
+      },
+      {
+        "name": "create_from_scratch",
+        "required": false,
+        "default": "false",
+        "description": "Whether or not to start from a clean base branch when (re)creating the combined PR"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_url",
+        "description": "The pull request URL if a PR was created"
+      },
+      {
+        "name": "pr_number",
+        "description": "The pull request number if a PR was created"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action combines multiple pull requests into a single one, facilitating collaboration and communication among developers. It also relates to code quality and dependency management by consolidating changes from various branches.",
+        "tags": [
+          "pull request",
+          "combine",
+          "GitHub",
+          "dependencies",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ed0a1fad564db30b38c094080b2e7d913fba5994b4bf3af3986a04fa469f5f5f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.919175Z"
+  }
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Pull - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Close Pull</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/close-pull</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/close-pull" target="_blank">github.com/peter-evans/close-pull</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>A GitHub action to close a pull request and optionally delete its branch</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on managing pull requests, which relates to communication within a team and code quality processes. It also has implications for deployment as it can affect the state of branches used in deployment workflows.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">close</span> <span class="tag">GitHub</span> <span class="tag">automation</span> <span class="tag">branch management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GITHUB_TOKEN or a repo scoped PAT</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>The GitHub repository containing the pull request</td>
+            </tr><tr>
+                <td><code>pull-request-number</code></td>
+                <td>No</td>
+                <td>The number of the pull request to close</td>
+            </tr><tr>
+                <td><code>comment</code></td>
+                <td>No</td>
+                <td>A comment to make on the pull request before closing</td>
+            </tr><tr>
+                <td><code>delete-branch</code></td>
+                <td>No</td>
+                <td>Delete the pull request branch</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/dflook/checkout",
+  "version_id": "c8fdc90b83a6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/checkout/action.yml",
+    "origin": "github.com/dflook/checkout",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "Checkout",
+    "description": "Checkout a GitHub repository at a particular ref",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "Repository name with owner. For example, actions/checkout"
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": null,
+        "description": "The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.\n"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token to use when checking out the repository"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Relative path under $GITHUB_WORKSPACE to place the repository"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ref",
+        "description": "The branch, tag or SHA that was checked out"
+      },
+      {
+        "name": "commit",
+        "description": "The commit SHA that was checked out"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "entrypoint": "/entrypoint.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c8fdc90b83a6eb9285002e4e369f87bcfd7a8f543b8739ba00ae53dbfb806d47",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.397963Z"
+  }
+}

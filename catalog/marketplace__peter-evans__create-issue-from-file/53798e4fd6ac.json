@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/peter-evans/create-issue-from-file",
+  "version_id": "53798e4fd6ac",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/create-issue-from-file/action.yml",
+    "origin": "github.com/peter-evans/create-issue-from-file",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create Issue From File",
+    "description": "An action to create an issue using content from a file",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub authentication token"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The target GitHub repository"
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": null,
+        "description": "The issue number of an existing issue to update"
+      },
+      {
+        "name": "title",
+        "required": true,
+        "default": null,
+        "description": "The title of the issue"
+      },
+      {
+        "name": "content-filepath",
+        "required": false,
+        "default": null,
+        "description": "The file path to the issue content"
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline-separated list of labels"
+      },
+      {
+        "name": "assignees",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline-separated list of assignees (GitHub usernames)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue-number",
+        "description": "The number of the created issue"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "53798e4fd6acef279ff2007ad416924791a2c8840ec863fada109f10eb55e264",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.505755Z"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "action_id": "marketplace/dflook/tofu-fmt-check",
+  "version_id": "db988bba9dab",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-fmt-check/action.yml",
+    "origin": "github.com/dflook/tofu-fmt-check",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-fmt-check",
+    "description": "Check that OpenTofu configuration files are in canonical format",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path containing OpenTofu files to check the formatting of."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to inspect when discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set when initializing OpenTofu. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line. This is used for discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line. This is used for discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the format check failed, this will be set to 'check-failed'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when the format check fails.\n"
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/fmt-check.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action checks the formatting of OpenTofu configuration files, which directly relates to maintaining code quality. It also serves as a testing mechanism to ensure that the files adhere to the expected format.",
+        "tags": [
+          "OpenTofu",
+          "formatting",
+          "code quality",
+          "check",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "db988bba9dab0ce016622cbfd55e6a80421e379bb40ac079738862ef60a47975",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.400572Z"
+  }
+}

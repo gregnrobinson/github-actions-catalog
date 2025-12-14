@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon ECS &quot;Deploy Express Service&quot; Action for GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Amazon ECS &quot;Deploy Express Service&quot; Action for GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/amazon-ecs-deploy-express-service</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/amazon-ecs-deploy-express-service" target="_blank">github.com/aws-actions/amazon-ecs-deploy-express-service</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Creates or updates an Amazon ECS Express Mode service</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to create or update an Amazon ECS service, which falls under the deployment category, and it also involves infrastructure management as it interacts with AWS resources.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">ECS</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>service-name</code></td>
+                <td>Yes</td>
+                <td>The name of the ECS Express service. Used for both creating new services and updating existing ones.</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>Yes</td>
+                <td>The container image URI to deploy (e.g., 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest)</td>
+            </tr><tr>
+                <td><code>execution-role-arn</code></td>
+                <td>Yes</td>
+                <td>The ARN of the task execution role that grants the ECS agent permission to pull container images and publish logs</td>
+            </tr><tr>
+                <td><code>infrastructure-role-arn</code></td>
+                <td>Yes</td>
+                <td>The ARN of the infrastructure role that grants ECS permission to create and manage AWS resources (ALB, target groups, etc.)</td>
+            </tr><tr>
+                <td><code>cluster</code></td>
+                <td>No</td>
+                <td>The name of the ECS cluster. Will default to the &#39;default&#39; cluster.</td>
+            </tr><tr>
+                <td><code>container-port</code></td>
+                <td>No</td>
+                <td>The port number on the container that receives traffic (containerPort in primaryContainer). If not specified, Express Mode will use port 80.</td>
+            </tr><tr>
+                <td><code>environment-variables</code></td>
+                <td>No</td>
+                <td>Environment variables to set in the container (environment in primaryContainer). Provide as JSON array: [{&quot;name&quot;:&quot;KEY&quot;,&quot;value&quot;:&quot;VALUE&quot;}]</td>
+            </tr><tr>
+                <td><code>secrets</code></td>
+                <td>No</td>
+                <td>Secrets to inject into the container (secrets in primaryContainer). Provide as JSON array: [{&quot;name&quot;:&quot;KEY&quot;,&quot;valueFrom&quot;:&quot;arn:aws:secretsmanager:...&quot;}]</td>
+            </tr><tr>
+                <td><code>command</code></td>
+                <td>No</td>
+                <td>Override the default container command (command in primaryContainer). Provide as JSON array: [&quot;node&quot;,&quot;server.js&quot;]</td>
+            </tr><tr>
+                <td><code>log-group</code></td>
+                <td>No</td>
+                <td>CloudWatch Logs log group name for container logs (logGroup in awsLogsConfiguration). If not specified, Express Mode creates a log group automatically.</td>
+            </tr><tr>
+                <td><code>log-stream-prefix</code></td>
+                <td>No</td>
+                <td>CloudWatch Logs stream prefix for container logs (logStreamPrefix in awsLogsConfiguration). If not specified, Express Mode uses a default prefix.</td>
+            </tr><tr>
+                <td><code>repository-credentials</code></td>
+                <td>No</td>
+                <td>ARN of the secret containing credentials for private container registry (credentialsParameter in repositoryCredentials). Required for private registries outside ECR.</td>
+            </tr><tr>
+                <td><code>cpu</code></td>
+                <td>No</td>
+                <td>The number of CPU units to allocate (256, 512, 1024, 2048, 4096, 8192, 16384). If not specified, Express Mode defaults to 256 (.25 vCPU).</td>
+            </tr><tr>
+                <td><code>memory</code></td>
+                <td>No</td>
+                <td>The amount of memory in MiB to allocate (512, 1024, 2048, 4096, 8192, 16384, 30720, 61440, 122880). If not specified, Express Mode defaults to 512 MiB.</td>
+            </tr><tr>
+                <td><code>task-role-arn</code></td>
+                <td>No</td>
+                <td>The ARN of the IAM role that the container can assume to make AWS API calls (taskRoleArn)</td>
+            </tr><tr>
+                <td><code>subnets</code></td>
+                <td>No</td>
+                <td>Comma-separated list of subnet IDs for the service (subnets in networkConfiguration). If not specified, Express Mode uses the default VPC.</td>
+            </tr><tr>
+                <td><code>security-groups</code></td>
+                <td>No</td>
+                <td>Comma-separated list of security group IDs for the service (securityGroups in networkConfiguration).</td>
+            </tr><tr>
+                <td><code>health-check-path</code></td>
+                <td>No</td>
+                <td>The path for ALB health checks (healthCheckPath). If not specified, Express Mode defaults to /ping.</td>
+            </tr><tr>
+                <td><code>min-task-count</code></td>
+                <td>No</td>
+                <td>Minimum number of tasks for auto-scaling (minTaskCount in scalingTarget). Must be less than or equal to max-task-count.</td>
+            </tr><tr>
+                <td><code>max-task-count</code></td>
+                <td>No</td>
+                <td>Maximum number of tasks for auto-scaling (maxTaskCount in scalingTarget). Must be greater than or equal to min-task-count.</td>
+            </tr><tr>
+                <td><code>auto-scaling-metric</code></td>
+                <td>No</td>
+                <td>The metric to use for auto-scaling (autoScalingMetric in scalingTarget): AVERAGE_CPU, AVERAGE_MEMORY, or REQUEST_COUNT_PER_TARGET</td>
+            </tr><tr>
+                <td><code>auto-scaling-target-value</code></td>
+                <td>No</td>
+                <td>The target value for the auto-scaling metric (autoScalingTargetValue in scalingTarget). For example, 60 for 60% CPU utilization.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>service-arn</code></td>
+                <td>The ARN of the deployed Express service</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>The endpoint URL of the service (from the Application Load Balancer)</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

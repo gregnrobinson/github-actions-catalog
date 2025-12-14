@@ -1,0 +1,134 @@
+{
+  "action_id": "marketplace/google-github-actions/run-vertexai-notebook",
+  "version_id": "5a5df85c9f9a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/run-vertexai-notebook/action.yml",
+    "origin": "github.com/google-github-actions/run-vertexai-notebook",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Vertex AI Notebook Review Action",
+    "description": "Execute notebooks and create links to their output files",
+    "author": "",
+    "inputs": [
+      {
+        "name": "gcs_source_bucket",
+        "required": true,
+        "default": null,
+        "description": "Google Cloud Storage bucket to store notebooks to be run by Vertex AI. e.g. <project-id>/nbr/source"
+      },
+      {
+        "name": "gcs_output_bucket",
+        "required": true,
+        "default": null,
+        "description": "Google Cloud Storage bucket to store the results of the notebooks executed by Vertex AI. e.g. <project-id>/nbr/output"
+      },
+      {
+        "name": "allowlist",
+        "required": true,
+        "default": null,
+        "description": "Comma separated list of files to run on Vertex AI. e.g. mynotebook.ipynb, somedir/**.pynb. It is expected that this is the output from an action like ```dorny/paths-filter```"
+      },
+      {
+        "name": "vertex_machine_type",
+        "required": false,
+        "default": "n1-standard-4",
+        "description": "Type of Vertex AI machine to run notebooks on e.g. n1-standard-4"
+      },
+      {
+        "name": "region",
+        "required": false,
+        "default": "us-central1",
+        "description": "Google Cloud region e.g. us-central1, us-east4"
+      },
+      {
+        "name": "add_comment",
+        "required": false,
+        "default": "true",
+        "description": "Add a comment to an open PR as the final step - defaults to \"true\""
+      },
+      {
+        "name": "kernel_name",
+        "required": false,
+        "default": "python3",
+        "description": "Notebook kernel to use for the execution environment - defaults to python3"
+      },
+      {
+        "name": "vertex_container_name",
+        "required": false,
+        "default": "gcr.io/deeplearning-platform-release/base-cu110:latest",
+        "description": "The base container image to use. Defaults to the basic Python container."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "stage-files",
+          "shell": "bash",
+          "env": {
+            "allowlist": "${{ inputs.allowlist }}",
+            "dir": "./${{ github.sha }}"
+          },
+          "run": "set -x;\n\nmkdir -p ${dir};\nfor file in ${allowlist};\ndo\n  f2=$(echo ${file}|tr '/' '_');\n  cp ${file} ${dir}/${f2};\ndone;\necho \"notebooks=$(ls ${dir} | xargs)\" >> $GITHUB_OUTPUT"
+        },
+        {
+          "name": "setup-cloud-sdk",
+          "uses": "google-github-actions/setup-gcloud@v2"
+        },
+        {
+          "name": "upload-folder",
+          "uses": "google-github-actions/upload-cloud-storage@v2",
+          "with": {
+            "path": "./${{ github.sha }}",
+            "destination": "${{ inputs.gcs_source_bucket }}",
+            "gzip": false,
+            "headers": "content-type: application/octet-stream"
+          }
+        },
+        {
+          "name": "vertex-execution",
+          "shell": "bash",
+          "env": {
+            "notebooks": "${{ inputs.allowlist }}",
+            "commit_sha": "${{ github.sha }}",
+            "output_location": "gs://${{ inputs.gcs_output_bucket }}",
+            "source_location": "gs://${{ inputs.gcs_source_bucket }}",
+            "machine_type": "${{ inputs.vertex_machine_type }}",
+            "region": "${{ inputs.region }}",
+            "kernel": "${{ inputs.kernel_name }}",
+            "container": "${{ inputs.vertex_container_name }}"
+          },
+          "run": "set -x;\necho '{\"jobs\": []}' > jobs.json\n\nfor file in ${notebooks};\ndo\n  file=$(echo ${file}|tr '/' '_');\n  job_name=\"${commit_sha}:${file}\";\n  source_file=\"${source_location}/${commit_sha}/${file}\";\n  output_file=\"${output_location}/${commit_sha}/${file}\";\n\n  output=$(gcloud ai custom-jobs create \\\n     --format=json \\\n     --region=${region} \\\n     --display-name=\"${job_name}\" \\\n     --labels=commit_sha=${commit_sha} \\\n     --worker-pool-spec=machine-type=\"${machine_type}\",replica-count=\"1\",container-image-uri=\"${container}\" \\\n     --args=nbexecutor,--input-notebook=\"${source_file}\",--output-notebook=\"${output_file}\",--kernel-name=\"${kernel}\");\n\n  echo $output | jq -c > training.json\n  jq '.jobs[.jobs | length] |= . + '$(cat training.json) jobs.json > jobs_new.json\n  cat jobs_new.json | jq -c > jobs.json\n\ndone;\necho \"name=training_jobs=$(cat jobs.json)\" >> $GITHUB_OUTPUT"
+        },
+        {
+          "name": "add-comment",
+          "env": {
+            "vertex_job_uri": "https://console.cloud.google.com/vertex-ai/locations",
+            "vertex_notebook_uri": "https://notebooks.cloud.google.com/view",
+            "region": "${{ inputs.region }}",
+            "add_comment": "${{ inputs.add_comment }}"
+          },
+          "uses": "actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea",
+          "with": {
+            "script": "try {\n  if (process.env.add_comment.toLowerCase() !== 'true') {\n    return;\n  }\n  const fs = require('fs');\n\n  const region = process.env.region;\n  const notebookUri = process.env.vertex_notebook_uri;\n  const vertexUri = process.env.vertex_job_uri;\n  const project = process.env.GCLOUD_PROJECT;\n  const jsonStr = fs.readFileSync('jobs.json');\n\n  const data = JSON.parse(jsonStr);\n  const jid_re = /\\/([0-9]+)$/;\n  for (const ix in data.jobs) {\n    const job = data.jobs[ix];\n    const nbName = job.displayName.split(\":\")[1];\n    const jobId = job.name.match(jid_re)[0].replace(\"/\", \"\");\n    const outFile = job.jobSpec.workerPoolSpecs[0].containerSpec.args.filter((a) => a.startsWith(\"--output-notebook=gs://\")).map((a) => a.replace(\"--output-notebook=gs://\", \"\"))[0];\n    const jobUrl = encodeURI(`${vertexUri}/${region}/training/${jobId}?project=${project}`);\n    const nbUrl = encodeURI(`${notebookUri}/${outFile}`);\n    const message = `Automatic running of notebook **${nbName}** underway.\n\n    You can review the status of the job within Vertex AI: [Job ${jobId}](${jobUrl})\n\n    Once complete the notebook with output cells will be available to view [${nbName}](${nbUrl})`;\n    await github.rest.issues.createComment({\n      issue_number: context.issue.number,\n      owner: context.repo.owner,\n      repo: context.repo.repo,\n      body: message,\n    });\n  }\n} catch(err) {\n  core.setFailed(`Failed to generate add comment with Vertex AI links: ${err}`);\n}\n"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5a5df85c9f9aeed5651fe5a2f989d2ccbc1d82603893d57f872fb1828d8165e2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.810201Z"
+  }
+}

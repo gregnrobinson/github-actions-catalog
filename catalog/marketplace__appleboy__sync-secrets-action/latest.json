@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/appleboy/sync-secrets-action",
+  "version_id": "0a7ac6a77cb2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/sync-secrets-action/action.yml",
+    "origin": "github.com/appleboy/sync-secrets-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Gitea Sync Secrets",
+    "description": "Copies secrets from the action's environment to many other repos.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "gitea_token",
+        "required": true,
+        "default": null,
+        "description": "Token to use to get repos and write secrets"
+      },
+      {
+        "name": "gitea_server",
+        "required": true,
+        "default": null,
+        "description": "The URL of the Gitea server to use.\n"
+      },
+      {
+        "name": "repos",
+        "required": false,
+        "default": null,
+        "description": "New line deliminated to select repositories to copy secrets to.\n"
+      },
+      {
+        "name": "orgs",
+        "required": false,
+        "default": null,
+        "description": "New line deliminated to select organizations to copy secrets to.\n"
+      },
+      {
+        "name": "gitea_skip_verify",
+        "required": false,
+        "default": null,
+        "description": "When set to `true`, the action will skip SSL verification when making requests\nto the Gitea API. Defaults to `false`.\n"
+      },
+      {
+        "name": "secrets",
+        "required": true,
+        "default": null,
+        "description": "New line deliminated regex expressions to select values from `process.env`.\nUse the action env to pass secrets from the repository in which this action\nruns with the `env` attribute of the step.\n"
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": null,
+        "description": "Run everything except for secret create and update functionality.\n"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "false",
+        "description": "Enable debug mode to output detailed logging information for troubleshooting.\n"
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "default": "",
+        "description": "If this value is set, the action will set the secrets to the repositories environment with the name of this value.\nOnly works if `target` is set to `actions` (default).\n"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Optional description for the sync operation to help identify the purpose of this secrets synchronization.\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "This action is focused on copying secrets, which is a security-related task, and it also involves managing dependencies across multiple repositories by syncing secrets to them.",
+        "tags": [
+          "secrets",
+          "gitea",
+          "sync",
+          "security",
+          "dependencies"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0a7ac6a77cb212762b997a8f4120b3f8b7a55670cc02deb3cd6c66d5969957c0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.172845Z"
+  }
+}

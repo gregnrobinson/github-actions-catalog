@@ -1,0 +1,88 @@
+{
+  "action_id": "marketplace/docker/login-action",
+  "version_id": "587be1a5960e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/docker/login-action/action.yml",
+    "origin": "github.com/docker/login-action",
+    "publisher": "docker",
+    "verified": true
+  },
+  "definition": {
+    "name": "Docker Login",
+    "description": "GitHub Action to login against a Docker registry",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "registry",
+        "required": false,
+        "default": null,
+        "description": "Server address of Docker registry. If not set then will default to Docker Hub"
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "Username used to log against the Docker registry"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "Password or personal access token used to log against the Docker registry"
+      },
+      {
+        "name": "ecr",
+        "required": false,
+        "default": null,
+        "description": "Specifies whether the given registry is ECR (auto, true or false)"
+      },
+      {
+        "name": "logout",
+        "required": false,
+        "default": "true",
+        "description": "Log out from the Docker registry at the end of a job"
+      },
+      {
+        "name": "registry-auth",
+        "required": false,
+        "default": null,
+        "description": "Raw authentication to registries, defined as YAML objects"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action is primarily focused on logging into a Docker registry, which falls under authentication. It also relates to packaging as it prepares the environment for Docker image operations.",
+        "tags": [
+          "docker",
+          "login",
+          "authentication",
+          "packaging",
+          "registry"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "587be1a5960e33449503bef5ae88b5c59776470619adb65dc7163b239f86a312",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.496554Z"
+  }
+}

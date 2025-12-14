@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/dflook/terraform-version",
+  "version_id": "412af2e735f4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-version/action.yml",
+    "origin": "github.com/dflook/terraform-version",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-version",
+    "description": "Prints Terraform and providers versions",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the Terraform root module directory."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "The workspace to determine the Terraform version for."
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line.\n\nThis will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.\nFor other backend types, this is used to fetch the version that most recently wrote to the Terraform state.\n"
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n\nThis will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.\nFor other backend types, this is used to fetch the version that most recently wrote to the Terraform state.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "terraform",
+        "description": "The Hashicorp Terraform or OpenTofu version that is used by the configuration."
+      },
+      {
+        "name": "tofu",
+        "description": "If the action chose a version of OpenTofu, this will be set to the version that is used by the configuration."
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/version.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "412af2e735f4bcae039c7f4da4e138564070148ca8f2a8ee26a7c148d6625f85",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.403136Z"
+  }
+}

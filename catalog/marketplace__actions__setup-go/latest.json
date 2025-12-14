@@ -1,0 +1,104 @@
+{
+  "action_id": "marketplace/actions/setup-go",
+  "version_id": "14172a7c2e9b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-go/action.yml",
+    "origin": "github.com/actions/setup-go",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Go environment",
+    "description": "Setup a Go environment and add it to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "go-version",
+        "required": false,
+        "default": null,
+        "description": "The Go version to download (if necessary) and use. Supports semver spec and ranges. Be sure to enclose this option in single quotation marks."
+      },
+      {
+        "name": "go-version-file",
+        "required": false,
+        "default": null,
+        "description": "Path to the go.mod, go.work, .go-version, or .tool-versions file."
+      },
+      {
+        "name": "check-latest",
+        "required": false,
+        "default": false,
+        "description": "Set this option to true if you want the action to always check for the latest available version that satisfies the version spec"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.server_url == 'https://github.com' && github.token || '' }}",
+        "description": "Used to pull Go distributions from go-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting."
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": true,
+        "description": "Used to specify whether caching is needed. Set to true, if you'd like to enable caching."
+      },
+      {
+        "name": "cache-dependency-path",
+        "required": false,
+        "default": null,
+        "description": "Used to specify the path to a dependency file - go.sum"
+      },
+      {
+        "name": "architecture",
+        "required": false,
+        "default": null,
+        "description": "Target architecture for Go to use. Examples: x86, x64. Will use system architecture by default."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "go-version",
+        "description": "The installed Go version. Useful when given a version range as input."
+      },
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate if a cache was hit"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/setup/index.js",
+      "post": "dist/cache-save/index.js",
+      "post-if": "success()"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is focused on setting up a Go environment, which involves managing the Go version and dependencies, making it primarily a Dependency management action. It also facilitates the build process by ensuring the correct environment is set up.",
+        "tags": [
+          "Go",
+          "setup",
+          "environment",
+          "dependency",
+          "build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "14172a7c2e9b9dd5d5b233137e78eaab8db8d2ef5efdeddfa5debea67bbd6320",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.322653Z"
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "action_id": "marketplace/azure/functions-action",
+  "version_id": "1f615afe6f9d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/functions-action/action.yml",
+    "origin": "github.com/azure/functions-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Functions Action",
+    "description": "Deploy Function App to Azure Functions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Azure Function App"
+      },
+      {
+        "name": "package",
+        "required": false,
+        "default": ".",
+        "description": "Path to package or folder. *.zip or a folder to deploy"
+      },
+      {
+        "name": "slot-name",
+        "required": false,
+        "default": null,
+        "description": "Function app slot to be deploy to"
+      },
+      {
+        "name": "publish-profile",
+        "required": false,
+        "default": null,
+        "description": "Publish profile (*.publishsettings) file contents with web deploy secrets"
+      },
+      {
+        "name": "respect-pom-xml",
+        "required": false,
+        "default": "false",
+        "description": "Automatically look up Java function app artifact from pom.xml (default: 'false'). When this is set to 'true', 'package' should point to the folder of host.json."
+      },
+      {
+        "name": "respect-funcignore",
+        "required": false,
+        "default": "false",
+        "description": "Remove unwanted files defined in .funcignore file (default: 'false'). When this is set to 'true', 'package' should point to the folder of host.json."
+      },
+      {
+        "name": "scm-do-build-during-deployment",
+        "required": false,
+        "default": "false",
+        "description": "Enable build action from Kudu when the package is deployed onto the function app. This will temporarily change the SCM_DO_BUILD_DURING_DEPLOYMENT setting for this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string ''. To enable remote build for your project, please set this and 'enable-oryx-build' both to 'true'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false')."
+      },
+      {
+        "name": "enable-oryx-build",
+        "required": false,
+        "default": "false",
+        "description": "Use Oryx Build from Kudu when the package is deployed onto the function app. (Linux functions only). This will temporarily change the ENABLE_ORYX_BUILD setting from this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string ''. To enable remote build for your project, please set this and 'scm-do-build-during-deployment' both to 'true'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false')."
+      },
+      {
+        "name": "sku",
+        "required": false,
+        "default": null,
+        "description": "For function app on Flex Consumption plan, set this to 'flexconsumption'. You can skip this parameter for function app on other plans. If using RBAC credentials, then by default, GitHub Action will resolve the value for this paramter. But if using 'publish-profile', then you must set this for function app on Flex Consumption plan."
+      },
+      {
+        "name": "remote-build",
+        "required": false,
+        "default": "false",
+        "description": "For function app on Flex Consumption plan, enable build action from Kudu when the package is deployed onto the function app by setting this to 'true'. For function app on Flex Consumption plan, do not set 'scm-do-build-during-deployment' and 'enable-oryx-build'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false')."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "URL to work with your function app"
+      },
+      {
+        "name": "package-url",
+        "description": "URL to the package zip file if using package deployment"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The Azure Functions Action is primarily focused on deploying a Function App to Azure, which falls under the Deployment category. It also involves aspects of Infrastructure as it interacts with Azure's cloud services.",
+        "tags": [
+          "Azure",
+          "Functions",
+          "Deployment",
+          "Infrastructure",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1f615afe6f9db67ecfd0eb1cb5006b8d55a374a9c5078e4261d7df9d343780c9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.685643Z"
+  }
+}

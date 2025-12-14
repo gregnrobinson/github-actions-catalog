@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/azure/app-configuration-import-action",
+  "version_id": "7a925ae9161f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/app-configuration-import-action/action.yml",
+    "origin": "github.com/azure/app-configuration-import-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "app-configuration-import",
+    "description": "Import application key-values and feature flags into an Azure App Configuration",
+    "author": "",
+    "inputs": [
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "App Configuration name."
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": null,
+        "description": "Configuration file path"
+      },
+      {
+        "name": "sourceName",
+        "required": false,
+        "default": null,
+        "description": "App Configuration source of importing. Note that importing feature flags from App Service is not supported."
+      },
+      {
+        "name": "appServiceAccountName",
+        "required": false,
+        "default": null,
+        "description": "App service account name"
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "default": null,
+        "description": "Prefix to be appended to the front of imported keys."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "default": null,
+        "description": "Label to be assigned to imported key-values and feature flags."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Import to App Configuration",
+          "shell": "bash",
+          "run": "${{github.action_path}}/scripts/validate-inputs.sh \"${{inputs.path}}\" \"${{inputs.sourceName}}\" \"${{inputs.appServiceAccountName}}\"\n\nif [[ ! -z \"${{inputs.path}}\" ]]; then\n  ${{github.action_path}}/scripts/import-file.sh \"${{inputs.name}}\" \"${{inputs.path}}\" \"${{inputs.prefix}}\" \"${{inputs.label}}\"\nelse\n  echo \"Import from source app configuration or app service is currently not supported.\"\n  exit 1\nfi\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Configuration Management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on importing configuration settings into Azure App Configuration, which is primarily an infrastructure-related task. It may also touch on configuration management as it deals with application settings.",
+        "tags": [
+          "Azure",
+          "App Configuration",
+          "Import",
+          "Infrastructure",
+          "Configuration Management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "7a925ae9161fff2a44f3c1a5217d457dd58065f116d7361ad782bca5b7c380e6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.699425Z"
+  }
+}

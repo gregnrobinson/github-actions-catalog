@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/appleboy/kubernetes-action",
+  "version_id": "0a14876a0245",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/kubernetes-action/action.yml",
+    "origin": "github.com/appleboy/kubernetes-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Deploy K8S Tool",
+    "description": "Generate a Kubeconfig or creating & updating K8s Deployments.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "server",
+        "required": true,
+        "default": null,
+        "description": "Address of the Kubernetes cluster"
+      },
+      {
+        "name": "skip_tls_verify",
+        "required": false,
+        "default": null,
+        "description": "Skip validity check for server certificate (default: false)"
+      },
+      {
+        "name": "ca_cert",
+        "required": false,
+        "default": null,
+        "description": "PEM-encoded certificate authority certificates"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "Kubernetes service account token"
+      },
+      {
+        "name": "namespace",
+        "required": false,
+        "default": null,
+        "description": "Kubernetes namespace"
+      },
+      {
+        "name": "proxy_url",
+        "required": false,
+        "default": null,
+        "description": "URLs with http, https, and socks5"
+      },
+      {
+        "name": "templates",
+        "required": false,
+        "default": null,
+        "description": "Templates to render, supports glob pattern"
+      },
+      {
+        "name": "cluster_name",
+        "required": false,
+        "default": "default",
+        "description": "Cluster name (default: \"default\")"
+      },
+      {
+        "name": "authinfo_name",
+        "required": false,
+        "default": "default",
+        "description": "AuthInfo name (default: \"default\")"
+      },
+      {
+        "name": "context_name",
+        "required": false,
+        "default": "default",
+        "description": "Context name (default: \"default\")"
+      },
+      {
+        "name": "deployment",
+        "required": false,
+        "default": null,
+        "description": "Name of the Kubernetes deployment to update"
+      },
+      {
+        "name": "container",
+        "required": false,
+        "default": null,
+        "description": "Name of the container within the deployment to update"
+      },
+      {
+        "name": "image",
+        "required": false,
+        "default": null,
+        "description": "New image and tag for the container"
+      },
+      {
+        "name": "output",
+        "required": false,
+        "default": null,
+        "description": "Output kubeconfig to file"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Enable debug mode (default: false)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0a14876a02458b05c8c255de74a692262e7310375516fc0184ea1cdbb6993819",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.196617Z"
+  }
+}

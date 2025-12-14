@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terraform-test - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>terraform-test</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/dflook/terraform-test</code></p>
+            <p><strong>Author:</strong> Daniel Flook</p>
+            <p><strong>Publisher:</strong> dflook</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/dflook/terraform-test" target="_blank">github.com/dflook/terraform-test</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Execute automated tests for a Terraform module</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to execute automated tests specifically for Terraform modules, which falls under the Testing category. It also relates to Infrastructure as it deals with infrastructure as code.</p>
+            <p><strong>Tags:</strong> <span class="tag">terraform</span> <span class="tag">testing</span> <span class="tag">automation</span> <span class="tag">infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>The path to the Terraform module under test</td>
+            </tr><tr>
+                <td><code>test_directory</code></td>
+                <td>No</td>
+                <td>The directory within the module path that contains the test files.</td>
+            </tr><tr>
+                <td><code>test_filter</code></td>
+                <td>No</td>
+                <td>The test files to run, one per line.
+
+If not specified, all test files in the `test_directory` will be run.
+The are paths relative to the module path.
+</td>
+            </tr><tr>
+                <td><code>variables</code></td>
+                <td>No</td>
+                <td>Variables to set for the tests. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).
+Variables set here override any given in `var_file`s.
+</td>
+            </tr><tr>
+                <td><code>var_file</code></td>
+                <td>No</td>
+                <td>List of tfvars files to use, one per line.
+Paths should be relative to the GitHub Actions workspace
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>junit-xml-path</code></td>
+                <td>A test report in JUnit XML format.
+
+The path is relative to the Actions workspace.
+
+This will only be available when using Terraform 1.11.0 or later.
+</td>
+            </tr><tr>
+                <td><code>failure-reason</code></td>
+                <td>When the job outcome is `failure`, this output may be set. The value may be one of:
+
+- `no-tests` - No tests were found to run.
+- `tests-failed` - One or more tests failed.
+
+If the job fails for any other reason this will not be set.
+This can be used with the Actions expression syntax to conditionally run steps.
+</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

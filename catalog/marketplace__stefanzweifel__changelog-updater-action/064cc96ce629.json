@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/stefanzweifel/changelog-updater-action",
+  "version_id": "064cc96ce629",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/stefanzweifel/changelog-updater-action/action.yml",
+    "origin": "github.com/stefanzweifel/changelog-updater-action",
+    "publisher": "stefanzweifel",
+    "verified": false
+  },
+  "definition": {
+    "name": "Changelog Updater",
+    "description": "Automatically update a CHANGELOG with the latest release notes.",
+    "author": "Stefan Zweifel <stefan@stefanzweifel.dev>",
+    "inputs": [
+      {
+        "name": "release-notes",
+        "required": false,
+        "default": null,
+        "description": "The release notes you want to add to your CHANGELOG. Should be markdown. If not provided, the content between the Unreleased heading and the previous release heading is taken as release notes."
+      },
+      {
+        "name": "latest-version",
+        "required": true,
+        "default": null,
+        "description": "Semantic version number of the latest release. The value will be used as a heading text."
+      },
+      {
+        "name": "release-date",
+        "required": false,
+        "default": null,
+        "description": "The date the latest version has been released. Defaults to the current date."
+      },
+      {
+        "name": "path-to-changelog",
+        "required": false,
+        "default": "CHANGELOG.md",
+        "description": "Defaults to `CHANGELOG.md`. Path to CHANGELOG.md file."
+      },
+      {
+        "name": "compare-url-target-revision",
+        "required": false,
+        "default": "HEAD",
+        "description": "Target revision used in compare URL inside a possible \"Unreleased\" heading."
+      },
+      {
+        "name": "heading-text",
+        "required": false,
+        "default": null,
+        "description": "Text used in the new release heading. Defaults to the value from latest-version."
+      },
+      {
+        "name": "hide-release-date",
+        "required": false,
+        "default": null,
+        "description": "Hide release date in the new release heading."
+      },
+      {
+        "name": "parse-github-usernames",
+        "required": false,
+        "default": null,
+        "description": "Experimental: Find GitHub usernames in release notes and link to their profile."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "release_compare_url",
+        "description": "The generated compare URL for the just created relase. For example https://github.com/org/repo/compare/v1.0.0...v1.1.0"
+      },
+      {
+        "name": "release_url_fragment",
+        "description": "The URL fragment for the just created release. For example '#v100---2021-02-01'. You can use this to generate URLs that point to the newly created release in your CHANGELOG."
+      },
+      {
+        "name": "unreleased_compare_url",
+        "description": "The generated compare URL between the latest version and the target revision. For example https://github.com/org/repo/compare/v1.0.0...HEAD"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.release-notes }}",
+        "${{ inputs.latest-version }}",
+        "${{ inputs.release-date }}",
+        "${{ inputs.path-to-changelog }}",
+        "${{ inputs.compare-url-target-revision }}",
+        "${{ inputs.heading-text }}",
+        "${{ inputs.hide-release-date }}",
+        "${{ inputs.parse-github-usernames }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "064cc96ce62946ef9a32c8d41343510b17b7fcc0118f6ddc22dcfc2b663d1392",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.422246Z"
+  }
+}

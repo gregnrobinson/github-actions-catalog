@@ -1,0 +1,94 @@
+{
+  "action_id": "marketplace/azure/AppConfiguration-Sync",
+  "version_id": "a3e2bbd0c9f4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/AppConfiguration-Sync/action.yml",
+    "origin": "github.com/azure/AppConfiguration-Sync",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure App Configuration Sync (Deprecated)",
+    "description": "DEPRECATED: Use Azure CLI action instead. Follow [these instructions](https://aka.ms/appconfig/githubactions) to set up.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "configurationFile",
+        "required": true,
+        "default": null,
+        "description": "Path to the configuration file in the repo, relative to the repo root. Also supports glob patterns and multiple files"
+      },
+      {
+        "name": "format",
+        "required": true,
+        "default": null,
+        "description": "Format of the configuration file. Valid values are: json, yaml, properties"
+      },
+      {
+        "name": "connectionString",
+        "required": true,
+        "default": null,
+        "description": "Connection string for the App Configuration instance"
+      },
+      {
+        "name": "separator",
+        "required": true,
+        "default": null,
+        "description": "Separator used when flattening the configuration file to key-value pairs"
+      },
+      {
+        "name": "strict",
+        "required": false,
+        "default": null,
+        "description": "Specifies whether to use a strict sync which will make the App Configuration instance exactly match the configuration file (deleting key-values not in the configuration file). Defaults to false"
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "default": null,
+        "description": "Prefix that will be added to the front of the keys"
+      },
+      {
+        "name": "label",
+        "required": false,
+        "default": null,
+        "description": "Label to use when setting the key-value pairs. If not specified, a null label will be used"
+      },
+      {
+        "name": "depth",
+        "required": false,
+        "default": null,
+        "description": "Max depth (positive number) for flattening the configuration file"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": null,
+        "description": "Stringified form of a JSON object with the following shape: { [propertyName: string]: string; }"
+      },
+      {
+        "name": "contentType",
+        "required": false,
+        "default": null,
+        "description": "Content type associated with the values"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a3e2bbd0c9f4dd1ab0340354812dfb6688eaf706369ad2193e1bbe9e4cf592d8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.612486Z"
+  }
+}

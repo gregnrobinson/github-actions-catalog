@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/azure/issue-sentinel",
+  "version_id": "2290d4beb1c1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/issue-sentinel/action.yml",
+    "origin": "github.com/azure/issue-sentinel",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Issue Sentinel",
+    "description": "Get similar issues by Issue Sentinel",
+    "author": "",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client"
+      },
+      {
+        "name": "enable-similar-issues-scanning",
+        "required": false,
+        "default": "true",
+        "description": "Enable similar issues scanning"
+      },
+      {
+        "name": "enable-security-issues-scanning",
+        "required": false,
+        "default": "false",
+        "description": "Enable security issues scanning"
+      },
+      {
+        "name": "enable-ux-tag",
+        "required": false,
+        "default": "false",
+        "description": "Enable UX tag"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2290d4beb1c1bb48c86a8c64d51db46d0b9cc67b5efcab6351ddea7f07933b07",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.717506Z"
+  }
+}

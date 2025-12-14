@@ -1,0 +1,129 @@
+name: 'Azure Infrastructure for Open AI powered Chat'
+description: 'This action helps deploy Infrastructure to Azure that helps achieve a chat-completion experience powered by Open AI'
+branding:
+  icon: 'play-circle'
+  color: 'blue'
+inputs:
+  location:
+    description: 'Location to deploy resources to'
+    required: true
+  env-name:
+    description: 'Name of environment where env values are set'
+    required: true
+  openai-location:
+    description: 'Location to deploy OpenAI resources to'
+    required: false
+  documentintelligence-location:
+    decsription: 'Location to deploy Document Intelligence resources to'
+    required: false
+  bring-your-own-data:
+    description: 'Boolean to indicate if you are bringing your own data'
+    required: false
+    default: false
+  data-path:
+    description: 'Path to data to be used to train the OpenAI model'
+    required: false
+    default: ""
+  additional-args:
+    description: 'Additional arguments to be passed to the deployment script'
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: 'Checkout master'
+      uses: actions/checkout@v3
+
+    - name: 'az cli login'
+      uses: azure/login@v2
+      with:
+        client-id: ${{ env.AZURE_CLIENT_ID }}
+        tenant-id: ${{ env.AZURE_TENANT_ID }}
+        subscription-id: ${{ env.AZURE_SUBSCRIPTION_ID }}
+        enable-AzPSSession: true
+
+    - name: 'Install azd'
+      uses: Azure/setup-azd@v0.1.0
+
+    - name: 'Install Nodejs'
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+
+    - name: Az powershell
+      uses: azure/powershell@v2
+      env:
+        BRING_YOUR_OWN_DATA: ${{ inputs.bring-your-own-data }}
+        INPUT_ARGS: ${{ inputs.additional-args }}
+      with:
+        inlineScript: |
+          # Create and initialize AZD project
+          dir
+          mkdir orig-ai-repo
+          cd orig-ai-repo
+          azd init -t Azure-Samples/azure-search-openai-demo -e ${{ inputs.env-name }}
+
+          # modify main.parameters.json in template to take in open ai location as env var
+          $filePath = "infra/main.parameters.json"
+          $json = Get-Content -Raw -Path $filePath | ConvertFrom-Json
+          $openAiEnvVar = @{
+            value = '${AZURE_OPENAI_LOCATION}'
+          }
+          if ($json.parameters) {
+              $json.parameters | Add-Member -Name "openAiResourceGroupLocation" -Value $openAiEnvVar -MemberType NoteProperty
+          }
+          $json | ConvertTo-Json -Depth 10 | Set-Content -Path $filePath
+
+          # Get permissions
+          azd auth login --client-id ${{ env.AZURE_CLIENT_ID }} --federated-credential-provider "github" --tenant-id ${{ env.AZURE_TENANT_ID }}
+          Get-AzAccessToken -ResourceUrl "https://vault.azure.net"
+
+          # Set requied environment variables
+          azd env set AZURE_SUBSCRIPTION_ID ${{ env.AZURE_SUBSCRIPTION_ID }}
+          azd env set AZURE_PRINCIPAL_ID ${{ env.AZURE_PRINCIPAL_ID}}
+          # azd env set AZURE_RESOURCE_GROUP ${{ env.AZURE_RG }}
+
+          # Set environment variables to answer prompts
+          azd env set AZURE_LOCATION ${{ inputs.location }}
+
+          # Set open ai location if provided, else default to rg location
+          if ([string]::IsNullOrEmpty("${{ inputs.openai-location }}")) {
+            azd env set AZURE_OPENAI_LOCATION ${{ inputs.location }}
+          } else {
+            azd env set AZURE_OPENAI_LOCATION ${{ inputs.openai-location }}
+          }
+
+          # Set document intelligence location if provided, else default to rg location
+          if ([string]::IsNullOrEmpty("${{ inputs.documentintelligence-location }}")) {
+            azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.location }}
+          } else {
+            azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.documentintelligence-location }}
+          }
+
+          # Set additional environment variables
+          if (-not [string]::IsNullOrEmpty($env:INPUT_ARGS)) {
+            $jsonObject = ConvertFrom-Json -InputObject $env:INPUT_ARGS -AsHashtable
+            foreach ($key in $jsonObject.Keys) {
+              $value = $jsonObject[$key]
+              azd env set $key $value
+            }
+          }
+          azd env get-values
+
+          # Bring your own data
+          $bringYourOwnData = [System.Convert]::ToBoolean($env:BRING_YOUR_OWN_DATA)
+          if ($bringYourOwnData -eq $true) {
+            Write-Output "The bring-your-own-data input is true."
+            if (Test-Path data) {
+              Remove-Item data -Recurse -Force
+            }
+            if (Test-Path ../${{ inputs.data-path }}) {
+              Copy-Item ../${{ inputs.data-path }} data -Recurse
+            }
+          }
+
+          #Start the deployment
+          azd up --no-prompt -e ${{ inputs.env-name }}
+
+
+        azPSVersion: "latest"

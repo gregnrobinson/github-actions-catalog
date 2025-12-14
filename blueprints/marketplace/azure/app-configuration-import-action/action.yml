@@ -1,0 +1,37 @@
+name: app-configuration-import
+description: Import application key-values and feature flags into an Azure App Configuration
+
+inputs:
+  name:
+    description: App Configuration name.
+    required: true
+  path:
+    description: Configuration file path
+    required: false
+  sourceName:
+    description: App Configuration source of importing. Note that importing feature flags from App Service is not supported.
+    required: false
+  appServiceAccountName:
+    description: App service account name
+    required: false
+  prefix:
+    description: Prefix to be appended to the front of imported keys.
+    required: false
+  label:
+    description: Label to be assigned to imported key-values and feature flags.
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Import to App Configuration
+      shell: bash
+      run: |
+        ${{github.action_path}}/scripts/validate-inputs.sh "${{inputs.path}}" "${{inputs.sourceName}}" "${{inputs.appServiceAccountName}}"
+
+        if [[ ! -z "${{inputs.path}}" ]]; then
+          ${{github.action_path}}/scripts/import-file.sh "${{inputs.name}}" "${{inputs.path}}" "${{inputs.prefix}}" "${{inputs.label}}"
+        else
+          echo "Import from source app configuration or app service is currently not supported."
+          exit 1
+        fi

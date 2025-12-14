@@ -1,0 +1,141 @@
+{
+  "action_id": "marketplace/azure/online-experimentation-analysis",
+  "version_id": "737d109186ce",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/online-experimentation-analysis/action.yml",
+    "origin": "github.com/azure/online-experimentation-analysis",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Online Experimentation Analysis",
+    "description": "Download the latest analysis results for an online experiment of an Azure App Configuration feature flag",
+    "author": "",
+    "inputs": [
+      {
+        "name": "subscription-id",
+        "required": true,
+        "default": null,
+        "description": "The subscription ID of the Log Analytics workspace."
+      },
+      {
+        "name": "resource-group",
+        "required": true,
+        "default": null,
+        "description": "The resource group of the Log Analytics workspace."
+      },
+      {
+        "name": "log-analytics-workspace",
+        "required": true,
+        "default": null,
+        "description": "The name of the Log Analytics workspace."
+      },
+      {
+        "name": "app-configuration-feature-flag",
+        "required": true,
+        "default": null,
+        "description": "The App Configuration feature flag of the experiment."
+      },
+      {
+        "name": "app-configuration-label",
+        "required": false,
+        "default": null,
+        "description": "The App Configuration label. Default to no label."
+      },
+      {
+        "name": "metric-category-order",
+        "required": false,
+        "default": "",
+        "description": "The analysis summary displays metrics grouped by their categories. This input specifies the display order of metric categories as a comma separated list. Unspecified categories are appended in alphabetical order, followed by the group of uncategorized metrics. Default: ''.\n"
+      },
+      {
+        "name": "lookback-days",
+        "required": false,
+        "default": 30,
+        "description": "The number of previous days to search the Log Analytics workspace for the latest analysis results. Default: 30."
+      },
+      {
+        "name": "github-actions-summary",
+        "required": false,
+        "default": true,
+        "description": "If the analysis summary should be displayed in the GitHub Action job summary. Default: true."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "analysis-start-time",
+        "description": "The start time of the analysis (ISO 8601 format)."
+      },
+      {
+        "name": "analysis-end-time",
+        "description": "The end time of the analysis (ISO 8601 format)."
+      },
+      {
+        "name": "summary-md",
+        "description": "Summary of the analysis results (GitHub Flavored Markdown format)."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set up Python",
+          "uses": "actions/setup-python@v5",
+          "with": {
+            "python-version": "3.12"
+          }
+        },
+        {
+          "name": "Install Python dependencies",
+          "shell": "bash",
+          "run": "python -m pip install --upgrade pip\npip install -r ${{ github.action_path }}/requirements.txt\n"
+        },
+        {
+          "name": "Download analysis results",
+          "id": "analysis",
+          "shell": "bash",
+          "run": "python ${{ github.action_path }}/action.py",
+          "env": {
+            "SUBSCRIPTION_ID": "${{ inputs.subscription-id }}",
+            "RESOURCE_GROUP": "${{ inputs.resource-group }}",
+            "LOGANALYTICS_WORKSPACE": "${{ inputs.log-analytics-workspace }}",
+            "APPCONFIG_FEATURE_FLAG": "${{ inputs.app-configuration-feature-flag }}",
+            "APPCONFIG_LABEL": "${{ inputs.app-configuration-label }}",
+            "METRIC_CATEGORY_ORDER": "${{ inputs.metric-category-order }}",
+            "LOOKBACK_DAYS": "${{ inputs.lookback-days }}",
+            "GHA_SUMMARY": "${{ inputs.github-actions-summary }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "The action focuses on downloading analysis results for online experiments, which falls under monitoring activities. Additionally, it outputs a summary in Markdown format, contributing to documentation.",
+        "tags": [
+          "Azure",
+          "Experimentation",
+          "Analysis",
+          "Monitoring",
+          "Log Analytics"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "737d109186cee3cbd794756d63aa327e2f3363179fdc927b143f4ab156ca5dc6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.606315Z"
+  }
+}

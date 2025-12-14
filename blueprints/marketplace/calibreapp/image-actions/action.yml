@@ -1,0 +1,60 @@
+name: "Image Actions"
+author: "Calibre"
+description: "Compresses Images for the Web"
+
+inputs:
+  GITHUB_TOKEN:
+    description: "The token that the action will use to create and update the pull request."
+    default: ${{ github.token }}
+
+  jpegQuality:
+    description: "JPEG quality level"
+    required: false
+    default: "85"
+
+  jpegProgressive:
+    description: "Use progressive (interlaced) scan for JPEG"
+    required: false
+    default: "false"
+
+  pngQuality:
+    description: "PNG quality level"
+    required: false
+    default: "80"
+
+  webpQuality:
+    description: "WEBP quality level"
+    required: false
+    default: "85"
+
+  avifQuality:
+    description: "AVIF quality level"
+    required: false
+    default: "75"
+
+  ignorePaths:
+    description: "Paths to ignore during search"
+    required: false
+    default: "node_modules/**"
+
+  compressOnly:
+    description: "Images will be compressed. No commit, or comments will be added to your Pull Request"
+    required: false
+    default: "false"
+
+  minPctChange:
+    description: "Minimun percentage reduction to be committed"
+    required: false
+    default: "5"
+
+outputs:
+  markdown:
+    description: "Output param used to store the Markdown summary for subsequent actions to use"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "image"
+  color: "green"

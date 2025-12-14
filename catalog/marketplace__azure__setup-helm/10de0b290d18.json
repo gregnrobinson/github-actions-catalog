@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/azure/setup-helm",
+  "version_id": "10de0b290d18",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/setup-helm/action.yml",
+    "origin": "github.com/azure/setup-helm",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Helm tool installer",
+    "description": "Install a specific version of helm binary. Acceptable values are latest or any semantic version string like 1.15.0",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": "latest",
+        "description": "Version of helm"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub token. Used to be required to fetch the latest version"
+      },
+      {
+        "name": "downloadBaseURL",
+        "required": false,
+        "default": "https://get.helm.sh",
+        "description": "Set the download base URL"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "helm-path",
+        "description": "Path to the cached helm binary"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "10de0b290d182ef312355f2f3472f57730f700d26aa839e0ab4bbd4eaebf8bd8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.574180Z"
+  }
+}

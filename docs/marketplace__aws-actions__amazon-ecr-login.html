@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon ECR &quot;Login&quot; Action for GitHub Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Amazon ECR &quot;Login&quot; Action for GitHub Actions</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/aws-actions/amazon-ecr-login</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> aws-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/aws-actions/amazon-ecr-login" target="_blank">github.com/aws-actions/amazon-ecr-login</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Logs in the local Docker client to one or more Amazon ECR Private registries or an Amazon ECR Public registry</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Authentication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action primarily handles authentication to Amazon ECR, which is essential for accessing Docker images stored in AWS. It also relates to infrastructure as it prepares the environment for Docker image management and packaging.</p>
+            <p><strong>Tags:</strong> <span class="tag">AWS</span> <span class="tag">ECR</span> <span class="tag">Docker</span> <span class="tag">Authentication</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>http-proxy</code></td>
+                <td>No</td>
+                <td>Proxy to use for the AWS SDK agent.</td>
+            </tr><tr>
+                <td><code>mask-password</code></td>
+                <td>No</td>
+                <td>Mask the docker password to prevent it being printed to action logs if debug logging is enabled. NOTE: This will prevent the Docker password output from being shared between separate jobs. Options: [&#39;true&#39;, &#39;false&#39;]</td>
+            </tr><tr>
+                <td><code>registries</code></td>
+                <td>No</td>
+                <td>A comma-delimited list of AWS account IDs that are associated with the ECR Private registries. If you do not specify a registry, the default ECR Private registry is assumed. If &#39;public&#39; is given as input to &#39;registry-type&#39;, this input is ignored.</td>
+            </tr><tr>
+                <td><code>registry-type</code></td>
+                <td>No</td>
+                <td>Which ECR registry type to log into. Options: [private, public]</td>
+            </tr><tr>
+                <td><code>skip-logout</code></td>
+                <td>No</td>
+                <td>Whether to skip explicit logout of the registries during post-job cleanup. Exists for backward compatibility on self-hosted runners. Not recommended. Options: [&#39;true&#39;, &#39;false&#39;]</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>registry</code></td>
+                <td>The URI of the ECR Private or ECR Public registry. If logging into multiple registries on ECR Private, this output will not be set.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

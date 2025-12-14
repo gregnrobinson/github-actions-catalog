@@ -1,0 +1,39 @@
+{
+  "action_id": "marketplace/github/codeql-action",
+  "version_id": "f9efef97e08c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/codeql-action/action.yml",
+    "origin": "github.com/github/codeql-action",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "CodeQL: Stub",
+    "description": "Stub: Don't use this action directly. Read [the documentation](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) instead.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Stub",
+          "run": "echo 'This is a stub. Read [the documentation](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) instead.'\nexit 1\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f9efef97e08cd143979b5e314e0cecf45f1cfcb92c02c2dafadc4c7244ef76e7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.991736Z"
+  }
+}

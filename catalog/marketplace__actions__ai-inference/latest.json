@@ -1,0 +1,138 @@
+{
+  "action_id": "marketplace/actions/ai-inference",
+  "version_id": "43c4d0d5b299",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/ai-inference/action.yml",
+    "origin": "github.com/actions/ai-inference",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "AI Inference",
+    "description": "Generate an AI response based on a provided prompt",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "prompt",
+        "required": false,
+        "default": "",
+        "description": "The prompt for the model"
+      },
+      {
+        "name": "prompt-file",
+        "required": false,
+        "default": "",
+        "description": "Path to a file containing the prompt (supports .txt and .prompt.yml formats)"
+      },
+      {
+        "name": "input",
+        "required": false,
+        "default": "",
+        "description": "Template variables in YAML format for .prompt.yml files"
+      },
+      {
+        "name": "file_input",
+        "required": false,
+        "default": "",
+        "description": "Template variables in YAML format mapping variable names to file paths. The file contents will be used for templating."
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": "openai/gpt-4o",
+        "description": "The model to use"
+      },
+      {
+        "name": "endpoint",
+        "required": false,
+        "default": "https://models.github.ai/inference",
+        "description": "The endpoint to use"
+      },
+      {
+        "name": "system-prompt",
+        "required": false,
+        "default": "You are a helpful assistant",
+        "description": "The system prompt for the model"
+      },
+      {
+        "name": "system-prompt-file",
+        "required": false,
+        "default": "",
+        "description": "Path to a file containing the system prompt"
+      },
+      {
+        "name": "max-tokens",
+        "required": false,
+        "default": "200",
+        "description": "The maximum number of tokens to generate"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The token to use"
+      },
+      {
+        "name": "enable-github-mcp",
+        "required": false,
+        "default": "false",
+        "description": "Enable Model Context Protocol integration with GitHub tools"
+      },
+      {
+        "name": "github-mcp-token",
+        "required": false,
+        "default": "",
+        "description": "The token to use for GitHub MCP server (defaults to the main token if not specified). This must be a PAT for MCP to work."
+      },
+      {
+        "name": "github-mcp-toolsets",
+        "required": false,
+        "default": "",
+        "description": "Comma-separated list of toolsets to enable for GitHub MCP (e.g., \"repos,issues,pull_requests,actions\"). Use \"all\" for all toolsets, \"default\" for default set. If not specified, uses default toolsets (context,repos,issues,pull_requests,users)."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "response",
+        "description": "The response from the model"
+      },
+      {
+        "name": "response-file",
+        "description": "The file path where the response is saved"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action generates AI responses based on prompts, which can be considered a form of communication. It may also be used in testing scenarios to validate AI outputs.",
+        "tags": [
+          "AI",
+          "inference",
+          "communication",
+          "testing",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "43c4d0d5b299f6a4f936318cbb18d76d06d4a34cabd1cda09e8cde4036b04aa5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.200655Z"
+  }
+}

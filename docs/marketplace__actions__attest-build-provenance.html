@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attest Build Provenance - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Attest Build Provenance</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/attest-build-provenance</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/attest-build-provenance" target="_blank">github.com/actions/attest-build-provenance</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Generate provenance attestations for build artifacts</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Documentation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on generating provenance attestations for build artifacts, which is a security measure to ensure the integrity and authenticity of the builds. Additionally, it involves documentation aspects as it generates outputs that describe the attestation.</p>
+            <p><strong>Tags:</strong> <span class="tag">provenance</span> <span class="tag">attestation</span> <span class="tag">security</span> <span class="tag">build</span> <span class="tag">artifacts</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>subject-path</code></td>
+                <td>No</td>
+                <td>Path to the artifact serving as the subject of the attestation. Must specify exactly one of &quot;subject-path&quot;, &quot;subject-digest&quot;, or &quot;subject-checksums&quot;. May contain a glob pattern or list of paths (total subject count cannot exceed 1024).
+</td>
+            </tr><tr>
+                <td><code>subject-digest</code></td>
+                <td>No</td>
+                <td>Digest of the subject for which provenance will be generated. Must be in the form &quot;algorithm:hex_digest&quot; (e.g. &quot;sha256:abc123...&quot;). Must specify exactly one of &quot;subject-path&quot;, &quot;subject-digest&quot;, or &quot;subject-checksums&quot;.
+</td>
+            </tr><tr>
+                <td><code>subject-name</code></td>
+                <td>No</td>
+                <td>Subject name as it should appear in the attestation. Required when identifying the subject with the &quot;subject-digest&quot; input.
+</td>
+            </tr><tr>
+                <td><code>subject-checksums</code></td>
+                <td>No</td>
+                <td>Path to checksums file containing digest and name of subjects for attestation. Must specify exactly one of &quot;subject-path&quot;, &quot;subject-digest&quot;, or &quot;subject-checksums&quot;.
+</td>
+            </tr><tr>
+                <td><code>push-to-registry</code></td>
+                <td>No</td>
+                <td>Whether to push the provenance statement to the image registry. Requires that the &quot;subject-name&quot; parameter specify the fully-qualified image name and that the &quot;subject-digest&quot; parameter be specified. Defaults to false.
+</td>
+            </tr><tr>
+                <td><code>show-summary</code></td>
+                <td>No</td>
+                <td>Whether to attach a list of generated attestations to the workflow run summary page. Defaults to true.
+</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>The GitHub token used to make authenticated API requests.
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>bundle-path</code></td>
+                <td>The path to the file containing the attestation bundle.</td>
+            </tr><tr>
+                <td><code>attestation-id</code></td>
+                <td>The ID of the attestation.</td>
+            </tr><tr>
+                <td><code>attestation-url</code></td>
+                <td>The URL for the attestation summary.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

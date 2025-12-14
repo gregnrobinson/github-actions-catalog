@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/azure/pipelines",
+  "version_id": "ec8d101c6020",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/pipelines/action.yml",
+    "origin": "github.com/azure/pipelines",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Pipelines Action",
+    "description": "Trigger a run in Azure pipelines",
+    "author": "",
+    "inputs": [
+      {
+        "name": "azure-devops-project-url",
+        "required": true,
+        "default": null,
+        "description": "Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)"
+      },
+      {
+        "name": "azure-pipeline-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Azure Pipline to be triggered"
+      },
+      {
+        "name": "azure-pipeline-variables",
+        "required": false,
+        "default": null,
+        "description": "Set/Overwrite pipeline variables"
+      },
+      {
+        "name": "azure-devops-token",
+        "required": true,
+        "default": null,
+        "description": "Paste personal access token of the user as value of secret variable:AZURE_DEVOPS_TOKEN"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The Azure Pipelines Action is primarily used to trigger deployments in Azure pipelines, making it a deployment-focused action. It also relates to infrastructure as it interacts with Azure DevOps services.",
+        "tags": [
+          "Azure",
+          "Pipelines",
+          "Deployment",
+          "CI/CD",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ec8d101c6020c0ad767abe63aeeef0a5c93d72d107344f2c9fd91cc698c75b4e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.598244Z"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/azure/powershell",
+  "version_id": "6bb697eb7789",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/powershell/action.yml",
+    "origin": "github.com/azure/powershell",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure PowerShell Action",
+    "description": "Automate your GitHub workflows using Azure PowerShell scripts.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "inlineScript",
+        "required": true,
+        "default": null,
+        "description": "Specify the Az PowerShell script here."
+      },
+      {
+        "name": "azPSVersion",
+        "required": true,
+        "default": null,
+        "description": "Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify \"latest\"."
+      },
+      {
+        "name": "errorActionPreference",
+        "required": false,
+        "default": "Stop",
+        "description": "Select the value of the ErrorActionPreference variable for executing the script. Options: stop, continue, silentlyContinue. Default is Stop."
+      },
+      {
+        "name": "failOnStandardError",
+        "required": false,
+        "default": "false",
+        "description": "If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream."
+      },
+      {
+        "name": "githubToken",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Used to pull Az module from Azure/az-ps-module-versions.  Since there's a default, this is typically not supplied by the user."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Build",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The Azure PowerShell Action is primarily used to automate workflows related to Azure infrastructure, which places it in the Infrastructure category. Additionally, it can be used for building and deploying applications using Azure services, thus fitting into the Build and Deployment categories as well.",
+        "tags": [
+          "Azure",
+          "PowerShell",
+          "Automation",
+          "GitHub Actions",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6bb697eb77897c9963371c8a686bb7576ddea08865e43c9f3ada84f7a679701e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.615875Z"
+  }
+}

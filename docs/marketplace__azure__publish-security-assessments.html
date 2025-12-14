@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish security assessments to Azure - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Publish security assessments to Azure</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/publish-security-assessments</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/publish-security-assessments" target="_blank">github.com/azure/publish-security-assessments</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Publish security assessments to Azure</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on publishing security assessments, which falls under the Security category, while also involving deployment to Azure.</p>
+            <p><strong>Tags:</strong> <span class="tag">security</span> <span class="tag">Azure</span> <span class="tag">assessment</span> <span class="tag">deployment</span> <span class="tag">container</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>artifact-type</code></td>
+                <td>Yes</td>
+                <td>The artifact that was scanned. Supported values - “containerImage”</td>
+            </tr><tr>
+                <td><code>artifact-id</code></td>
+                <td>No</td>
+                <td>Unique identifier for the artifact. For artifact-type “containerImage”, the action will take the image digest by default by using docker cli</td>
+            </tr><tr>
+                <td><code>subscription-token</code></td>
+                <td>Yes</td>
+                <td>ASC subscription token which can be found on the ASC portal</td>
+            </tr><tr>
+                <td><code>instrumentation-key</code></td>
+                <td>No</td>
+                <td>Instrumentation key of the application insights instance</td>
+            </tr><tr>
+                <td><code>connection-string</code></td>
+                <td>No</td>
+                <td>Connection string of the application insights instance</td>
+            </tr><tr>
+                <td><code>scan-provider</code></td>
+                <td>Yes</td>
+                <td>The tool used to scan the artifact. Supported values - &quot;trivy&quot;</td>
+            </tr><tr>
+                <td><code>scan-results-path</code></td>
+                <td>Yes</td>
+                <td>Path to the file containing scan results</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

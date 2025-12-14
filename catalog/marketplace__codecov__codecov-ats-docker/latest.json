@@ -1,0 +1,215 @@
+{
+  "action_id": "marketplace/codecov/codecov-ats-docker",
+  "version_id": "77293a1dd297",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/codecov/codecov-ats-docker/action.yml",
+    "origin": "github.com/codecov/codecov-ats-docker",
+    "publisher": "codecov",
+    "verified": true
+  },
+  "definition": {
+    "name": "ATS",
+    "description": "RUN ATS",
+    "author": "",
+    "inputs": [
+      {
+        "name": "container",
+        "required": true,
+        "default": null,
+        "description": "container to run in"
+      },
+      {
+        "name": "static_token",
+        "required": true,
+        "default": null,
+        "description": "Codecov static token"
+      },
+      {
+        "name": "codecov_token",
+        "required": true,
+        "default": null,
+        "description": "Codecov upload token"
+      },
+      {
+        "name": "output_path",
+        "required": false,
+        "default": "/tmp",
+        "description": "output path for test file in container, must be a fully qualified path"
+      },
+      {
+        "name": "local_output_path",
+        "required": false,
+        "default": ".",
+        "description": "where to copy the files out of the container"
+      },
+      {
+        "name": "install_cli",
+        "required": false,
+        "default": "true",
+        "description": "Whether to install the Codecov CLI. Set to false if you have previously installed the CLI."
+      },
+      {
+        "name": "main_branch",
+        "required": false,
+        "default": "origin/main",
+        "description": "The main branch to compare against"
+      },
+      {
+        "name": "run_tests",
+        "required": false,
+        "default": "false",
+        "description": "Whether to run the tests with the given command in the container. If set to true, this will run the test command and upload to Codecov"
+      },
+      {
+        "name": "test_command",
+        "required": false,
+        "default": null,
+        "description": "Command to run in container to execute tests. Required when run_tests is true. This should be `pytest` with the desired args at this point."
+      },
+      {
+        "name": "codecov_url",
+        "required": false,
+        "default": "https://api.codecov.io",
+        "description": "URL of Codecov"
+      },
+      {
+        "name": "codecov_cli_version",
+        "required": false,
+        "default": "0.3.8",
+        "description": "Version of CLI to use"
+      },
+      {
+        "name": "codecov_cli_upload_args",
+        "required": false,
+        "default": "",
+        "description": "List of args to pass to cli on upload. This is kind of a hack pending a more robust solution"
+      },
+      {
+        "name": "codecov_cli_yml_path",
+        "required": false,
+        "default": "",
+        "description": "Path to codecov cli yml. Currently expected to include flag as well --codecov-yml-path=codecov_cli.yml for ex."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "test_skip_list",
+        "description": "the tests to skip"
+      },
+      {
+        "name": "runner_options",
+        "description": "the runner options"
+      },
+      {
+        "name": "test_list",
+        "description": "the tests to run"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "id": "container-running",
+          "name": "Ensure container is running",
+          "run": "docker ps | grep ${{ inputs.container }}",
+          "shell": "bash"
+        },
+        {
+          "run": "echo command=\"docker exec ${{ inputs.container }} sh -c\" >> $GITHUB_OUTPUT",
+          "name": "Set container exec command",
+          "id": "command",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"pip install codecov-cli==${{ inputs.codecov_cli_version }}\"",
+          "if": "inputs.install_cli == 'true'",
+          "name": "Install Codecov CLI",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"codecovcli -u ${{ inputs.codecov_url }} create-commit -t ${{ inputs.codecov_token }} --fail-on-error\"",
+          "name": "Create Codecov Commit",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"codecovcli -u ${{ inputs.codecov_url }} create-report -t ${{ inputs.codecov_token }} --fail-on-error\"",
+          "name": "Create Codecov Report",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"codecovcli -u ${{ inputs.codecov_url }} static-analysis --token=${{inputs.static_token}}\"",
+          "name": "Run Static Analysis",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"codecovcli -u ${{ inputs.codecov_url }} label-analysis --base-sha=$(git merge-base HEAD^ ${{ inputs.main_branch }}) --token=${{inputs.static_token}} --dry-run --dry-run-output-path=${{ inputs.output_path }}/codecov_analysis > /dev/null\"",
+          "name": "Run Label Analysis",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"jq -r '.ats_tests_to_run []' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\\\\\"//g > ${{ inputs.output_path }}/test_list\"\ndocker cp ${{ inputs.container }}:${{ inputs.output_path }}/test_list ${{ inputs.local_output_path }}/test_list\n",
+          "name": "Parse tests to run",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"jq -r '.ats_tests_to_skip []' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\\\\\"//g > ${{ inputs.output_path }}/test_skip_list\"\ndocker cp ${{ inputs.container }}:${{ inputs.output_path }}/test_skip_list ${{ inputs.local_output_path }}/test_skip_list\n",
+          "name": "Parse tests to skip",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"jq -r '.runner_options | join(\\\" \\\")' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\\\\\"//g | tr -d '\\n'> ${{ inputs.output_path }}/runner_options\"\ndocker cp ${{ inputs.container }}:${{ inputs.output_path }}/runner_options ${{ inputs.local_output_path }}/runner_options\n",
+          "name": "Parse runner options",
+          "shell": "bash"
+        },
+        {
+          "run": "echo test_list=$(cat ${{ inputs.local_output_path }}/test_list) >> $GITHUB_OUTPUT\necho test_skip_list=$(cat ${{ inputs.local_output_path }}/test_skip_list) >> $GITHUB_OUTPUT\necho runner_options=$(cat ${{ inputs.local_output_path }}/runner_options) >> $GITHUB_OUTPUT\n",
+          "shell": "bash",
+          "name": "Setup outputs",
+          "id": "outputs"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"${{ inputs.test_command }} ${{ steps.outputs.outputs.runner_options }} `cat ${{ inputs.local_output_path }}/test_list | tr '\\n' ' '`\"",
+          "name": "Run tests",
+          "if": "inputs.run_tests == 'true'",
+          "shell": "bash"
+        },
+        {
+          "run": "${{ steps.command.outputs.command }} \"codecovcli ${{ inputs.codecov_cli_yml_path }} -u ${{ inputs.codecov_url }} do-upload -t ${{ inputs.codecov_token }} ${{ inputs.codecov_cli_upload_args }} --fail-on-error\"",
+          "name": "Upload to Codecov",
+          "if": "inputs.run_tests == 'true'",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is designed to run tests and upload coverage reports, which falls under Testing and Code quality. It also requires authentication tokens for Codecov, categorizing it under Authentication.",
+        "tags": [
+          "codecov",
+          "testing",
+          "code quality",
+          "docker",
+          "CI"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "77293a1dd29711822dacfb5cb16f4eacfb0c1d9072ad3679fe586287b39b9e7d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.459276Z"
+  }
+}

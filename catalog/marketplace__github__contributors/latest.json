@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/github/contributors",
+  "version_id": "e53ee2ac4ada",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/contributors/action.yml",
+    "origin": "github.com/github/contributors",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Contributors Action",
+    "description": "A GitHub Action to report out contributors and contributions to a repository or organization",
+    "author": "github",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/contributors:v1"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The Contributors Action primarily focuses on reporting contributors and contributions, which is essential for documenting the development activity of a repository. It also facilitates communication about contributions within the community.",
+        "tags": [
+          "contributors",
+          "documentation",
+          "GitHub",
+          "reporting",
+          "community"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e53ee2ac4ada3094d21986eeec58fab1f896b47221a1e3e0b37e2438773c5cf0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.960345Z"
+  }
+}

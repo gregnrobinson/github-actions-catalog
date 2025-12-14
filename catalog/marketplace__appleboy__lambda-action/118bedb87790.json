@@ -1,0 +1,214 @@
+{
+  "action_id": "marketplace/appleboy/lambda-action",
+  "version_id": "118bedb87790",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/lambda-action/action.yml",
+    "origin": "github.com/appleboy/lambda-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "AWS Lambda Deploy",
+    "description": "Deploying Lambda code to an existing function",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "aws_region",
+        "required": false,
+        "default": "us-east-1",
+        "description": "AWS Region"
+      },
+      {
+        "name": "aws_access_key_id",
+        "required": false,
+        "default": null,
+        "description": "AWS ACCESS KEY"
+      },
+      {
+        "name": "aws_secret_access_key",
+        "required": false,
+        "default": null,
+        "description": "AWS SECRET KEY"
+      },
+      {
+        "name": "aws_session_token",
+        "required": false,
+        "default": null,
+        "description": "AWS Session token"
+      },
+      {
+        "name": "aws_profile",
+        "required": false,
+        "default": null,
+        "description": "AWS profile"
+      },
+      {
+        "name": "function_name",
+        "required": false,
+        "default": null,
+        "description": "AWS lambda function name"
+      },
+      {
+        "name": "s3_bucket",
+        "required": false,
+        "default": null,
+        "description": "An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account."
+      },
+      {
+        "name": "s3_key",
+        "required": false,
+        "default": null,
+        "description": "The Amazon S3 key of the deployment package."
+      },
+      {
+        "name": "s3_object_version",
+        "required": false,
+        "default": null,
+        "description": "AWS lambda s3 object version"
+      },
+      {
+        "name": "zip_file",
+        "required": false,
+        "default": null,
+        "description": "AWS lambda zip file"
+      },
+      {
+        "name": "source",
+        "required": false,
+        "default": null,
+        "description": "zip file list"
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": null,
+        "description": "Set to true to validate the request parameters and access permissions without modifying the function code."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Show debug message after upload the lambda successfully."
+      },
+      {
+        "name": "publish",
+        "required": false,
+        "default": true,
+        "description": "Set to true to publish a new version of the function after updating the code."
+      },
+      {
+        "name": "reversion_id",
+        "required": false,
+        "default": null,
+        "description": "Only update the function if the revision ID matches the ID that is specified."
+      },
+      {
+        "name": "memory_size",
+        "required": false,
+        "default": 0,
+        "description": "The amount of memory that your function has access to. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB."
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": 0,
+        "description": "The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds."
+      },
+      {
+        "name": "handler",
+        "required": false,
+        "default": null,
+        "description": "The name of the method within your code that Lambda calls to execute your function."
+      },
+      {
+        "name": "role",
+        "required": false,
+        "default": null,
+        "description": "The Amazon Resource Name (ARN) of the function execution role."
+      },
+      {
+        "name": "runtime",
+        "required": false,
+        "default": null,
+        "description": "The identifier of the function runtime."
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "default": null,
+        "description": "Lambda Environment variables."
+      },
+      {
+        "name": "layers",
+        "required": false,
+        "default": null,
+        "description": "A list of function layers, to add to the function execution environment. Specify each layer by its ARN, including the version"
+      },
+      {
+        "name": "image_uri",
+        "required": false,
+        "default": null,
+        "description": "URI of a container image in the Amazon ECR registry."
+      },
+      {
+        "name": "subnets",
+        "required": false,
+        "default": null,
+        "description": "Select the VPC subnets for Lambda to use to set up your VPC configuration."
+      },
+      {
+        "name": "securitygroups",
+        "required": false,
+        "default": null,
+        "description": "Choose the VPC security groups for Lambda to use to set up your VPC configuration."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "A description of the function."
+      },
+      {
+        "name": "tracing_mode",
+        "required": false,
+        "default": null,
+        "description": "Set Mode to Active to sample and trace a subset of incoming requests with AWS X-Ray."
+      },
+      {
+        "name": "max_attempts",
+        "required": false,
+        "default": 600,
+        "description": "the maximum number of times the waiter should attempt to check the resource for the target state"
+      },
+      {
+        "name": "architectures",
+        "required": false,
+        "default": null,
+        "description": "The instruction set architecture that the function supports. Architecture is a string array with one of the valid values. The default architecture value is x86_64."
+      },
+      {
+        "name": "ipv6_dual_stack",
+        "required": false,
+        "default": null,
+        "description": "Enables or disables dual-stack IPv6 support in the VPC configuration"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "118bedb87790060dcfb1aae4fbc4ac5037e26ea23599ef8013616a4afc3df7af",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.108894Z"
+  }
+}

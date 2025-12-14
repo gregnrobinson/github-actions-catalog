@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/azure/aml-workspace",
+  "version_id": "58bb7486a090",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aml-workspace/action.yml",
+    "origin": "github.com/azure/aml-workspace",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Machine Learning Workspace",
+    "description": "Connect to or create an Azure Machine Learning Workspace with this GitHub Action",
+    "author": "azure/gh-aml",
+    "inputs": [
+      {
+        "name": "azure_credentials",
+        "required": true,
+        "default": null,
+        "description": "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS"
+      },
+      {
+        "name": "parameters_file",
+        "required": false,
+        "default": "workspace.json",
+        "description": "JSON file including the parameters of the workspace."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is primarily focused on connecting to or creating an Azure Machine Learning Workspace, which falls under the Infrastructure category. It also requires Azure credentials for authentication, making it relevant to the Authentication category.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Workspace",
+          "Infrastructure",
+          "Authentication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "58bb7486a0907bbbccb8d47a9f1b477cc781b3c1ef9e2600262dfd5e91c2f550",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.719147Z"
+  }
+}

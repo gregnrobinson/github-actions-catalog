@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/JamesIves/f45-lionheart-strava-importer",
+  "version_id": "b273d3a43527",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/JamesIves/f45-lionheart-strava-importer/action.yml",
+    "origin": "github.com/JamesIves/f45-lionheart-strava-importer",
+    "publisher": "JamesIves",
+    "verified": false
+  },
+  "definition": {
+    "name": "F45 Lionheart Strava Importer",
+    "description": "Fetches a workout from the F45 Lionheart API and pushes it to Strava. \ud83e\udd81",
+    "author": "James Ives <iam@jamesiv.es> (https://jives.dev)",
+    "inputs": [
+      {
+        "name": "STRAVA_CLIENT_ID",
+        "required": true,
+        "default": null,
+        "description": "Your Strava Client ID"
+      },
+      {
+        "name": "STRAVA_CLIENT_SECRET",
+        "required": true,
+        "default": null,
+        "description": "Your Strava Client Secret"
+      },
+      {
+        "name": "STRAVA_REFRESH_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "Your Strava Refresh Token"
+      },
+      {
+        "name": "F45_CLASS_DATE",
+        "required": true,
+        "default": "2025-03-14",
+        "description": "The date that the F45 Class was taken, this should be in the format YYYY-MM-DD."
+      },
+      {
+        "name": "F45_CLASS_TIME",
+        "required": true,
+        "default": "06:30",
+        "description": "The time of the F45 Class, this should be in 24 hour format and mirror the time the class was scheduled to start."
+      },
+      {
+        "name": "F45_STUDIO_CODE",
+        "required": true,
+        "default": "",
+        "description": "The F45 Studio Code where the class was taken"
+      },
+      {
+        "name": "F45_USER_ID",
+        "required": true,
+        "default": "",
+        "description": "Your F45 User ID"
+      },
+      {
+        "name": "F45_LIONHEART_SERIAL_NUMBER",
+        "required": true,
+        "default": "366418",
+        "description": "Your F45 Lionheart Serial Number"
+      },
+      {
+        "name": "DRY_RUN",
+        "required": false,
+        "default": "false",
+        "description": "If set to true the script will not push the workout to Strava."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-status",
+        "description": "The status of the deployment that indicates if the run failed or passed. Possible outputs include: success|failed|skipped"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Authentication",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action fetches workout data from the F45 Lionheart API and pushes it to Strava, which involves communication between services. It also requires authentication with Strava credentials.",
+        "tags": [
+          "Strava",
+          "F45",
+          "API",
+          "Workout",
+          "Importer"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b273d3a435276add653095768194a77ef08da0f1c906facbd97a89658237827d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.856109Z"
+  }
+}

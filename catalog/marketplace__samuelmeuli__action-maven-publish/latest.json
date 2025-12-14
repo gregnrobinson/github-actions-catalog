@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-maven-publish",
+  "version_id": "3dacbdb6d1c1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/samuelmeuli/action-maven-publish/action.yml",
+    "origin": "github.com/samuelmeuli/action-maven-publish",
+    "publisher": "samuelmeuli",
+    "verified": false
+  },
+  "definition": {
+    "name": "action-maven-publish",
+    "description": "GitHub Action for automatically publishing Maven packages",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "gpg_private_key",
+        "required": false,
+        "default": null,
+        "description": "GPG private key for signing the published artifacts"
+      },
+      {
+        "name": "gpg_passphrase",
+        "required": false,
+        "default": null,
+        "description": "Passphrase for the GPG key"
+      },
+      {
+        "name": "nexus_username",
+        "required": true,
+        "default": null,
+        "description": "Username (not email!) for your Nexus repository manager account"
+      },
+      {
+        "name": "nexus_password",
+        "required": true,
+        "default": null,
+        "description": "Password for your Nexus account"
+      },
+      {
+        "name": "server_id",
+        "required": false,
+        "default": "ossrh",
+        "description": "Nexus server ID as specified in your project's `nexus-staging-maven-plugin` and `distributionManagement` configurations"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "Directory of the Maven project which should be deployed"
+      },
+      {
+        "name": "maven_goals_phases",
+        "required": false,
+        "default": "clean deploy",
+        "description": "Maven goals and build phases to execute"
+      },
+      {
+        "name": "maven_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the Maven command"
+      },
+      {
+        "name": "maven_profiles",
+        "required": false,
+        "default": "deploy",
+        "description": "Active Maven profiles"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "./index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "This action is primarily focused on publishing Maven packages, which falls under the Publishing category. It also involves authentication through Nexus repository credentials and signing artifacts with GPG, linking it to Authentication and Packaging.",
+        "tags": [
+          "Maven",
+          "Publish",
+          "GitHub Action",
+          "Nexus",
+          "GPG"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3dacbdb6d1c124958a707a448c02da514284ba858aebf811e39936d123af37ec",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.894157Z"
+  }
+}

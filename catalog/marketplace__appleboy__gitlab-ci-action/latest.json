@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/appleboy/gitlab-ci-action",
+  "version_id": "86d9ab875651",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/gitlab-ci-action/action.yml",
+    "origin": "github.com/appleboy/gitlab-ci-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Trigger GitLab CI Pipeline",
+    "description": "Triggering GitLab CI Pipeline through the API",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "host",
+        "required": false,
+        "default": "https://gitlab.com",
+        "description": "gitlab-ci base url"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "gitlab-ci token"
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": "main",
+        "description": "gitlab-ci valid refs are only the branches and tags"
+      },
+      {
+        "name": "project_id",
+        "required": true,
+        "default": null,
+        "description": "gitlab project id"
+      },
+      {
+        "name": "insecure",
+        "required": false,
+        "default": null,
+        "description": "insecure mode"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "pass CI/CD variables"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "debug mode"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": null,
+        "description": "timeout waiting for pipeline to complete"
+      },
+      {
+        "name": "interval",
+        "required": false,
+        "default": null,
+        "description": "interval waiting for pipeline to complete"
+      },
+      {
+        "name": "wait",
+        "required": false,
+        "default": null,
+        "description": "wait for pipeline to complete"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on triggering a CI pipeline, which is a form of communication between systems to initiate a deployment process. It also involves the use of an API, reinforcing its role in communication.",
+        "tags": [
+          "GitLab",
+          "CI",
+          "API",
+          "Pipeline",
+          "Automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "86d9ab8756518516b1940cea94705afc92250f40d021bb4afd9c66528d804415",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.157827Z"
+  }
+}

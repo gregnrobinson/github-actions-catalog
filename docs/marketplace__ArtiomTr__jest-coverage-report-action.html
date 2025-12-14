@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jest coverage report - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Jest coverage report</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/ArtiomTr/jest-coverage-report-action</code></p>
+            <p><strong>Author:</strong> Artiom Tretjakovas &lt;artiom.tretjakovas2@gmail.com&gt;</p>
+            <p><strong>Publisher:</strong> ArtiomTr</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/ArtiomTr/jest-coverage-report-action" target="_blank">github.com/ArtiomTr/jest-coverage-report-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Track your code coverage in each pull request.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Testing</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Testing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action generates a coverage report for tests, which directly relates to testing and code quality. It also has the potential to notify users about coverage thresholds in pull requests.</p>
+            <p><strong>Tags:</strong> <span class="tag">jest</span> <span class="tag">coverage</span> <span class="tag">report</span> <span class="tag">testing</span> <span class="tag">code quality</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github-token</code></td>
+                <td>Yes</td>
+                <td>A github access token</td>
+            </tr><tr>
+                <td><code>test-script</code></td>
+                <td>No</td>
+                <td>A custom npm script to get coverage</td>
+            </tr><tr>
+                <td><code>threshold</code></td>
+                <td>No</td>
+                <td>Coverage threshold. If total coverage is less than threshold, PR will be rejected</td>
+            </tr><tr>
+                <td><code>working-directory</code></td>
+                <td>No</td>
+                <td>Custom working directory</td>
+            </tr><tr>
+                <td><code>icons</code></td>
+                <td>No</td>
+                <td>Which icons to use. Available choices: emoji, ascii</td>
+            </tr><tr>
+                <td><code>annotations</code></td>
+                <td>No</td>
+                <td>What type of annotations show. Options: none, coverage, failed-tests, all</td>
+            </tr><tr>
+                <td><code>package-manager</code></td>
+                <td>No</td>
+                <td>Which package manager to use; can be `npm`, `yarn`, `pnpm`, or `bun`</td>
+            </tr><tr>
+                <td><code>skip-step</code></td>
+                <td>No</td>
+                <td>`none` for running all steps, `install` to skip installing dependencies or `all` to skip installing dependencies and running the test script</td>
+            </tr><tr>
+                <td><code>custom-title</code></td>
+                <td>No</td>
+                <td>Sets the title of the coverage report comment in Github.</td>
+            </tr><tr>
+                <td><code>coverage-file</code></td>
+                <td>No</td>
+                <td>Path to file the a previously generated report.json file. (bypasses running the test again)</td>
+            </tr><tr>
+                <td><code>base-coverage-file</code></td>
+                <td>No</td>
+                <td>Path to the report.json file to compare against. This should be from the branch the PR is merging into.</td>
+            </tr><tr>
+                <td><code>prnumber</code></td>
+                <td>No</td>
+                <td>Pull Request number for this commit. Use if your action is running in a PR, but non on the pull_request event, so that you do not get multiple comments.</td>
+            </tr><tr>
+                <td><code>output</code></td>
+                <td>No</td>
+                <td>What output should action produce? `comment` - add comment to PR, `report-markdown` - report markdown text in &quot;outputs.report&quot;.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>report</code></td>
+                <td>Generated markdown report. Exists only if input option &quot;output&quot; is set to &quot;report-markdown&quot;.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/azure/arm-deploy",
+  "version_id": "efd33a569114",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/arm-deploy/action.yml",
+    "origin": "github.com/azure/arm-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy Azure Resource Manager (ARM) Template",
+    "description": "Use this GitHub Action task to deploy Azure Resource Manager (ARM) template",
+    "author": "",
+    "inputs": [
+      {
+        "name": "scope",
+        "required": true,
+        "default": null,
+        "description": "Provide the scope of the deployment. Valid values are: 'resourcegroup', 'tenant', 'managementgroup', 'subscription'"
+      },
+      {
+        "name": "subscriptionId",
+        "required": false,
+        "default": null,
+        "description": "Override the Subscription Id set by Azure Login."
+      },
+      {
+        "name": "managementGroupId",
+        "required": false,
+        "default": null,
+        "description": "Specify the Id for the Management Group, only required for Management Group Deployments."
+      },
+      {
+        "name": "region",
+        "required": false,
+        "default": null,
+        "description": "Provide the target region, only required for tenant, management Group or Subscription deployments."
+      },
+      {
+        "name": "resourceGroupName",
+        "required": false,
+        "default": null,
+        "description": "Provide the name of a resource group, only required for resource Group deployments."
+      },
+      {
+        "name": "template",
+        "required": true,
+        "default": null,
+        "description": "Specify the path or URL to the Azure Resource Manager template."
+      },
+      {
+        "name": "deploymentMode",
+        "required": false,
+        "default": null,
+        "description": "Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template)."
+      },
+      {
+        "name": "deploymentName",
+        "required": false,
+        "default": null,
+        "description": "Specifies the name of the resource group deployment to create."
+      },
+      {
+        "name": "parameters",
+        "required": false,
+        "default": null,
+        "description": "Supply deployment parameter values."
+      },
+      {
+        "name": "failOnStdErr",
+        "required": false,
+        "default": true,
+        "description": "Specify whether to fail the action if some data is written to stderr stream of az cli. Valid values are: true, false"
+      },
+      {
+        "name": "additionalArguments",
+        "required": false,
+        "default": null,
+        "description": "Specify any additional arguments for the deployment."
+      },
+      {
+        "name": "maskedOutputs",
+        "required": false,
+        "default": null,
+        "description": "Specify list of output keys that its value need to be register to github action as secret. (checkout https://github.com/actions/toolkit/issues/184#issuecomment-1198653452 for valid multiline string)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "efd33a569114fcd8a32e4a6f0ca6643b855d72c7250ad1f2b79dfe905aeff865",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.562914Z"
+  }
+}

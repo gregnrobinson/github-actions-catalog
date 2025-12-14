@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/azure/acr-build",
+  "version_id": "6a69255a342d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/acr-build/action.yml",
+    "origin": "github.com/azure/acr-build",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Container Registry Build",
+    "description": "Use ACR to build a container image",
+    "author": "Alessandro Vozza",
+    "inputs": [
+      {
+        "name": "service_principal",
+        "required": true,
+        "default": null,
+        "description": "Service Principal with Contributor role on the ACR"
+      },
+      {
+        "name": "service_principal_password",
+        "required": true,
+        "default": null,
+        "description": "Service Principal password"
+      },
+      {
+        "name": "tenant",
+        "required": true,
+        "default": null,
+        "description": "Azure Container Registry tenant"
+      },
+      {
+        "name": "registry",
+        "required": true,
+        "default": null,
+        "description": "The name of the ACR, minus the .azurecr.io"
+      },
+      {
+        "name": "repository",
+        "required": true,
+        "default": null,
+        "description": "Repository to use"
+      },
+      {
+        "name": "git_access_token",
+        "required": true,
+        "default": null,
+        "description": "Github access token for private repositories"
+      },
+      {
+        "name": "image",
+        "required": false,
+        "default": null,
+        "description": "Docker image name"
+      },
+      {
+        "name": "tag",
+        "required": false,
+        "default": null,
+        "description": "Docker image tag, default to the commit SHA"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": null,
+        "description": "Branch to build from, defaults to master"
+      },
+      {
+        "name": "folder",
+        "required": true,
+        "default": null,
+        "description": "The folder in the Github repo that holds the source"
+      },
+      {
+        "name": "dockerfile",
+        "required": false,
+        "default": null,
+        "description": "The location of the Dockerfile; defaults to ./Dockerfile"
+      },
+      {
+        "name": "build_args",
+        "required": false,
+        "default": null,
+        "description": "JSON specifying key=value pairs as as Docker build arguments"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6a69255a342d6d62b43b9343ae086f6606a822bf0dcbcd18b7d8e4d685ae85f2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.627352Z"
+  }
+}

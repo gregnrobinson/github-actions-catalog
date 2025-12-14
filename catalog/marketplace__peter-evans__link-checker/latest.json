@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/peter-evans/link-checker",
+  "version_id": "5e6950e2f189",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/link-checker/action.yml",
+    "origin": "github.com/peter-evans/link-checker",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Link Checker",
+    "description": "An action for link checking repository Markdown and HTML files",
+    "author": "",
+    "inputs": [
+      {
+        "name": "args",
+        "required": false,
+        "default": "-v -r *",
+        "description": "Liche arguments"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Link Checker action focuses on verifying the validity of links within Markdown and HTML files, which directly relates to maintaining code quality and ensuring accurate documentation.",
+        "tags": [
+          "link checker",
+          "code quality",
+          "documentation",
+          "markdown",
+          "html"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5e6950e2f18917407f96a9bea92d8ebcc9c39e13e674d8c49ce7d13a32762db7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.479332Z"
+  }
+}

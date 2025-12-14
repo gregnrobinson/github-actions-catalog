@@ -1,0 +1,123 @@
+{
+  "action_id": "marketplace/zhongfly/setup-ccache-action",
+  "version_id": "e094628772d0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/zhongfly/setup-ccache-action/action.yml",
+    "origin": "github.com/zhongfly/setup-ccache-action",
+    "publisher": "zhongfly",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup ccache action",
+    "description": "Setup ccache easily in your workflow, with all the tuning knobs you need! ",
+    "author": "Chocobo1 <https://github.com/Chocobo1>",
+    "inputs": [
+      {
+        "name": "update_packager_index",
+        "required": false,
+        "default": "true",
+        "description": "By default, this action will update packager's indexes to avoid installation issues (`apt`/`brew` on linux/macOS respectively). You can disable it to save some time however you are then responsible for ensuring the packager's indexes are up-to-date *before* using this action"
+      },
+      {
+        "name": "install_ccache",
+        "required": false,
+        "default": "true",
+        "description": "By default, this action will install ccache with package manager. You can omit installation if you've already installed ccache and it is accessible in the shell"
+      },
+      {
+        "name": "prepend_symlinks_to_path",
+        "required": false,
+        "default": "true",
+        "description": "By default, this action will prepend ccache's compiler symlinks directory to PATH so that compiler invocations will be handled by ccache transparently. https://ccache.dev/manual/latest.html#_run_modes"
+      },
+      {
+        "name": "windows_compile_environment",
+        "required": false,
+        "default": "",
+        "description": "Specify which compiler environment you are going to use on Windows image. Note that this field (a single value) is mandatory if you use this action on a Windows image. Available options are: ['msvc', 'msys2']"
+      },
+      {
+        "name": "api_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token for using GitHub API"
+      },
+      {
+        "name": "restore_cache",
+        "required": false,
+        "default": "true",
+        "description": "Whether to restore the cache at the start of this action"
+      },
+      {
+        "name": "store_cache",
+        "required": false,
+        "default": "true",
+        "description": "Whether to store the cache at the end of job execution"
+      },
+      {
+        "name": "remove_stale_cache",
+        "required": false,
+        "default": "true",
+        "description": "Whether to remove previous/stale cache entries after store cache completed. This requires parameter `api_token` to be valid. This requires `actions: write` permission. Note that for GitHub Pull Requests, only `actions: read` permission will be given so this feature won't work reliably there."
+      },
+      {
+        "name": "override_cache_key",
+        "required": false,
+        "default": "",
+        "description": "Override cache key which is used for storing/retrieving the cache. Accept a string. Leave it empty to use the default value"
+      },
+      {
+        "name": "override_cache_key_fallback",
+        "required": false,
+        "default": "",
+        "description": "Override additional cache keys for retrieving the cache. Accept a list of strings. Leave it empty to use the default value"
+      },
+      {
+        "name": "ccache_options",
+        "required": false,
+        "default": "",
+        "description": "Config settings for ccache. Accept a list of key=value pairs. Ref: https://ccache.dev/manual/latest.html#_configuration_options"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache_hit",
+        "description": "This variable will be set to `true` when there is an cache hit, otherwise `false`"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/main/index.js",
+      "post": "dist/post/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up ccache, which is primarily used to manage dependencies by caching compilation results to speed up builds. It also plays a role in the build process by optimizing compiler invocations.",
+        "tags": [
+          "ccache",
+          "build optimization",
+          "dependency management",
+          "workflow",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e094628772d02afd6c31c512b14f71167a3d722de00f8fbd48e031c175f51bd1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.409536Z"
+  }
+}

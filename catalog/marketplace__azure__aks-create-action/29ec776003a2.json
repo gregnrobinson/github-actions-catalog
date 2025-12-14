@@ -1,0 +1,134 @@
+{
+  "action_id": "marketplace/azure/aks-create-action",
+  "version_id": "29ec776003a2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aks-create-action/action.yml",
+    "origin": "github.com/azure/aks-create-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Create AKS Cluster",
+    "description": "Create an AKS Cluster",
+    "author": "",
+    "inputs": [
+      {
+        "name": "ARM_CLIENT_ID",
+        "required": true,
+        "default": null,
+        "description": "Client ID for Service Principal"
+      },
+      {
+        "name": "ARM_CLIENT_SECRET",
+        "required": true,
+        "default": null,
+        "description": "Client Secret for Service Principal"
+      },
+      {
+        "name": "ARM_SUBSCRIPTION_ID",
+        "required": true,
+        "default": null,
+        "description": "Subscription for Service Principal"
+      },
+      {
+        "name": "ARM_TENANT_ID",
+        "required": true,
+        "default": null,
+        "description": "Tenant for Service Principal"
+      },
+      {
+        "name": "RESOURCE_GROUP_NAME",
+        "required": true,
+        "default": null,
+        "description": "Resource Group for cluster"
+      },
+      {
+        "name": "CLUSTER_NAME",
+        "required": true,
+        "default": null,
+        "description": "Name for cluster"
+      },
+      {
+        "name": "CLUSTER_SIZE",
+        "required": false,
+        "default": "dev",
+        "description": "Size of cluster (dev or test)"
+      },
+      {
+        "name": "STORAGE_ACCOUNT_NAME",
+        "required": true,
+        "default": null,
+        "description": "Name for Storage Account"
+      },
+      {
+        "name": "STORAGE_CONTAINER_NAME",
+        "required": true,
+        "default": null,
+        "description": "Name for Storage Container"
+      },
+      {
+        "name": "STORAGE_ACCESS_KEY",
+        "required": true,
+        "default": null,
+        "description": "Access Key for Storage Container"
+      },
+      {
+        "name": "ACTION_TYPE",
+        "required": false,
+        "default": "create",
+        "description": "create or destroy"
+      },
+      {
+        "name": "IAC_TYPE",
+        "required": false,
+        "default": "terraform",
+        "description": "IAC tool, Possible choices: [ pulumi, terraform ]"
+      },
+      {
+        "name": "CREATE_ACR",
+        "required": false,
+        "default": "false",
+        "description": "create ACR with cluster name"
+      },
+      {
+        "name": "PULUMI_ACCESS_TOKEN",
+        "required": "false",
+        "default": null,
+        "description": "Token that allows this action to access Pulumi"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.ARM_CLIENT_ID }}",
+        "${{ inputs.ARM_CLIENT_SECRET }}",
+        "${{ inputs.ARM_SUBSCRIPTION_ID }}",
+        "${{ inputs.ARM_TENANT_ID }}",
+        "${{ inputs.RESOURCE_GROUP_NAME }}",
+        "${{ inputs.CLUSTER_NAME }}",
+        "${{ inputs.CLUSTER_SIZE }}",
+        "${{ inputs.STORAGE_ACCOUNT_NAME }}",
+        "${{ inputs.STORAGE_CONTAINER_NAME }}",
+        "${{ inputs.STORAGE_ACCESS_KEY }}",
+        "${{ inputs.ACTION_TYPE }}",
+        "${{ inputs.CREATE_ACR }}",
+        "${{ inputs.IAC_TYPE }}",
+        "${{ inputs.PULUMI_ACCESS_TOKEN }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "29ec776003a2ad4ee9fe220ed50d0c7f7d8ac22e098b5cd65daa1c6967f71f76",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.619761Z"
+  }
+}

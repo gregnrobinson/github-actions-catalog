@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/azure/data-factory-deploy-action",
+  "version_id": "4e9cb3b837d0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/data-factory-deploy-action/action.yml",
+    "origin": "github.com/azure/data-factory-deploy-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "data-factory-deploy",
+    "description": "Deploy Azure Data Factory resources",
+    "author": "",
+    "inputs": [
+      {
+        "name": "resourceGroupName",
+        "required": true,
+        "default": null,
+        "description": "Data Factory resource group name"
+      },
+      {
+        "name": "dataFactoryName",
+        "required": true,
+        "default": null,
+        "description": "Data factory name"
+      },
+      {
+        "name": "armTemplateFile",
+        "required": false,
+        "default": "ARMTemplateForFactory.json",
+        "description": "ARM template file name"
+      },
+      {
+        "name": "armTemplateParametersFile",
+        "required": false,
+        "default": "ARMTemplateParametersForFactory.json",
+        "description": "ARM template parameters file name"
+      },
+      {
+        "name": "additionalParameters",
+        "required": false,
+        "default": "",
+        "description": "Parameters which will be replaced in the ARM template"
+      },
+      {
+        "name": "skipAzModuleInstallation",
+        "required": false,
+        "default": "false",
+        "description": "Parameters which skip the Az module installation"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install Az PowerShell module",
+          "run": "if('${{ inputs.skipAzModuleInstallation }}' -ne 'true') { Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force }",
+          "shell": "pwsh"
+        },
+        {
+          "name": "Run Pre-deployment script",
+          "run": "${{ github.action_path }}/PrePostDeploymentScript.ps1 `\n  -armTemplate \"${{ inputs.armTemplateFile }}\" `\n  -ResourceGroupName \"${{ inputs.resourceGroupName }}\" `\n  -DataFactoryName \"${{ inputs.dataFactoryName }}\" `\n  -predeployment $true `\n  -deleteDeployment $false\n",
+          "shell": "pwsh"
+        },
+        {
+          "name": "Run ARM deploy",
+          "uses": "azure/arm-deploy@v1",
+          "with": {
+            "resourceGroupName": "${{ inputs.resourceGroupName }}",
+            "template": "${{ inputs.armTemplateFile }}",
+            "parameters": "${{ inputs.armTemplateParametersFile }} factoryName=${{ inputs.dataFactoryName }} ${{ inputs.additionalParameters }}"
+          }
+        },
+        {
+          "name": "Run Post-deployment script",
+          "run": "${{ github.action_path }}/PrePostDeploymentScript.ps1 `\n  -armTemplate \"${{ inputs.armTemplateFile }}\" `\n  -ResourceGroupName \"${{ inputs.resourceGroupName }}\" `\n  -DataFactoryName '${{ inputs.dataFactoryName }}' `\n  -predeployment $false `\n  -deleteDeployment $true\n",
+          "shell": "pwsh"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy Azure Data Factory resources, which falls under the Deployment category, while also involving infrastructure management.",
+        "tags": [
+          "Azure",
+          "Data Factory",
+          "Deployment",
+          "Infrastructure",
+          "ARM Template"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4e9cb3b837d04f10b4da5d8a281451afaeca56ef3d712fee0cf3bc355826f3dc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.688608Z"
+  }
+}

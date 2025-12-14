@@ -1,0 +1,45 @@
+{
+  "action_id": "marketplace/actions/hello-world-javascript-action",
+  "version_id": "11ceae7601cb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/hello-world-javascript-action/action.yml",
+    "origin": "github.com/actions/hello-world-javascript-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Hello, World!",
+    "description": "Greet someone and record the time",
+    "author": "GitHub Actions",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "11ceae7601cb298759d8d14788e1677701ca9b632304dea4bb83e2ccae72b060",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.311682Z"
+  }
+}

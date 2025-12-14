@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/data-factory-export-action",
+  "version_id": "24e0647c5724",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/data-factory-export-action/action.yml",
+    "origin": "github.com/azure/data-factory-export-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "data-factory-export",
+    "description": "Export Azure Data Factory resources to an ARM Template",
+    "author": "",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": "./",
+        "description": "Directory that contains the Data Factory resources"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "default": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DataFactory/factories/dataFactory",
+        "description": "Data Factory resource ID"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "arm-template-directory",
+        "description": "Directory where the ARM template will be saved"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.path }}",
+        "${{ inputs.id }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on exporting Azure Data Factory resources to an ARM Template, which is primarily an infrastructure-related task. It also involves packaging the resources into a template format for deployment.",
+        "tags": [
+          "Azure",
+          "Data Factory",
+          "ARM Template",
+          "Infrastructure",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "24e0647c5724c01f38e6e2722a10d2e8aab6476cf3ae76bb7d8664aef0bd6e8e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.638756Z"
+  }
+}

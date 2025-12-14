@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/dflook/terraform-unlock-state",
+  "version_id": "4a8af4caad8d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-unlock-state/action.yml",
+    "origin": "github.com/dflook/terraform-unlock-state",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-unlock-state",
+    "description": "Force unlocks a Terraform remote state.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Path to the Terraform root module that defines the remote state to unlock"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "Terraform workspace to unlock the remote state for"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "lock_id",
+        "required": true,
+        "default": null,
+        "description": "The ID of the state lock to release."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/unlock-state.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4a8af4caad8dc8eea35e69b4d5f3789eb001917b1fd465e65faa13ffd2fd8eb3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.342837Z"
+  }
+}

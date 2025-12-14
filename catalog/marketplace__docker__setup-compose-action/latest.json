@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/docker/setup-compose-action",
+  "version_id": "b527df2f2d1d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/docker/setup-compose-action/action.yml",
+    "origin": "github.com/docker/setup-compose-action",
+    "publisher": "docker",
+    "verified": true
+  },
+  "definition": {
+    "name": "Docker Setup Compose",
+    "description": "Set up Docker Compose",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Compose version. (eg. v2.32.4)"
+      },
+      {
+        "name": "cache-binary",
+        "required": false,
+        "default": "true",
+        "description": "Cache compose binary to GitHub Actions cache backend"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action sets up Docker Compose, which is primarily an infrastructure tool for managing multi-container Docker applications. It also involves dependency management by caching the compose binary.",
+        "tags": [
+          "docker",
+          "compose",
+          "infrastructure",
+          "setup",
+          "dependency"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b527df2f2d1db826e1c7305711dc5f38c5f1c3edfdef22552e1bc9eed39bd897",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.450052Z"
+  }
+}

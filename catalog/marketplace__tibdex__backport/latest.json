@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/tibdex/backport",
+  "version_id": "8110a1b5ff55",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tibdex/backport/action.yml",
+    "origin": "github.com/tibdex/backport",
+    "publisher": "tibdex",
+    "verified": false
+  },
+  "definition": {
+    "name": "Backporting",
+    "description": "Automatically backport PRs to other branches by simply labeling them.\n",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "body_template",
+        "required": false,
+        "default": "Backport <%= mergeCommitSha %> from #<%= number %>.",
+        "description": "Lodash template for the backport PR's body.\nThe data properties are:\n  - base: backport PR's base branch\n  - body: original PR's body\n  - mergeCommitSha: SHA of the original PR's merge commit\n  - number: original PR's number\n"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "Token for the GitHub API."
+      },
+      {
+        "name": "head_template",
+        "required": false,
+        "default": "backport-<%= number %>-to-<%= base %>",
+        "description": "Lodash template for the backport PR's head branch.\nThe data properties are:\n  - base: backport PR's base branch\n  - number: original PR's number\n"
+      },
+      {
+        "name": "label_pattern",
+        "required": false,
+        "default": "^backport (?<base>([^ ]+))$",
+        "description": "The regular expression pattern that PR labels will be tested on to decide whether the PR should be backported and where. The backport PR's base branch will be extracted from the pattern's required `base` named capturing group.\n"
+      },
+      {
+        "name": "labels_template",
+        "required": false,
+        "default": "[]",
+        "description": "Lodash template compiling to a JSON array of labels to add to the backport PR.\nThe data properties are:\n  - base: backport PR's base branch\n  - labels: array containing the original PR's labels, excluding those matching `label_pattern`.\n"
+      },
+      {
+        "name": "title_template",
+        "required": false,
+        "default": "[Backport <%= base %>] <%= title %>",
+        "description": "Lodash template for the backport PR's title.\nThe data properties are:\n  - base: backport PR's base branch\n  - number: original PR's number\n  - title: original PR's title\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "created_pull_requests",
+        "description": "A JSON stringified object mapping the base branch of the created pull requests to their number."
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action automates the process of backporting pull requests to other branches, which is a deployment-related task. It also involves communication through the creation of new pull requests and ensures code quality by managing changes across branches.",
+        "tags": [
+          "backport",
+          "pull request",
+          "automation",
+          "GitHub",
+          "branch management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8110a1b5ff55581e263039d7fb6d96958f599c5798569d157f02c870d810d8b0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.404266Z"
+  }
+}

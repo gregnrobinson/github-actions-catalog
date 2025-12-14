@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/dflook/tofu-validate",
+  "version_id": "ea90ba469059",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-validate/action.yml",
+    "origin": "github.com/dflook/tofu-validate",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-validate",
+    "description": "Validate an OpenTofu configuration directory",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the OpenTofu module to validate"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to use for the `terraform.workspace` value while validating. Note that for remote operations in a cloud backend, this is always `default`.\n\nAlso used for discovering the OpenTofu version to use, if not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line.\nThis is used for discovering the OpenTofu version to use, if not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\nThis is used for discovering the OpenTofu version to use, if not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the validation failed, this will be set to 'validate-failed'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when the validate fails.\n"
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/validate.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ea90ba46905980fce62310c2db41ce362c05713d1f9038f97d795faa90d45cda",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.390392Z"
+  }
+}

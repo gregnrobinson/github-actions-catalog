@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/aws-actions/action-cloudwatch-metrics",
+  "version_id": "741368bc12b9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/action-cloudwatch-metrics/action.yml",
+    "origin": "github.com/aws-actions/action-cloudwatch-metrics",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Post Amazon Cloudwatch Metrics",
+    "description": "Publishes a metric to Amazon CloudWatch.",
+    "author": "ROS Tooling Working Group",
+    "inputs": [
+      {
+        "name": "metric-name",
+        "required": false,
+        "default": "Builds",
+        "description": "Name of the metric to be published"
+      },
+      {
+        "name": "metric-value",
+        "required": false,
+        "default": "${{ job.status == 'success' }}",
+        "description": "Value of the metric to be published\ntrue, and false are respectfully converted to 1.0, and 0.0 automatically"
+      },
+      {
+        "name": "metric-dimensions",
+        "required": false,
+        "default": "[\n  { \"Name\": \"github.event_name\", \"Value\": \"${{ github.event_name }}\" },\n  { \"Name\": \"github.ref\", \"Value\": \"${{ github.ref }}\" },\n  { \"Name\": \"github.repository\", \"Value\": \"${{ github.repository }}\" }\n]",
+        "description": "Dimension of the metric to be published, as a JSON object"
+      },
+      {
+        "name": "metric-data",
+        "required": false,
+        "default": null,
+        "description": "Path to a JSON file containing CloudWatch-compatible metrics, according to https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html If this input is specified, the action will ignore the single-value inputs \"metric-name\", \"metric-value\", \"metric-dimensions\" and only publish the data from this file."
+      },
+      {
+        "name": "namespace",
+        "required": false,
+        "default": "ActionCloudWatchMetrics",
+        "description": "The namespace for the metric data."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "741368bc12b9626a63e2e7f3dca6d74f66a8f04c09787eac3ddaca2ef868cfe5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.013157Z"
+  }
+}

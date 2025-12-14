@@ -1,0 +1,51 @@
+name: 'Amazon ECS "Render Task Definition" Action for GitHub Actions'
+description: 'Inserts a container image URI into a container definition in an Amazon ECS task definition JSON file, creating a new file.'
+branding:
+  icon: 'cloud'
+  color: 'orange'
+inputs:
+  task-definition:
+    description: 'The path to the ECS task definition JSON file'
+    required: false
+  task-definition-arn:
+    description: 'The full Amazon Resource Name (ARN) of the task definition to be used'
+    required: false
+  task-definition-family:
+    description: 'The name of a family that the task definition is registered to'
+    required: false
+  task-definition-revision:
+    description: 'The revision of the task definition being used'
+    required: false
+  container-name:
+    description: 'The name of the container or containers defined in the containerDefinitions section of the ECS task definition. If more than one container, add the names comma separated.'
+    required: true
+  image:
+    description: 'The URI of the container image to insert into the ECS task definition'
+    required: true
+  environment-variables:
+    description: 'Variables to add to the container. Each variable is of the form KEY=value, you can specify multiple variables with multi-line YAML strings.'
+    required: false
+  log-configuration-log-driver:
+    description: "Create/Override logDriver inside logConfiguration"
+    required: false
+  log-configuration-options:
+    description: "Create/Override options inside logConfiguration. Each variable is of the form key=value, you can specify multiple variables with multi-line YAML strings."
+    required: false
+  docker-labels:
+    description: "Create/Override options inside dockerLabels. Each variable is key=value, you can specify multiple variables with multi-line YAML."
+    required: false
+  command:
+    description: 'The command used by ECS to start the container image'
+    required: false
+  env-files:
+    description: 'S3 object arns to set env variables onto the container. You can specify multiple files with multi-line YAML strings.'
+    required: false
+  secrets:
+    description: 'Secrets to add to the container. Each secret is of the form KEY=valueFrom, where valueFrom is a secret arn. You can specify multiple secrets with multi-line YAML strings.'
+    required: false
+outputs:
+  task-definition:
+    description: 'The path to the rendered task definition file'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,0 +1,13 @@
+name: Auto-update
+author: Thibault Derousseaux <tibdex@gmail.com>
+description: Automatically keep pull requests with auto-merged enabled up to date with their base branch.
+inputs:
+  github_token:
+    description: Token for the GitHub API.
+    default: ${{ github.token }}
+runs:
+  using: node16
+  main: dist/index.js
+branding:
+  icon: refresh-cw
+  color: blue

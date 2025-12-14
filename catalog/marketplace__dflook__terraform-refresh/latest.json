@@ -1,0 +1,113 @@
+{
+  "action_id": "marketplace/dflook/terraform-refresh",
+  "version_id": "c7d39ffcd37d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-refresh/action.yml",
+    "origin": "github.com/dflook/terraform-refresh",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-refresh",
+    "description": "Refresh Terraform state",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Path to the Terraform root module to refresh state for"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "Terraform workspace to run the refresh state in"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the terraform plan. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "default": "",
+        "description": "List of resources to target, one per line.\nThe refresh will be limited to these resources and their dependencies.\n"
+      },
+      {
+        "name": "parallelism",
+        "required": false,
+        "default": "0",
+        "description": "Limit the number of concurrent operations"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `refresh-failed` - The Terraform apply operation failed.\n- `state-locked` - The Terraform state lock could not be obtained because it was already locked.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      },
+      {
+        "name": "lock-info",
+        "description": "When the job outcome is `failure` and the failure-reason is `state-locked`, this output will be set.\n\nIt is a json object containing any available state lock information and typically has the form:\n\n```json\n{\n  \"ID\": \"838fbfde-c5cd-297f-84a4-d7578b4a4880\",\n  \"Path\": \"terraform-github-actions/test-unlock-state\",\n  \"Operation\": \"OperationTypeApply\",\n  \"Who\": \"root@e9d43b0c6478\",\n  \"Version\": \"1.3.7\",\n  \"Created\": \"2023-01-28 00:16:41.560904373 +0000 UTC\",\n  \"Info\": \"\"\n}\n```\n"
+      },
+      {
+        "name": "run_id",
+        "description": "If the root module uses the `remote` or `cloud` backend in remote execution mode, this output will be set to the remote run id."
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/refresh.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on refreshing the Terraform state, which is a key aspect of managing infrastructure as code, and it also involves managing dependencies related to Terraform configurations.",
+        "tags": [
+          "terraform",
+          "infrastructure",
+          "state management",
+          "dependency management",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c7d39ffcd37d8a291dd2e9f9f96c76aee9a248eebcd7f0f7404171e11eeb0094",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.388038Z"
+  }
+}

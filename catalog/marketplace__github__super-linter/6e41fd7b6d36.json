@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/github/super-linter",
+  "version_id": "6e41fd7b6d36",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/super-linter/action.yml",
+    "origin": "github.com/github/super-linter",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Super-Linter",
+    "description": "Super-linter is a ready-to-run collection of linters and code analyzers, to help validate your source code.",
+    "author": "Super-linter contributors",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/super-linter/super-linter:v7.1.0"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6e41fd7b6d367c844a21388f0d3bb6fc28736a52a3730602bc39be046a41782c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.896374Z"
+  }
+}

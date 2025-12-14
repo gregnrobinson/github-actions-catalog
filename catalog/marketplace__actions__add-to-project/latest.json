@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/actions/add-to-project",
+  "version_id": "53aa2cfdb350",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/add-to-project/action.yml",
+    "origin": "github.com/actions/add-to-project",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Add To GitHub projects",
+    "description": "Automatically add issues and PRs to GitHub projects",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "project-url",
+        "required": true,
+        "default": null,
+        "description": "URL of the project to add issues to"
+      },
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "A GitHub personal access token with write access to the project"
+      },
+      {
+        "name": "labeled",
+        "required": false,
+        "default": null,
+        "description": "A comma-separated list of labels to use as a filter for issue to be added"
+      },
+      {
+        "name": "label-operator",
+        "required": false,
+        "default": null,
+        "description": "The behavior of the labels filter, AND to match all labels, OR to match any label, NOT to exclude any listed label (default is OR)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "itemId",
+        "description": "The ID of the item that was added to the project"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates the organization of issues and pull requests by adding them to GitHub projects, which enhances communication and project management. It also requires a GitHub token, indicating a level of infrastructure interaction.",
+        "tags": [
+          "GitHub",
+          "projects",
+          "automation",
+          "issues",
+          "pull requests"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "53aa2cfdb350a672f4b3861b4f74fe85a331a42c0448453b175ff6ddbd3be724",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.203139Z"
+  }
+}

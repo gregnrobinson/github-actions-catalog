@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/dflook/configure-oidc-aws-credentials",
+  "version_id": "42b6e24d425e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/configure-oidc-aws-credentials/action.yml",
+    "origin": "github.com/dflook/configure-oidc-aws-credentials",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "configure-oidc-aws-credentials",
+    "description": "Fetch temporary AWS session credentials using OIDC",
+    "author": "",
+    "inputs": [
+      {
+        "name": "role-arn",
+        "required": true,
+        "default": null,
+        "description": "ARN of the role to assume"
+      },
+      {
+        "name": "sts-region",
+        "required": false,
+        "default": null,
+        "description": "The region to use the STS regional endpoint in. If not set, will use the global endpoint."
+      },
+      {
+        "name": "audience",
+        "required": false,
+        "default": null,
+        "description": "The OIDC audience to use. The default is set by the GitHub OIDC provider if not set here."
+      },
+      {
+        "name": "role-session-name",
+        "required": false,
+        "default": "GitHubActions",
+        "description": "A name to give the role session"
+      },
+      {
+        "name": "duration-seconds",
+        "required": false,
+        "default": "3600",
+        "description": "Duration of the role session"
+      },
+      {
+        "name": "export-variables",
+        "required": false,
+        "default": "false",
+        "description": "Set to true to export AWS environment variables"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "aws-access-key-id",
+        "description": "The access key id for the temporary credentials"
+      },
+      {
+        "name": "aws-secret-access-key",
+        "description": "The secret access key for the temporary credentials"
+      },
+      {
+        "name": "aws-session-token",
+        "description": "The session token for the temporary credentials"
+      },
+      {
+        "name": "expiration",
+        "description": "The date on which the credentials expire"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "42b6e24d425ebade66c2cfc7f0d478e613b3751b71be29d3534f2bfab2bd5edf",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.371378Z"
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F45 Lionheart Strava Importer - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>F45 Lionheart Strava Importer</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/JamesIves/f45-lionheart-strava-importer</code></p>
+            <p><strong>Author:</strong> James Ives &lt;iam@jamesiv.es&gt; (https://jives.dev)</p>
+            <p><strong>Publisher:</strong> JamesIves</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/JamesIves/f45-lionheart-strava-importer" target="_blank">github.com/JamesIves/f45-lionheart-strava-importer</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Fetches a workout from the F45 Lionheart API and pushes it to Strava. 🦁</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action fetches workout data from the F45 Lionheart API and pushes it to Strava, which involves communication between services. It also requires authentication with Strava credentials.</p>
+            <p><strong>Tags:</strong> <span class="tag">Strava</span> <span class="tag">F45</span> <span class="tag">API</span> <span class="tag">Workout</span> <span class="tag">Importer</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>STRAVA_CLIENT_ID</code></td>
+                <td>Yes</td>
+                <td>Your Strava Client ID</td>
+            </tr><tr>
+                <td><code>STRAVA_CLIENT_SECRET</code></td>
+                <td>Yes</td>
+                <td>Your Strava Client Secret</td>
+            </tr><tr>
+                <td><code>STRAVA_REFRESH_TOKEN</code></td>
+                <td>Yes</td>
+                <td>Your Strava Refresh Token</td>
+            </tr><tr>
+                <td><code>F45_CLASS_DATE</code></td>
+                <td>Yes</td>
+                <td>The date that the F45 Class was taken, this should be in the format YYYY-MM-DD.</td>
+            </tr><tr>
+                <td><code>F45_CLASS_TIME</code></td>
+                <td>Yes</td>
+                <td>The time of the F45 Class, this should be in 24 hour format and mirror the time the class was scheduled to start.</td>
+            </tr><tr>
+                <td><code>F45_STUDIO_CODE</code></td>
+                <td>Yes</td>
+                <td>The F45 Studio Code where the class was taken</td>
+            </tr><tr>
+                <td><code>F45_USER_ID</code></td>
+                <td>Yes</td>
+                <td>Your F45 User ID</td>
+            </tr><tr>
+                <td><code>F45_LIONHEART_SERIAL_NUMBER</code></td>
+                <td>Yes</td>
+                <td>Your F45 Lionheart Serial Number</td>
+            </tr><tr>
+                <td><code>DRY_RUN</code></td>
+                <td>No</td>
+                <td>If set to true the script will not push the workout to Strava.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>deployment-status</code></td>
+                <td>The status of the deployment that indicates if the run failed or passed. Possible outputs include: success|failed|skipped</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Comment - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Find Comment</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/find-comment</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/find-comment" target="_blank">github.com/peter-evans/find-comment</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Find an issue or pull request comment</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to find comments on issues or pull requests, which is primarily a communication function. Additionally, it can relate to code quality by facilitating discussions around code reviews.</p>
+            <p><strong>Tags:</strong> <span class="tag">comment</span> <span class="tag">issue</span> <span class="tag">pull request</span> <span class="tag">GitHub</span> <span class="tag">communication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GITHUB_TOKEN or a repo scoped PAT.</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>The full name of the repository containing the issue or pull request.</td>
+            </tr><tr>
+                <td><code>issue-number</code></td>
+                <td>No</td>
+                <td>The number of the issue or pull request in which to search.</td>
+            </tr><tr>
+                <td><code>comment-author</code></td>
+                <td>No</td>
+                <td>The GitHub user name of the comment author.</td>
+            </tr><tr>
+                <td><code>body-includes</code></td>
+                <td>No</td>
+                <td>A string to search for in the body of comments.</td>
+            </tr><tr>
+                <td><code>body-regex</code></td>
+                <td>No</td>
+                <td>A regular expression to search for in the body of comments.</td>
+            </tr><tr>
+                <td><code>direction</code></td>
+                <td>No</td>
+                <td>Search direction, specified as `first` or `last`</td>
+            </tr><tr>
+                <td><code>nth</code></td>
+                <td>No</td>
+                <td>0-indexed number, specifying which comment to return if multiple are found</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>comment-id</code></td>
+                <td>The id of the matching comment found.</td>
+            </tr><tr>
+                <td><code>comment-node-id</code></td>
+                <td>The GraphQL node id of the matching comment found.</td>
+            </tr><tr>
+                <td><code>comment-body</code></td>
+                <td>The body of the matching comment found.</td>
+            </tr><tr>
+                <td><code>comment-author</code></td>
+                <td>The author of the matching comment found.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

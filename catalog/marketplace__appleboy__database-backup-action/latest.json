@@ -1,0 +1,142 @@
+{
+  "action_id": "marketplace/appleboy/database-backup-action",
+  "version_id": "bfdb91156dd7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/database-backup-action/action.yml",
+    "origin": "github.com/appleboy/database-backup-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Online Backup Database",
+    "description": "Docker image to periodically backup a your database to AWS S3",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "database_driver",
+        "required": false,
+        "default": "postgres",
+        "description": "support `postgres`, `mysql` or `mongo`. default is `postgres`"
+      },
+      {
+        "name": "database_username",
+        "required": false,
+        "default": null,
+        "description": "database username"
+      },
+      {
+        "name": "database_password",
+        "required": false,
+        "default": null,
+        "description": "database password"
+      },
+      {
+        "name": "database_name",
+        "required": false,
+        "default": null,
+        "description": "database name"
+      },
+      {
+        "name": "database_host",
+        "required": false,
+        "default": null,
+        "description": "database host"
+      },
+      {
+        "name": "database_opts",
+        "required": false,
+        "default": null,
+        "description": "see the `pg_dump`, `mysqldump` or `mongodump` command"
+      },
+      {
+        "name": "storage_driver",
+        "required": false,
+        "default": "s3",
+        "description": "support `s3` or `disk`. default is `s3`"
+      },
+      {
+        "name": "access_key_id",
+        "required": false,
+        "default": null,
+        "description": "minio or aws s3 access key id"
+      },
+      {
+        "name": "secret_access_key",
+        "required": false,
+        "default": null,
+        "description": "minio or aws s3 secret access key"
+      },
+      {
+        "name": "storage_endpoint",
+        "required": false,
+        "default": "s3.amazonaws.com",
+        "description": "s3 endpoint. default is `s3.amazonaws.com`"
+      },
+      {
+        "name": "storage_bucket",
+        "required": false,
+        "default": null,
+        "description": "s3 bucket name"
+      },
+      {
+        "name": "storage_region",
+        "required": false,
+        "default": "ap-northeast-1",
+        "description": "s3 region. default is `ap-northeast-1`"
+      },
+      {
+        "name": "storage_path",
+        "required": false,
+        "default": "backup",
+        "description": "backup folder path in bucket. default is `backup` and all dump file will save in `bucket/backup` directory"
+      },
+      {
+        "name": "storage_ssl",
+        "required": false,
+        "default": "false",
+        "description": "default is `false`"
+      },
+      {
+        "name": "storage_insecure_skip_verify",
+        "required": false,
+        "default": "false",
+        "description": "default is `false`"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Backup",
+      "Infrastructure",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Backup",
+        "reasoning": "This action is primarily focused on backing up databases, which falls under the Backup category. It also involves storing data securely in AWS S3, linking it to Infrastructure and Security.",
+        "tags": [
+          "database",
+          "backup",
+          "AWS S3",
+          "docker",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "bfdb91156dd79f5605082755943c97038a3fc2d05dfe1a9256a7095b92a0c150",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.184060Z"
+  }
+}

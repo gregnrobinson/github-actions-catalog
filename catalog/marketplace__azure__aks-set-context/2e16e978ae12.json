@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/azure/aks-set-context",
+  "version_id": "2e16e978ae12",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aks-set-context/action.yml",
+    "origin": "github.com/azure/aks-set-context",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Kubernetes set context",
+    "description": "Sets the kubeconfig on the machine to communicate with the Azure Kubernetes cluster.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "resource-group",
+        "required": true,
+        "default": null,
+        "description": "Resource Group Name"
+      },
+      {
+        "name": "cluster-name",
+        "required": true,
+        "default": null,
+        "description": "AKS Cluster Name"
+      },
+      {
+        "name": "subscription",
+        "required": false,
+        "default": null,
+        "description": "AKS Cluster Subscription"
+      },
+      {
+        "name": "admin",
+        "required": false,
+        "default": false,
+        "description": "Get cluster admin credentials. Values: true or false"
+      },
+      {
+        "name": "use-kubelogin",
+        "required": false,
+        "default": false,
+        "description": "Enables kubelogin for non-admin user scenario. Values: true or false"
+      },
+      {
+        "name": "public-fqdn",
+        "required": false,
+        "default": false,
+        "description": "Get private cluster credential with server address to be public fqdn.  Values: true or false"
+      },
+      {
+        "name": "resource-type",
+        "required": false,
+        "default": "Microsoft.ContainerService/managedClusters",
+        "description": "Either Microsoft.ContainerService/managedClusters or Microsoft.ContainerService/fleets'."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2e16e978ae12d27e22364820a99724b831a4aa6b7a829729316163573c005c55",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.584159Z"
+  }
+}

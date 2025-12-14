@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Release - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Create a Release</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/create-release</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/create-release" target="_blank">github.com/actions/create-release</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Create a release for a tag in your repository</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Publishing</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Publishing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on creating a release for a tag in a repository, which falls under the publishing category. It also involves deploying the release for users to access.</p>
+            <p><strong>Tags:</strong> <span class="tag">release</span> <span class="tag">tag</span> <span class="tag">GitHub</span> <span class="tag">deployment</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>tag_name</code></td>
+                <td>Yes</td>
+                <td>The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag</td>
+            </tr><tr>
+                <td><code>release_name</code></td>
+                <td>Yes</td>
+                <td>The name of the release. For example, `Release v1.0.1`</td>
+            </tr><tr>
+                <td><code>body</code></td>
+                <td>No</td>
+                <td>Text describing the contents of the tag.</td>
+            </tr><tr>
+                <td><code>body_path</code></td>
+                <td>No</td>
+                <td>Path to file with information about the tag.</td>
+            </tr><tr>
+                <td><code>draft</code></td>
+                <td>No</td>
+                <td>`true` to create a draft (unpublished) release, `false` to create a published one. Default: `false`</td>
+            </tr><tr>
+                <td><code>prerelease</code></td>
+                <td>No</td>
+                <td>`true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`</td>
+            </tr><tr>
+                <td><code>commitish</code></td>
+                <td>No</td>
+                <td>Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit</td>
+            </tr><tr>
+                <td><code>owner</code></td>
+                <td>No</td>
+                <td>Owner of the repository if it is not the current one</td>
+            </tr><tr>
+                <td><code>repo</code></td>
+                <td>No</td>
+                <td>Repository on which to release.  Used only if you want to create the release on another repo</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>id</code></td>
+                <td>The ID of the created Release</td>
+            </tr><tr>
+                <td><code>html_url</code></td>
+                <td>The URL users can navigate to in order to view the release</td>
+            </tr><tr>
+                <td><code>upload_url</code></td>
+                <td>The URL for uploading assets to the release</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

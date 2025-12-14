@@ -1,0 +1,136 @@
+{
+  "action_id": "marketplace/azure/Synapse-workspace-deployment",
+  "version_id": "08ee81378691",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/Synapse-workspace-deployment/action.yml",
+    "origin": "github.com/azure/Synapse-workspace-deployment",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Synapse workspace deployment",
+    "description": "Use this GitHub action to deploy synapse workspace.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "TargetWorkspaceName",
+        "required": true,
+        "default": null,
+        "description": "Provide the Synapse workspace name where you want to deploy the artifacts."
+      },
+      {
+        "name": "TemplateFile",
+        "required": true,
+        "default": null,
+        "description": "Specify the path to the workspace artifacts template."
+      },
+      {
+        "name": "ParametersFile",
+        "required": true,
+        "default": null,
+        "description": "Specify the path to the template parameter file."
+      },
+      {
+        "name": "OverrideArmParameters",
+        "required": false,
+        "default": "",
+        "description": "Specify deployment parameter values."
+      },
+      {
+        "name": "Environment",
+        "required": true,
+        "default": null,
+        "description": "Provide the type of cloud environment. Valid values are: Azure Public, Azure China, Azure US Government, Azure Germany"
+      },
+      {
+        "name": "resourceGroup",
+        "required": true,
+        "default": null,
+        "description": "Provide the resource group of the target Synapse workspace."
+      },
+      {
+        "name": "clientId",
+        "required": false,
+        "default": null,
+        "description": "Provide client id of service principal."
+      },
+      {
+        "name": "clientSecret",
+        "required": false,
+        "default": null,
+        "description": "Provide client secret of the service principal."
+      },
+      {
+        "name": "subscriptionId",
+        "required": true,
+        "default": null,
+        "description": "Provide subscription id."
+      },
+      {
+        "name": "tenantId",
+        "required": false,
+        "default": null,
+        "description": "Provide tenant id."
+      },
+      {
+        "name": "DeleteArtifactsNotInTemplate",
+        "required": false,
+        "default": null,
+        "description": "Delete the artifacts which are in the workspace but not in the template."
+      },
+      {
+        "name": "managedIdentity",
+        "required": false,
+        "default": null,
+        "description": "Use managed identity to generate the bearer token?"
+      },
+      {
+        "name": "deployManagedPrivateEndpoint",
+        "required": false,
+        "default": null,
+        "description": "Deploy managed private endpoints in the template."
+      },
+      {
+        "name": "FailOnMissingOverrides",
+        "required": false,
+        "default": null,
+        "description": "Mark the pipeline as failed if ARM overrides are missing."
+      },
+      {
+        "name": "ArtifactsFolder",
+        "required": false,
+        "default": null,
+        "description": "Provide path to the root folder."
+      },
+      {
+        "name": "operation",
+        "required": true,
+        "default": null,
+        "description": "Provide name of the operation."
+      },
+      {
+        "name": "npmpackage",
+        "required": false,
+        "default": null,
+        "description": "Source for the npm package. Only for dev testing."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "08ee81378691d2a47bb81d4c59800a3aaefb800d978348161684a63df0e98534",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.609689Z"
+  }
+}

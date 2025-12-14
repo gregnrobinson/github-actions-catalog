@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/github/evergreen",
+  "version_id": "fb1363d056f4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/evergreen/action.yml",
+    "origin": "github.com/github/evergreen",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Evergreen action",
+    "description": "A GitHub Action to request dependabot enablement on eligible repositories in an organization.",
+    "author": "github",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/evergreen:v1"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "fb1363d056f415f316747e613972901add01be4209a3d469e10ddee52ae773c5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.926555Z"
+  }
+}

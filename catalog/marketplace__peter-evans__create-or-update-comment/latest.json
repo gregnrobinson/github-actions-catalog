@@ -1,0 +1,122 @@
+{
+  "action_id": "marketplace/peter-evans/create-or-update-comment",
+  "version_id": "d10ca52b47fc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/create-or-update-comment/action.yml",
+    "origin": "github.com/peter-evans/create-or-update-comment",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create or Update Comment",
+    "description": "Create or update an issue or pull request comment",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a repo scoped PAT."
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The full name of the repository in which to create or update a comment."
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": null,
+        "description": "The number of the issue or pull request in which to create a comment."
+      },
+      {
+        "name": "comment-id",
+        "required": false,
+        "default": null,
+        "description": "The id of the comment to update."
+      },
+      {
+        "name": "body",
+        "required": false,
+        "default": null,
+        "description": "The comment body. Cannot be used in conjunction with `body-path`."
+      },
+      {
+        "name": "body-path",
+        "required": false,
+        "default": null,
+        "description": "The path to a file containing the comment body. Cannot be used in conjunction with `body`."
+      },
+      {
+        "name": "body-file",
+        "required": false,
+        "default": null,
+        "description": "Deprecated in favour of `body-path`."
+      },
+      {
+        "name": "edit-mode",
+        "required": false,
+        "default": "append",
+        "description": "The mode when updating a comment, \"replace\" or \"append\"."
+      },
+      {
+        "name": "append-separator",
+        "required": false,
+        "default": "newline",
+        "description": "The separator to use when appending to an existing comment. (`newline`, `space`, `none`)"
+      },
+      {
+        "name": "reactions",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of reactions to add to the comment."
+      },
+      {
+        "name": "reactions-edit-mode",
+        "required": false,
+        "default": "append",
+        "description": "The mode when updating comment reactions, \"replace\" or \"append\"."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "comment-id",
+        "description": "The id of the created comment"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to create or update comments on issues or pull requests, which falls under communication within the context of GitHub. It also serves as a notification mechanism by updating users about comments.",
+        "tags": [
+          "comment",
+          "issue",
+          "pull request",
+          "GitHub",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d10ca52b47fc12fc4a7ef80452cdb76a63d89d09265ec8becf7f6103446c617d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.522473Z"
+  }
+}

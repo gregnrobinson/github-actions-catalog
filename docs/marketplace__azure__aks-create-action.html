@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create AKS Cluster - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Create AKS Cluster</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/aks-create-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/aks-create-action" target="_blank">github.com/azure/aks-create-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Create an AKS Cluster</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on creating an Azure Kubernetes Service (AKS) cluster, which falls under infrastructure management. It also requires authentication credentials for a service principal, placing it in the authentication category as well.</p>
+            <p><strong>Tags:</strong> <span class="tag">AKS</span> <span class="tag">Azure</span> <span class="tag">Infrastructure</span> <span class="tag">Cloud</span> <span class="tag">Kubernetes</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>ARM_CLIENT_ID</code></td>
+                <td>Yes</td>
+                <td>Client ID for Service Principal</td>
+            </tr><tr>
+                <td><code>ARM_CLIENT_SECRET</code></td>
+                <td>Yes</td>
+                <td>Client Secret for Service Principal</td>
+            </tr><tr>
+                <td><code>ARM_SUBSCRIPTION_ID</code></td>
+                <td>Yes</td>
+                <td>Subscription for Service Principal</td>
+            </tr><tr>
+                <td><code>ARM_TENANT_ID</code></td>
+                <td>Yes</td>
+                <td>Tenant for Service Principal</td>
+            </tr><tr>
+                <td><code>RESOURCE_GROUP_NAME</code></td>
+                <td>Yes</td>
+                <td>Resource Group for cluster</td>
+            </tr><tr>
+                <td><code>CLUSTER_NAME</code></td>
+                <td>Yes</td>
+                <td>Name for cluster</td>
+            </tr><tr>
+                <td><code>CLUSTER_SIZE</code></td>
+                <td>No</td>
+                <td>Size of cluster (dev or test)</td>
+            </tr><tr>
+                <td><code>STORAGE_ACCOUNT_NAME</code></td>
+                <td>Yes</td>
+                <td>Name for Storage Account</td>
+            </tr><tr>
+                <td><code>STORAGE_CONTAINER_NAME</code></td>
+                <td>Yes</td>
+                <td>Name for Storage Container</td>
+            </tr><tr>
+                <td><code>STORAGE_ACCESS_KEY</code></td>
+                <td>Yes</td>
+                <td>Access Key for Storage Container</td>
+            </tr><tr>
+                <td><code>ACTION_TYPE</code></td>
+                <td>No</td>
+                <td>create or destroy</td>
+            </tr><tr>
+                <td><code>IAC_TYPE</code></td>
+                <td>No</td>
+                <td>IAC tool, Possible choices: [ pulumi, terraform ]</td>
+            </tr><tr>
+                <td><code>CREATE_ACR</code></td>
+                <td>No</td>
+                <td>create ACR with cluster name</td>
+            </tr><tr>
+                <td><code>PULUMI_ACCESS_TOKEN</code></td>
+                <td>Yes</td>
+                <td>Token that allows this action to access Pulumi</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

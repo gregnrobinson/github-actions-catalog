@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labeler - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Labeler</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/labeler</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/labeler" target="_blank">github.com/actions/labeler</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Automatically label new pull requests based on the paths of files being changed</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The Labeler action automatically applies labels to pull requests, which facilitates communication about the status and type of changes. It also contributes to code quality by organizing and categorizing changes based on file paths.</p>
+            <p><strong>Tags:</strong> <span class="tag">labeling</span> <span class="tag">pull requests</span> <span class="tag">automation</span> <span class="tag">GitHub Actions</span> <span class="tag">code organization</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>repo-token</code></td>
+                <td>No</td>
+                <td>The GitHub token used to manage labels</td>
+            </tr><tr>
+                <td><code>configuration-path</code></td>
+                <td>No</td>
+                <td>The path for the label configurations</td>
+            </tr><tr>
+                <td><code>sync-labels</code></td>
+                <td>No</td>
+                <td>Whether or not to remove labels when matching files are reverted</td>
+            </tr><tr>
+                <td><code>dot</code></td>
+                <td>No</td>
+                <td>Whether or not to auto-include paths starting with dot (e.g. `.github`)</td>
+            </tr><tr>
+                <td><code>pr-number</code></td>
+                <td>No</td>
+                <td>The pull request number(s)</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>new-labels</code></td>
+                <td>A comma-separated list of all new labels</td>
+            </tr><tr>
+                <td><code>all-labels</code></td>
+                <td>A comma-separated list of all labels that the PR contains</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

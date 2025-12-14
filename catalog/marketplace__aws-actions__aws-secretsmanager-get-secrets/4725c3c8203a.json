@@ -1,0 +1,59 @@
+{
+  "action_id": "marketplace/aws-actions/aws-secretsmanager-get-secrets",
+  "version_id": "4725c3c8203a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/aws-secretsmanager-get-secrets/action.yml",
+    "origin": "github.com/aws-actions/aws-secretsmanager-get-secrets",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "AWS Secrets Manager GitHub Action",
+    "description": "GitHub action for retrieving secrets from AWS Secrets Manager",
+    "author": "AWS Secrets Manager",
+    "inputs": [
+      {
+        "name": "secret-ids",
+        "required": true,
+        "default": null,
+        "description": "One or more secret names, secret ARNs, or secret prefixes to retrieve"
+      },
+      {
+        "name": "parse-json-secrets",
+        "required": false,
+        "default": "false",
+        "description": "(Optional) If true, JSON secrets will be deserialized, creating a secret environment variable for each key-value pair."
+      },
+      {
+        "name": "name-transformation",
+        "required": false,
+        "default": "uppercase",
+        "description": "(Optional) Transforms environment variable name. Options: uppercase, lowercase, none. Default value: uppercase."
+      },
+      {
+        "name": "auto-select-family-attempt-timeout",
+        "required": false,
+        "default": "1000",
+        "description": "(Optional) Timeout (ms) for dual-stack DNS first IP connection attempt. Needed for geographically distant GitHub action workers"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/cleanup/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4725c3c8203a57c74c9a4564519b32504f4c6c25af376044fa6d14fc3f4f2c28",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.073085Z"
+  }
+}

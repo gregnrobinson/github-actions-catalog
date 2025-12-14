@@ -1,0 +1,188 @@
+{
+  "action_id": "marketplace/pypa/gh-action-pypi-publish",
+  "version_id": "878868d866c7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pypa/gh-action-pypi-publish/action.yml",
+    "origin": "github.com/pypa/gh-action-pypi-publish",
+    "publisher": "pypa",
+    "verified": false
+  },
+  "definition": {
+    "name": "pypi-publish",
+    "description": "Upload Python distribution packages to PyPI",
+    "author": "",
+    "inputs": [
+      {
+        "name": "user",
+        "required": false,
+        "default": "__token__",
+        "description": "PyPI user"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "Password for your PyPI user or an access token"
+      },
+      {
+        "name": "repository-url",
+        "required": false,
+        "default": null,
+        "description": "The repository URL to use"
+      },
+      {
+        "name": "repository_url",
+        "required": false,
+        "default": "https://upload.pypi.org/legacy/",
+        "description": "[DEPRECATED] The repository URL to use"
+      },
+      {
+        "name": "packages-dir",
+        "required": false,
+        "default": null,
+        "description": "The target directory for distribution"
+      },
+      {
+        "name": "packages_dir",
+        "required": false,
+        "default": "dist",
+        "description": "[DEPRECATED] The target directory for distribution"
+      },
+      {
+        "name": "verify-metadata",
+        "required": false,
+        "default": null,
+        "description": "Check metadata before uploading"
+      },
+      {
+        "name": "verify_metadata",
+        "required": false,
+        "default": "true",
+        "description": "[DEPRECATED] Check metadata before uploading"
+      },
+      {
+        "name": "skip-existing",
+        "required": false,
+        "default": null,
+        "description": "Do not fail if a Python package distribution exists in the target package index"
+      },
+      {
+        "name": "skip_existing",
+        "required": false,
+        "default": "false",
+        "description": "[DEPRECATED] Do not fail if a Python package distribution exists in the target package index"
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": "false",
+        "description": "Show verbose output."
+      },
+      {
+        "name": "print-hash",
+        "required": false,
+        "default": null,
+        "description": "Show hash values of files to be uploaded"
+      },
+      {
+        "name": "print_hash",
+        "required": false,
+        "default": "false",
+        "description": "[DEPRECATED] Show hash values of files to be uploaded"
+      },
+      {
+        "name": "attestations",
+        "required": false,
+        "default": "true",
+        "description": "Enable experimental support for PEP 740 attestations. Only works with PyPI and TestPyPI via Trusted Publishing."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Fail-fast in unsupported environments",
+          "if": "runner.os != 'Linux'",
+          "run": ">&2 echo This action is only able to run under GNU/Linux environments\nexit 1\n",
+          "shell": "bash -eEuo pipefail {0}"
+        },
+        {
+          "name": "Reset path if needed",
+          "run": "# Reset path if needed\n# https://github.com/pypa/gh-action-pypi-publish/issues/112\nif [[ $PATH != *\"/usr/bin\"* ]]; then\n  echo \"\\$PATH=$PATH. Resetting \\$PATH for GitHub Actions.\"\n  PATH=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\n  echo \"PATH=$PATH\" >>\"$GITHUB_ENV\"\n  echo \"$PATH\" >>\"$GITHUB_PATH\"\n  echo \"\\$PATH reset. \\$PATH=$PATH\"\nfi\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Discover pre-installed Python",
+          "id": "pre-installed-python",
+          "run": "# \ud83d\udd0e Discover pre-installed Python\necho \"python-path=$(command -v python3 || :)\" | tee -a \"${GITHUB_OUTPUT}\"\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Install Python 3",
+          "if": "steps.pre-installed-python.outputs.python-path == ''",
+          "id": "new-python",
+          "uses": "actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065",
+          "with": {
+            "python-version": "3.x"
+          }
+        },
+        {
+          "name": "Create Docker container action",
+          "run": "# Create Docker container action\n${{\n  steps.pre-installed-python.outputs.python-path == ''\n  && steps.new-python.outputs.python-path\n  || steps.pre-installed-python.outputs.python-path\n}} '${{ github.action_path }}/create-docker-action.py'\n",
+          "env": {
+            "REF": "${{\n  github.action_ref\n  || github.event.pull_request.head.ref\n  || github.ref_name\n}}",
+            "REPO": "${{\n  github.action_repository\n  || github.event.pull_request.head.repo.full_name\n  || github.repository\n}}",
+            "REPO_ID": "${{\n  github.event.pull_request.base.repo.id\n  || github.repository_id\n}}"
+          },
+          "shell": "bash"
+        },
+        {
+          "name": "Run Docker container",
+          "uses": "./.github/.tmp/.generated-actions/run-pypi-publish-in-docker-container",
+          "with": {
+            "user": "${{ inputs.user }}",
+            "password": "${{ inputs.password }}",
+            "repository-url": "${{ inputs.repository-url || inputs.repository_url }}",
+            "packages-dir": "${{ inputs.packages-dir || inputs.packages_dir }}",
+            "verify-metadata": "${{ inputs.verify-metadata || inputs.verify_metadata }}",
+            "skip-existing": "${{ inputs.skip-existing || inputs.skip_existing }}",
+            "verbose": "${{ inputs.verbose }}",
+            "print-hash": "${{ inputs.print-hash || inputs.print_hash }}",
+            "attestations": "${{ inputs.attestations }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "This action is primarily focused on publishing Python packages to PyPI, which falls under the Publishing category. It also involves authentication through user credentials or access tokens, and it deals with packaging by uploading distribution packages.",
+        "tags": [
+          "PyPI",
+          "Python",
+          "publish",
+          "packaging",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "878868d866c77d1e3d4dda4a20b94e2dfed9a40ddd516a062331ca1240aa54a3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.438926Z"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "action_id": "marketplace/vn7n24fzkq/govulncheck-action",
+  "version_id": "eebd1a6e7baa",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vn7n24fzkq/govulncheck-action/action.yml",
+    "origin": "github.com/vn7n24fzkq/govulncheck-action",
+    "publisher": "vn7n24fzkq",
+    "verified": false
+  },
+  "definition": {
+    "name": "golang-govulncheck-action",
+    "description": "Run govulncheck",
+    "author": "",
+    "inputs": [
+      {
+        "name": "go-version-input",
+        "required": false,
+        "default": "stable",
+        "description": "Version of Go to use for govulncheck"
+      },
+      {
+        "name": "check-latest",
+        "required": false,
+        "default": true,
+        "description": "Set this option to true if you want the action to always check for the latest available Go version that satisfies the version spec"
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": true,
+        "description": "Used to specify whether Go caching is needed. Set to true, if you would like to enable caching."
+      },
+      {
+        "name": "go-package",
+        "required": false,
+        "default": "./...",
+        "description": "Go Package to scan with govulncheck"
+      },
+      {
+        "name": "work-dir",
+        "required": false,
+        "default": ".",
+        "description": "Directory in which to run govulncheck"
+      },
+      {
+        "name": "repo-checkout",
+        "required": false,
+        "default": true,
+        "description": "Checkout the repository"
+      },
+      {
+        "name": "go-version-file",
+        "required": false,
+        "default": null,
+        "description": "Path to the go.mod or go.work file."
+      },
+      {
+        "name": "output-format",
+        "required": false,
+        "default": "text",
+        "description": "The format of the output"
+      },
+      {
+        "name": "output-file",
+        "required": false,
+        "default": "",
+        "description": "The file to which the govulncheck output is saved"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "if": "inputs.repo-checkout != 'false'",
+          "uses": "actions/checkout@v4.1.1"
+        },
+        {
+          "uses": "actions/setup-go@v5.0.0",
+          "with": {
+            "go-version": "${{ inputs.go-version-input }}",
+            "check-latest": "${{ inputs.check-latest }}",
+            "go-version-file": "${{ inputs.go-version-file }}",
+            "cache": "${{ inputs.cache }}"
+          }
+        },
+        {
+          "name": "Install govulncheck",
+          "run": "go install golang.org/x/vuln/cmd/govulncheck@latest",
+          "shell": "bash"
+        },
+        {
+          "if": "inputs.output-file == ''",
+          "name": "Run govulncheck",
+          "run": "govulncheck -C ${{ inputs.work-dir }} -format ${{ inputs.output-format }} ${{ inputs.go-package }}",
+          "shell": "bash"
+        },
+        {
+          "if": "inputs.output-file != ''",
+          "name": "Run govulncheck and save to file",
+          "run": "govulncheck -C ${{ inputs.work-dir }} -format ${{ inputs.output-format }} ${{ inputs.go-package }} > ${{ inputs.output-file }}",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "The action is designed to run govulncheck, which is a tool for checking vulnerabilities in Go code, thus primarily falling under Security. It also involves testing the code for vulnerabilities, placing it in the Testing category as well.",
+        "tags": [
+          "govulncheck",
+          "Go",
+          "security",
+          "vulnerability",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "eebd1a6e7baaaeabdc2d5c8a02ccd053164594d6ae8295407a927a2e70da68f0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.392383Z"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/azure/k8s-set-context",
+  "version_id": "7ad3c023b024",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/k8s-set-context/action.yml",
+    "origin": "github.com/azure/k8s-set-context",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Kubernetes Set Context",
+    "description": "Set the context of a target Kubernetes cluster and export the kubeconfig which is used by subsequent actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "cluster-type",
+        "required": true,
+        "default": "generic",
+        "description": "Acceptable values: generic or arc"
+      },
+      {
+        "name": "method",
+        "required": true,
+        "default": "kubeconfig",
+        "description": "Acceptable values: kubeconfig or service-account or service-principal"
+      },
+      {
+        "name": "kubeconfig",
+        "required": false,
+        "default": null,
+        "description": "Contents of kubeconfig file"
+      },
+      {
+        "name": "kubeconfig-encoding",
+        "required": false,
+        "default": "plaintext",
+        "description": "Encoding of the kubeconfig input. Accepts \"plaintext\" (default) or \"base64\"."
+      },
+      {
+        "name": "context",
+        "required": false,
+        "default": null,
+        "description": "If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen"
+      },
+      {
+        "name": "k8s-url",
+        "required": false,
+        "default": null,
+        "description": "Cluster Url"
+      },
+      {
+        "name": "k8s-secret",
+        "required": false,
+        "default": null,
+        "description": "Service account secret (run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name)"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Token extracted from the secret of service account (should be base 64 decoded)"
+      },
+      {
+        "name": "resource-group",
+        "required": false,
+        "default": null,
+        "description": "Azure resource group name"
+      },
+      {
+        "name": "cluster-name",
+        "required": false,
+        "default": null,
+        "description": "Azure connected cluster name"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets the context for a Kubernetes cluster, which is primarily an infrastructure task, while also involving authentication through kubeconfig or service accounts.",
+        "tags": [
+          "Kubernetes",
+          "kubeconfig",
+          "context",
+          "infrastructure",
+          "authentication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "7ad3c023b0241d23261813579cd4872c9a599b0188a6c8d8dfc0da2cc70cba3d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.670765Z"
+  }
+}

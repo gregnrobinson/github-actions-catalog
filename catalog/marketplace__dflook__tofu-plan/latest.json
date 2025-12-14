@@ -1,0 +1,181 @@
+{
+  "action_id": "marketplace/dflook/tofu-plan",
+  "version_id": "7023043d3926",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-plan/action.yml",
+    "origin": "github.com/dflook/tofu-plan",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-plan",
+    "description": "Create an OpenTofu plan",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the OpenTofu root module to generate a plan for."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to run the plan for."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "default": "",
+        "description": "A friendly name for the environment the OpenTofu configuration is for.\nThis will be used in the PR comment for easy identification.\n\nIf this is set, it must be the same as the `label` used in any corresponding [`dflook/tofu-apply`](https://github.com/dflook/terraform-github-actions/tree/main/tofu-apply) action.\n"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the tofu plan. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "replace",
+        "required": false,
+        "default": "",
+        "description": "List of resources to replace, one per line."
+      },
+      {
+        "name": "target",
+        "required": false,
+        "default": "",
+        "description": "List of resources to target, one per line.\nThe plan will be limited to these resources and their dependencies.\n"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": "",
+        "description": "List of resources to exclude from operations, one per line.\nThe plan will include all resources except the specified ones and their dependencies.\n\nRequires OpenTofu 1.9+.\n"
+      },
+      {
+        "name": "destroy",
+        "required": false,
+        "default": "false",
+        "description": "Set to `true` to generate a plan to destroy all resources.\n\nThis generates a plan in [destroy mode](https://opentofu.org/docs/cli/commands/plan/#planning-modes).\n"
+      },
+      {
+        "name": "refresh",
+        "required": false,
+        "default": "true",
+        "description": "Set to `false` to skip synchronisation of the OpenTofu state with actual resources.\n\nThis will make the plan faster but may be out of date with the actual resources, which can lead to incorrect plans.\n"
+      },
+      {
+        "name": "add_github_comment",
+        "required": false,
+        "default": "true",
+        "description": "Controls whether a comment is added to the PR with the generated plan.\n\nThe default is `true`, which adds a comment to the PR with the results of the plan.\nSet to `changes-only` to add a comment only when the plan indicates there are changes to apply.\nSet to `always-new` to always create a new comment for each plan, instead of updating the previous comment.\nSet to `false` to disable the comment - the plan will still appear in the workflow log.\n"
+      },
+      {
+        "name": "parallelism",
+        "required": false,
+        "default": "0",
+        "description": "Limit the number of concurrent operations"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changes",
+        "description": "Set to 'true' if the plan would apply any changes, 'false' if it wouldn't."
+      },
+      {
+        "name": "plan_path",
+        "description": "This is the path to the generated plan in an opaque binary format.\nThe path is relative to the Actions workspace.\n\nThe plan can be used as the `plan_file` input to the [dflook/tofu-apply](https://github.com/dflook/terraform-github-actions/tree/main/tofu-apply) action.\n\nOpenTofu plans often contain sensitive information, so this output should be treated with care.\n"
+      },
+      {
+        "name": "json_plan_path",
+        "description": "This is the path to the generated plan in [JSON Output Format](https://opentofu.org/docs/internals/json-format/).\nThe path is relative to the Actions workspace.\n\nOpenTofu plans often contain sensitive information, so this output should be treated with care.\n"
+      },
+      {
+        "name": "text_plan_path",
+        "description": "This is the path to the generated plan in a human-readable format.\nThe path is relative to the Actions workspace.\n"
+      },
+      {
+        "name": "to_add",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_change",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_destroy",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_move",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_import",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "run_id",
+        "description": "If the root module uses the `remote` or `cloud` backend in remote execution mode, this output will be set to the remote run id."
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/plan.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on creating an OpenTofu plan, which is related to infrastructure management and provisioning. It also involves building the plan and managing dependencies within the infrastructure setup.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "plan",
+          "Terraform",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "7023043d3926b648992e39c4061142a04d41f39c925e1a7edde88b4db0a3042e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.353841Z"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/azure/azure-sdk-actions",
+  "version_id": "9d923c23202a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/azure-sdk-actions/action.yml",
+    "origin": "github.com/azure/azure-sdk-actions",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure SDK GitHub Event Handler",
+    "description": "Handle GitHub event",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "GitHub Event Token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "cd $GITHUB_ACTION_PATH\ngo run . ${{ github.event_path }}\n",
+          "shell": "bash",
+          "env": {
+            "GITHUB_TOKEN": "${{ inputs.token }}"
+          }
+        },
+        {
+          "name": "Archive github event data",
+          "uses": "actions/upload-artifact@v4",
+          "if": "always()",
+          "with": {
+            "name": "event",
+            "path": "${{ github.event_path }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9d923c23202a083bf140692efd666860f4ab2846724b500fbfcb2988e7a13075",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.715917Z"
+  }
+}

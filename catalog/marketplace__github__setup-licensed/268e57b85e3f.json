@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/github/setup-licensed",
+  "version_id": "268e57b85e3f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/setup-licensed/action.yml",
+    "origin": "github.com/github/setup-licensed",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup github/licensed",
+    "description": "Setup github/licensed for use in GitHub Actions workflows",
+    "author": "",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": false,
+        "default": null,
+        "description": "Authentication token to use with the GitHub API"
+      },
+      {
+        "name": "version",
+        "required": true,
+        "default": null,
+        "description": "The github/licensed version to install"
+      },
+      {
+        "name": "install-dir",
+        "required": false,
+        "default": "/usr/local/bin",
+        "description": "The target install directory for the github/licensed executable"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "268e57b85e3f84ef82ef5bb0c8c4d152f6c586a2ae62ef0218a54ccb925799e0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.909451Z"
+  }
+}

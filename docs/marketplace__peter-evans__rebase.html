@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebase Pulls - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Rebase Pulls</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/rebase</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/rebase" target="_blank">github.com/peter-evans/rebase</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Rebase pull requests in a repository</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Communication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to rebase pull requests, which is a process that helps maintain code quality by integrating changes. It also involves communication with the GitHub API to manage pull requests.</p>
+            <p><strong>Tags:</strong> <span class="tag">rebase</span> <span class="tag">pull requests</span> <span class="tag">GitHub</span> <span class="tag">code quality</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GitHub auth token</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>The target GitHub repository</td>
+            </tr><tr>
+                <td><code>head</code></td>
+                <td>No</td>
+                <td>Filter pull requests by head user or head organization and branch name in the format user:ref-name or organization:ref-name. For example: github:new-script-format or octocat:test-branch.
+</td>
+            </tr><tr>
+                <td><code>base</code></td>
+                <td>No</td>
+                <td>Filter pull requests by base branch name. Example: gh-pages.
+</td>
+            </tr><tr>
+                <td><code>include-labels</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of pull request labels to include. Allows any labels if unspecified.
+</td>
+            </tr><tr>
+                <td><code>exclude-labels</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of pull request labels to exclude</td>
+            </tr><tr>
+                <td><code>exclude-drafts</code></td>
+                <td>No</td>
+                <td>Exclude draft pull requests</td>
+            </tr><tr>
+                <td><code>rebase-options</code></td>
+                <td>No</td>
+                <td>A comma or newline separated list of options to pass to the git rebase command. For example, `-Xtheirs`.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

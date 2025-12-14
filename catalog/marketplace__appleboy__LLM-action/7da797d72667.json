@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/appleboy/LLM-action",
+  "version_id": "7da797d72667",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/LLM-action/action.yml",
+    "origin": "github.com/appleboy/LLM-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "LLM Action",
+    "description": "GitHub Action to interact with OpenAI Compatible LLM services",
+    "author": "appleboy",
+    "inputs": [
+      {
+        "name": "base_url",
+        "required": false,
+        "default": "https://api.openai.com/v1",
+        "description": "Base URL for OpenAI Compatible API endpoint"
+      },
+      {
+        "name": "api_key",
+        "required": true,
+        "default": null,
+        "description": "API Key for authentication"
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": "gpt-4o",
+        "description": "Model name to use"
+      },
+      {
+        "name": "skip_ssl_verify",
+        "required": false,
+        "default": "false",
+        "description": "Skip SSL certificate verification"
+      },
+      {
+        "name": "system_prompt",
+        "required": false,
+        "default": "",
+        "description": "System prompt to set the context. Supports plain text, file path, or URL (http://, https://). For files, use absolute/relative path or file:// prefix. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}}, {{.MODEL}})."
+      },
+      {
+        "name": "input_prompt",
+        "required": true,
+        "default": null,
+        "description": "User input prompt for the LLM. Supports plain text, file path, or URL (http://, https://). For files, use absolute/relative path or file:// prefix. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}}, {{.MODEL}})."
+      },
+      {
+        "name": "temperature",
+        "required": false,
+        "default": "0.7",
+        "description": "Temperature for response randomness (0.0-2.0)"
+      },
+      {
+        "name": "max_tokens",
+        "required": false,
+        "default": "1000",
+        "description": "Maximum tokens in the response"
+      },
+      {
+        "name": "tool_schema",
+        "required": false,
+        "default": "",
+        "description": "JSON schema for structured output via function calling. Supports plain text, file path, or URL. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}})."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "false",
+        "description": "Enable debug mode to print all parameters"
+      },
+      {
+        "name": "headers",
+        "required": false,
+        "default": "",
+        "description": "Custom HTTP headers to include in API requests. Format: \"Header1:Value1,Header2:Value2\" or multiline with one header per line. Useful for log analysis or custom authentication."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "response",
+        "description": "The response from the LLM"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7da797d72667c5b0627432a565ca4d1dc6605dac6d6b93aee35b437f50440f35",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.191940Z"
+  }
+}

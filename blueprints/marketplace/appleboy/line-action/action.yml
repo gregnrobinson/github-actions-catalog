@@ -1,0 +1,35 @@
+name: 'LINE Message Notify'
+description: 'Sending a Line message'
+author: 'Bo-Yi Wu'
+inputs:
+  secret:
+    description: 'line channel secret'
+    required: true
+  token:
+    description: 'line channel access token'
+    required: true
+  room:
+    description: 'line room ID'
+  group:
+    description: 'line group ID'
+  message:
+    description: 'the message contents'
+  images:
+    description: 'line images'
+  videos:
+    description: 'line videos'
+  audios:
+    description: 'line audios'
+  stickers:
+    description: 'line stickers'
+  locations:
+    description: 'line locations'
+  delimiter:
+    description: 'line delimiter, default is ::'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'message-square'
+  color: 'gray-dark'

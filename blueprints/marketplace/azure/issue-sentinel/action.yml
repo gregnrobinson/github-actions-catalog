@@ -1,0 +1,25 @@
+name: 'Issue Sentinel'
+description: 'Get similar issues by Issue Sentinel'
+inputs:
+  github-token:
+    description: 'The GitHub token used to create an authenticated client'
+    default: ${{ github.token }}
+    required: false
+  enable-similar-issues-scanning:
+    description: 'Enable similar issues scanning'
+    default: 'true'
+    required: false
+  enable-security-issues-scanning:
+    description: 'Enable security issues scanning'
+    default: 'false'
+    required: false
+  enable-ux-tag:
+    description: 'Enable UX tag'
+    default: 'false'
+    required: false
+branding:
+  icon: 'shield'
+  color: 'blue'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

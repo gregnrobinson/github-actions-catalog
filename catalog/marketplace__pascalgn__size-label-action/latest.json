@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/pascalgn/size-label-action",
+  "version_id": "11a71850f893",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pascalgn/size-label-action/action.yml",
+    "origin": "github.com/pascalgn/size-label-action",
+    "publisher": "pascalgn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Assign size label",
+    "description": "Assign labels based on pull request change sizes",
+    "author": "",
+    "inputs": [
+      {
+        "name": "sizes",
+        "required": false,
+        "default": null,
+        "description": "Custom size configuration"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action assigns labels based on the size of changes in pull requests, which helps maintain code quality by providing visual indicators of the size of changes. It also facilitates communication among team members regarding the nature of the changes.",
+        "tags": [
+          "size label",
+          "pull request",
+          "code quality",
+          "GitHub Actions",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "11a71850f8938b4cb79094411fd7882fc407d9685cffb596963a126e5ab13884",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.463832Z"
+  }
+}

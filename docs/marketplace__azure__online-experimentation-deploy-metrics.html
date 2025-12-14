@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Experimentation Deploy Metrics - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Online Experimentation Deploy Metrics</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/online-experimentation-deploy-metrics</code></p>
+            <p><strong>Author:</strong> Microsoft</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/online-experimentation-deploy-metrics" target="_blank">github.com/azure/online-experimentation-deploy-metrics</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy metric definitions from a configuration file to the Online Experimentation workspace</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is focused on deploying metric definitions to an Online Experimentation workspace, which clearly falls under the Deployment category. Additionally, it involves interacting with infrastructure components.</p>
+            <p><strong>Tags:</strong> <span class="tag">deployment</span> <span class="tag">metrics</span> <span class="tag">online experimentation</span> <span class="tag">azure</span> <span class="tag">configuration</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>Source file(s) containing metrics. Multiple files can be specified in list or glob format. Example: **/*.json or metrics/*.json. Use ! to exclude files.</td>
+            </tr><tr>
+                <td><code>online-experimentation-workspace-endpoint</code></td>
+                <td>Yes</td>
+                <td>Online Experimentation workspace endpoint</td>
+            </tr><tr>
+                <td><code>operation</code></td>
+                <td>No</td>
+                <td>Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: syncs the configuration file with Online Experimentation workspace</td>
+            </tr><tr>
+                <td><code>strict</code></td>
+                <td>No</td>
+                <td>If strict, the deploy operation deletes metrics not found in the config file. Choices: true, false (default: true).</td>
+            </tr><tr>
+                <td><code>add-commit-hash-to-metric-description</code></td>
+                <td>No</td>
+                <td>Indicates whether to add the git commit hash to the metric description. This is helpful to track the metric version used by experiment analysis. Choices: true, false (default: false)</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

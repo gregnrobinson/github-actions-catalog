@@ -1,0 +1,74 @@
+{
+  "action_id": "marketplace/azure/appservice-build-test1",
+  "version_id": "8ed63c4002f8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/appservice-build-test1/action.yml",
+    "origin": "github.com/azure/appservice-build-test1",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "App Service Web App Build Action",
+    "description": "Build an Azure Web App on Linux using the Oryx build system.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "source-directory",
+        "required": false,
+        "default": null,
+        "description": "Relative path (within the repository) to the source directory of the project you want to build; if no value is provided for this, the root of the repository (\"GITHUB_WORKSPACE\" environment variable) will be built."
+      },
+      {
+        "name": "platform",
+        "required": false,
+        "default": null,
+        "description": "Programming platform used to build the web app; if no value is provided, Oryx will determine the platform to build with. The supported values are \"dotnet\", \"nodejs\", \"php\" and \"python\"."
+      },
+      {
+        "name": "platform-version",
+        "required": false,
+        "default": null,
+        "description": "Version of the programming platform used to build the web app; if no value is provided, Oryx will determine the version needed to build the repository."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.source-directory }}",
+        "${{ inputs.platform }}",
+        "${{ inputs.platform-version }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action is primarily focused on building an Azure Web App, which falls under the Build category. Additionally, it is used for deploying the built application to Azure, placing it in the Deployment category as well.",
+        "tags": [
+          "Azure",
+          "Web App",
+          "Build",
+          "Oryx",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8ed63c4002f8ccea567eef3eb5e973cc15db6678a086eda72c50f9de228372b3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.672613Z"
+  }
+}

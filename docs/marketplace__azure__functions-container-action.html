@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Functions Container Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Functions Container Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/functions-container-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/functions-container-action" target="_blank">github.com/azure/functions-container-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy Functions Container to Azure</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy a containerized Azure Function, which falls under the Deployment category. Additionally, it involves Azure infrastructure management.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Functions</span> <span class="tag">Deployment</span> <span class="tag">Container</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-name</code></td>
+                <td>Yes</td>
+                <td>Name of the Azure Function App</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>Yes</td>
+                <td>Specify the fully qualified container image(s) name. For example, &#39;myregistry.azurecr.io/nginx:latest&#39; or &#39;python:3.7.2-alpine/&#39;.</td>
+            </tr><tr>
+                <td><code>container-command</code></td>
+                <td>No</td>
+                <td>Enter the start up command. For ex. &#39;dotnet run&#39; or &#39;/azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost&#39;</td>
+            </tr><tr>
+                <td><code>slot-name</code></td>
+                <td>No</td>
+                <td>Function app slot to be deploy to</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-url</code></td>
+                <td>URL to work with your function app</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/azure/use-kubelogin",
+  "version_id": "9fc2360e8110",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/use-kubelogin/action.yml",
+    "origin": "github.com/azure/use-kubelogin",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup kubelogin",
+    "description": "Setup kubelogin in GitHub Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "kubelogin-version",
+        "required": false,
+        "default": null,
+        "description": "The version of kubelogin to use. Defaults to the latest version."
+      },
+      {
+        "name": "skip-cache",
+        "required": false,
+        "default": "false",
+        "description": "Skip cache check? When set to \"true\", the action will always download the latest version of kubelogin."
+      },
+      {
+        "name": "github-api-base-url",
+        "required": false,
+        "default": null,
+        "description": "The base URL of GitHub API. Defaults to https://api.github.com."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9fc2360e81108a672f916ca621c5771c73358c9dd4eba79c655c4cea7c3bbe9e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.700831Z"
+  }
+}

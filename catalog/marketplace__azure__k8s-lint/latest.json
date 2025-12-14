@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/azure/k8s-lint",
+  "version_id": "223341048de7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/k8s-lint/action.yml",
+    "origin": "github.com/azure/k8s-lint",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Lint k8s manifest files",
+    "description": "Lint k8s manifest files",
+    "author": "",
+    "inputs": [
+      {
+        "name": "manifests",
+        "required": true,
+        "default": null,
+        "description": "Path to the manifest files which will be used for deployment."
+      },
+      {
+        "name": "lintType",
+        "required": true,
+        "default": "kubeconform",
+        "description": "Acceptable values: kubeconform, dryrun"
+      },
+      {
+        "name": "kubeconformOpts",
+        "required": false,
+        "default": "-summary",
+        "description": "Options that are passed to kubeconform e.g. -schema-location"
+      },
+      {
+        "name": "namespace",
+        "required": false,
+        "default": "default",
+        "description": "Target Kubernetes namespace. If the namespace is not provided, commands will run in the default namespace."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is designed to lint Kubernetes manifest files, which directly relates to ensuring code quality. It also serves a testing purpose by validating the manifests before deployment.",
+        "tags": [
+          "k8s",
+          "lint",
+          "manifest",
+          "validation",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "223341048de7e790bf12ebe2e1f5fdbaa4fe4fb02a191c1caa678d0980c39074",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.725139Z"
+  }
+}

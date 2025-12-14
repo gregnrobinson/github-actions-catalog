@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/github/dependabot-action",
+  "version_id": "49737274ba4a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/dependabot-action/action.yml",
+    "origin": "github.com/github/dependabot-action",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Updater Action",
+    "description": "Runs dependabot-updater in Actions",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/main/index.js",
+      "post": "dist/cleanup/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Automation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is specifically designed to run dependabot, which is focused on managing dependencies in a project. It automates the process of updating dependencies, making it a clear fit for the Dependency management category.",
+        "tags": [
+          "dependabot",
+          "dependency",
+          "automation",
+          "updater",
+          "GitHub"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "49737274ba4ada17e93314206119387543ef039f6c25b3216301eb90bd479f67",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.980182Z"
+  }
+}

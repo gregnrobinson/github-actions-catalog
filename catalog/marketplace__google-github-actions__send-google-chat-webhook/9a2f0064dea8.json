@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/google-github-actions/send-google-chat-webhook",
+  "version_id": "9a2f0064dea8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/send-google-chat-webhook/action.yml",
+    "origin": "github.com/google-github-actions/send-google-chat-webhook",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "send-google-chat-webhhook",
+    "description": "Send message to your google chat workspace",
+    "author": "",
+    "inputs": [
+      {
+        "name": "webhook_url",
+        "required": true,
+        "default": null,
+        "description": "Chat space webhook url"
+      },
+      {
+        "name": "mention",
+        "required": false,
+        "default": "<users/all>",
+        "description": "Mention people or not, format <users/user_id>"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "download binary",
+          "shell": "bash",
+          "env": {
+            "BINARY_NAME": "send-google-chat-webhook",
+            "VERSION": "0.0.4"
+          },
+          "run": "case \"${RUNNER_OS}\" in\n  \"Linux\")\n    CURL_OS=\"linux\"\n  ;;\n  \"macOS\")\n    CURL_OS=\"darwin\"\n  ;;\n  \"Windows\")\n    CURL_OS=\"windows\"\nesac\n\ncase \"${RUNNER_ARCH}\" in\n  \"X64\")\n    CURL_ARCH=\"amd64\"\n  ;;\n  \"arm64\")\n    CURL_ARCH=\"arm64\"\n  ;;\nesac\n\ncurl -LOv \"https://github.com/google-github-actions/send-google-chat-webhook/releases/download/v${{ env.VERSION }}/send-google-chat-webhook_${{ env.VERSION }}_${CURL_OS}_${CURL_ARCH}.tar.gz\"\ntar xzf ${{ env.BINARY_NAME }}_${{ env.VERSION }}_${CURL_OS}_${CURL_ARCH}.tar.gz"
+        },
+        {
+          "name": "send message via cli",
+          "shell": "bash",
+          "env": {
+            "GITHUB_CONTEXT": "${{ toJson(github) }}",
+            "JOB_CONTEXT": "${{ toJson(job) }}",
+            "STEPS_CONTEXT": "${{ toJson(steps) }}",
+            "RUNNER_CONTEXT": "${{ toJson(runner) }}",
+            "STRATEGY_CONTEXT": "${{ toJson(strategy) }}",
+            "MATRIX_CONTEXT": "${{ toJson(matrix) }}",
+            "WEBHOOK_URL": "${{ inputs.webhook_url }}"
+          },
+          "run": "./send-google-chat-webhook chat workflownotification --webhook-url=\"${WEBHOOK_URL}\""
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9a2f0064dea844d28e7614378ee8816f42f06e1c769c9c63a55f9a560d498aa1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.784229Z"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/github/webpack-bundlesize-compare-action",
+  "version_id": "a15fc342b033",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/webpack-bundlesize-compare-action/action.yml",
+    "origin": "github.com/github/webpack-bundlesize-compare-action",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Bundle comparison",
+    "description": "Compare the bundle size between the base branch and the current branch",
+    "author": "",
+    "inputs": [
+      {
+        "name": "current-stats-json-path",
+        "required": true,
+        "default": null,
+        "description": "The path to the current stats.json file"
+      },
+      {
+        "name": "base-stats-json-path",
+        "required": true,
+        "default": null,
+        "description": "The path to the base stats.json file"
+      },
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "The Github token"
+      },
+      {
+        "name": "title",
+        "required": false,
+        "default": null,
+        "description": "An optional addition to the title, which also helps key comments, useful if running more than 1 copy of this action"
+      },
+      {
+        "name": "describe-assets",
+        "required": false,
+        "default": "all",
+        "description": "Optional specification describing asset changes. May be one of the convenience\nkeywords \"all\", \"none\", or \"changed-only\" (for all except the unchanged section), OR\na string of space-separated section names, e.g. \"added bigger unchanged\", where\nall sections are:\n  - added\n  - removed\n  - bigger\n  - smaller\n  - unchanged\nIf not provided, \"all\" is used (equivalent to \"added removed bigger smaller unchanged\")\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a15fc342b033427f1f61f8f351e639ceb69726338b819eea2df22808bb5b37b6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.987458Z"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/azure/vdc",
+  "version_id": "8292178fe66c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/vdc/action.yml",
+    "origin": "github.com/azure/vdc",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Build and deploy the VDC toolkit",
+    "description": "Builds toolkit for VDC.",
+    "author": "Jack ",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is focused on building a toolkit, which falls under the Build category, and it also involves deployment as it mentions deploying the VDC toolkit.",
+        "tags": [
+          "VDC",
+          "build",
+          "deploy",
+          "toolkit",
+          "Azure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8292178fe66c3f6f3642786500b0e9e88fe76a6a56b64d00cc092aa8de1a0956",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.589736Z"
+  }
+}

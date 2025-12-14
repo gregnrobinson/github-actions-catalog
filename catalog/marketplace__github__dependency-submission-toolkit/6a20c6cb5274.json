@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/github/dependency-submission-toolkit",
+  "version_id": "6a20c6cb5274",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/dependency-submission-toolkit/action.yml",
+    "origin": "github.com/github/dependency-submission-toolkit",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Example Dependency Submission Action",
+    "description": "Example action using the dependency-submission-toolkit and npm",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Personal Access Token (PAT). Defaults to PAT provided by Action runner"
+      },
+      {
+        "name": "npm-package-directory",
+        "required": true,
+        "default": "./",
+        "description": "NPM package directory (directory with package.json)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "example/dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6a20c6cb52746f7c91d694555bce76045fad1d321d64597711ded56e2bd535cb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.970949Z"
+  }
+}

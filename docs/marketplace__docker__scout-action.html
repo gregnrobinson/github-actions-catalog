@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Scout - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Docker Scout</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/docker/scout-action</code></p>
+            <p><strong>Author:</strong> Docker</p>
+            <p><strong>Publisher:</strong> docker</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/docker/scout-action" target="_blank">github.com/docker/scout-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>List vulnerabilities in images; find better base images and upload an image SBOM to Docker Scout</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on identifying vulnerabilities in Docker images, which is a key aspect of security. Additionally, it helps in assessing the quality of base images and managing dependencies through the generation of an SBOM.</p>
+            <p><strong>Tags:</strong> <span class="tag">Docker</span> <span class="tag">vulnerability</span> <span class="tag">SBOM</span> <span class="tag">security</span> <span class="tag">dependency management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>command</code></td>
+                <td>Yes</td>
+                <td>Command(s) to run.
+Use a comma separated list to run several commands on the same set of parameters, for instance quickview,compare
+</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Debug</td>
+            </tr><tr>
+                <td><code>verbose-debug</code></td>
+                <td>No</td>
+                <td>Print more verbose debug messages</td>
+            </tr><tr>
+                <td><code>summary</code></td>
+                <td>No</td>
+                <td>Publish the output as GitHub Action summary</td>
+            </tr><tr>
+                <td><code>organization</code></td>
+                <td>No</td>
+                <td>Namespace of the Docker organization</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>No</td>
+                <td>Image to analyze</td>
+            </tr><tr>
+                <td><code>platform</code></td>
+                <td>No</td>
+                <td>Platform of the image to analyze</td>
+            </tr><tr>
+                <td><code>ref</code></td>
+                <td>No</td>
+                <td>Ref if needed</td>
+            </tr><tr>
+                <td><code>to</code></td>
+                <td>No</td>
+                <td>Image to compare to</td>
+            </tr><tr>
+                <td><code>to-ref</code></td>
+                <td>No</td>
+                <td>Ref of image to compare</td>
+            </tr><tr>
+                <td><code>to-stream</code></td>
+                <td>No</td>
+                <td>Compare to image in stream</td>
+            </tr><tr>
+                <td><code>to-env</code></td>
+                <td>No</td>
+                <td>Compare to image in environment</td>
+            </tr><tr>
+                <td><code>to-latest</code></td>
+                <td>No</td>
+                <td>Compare to latest pushed image</td>
+            </tr><tr>
+                <td><code>stream</code></td>
+                <td>No</td>
+                <td>Name of the stream to record the image</td>
+            </tr><tr>
+                <td><code>environment</code></td>
+                <td>No</td>
+                <td>Name of the environment to record the image</td>
+            </tr><tr>
+                <td><code>hide-policies</code></td>
+                <td>No</td>
+                <td>Hide policies from the output altogether</td>
+            </tr><tr>
+                <td><code>ignore-base</code></td>
+                <td>No</td>
+                <td>Ignore vulnerabilities from base image</td>
+            </tr><tr>
+                <td><code>ignore-unchanged</code></td>
+                <td>No</td>
+                <td>Filter out unchanged packages</td>
+            </tr><tr>
+                <td><code>only-vex-affected</code></td>
+                <td>No</td>
+                <td>Filter out CVEs that are marked not affected by a VEX statement</td>
+            </tr><tr>
+                <td><code>vex-author</code></td>
+                <td>No</td>
+                <td>List of VEX statement authors to accept</td>
+            </tr><tr>
+                <td><code>vex-location</code></td>
+                <td>No</td>
+                <td>File location of directory or file containing VEX statement</td>
+            </tr><tr>
+                <td><code>only-fixed</code></td>
+                <td>No</td>
+                <td>Filter to fixable CVEs</td>
+            </tr><tr>
+                <td><code>only-unfixed</code></td>
+                <td>No</td>
+                <td>Filter to unfixed CVEs</td>
+            </tr><tr>
+                <td><code>only-severities</code></td>
+                <td>No</td>
+                <td>Comma separated list of severities (critical, high, medium, low, unspecified) to filter CVEs by</td>
+            </tr><tr>
+                <td><code>only-package-types</code></td>
+                <td>No</td>
+                <td>Comma separated list of package types (like apk, deb, rpm, npm, pypi, golang, etc)</td>
+            </tr><tr>
+                <td><code>only-cisa-kev</code></td>
+                <td>No</td>
+                <td>Filter to CVEs listed in the CISA Known Exploited Vulnerabilities catalog</td>
+            </tr><tr>
+                <td><code>exit-code</code></td>
+                <td>No</td>
+                <td>Fail the action step if vulnerability changes are detected</td>
+            </tr><tr>
+                <td><code>exit-on</code></td>
+                <td>No</td>
+                <td>(compare only) Comma separated list of conditions to fail the action step if worsened, options are: vulnerability, policy</td>
+            </tr><tr>
+                <td><code>sarif-file</code></td>
+                <td>No</td>
+                <td>Write output to a SARIF file for further processing or upload into GitHub code scanning</td>
+            </tr><tr>
+                <td><code>format</code></td>
+                <td>No</td>
+                <td>Format of the SBOM to generate (json, list, spdx, cyclonedx)</td>
+            </tr><tr>
+                <td><code>output</code></td>
+                <td>No</td>
+                <td>Output file for the SBOM</td>
+            </tr><tr>
+                <td><code>secrets</code></td>
+                <td>No</td>
+                <td>Enable secret scanning as part of SBOM indexing</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>List of tags to add to the attestation</td>
+            </tr><tr>
+                <td><code>file</code></td>
+                <td>No</td>
+                <td>File path to the attestation file</td>
+            </tr><tr>
+                <td><code>predicate-type</code></td>
+                <td>No</td>
+                <td>Predicate type of the attestation</td>
+            </tr><tr>
+                <td><code>referrer</code></td>
+                <td>No</td>
+                <td>Use OCI referrer API for pushing attestation</td>
+            </tr><tr>
+                <td><code>referrer-repository</code></td>
+                <td>No</td>
+                <td>Repository to push referrer to</td>
+            </tr><tr>
+                <td><code>registry-write-user</code></td>
+                <td>No</td>
+                <td>Registry user to push attestations</td>
+            </tr><tr>
+                <td><code>registry-write-password</code></td>
+                <td>No</td>
+                <td>Registry password to push attestations</td>
+            </tr><tr>
+                <td><code>dockerhub-user</code></td>
+                <td>No</td>
+                <td>Docker Hub User</td>
+            </tr><tr>
+                <td><code>dockerhub-password</code></td>
+                <td>No</td>
+                <td>Docker Hub PAT</td>
+            </tr><tr>
+                <td><code>registry-user</code></td>
+                <td>No</td>
+                <td>Registry user to pull images</td>
+            </tr><tr>
+                <td><code>registry-password</code></td>
+                <td>No</td>
+                <td>Registry password to pull images</td>
+            </tr><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>GitHub Token to write comments</td>
+            </tr><tr>
+                <td><code>write-comment</code></td>
+                <td>No</td>
+                <td>Write the output as a Pull Request comment</td>
+            </tr><tr>
+                <td><code>keep-previous-comments</code></td>
+                <td>No</td>
+                <td>If set, keep but hide previous comment. If not set, keep and update one single comment per job</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

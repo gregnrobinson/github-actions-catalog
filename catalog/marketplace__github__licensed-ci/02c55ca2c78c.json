@@ -1,0 +1,137 @@
+{
+  "action_id": "marketplace/github/licensed-ci",
+  "version_id": "02c55ca2c78c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/licensed-ci/action.yml",
+    "origin": "github.com/github/licensed-ci",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Licensed CI",
+    "description": "Ensure cached github/licensed license data is valid and up to date",
+    "author": "",
+    "inputs": [
+      {
+        "name": "command",
+        "required": false,
+        "default": "licensed",
+        "description": "Licensed command to run"
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Access token to push license updates to GitHub"
+      },
+      {
+        "name": "config_file",
+        "required": false,
+        "default": ".licensed.yml",
+        "description": "Path to licensed configuration file"
+      },
+      {
+        "name": "user_name",
+        "required": false,
+        "default": "licensed-ci",
+        "description": "Name to use when pushing file changes"
+      },
+      {
+        "name": "user_email",
+        "required": false,
+        "default": "licensed-ci@users.noreply.github.com",
+        "description": "Email to use when pushing file changes"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Auto-update license files",
+        "description": "Message to use when committing file changes"
+      },
+      {
+        "name": "pr_comment",
+        "required": false,
+        "default": null,
+        "description": "(Deprecated) Comment to add to a pull request, if one exists for the branch"
+      },
+      {
+        "name": "workflow",
+        "required": false,
+        "default": "push",
+        "description": "Which workflow to run when metadata is updated.  See README for more details."
+      },
+      {
+        "name": "cleanup_on_success",
+        "required": false,
+        "default": "false",
+        "description": "Whether to close open PRs and delete license branches on CI success in user branch. Only used by `branch` workflow"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": null,
+        "description": "Branch to run the action on when using `workflow_dispatch` or `schedule` event triggers"
+      },
+      {
+        "name": "dependabot_skip",
+        "required": false,
+        "default": "false",
+        "description": "Whether to add [dependabot skip] to license update commits resulting from Dependabot updates"
+      },
+      {
+        "name": "sources",
+        "required": false,
+        "default": null,
+        "description": "Set to a string containing a comma-separated list of github/licensed source name to add `--sources` CLI arguments to cache and status commands."
+      },
+      {
+        "name": "format",
+        "required": false,
+        "default": null,
+        "description": "Set to `yaml` or `json` to add the `--format` CLI argument to cache and status commands."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "licenses_branch",
+        "description": "The branch containing licensed-ci changes."
+      },
+      {
+        "name": "user_branch",
+        "description": "The branch containing user changes."
+      },
+      {
+        "name": "licenses_updated",
+        "description": "A boolean string indicating whether license files were updated."
+      },
+      {
+        "name": "pr_url",
+        "description": "The html url of the pull request containing license updates, if available."
+      },
+      {
+        "name": "pr_number",
+        "description": "The number of the pull request containing license updates, if available."
+      },
+      {
+        "name": "pr_created",
+        "description": "True if a pull request was created in a `branch` workflow, false otherwise."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "02c55ca2c78c8f8c91df585e53aa49bc2079aed87d5f266ae2d2c98faf18f9af",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.969661Z"
+  }
+}

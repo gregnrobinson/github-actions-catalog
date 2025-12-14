@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/peter-evans/s3-backup",
+  "version_id": "f75cd1452744",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/s3-backup/action.yml",
+    "origin": "github.com/peter-evans/s3-backup",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "S3 Backup",
+    "description": "Mirror a repository to S3 compatible object storage",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Backup",
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Backup",
+        "reasoning": "The action is designed to mirror a repository to S3 compatible object storage, which primarily falls under backup, while also involving infrastructure and deployment aspects.",
+        "tags": [
+          "S3",
+          "backup",
+          "infrastructure",
+          "deployment",
+          "repository"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f75cd1452744e376c3781a1d41987ce3cb11bb6c760d78e0b3124ff5f2206e14",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.465750Z"
+  }
+}

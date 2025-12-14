@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/dflook/run-in-container",
+  "version_id": "700944101424",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/run-in-container/action.yml",
+    "origin": "github.com/dflook/run-in-container",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "Run in container",
+    "description": "Run a command in a container",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "The image to run the command in"
+      },
+      {
+        "name": "run",
+        "required": true,
+        "default": null,
+        "description": "The command to run"
+      },
+      {
+        "name": "volumes",
+        "required": false,
+        "default": "",
+        "description": "Volumes to mount, one per line. Each line of the form 'source:target'"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Run command",
+          "env": {
+            "INPUT_VOLUMES": "${{ inputs.volumes }}"
+          },
+          "run": "\ndocker pull --quiet ${{ inputs.image }}\n\nfunction run() {\n  docker run --rm \\\n  --workdir /github/workspace \\\n  -e \"GITHUB_WORKSPACE=/github/workspace\" \\\n  -v $GITHUB_WORKSPACE:/github/workspace \\\n  -e \"HOME=/github/home\" \\\n  -v \"$RUNNER_TEMP/_github_home\":\"/github/home\" \\\n  -v \"/var/run/docker.sock\":\"/var/run/docker.sock\" \\\n  --mount type=bind,source=\"$RUNNER_TEMP/run.sh\",target=/run.sh,readonly \\\n  -e GITHUB_EVENT_PATH \\\n  --mount type=bind,source=\"$GITHUB_EVENT_PATH\",target=\"$GITHUB_EVENT_PATH,readonly\" \\\n  -e GITHUB_PATH \\\n  --mount type=bind,source=\"$GITHUB_PATH\",target=\"$GITHUB_PATH\" \\\n  -e GITHUB_ENV \\\n  --mount type=bind,source=\"$GITHUB_ENV\",target=\"$GITHUB_ENV\" \\\n  -e GITHUB_STEP_SUMMARY \\\n  --mount type=bind,source=\"$GITHUB_STEP_SUMMARY\",target=\"$GITHUB_STEP_SUMMARY\" \\\n  -e GITHUB_TOKEN \\\n  -e GITHUB_JOB \\\n  -e GITHUB_REF \\\n  -e GITHUB_SHA \\\n  -e GITHUB_REPOSITORY \\\n  -e GITHUB_REPOSITORY_OWNER \\\n  -e GITHUB_RUN_ID \\\n  -e GITHUB_RUN_NUMBER \\\n  -e GITHUB_RETENTION_DAYS \\\n  -e GITHUB_RUN_ATTEMPT \\\n  -e GITHUB_ACTOR \\\n  -e GITHUB_WORKFLOW \\\n  -e GITHUB_HEAD_REF \\\n  -e GITHUB_BASE_REF \\\n  -e GITHUB_EVENT_NAME \\\n  -e GITHUB_SERVER_URL \\\n  -e GITHUB_API_URL \\\n  -e GITHUB_GRAPHQL_URL \\\n  -e GITHUB_ACTION \\\n  -e GITHUB_ACTION_REPOSITORY \\\n  -e GITHUB_ACTION_REF \\\n  -e RUNNER_DEBUG \\\n  -e RUNNER_OS \\\n  -e RUNNER_NAME \\\n  -e RUNNER_TOOL_CACHE \\\n  -e ACTIONS_RUNTIME_URL \\\n  -e ACTIONS_RUNTIME_TOKEN \\\n  -e ACTIONS_CACHE_URL \\\n  -e GITHUB_ACTIONS \\\n  -e CI \\\n  -e GITHUB_ACTOR_ID \\\n  -e GITHUB_OUTPUT \\\n  -e GITHUB_REF_NAME \\\n  -e GITHUB_REF_PROTECTED \\\n  -e GITHUB_REF_TYPE \\\n  -e GITHUB_REPOSITORY_ID \\\n  -e GITHUB_REPOSITORY_OWNER_ID \\\n  -e GITHUB_TRIGGERING_ACTOR \\\n  -e GITHUB_WORKFLOW_REF \\\n  -e GITHUB_WORKFLOW_SHA \\\n  $VOLUMES_ARGS \\\n  --entrypoint /bin/bash \\\n  ${{ inputs.image }} \\\n  --noprofile --norc -eo pipefail /run.sh\n\n}\n\nfunction fix_owners() {\n    cat <<\"EOF\" >\"$RUNNER_TEMP/run.sh\"\n    chown -R --reference \"$GITHUB_WORKSPACE\" \"$GITHUB_WORKSPACE/\" || true\n    chown -R --reference \"/github/home\" \"/github/home/\" || true\n    chown --reference \"$GITHUB_WORKSPACE\" $GITHUB_PATH || true\n    chown --reference \"$GITHUB_WORKSPACE\" $GITHUB_ENV || true\n    chown --reference \"$GITHUB_WORKSPACE\" $GITHUB_STEP_SUMMARY || true\nEOF\n    VOLUMES_ARGS=\"\"\n    run\n    rm -f \"$RUNNER_TEMP/run.sh\"\n}\n\ntrap fix_owners EXIT\n\nVOLUMES_ARGS=\"\"\nif [[ -n \"$INPUT_VOLUMES\" ]]; then\n    for mount in $(echo \"$INPUT_VOLUMES\" | tr ',' '\\n'); do\n        VOLUMES_ARGS=\"$VOLUMES_ARGS -v $mount\"\n    done\nfi\n\ncat <<\"EOF\" >\"$RUNNER_TEMP/run.sh\"\n${{ inputs.run }}\nEOF\n\nset -x\nrun\nset +x\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "70094410142438b10adf4117eaf10603fd7f165e836f7d080ca86cc527113592",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.408304Z"
+  }
+}

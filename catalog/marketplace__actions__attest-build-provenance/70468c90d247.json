@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/actions/attest-build-provenance",
+  "version_id": "70468c90d247",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/attest-build-provenance/action.yml",
+    "origin": "github.com/actions/attest-build-provenance",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Attest Build Provenance",
+    "description": "Generate provenance attestations for build artifacts",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "subject-path",
+        "required": false,
+        "default": null,
+        "description": "Path to the artifact serving as the subject of the attestation. Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\". May contain a glob pattern or list of paths (total subject count cannot exceed 1024).\n"
+      },
+      {
+        "name": "subject-digest",
+        "required": false,
+        "default": null,
+        "description": "Digest of the subject for which provenance will be generated. Must be in the form \"algorithm:hex_digest\" (e.g. \"sha256:abc123...\"). Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\".\n"
+      },
+      {
+        "name": "subject-name",
+        "required": false,
+        "default": null,
+        "description": "Subject name as it should appear in the attestation. Required when identifying the subject with the \"subject-digest\" input.\n"
+      },
+      {
+        "name": "subject-checksums",
+        "required": false,
+        "default": null,
+        "description": "Path to checksums file containing digest and name of subjects for attestation. Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\".\n"
+      },
+      {
+        "name": "push-to-registry",
+        "required": false,
+        "default": false,
+        "description": "Whether to push the provenance statement to the image registry. Requires that the \"subject-name\" parameter specify the fully-qualified image name and that the \"subject-digest\" parameter be specified. Defaults to false.\n"
+      },
+      {
+        "name": "show-summary",
+        "required": false,
+        "default": true,
+        "description": "Whether to attach a list of generated attestations to the workflow run summary page. Defaults to true.\n"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to make authenticated API requests.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bundle-path",
+        "description": "The path to the file containing the attestation bundle."
+      },
+      {
+        "name": "attestation-id",
+        "description": "The ID of the attestation."
+      },
+      {
+        "name": "attestation-url",
+        "description": "The URL for the attestation summary."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "uses": "actions/attest-build-provenance/predicate@864457a58d4733d7f1574bd8821fa24e02cf7538",
+          "id": "generate-build-provenance-predicate"
+        },
+        {
+          "uses": "actions/attest@daf44fb950173508f38bd2406030372c1d1162b1",
+          "id": "attest",
+          "env": {
+            "NODE_OPTIONS": "--max-http-header-size=32768"
+          },
+          "with": {
+            "subject-path": "${{ inputs.subject-path }}",
+            "subject-digest": "${{ inputs.subject-digest }}",
+            "subject-name": "${{ inputs.subject-name }}",
+            "subject-checksums": "${{ inputs.subject-checksums }}",
+            "predicate-type": "${{ steps.generate-build-provenance-predicate.outputs.predicate-type }}",
+            "predicate": "${{ steps.generate-build-provenance-predicate.outputs.predicate }}",
+            "push-to-registry": "${{ inputs.push-to-registry }}",
+            "show-summary": "${{ inputs.show-summary }}",
+            "github-token": "${{ inputs.github-token }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "70468c90d247618b7ffad979b5b9db08caabb8f0566e6443b29c502c96af15bf",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.214268Z"
+  }
+}

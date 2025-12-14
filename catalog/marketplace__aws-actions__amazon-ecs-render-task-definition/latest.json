@@ -1,0 +1,134 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-ecs-render-task-definition",
+  "version_id": "20fc875db4c8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecs-render-task-definition/action.yml",
+    "origin": "github.com/aws-actions/amazon-ecs-render-task-definition",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Amazon ECS \"Render Task Definition\" Action for GitHub Actions",
+    "description": "Inserts a container image URI into a container definition in an Amazon ECS task definition JSON file, creating a new file.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "task-definition",
+        "required": false,
+        "default": null,
+        "description": "The path to the ECS task definition JSON file"
+      },
+      {
+        "name": "task-definition-arn",
+        "required": false,
+        "default": null,
+        "description": "The full Amazon Resource Name (ARN) of the task definition to be used"
+      },
+      {
+        "name": "task-definition-family",
+        "required": false,
+        "default": null,
+        "description": "The name of a family that the task definition is registered to"
+      },
+      {
+        "name": "task-definition-revision",
+        "required": false,
+        "default": null,
+        "description": "The revision of the task definition being used"
+      },
+      {
+        "name": "container-name",
+        "required": true,
+        "default": null,
+        "description": "The name of the container or containers defined in the containerDefinitions section of the ECS task definition. If more than one container, add the names comma separated."
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "The URI of the container image to insert into the ECS task definition"
+      },
+      {
+        "name": "environment-variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to add to the container. Each variable is of the form KEY=value, you can specify multiple variables with multi-line YAML strings."
+      },
+      {
+        "name": "log-configuration-log-driver",
+        "required": false,
+        "default": null,
+        "description": "Create/Override logDriver inside logConfiguration"
+      },
+      {
+        "name": "log-configuration-options",
+        "required": false,
+        "default": null,
+        "description": "Create/Override options inside logConfiguration. Each variable is of the form key=value, you can specify multiple variables with multi-line YAML strings."
+      },
+      {
+        "name": "docker-labels",
+        "required": false,
+        "default": null,
+        "description": "Create/Override options inside dockerLabels. Each variable is key=value, you can specify multiple variables with multi-line YAML."
+      },
+      {
+        "name": "command",
+        "required": false,
+        "default": null,
+        "description": "The command used by ECS to start the container image"
+      },
+      {
+        "name": "env-files",
+        "required": false,
+        "default": null,
+        "description": "S3 object arns to set env variables onto the container. You can specify multiple files with multi-line YAML strings."
+      },
+      {
+        "name": "secrets",
+        "required": false,
+        "default": null,
+        "description": "Secrets to add to the container. Each secret is of the form KEY=valueFrom, where valueFrom is a secret arn. You can specify multiple secrets with multi-line YAML strings."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "task-definition",
+        "description": "The path to the rendered task definition file"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is primarily focused on modifying and preparing an ECS task definition, which is a key part of deploying applications on AWS infrastructure. It also relates to deployment as it prepares the task definition for use in deploying containers.",
+        "tags": [
+          "ECS",
+          "AWS",
+          "task definition",
+          "infrastructure",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "20fc875db4c865fc2ed97f9a6e9ecd36c5c0f5bf8bb26ae288c826f4f52a7df2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.039071Z"
+  }
+}

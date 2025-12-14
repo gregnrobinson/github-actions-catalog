@@ -1,0 +1,22 @@
+name: "Setup AWS SAM CLI"
+description: "Setup AWS SAM CLI and add it to the PATH"
+branding:
+  icon: "terminal"
+  color: "orange"
+inputs:
+  version:
+    description: "The AWS SAM CLI version to install"
+    required: false
+  python:
+    description: "The Python interpreter to use for AWS SAM CLI"
+    required: false
+  use-installer:
+    description: "Set to true to install using native installers instead of pip"
+    required: false
+    default: false
+  token:
+    description: "Authentication token to be used to call GITHUB Apis"
+    required: false
+runs:
+  using: "node20"
+  main: "dist/index.js"

@@ -1,0 +1,94 @@
+{
+  "action_id": "marketplace/peter-evans/dockerhub-description",
+  "version_id": "bb0355bdf70a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/dockerhub-description/action.yml",
+    "origin": "github.com/peter-evans/dockerhub-description",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Docker Hub Description",
+    "description": "An action to update a Docker Hub repository description from README.md",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "username",
+        "required": true,
+        "default": null,
+        "description": "Docker Hub username"
+      },
+      {
+        "name": "password",
+        "required": true,
+        "default": null,
+        "description": "Docker Hub password or Personal Access Token with read/write/delete scope"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": null,
+        "description": "Docker Hub repository in the format `<namespace>/<name>` Default: `github.repository`\n"
+      },
+      {
+        "name": "short-description",
+        "required": false,
+        "default": null,
+        "description": "Docker Hub repository short description"
+      },
+      {
+        "name": "readme-filepath",
+        "required": false,
+        "default": null,
+        "description": "Path to the repository readme Default: `./README.md`\n"
+      },
+      {
+        "name": "enable-url-completion",
+        "required": false,
+        "default": null,
+        "description": "Enables completion of relative URLs to absolute ones Default: `false`\n"
+      },
+      {
+        "name": "image-extensions",
+        "required": false,
+        "default": null,
+        "description": "File extensions that will be treated as images Default: `bmp,gif,jpg,jpeg,png,svg,webp`\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Authentication",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action updates the Docker Hub repository description, which falls under documentation. It also requires authentication credentials to access the Docker Hub, categorizing it under authentication and publishing.",
+        "tags": [
+          "Docker",
+          "Hub",
+          "Description",
+          "Update",
+          "Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "bb0355bdf70aedcbecf7f8ee18d01104a4ab33b0b02829865b14e502884af0f0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.471822Z"
+  }
+}

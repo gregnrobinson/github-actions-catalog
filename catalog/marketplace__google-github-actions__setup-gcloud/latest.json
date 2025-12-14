@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/google-github-actions/setup-gcloud",
+  "version_id": "b909309ffd0c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/setup-gcloud/action.yml",
+    "origin": "github.com/google-github-actions/setup-gcloud",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Set up gcloud Cloud SDK environment",
+    "description": "Downloads, installs, and configures a Google Cloud SDK environment.\nAdds the `gcloud` CLI command to the $PATH.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "latest",
+        "description": "A string representing the version or version constraint of the Cloud SDK\n(`gcloud`) to install (e.g. `\"290.0.1\"` or `\">= 197.0.1\"`). The default\nvalue is `\"latest\"`, which will always download and install the latest\navailable Cloud SDK version.\n\n    - uses: 'google-github-actions/setup-gcloud@v3'\n      with:\n        version: '>= 416.0.0'\n\nIf there is no installed `gcloud` version that matches the given\nconstraint, this GitHub Action will download and install the latest\navailable version that still matches the constraint.\n\nAuthenticating via Workload Identity Federation requires version\n[363.0.0](https://cloud.google.com/sdk/docs/release-notes#36300_2021-11-02)\nor newer. If you need support for Workload Identity Federation, specify\nyour version constraint as such:\n\n    - uses: 'google-github-actions/setup-gcloud@v3'\n      with:\n        version: '>= 363.0.0'\n\nYou are responsible for ensuring the `gcloud` version matches the features\nand components required."
+      },
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "ID of the Google Cloud project. If provided, this will configure gcloud to\nuse this project ID by default for commands. Individual commands can still\noverride the project using the `--project` flag which takes precedence. If\nunspecified, the action attempts to find the \"best\" project ID by looking\nat other inputs and environment variables."
+      },
+      {
+        "name": "install_components",
+        "required": false,
+        "default": null,
+        "description": "List of additional [gcloud\ncomponents](https://cloud.google.com/sdk/docs/components) to install,\nspecified as a comma-separated list of strings:\n\n    install_components: 'alpha,cloud-datastore-emulator'"
+      },
+      {
+        "name": "skip_install",
+        "required": false,
+        "default": false,
+        "description": "Skip installation of gcloud and use the [system-supplied\nversion](https://github.com/actions/runner-images) instead. If specified,\nthe `version` input is ignored.\n\n\u26a0\ufe0f You will not be able to install additional gcloud components, because the\nsystem installation is locked."
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": false,
+        "description": "Transfer the downloaded artifacts into the runner's tool cache. On\nGitHub-managed runners, this have very little impact since runneres are\nephemeral. On self-hosted runners, this could improve future runs by\nskipping future gcloud installations."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "version",
+        "description": "Version of gcloud that was installed."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets up the Google Cloud SDK environment, which is primarily related to infrastructure management. It also involves authentication with Google Cloud services and manages dependencies by installing specific versions of the SDK.",
+        "tags": [
+          "gcloud",
+          "Google Cloud",
+          "infrastructure",
+          "setup",
+          "SDK"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b909309ffd0c2533382744ac4e2491a06a92ad11c68dab725d3694bb072ddfb0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.787357Z"
+  }
+}

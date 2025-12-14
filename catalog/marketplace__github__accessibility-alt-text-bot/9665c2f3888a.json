@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/github/accessibility-alt-text-bot",
+  "version_id": "9665c2f3888a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/accessibility-alt-text-bot/action.yml",
+    "origin": "github.com/github/accessibility-alt-text-bot",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Accessibility alt text bot",
+    "description": "This action will check a repos issue, discussion, or PR for correct alt text usage.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "config",
+        "required": false,
+        "default": null,
+        "description": "A custom linting configuration"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Runs alt text check and adds comment",
+          "run": "source ${{ github.action_path }}/queries.sh\n\nif [ ${{ github.event.comment }} ]; then\n  content=$COMMENT\n  user=${{ github.event.comment.user.login }}\n  target_id=${{ github.event.comment.id }}\n  if ${{ github.event.issue.pull_request.url != '' }}; then\n    type=pr_comment\n    issue_url=${{ github.event.issue.html_url }}\n    bot_comment_id=$(gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") | select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.comment.id }}\\\"\")) | .id')\n  elif ${{ github.event.discussion.id != '' }}; then\n    type=discussion_comment\n    discussion_node_id='${{ github.event.discussion.node_id }}'\n    comment_node_id='${{ github.event.comment.node_id }}'\n    bot_comment_id=$(gh api repos/${{ github.repository }}/discussions/${{ github.event.discussion.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") | select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.comment.id }}\\\"\")) | .node_id')\n    if ${{ github.event.comment.parent_id != '' }}; then\n      reply_to_id=$(getDiscussionReplyToId $comment_node_id)\n    else\n      reply_to_id=$comment_node_id\n    fi\n  else\n    type=issue_comment\n    issue_url=${{ github.event.issue.html_url }}\n    bot_comment_id=$(gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") |  select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.comment.id }}\\\"\")) | .id')\n  fi\n  target=${{ github.event.comment.html_url }}\nelse\n  if [ ${{ github.event.issue }} ]; then\n    type=issue_description\n    content=$ISSUE_BODY\n    issue_url=${{ github.event.issue.html_url }}\n    user=${{ github.event.issue.user.login }}\n    target=\"your issue body\"\n    target_id=${{ github.event.issue.id }}\n    bot_comment_id=$(gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") | select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.issue.id }}\\\"\")) | .id')\n  elif [ ${{ github.event.pull_request }} ]; then\n    type=pr_description\n    content=$PR_BODY\n    issue_url=${{ github.event.pull_request.html_url }}\n    user=${{ github.event.pull_request.user.login }}\n    target=\"your pull request body\"\n    target_id=${{ github.event.pull_request.id }}\n    bot_comment_id=$(gh api repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") | select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.pull_request.id }}\\\"\")) | .id')\n  elif [ ${{ github.event.discussion }} ]; then\n    type=discussion_description\n    content=$DISCUSSION_BODY\n    discussion_node_id='${{ github.event.discussion.node_id }}'\n    user=${{ github.event.discussion.user.login }}\n    target=\"your discussion body\"\n    target_id=${{ github.event.discussion.id }}\n    bot_comment_id=$(gh api repos/${{ github.repository }}/discussions/${{ github.event.discussion.number }}/comments | jq -r '.[] | select(.user.login == \"github-actions[bot]\") | select(.body | test(\"<div alt-text-bot-id=\\\"${{ github.event.discussion.id }}\\\"\")) | .node_id')\n  fi\nfi\n\nflag=$(node ${{ github.action_path }}/src/index.js \"$content\" \"$CONFIG\")\n\ncustom_config_message=\"<div alt-text-bot-id=\\\"$target_id\\\" /> \n\nUh oh! @$user, your markdown has a few linting errors. Check $target to fix the following violations:\n\n$flag \n\n> \ud83e\udd16 Beep boop! This comment was added automatically by [github/accessibility-alt-text-bot](https://github.com/github/accessibility-alt-text-bot).\n\"\n\nmessage=\"<div alt-text-bot-id=\\\"$target_id\\\" /> \n\nUh oh! @$user, at least one image you shared is missing helpful alt text. Check $target to fix the following violations:\n\n$flag \n\nAlt text is an invisible description that helps screen readers describe images to blind or low-vision users. If you are using markdown to display images, add your alt text inside the brackets of the markdown image.\n\nLearn more about alt text at [Basic writing and formatting syntax: images on GitHub Docs](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images).\n\n> \ud83e\udd16 Beep boop! This comment was added automatically by [github/accessibility-alt-text-bot](https://github.com/github/accessibility-alt-text-bot).\n\"\n\necho \"Config: $CONFIG\"\nif [ \"$CONFIG\" ]; then\n  message=$custom_config_message \nfi\n\necho \"Detected errors: ${flag}\"\necho \"Event type: $type\"\nif [[ $flag && ${{ github.event.action }} != 'deleted' ]]; then\n  if [ $bot_comment_id ]; then\n    if [[ $type = pr_comment ]] || [[ $type = pr_description ]]; then\n      gh api repos/${{ github.repository }}/issues/comments/$bot_comment_id -X PATCH -f body=\"$message\"\n    elif [[ $type = issue_comment ]] || [[ $type = issue_description ]]; then\n      gh api repos/${{ github.repository }}/issues/comments/$bot_comment_id -X PATCH -f body=\"$message\"\n    elif [[ $type = discussion_description ]] || [[ $type = discussion_comment ]]; then\n      gh api graphql -f  query='mutation($commentId: ID!, $body: String!) { updateDiscussionComment(input: {commentId: $commentId, body: $body}) { comment { id body }}}' -f commentId=$bot_comment_id -f body=\"$message\"\n    fi\n  else \n    if [[ $type = pr_comment ]] || [[ $type = pr_description ]]; then\n      gh pr comment $issue_url --body \"$message\"\n    elif [[ $type = issue_comment ]] || [[ $type = issue_description ]]; then\n      gh issue comment $issue_url --body \"$message\"\n    elif [[ $type = discussion_description ]]; then\n      addDiscussionComment $discussion_node_id \"$message\"\n    elif [[ $type = discussion_comment ]]; then\n      addDiscussionComment $discussion_node_id \"$message\" $reply_to_id \n    fi\n  fi\nelse \n  echo \"bot_comment_id: $bot_comment_id\"\n  if [ $bot_comment_id ]; then\n    echo \"Deleting bot comment...\"\n    if [[ $type = pr_comment ]] || [[ $type = pr_description ]]; then\n        gh api -X DELETE /repos/${{ github.repository }}/issues/comments/$bot_comment_id\n    elif [[ $type = issue_comment ]] || [[ $type = issue_description ]]; then\n        gh api -X DELETE /repos/${{ github.repository }}/issues/comments/$bot_comment_id\n    elif [[ $type = discussion_description ]] || [[ $type = discussion_comment ]]; then\n        gh api graphql -f  query='mutation($id: ID!) { deleteDiscussionComment(input: {id: $id}) { clientMutationId } }' -f id=$bot_comment_id \n    fi\n  fi\nfi\n",
+          "shell": "bash",
+          "env": {
+            "GITHUB_TOKEN": "${{ github.token }}",
+            "COMMENT": "${{ github.event.comment.body }}",
+            "ISSUE_BODY": "${{ github.event.issue.body }}",
+            "PR_BODY": "${{ github.event.pull_request.body }}",
+            "DISCUSSION_BODY": "${{ github.event.discussion.body }}",
+            "CONFIG": "${{ inputs.config }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9665c2f3888a4585084103c56cb1fc8bfd04eff7b58249cf3be769a05eadf7de",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.959253Z"
+  }
+}

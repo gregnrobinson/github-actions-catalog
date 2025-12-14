@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/azure/app-configuration-deploy-feature-flags",
+  "version_id": "6d3e7caea47d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/app-configuration-deploy-feature-flags/action.yml",
+    "origin": "github.com/azure/app-configuration-deploy-feature-flags",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure App Configuration Deploy Feature Flags",
+    "description": "Deploy feature flags from a GitHub repository to Azure App Configuration",
+    "author": "Microsoft",
+    "inputs": [
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "Source file(s) containing feature flags. Multiple files can be specified in list or glob format. Example: **/*.json or FeatureFlags/*.json. Use ! to exclude files."
+      },
+      {
+        "name": "app-configuration-endpoint",
+        "required": false,
+        "default": null,
+        "description": "Destination endpoint for the Azure App Configuration store."
+      },
+      {
+        "name": "label",
+        "required": false,
+        "default": "None",
+        "description": "Azure App Configuration label to apply to the feature flags. If not specficed, the default is no label."
+      },
+      {
+        "name": "operation",
+        "required": false,
+        "default": "deploy",
+        "description": "Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: deploys the feature flags to Azure App Configuration."
+      },
+      {
+        "name": "strict",
+        "required": false,
+        "default": null,
+        "description": "If strict, the sync operation deletes feature flags not found in the config file. Choices: true, false."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6d3e7caea47d33b70b813468a643fd520eb132a419372fd800fef05f4683ca6d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.624777Z"
+  }
+}

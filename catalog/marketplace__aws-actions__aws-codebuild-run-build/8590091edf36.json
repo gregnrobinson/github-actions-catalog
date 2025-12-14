@@ -1,0 +1,141 @@
+{
+  "action_id": "marketplace/aws-actions/aws-codebuild-run-build",
+  "version_id": "8590091edf36",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/aws-codebuild-run-build/action.yml",
+    "origin": "github.com/aws-actions/aws-codebuild-run-build",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "\"AWS CodeBuild run build\" Action For GitHub Actions",
+    "description": "Execute CodeBuild::startBuild for the current repo.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "project-name",
+        "required": true,
+        "default": null,
+        "description": "AWS CodeBuild Project Name"
+      },
+      {
+        "name": "buildspec-override",
+        "required": false,
+        "default": null,
+        "description": "Buildspec Override"
+      },
+      {
+        "name": "compute-type-override",
+        "required": false,
+        "default": null,
+        "description": "The name of a compute type for this build that overrides the one specified in the build project."
+      },
+      {
+        "name": "environment-type-override",
+        "required": false,
+        "default": null,
+        "description": "A container type for this build that overrides the one specified in the build project."
+      },
+      {
+        "name": "image-override",
+        "required": false,
+        "default": null,
+        "description": "The name of an image for this build that overrides the one specified in the build project."
+      },
+      {
+        "name": "image-pull-credentials-type-override",
+        "required": false,
+        "default": null,
+        "description": "The type of credentials CodeBuild uses to pull images in your build."
+      },
+      {
+        "name": "env-vars-for-codebuild",
+        "required": false,
+        "default": null,
+        "description": "Comma separated list of environment variables to send to CodeBuild"
+      },
+      {
+        "name": "update-interval",
+        "required": false,
+        "default": null,
+        "description": "How often the action calls the API for updates"
+      },
+      {
+        "name": "update-back-off",
+        "required": false,
+        "default": null,
+        "description": "Base back-off time for the update calls for API if rate-limiting is encountered"
+      },
+      {
+        "name": "disable-source-override",
+        "required": false,
+        "default": null,
+        "description": "Set to `true` if you want do disable source repo override"
+      },
+      {
+        "name": "source-version-override",
+        "required": false,
+        "default": null,
+        "description": "The source version that overrides the sourceVersion provided to Codebuild."
+      },
+      {
+        "name": "source-type-override",
+        "required": false,
+        "default": null,
+        "description": "The source input type that overrides the source input defined in the build project for this build. Valid values include NO_SOURCE, CODECOMMIT, CODEPIPELINE, GITHUB, S3, BITBUCKET, and GITHUB_ENTERPRISE."
+      },
+      {
+        "name": "source-location-override",
+        "required": false,
+        "default": null,
+        "description": "The location that overrides the source location defined in the build project for this build."
+      },
+      {
+        "name": "hide-cloudwatch-logs",
+        "required": false,
+        "default": null,
+        "description": "Set to `true` to prevent the CloudWatch logs from streaming the output to GitHub"
+      },
+      {
+        "name": "disable-github-env-vars",
+        "required": false,
+        "default": null,
+        "description": "Set to `true` if you want do disable github environment variables in codebuild"
+      },
+      {
+        "name": "artifacts-type-override",
+        "required": false,
+        "default": null,
+        "description": "The type of build output artifact"
+      },
+      {
+        "name": "stop-on-signals",
+        "required": false,
+        "default": "SIGINT",
+        "description": "Comma separated list of process signals on which to stop the build. Default is SIGINT."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "aws-build-id",
+        "description": "The AWS CodeBuild Build ID for this build."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "8590091edf36c354012a457ef946c078e41bc123b553247c06158bc6aabb3a38",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.031518Z"
+  }
+}

@@ -1,0 +1,53 @@
+name: tofu-test
+description: Execute automated tests for an OpenTofu module
+author: Daniel Flook
+
+inputs:
+  path:
+    description: The path to the OpenTofu module under test
+    required: false
+    default: "."
+  test_directory:
+    description: The directory within the module path that contains the test files.
+    required: false
+    default: ""
+  test_filter:
+    description: |
+      The test files to run, one per line.
+
+      If not specified, all test files in the `test_directory` will be run.
+      The are paths relative to the module path.
+    required: false
+    default: ""
+  variables:
+    description: |
+      Variables to set for the tests. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).
+      Variables set here override any given in `var_file`s.
+    required: false
+  var_file:
+    description: |
+      List of tfvars files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+    required: false
+
+outputs:
+  failure-reason:
+    description: |
+      When the job outcome is `failure`, this output may be set. The value may be one of:
+
+      - `no-tests` - No tests were found to run.
+      - `tests-failed` - One or more tests failed.
+
+      If the job fails for any other reason this will not be set.
+      This can be used with the Actions expression syntax to conditionally run steps.
+
+runs:
+  env:
+    OPENTOFU: true
+  using: docker
+  image: docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc
+  entrypoint: /entrypoints/test.sh
+
+branding:
+  icon: globe
+  color: purple

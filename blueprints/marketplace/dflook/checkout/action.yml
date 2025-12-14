@@ -1,0 +1,30 @@
+name: 'Checkout'
+description: 'Checkout a GitHub repository at a particular ref'
+author: 'Daniel Flook'
+
+inputs:
+  repository:
+    description: 'Repository name with owner. For example, actions/checkout'
+    default: ${{ github.repository }}
+  ref:
+    description: >
+      The branch, tag or SHA to checkout. When checking out the repository that
+      triggered a workflow, this defaults to the reference or SHA for that
+      event.  Otherwise, uses the default branch.
+  token:
+    description: 'Token to use when checking out the repository'
+    default: ${{ github.token }}
+  path:
+    description: 'Relative path under $GITHUB_WORKSPACE to place the repository'
+    default: '.'
+
+outputs:
+  ref:
+    description: 'The branch, tag or SHA that was checked out'
+  commit:
+    description: 'The commit SHA that was checked out'
+
+runs:
+  using: docker
+  image: Dockerfile
+  entrypoint: /entrypoint.sh

@@ -1,0 +1,196 @@
+{
+  "action_id": "marketplace/azure/bicep-deploy",
+  "version_id": "02e382587b5f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/bicep-deploy/action.yml",
+    "origin": "github.com/azure/bicep-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Bicep Deploy",
+    "description": "GitHub Action for deploying to Azure",
+    "author": "Microsoft",
+    "inputs": [
+      {
+        "name": "type",
+        "required": true,
+        "default": null,
+        "description": "Specifies the execution type, which can be either 'deployment' or 'deploymentStack'."
+      },
+      {
+        "name": "operation",
+        "required": true,
+        "default": null,
+        "description": "Specifies the operation to perform. For deployment, choose from 'create', 'validate', 'whatIf'. For deploymentStack, choose from 'create', 'delete', 'validate'."
+      },
+      {
+        "name": "scope",
+        "required": true,
+        "default": null,
+        "description": "Specifies the scope of the deployment or deploymentStack. For deployment, choose from 'resourceGroup', 'subscription', 'managementGroup', 'tenant'. For deploymentStack, choose from 'resourceGroup', 'subscription', 'managementGroup'."
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "Specifies the name of the deployment or deploymentStack."
+      },
+      {
+        "name": "location",
+        "required": false,
+        "default": null,
+        "description": "Specifies the location of the deployment or deploymentStack. Must be provided if the 'scope' parameter is 'subscription', 'managementGroup' or 'tenant'."
+      },
+      {
+        "name": "tenant-id",
+        "required": false,
+        "default": null,
+        "description": "Specifies the tenant ID. Required if the 'scope' parameter is 'tenant'."
+      },
+      {
+        "name": "management-group-id",
+        "required": false,
+        "default": null,
+        "description": "Specifies the management group ID. Required if the 'scope' parameter is 'managementGroup'."
+      },
+      {
+        "name": "subscription-id",
+        "required": false,
+        "default": null,
+        "description": "Specifies the subscription ID. Required if the 'scope' parameter is 'subscription' or 'resourceGroup'."
+      },
+      {
+        "name": "resource-group-name",
+        "required": false,
+        "default": null,
+        "description": "Specifies the resource group name. Required if the 'scope' parameter is 'resourceGroup'."
+      },
+      {
+        "name": "template-file",
+        "required": false,
+        "default": null,
+        "description": "Specifies the path to the template file."
+      },
+      {
+        "name": "parameters-file",
+        "required": false,
+        "default": null,
+        "description": "Specifies the path to the parameters file (.json or .bicepparam)."
+      },
+      {
+        "name": "parameters",
+        "required": false,
+        "default": null,
+        "description": "Specifies the inline parameters to use (as json object)."
+      },
+      {
+        "name": "masked-outputs",
+        "required": false,
+        "default": null,
+        "description": "Specifies output names to mask values for."
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "default": null,
+        "description": "Specifies the Azure environment to use. Choose from 'azureCloud', 'azureChinaCloud', 'azureGermanCloud', 'azureUSGovernment'."
+      },
+      {
+        "name": "what-if-exclude-change-types",
+        "required": false,
+        "default": null,
+        "description": "Specifies the change types to exclude from the 'What If' operation."
+      },
+      {
+        "name": "validation-level",
+        "required": false,
+        "default": null,
+        "description": "Specifies the validation level. Only supported for deployment what-if and validate operations. Choose from 'provider', 'template', or 'providerNoRbac'."
+      },
+      {
+        "name": "action-on-unmanage-resources",
+        "required": false,
+        "default": null,
+        "description": "Specifies the action to take on unmanaged resources. Choose from 'delete' or 'detach'."
+      },
+      {
+        "name": "action-on-unmanage-resourcegroups",
+        "required": false,
+        "default": null,
+        "description": "Specifies the action to take on unmanaged resource groups. Choose from 'delete' or 'detach'."
+      },
+      {
+        "name": "action-on-unmanage-managementgroup",
+        "required": false,
+        "default": null,
+        "description": "Specifies the action to take on unmanaged management groups. Choose from 'delete' or 'detach'."
+      },
+      {
+        "name": "deny-settings-mode",
+        "required": false,
+        "default": null,
+        "description": "Specifies the mode of the deny settings. Choose from 'denyDelete', 'denyWriteAndDelete', 'none'."
+      },
+      {
+        "name": "deny-settings-excluded-actions",
+        "required": false,
+        "default": null,
+        "description": "Specifies the excluded actions for the deny settings."
+      },
+      {
+        "name": "deny-settings-excluded-principals",
+        "required": false,
+        "default": null,
+        "description": "Specifies the excluded principals for the deny settings."
+      },
+      {
+        "name": "deny-settings-apply-to-child-scopes",
+        "required": false,
+        "default": null,
+        "description": "When specified, the deny setting mode configuration also applies to the child scope of the managed resources."
+      },
+      {
+        "name": "bypass-stack-out-of-sync-error",
+        "required": false,
+        "default": null,
+        "description": "Specifies whether to bypass the stack out of sync error. Choose from 'true' or 'false'."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Specifies the description of the deploymentStack."
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": null,
+        "description": "Specifies the tags for the deploymentStack."
+      },
+      {
+        "name": "bicep-version",
+        "required": false,
+        "default": null,
+        "description": "Specifies the version of Bicep to use for compilation. If not provided, the latest version will be used. Example string: '0.38.5'"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.cjs"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "02e382587b5fa905b66609169e7b8018c96b9563ff8c35c9ad8ae47957b62ed1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.644033Z"
+  }
+}

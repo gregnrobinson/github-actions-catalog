@@ -1,0 +1,99 @@
+{
+  "action_id": "marketplace/peter-evans/rebase",
+  "version_id": "a1b384dbe3d3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/rebase/action.yml",
+    "origin": "github.com/peter-evans/rebase",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Rebase Pulls",
+    "description": "Rebase pull requests in a repository",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub auth token"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The target GitHub repository"
+      },
+      {
+        "name": "head",
+        "required": false,
+        "default": null,
+        "description": "Filter pull requests by head user or head organization and branch name in the format user:ref-name or organization:ref-name. For example: github:new-script-format or octocat:test-branch.\n"
+      },
+      {
+        "name": "base",
+        "required": false,
+        "default": null,
+        "description": "Filter pull requests by base branch name. Example: gh-pages.\n"
+      },
+      {
+        "name": "include-labels",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of pull request labels to include. Allows any labels if unspecified.\n"
+      },
+      {
+        "name": "exclude-labels",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of pull request labels to exclude"
+      },
+      {
+        "name": "exclude-drafts",
+        "required": false,
+        "default": false,
+        "description": "Exclude draft pull requests"
+      },
+      {
+        "name": "rebase-options",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of options to pass to the git rebase command. For example, `-Xtheirs`."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is designed to rebase pull requests, which is a process that helps maintain code quality by integrating changes. It also involves communication with the GitHub API to manage pull requests.",
+        "tags": [
+          "rebase",
+          "pull requests",
+          "GitHub",
+          "code quality",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a1b384dbe3d395221750c5899ca8aa0b17c535bd6654f934caf54eeda20a0e69",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.519989Z"
+  }
+}

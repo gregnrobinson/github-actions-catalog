@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/azure/appservice-settings",
+  "version_id": "c7e798546aef",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/appservice-settings/action.yml",
+    "origin": "github.com/azure/appservice-settings",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure App Service Settings",
+    "description": "Configure Azure Apps with app settings, connection strings and other general configuration settings",
+    "author": "",
+    "inputs": [
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Azure Web App"
+      },
+      {
+        "name": "slot-name",
+        "required": false,
+        "default": null,
+        "description": "Name of an existing slot other than the production slot. Default value is production"
+      },
+      {
+        "name": "app-settings-json",
+        "required": false,
+        "default": null,
+        "description": "Application settings using the JSON syntax set as value of secret variable: APP_SETTINGS"
+      },
+      {
+        "name": "connection-strings-json",
+        "required": false,
+        "default": null,
+        "description": "Connection Strings using the JSON syntax set as value of secret variable: CONNECTION_STRINGS"
+      },
+      {
+        "name": "general-settings-json",
+        "required": false,
+        "default": null,
+        "description": "General configuration settings using dictionary syntax - Key Value pairs"
+      },
+      {
+        "name": "mask-inputs",
+        "required": false,
+        "default": true,
+        "description": "Set it to false if you want to provide input jsons as plain text/you do not want input json values to be masked. This will apply to app-settings-json and connection-strings-json. Default is true"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "webapp-url",
+        "description": "URL to work with your webapp"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c7e798546aeffdcbfd888a8fa64b7e5d26f33f9edc2d37816f7ca2f56ade8352",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.674694Z"
+  }
+}

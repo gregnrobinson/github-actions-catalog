@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/dflook/terraform-remote-state",
+  "version_id": "88872b383a47",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-remote-state/action.yml",
+    "origin": "github.com/dflook/terraform-remote-state",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-remote-state",
+    "description": "Retrieves the root-level outputs from a Terraform remote state.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "backend_type",
+        "required": true,
+        "default": null,
+        "description": "The name of the Terraform plugin used for backend state"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "Terraform workspace to get the outputs for"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the Terraform config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nTerraform list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/remote-state.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action retrieves outputs from a Terraform remote state, which is primarily related to managing infrastructure as code. It also involves dependency management as it interacts with Terraform's state management.",
+        "tags": [
+          "Terraform",
+          "remote state",
+          "infrastructure",
+          "dependency management",
+          "outputs"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "88872b383a479eb383ebd236e5322bb6dcfbe85097cc135f11b63e4277edc088",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.348272Z"
+  }
+}

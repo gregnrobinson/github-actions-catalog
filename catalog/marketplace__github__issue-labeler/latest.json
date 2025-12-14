@@ -1,0 +1,121 @@
+{
+  "action_id": "marketplace/github/issue-labeler",
+  "version_id": "0e5d5df9ee63",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/issue-labeler/action.yml",
+    "origin": "github.com/github/issue-labeler",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "RegEx Issue Labeler",
+    "description": "Labels issues automatically based on their body",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GITHUB_TOKEN secret"
+      },
+      {
+        "name": "configuration-path",
+        "required": true,
+        "default": null,
+        "description": "The path to the label configuration file. If the file doesn't exist at the specified path on the runner, action will read from the source repository via the Github API."
+      },
+      {
+        "name": "enable-versioned-regex",
+        "required": true,
+        "default": null,
+        "description": "Controls if versioned regex templates are being used"
+      },
+      {
+        "name": "versioned-regex",
+        "required": false,
+        "default": null,
+        "description": "The regex version number to use. Only required if using versioned regex files"
+      },
+      {
+        "name": "not-before",
+        "required": false,
+        "default": null,
+        "description": "Is optional and will result in any issues prior to this timestamp to be ignored"
+      },
+      {
+        "name": "body-missing-regex-label",
+        "required": false,
+        "default": null,
+        "description": "The name of the label that should be added to an issue where the specified `version-regex` can not be found."
+      },
+      {
+        "name": "include-title",
+        "required": false,
+        "default": "0",
+        "description": "Include the title in the regex target"
+      },
+      {
+        "name": "include-body",
+        "required": false,
+        "default": "1",
+        "description": "Include the body in the regex target"
+      },
+      {
+        "name": "sync-labels",
+        "required": false,
+        "default": "0",
+        "description": "Remove the label from the issue if the label regex does not match"
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": "${{ github.event.issue.number || github.event.pull_request.number }}",
+        "description": "The number of the issue/PR to label"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "labels-added",
+        "description": "The labels that were added by the action, as a stringified array."
+      },
+      {
+        "name": "labels-removed",
+        "description": "The labels that were removed by the action, as a stringified array."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Automation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action automatically labels issues based on their content, facilitating communication within the team and improving code quality by organizing issues effectively.",
+        "tags": [
+          "issue labeling",
+          "automation",
+          "GitHub Actions",
+          "communication",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0e5d5df9ee632de2e9ff33d9692620246676d26ef637fb2776eac5ec8ae1f0f5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.907905Z"
+  }
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Message Notify - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Discord Message Notify</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/discord-action</code></p>
+            <p><strong>Author:</strong> Bo-Yi Wu</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/discord-action" target="_blank">github.com/appleboy/discord-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Send a message to a Discord channel using a webhook. This action allows you to notify a Discord channel by sending a message through a webhook.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is designed to send messages to a Discord channel, which clearly falls under communication and notification categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">Discord</span> <span class="tag">notification</span> <span class="tag">webhook</span> <span class="tag">message</span> <span class="tag">communication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>webhook_url</code></td>
+                <td>No</td>
+                <td>The URL of the Discord webhook. This is the endpoint where the message will be sent.</td>
+            </tr><tr>
+                <td><code>webhook_id</code></td>
+                <td>No</td>
+                <td>The ID of the Discord webhook. This is a unique identifier for the webhook.</td>
+            </tr><tr>
+                <td><code>webhook_token</code></td>
+                <td>No</td>
+                <td>The token of the Discord webhook. This token is used to authenticate the webhook.</td>
+            </tr><tr>
+                <td><code>message</code></td>
+                <td>No</td>
+                <td>The content of the message to send. The message can be up to 2000 characters long.</td>
+            </tr><tr>
+                <td><code>file</code></td>
+                <td>No</td>
+                <td>The content of the file to send. You can attach a file to the message.</td>
+            </tr><tr>
+                <td><code>color</code></td>
+                <td>No</td>
+                <td>The color code for the embed message. This sets the color of the embed&#39;s side border.</td>
+            </tr><tr>
+                <td><code>wait</code></td>
+                <td>No</td>
+                <td>Wait for server confirmation before responding. If set to true, the action will return the created message body.</td>
+            </tr><tr>
+                <td><code>tts</code></td>
+                <td>No</td>
+                <td>Set to true if the message should be read aloud using text-to-speech. This enables the text-to-speech feature for the message.</td>
+            </tr><tr>
+                <td><code>username</code></td>
+                <td>No</td>
+                <td>Override the default username of the webhook. This allows you to set a custom username for the message sender.</td>
+            </tr><tr>
+                <td><code>avatar_url</code></td>
+                <td>No</td>
+                <td>Override the default avatar of the webhook. This allows you to set a custom avatar for the message sender.</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Enable debug mode. If set to true, the action will output the request and response details.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

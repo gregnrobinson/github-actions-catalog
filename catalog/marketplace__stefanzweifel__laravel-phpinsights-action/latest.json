@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/stefanzweifel/laravel-phpinsights-action",
+  "version_id": "70728acf55b0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/stefanzweifel/laravel-phpinsights-action/action.yml",
+    "origin": "github.com/stefanzweifel/laravel-phpinsights-action",
+    "publisher": "stefanzweifel",
+    "verified": false
+  },
+  "definition": {
+    "name": "Laravel PHP Insights Action",
+    "description": "Run PHP Insights",
+    "author": "Stefan Zweifel <hello@stefanzweifel.io>",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is designed to run PHP Insights, which focuses on analyzing code quality and providing insights, thus it primarily falls under Code quality. It may also be used in testing workflows to ensure code standards are met.",
+        "tags": [
+          "PHP",
+          "Insights",
+          "Code Quality",
+          "Action",
+          "Laravel"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "70728acf55b01748852b9eb15fe4bf37678be827ff834026520bc40a779b5fb7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.410644Z"
+  }
+}

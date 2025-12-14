@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publish Docker - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Publish Docker</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/wangyoucao577/Publish-Docker-Github-Action</code></p>
+            <p><strong>Author:</strong> Lars Gohr</p>
+            <p><strong>Publisher:</strong> wangyoucao577</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/wangyoucao577/Publish-Docker-Github-Action" target="_blank">github.com/wangyoucao577/Publish-Docker-Github-Action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Uses the git branch as the docker tag and pushes the container</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Publishing</span> <span class="badge badge-category">Packaging</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Publishing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on publishing Docker images, which falls under the Publishing category. It also requires authentication to push the images to a registry, thus it includes the Authentication category as well.</p>
+            <p><strong>Tags:</strong> <span class="tag">Docker</span> <span class="tag">Publish</span> <span class="tag">GitHub Action</span> <span class="tag">Container</span> <span class="tag">Registry</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>The name of the image you would like to push</td>
+            </tr><tr>
+                <td><code>username</code></td>
+                <td>Yes</td>
+                <td>The login username for the registry</td>
+            </tr><tr>
+                <td><code>password</code></td>
+                <td>Yes</td>
+                <td>The login password for the registry</td>
+            </tr><tr>
+                <td><code>registry</code></td>
+                <td>No</td>
+                <td>Use registry for pushing to a custom registry</td>
+            </tr><tr>
+                <td><code>snapshot</code></td>
+                <td>No</td>
+                <td>Use snapshot to push an additional image</td>
+            </tr><tr>
+                <td><code>default_branch</code></td>
+                <td>No</td>
+                <td>Set the default branch of your repository (default: master)</td>
+            </tr><tr>
+                <td><code>dockerfile</code></td>
+                <td>No</td>
+                <td>Use dockerfile when you would like to explicitly build a Dockerfile</td>
+            </tr><tr>
+                <td><code>workdir</code></td>
+                <td>No</td>
+                <td>Use workdir when you would like to change the directory for building</td>
+            </tr><tr>
+                <td><code>context</code></td>
+                <td>No</td>
+                <td>Use context when you would like to change the Docker build context.</td>
+            </tr><tr>
+                <td><code>buildargs</code></td>
+                <td>No</td>
+                <td>Use buildargs when you want to pass a list of environment variables as build-args</td>
+            </tr><tr>
+                <td><code>buildoptions</code></td>
+                <td>No</td>
+                <td>Use buildoptions when you want to configure options for building</td>
+            </tr><tr>
+                <td><code>cache</code></td>
+                <td>No</td>
+                <td>Use cache when you have big images, that you would only like to build partially</td>
+            </tr><tr>
+                <td><code>tags</code></td>
+                <td>No</td>
+                <td>Use tags when you want to bring your own tags (separated by comma)</td>
+            </tr><tr>
+                <td><code>tag_names</code></td>
+                <td>No</td>
+                <td>Use tag_names when you want to push tags/release by their git name</td>
+            </tr><tr>
+                <td><code>tag_semver</code></td>
+                <td>No</td>
+                <td>Push semver docker tags. e.g. image:1.2.3, image:1.2, image:1</td>
+            </tr><tr>
+                <td><code>no_push</code></td>
+                <td>No</td>
+                <td>Set no_push to true if you want to prevent the action from pushing to a registry (default: false)</td>
+            </tr><tr>
+                <td><code>platforms</code></td>
+                <td>No</td>
+                <td>Use platforms for building multi-arch images</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>tag</code></td>
+                <td>Is the tag, which was pushed</td>
+            </tr><tr>
+                <td><code>snapshot-tag</code></td>
+                <td>Is the tag that is generated by the snapshot-option and pushed</td>
+            </tr><tr>
+                <td><code>digest</code></td>
+                <td>Is the digest of the image, which was pushed</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-14T22:31:00.033313Z",
+    "total_publishers": 23,
+    "verified_count": 7,
+    "community_count": 16,
+    "source": "GitHub Marketplace API",
+    "version": "2.0"
+  },
+  "publishers": [
+    {
+      "name": "actions",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "azure",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "aws-actions",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "google-github-actions",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "docker",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "codecov",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "github",
+      "verified": true,
+      "type": "official"
+    },
+    {
+      "name": "JamesIves",
+      "verified": false,
+      "type": "community",
+      "stars": 4522
+    },
+    {
+      "name": "TideDra",
+      "verified": false,
+      "type": "community",
+      "stars": 4218
+    },
+    {
+      "name": "amannn",
+      "verified": false,
+      "type": "community",
+      "stars": 1223
+    },
+    {
+      "name": "appleboy",
+      "verified": false,
+      "type": "community",
+      "stars": 1509
+    },
+    {
+      "name": "benchmark-action",
+      "verified": false,
+      "type": "community",
+      "stars": 1172
+    },
+    {
+      "name": "calibreapp",
+      "verified": false,
+      "type": "community",
+      "stars": 1528
+    },
+    {
+      "name": "coderabbitai",
+      "verified": false,
+      "type": "community",
+      "stars": 1983
+    },
+    {
+      "name": "filipdutescu",
+      "verified": false,
+      "type": "community",
+      "stars": 1867
+    },
+    {
+      "name": "irgolic",
+      "verified": false,
+      "type": "community",
+      "stars": 1359
+    },
+    {
+      "name": "lowlighter",
+      "verified": false,
+      "type": "community",
+      "stars": 15784
+    },
+    {
+      "name": "mxschmitt",
+      "verified": false,
+      "type": "community",
+      "stars": 3379
+    },
+    {
+      "name": "peter-evans",
+      "verified": false,
+      "type": "community",
+      "stars": 2616
+    },
+    {
+      "name": "pypa",
+      "verified": false,
+      "type": "community",
+      "stars": 1118
+    },
+    {
+      "name": "stefanzweifel",
+      "verified": false,
+      "type": "community",
+      "stars": 2430
+    },
+    {
+      "name": "vn7n24fzkq",
+      "verified": false,
+      "type": "community",
+      "stars": 3211
+    },
+    {
+      "name": "yoshi389111",
+      "verified": false,
+      "type": "community",
+      "stars": 1466
+    }
+  ]
+}

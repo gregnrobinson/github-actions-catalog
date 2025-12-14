@@ -1,0 +1,134 @@
+{
+  "action_id": "marketplace/peter-evans/slash-command-dispatch",
+  "version_id": "d730c70bd8f9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/slash-command-dispatch/action.yml",
+    "origin": "github.com/peter-evans/slash-command-dispatch",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Slash Command Dispatch",
+    "description": "Facilitates \"ChatOps\" by creating dispatch events for slash commands",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "A repo scoped GitHub Personal Access Token."
+      },
+      {
+        "name": "reaction-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "An optional GitHub token to use for reactions."
+      },
+      {
+        "name": "reactions",
+        "required": false,
+        "default": true,
+        "description": "Add reactions to comments containing commands."
+      },
+      {
+        "name": "commands",
+        "required": true,
+        "default": null,
+        "description": "A comma or newline separated list of commands."
+      },
+      {
+        "name": "permission",
+        "required": false,
+        "default": "write",
+        "description": "The repository permission level required by the user to dispatch commands."
+      },
+      {
+        "name": "issue-type",
+        "required": false,
+        "default": "both",
+        "description": "The issue type required for commands."
+      },
+      {
+        "name": "allow-edits",
+        "required": false,
+        "default": false,
+        "description": "Allow edited comments to trigger command dispatches."
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The full name of the repository to send the dispatch events."
+      },
+      {
+        "name": "event-type-suffix",
+        "required": false,
+        "default": "-command",
+        "description": "The repository dispatch event type suffix for the commands."
+      },
+      {
+        "name": "static-args",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of arguments that will be dispatched with every command."
+      },
+      {
+        "name": "dispatch-type",
+        "required": false,
+        "default": "repository",
+        "description": "The dispatch type; `repository` or `workflow`."
+      },
+      {
+        "name": "config",
+        "required": false,
+        "default": null,
+        "description": "JSON configuration for commands."
+      },
+      {
+        "name": "config-from-file",
+        "required": false,
+        "default": null,
+        "description": "JSON configuration from a file for commands."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "error-message",
+        "description": "Validation errors when using `workflow` dispatch."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action facilitates ChatOps by creating dispatch events for slash commands, which is primarily a communication function. It also includes notification features through reactions to comments.",
+        "tags": [
+          "ChatOps",
+          "GitHub",
+          "slash-command",
+          "dispatch",
+          "communication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d730c70bd8f9e8fa5630fb0665fcf60cd9cef229438e51144519bb8dc4816abe",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.497471Z"
+  }
+}

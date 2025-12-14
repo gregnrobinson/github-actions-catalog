@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/lowlighter/deployctl",
+  "version_id": "2f3c7541441f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lowlighter/deployctl/action.yml",
+    "origin": "github.com/lowlighter/deployctl",
+    "publisher": "lowlighter",
+    "verified": false
+  },
+  "definition": {
+    "name": "Deploy to Deno Deploy",
+    "description": "Deploy your applications to Deno Deploy, right from GitHub Actions",
+    "author": "Deno Land Inc",
+    "inputs": [
+      {
+        "name": "deno-config",
+        "required": false,
+        "default": null,
+        "description": "The path to a deno config file that will populate other inputs (optional, deno.json and deno.jsonc are auto-discovered)"
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": null,
+        "description": "The name or ID of the project to deploy (required)"
+      },
+      {
+        "name": "entrypoint",
+        "required": false,
+        "default": null,
+        "description": "The path or URL to the entrypoint file (required)"
+      },
+      {
+        "name": "import-map",
+        "required": false,
+        "default": null,
+        "description": "The path or URL to an import map file"
+      },
+      {
+        "name": "include",
+        "required": false,
+        "default": null,
+        "description": "Only upload files that match this pattern (multiline and/or comma-separated)"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "Exclude files that match this pattern (multiline and/or comma-separated)"
+      },
+      {
+        "name": "root",
+        "required": false,
+        "default": null,
+        "description": "The path to the directory containing the code and assets to upload"
+      },
+      {
+        "name": "import-map-autogen-temp",
+        "required": false,
+        "default": ".importMap.generated.json",
+        "description": "The path to store the auto-generated import map if deno config file is present (relative to root)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-id",
+        "description": "The ID of the created deployment"
+      },
+      {
+        "name": "url",
+        "description": "The URL where the deployment is reachable"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "action/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2f3c7541441f69e5032572053d740f8d93dc7668e04d12d9591620d6c3248672",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.384057Z"
+  }
+}

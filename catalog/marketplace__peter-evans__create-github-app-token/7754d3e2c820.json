@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/peter-evans/create-github-app-token",
+  "version_id": "7754d3e2c820",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/create-github-app-token/action.yml",
+    "origin": "github.com/peter-evans/create-github-app-token",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create GitHub App Token",
+    "description": "GitHub Action for creating a GitHub App installation access token",
+    "author": "Gregor Martynus and Parker Brown",
+    "inputs": [
+      {
+        "name": "app-id",
+        "required": false,
+        "default": null,
+        "description": "GitHub App ID"
+      },
+      {
+        "name": "app_id",
+        "required": false,
+        "default": null,
+        "description": "GitHub App ID"
+      },
+      {
+        "name": "private-key",
+        "required": false,
+        "default": null,
+        "description": "GitHub App private key"
+      },
+      {
+        "name": "private_key",
+        "required": false,
+        "default": null,
+        "description": "GitHub App private key"
+      },
+      {
+        "name": "owner",
+        "required": false,
+        "default": null,
+        "description": "The owner of the GitHub App installation (defaults to current repository owner)"
+      },
+      {
+        "name": "repositories",
+        "required": false,
+        "default": null,
+        "description": "Repositories to install the GitHub App on (defaults to current repository if owner is unset)"
+      },
+      {
+        "name": "skip-token-revoke",
+        "required": false,
+        "default": null,
+        "description": "If truthy, the token will not be revoked when the current job is complete"
+      },
+      {
+        "name": "skip_token_revoke",
+        "required": false,
+        "default": null,
+        "description": "If truthy, the token will not be revoked when the current job is complete"
+      },
+      {
+        "name": "github-api-url",
+        "required": false,
+        "default": "${{ github.api_url }}",
+        "description": "The URL of the GitHub REST API."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "token",
+        "description": "GitHub installation access token"
+      },
+      {
+        "name": "installation-id",
+        "description": "GitHub App installation ID"
+      },
+      {
+        "name": "app-slug",
+        "description": "GitHub App slug"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/main.cjs",
+      "post": "dist/post.cjs"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7754d3e2c820f5038da6bc1fb6d7d7b1abf35c61dcbc3521e1e7fdb9c9b2b59a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.494563Z"
+  }
+}

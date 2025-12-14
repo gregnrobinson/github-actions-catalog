@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>terraform-version - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>terraform-version</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/dflook/terraform-version</code></p>
+            <p><strong>Author:</strong> Daniel Flook</p>
+            <p><strong>Publisher:</strong> dflook</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/dflook/terraform-version" target="_blank">github.com/dflook/terraform-version</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Prints Terraform and providers versions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action focuses on determining and printing the versions of Terraform and its providers, which relates to code quality by ensuring the correct versions are used. It also involves dependency management as it handles versioning of dependencies.</p>
+            <p><strong>Tags:</strong> <span class="tag">Terraform</span> <span class="tag">versioning</span> <span class="tag">dependency</span> <span class="tag">code quality</span> <span class="tag">infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>The path to the Terraform root module directory.</td>
+            </tr><tr>
+                <td><code>workspace</code></td>
+                <td>No</td>
+                <td>The workspace to determine the Terraform version for.</td>
+            </tr><tr>
+                <td><code>backend_config</code></td>
+                <td>No</td>
+                <td>List of Terraform backend config values, one per line.
+
+This will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.
+For other backend types, this is used to fetch the version that most recently wrote to the Terraform state.
+</td>
+            </tr><tr>
+                <td><code>backend_config_file</code></td>
+                <td>No</td>
+                <td>List of Terraform backend config files to use, one per line.
+Paths should be relative to the GitHub Actions workspace
+
+This will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.
+For other backend types, this is used to fetch the version that most recently wrote to the Terraform state.
+</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>terraform</code></td>
+                <td>The Hashicorp Terraform or OpenTofu version that is used by the configuration.</td>
+            </tr><tr>
+                <td><code>tofu</code></td>
+                <td>If the action chose a version of OpenTofu, this will be set to the version that is used by the configuration.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

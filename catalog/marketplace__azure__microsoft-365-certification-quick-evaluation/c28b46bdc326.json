@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/azure/microsoft-365-certification-quick-evaluation",
+  "version_id": "c28b46bdc326",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/microsoft-365-certification-quick-evaluation/action.yml",
+    "origin": "github.com/azure/microsoft-365-certification-quick-evaluation",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Microsoft 365 certification quick evaluation",
+    "description": "Microsoft 365 certiquick assessments action helps you get immediately compliance result by report or by deployments.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "report-name",
+        "required": false,
+        "default": null,
+        "description": "name of the compliance report"
+      },
+      {
+        "name": "deployment-ids",
+        "required": false,
+        "default": null,
+        "description": "deployment ids, array of string in json format"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c28b46bdc326db45104dea5d169c71726b1f78a7bc094c67a693bb948e310757",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.572521Z"
+  }
+}

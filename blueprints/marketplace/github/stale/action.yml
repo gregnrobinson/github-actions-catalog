@@ -1,0 +1,61 @@
+name: 'Close Stale Issues'
+description: 'Close issues and pull requests with no recent activity'
+author: 'GitHub'
+inputs:
+  repo-token:
+    description: 'Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.'
+    required: true
+  stale-issue-message:
+    description: 'The message to post on the issue when tagging it. If none provided, will not mark issues stale.'
+  stale-pr-message:
+    description: 'The message to post on the pr when tagging it. If none provided, will not mark pull requests stale.'
+  close-issue-message:
+    description: 'The message to post on the issue when closing it. If none provided, will not comment when closing an issue.'
+  close-pr-message:
+    description: 'The message to post on the pr when closing it. If none provided, will not comment when closing a pull requests.'
+  days-before-stale:
+    description: 'The number of days old an issue can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.'
+    default: 60
+  days-before-close:
+    description: 'The number of days to wait to close an issue or pull request after it being marked stale. Set to -1 to never close stale issues.'
+    default: 7
+  stale-issue-label:
+    description: 'The label to apply when an issue is stale.'
+    default: 'Stale'
+  close-issue-label:
+    description: 'The label to apply when an issue is closed.'
+  exempt-issue-labels:
+    description: 'The labels to apply when an issue is exempt from being marked stale. Separate multiple labels with commas (eg. "label1,label2")'
+    default: ''
+  stale-pr-label:
+    description: 'The label to apply when a pull request is stale.'
+    default: 'Stale'
+  close-pr-label:
+    description: 'The label to apply when a pull request is closed.'
+  exempt-pr-labels:
+    description: 'The labels to apply when a pull request is exempt from being marked stale. Separate multiple labels with commas (eg. "label1,label2")'
+    default: ''
+  only-labels:
+    description: 'Only issues or pull requests with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels.'
+    default: ''
+  operations-per-run:
+    description: 'The maximum number of operations per run, used to control rate limiting.'
+    default: 30
+  remove-stale-when-updated:
+    description: 'Remove stale labels from issues when they are updated or commented on.'
+    default: true
+  debug-only:
+    description: 'Run the processor in debug mode without actually performing any operations on live issues.'
+    default: false
+  ascending:
+    description: 'The order to get issues or pull requests. Defaults to false, which is descending'
+    default: false
+  skip-stale-pr-message:
+    description: 'Skip adding stale message when marking a pull request as stale.'
+    default: false
+  skip-stale-issue-message:
+    description: 'Skip adding stale message when marking an issue as stale.'
+    default: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

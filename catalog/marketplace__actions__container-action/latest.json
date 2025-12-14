@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/actions/container-action",
+  "version_id": "92717729daf4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/container-action/action.yml",
+    "origin": "github.com/actions/container-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Your input description here"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "greeting",
+        "description": "Your output description here"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "INPUT_WHO_TO_GREET": "${{ inputs.who-to-greet }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action appears to be designed for greeting or sending messages, which falls under communication and notification categories.",
+        "tags": [
+          "greeting",
+          "communication",
+          "notification",
+          "action",
+          "container"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "92717729daf4045f401be18252bf08b5a8b24de58321c3c1496b8a1026c4386b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.303724Z"
+  }
+}

@@ -1,0 +1,56 @@
+name: tofu-check
+description: Check if there are OpenTofu changes to apply
+author: Daniel Flook
+
+inputs:
+  path:
+    description: Path to the OpenTofu root module to check
+    required: false
+    default: "."
+  workspace:
+    description: OpenTofu workspace to run the plan in
+    required: false
+    default: "default"
+  variables:
+    description: |
+      Variables to set for the tofu plan. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).
+
+      Variables set here override any given in `var_file`s.
+    required: false
+  var_file:
+    description: |
+      List of tfvars files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+    required: false
+  backend_config:
+    description: List of OpenTofu backend config values, one per line.
+    required: false
+    default: ""
+  backend_config_file:
+    description: |
+      List of OpenTofu backend config files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+    required: false
+    default: ""
+  parallelism:
+    description: Limit the number of concurrent operations
+    required: false
+    default: "0"
+
+outputs:
+  failure-reason:
+    description: |
+      When the job outcome is `failure` because the there are outstanding changes to apply, this will be set to 'changes-to-apply'.
+      If the job fails for any other reason this will not be set.
+      This can be used with the Actions expression syntax to conditionally run a step when there are changes to apply.
+
+runs:
+  env:
+    OPENTOFU: true
+  using: docker
+  image: docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc
+  entrypoint: /entrypoints/check.sh
+
+branding:
+  icon: globe
+  color: purple

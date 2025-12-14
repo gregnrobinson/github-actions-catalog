@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Functions Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Functions Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/functions-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/functions-action" target="_blank">github.com/azure/functions-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy Function App to Azure Functions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The Azure Functions Action is primarily focused on deploying a Function App to Azure, which falls under the Deployment category. It also involves aspects of Infrastructure as it interacts with Azure&#39;s cloud services.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Functions</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-name</code></td>
+                <td>Yes</td>
+                <td>Name of the Azure Function App</td>
+            </tr><tr>
+                <td><code>package</code></td>
+                <td>No</td>
+                <td>Path to package or folder. *.zip or a folder to deploy</td>
+            </tr><tr>
+                <td><code>slot-name</code></td>
+                <td>No</td>
+                <td>Function app slot to be deploy to</td>
+            </tr><tr>
+                <td><code>publish-profile</code></td>
+                <td>No</td>
+                <td>Publish profile (*.publishsettings) file contents with web deploy secrets</td>
+            </tr><tr>
+                <td><code>respect-pom-xml</code></td>
+                <td>No</td>
+                <td>Automatically look up Java function app artifact from pom.xml (default: &#39;false&#39;). When this is set to &#39;true&#39;, &#39;package&#39; should point to the folder of host.json.</td>
+            </tr><tr>
+                <td><code>respect-funcignore</code></td>
+                <td>No</td>
+                <td>Remove unwanted files defined in .funcignore file (default: &#39;false&#39;). When this is set to &#39;true&#39;, &#39;package&#39; should point to the folder of host.json.</td>
+            </tr><tr>
+                <td><code>scm-do-build-during-deployment</code></td>
+                <td>No</td>
+                <td>Enable build action from Kudu when the package is deployed onto the function app. This will temporarily change the SCM_DO_BUILD_DURING_DEPLOYMENT setting for this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string &#39;&#39;. To enable remote build for your project, please set this and &#39;enable-oryx-build&#39; both to &#39;true&#39;. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: &#39;false&#39;).</td>
+            </tr><tr>
+                <td><code>enable-oryx-build</code></td>
+                <td>No</td>
+                <td>Use Oryx Build from Kudu when the package is deployed onto the function app. (Linux functions only). This will temporarily change the ENABLE_ORYX_BUILD setting from this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string &#39;&#39;. To enable remote build for your project, please set this and &#39;scm-do-build-during-deployment&#39; both to &#39;true&#39;. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: &#39;false&#39;).</td>
+            </tr><tr>
+                <td><code>sku</code></td>
+                <td>No</td>
+                <td>For function app on Flex Consumption plan, set this to &#39;flexconsumption&#39;. You can skip this parameter for function app on other plans. If using RBAC credentials, then by default, GitHub Action will resolve the value for this paramter. But if using &#39;publish-profile&#39;, then you must set this for function app on Flex Consumption plan.</td>
+            </tr><tr>
+                <td><code>remote-build</code></td>
+                <td>No</td>
+                <td>For function app on Flex Consumption plan, enable build action from Kudu when the package is deployed onto the function app by setting this to &#39;true&#39;. For function app on Flex Consumption plan, do not set &#39;scm-do-build-during-deployment&#39; and &#39;enable-oryx-build&#39;. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: &#39;false&#39;).</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-url</code></td>
+                <td>URL to work with your function app</td>
+            </tr><tr>
+                <td><code>package-url</code></td>
+                <td>URL to the package zip file if using package deployment</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

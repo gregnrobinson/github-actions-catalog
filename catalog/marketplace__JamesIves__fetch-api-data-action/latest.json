@@ -1,0 +1,129 @@
+{
+  "action_id": "marketplace/JamesIves/fetch-api-data-action",
+  "version_id": "594a0661e243",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/JamesIves/fetch-api-data-action/action.yml",
+    "origin": "github.com/JamesIves/fetch-api-data-action",
+    "publisher": "JamesIves",
+    "verified": false
+  },
+  "definition": {
+    "name": "Fetch API Data",
+    "description": "This action will handle authenticated API requests, allowing you to save the data from the request into your workspace.",
+    "author": "James Ives <iam@jamesiv.es>",
+    "inputs": [
+      {
+        "name": "endpoint",
+        "required": true,
+        "default": null,
+        "description": "The URL of the endpoint you would like to retrieve data from."
+      },
+      {
+        "name": "configuration",
+        "required": false,
+        "default": null,
+        "description": "Any applicable configuration settings that should be set such as authentication tokens. You can reference secrets using the secrets syntax, or you can reference data returned from the `TOKEN_ENDPOINT` request using the triple bracket syntax."
+      },
+      {
+        "name": "token-endpoint",
+        "required": false,
+        "default": null,
+        "description": "If the `ENDPOINT` API requires you to make a request to get an access token prior to fetching data you can perform this task by specifying a token endpoint. Any data returned from the token end can be referenced in the `CONFIGURATION` variable using the triple bracket syntax."
+      },
+      {
+        "name": "token-configuration",
+        "required": false,
+        "default": null,
+        "description": "Any applicable configuration settings that should be set such as authentication tokens. You can reference secrets using the secrets syntax."
+      },
+      {
+        "name": "retry",
+        "required": false,
+        "default": null,
+        "description": "If you are working with an intermittent API you can toggle this option to true. Doing so will make the action try the request 3 times at random invervals before failing."
+      },
+      {
+        "name": "save-location",
+        "required": false,
+        "default": null,
+        "description": "By default the save location of the JSON file is `fetch-api-data-action/data.json`, if you would like to override the directory you can do so by specifying a new one with this variable."
+      },
+      {
+        "name": "save-name",
+        "required": false,
+        "default": null,
+        "description": "You can override the name of the exported `.json` file by specifying a new one here. You should _not_ include the file extension in your name."
+      },
+      {
+        "name": "variable-name",
+        "required": false,
+        "default": null,
+        "description": "You can override the name of the variable name the action exports. This will work so long as set-output is true."
+      },
+      {
+        "name": "set-output",
+        "required": false,
+        "default": "true",
+        "description": "Determines if the returned data should be saved as an environment variable or not. This field defaults to `true`, but depending on your API response length you may need to toggle this."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "If set to true the action will log the API responses it receives in the terminal."
+      },
+      {
+        "name": "format",
+        "required": false,
+        "default": null,
+        "description": "Allows you to modify the format of the saved file, for example you can use txt here to save the file as a txt file. This field defaults to json."
+      },
+      {
+        "name": "encoding",
+        "required": false,
+        "default": null,
+        "description": "Allows you to specify the encoding the saved file, can be of type BufferEncoding: \"ascii\" | \"utf8\" | \"utf-8\" | \"utf16le\" | \"ucs2\" | \"ucs-2\" | \"base64\" | \"latin1\" | \"binary\" | \"hex\"."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "fetchApiData",
+        "description": "The requested data from the API stored as a string."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Communication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action handles authenticated API requests, which places it primarily in the Authentication category. It also involves fetching data from an API, linking it to Communication and Dependency management as it may depend on external services.",
+        "tags": [
+          "API",
+          "fetch",
+          "authentication",
+          "data",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "594a0661e2437a367954283dc3eeb3a69d5df583033f91a3d6e7fe10c1d59cd9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.844563Z"
+  }
+}

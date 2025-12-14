@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/azure/WordPress-Azure-App-Service",
+  "version_id": "e1995f1d9a8f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/WordPress-Azure-App-Service/action.yml",
+    "origin": "github.com/azure/WordPress-Azure-App-Service",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy a Wordpress on Azure App service",
+    "description": "This action helps create an Azure App service and deploy Wordpress on it",
+    "author": "",
+    "inputs": [
+      {
+        "name": "client-id",
+        "required": true,
+        "default": null,
+        "description": "Client id to login to azure"
+      },
+      {
+        "name": "tenant-id",
+        "required": true,
+        "default": null,
+        "description": "Tenant id to login to azure"
+      },
+      {
+        "name": "subscription-id",
+        "required": true,
+        "default": null,
+        "description": "Subscription id to be used with your az login"
+      },
+      {
+        "name": "resource-group-name",
+        "required": true,
+        "default": null,
+        "description": "Resource group to deploy your resources to"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Checkout master",
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "az cli login",
+          "uses": "azure/login@v1",
+          "with": {
+            "client-id": "${{ inputs.client-id }}",
+            "tenant-id": "${{ inputs.tenant-id }}",
+            "subscription-id": "${{ inputs.subscription-id }}",
+            "enable-AzPSSession": false
+          }
+        },
+        {
+          "name": "Az deploy - wordpress on app svc",
+          "uses": "azure/arm-deploy@v1",
+          "with": {
+            "subscriptionId": "${{ inputs.subscription-id }}",
+            "resourceGroupName": "${{ inputs.resource-group-name }}",
+            "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/b41b420ccb55ff45a032b83b2f85e65d6fa16aae/application-workloads/wordpress/wordpress-app-service-mysql-inapp/azuredeploy.json",
+            "parameters": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/b41b420ccb55ff45a032b83b2f85e65d6fa16aae/application-workloads/wordpress/wordpress-app-service-mysql-inapp/azuredeploy.parameters.json",
+            "failOnStdErr": false
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e1995f1d9a8f8b1e481eac6c58b0728e295cb030628f3c58e68e4f0aa4952273",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.503887Z"
+  }
+}

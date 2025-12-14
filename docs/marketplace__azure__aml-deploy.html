@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Machine Learning Deploy Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Machine Learning Deploy Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/aml-deploy</code></p>
+            <p><strong>Author:</strong> azure/gh-aml</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/aml-deploy" target="_blank">github.com/azure/aml-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy a registered model in your Azure Machine Learning Workspace with this GitHub Action</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is specifically designed to deploy a model to Azure Machine Learning, making deployment its primary function. It also requires Azure credentials for authentication, linking it to both authentication and infrastructure categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Machine Learning</span> <span class="tag">Deployment</span> <span class="tag">GitHub Action</span> <span class="tag">Model</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>azure_credentials</code></td>
+                <td>Yes</td>
+                <td>Paste output of `az ad sp create-for-rbac --name &lt;your-sp-name&gt; --role contributor --scopes /subscriptions/&lt;your-subscriptionId&gt;/resourceGroups/&lt;your-rg&gt; --sdk-auth` as value of secret variable: AZURE_CREDENTIALS</td>
+            </tr><tr>
+                <td><code>model_name</code></td>
+                <td>Yes</td>
+                <td>Name of the model that will be deployed</td>
+            </tr><tr>
+                <td><code>model_version</code></td>
+                <td>Yes</td>
+                <td>Version of the model that will be deployed</td>
+            </tr><tr>
+                <td><code>parameters_file</code></td>
+                <td>Yes</td>
+                <td>JSON file including the parameters for deployment. This looks in the .ml/.azure/ directory</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>service_scoring_uri</code></td>
+                <td>Scoring URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)</td>
+            </tr><tr>
+                <td><code>service_swagger_uri</code></td>
+                <td>Swagger URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)</td>
+            </tr><tr>
+                <td><code>acr_address</code></td>
+                <td>The DNS name or IP address (e.g. myacr.azurecr.io) of the Azure Container Registry (ACR) (only provided if create_image is not None)</td>
+            </tr><tr>
+                <td><code>acr_username</code></td>
+                <td>The username for ACR (only provided if create_image is not None)</td>
+            </tr><tr>
+                <td><code>acr_password</code></td>
+                <td>The password for ACR (only provided if create_image is not None)</td>
+            </tr><tr>
+                <td><code>package_location</code></td>
+                <td>Full URI of the docker image (e.g. myacr.azurecr.io/azureml/azureml_*) (only provided if create_image is not None)</td>
+            </tr><tr>
+                <td><code>profiling_details</code></td>
+                <td>Dictionary of details of the model profiling result. This will only be provided, if the model profiling method is used and successfully executed.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

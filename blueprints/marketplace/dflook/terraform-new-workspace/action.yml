@@ -1,0 +1,31 @@
+name: terraform-new-workspace
+description: Creates a new Terraform workspace. If the workspace already exists, succeeds without doing anything.
+author: Daniel Flook
+
+inputs:
+  path:
+    description: The path to the Terraform root module directory.
+    required: false
+    default: "."
+  workspace:
+    description: The name of the Terraform workspace to create.
+    required: true
+  backend_config:
+    description: List of Terraform backend config values, one per line.
+    required: false
+    default: ""
+  backend_config_file:
+    description: |
+      List of Terraform backend config files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+    required: false
+    default: ""
+
+runs:
+  using: docker
+  image: docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc
+  entrypoint: /entrypoints/new-workspace.sh
+
+branding:
+  icon: globe
+  color: purple

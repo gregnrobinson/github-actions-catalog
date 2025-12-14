@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/dflook/terraform-check",
+  "version_id": "8a8c60285550",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-check/action.yml",
+    "origin": "github.com/dflook/terraform-check",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-check",
+    "description": "Check if there are Terraform changes to apply",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Path to the Terraform root module to check"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "Terraform workspace to run the plan in"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the terraform plan. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "parallelism",
+        "required": false,
+        "default": "0",
+        "description": "Limit the number of concurrent operations"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the there are outstanding changes to apply, this will be set to 'changes-to-apply'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when there are changes to apply.\n"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/check.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Infrastructure",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action checks for changes in Terraform configurations, which is a form of testing the infrastructure as code. It also relates to code quality by ensuring that changes are validated before being applied.",
+        "tags": [
+          "terraform",
+          "infrastructure",
+          "testing",
+          "code quality",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8a8c602855508e968d7668e1b52fe7cb6575acb4a71fa7ec0ed4d6d959a4a1d1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.413685Z"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "action_id": "marketplace/appleboy/build-push-action",
+  "version_id": "df6a2274e7b1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/build-push-action/action.yml",
+    "origin": "github.com/appleboy/build-push-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Build and push Docker images",
+    "description": "Build and push Docker images with Buildx",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "add-hosts",
+        "required": false,
+        "default": null,
+        "description": "List of a customs host-to-IP mapping (e.g., docker:10.180.0.1)"
+      },
+      {
+        "name": "allow",
+        "required": false,
+        "default": null,
+        "description": "List of extra privileged entitlement (e.g., network.host,security.insecure)"
+      },
+      {
+        "name": "attests",
+        "required": false,
+        "default": null,
+        "description": "List of attestation parameters (e.g., type=sbom,generator=image)"
+      },
+      {
+        "name": "build-args",
+        "required": false,
+        "default": null,
+        "description": "List of build-time variables"
+      },
+      {
+        "name": "build-contexts",
+        "required": false,
+        "default": null,
+        "description": "List of additional build contexts (e.g., name=path)"
+      },
+      {
+        "name": "builder",
+        "required": false,
+        "default": null,
+        "description": "Builder instance"
+      },
+      {
+        "name": "cache-from",
+        "required": false,
+        "default": null,
+        "description": "List of external cache sources for buildx (e.g., user/app:cache, type=local,src=path/to/dir)"
+      },
+      {
+        "name": "cache-to",
+        "required": false,
+        "default": null,
+        "description": "List of cache export destinations for buildx (e.g., user/app:cache, type=local,dest=path/to/dir)"
+      },
+      {
+        "name": "cgroup-parent",
+        "required": false,
+        "default": null,
+        "description": "Optional parent cgroup for the container used in the build"
+      },
+      {
+        "name": "context",
+        "required": false,
+        "default": null,
+        "description": "Build's context is the set of files located in the specified PATH or URL"
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to the Dockerfile"
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "List of metadata for an image"
+      },
+      {
+        "name": "load",
+        "required": false,
+        "default": "false",
+        "description": "Load is a shorthand for --output=type=docker"
+      },
+      {
+        "name": "network",
+        "required": false,
+        "default": null,
+        "description": "Set the networking mode for the RUN instructions during build"
+      },
+      {
+        "name": "no-cache",
+        "required": false,
+        "default": "false",
+        "description": "Do not use cache when building the image"
+      },
+      {
+        "name": "no-cache-filters",
+        "required": false,
+        "default": null,
+        "description": "Do not cache specified stages"
+      },
+      {
+        "name": "outputs",
+        "required": false,
+        "default": null,
+        "description": "List of output destinations (format: type=local,dest=path)"
+      },
+      {
+        "name": "platforms",
+        "required": false,
+        "default": null,
+        "description": "List of target platforms for build"
+      },
+      {
+        "name": "provenance",
+        "required": false,
+        "default": null,
+        "description": "Generate provenance attestation for the build (shorthand for --attest=type=provenance)"
+      },
+      {
+        "name": "pull",
+        "required": false,
+        "default": "false",
+        "description": "Always attempt to pull all referenced images"
+      },
+      {
+        "name": "push",
+        "required": false,
+        "default": "false",
+        "description": "Push is a shorthand for --output=type=registry"
+      },
+      {
+        "name": "insecure",
+        "required": false,
+        "default": "false",
+        "description": "insecure"
+      },
+      {
+        "name": "sbom",
+        "required": false,
+        "default": null,
+        "description": "Generate SBOM attestation for the build (shorthand for --attest=type=sbom)"
+      },
+      {
+        "name": "secrets",
+        "required": false,
+        "default": null,
+        "description": "List of secrets to expose to the build (e.g., key=string, GIT_AUTH_TOKEN=mytoken)"
+      },
+      {
+        "name": "secret-files",
+        "required": false,
+        "default": null,
+        "description": "List of secret files to expose to the build (e.g., key=filename, MY_SECRET=./secret.txt)"
+      },
+      {
+        "name": "shm-size",
+        "required": false,
+        "default": null,
+        "description": "Size of /dev/shm (e.g., 2g)"
+      },
+      {
+        "name": "ssh",
+        "required": false,
+        "default": null,
+        "description": "List of SSH agent socket or keys to expose to the build"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": null,
+        "description": "List of tags"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "default": null,
+        "description": "Sets the target stage to build"
+      },
+      {
+        "name": "ulimit",
+        "required": false,
+        "default": null,
+        "description": "Ulimit options (e.g., nofile=1024:1024)"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Token used to authenticate against a repository for Git context"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "imageid",
+        "description": "Image ID"
+      },
+      {
+        "name": "digest",
+        "description": "Image digest"
+      },
+      {
+        "name": "metadata",
+        "description": "Build result metadata"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Packaging",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action is primarily focused on building Docker images, which falls under the Build category. Additionally, it involves pushing those images to a registry, linking it to Packaging and Deployment.",
+        "tags": [
+          "Docker",
+          "Buildx",
+          "CI/CD",
+          "Container",
+          "Image"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "df6a2274e7b12148550787855a983bd4e25318b505618cc2aadc6b478833fcc6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.151565Z"
+  }
+}

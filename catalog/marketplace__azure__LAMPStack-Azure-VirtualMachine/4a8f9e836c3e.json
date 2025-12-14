@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/azure/LAMPStack-Azure-VirtualMachine",
+  "version_id": "4a8f9e836c3e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/LAMPStack-Azure-VirtualMachine/action.yml",
+    "origin": "github.com/azure/LAMPStack-Azure-VirtualMachine",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy LAMP stack on Azure Virtual Machine",
+    "description": "This action helps create an Azure Virtual Machine and deploy LAMP stack on it",
+    "author": "",
+    "inputs": [
+      {
+        "name": "client-id",
+        "required": true,
+        "default": null,
+        "description": "Client id to login to azure"
+      },
+      {
+        "name": "tenant-id",
+        "required": true,
+        "default": null,
+        "description": "Tenant id to login to azure"
+      },
+      {
+        "name": "subscription-id",
+        "required": true,
+        "default": null,
+        "description": "Subscription id to be used with your az login"
+      },
+      {
+        "name": "resource-group-name",
+        "required": true,
+        "default": null,
+        "description": "Resource group to deploy your resources to"
+      },
+      {
+        "name": "admin-username",
+        "required": true,
+        "default": null,
+        "description": "Admin username to login to vm"
+      },
+      {
+        "name": "admin-password",
+        "required": true,
+        "default": null,
+        "description": "Admin password to login to vm"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Checkout master",
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "az cli login",
+          "uses": "azure/login@v1",
+          "with": {
+            "client-id": "${{ inputs.client-id }}",
+            "tenant-id": "${{ inputs.tenant-id }}",
+            "subscription-id": "${{ inputs.subscription-id }}",
+            "enable-AzPSSession": false
+          }
+        },
+        {
+          "name": "Accept Bitnami marketplace terms",
+          "shell": "bash",
+          "run": "az vm image terms accept --urn bitnami:lampstack:5-6:latest\n"
+        },
+        {
+          "name": "Az deploy - LAMP on VM Bitnami",
+          "uses": "azure/arm-deploy@v1",
+          "with": {
+            "subscriptionId": "${{ inputs.subscription-id }}",
+            "resourceGroupName": "${{ inputs.resource-group-name }}",
+            "template": "https://raw.githubusercontent.com/vaibbavisk20/deploy_lamp_vm_azure/main/vm_template.json",
+            "parameters": "https://raw.githubusercontent.com/vaibbavisk20/deploy_lamp_vm_azure/main/vm_parameters.json adminUsername=${{ inputs.admin-username }} adminPassword=${{ inputs.admin-password }}",
+            "failOnStdErr": false
+          }
+        },
+        {
+          "name": "Fetch JSON file from remote repository",
+          "shell": "bash",
+          "run": "json_url=\"https://raw.githubusercontent.com/vaibbavisk20/deploy_lamp_vm_azure/main/vm_parameters.json\"\ncurl -sSLO $json_url\n"
+        },
+        {
+          "name": "Print parameter value",
+          "shell": "bash",
+          "run": "json_file=\"vm_parameters.json\"\n# vm name\nvirtual_machine_name=\".parameters.virtualMachineName.value\"\nresult=$(jq -r \"$virtual_machine_name\" \"$json_file\")\necho \"Virtual Machine Properties\"\necho \"Name: $result\"\n\n# region\nlocation=\".parameters.location.value\"\nresult=$(jq -r \"$location\" \"$json_file\")\necho \"Location: $result\"\n\n# vm size\nvirtual_machine_size=\".parameters.virtualMachineSize.value\"\nresult=$(jq -r \"$virtual_machine_size\" \"$json_file\")\necho \"VM Size: $result\"\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4a8f9e836c3ebaae55043c21316dcf8dee93a0e2447e7e603241b4a30c509c2b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.548801Z"
+  }
+}

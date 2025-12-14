@@ -1,0 +1,71 @@
+name: 'Licensed CI'
+description: 'Ensure cached github/licensed license data is valid and up to date'
+inputs:
+  command:
+    description: 'Licensed command to run'
+    required: false
+    default: 'licensed'
+  github_token:
+    description: 'Access token to push license updates to GitHub'
+    required: false
+    default: ${{ github.token }}
+  config_file:
+    description: 'Path to licensed configuration file'
+    required: false
+    default: '.licensed.yml'
+  user_name:
+    description: 'Name to use when pushing file changes'
+    required: false
+    default: 'licensed-ci'
+  user_email:
+    description: 'Email to use when pushing file changes'
+    required: false
+    default: 'licensed-ci@users.noreply.github.com'
+  commit_message:
+    description: 'Message to use when committing file changes'
+    required: false
+    default: 'Auto-update license files'
+  pr_comment:
+    description: '(Deprecated) Comment to add to a pull request, if one exists for the branch'
+    required: false
+  workflow:
+    description: Which workflow to run when metadata is updated.  See README for more details.
+    required: false
+    default: push
+  cleanup_on_success:
+    description: 'Whether to close open PRs and delete license branches on CI success in user branch. Only used by `branch` workflow'
+    required: false
+    default: 'false'
+  branch:
+    description: 'Branch to run the action on when using `workflow_dispatch` or `schedule` event triggers'
+    required: false
+  dependabot_skip:
+    description: 'Whether to add [dependabot skip] to license update commits resulting from Dependabot updates'
+    required: false
+    default: 'false'
+  sources:
+    description: 'Set to a string containing a comma-separated list of github/licensed source name to add `--sources` CLI arguments to cache and status commands.'
+    required: false
+  format:
+    description: 'Set to `yaml` or `json` to add the `--format` CLI argument to cache and status commands.'
+    required: false
+
+outputs:
+  licenses_branch:
+    description: The branch containing licensed-ci changes.
+  user_branch:
+    description: The branch containing user changes.
+  licenses_updated:
+    description: A boolean string indicating whether license files were updated.
+  pr_url:
+    description: The html url of the pull request containing license updates, if available.
+  pr_number:
+    description: The number of the pull request containing license updates, if available.
+  pr_created:
+    description: True if a pull request was created in a `branch` workflow, false otherwise.
+branding:
+  icon: check-circle
+  color: green
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

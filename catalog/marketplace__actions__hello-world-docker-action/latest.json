@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/actions/hello-world-docker-action",
+  "version_id": "dfb86c975ed3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/hello-world-docker-action/action.yml",
+    "origin": "github.com/actions/hello-world-docker-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Hello, World!",
+    "description": "Greet someone and record the time",
+    "author": "GitHub Actions",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "INPUT_WHO_TO_GREET": "${{ inputs.who-to-greet }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on greeting someone, which falls under communication. It does not fit into other categories like build, testing, or deployment.",
+        "tags": [
+          "greeting",
+          "hello",
+          "docker",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "dfb86c975ed38054a47adfb712f8a26c0bbcd9b0234e879072d6f2176958e510",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.270561Z"
+  }
+}

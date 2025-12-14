@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-electron-builder",
+  "version_id": "b2bcad2759db",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/samuelmeuli/action-electron-builder/action.yml",
+    "origin": "github.com/samuelmeuli/action-electron-builder",
+    "publisher": "samuelmeuli",
+    "verified": false
+  },
+  "definition": {
+    "name": "Electron Builder Action",
+    "description": "GitHub Action for building and releasing Electron apps",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "GitHub authentication token"
+      },
+      {
+        "name": "mac_certs",
+        "required": false,
+        "default": null,
+        "description": "Base64-encoded code signing certificate for macOS"
+      },
+      {
+        "name": "mac_certs_password",
+        "required": false,
+        "default": null,
+        "description": "Password for decrypting `mac_certs`"
+      },
+      {
+        "name": "release",
+        "required": false,
+        "default": false,
+        "description": "Whether the app should be released after a successful build"
+      },
+      {
+        "name": "windows_certs",
+        "required": false,
+        "default": null,
+        "description": "Base64-encoded code signing certificate for Windows"
+      },
+      {
+        "name": "windows_certs_password",
+        "required": false,
+        "default": null,
+        "description": "Password for decrypting `windows_certs`"
+      },
+      {
+        "name": "package_root",
+        "required": false,
+        "default": ".",
+        "description": "Directory where NPM/Yarn commands should be run"
+      },
+      {
+        "name": "build_script_name",
+        "required": false,
+        "default": "build",
+        "description": "Name of the optional NPM build script which is executed before `electron-builder`"
+      },
+      {
+        "name": "skip_build",
+        "required": false,
+        "default": false,
+        "description": "Whether the action should execute the NPM build script before running `electron-builder`"
+      },
+      {
+        "name": "use_vue_cli",
+        "required": false,
+        "default": false,
+        "description": "Whether to run `electron-builder` using the Vue CLI plugin instead of calling the command directly"
+      },
+      {
+        "name": "args",
+        "required": false,
+        "default": "",
+        "description": "Other arguments to pass to the `electron-builder` command, e.g. configuration overrides"
+      },
+      {
+        "name": "max_attempts",
+        "required": false,
+        "default": "1",
+        "description": "Maximum number of attempts for completing the build and release step"
+      },
+      {
+        "name": "app_root",
+        "required": false,
+        "default": null,
+        "description": "Directory where `electron-builder` commands should be run"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b2bcad2759db06f99fa63fb0d53be3be21e7663a9bef7d1340af920333c01902",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.891523Z"
+  }
+}

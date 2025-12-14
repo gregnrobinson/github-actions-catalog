@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy to Azure Container Instances - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy to Azure Container Instances</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/aci-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/aci-deploy" target="_blank">github.com/azure/aci-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy to Containers to Azure Container Instances. github.com/Azure/Actions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to deploy applications to Azure Container Instances, making Deployment its primary focus. It also involves infrastructure management by creating resources in Azure.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Container Instances</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>resource-group</code></td>
+                <td>Yes</td>
+                <td>Name of the Resource Group in which the Container Instance will be created</td>
+            </tr><tr>
+                <td><code>azure-file-volume-account-key</code></td>
+                <td>No</td>
+                <td>The storage account access key used to access the Azure File Share</td>
+            </tr><tr>
+                <td><code>azure-file-volume-account-name</code></td>
+                <td>No</td>
+                <td>The name of the storage account that contains the Azure File Share</td>
+            </tr><tr>
+                <td><code>azure-file-volume-mount-path</code></td>
+                <td>No</td>
+                <td>The path within the container where the Azure File Volume should be mounted. Must not contain &quot;:&quot;</td>
+            </tr><tr>
+                <td><code>azure-file-volume-share-name</code></td>
+                <td>No</td>
+                <td>The name of the Azure File Share to be mounted as a volume</td>
+            </tr><tr>
+                <td><code>azure-file-volume-read-only</code></td>
+                <td>No</td>
+                <td>Should the Azure File Share be Mounted as Read Only. Accepted { true, false }</td>
+            </tr><tr>
+                <td><code>command-line</code></td>
+                <td>No</td>
+                <td>The command line to run when the container is started, e.g. &quot;/bin/bash -c myscript.sh&quot;</td>
+            </tr><tr>
+                <td><code>cpu</code></td>
+                <td>No</td>
+                <td>Number of CPU Cores Required</td>
+            </tr><tr>
+                <td><code>dns-name-label</code></td>
+                <td>Yes</td>
+                <td>The DNS Name Label for Container with Public IP</td>
+            </tr><tr>
+                <td><code>environment-variables</code></td>
+                <td>No</td>
+                <td>List of environment variables for the container. Space-seperated in &quot;key=value&quot; format</td>
+            </tr><tr>
+                <td><code>gitrepo-dir</code></td>
+                <td>No</td>
+                <td>The target directory path in the git repository. Must not contain &quot;..&quot;</td>
+            </tr><tr>
+                <td><code>gitrepo-mount-path</code></td>
+                <td>No</td>
+                <td>The path within the container where the git repo volume should be mounted. Must not contain &quot;:&quot;</td>
+            </tr><tr>
+                <td><code>gitrepo-revision</code></td>
+                <td>No</td>
+                <td>The commit hash for the specified revision</td>
+            </tr><tr>
+                <td><code>gitrepo-url</code></td>
+                <td>No</td>
+                <td>The URL of a git repository to be mounted as a volume</td>
+            </tr><tr>
+                <td><code>gpu-count</code></td>
+                <td>No</td>
+                <td>The Number of GPU Resources needed in the Container</td>
+            </tr><tr>
+                <td><code>gpu-sku</code></td>
+                <td>No</td>
+                <td>The SKU for the GPUs specified. Accepted Values are { K80, P100, V100 }</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>Yes</td>
+                <td>Specify the fully qualified container image name. For example, &quot;myregistry.azurecr.io/nginx:latest&quot; or &quot;python:3.7.2-alpine/&quot;</td>
+            </tr><tr>
+                <td><code>ip-address</code></td>
+                <td>No</td>
+                <td>IP Address type of the Container Group. Accepted Values are { Private, Public }.Currently it only supports { Public }</td>
+            </tr><tr>
+                <td><code>location</code></td>
+                <td>Yes</td>
+                <td>Location where the Container will be deployed</td>
+            </tr><tr>
+                <td><code>log-analytics-workspace</code></td>
+                <td>No</td>
+                <td>The Log Analytics Workspace Name or Id</td>
+            </tr><tr>
+                <td><code>log-analytics-workspace-key</code></td>
+                <td>No</td>
+                <td>The Log Analytics Workspace Key</td>
+            </tr><tr>
+                <td><code>log-type</code></td>
+                <td>No</td>
+                <td>The Log type to be used. Accepted Values are { ContainerInsights, ContainerInstanceLogs }</td>
+            </tr><tr>
+                <td><code>memory</code></td>
+                <td>No</td>
+                <td>Required Memory of the Containers in GB, accurate to one decimal place</td>
+            </tr><tr>
+                <td><code>name</code></td>
+                <td>Yes</td>
+                <td>Name of the Container Group Instance</td>
+            </tr><tr>
+                <td><code>os-type</code></td>
+                <td>No</td>
+                <td>The OS type of the Containers. Accepted Values are  { Linux, Windows }</td>
+            </tr><tr>
+                <td><code>ports</code></td>
+                <td>No</td>
+                <td>The Ports to Open on the Container. Space seperate the ports for multiple values</td>
+            </tr><tr>
+                <td><code>protocol</code></td>
+                <td>No</td>
+                <td>The Network protocol to use. Accepted Values are { TCP, UDP }</td>
+            </tr><tr>
+                <td><code>registry-login-server</code></td>
+                <td>No</td>
+                <td>The container image registry login server</td>
+            </tr><tr>
+                <td><code>registry-username</code></td>
+                <td>No</td>
+                <td>Username to log in Container Image Registry Server</td>
+            </tr><tr>
+                <td><code>registry-password</code></td>
+                <td>No</td>
+                <td>Password to log in Container Image Registry Server</td>
+            </tr><tr>
+                <td><code>restart-policy</code></td>
+                <td>No</td>
+                <td>Restart Policy for the container(s). Accepted Values are { Always, OnFailure, Never }</td>
+            </tr><tr>
+                <td><code>secure-environment-variables</code></td>
+                <td>No</td>
+                <td>List of secure environment variables for the container. Space seperated values in &quot;key=value&quot; format</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-url</code></td>
+                <td>URL of the Deployed Application</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

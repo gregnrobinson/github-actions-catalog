@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/azure/container-scan",
+  "version_id": "8cb5f1e41f28",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/container-scan/action.yml",
+    "origin": "github.com/azure/container-scan",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Container image scan",
+    "description": "Scan container images for vulnerabilities and CIS guidelines",
+    "author": "",
+    "inputs": [
+      {
+        "name": "image-name",
+        "required": true,
+        "default": null,
+        "description": "Docker image to scan"
+      },
+      {
+        "name": "severity-threshold",
+        "required": false,
+        "default": "HIGH",
+        "description": "(Optional) Minimum severity threshold set to control flagging of the vulnerabilities found during the scan. The available levels are: (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL); if you set the severity-threshold to be `MEDIUM` every CVE found of a level higher than or equal to `MEDIUM` would be displayed"
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "Username to authenticate to the Docker registry"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "Password to authenticate to the Docker registry"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "Github token"
+      },
+      {
+        "name": "trivy-version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of Trivy to run"
+      },
+      {
+        "name": "run-quality-checks",
+        "required": false,
+        "default": "true",
+        "description": "Add additional checks to ensure the image is secure and follows best practices and CIS standards"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "scan-report-path",
+        "description": "File path where the scan results are stored"
+      },
+      {
+        "name": "check-run-url",
+        "description": "URL of the check run. Overview about finding of vulnerabilities and best-practices."
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "8cb5f1e41f28f250f8f814a95e3a14d1a463eb47eed89619aa8e24bf4a68e08b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.600636Z"
+  }
+}

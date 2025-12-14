@@ -1,0 +1,198 @@
+{
+  "action_id": "marketplace/actions/dependency-review-action",
+  "version_id": "93fa1d22954d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/dependency-review-action/action.yml",
+    "origin": "github.com/actions/dependency-review-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Dependency Review",
+    "description": "Prevent the introduction of dependencies with known vulnerabilities",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`."
+      },
+      {
+        "name": "fail-on-severity",
+        "required": false,
+        "default": null,
+        "description": "Don't block PRs below this severity. Possible values are `low`, `moderate`, `high`, `critical`."
+      },
+      {
+        "name": "fail-on-scopes",
+        "required": false,
+        "default": null,
+        "description": "Dependency scopes to block PRs on. Comma-separated list. Possible values are 'unknown', 'runtime', and 'development' (e.g. \"runtime, development\")"
+      },
+      {
+        "name": "base-ref",
+        "required": false,
+        "default": null,
+        "description": "The base git ref to be used for this check. Has a default value when the workflow event is `pull_request` or `pull_request_target`. Must be provided otherwise."
+      },
+      {
+        "name": "head-ref",
+        "required": false,
+        "default": null,
+        "description": "The head git ref to be used for this check. Has a default value when the workflow event is `pull_request` or `pull_request_target`. Must be provided otherwise."
+      },
+      {
+        "name": "config-file",
+        "required": false,
+        "default": null,
+        "description": "A path to the configuration file for the action."
+      },
+      {
+        "name": "allow-licenses",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of allowed licenses (e.g. \"MIT, GPL 3.0, BSD 2 Clause\")"
+      },
+      {
+        "name": "deny-licenses",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of forbidden licenses (e.g. \"MIT, GPL 3.0, BSD 2 Clause\")"
+      },
+      {
+        "name": "allow-dependencies-licenses",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of dependencies in purl format (e.g. \"pkg:npm/express, pkg:pypi/pycrypto\"). These dependencies will be permitted to use any license, no matter what license policy is enforced otherwise."
+      },
+      {
+        "name": "allow-ghsas",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of allowed GitHub Advisory IDs (e.g. \"GHSA-abcd-1234-5679, GHSA-efgh-1234-5679\")"
+      },
+      {
+        "name": "external-repo-token",
+        "required": false,
+        "default": null,
+        "description": "A token for fetching external configuration file if it lives in another repository. It is required if the repository is private"
+      },
+      {
+        "name": "license-check",
+        "required": false,
+        "default": null,
+        "description": "A boolean to determine if license checks should be performed"
+      },
+      {
+        "name": "vulnerability-check",
+        "required": false,
+        "default": null,
+        "description": "A boolean to determine if vulnerability checks should be performed"
+      },
+      {
+        "name": "comment-summary-in-pr",
+        "required": false,
+        "default": null,
+        "description": "Determines if the summary is posted as a comment in the PR itself. Setting this to `always` or `on-failure` requires you to give the workflow `pull-requests: write` permissions"
+      },
+      {
+        "name": "deny-packages",
+        "required": false,
+        "default": null,
+        "description": "A comma-separated list of package URLs to deny (e.g. \"pkg:npm/express, pkg:pypi/pycrypto\"). If version specified, only deny matching packages and version; else, deny all regardless of version."
+      },
+      {
+        "name": "deny-groups",
+        "required": false,
+        "default": null,
+        "description": "A comma-separated list of package URLs for group(s)/namespace(s) to deny (e.g. \"pkg:npm/express/, pkg:pypi/pycrypto/\"). Please note that the group name must be followed by a `/`."
+      },
+      {
+        "name": "retry-on-snapshot-warnings",
+        "required": false,
+        "default": null,
+        "description": "Whether to retry on snapshot warnings"
+      },
+      {
+        "name": "retry-on-snapshot-warnings-timeout",
+        "required": false,
+        "default": null,
+        "description": "Number of seconds to wait before stopping snapshot retries."
+      },
+      {
+        "name": "warn-only",
+        "required": false,
+        "default": null,
+        "description": "When set to `true` this action will always complete with success, overriding the `fail-on-severity` parameter."
+      },
+      {
+        "name": "show-openssf-scorecard",
+        "required": false,
+        "default": null,
+        "description": "Show a summary of the OpenSSF Scorecard scores."
+      },
+      {
+        "name": "warn-on-openssf-scorecard-level",
+        "required": false,
+        "default": null,
+        "description": "Numeric threshold for the OpenSSF Scorecard score. If the score is below this threshold, the action will warn you."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "comment-content",
+        "description": "Prepared dependency report comment"
+      },
+      {
+        "name": "dependency-changes",
+        "description": "All dependency changes (JSON)"
+      },
+      {
+        "name": "vulnerable-changes",
+        "description": "Vulnerable dependency changes (JSON)"
+      },
+      {
+        "name": "invalid-license-changes",
+        "description": "Invalid license dependency changes (JSON)"
+      },
+      {
+        "name": "denied-changes",
+        "description": "Denied dependency changes (JSON)"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "This action focuses on identifying and preventing the introduction of dependencies with known vulnerabilities, which directly relates to security. It also involves managing dependencies by reviewing their statuses.",
+        "tags": [
+          "dependency",
+          "security",
+          "vulnerability",
+          "review",
+          "GitHub"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "93fa1d22954d42978c59d6564860e27ae4bb690c2113718a9a3da4e34fceee1b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.309010Z"
+  }
+}

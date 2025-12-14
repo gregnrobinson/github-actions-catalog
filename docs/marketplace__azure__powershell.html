@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure PowerShell Action - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure PowerShell Action</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/powershell</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/powershell" target="_blank">github.com/azure/powershell</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Automate your GitHub workflows using Azure PowerShell scripts.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Build</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Infrastructure</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The Azure PowerShell Action is primarily used to automate workflows related to Azure infrastructure, which places it in the Infrastructure category. Additionally, it can be used for building and deploying applications using Azure services, thus fitting into the Build and Deployment categories as well.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">PowerShell</span> <span class="tag">Automation</span> <span class="tag">GitHub Actions</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>inlineScript</code></td>
+                <td>Yes</td>
+                <td>Specify the Az PowerShell script here.</td>
+            </tr><tr>
+                <td><code>azPSVersion</code></td>
+                <td>Yes</td>
+                <td>Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify &quot;latest&quot;.</td>
+            </tr><tr>
+                <td><code>errorActionPreference</code></td>
+                <td>No</td>
+                <td>Select the value of the ErrorActionPreference variable for executing the script. Options: stop, continue, silentlyContinue. Default is Stop.</td>
+            </tr><tr>
+                <td><code>failOnStandardError</code></td>
+                <td>No</td>
+                <td>If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream.</td>
+            </tr><tr>
+                <td><code>githubToken</code></td>
+                <td>No</td>
+                <td>Used to pull Az module from Azure/az-ps-module-versions.  Since there&#39;s a default, this is typically not supplied by the user.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

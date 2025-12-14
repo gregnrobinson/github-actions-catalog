@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/appleboy/azure-blob-storage-action",
+  "version_id": "7ebd9d988bff",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/azure-blob-storage-action/action.yml",
+    "origin": "github.com/appleboy/azure-blob-storage-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Azure Blob storage Tool",
+    "description": "Update ExpiresAt of a blob in Azure Blob storage",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "account_name",
+        "required": true,
+        "default": null,
+        "description": "Account name of Azure Blob storage"
+      },
+      {
+        "name": "account_key",
+        "required": true,
+        "default": null,
+        "description": "Account key of Azure Blob storage"
+      },
+      {
+        "name": "container_name",
+        "required": true,
+        "default": null,
+        "description": "Container name of Azure Blob storage"
+      },
+      {
+        "name": "blob_name",
+        "required": true,
+        "default": null,
+        "description": "Blob name of Azure Blob storage"
+      },
+      {
+        "name": "duration",
+        "required": false,
+        "default": "1h",
+        "description": "ExpiresAt duration"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "expire_at",
+        "description": "ExpiresAt of the blob"
+      },
+      {
+        "name": "blob_url",
+        "description": "URL of the blob"
+      },
+      {
+        "name": "expire_at_unix",
+        "description": "ExpiresAt of the blob in Unix timestamp"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7ebd9d988bff238a6dcffc580744bf600e3d3c57f8a78e42a39d2f27ca25b34b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.176656Z"
+  }
+}

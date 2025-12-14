@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/actions/go-dependency-submission",
+  "version_id": "be8e11c955ed",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/go-dependency-submission/action.yml",
+    "origin": "github.com/actions/go-dependency-submission",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Go Dependency Submission",
+    "description": "Calculates dependencies for a Go build-target and submits the list to the Dependency Submission API",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Personal Access Token (PAT). Defaults to PAT provided by Action runner"
+      },
+      {
+        "name": "metadata",
+        "required": false,
+        "default": null,
+        "description": "User provided map of max key/value pairs of metadata to include with the snapshot e.g. {\"lastModified\": \"12-31-2022\"}"
+      },
+      {
+        "name": "go-mod-path",
+        "required": true,
+        "default": "go.mod",
+        "description": "Repo path to the go.mod file used to detect dependencies for the Go build target. Defaults to go.mod in the root of the repository."
+      },
+      {
+        "name": "go-build-target",
+        "required": true,
+        "default": "all",
+        "description": "Build target to detect build dependencies. If unspecified, will use \"all\", with will detect all dependencies used in all build targets (including tests and tools)."
+      },
+      {
+        "name": "snapshot-sha",
+        "required": false,
+        "default": "",
+        "description": "The SHA that the results will be linked to in the dependency snapshot"
+      },
+      {
+        "name": "snapshot-ref",
+        "required": false,
+        "default": "",
+        "description": "The ref that the results will be linked to in the dependency snapshot"
+      },
+      {
+        "name": "detector-name",
+        "required": false,
+        "default": "",
+        "description": "The name of the detector that generated the dependency snapshot"
+      },
+      {
+        "name": "detector-version",
+        "required": false,
+        "default": "",
+        "description": "The version of the detector that generated the dependency snapshot"
+      },
+      {
+        "name": "detector-url",
+        "required": false,
+        "default": "",
+        "description": "The URL to the detector that generated the dependency snapshot"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action focuses on calculating and submitting dependencies for a Go project, which directly relates to dependency management. It also allows for metadata submission, which can be considered part of documentation.",
+        "tags": [
+          "Go",
+          "dependencies",
+          "GitHub Action",
+          "submission",
+          "API"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "be8e11c955ed4d1614d704b11e2dbe1950c8a18f044b018c169f2f3890a6d44c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.301920Z"
+  }
+}

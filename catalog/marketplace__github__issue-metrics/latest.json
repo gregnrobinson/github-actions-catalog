@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/github/issue-metrics",
+  "version_id": "98cc8a04d648",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/issue-metrics/action.yml",
+    "origin": "github.com/github/issue-metrics",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "issue-metrics",
+    "description": "A GitHub Action to report out issue metrics",
+    "author": "github",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/issue_metrics:v3"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "The action reports on issue metrics, which falls under monitoring the health and activity of issues in a repository. It also provides documentation on those metrics.",
+        "tags": [
+          "issue metrics",
+          "monitoring",
+          "GitHub Action",
+          "reporting",
+          "analytics"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "98cc8a04d648c5cadf9c8087152baa1b6fc2503b6b366097573e3c775206fa7a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.965542Z"
+  }
+}

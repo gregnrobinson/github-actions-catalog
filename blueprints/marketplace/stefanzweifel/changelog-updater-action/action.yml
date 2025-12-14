@@ -1,0 +1,62 @@
+name: 'Changelog Updater'
+description: 'Automatically update a CHANGELOG with the latest release notes.'
+
+author: Stefan Zweifel <stefan@stefanzweifel.dev>
+
+inputs:
+  release-notes:
+    required: false
+    description: The release notes you want to add to your CHANGELOG. Should be markdown. If not provided, the content between the Unreleased heading and the previous release heading is taken as release notes.
+    default: null
+  latest-version:
+    required: true
+    description: Semantic version number of the latest release. The value will be used as a heading text.
+  release-date:
+    required: false
+    description: The date the latest version has been released. Defaults to the current date.
+    default: null
+  path-to-changelog:
+    required: false
+    default: CHANGELOG.md
+    description: Defaults to `CHANGELOG.md`. Path to CHANGELOG.md file.
+  compare-url-target-revision:
+    required: false
+    default: HEAD
+    description: Target revision used in compare URL inside a possible "Unreleased" heading.
+  heading-text:
+    required: false
+    default: null
+    description: Text used in the new release heading. Defaults to the value from latest-version.
+  hide-release-date:
+    required: false
+    default: null
+    description: Hide release date in the new release heading.
+  parse-github-usernames:
+    required: false
+    default: null
+    description: "Experimental: Find GitHub usernames in release notes and link to their profile."
+
+outputs:
+  release_compare_url:
+    description: The generated compare URL for the just created relase. For example https://github.com/org/repo/compare/v1.0.0...v1.1.0
+  release_url_fragment:
+    description: The URL fragment for the just created release. For example '#v100---2021-02-01'. You can use this to generate URLs that point to the newly created release in your CHANGELOG.
+  unreleased_compare_url:
+    description: The generated compare URL between the latest version and the target revision. For example https://github.com/org/repo/compare/v1.0.0...HEAD
+
+branding:
+  icon: copy
+  color: purple
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.release-notes }}
+    - ${{ inputs.latest-version }}
+    - ${{ inputs.release-date }}
+    - ${{ inputs.path-to-changelog }}
+    - ${{ inputs.compare-url-target-revision }}
+    - ${{ inputs.heading-text }}
+    - ${{ inputs.hide-release-date }}
+    - ${{ inputs.parse-github-usernames }}

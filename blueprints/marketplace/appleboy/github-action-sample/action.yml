@@ -1,0 +1,11 @@
+name: 'GitHub Action Sample'
+description: 'GitHub Action Sample'
+author: 'Bo-Yi Wu'
+inputs:
+  github_token:
+    description: 'github token'
+    default: ''
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

@@ -1,0 +1,45 @@
+name: terraform-version
+description: Prints Terraform and providers versions
+author: Daniel Flook
+
+inputs:
+  path:
+    description: The path to the Terraform root module directory.
+    required: false
+    default: "."
+  workspace:
+    description: The workspace to determine the Terraform version for.
+    required: false
+    default: "default"
+  backend_config:
+    description: |
+      List of Terraform backend config values, one per line.
+
+      This will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.
+      For other backend types, this is used to fetch the version that most recently wrote to the Terraform state.
+    required: false
+    default: ""
+  backend_config_file:
+    description: |
+      List of Terraform backend config files to use, one per line.
+      Paths should be relative to the GitHub Actions workspace
+
+      This will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.
+      For other backend types, this is used to fetch the version that most recently wrote to the Terraform state.
+    required: false
+    default: ""
+
+outputs:
+  terraform:
+    description: The Hashicorp Terraform or OpenTofu version that is used by the configuration.
+  tofu:
+    description: If the action chose a version of OpenTofu, this will be set to the version that is used by the configuration.
+
+runs:
+  using: docker
+  image: docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc
+  entrypoint: /entrypoints/version.sh
+
+branding:
+  icon: globe
+  color: purple

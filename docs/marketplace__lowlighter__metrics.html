@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrics embed - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Metrics embed</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/lowlighter/metrics</code></p>
+            <p><strong>Author:</strong> lowlighter</p>
+            <p><strong>Publisher:</strong> lowlighter</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/lowlighter/metrics" target="_blank">github.com/lowlighter/metrics</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>An infographics generator with 40+ plugins and 300+ options to display stats about your GitHub account!</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Documentation</span> <span class="badge badge-category">Communication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Documentation</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action generates infographics to display statistics about a GitHub account, which primarily serves the purpose of documentation and communication of metrics.</p>
+            <p><strong>Tags:</strong> <span class="tag">infographics</span> <span class="tag">GitHub</span> <span class="tag">metrics</span> <span class="tag">documentation</span> <span class="tag">communication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>base</code></td>
+                <td>No</td>
+                <td>Base content</td>
+            </tr><tr>
+                <td><code>base_indepth</code></td>
+                <td>No</td>
+                <td>Indepth mode</td>
+            </tr><tr>
+                <td><code>base_hireable</code></td>
+                <td>No</td>
+                <td>Show `Available for hire!` in header section</td>
+            </tr><tr>
+                <td><code>base_skip</code></td>
+                <td>No</td>
+                <td>Skip base content</td>
+            </tr><tr>
+                <td><code>repositories</code></td>
+                <td>No</td>
+                <td>Fetched repositories</td>
+            </tr><tr>
+                <td><code>repositories_batch</code></td>
+                <td>No</td>
+                <td>Fetched repositories per query</td>
+            </tr><tr>
+                <td><code>repositories_forks</code></td>
+                <td>No</td>
+                <td>Include forks</td>
+            </tr><tr>
+                <td><code>repositories_affiliations</code></td>
+                <td>No</td>
+                <td>Repositories affiliations</td>
+            </tr><tr>
+                <td><code>repositories_skipped</code></td>
+                <td>No</td>
+                <td>Default skipped repositories</td>
+            </tr><tr>
+                <td><code>users_ignored</code></td>
+                <td>No</td>
+                <td>Default ignored users</td>
+            </tr><tr>
+                <td><code>commits_authoring</code></td>
+                <td>No</td>
+                <td>Identifiers that has been used for authoring commits</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>GitHub Personal Access Token</td>
+            </tr><tr>
+                <td><code>user</code></td>
+                <td>No</td>
+                <td>GitHub username</td>
+            </tr><tr>
+                <td><code>repo</code></td>
+                <td>No</td>
+                <td>GitHub repository</td>
+            </tr><tr>
+                <td><code>committer_token</code></td>
+                <td>No</td>
+                <td>GitHub Token used to commit metrics</td>
+            </tr><tr>
+                <td><code>committer_branch</code></td>
+                <td>No</td>
+                <td>Target branch</td>
+            </tr><tr>
+                <td><code>committer_message</code></td>
+                <td>No</td>
+                <td>Commit message</td>
+            </tr><tr>
+                <td><code>committer_gist</code></td>
+                <td>No</td>
+                <td>Gist id</td>
+            </tr><tr>
+                <td><code>filename</code></td>
+                <td>No</td>
+                <td>Output path</td>
+            </tr><tr>
+                <td><code>markdown</code></td>
+                <td>No</td>
+                <td>Markdown template path</td>
+            </tr><tr>
+                <td><code>markdown_cache</code></td>
+                <td>No</td>
+                <td>Markdown file cache</td>
+            </tr><tr>
+                <td><code>output_action</code></td>
+                <td>No</td>
+                <td>Output action</td>
+            </tr><tr>
+                <td><code>output_condition</code></td>
+                <td>No</td>
+                <td>Output condition</td>
+            </tr><tr>
+                <td><code>optimize</code></td>
+                <td>No</td>
+                <td>Optimization features</td>
+            </tr><tr>
+                <td><code>setup_community_templates</code></td>
+                <td>No</td>
+                <td>Community templates to setup</td>
+            </tr><tr>
+                <td><code>template</code></td>
+                <td>No</td>
+                <td>Template</td>
+            </tr><tr>
+                <td><code>query</code></td>
+                <td>No</td>
+                <td>Query parameters</td>
+            </tr><tr>
+                <td><code>extras_css</code></td>
+                <td>No</td>
+                <td>Extra CSS</td>
+            </tr><tr>
+                <td><code>extras_js</code></td>
+                <td>No</td>
+                <td>Extra JavaScript</td>
+            </tr><tr>
+                <td><code>github_api_rest</code></td>
+                <td>No</td>
+                <td>GitHub REST API endpoint</td>
+            </tr><tr>
+                <td><code>github_api_graphql</code></td>
+                <td>No</td>
+                <td>GitHub GraphQL API endpoint</td>
+            </tr><tr>
+                <td><code>config_timezone</code></td>
+                <td>No</td>
+                <td>Timezone for dates</td>
+            </tr><tr>
+                <td><code>config_order</code></td>
+                <td>No</td>
+                <td>Plugin order</td>
+            </tr><tr>
+                <td><code>config_twemoji</code></td>
+                <td>No</td>
+                <td>Use twemojis</td>
+            </tr><tr>
+                <td><code>config_gemoji</code></td>
+                <td>No</td>
+                <td>Use GitHub custom emojis</td>
+            </tr><tr>
+                <td><code>config_octicon</code></td>
+                <td>No</td>
+                <td>Use GitHub octicons</td>
+            </tr><tr>
+                <td><code>config_display</code></td>
+                <td>No</td>
+                <td>Display width (for image output formats)</td>
+            </tr><tr>
+                <td><code>config_animations</code></td>
+                <td>No</td>
+                <td>Use CSS animations</td>
+            </tr><tr>
+                <td><code>config_base64</code></td>
+                <td>No</td>
+                <td>Base64-encoded images</td>
+            </tr><tr>
+                <td><code>config_padding</code></td>
+                <td>No</td>
+                <td>Output padding</td>
+            </tr><tr>
+                <td><code>config_output</code></td>
+                <td>No</td>
+                <td>Output format</td>
+            </tr><tr>
+                <td><code>config_presets</code></td>
+                <td>No</td>
+                <td>Configuration presets</td>
+            </tr><tr>
+                <td><code>retries</code></td>
+                <td>No</td>
+                <td>Retries in case of failures (for rendering)</td>
+            </tr><tr>
+                <td><code>retries_delay</code></td>
+                <td>No</td>
+                <td>Delay between each retry (in seconds, for rendering)</td>
+            </tr><tr>
+                <td><code>retries_output_action</code></td>
+                <td>No</td>
+                <td>Retries in case of failures (for output action)</td>
+            </tr><tr>
+                <td><code>retries_delay_output_action</code></td>
+                <td>No</td>
+                <td>Delay between each retry (in seconds, for output action)</td>
+            </tr><tr>
+                <td><code>clean_workflows</code></td>
+                <td>No</td>
+                <td>Clean previous workflows jobs</td>
+            </tr><tr>
+                <td><code>delay</code></td>
+                <td>No</td>
+                <td>Job delay</td>
+            </tr><tr>
+                <td><code>quota_required_rest</code></td>
+                <td>No</td>
+                <td>Minimum GitHub REST API requests quota required to run</td>
+            </tr><tr>
+                <td><code>quota_required_graphql</code></td>
+                <td>No</td>
+                <td>Minimum GitHub GraphQL API requests quota required to run</td>
+            </tr><tr>
+                <td><code>quota_required_search</code></td>
+                <td>No</td>
+                <td>Minimum GitHub Search API requests quota required to run</td>
+            </tr><tr>
+                <td><code>notice_releases</code></td>
+                <td>No</td>
+                <td>Notice about new releases of metrics</td>
+            </tr><tr>
+                <td><code>use_prebuilt_image</code></td>
+                <td>No</td>
+                <td>Use pre-built docker image from [GitHub container registry](https://github.com/lowlighter/metrics/pkgs/container/metrics)</td>
+            </tr><tr>
+                <td><code>plugins_errors_fatal</code></td>
+                <td>No</td>
+                <td>Fatal plugin errors</td>
+            </tr><tr>
+                <td><code>debug</code></td>
+                <td>No</td>
+                <td>Debug mode</td>
+            </tr><tr>
+                <td><code>verify</code></td>
+                <td>No</td>
+                <td>SVG validity check</td>
+            </tr><tr>
+                <td><code>debug_flags</code></td>
+                <td>No</td>
+                <td>Debug flags</td>
+            </tr><tr>
+                <td><code>debug_print</code></td>
+                <td>No</td>
+                <td>Print output in console</td>
+            </tr><tr>
+                <td><code>dryrun</code></td>
+                <td>No</td>
+                <td>Dry-run</td>
+            </tr><tr>
+                <td><code>experimental_features</code></td>
+                <td>No</td>
+                <td>Experimental features</td>
+            </tr><tr>
+                <td><code>use_mocked_data</code></td>
+                <td>No</td>
+                <td>Use mocked data instead of live APIs</td>
+            </tr><tr>
+                <td><code>plugin_isocalendar</code></td>
+                <td>No</td>
+                <td>Enable isocalendar plugin</td>
+            </tr><tr>
+                <td><code>plugin_isocalendar_duration</code></td>
+                <td>No</td>
+                <td>Time range</td>
+            </tr><tr>
+                <td><code>plugin_languages</code></td>
+                <td>No</td>
+                <td>Enable languages plugin</td>
+            </tr><tr>
+                <td><code>plugin_languages_ignored</code></td>
+                <td>No</td>
+                <td>Ignored languages</td>
+            </tr><tr>
+                <td><code>plugin_languages_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_languages_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_languages_threshold</code></td>
+                <td>No</td>
+                <td>Display threshold (percentage)</td>
+            </tr><tr>
+                <td><code>plugin_languages_other</code></td>
+                <td>No</td>
+                <td>Group unknown, ignored and over-limit languages into &quot;Other&quot; category</td>
+            </tr><tr>
+                <td><code>plugin_languages_colors</code></td>
+                <td>No</td>
+                <td>Custom languages colors</td>
+            </tr><tr>
+                <td><code>plugin_languages_aliases</code></td>
+                <td>No</td>
+                <td>Custom languages names</td>
+            </tr><tr>
+                <td><code>plugin_languages_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_languages_details</code></td>
+                <td>No</td>
+                <td>Additional details</td>
+            </tr><tr>
+                <td><code>plugin_languages_indepth</code></td>
+                <td>No</td>
+                <td>Indepth mode</td>
+            </tr><tr>
+                <td><code>plugin_languages_indepth_custom</code></td>
+                <td>No</td>
+                <td>Indepth mode - Custom repositories</td>
+            </tr><tr>
+                <td><code>plugin_languages_analysis_timeout</code></td>
+                <td>No</td>
+                <td>Indepth mode - Analysis timeout</td>
+            </tr><tr>
+                <td><code>plugin_languages_analysis_timeout_repositories</code></td>
+                <td>No</td>
+                <td>Indepth mode - Analysis timeout (repositories)</td>
+            </tr><tr>
+                <td><code>plugin_languages_categories</code></td>
+                <td>No</td>
+                <td>Indepth mode - Displayed categories (most-used section)</td>
+            </tr><tr>
+                <td><code>plugin_languages_recent_categories</code></td>
+                <td>No</td>
+                <td>Indepth mode - Displayed categories (recently-used section)</td>
+            </tr><tr>
+                <td><code>plugin_languages_recent_load</code></td>
+                <td>No</td>
+                <td>Indepth mode - Events to load (recently-used section)</td>
+            </tr><tr>
+                <td><code>plugin_languages_recent_days</code></td>
+                <td>No</td>
+                <td>Indepth mode - Events maximum age (day, recently-used section)</td>
+            </tr><tr>
+                <td><code>plugin_stargazers</code></td>
+                <td>No</td>
+                <td>Enable stargazers plugin</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_days</code></td>
+                <td>No</td>
+                <td>Time range</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_charts</code></td>
+                <td>No</td>
+                <td>Charts</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_charts_type</code></td>
+                <td>No</td>
+                <td>Charts display type</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_worldmap</code></td>
+                <td>No</td>
+                <td>Stargazers worldmap</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_worldmap_token</code></td>
+                <td>No</td>
+                <td>Stargazers worldmap token</td>
+            </tr><tr>
+                <td><code>plugin_stargazers_worldmap_sample</code></td>
+                <td>No</td>
+                <td>Stargazers worldmap sample</td>
+            </tr><tr>
+                <td><code>plugin_lines</code></td>
+                <td>No</td>
+                <td>Enable lines plugin</td>
+            </tr><tr>
+                <td><code>plugin_lines_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_lines_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_lines_repositories_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_lines_history_limit</code></td>
+                <td>No</td>
+                <td>Years to display</td>
+            </tr><tr>
+                <td><code>plugin_lines_delay</code></td>
+                <td>No</td>
+                <td>Delay before performing a second query</td>
+            </tr><tr>
+                <td><code>plugin_topics</code></td>
+                <td>No</td>
+                <td>Enable topics plugin</td>
+            </tr><tr>
+                <td><code>plugin_topics_mode</code></td>
+                <td>No</td>
+                <td>Display mode</td>
+            </tr><tr>
+                <td><code>plugin_topics_sort</code></td>
+                <td>No</td>
+                <td>Sorting method</td>
+            </tr><tr>
+                <td><code>plugin_topics_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_stars</code></td>
+                <td>No</td>
+                <td>Enable stars plugin</td>
+            </tr><tr>
+                <td><code>plugin_stars_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_licenses</code></td>
+                <td>No</td>
+                <td>Enable licenses plugin</td>
+            </tr><tr>
+                <td><code>plugin_licenses_setup</code></td>
+                <td>No</td>
+                <td>Setup command</td>
+            </tr><tr>
+                <td><code>plugin_licenses_ratio</code></td>
+                <td>No</td>
+                <td>Used licenses ratio</td>
+            </tr><tr>
+                <td><code>plugin_licenses_legal</code></td>
+                <td>No</td>
+                <td>Permissions, limitations and conditions about used licenses</td>
+            </tr><tr>
+                <td><code>plugin_habits</code></td>
+                <td>No</td>
+                <td>Enable habits plugin</td>
+            </tr><tr>
+                <td><code>plugin_habits_from</code></td>
+                <td>No</td>
+                <td>Events to use</td>
+            </tr><tr>
+                <td><code>plugin_habits_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_habits_days</code></td>
+                <td>No</td>
+                <td>Event maximum age</td>
+            </tr><tr>
+                <td><code>plugin_habits_facts</code></td>
+                <td>No</td>
+                <td>Mildly interesting facts</td>
+            </tr><tr>
+                <td><code>plugin_habits_charts</code></td>
+                <td>No</td>
+                <td>Charts</td>
+            </tr><tr>
+                <td><code>plugin_habits_charts_type</code></td>
+                <td>No</td>
+                <td>Charts display type</td>
+            </tr><tr>
+                <td><code>plugin_habits_trim</code></td>
+                <td>No</td>
+                <td>Trim unused hours on charts</td>
+            </tr><tr>
+                <td><code>plugin_habits_languages_limit</code></td>
+                <td>No</td>
+                <td>Display limit (languages)</td>
+            </tr><tr>
+                <td><code>plugin_habits_languages_threshold</code></td>
+                <td>No</td>
+                <td>Display threshold (percentage)</td>
+            </tr><tr>
+                <td><code>plugin_contributors</code></td>
+                <td>No</td>
+                <td>Enable contributors plugin</td>
+            </tr><tr>
+                <td><code>plugin_contributors_base</code></td>
+                <td>No</td>
+                <td>Base reference</td>
+            </tr><tr>
+                <td><code>plugin_contributors_head</code></td>
+                <td>No</td>
+                <td>Head reference</td>
+            </tr><tr>
+                <td><code>plugin_contributors_ignored</code></td>
+                <td>No</td>
+                <td>Ignored users</td>
+            </tr><tr>
+                <td><code>plugin_contributors_contributions</code></td>
+                <td>No</td>
+                <td>Contributions count</td>
+            </tr><tr>
+                <td><code>plugin_contributors_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_contributors_categories</code></td>
+                <td>No</td>
+                <td>Contribution categories</td>
+            </tr><tr>
+                <td><code>plugin_followup</code></td>
+                <td>No</td>
+                <td>Enable followup plugin</td>
+            </tr><tr>
+                <td><code>plugin_followup_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_followup_indepth</code></td>
+                <td>No</td>
+                <td>Indepth analysis</td>
+            </tr><tr>
+                <td><code>plugin_followup_archived</code></td>
+                <td>No</td>
+                <td>Include archived repositories</td>
+            </tr><tr>
+                <td><code>plugin_reactions</code></td>
+                <td>No</td>
+                <td>Enable reactions plugin</td>
+            </tr><tr>
+                <td><code>plugin_reactions_limit</code></td>
+                <td>No</td>
+                <td>Display limit (issues and pull requests comments)</td>
+            </tr><tr>
+                <td><code>plugin_reactions_limit_issues</code></td>
+                <td>No</td>
+                <td>Display limit (issues and pull requests, first comment)</td>
+            </tr><tr>
+                <td><code>plugin_reactions_limit_discussions</code></td>
+                <td>No</td>
+                <td>Display limit (discussions, first comment)</td>
+            </tr><tr>
+                <td><code>plugin_reactions_limit_discussions_comments</code></td>
+                <td>No</td>
+                <td>Display limit (discussions comments)</td>
+            </tr><tr>
+                <td><code>plugin_reactions_days</code></td>
+                <td>No</td>
+                <td>Comments maximum age</td>
+            </tr><tr>
+                <td><code>plugin_reactions_display</code></td>
+                <td>No</td>
+                <td>Display mode</td>
+            </tr><tr>
+                <td><code>plugin_reactions_details</code></td>
+                <td>No</td>
+                <td>Additional details</td>
+            </tr><tr>
+                <td><code>plugin_reactions_ignored</code></td>
+                <td>No</td>
+                <td>Ignored users</td>
+            </tr><tr>
+                <td><code>plugin_people</code></td>
+                <td>No</td>
+                <td>Enable people plugin</td>
+            </tr><tr>
+                <td><code>plugin_people_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_people_identicons</code></td>
+                <td>No</td>
+                <td>Force identicons pictures</td>
+            </tr><tr>
+                <td><code>plugin_people_identicons_hide</code></td>
+                <td>No</td>
+                <td>Hide identicons pictures</td>
+            </tr><tr>
+                <td><code>plugin_people_size</code></td>
+                <td>No</td>
+                <td>Profile picture display size</td>
+            </tr><tr>
+                <td><code>plugin_people_types</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_people_thanks</code></td>
+                <td>No</td>
+                <td>Special thanks</td>
+            </tr><tr>
+                <td><code>plugin_people_sponsors_custom</code></td>
+                <td>No</td>
+                <td>Custom sponsors</td>
+            </tr><tr>
+                <td><code>plugin_people_shuffle</code></td>
+                <td>No</td>
+                <td>Shuffle data</td>
+            </tr><tr>
+                <td><code>plugin_sponsorships</code></td>
+                <td>No</td>
+                <td>Enable sponsorships plugin</td>
+            </tr><tr>
+                <td><code>plugin_sponsorships_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_sponsorships_size</code></td>
+                <td>No</td>
+                <td>Profile picture display size</td>
+            </tr><tr>
+                <td><code>plugin_sponsors</code></td>
+                <td>No</td>
+                <td>Enable sponsors plugin</td>
+            </tr><tr>
+                <td><code>plugin_sponsors_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_sponsors_past</code></td>
+                <td>No</td>
+                <td>Past sponsorships</td>
+            </tr><tr>
+                <td><code>plugin_sponsors_size</code></td>
+                <td>No</td>
+                <td>Profile picture display size</td>
+            </tr><tr>
+                <td><code>plugin_sponsors_title</code></td>
+                <td>No</td>
+                <td>Title caption</td>
+            </tr><tr>
+                <td><code>plugin_repositories</code></td>
+                <td>No</td>
+                <td>Enable repositories plugin</td>
+            </tr><tr>
+                <td><code>plugin_repositories_featured</code></td>
+                <td>No</td>
+                <td>Featured repositories</td>
+            </tr><tr>
+                <td><code>plugin_repositories_pinned</code></td>
+                <td>No</td>
+                <td>Pinned repositories</td>
+            </tr><tr>
+                <td><code>plugin_repositories_starred</code></td>
+                <td>No</td>
+                <td>Featured most starred repositories</td>
+            </tr><tr>
+                <td><code>plugin_repositories_random</code></td>
+                <td>No</td>
+                <td>Featured random repositories</td>
+            </tr><tr>
+                <td><code>plugin_repositories_order</code></td>
+                <td>No</td>
+                <td>Featured repositories display order</td>
+            </tr><tr>
+                <td><code>plugin_repositories_forks</code></td>
+                <td>No</td>
+                <td>Include repositories forks</td>
+            </tr><tr>
+                <td><code>plugin_repositories_affiliations</code></td>
+                <td>No</td>
+                <td>Repositories affiliations</td>
+            </tr><tr>
+                <td><code>plugin_discussions</code></td>
+                <td>No</td>
+                <td>Enable discussions plugin</td>
+            </tr><tr>
+                <td><code>plugin_discussions_categories</code></td>
+                <td>No</td>
+                <td>Discussion categories</td>
+            </tr><tr>
+                <td><code>plugin_discussions_categories_limit</code></td>
+                <td>No</td>
+                <td>Display limit (categories)</td>
+            </tr><tr>
+                <td><code>plugin_starlists</code></td>
+                <td>No</td>
+                <td>Enable starlists plugin</td>
+            </tr><tr>
+                <td><code>plugin_starlists_limit</code></td>
+                <td>No</td>
+                <td>Display limit (star lists)</td>
+            </tr><tr>
+                <td><code>plugin_starlists_limit_repositories</code></td>
+                <td>No</td>
+                <td>Display limit (repositories per star list)</td>
+            </tr><tr>
+                <td><code>plugin_starlists_languages</code></td>
+                <td>No</td>
+                <td>Star lists languages statistics</td>
+            </tr><tr>
+                <td><code>plugin_starlists_limit_languages</code></td>
+                <td>No</td>
+                <td>Display limit (languages per star list)</td>
+            </tr><tr>
+                <td><code>plugin_starlists_languages_ignored</code></td>
+                <td>No</td>
+                <td>Ignored languages in star lists</td>
+            </tr><tr>
+                <td><code>plugin_starlists_languages_aliases</code></td>
+                <td>No</td>
+                <td>Custom languages names in star lists</td>
+            </tr><tr>
+                <td><code>plugin_starlists_shuffle_repositories</code></td>
+                <td>No</td>
+                <td>Shuffle data</td>
+            </tr><tr>
+                <td><code>plugin_starlists_ignored</code></td>
+                <td>No</td>
+                <td>Skipped star lists</td>
+            </tr><tr>
+                <td><code>plugin_starlists_only</code></td>
+                <td>No</td>
+                <td>Showcased star lists</td>
+            </tr><tr>
+                <td><code>plugin_calendar</code></td>
+                <td>No</td>
+                <td>Enable calendar plugin</td>
+            </tr><tr>
+                <td><code>plugin_calendar_limit</code></td>
+                <td>No</td>
+                <td>Years to display</td>
+            </tr><tr>
+                <td><code>plugin_achievements</code></td>
+                <td>No</td>
+                <td>Enable achievements plugin</td>
+            </tr><tr>
+                <td><code>plugin_achievements_threshold</code></td>
+                <td>No</td>
+                <td>Rank threshold filter</td>
+            </tr><tr>
+                <td><code>plugin_achievements_secrets</code></td>
+                <td>No</td>
+                <td>Secrets achievements</td>
+            </tr><tr>
+                <td><code>plugin_achievements_display</code></td>
+                <td>No</td>
+                <td>Display style</td>
+            </tr><tr>
+                <td><code>plugin_achievements_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_achievements_ignored</code></td>
+                <td>No</td>
+                <td>Ignored achievements</td>
+            </tr><tr>
+                <td><code>plugin_achievements_only</code></td>
+                <td>No</td>
+                <td>Showcased achievements</td>
+            </tr><tr>
+                <td><code>plugin_notable</code></td>
+                <td>No</td>
+                <td>Enable notable plugin</td>
+            </tr><tr>
+                <td><code>plugin_notable_filter</code></td>
+                <td>No</td>
+                <td>Query filter</td>
+            </tr><tr>
+                <td><code>plugin_notable_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_notable_from</code></td>
+                <td>No</td>
+                <td>Repository owner account type filter</td>
+            </tr><tr>
+                <td><code>plugin_notable_repositories</code></td>
+                <td>No</td>
+                <td>Repository name</td>
+            </tr><tr>
+                <td><code>plugin_notable_indepth</code></td>
+                <td>No</td>
+                <td>Indepth mode</td>
+            </tr><tr>
+                <td><code>plugin_notable_types</code></td>
+                <td>No</td>
+                <td>Contribution types filter</td>
+            </tr><tr>
+                <td><code>plugin_notable_self</code></td>
+                <td>No</td>
+                <td>Include own repositories</td>
+            </tr><tr>
+                <td><code>plugin_activity</code></td>
+                <td>No</td>
+                <td>Enable activity plugin</td>
+            </tr><tr>
+                <td><code>plugin_activity_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_activity_load</code></td>
+                <td>No</td>
+                <td>Events to load</td>
+            </tr><tr>
+                <td><code>plugin_activity_days</code></td>
+                <td>No</td>
+                <td>Events maximum age</td>
+            </tr><tr>
+                <td><code>plugin_activity_visibility</code></td>
+                <td>No</td>
+                <td>Events visibility</td>
+            </tr><tr>
+                <td><code>plugin_activity_timestamps</code></td>
+                <td>No</td>
+                <td>Events timestamps</td>
+            </tr><tr>
+                <td><code>plugin_activity_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_activity_ignored</code></td>
+                <td>No</td>
+                <td>Ignored users</td>
+            </tr><tr>
+                <td><code>plugin_activity_filter</code></td>
+                <td>No</td>
+                <td>Events types</td>
+            </tr><tr>
+                <td><code>plugin_traffic</code></td>
+                <td>No</td>
+                <td>Enable traffic plugin</td>
+            </tr><tr>
+                <td><code>plugin_traffic_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_code</code></td>
+                <td>No</td>
+                <td>Enable code plugin</td>
+            </tr><tr>
+                <td><code>plugin_code_lines</code></td>
+                <td>No</td>
+                <td>Display limit (lines per code snippets)</td>
+            </tr><tr>
+                <td><code>plugin_code_load</code></td>
+                <td>No</td>
+                <td>Events to load</td>
+            </tr><tr>
+                <td><code>plugin_code_days</code></td>
+                <td>No</td>
+                <td>Events maximum age</td>
+            </tr><tr>
+                <td><code>plugin_code_visibility</code></td>
+                <td>No</td>
+                <td>Events visibility</td>
+            </tr><tr>
+                <td><code>plugin_code_skipped</code></td>
+                <td>No</td>
+                <td>Skipped repositories</td>
+            </tr><tr>
+                <td><code>plugin_code_languages</code></td>
+                <td>No</td>
+                <td>Showcased languages</td>
+            </tr><tr>
+                <td><code>plugin_gists</code></td>
+                <td>No</td>
+                <td>Enable gists plugin</td>
+            </tr><tr>
+                <td><code>plugin_projects</code></td>
+                <td>No</td>
+                <td>Enable projects plugin</td>
+            </tr><tr>
+                <td><code>plugin_projects_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_projects_repositories</code></td>
+                <td>No</td>
+                <td>Featured repositories projects</td>
+            </tr><tr>
+                <td><code>plugin_projects_descriptions</code></td>
+                <td>No</td>
+                <td>Projects descriptions</td>
+            </tr><tr>
+                <td><code>plugin_introduction</code></td>
+                <td>No</td>
+                <td>Enable introduction plugin</td>
+            </tr><tr>
+                <td><code>plugin_introduction_title</code></td>
+                <td>No</td>
+                <td>Section title</td>
+            </tr><tr>
+                <td><code>plugin_skyline</code></td>
+                <td>No</td>
+                <td>Enable skyline plugin</td>
+            </tr><tr>
+                <td><code>plugin_skyline_year</code></td>
+                <td>No</td>
+                <td>Displayed year</td>
+            </tr><tr>
+                <td><code>plugin_skyline_frames</code></td>
+                <td>No</td>
+                <td>Frames count</td>
+            </tr><tr>
+                <td><code>plugin_skyline_quality</code></td>
+                <td>No</td>
+                <td>Image quality</td>
+            </tr><tr>
+                <td><code>plugin_skyline_compatibility</code></td>
+                <td>No</td>
+                <td>Compatibility mode</td>
+            </tr><tr>
+                <td><code>plugin_skyline_settings</code></td>
+                <td>No</td>
+                <td>Advanced settings</td>
+            </tr><tr>
+                <td><code>plugin_support</code></td>
+                <td>No</td>
+                <td>Enable support plugin</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed</code></td>
+                <td>No</td>
+                <td>Enable pagespeed plugin</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed_token</code></td>
+                <td>No</td>
+                <td>PageSpeed token</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed_url</code></td>
+                <td>No</td>
+                <td>Audited website</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed_detailed</code></td>
+                <td>No</td>
+                <td>Detailed results</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed_screenshot</code></td>
+                <td>No</td>
+                <td>Website screenshot</td>
+            </tr><tr>
+                <td><code>plugin_pagespeed_pwa</code></td>
+                <td>No</td>
+                <td>PWA Status</td>
+            </tr><tr>
+                <td><code>plugin_tweets</code></td>
+                <td>No</td>
+                <td>Enable tweets plugin</td>
+            </tr><tr>
+                <td><code>plugin_tweets_token</code></td>
+                <td>No</td>
+                <td>Twitter API token</td>
+            </tr><tr>
+                <td><code>plugin_tweets_user</code></td>
+                <td>No</td>
+                <td>Twitter username</td>
+            </tr><tr>
+                <td><code>plugin_tweets_attachments</code></td>
+                <td>No</td>
+                <td>Tweets attachments</td>
+            </tr><tr>
+                <td><code>plugin_tweets_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow</code></td>
+                <td>No</td>
+                <td>Enable stackoverflow plugin</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow_user</code></td>
+                <td>No</td>
+                <td>Stackoverflow user id</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow_limit</code></td>
+                <td>No</td>
+                <td>Display limit (entries per section)</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow_lines</code></td>
+                <td>No</td>
+                <td>Display limit (lines per questions and answers)</td>
+            </tr><tr>
+                <td><code>plugin_stackoverflow_lines_snippet</code></td>
+                <td>No</td>
+                <td>Display limit (lines per code snippets)</td>
+            </tr><tr>
+                <td><code>plugin_anilist</code></td>
+                <td>No</td>
+                <td>Enable aniList plugin</td>
+            </tr><tr>
+                <td><code>plugin_anilist_user</code></td>
+                <td>No</td>
+                <td>AniList login</td>
+            </tr><tr>
+                <td><code>plugin_anilist_medias</code></td>
+                <td>No</td>
+                <td>Medias types</td>
+            </tr><tr>
+                <td><code>plugin_anilist_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_anilist_limit</code></td>
+                <td>No</td>
+                <td>Display limit (medias)</td>
+            </tr><tr>
+                <td><code>plugin_anilist_limit_characters</code></td>
+                <td>No</td>
+                <td>Display limit (characters)</td>
+            </tr><tr>
+                <td><code>plugin_anilist_shuffle</code></td>
+                <td>No</td>
+                <td>Shuffle data</td>
+            </tr><tr>
+                <td><code>plugin_music</code></td>
+                <td>No</td>
+                <td>Enable music plugin</td>
+            </tr><tr>
+                <td><code>plugin_music_provider</code></td>
+                <td>No</td>
+                <td>Music provider</td>
+            </tr><tr>
+                <td><code>plugin_music_token</code></td>
+                <td>No</td>
+                <td>Music provider token</td>
+            </tr><tr>
+                <td><code>plugin_music_user</code></td>
+                <td>No</td>
+                <td>Music provider username</td>
+            </tr><tr>
+                <td><code>plugin_music_mode</code></td>
+                <td>No</td>
+                <td>Display mode</td>
+            </tr><tr>
+                <td><code>plugin_music_playlist</code></td>
+                <td>No</td>
+                <td>Playlist URL</td>
+            </tr><tr>
+                <td><code>plugin_music_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_music_played_at</code></td>
+                <td>No</td>
+                <td>Recently played - Last played timestamp</td>
+            </tr><tr>
+                <td><code>plugin_music_time_range</code></td>
+                <td>No</td>
+                <td>Top tracks - Time range</td>
+            </tr><tr>
+                <td><code>plugin_music_top_type</code></td>
+                <td>No</td>
+                <td>Top tracks - Display type</td>
+            </tr><tr>
+                <td><code>plugin_posts</code></td>
+                <td>No</td>
+                <td>Enable posts plugin</td>
+            </tr><tr>
+                <td><code>plugin_posts_source</code></td>
+                <td>No</td>
+                <td>External source</td>
+            </tr><tr>
+                <td><code>plugin_posts_user</code></td>
+                <td>No</td>
+                <td>External source username</td>
+            </tr><tr>
+                <td><code>plugin_posts_descriptions</code></td>
+                <td>No</td>
+                <td>Posts descriptions</td>
+            </tr><tr>
+                <td><code>plugin_posts_covers</code></td>
+                <td>No</td>
+                <td>Posts cover images</td>
+            </tr><tr>
+                <td><code>plugin_posts_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_rss</code></td>
+                <td>No</td>
+                <td>Enable rss plugin</td>
+            </tr><tr>
+                <td><code>plugin_rss_source</code></td>
+                <td>No</td>
+                <td>RSS feed source</td>
+            </tr><tr>
+                <td><code>plugin_rss_limit</code></td>
+                <td>No</td>
+                <td>Display limit</td>
+            </tr><tr>
+                <td><code>plugin_wakatime</code></td>
+                <td>No</td>
+                <td>Enable wakatime plugin</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_token</code></td>
+                <td>No</td>
+                <td>WakaTime API token</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_url</code></td>
+                <td>No</td>
+                <td>WakaTime URL</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_user</code></td>
+                <td>No</td>
+                <td>WakaTime username</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_days</code></td>
+                <td>No</td>
+                <td>Time range</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_limit</code></td>
+                <td>No</td>
+                <td>Display limit (entries per graph)</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_languages_other</code></td>
+                <td>No</td>
+                <td>Other languages</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_languages_ignored</code></td>
+                <td>No</td>
+                <td>Ignored languages</td>
+            </tr><tr>
+                <td><code>plugin_wakatime_repositories_visibility</code></td>
+                <td>No</td>
+                <td>Repositories visibility</td>
+            </tr><tr>
+                <td><code>plugin_leetcode</code></td>
+                <td>No</td>
+                <td>Enable leetcode plugin</td>
+            </tr><tr>
+                <td><code>plugin_leetcode_user</code></td>
+                <td>No</td>
+                <td>LeetCode login</td>
+            </tr><tr>
+                <td><code>plugin_leetcode_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_leetcode_limit_skills</code></td>
+                <td>No</td>
+                <td>Display limit (skills)</td>
+            </tr><tr>
+                <td><code>plugin_leetcode_ignored_skills</code></td>
+                <td>No</td>
+                <td>Ignored skills</td>
+            </tr><tr>
+                <td><code>plugin_leetcode_limit_recent</code></td>
+                <td>No</td>
+                <td>Display limit (recent)</td>
+            </tr><tr>
+                <td><code>plugin_steam</code></td>
+                <td>No</td>
+                <td>Enable steam plugin</td>
+            </tr><tr>
+                <td><code>plugin_steam_token</code></td>
+                <td>No</td>
+                <td>Steam token</td>
+            </tr><tr>
+                <td><code>plugin_steam_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_steam_user</code></td>
+                <td>No</td>
+                <td>Steam user id</td>
+            </tr><tr>
+                <td><code>plugin_steam_games_ignored</code></td>
+                <td>No</td>
+                <td>Ignored games</td>
+            </tr><tr>
+                <td><code>plugin_steam_games_limit</code></td>
+                <td>No</td>
+                <td>Display limit (Most played games)</td>
+            </tr><tr>
+                <td><code>plugin_steam_recent_games_limit</code></td>
+                <td>No</td>
+                <td>Display limit (Recently played games)</td>
+            </tr><tr>
+                <td><code>plugin_steam_achievements_limit</code></td>
+                <td>No</td>
+                <td>Display limit (Games achievements)</td>
+            </tr><tr>
+                <td><code>plugin_steam_playtime_threshold</code></td>
+                <td>No</td>
+                <td>Display threshold (Game playtime in hours)</td>
+            </tr><tr>
+                <td><code>plugin_16personalities</code></td>
+                <td>No</td>
+                <td>Enable 16personalities plugin</td>
+            </tr><tr>
+                <td><code>plugin_16personalities_url</code></td>
+                <td>No</td>
+                <td>Profile URL</td>
+            </tr><tr>
+                <td><code>plugin_16personalities_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_16personalities_scores</code></td>
+                <td>No</td>
+                <td>Display traits scores</td>
+            </tr><tr>
+                <td><code>plugin_chess</code></td>
+                <td>No</td>
+                <td>Enable chess plugin</td>
+            </tr><tr>
+                <td><code>plugin_chess_token</code></td>
+                <td>No</td>
+                <td>Chess platform token</td>
+            </tr><tr>
+                <td><code>plugin_chess_user</code></td>
+                <td>No</td>
+                <td>Chess platform login</td>
+            </tr><tr>
+                <td><code>plugin_chess_platform</code></td>
+                <td>No</td>
+                <td>Chess platform</td>
+            </tr><tr>
+                <td><code>plugin_chess_animation</code></td>
+                <td>No</td>
+                <td>Animation settings</td>
+            </tr><tr>
+                <td><code>plugin_crypto</code></td>
+                <td>No</td>
+                <td>Enable crypto plugin</td>
+            </tr><tr>
+                <td><code>plugin_crypto_id</code></td>
+                <td>No</td>
+                <td>Crypto id</td>
+            </tr><tr>
+                <td><code>plugin_crypto_vs_currency</code></td>
+                <td>No</td>
+                <td>The target currency of market data (usd, eur, jpy, etc.)</td>
+            </tr><tr>
+                <td><code>plugin_crypto_days</code></td>
+                <td>No</td>
+                <td>Data up to number of days ago (eg. 1,14,30,max)</td>
+            </tr><tr>
+                <td><code>plugin_crypto_precision</code></td>
+                <td>No</td>
+                <td>The number of decimal places to use</td>
+            </tr><tr>
+                <td><code>plugin_fortune</code></td>
+                <td>No</td>
+                <td>Enable fortune plugin</td>
+            </tr><tr>
+                <td><code>plugin_nightscout</code></td>
+                <td>No</td>
+                <td>Enable nightscout plugin</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_url</code></td>
+                <td>No</td>
+                <td>Nightscout URL</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_datapoints</code></td>
+                <td>No</td>
+                <td>Number of datapoints shown the graph</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_lowalert</code></td>
+                <td>No</td>
+                <td>Threshold for low blood sugar</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_highalert</code></td>
+                <td>No</td>
+                <td>Threshold for high blood sugar</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_urgentlowalert</code></td>
+                <td>No</td>
+                <td>Threshold for urgently low blood sugar</td>
+            </tr><tr>
+                <td><code>plugin_nightscout_urgenthighalert</code></td>
+                <td>No</td>
+                <td>Threshold for urgently high blood sugar</td>
+            </tr><tr>
+                <td><code>plugin_poopmap</code></td>
+                <td>No</td>
+                <td>Enable poopmap plugin</td>
+            </tr><tr>
+                <td><code>plugin_poopmap_token</code></td>
+                <td>No</td>
+                <td>PoopMap API token</td>
+            </tr><tr>
+                <td><code>plugin_poopmap_days</code></td>
+                <td>No</td>
+                <td>Time range</td>
+            </tr><tr>
+                <td><code>plugin_screenshot</code></td>
+                <td>No</td>
+                <td>Enable screenshot plugin</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_title</code></td>
+                <td>No</td>
+                <td>Title caption</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_url</code></td>
+                <td>No</td>
+                <td>Website URL</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_selector</code></td>
+                <td>No</td>
+                <td>CSS Selector</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_mode</code></td>
+                <td>No</td>
+                <td>Output mode</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_viewport</code></td>
+                <td>No</td>
+                <td>Viewport options</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_wait</code></td>
+                <td>No</td>
+                <td>Wait time before taking screenshot (ms)</td>
+            </tr><tr>
+                <td><code>plugin_screenshot_background</code></td>
+                <td>No</td>
+                <td>Background</td>
+            </tr><tr>
+                <td><code>plugin_splatoon</code></td>
+                <td>No</td>
+                <td>Enable splatoon plugin</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_token</code></td>
+                <td>No</td>
+                <td>Splatnet token</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_sections</code></td>
+                <td>No</td>
+                <td>Displayed sections</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_versus_limit</code></td>
+                <td>No</td>
+                <td>Display limit (Versus)</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_salmon_limit</code></td>
+                <td>No</td>
+                <td>Display limit (Salmon run)</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_statink</code></td>
+                <td>No</td>
+                <td>stat.ink integration</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_statink_token</code></td>
+                <td>No</td>
+                <td>stat.ink token</td>
+            </tr><tr>
+                <td><code>plugin_splatoon_source</code></td>
+                <td>No</td>
+                <td>Source</td>
+            </tr><tr>
+                <td><code>plugin_stock</code></td>
+                <td>No</td>
+                <td>Enable stock plugin</td>
+            </tr><tr>
+                <td><code>plugin_stock_token</code></td>
+                <td>No</td>
+                <td>Yahoo Finance token</td>
+            </tr><tr>
+                <td><code>plugin_stock_symbol</code></td>
+                <td>No</td>
+                <td>Company stock symbol</td>
+            </tr><tr>
+                <td><code>plugin_stock_duration</code></td>
+                <td>No</td>
+                <td>Time range</td>
+            </tr><tr>
+                <td><code>plugin_stock_interval</code></td>
+                <td>No</td>
+                <td>Time interval between points</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

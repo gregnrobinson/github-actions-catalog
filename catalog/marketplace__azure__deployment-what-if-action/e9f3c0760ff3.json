@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/azure/deployment-what-if-action",
+  "version_id": "e9f3c0760ff3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/deployment-what-if-action/action.yml",
+    "origin": "github.com/azure/deployment-what-if-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "deployment-what-if",
+    "description": "Preview Azure infrastructure changes before its deployment",
+    "author": "",
+    "inputs": [
+      {
+        "name": "subscription",
+        "required": true,
+        "default": null,
+        "description": "Subscription ID"
+      },
+      {
+        "name": "resourceGroup",
+        "required": true,
+        "default": null,
+        "description": "Resource group name"
+      },
+      {
+        "name": "templateFile",
+        "required": true,
+        "default": null,
+        "description": "ARM template or Bicep file"
+      },
+      {
+        "name": "parametersFile",
+        "required": false,
+        "default": null,
+        "description": "Parameters file for the ARM template or Bicep"
+      },
+      {
+        "name": "additionalParameters",
+        "required": false,
+        "default": null,
+        "description": "Additional parameters to be applied on the ARM template or Bicep. Multiple parameters should be separated by spaces."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "PARAMETERS=\"\"\n\nif [[ ! -z \"${{ inputs.parametersFile }}\" || ! -z \"${{ inputs.additionalParameters }}\" ]]; then\n  PARAMETERS=\"--parameters\"\n\n  if [[ ! -z \"${{ inputs.parametersFile }}\" ]]; then\n    PARAMETERS=\"$PARAMETERS @${{ inputs.parametersFile }}\"\n  fi\n\n  if [[ ! -z \"${{ inputs.additionalParameters }}\" ]]; then\n    PARAMETERS=\"$PARAMETERS ${{ inputs.additionalParameters }}\"\n  fi\nfi\n\naz deployment group what-if \\\n  --resource-group ${{ inputs.resourceGroup }} \\\n  --subscription ${{ inputs.subscription }} \\\n  --template-file ${{ inputs.templateFile }} \\\n  $PARAMETERS\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e9f3c0760ff3da384670b20641ff0dce49f5d50b6deeb60c488bc4a8b15f6955",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.629270Z"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "action_id": "marketplace/azure/kwok",
+  "version_id": "5babdd0436bb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/kwok/action.yml",
+    "origin": "github.com/azure/kwok",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup kwok",
+    "description": "This action sets up kwok/kwokctl for use in your workflow",
+    "author": "",
+    "inputs": [
+      {
+        "name": "command",
+        "required": true,
+        "default": null,
+        "description": "Command to install"
+      },
+      {
+        "name": "kwok-version",
+        "required": false,
+        "default": null,
+        "description": "Specific version of command to install, defaults to latest release"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "kubernetes-sigs/kwok",
+        "description": "Repository is kwok's repository, will use release from this repository, defaults same as uses in this step"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install ${{ inputs.command }}",
+          "shell": "bash",
+          "env": {
+            "KWOK_REPO": "${{ inputs.repository }}",
+            "KWOK_VERSION": "${{ inputs.kwok-version }}"
+          },
+          "run": "if [[ -f /usr/local/bin/${{ inputs.command }} ]]; then\n  echo \"Found ${{ inputs.command }} in /usr/local/bin, skipping installation\"\n  exit 0\nfi\n\nif [[ -z \"${KWOK_VERSION}\" ]]; then\n  echo \"Fetching latest version...\"\n  KWOK_VERSION=\"$(curl \"https://api.github.com/repos/${KWOK_REPO}/releases/latest\" | jq -r '.tag_name')\"\n  if [[ -z \"${KWOK_VERSION}\" ]]; then\n    echo \"Failed to fetch latest version\"\n    exit 1\n  fi\n  if [[ \"${KWOK_VERSION}\" == \"null\" ]]; then\n    echo \"Failed to fetch latest version\"\n    exit 1\n  fi\n  echo \"Latest version is ${KWOK_VERSION}\"\nfi\n\necho \"Installing ${{ inputs.command }} ${KWOK_VERSION}...\"\nwget -O ${{ inputs.command }} \"https://github.com/${KWOK_REPO}/releases/download/${KWOK_VERSION}/${{ inputs.command }}-$(go env GOOS)-$(go env GOARCH)\"\nchmod +x ${{ inputs.command }}\nsudo mv ${{ inputs.command }} /usr/local/bin/\nif ! ${{ inputs.command }} --version; then\n  echo \"Failed to run ${{ inputs.command }} --version\"\n  exit 1\nfi\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5babdd0436bbab4c3d0697f928cd8ebb4f1608eea7bb2caf7784b59f45de313a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.545311Z"
+  }
+}

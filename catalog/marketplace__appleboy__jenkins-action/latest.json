@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/appleboy/jenkins-action",
+  "version_id": "b3f95b17db97",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/jenkins-action/action.yml",
+    "origin": "github.com/appleboy/jenkins-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Trigger Jenkins Multiple Jobs",
+    "description": "Triggering Jenkins Job through the API",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "url",
+        "required": true,
+        "default": null,
+        "description": "Jenkins base URL (e.g., http://jenkins.example.com/)"
+      },
+      {
+        "name": "user",
+        "required": false,
+        "default": null,
+        "description": "Jenkins username"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Jenkins API token"
+      },
+      {
+        "name": "remote_token",
+        "required": false,
+        "default": null,
+        "description": "Jenkins remote trigger token"
+      },
+      {
+        "name": "job",
+        "required": true,
+        "default": null,
+        "description": "Jenkins job name(s) - can specify multiple"
+      },
+      {
+        "name": "parameters",
+        "required": false,
+        "default": null,
+        "description": "Build parameters in multi-line key=value format (one per line)"
+      },
+      {
+        "name": "insecure",
+        "required": false,
+        "default": "false",
+        "description": "Allow insecure SSL connections (default: false)"
+      },
+      {
+        "name": "wait",
+        "required": false,
+        "default": "false",
+        "description": "Wait for job completion (default: false)"
+      },
+      {
+        "name": "poll_interval",
+        "required": false,
+        "default": "10s",
+        "description": "Interval between status checks (default: 10s)"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": "30m",
+        "description": "Maximum time to wait for job completion (default: 30m)"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "false",
+        "description": "Enable debug mode to show detailed parameter information (default: false)"
+      },
+      {
+        "name": "ca_cert",
+        "required": false,
+        "default": null,
+        "description": "Custom CA certificate (PEM content, file path, or HTTP URL)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action triggers Jenkins jobs, which is primarily a deployment task. It also involves authentication through the Jenkins API, and communication with the Jenkins server.",
+        "tags": [
+          "Jenkins",
+          "Deployment",
+          "API",
+          "Automation",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b3f95b17db9725158c9b730323ced85fd5ffc97bfa70df94b227ebf14ffabafd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.186670Z"
+  }
+}

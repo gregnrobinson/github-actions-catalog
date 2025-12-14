@@ -1,0 +1,171 @@
+{
+  "action_id": "marketplace/github/stale",
+  "version_id": "a6436d70b8da",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/stale/action.yml",
+    "origin": "github.com/github/stale",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Close Stale Issues",
+    "description": "Close issues and pull requests with no recent activity",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "required": true,
+        "default": null,
+        "description": "Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`."
+      },
+      {
+        "name": "stale-issue-message",
+        "required": false,
+        "default": null,
+        "description": "The message to post on the issue when tagging it. If none provided, will not mark issues stale."
+      },
+      {
+        "name": "stale-pr-message",
+        "required": false,
+        "default": null,
+        "description": "The message to post on the pr when tagging it. If none provided, will not mark pull requests stale."
+      },
+      {
+        "name": "close-issue-message",
+        "required": false,
+        "default": null,
+        "description": "The message to post on the issue when closing it. If none provided, will not comment when closing an issue."
+      },
+      {
+        "name": "close-pr-message",
+        "required": false,
+        "default": null,
+        "description": "The message to post on the pr when closing it. If none provided, will not comment when closing a pull requests."
+      },
+      {
+        "name": "days-before-stale",
+        "required": false,
+        "default": 60,
+        "description": "The number of days old an issue can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically."
+      },
+      {
+        "name": "days-before-close",
+        "required": false,
+        "default": 7,
+        "description": "The number of days to wait to close an issue or pull request after it being marked stale. Set to -1 to never close stale issues."
+      },
+      {
+        "name": "stale-issue-label",
+        "required": false,
+        "default": "Stale",
+        "description": "The label to apply when an issue is stale."
+      },
+      {
+        "name": "close-issue-label",
+        "required": false,
+        "default": null,
+        "description": "The label to apply when an issue is closed."
+      },
+      {
+        "name": "exempt-issue-labels",
+        "required": false,
+        "default": "",
+        "description": "The labels to apply when an issue is exempt from being marked stale. Separate multiple labels with commas (eg. \"label1,label2\")"
+      },
+      {
+        "name": "stale-pr-label",
+        "required": false,
+        "default": "Stale",
+        "description": "The label to apply when a pull request is stale."
+      },
+      {
+        "name": "close-pr-label",
+        "required": false,
+        "default": null,
+        "description": "The label to apply when a pull request is closed."
+      },
+      {
+        "name": "exempt-pr-labels",
+        "required": false,
+        "default": "",
+        "description": "The labels to apply when a pull request is exempt from being marked stale. Separate multiple labels with commas (eg. \"label1,label2\")"
+      },
+      {
+        "name": "only-labels",
+        "required": false,
+        "default": "",
+        "description": "Only issues or pull requests with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels."
+      },
+      {
+        "name": "operations-per-run",
+        "required": false,
+        "default": 30,
+        "description": "The maximum number of operations per run, used to control rate limiting."
+      },
+      {
+        "name": "remove-stale-when-updated",
+        "required": false,
+        "default": true,
+        "description": "Remove stale labels from issues when they are updated or commented on."
+      },
+      {
+        "name": "debug-only",
+        "required": false,
+        "default": false,
+        "description": "Run the processor in debug mode without actually performing any operations on live issues."
+      },
+      {
+        "name": "ascending",
+        "required": false,
+        "default": false,
+        "description": "The order to get issues or pull requests. Defaults to false, which is descending"
+      },
+      {
+        "name": "skip-stale-pr-message",
+        "required": false,
+        "default": false,
+        "description": "Skip adding stale message when marking a pull request as stale."
+      },
+      {
+        "name": "skip-stale-issue-message",
+        "required": false,
+        "default": false,
+        "description": "Skip adding stale message when marking an issue as stale."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is designed to manage stale issues and pull requests by posting messages, which falls under communication and notification categories.",
+        "tags": [
+          "stale",
+          "issues",
+          "pull requests",
+          "automation",
+          "GitHub"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a6436d70b8daaac21dae7eb1678b57d149b954e0d0eca49ceb3379674141b0c9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.904896Z"
+  }
+}

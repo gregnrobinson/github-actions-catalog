@@ -1,0 +1,142 @@
+{
+  "action_id": "marketplace/google-github-actions/deploy-appengine",
+  "version_id": "51a61ce6e78b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-appengine/action.yml",
+    "origin": "github.com/google-github-actions/deploy-appengine",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy to App Engine",
+    "description": "Deploy and promote a new service to Google App Engine.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "ID of the Google Cloud project. If not provided, this is inherited from\nthe environment."
+      },
+      {
+        "name": "working_directory",
+        "required": false,
+        "default": null,
+        "description": "The working directory to use. **GitHub Actions do not honor [default\nworking-directory\nsettings](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#defaultsrun).**\nThe `deliverables` input is a relative path based on this setting."
+      },
+      {
+        "name": "deliverables",
+        "required": false,
+        "default": null,
+        "description": "The [yaml\nfiles](https://cloud.google.com/appengine/docs/standard/nodejs/configuration-files#optional_configuration_files)\nfor the services or configurations you want to deploy. If not given,\ndefaults to app.yaml in the current directory. If that is not found,\nattempts to automatically generate necessary configuration files (such as\napp.yaml) in the current directory (example, `app.yaml cron.yaml`).\n\nNote: The additional deliverables may require additional roles for your\nservice account user."
+      },
+      {
+        "name": "build_env_vars",
+        "required": false,
+        "default": null,
+        "description": "List of build environment variables that should be set in the build\nenvironment. These are comma-separated or newline-separated `KEY=VALUE`.\nKeys or values that contain separators must be escaped with a backslash\n(e.g. `\\,` or `\\\\n`) unless quoted. Any leading or trailing whitespace is\ntrimmed unless values are quoted.\n\n```yaml\nbuild_env_vars: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nTo include build environment variables defined in another file, use the\n[`includes` directive][includes-directive] in your `app.yaml`.\n\nThis will overwrite any duplicate key environment variables defined in the\n`app.yaml`."
+      },
+      {
+        "name": "env_vars",
+        "required": false,
+        "default": null,
+        "description": "List of environment variables that should be set in the environment. These\nare comma-separated or newline-separated `KEY=VALUE`. Keys or values that\ncontain separators must be escaped with a backslash (e.g. `\\,` or `\\\\n`)\nunless quoted. Any leading or trailing whitespace is trimmed unless values\nare quoted.\n\n```yaml\nenv_vars: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nTo include environment variables defined in another file, use the\n[`includes` directive][includes-directive] in your `app.yaml`.\n\nThis will overwrite any duplicate key environment variables defined in the\n`app.yaml`."
+      },
+      {
+        "name": "image_url",
+        "required": false,
+        "default": null,
+        "description": "Fully-qualified name\nof the container image to deploy. For example:\n\n    us-docker.pkg.dev/cloudrun/container/hello:latest\n\nor\n\n    us-docker.pkg.dev/my-project/my-container/image:1.2.3"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The version of the app that will be created or replaced by this\ndeployment. If you do not specify a version, one will be generated for\nyou."
+      },
+      {
+        "name": "promote",
+        "required": false,
+        "default": "true",
+        "description": "Promote the deployed version to receive all traffic."
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": null,
+        "description": "Space separate list of additional Cloud Functions flags to pass to the\ndeploy command. This can be used to apply advanced features that are not\nexposed via this GitHub Action.\n\n```yaml\nwith:\n  flags: '--ignore-file=...'\n```\n\nFlags that include other flags must quote the _entire_ outer flag value. For\nexample, to pass `--args=-X=123`:\n\n```yaml\nwith:\n  flags: 'flags: '--ignore-file=...' \"--args=-X=123\"'\n```\n\nSee the [complete list of\nflags](https://cloud.google.com/sdk/gcloud/reference/app/deploy#FLAGS) for\nmore information.\n\nPlease note, this GitHub Action does not parse or validate the flags. You\nare responsible for making sure the flags are available on the gcloud\nversion and subcommand."
+      },
+      {
+        "name": "gcloud_version",
+        "required": false,
+        "default": null,
+        "description": "Version of the Cloud SDK to install. If unspecified or set to \"latest\",\nthe latest available gcloud SDK version for the target platform will be\ninstalled. Example: \"290.0.1\"."
+      },
+      {
+        "name": "gcloud_component",
+        "required": false,
+        "default": null,
+        "description": "Version of the Cloud SDK components to install and use. If unspecified,\nthe latest or released version will be used. This is the equivalent of\nrunning 'gcloud alpha COMMAND' or 'gcloud beta COMMAND'. Valid values are\n`alpha` or `beta`. The default value is to use the stable track."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "description": "The fully-qualified resource name of the deployment. This will be of the\nformat `apps/[PROJECT]/services/[SERVICE]/versions/[VERSION]`."
+      },
+      {
+        "name": "runtime",
+        "description": "The computed deployment runtime."
+      },
+      {
+        "name": "service_account_email",
+        "description": "The email address of the runtime service account."
+      },
+      {
+        "name": "serving_status",
+        "description": "The current serving status. The value is usually \"SERVING\", unless the\ndeployment failed to start."
+      },
+      {
+        "name": "version_id",
+        "description": "Unique identifier for the version, or the specified version if one was\ngiven."
+      },
+      {
+        "name": "version_url",
+        "description": "URL of the version of the AppEngine service that was deployed."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy and promote a service to Google App Engine, which clearly falls under the Deployment category. Additionally, it involves managing infrastructure on Google Cloud, placing it in the Infrastructure category as well.",
+        "tags": [
+          "Google Cloud",
+          "App Engine",
+          "Deployment",
+          "Infrastructure",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "51a61ce6e78b1b9a1bf7ae384bc43e89c954cca94fe3536cf9be01627b555e93",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.732752Z"
+  }
+}

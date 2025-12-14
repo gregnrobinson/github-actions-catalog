@@ -1,0 +1,28 @@
+name: 'Publish security assessments to Azure'
+description: 'Publish security assessments to Azure'
+inputs:
+  artifact-type:
+    description: 'The artifact that was scanned. Supported values - “containerImage”'
+    required: true
+    default: 'containerImage'
+  artifact-id:
+    description: 'Unique identifier for the artifact. For artifact-type “containerImage”, the action will take the image digest by default by using docker cli'
+    required: false
+  subscription-token:
+    description: 'ASC subscription token which can be found on the ASC portal'
+    required: true
+  instrumentation-key:
+    description: 'Instrumentation key of the application insights instance'
+    required: false
+  connection-string:
+    description: 'Connection string of the application insights instance'
+    required: false
+  scan-provider:
+    description: 'The tool used to scan the artifact. Supported values - "trivy"'
+    required: true
+  scan-results-path:
+    description: 'Path to the file containing scan results'
+    required: true
+runs:
+  using: 'node12'
+  main: 'lib/run.js'

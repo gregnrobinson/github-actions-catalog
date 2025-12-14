@@ -1,0 +1,12 @@
+name: 'Microsoft 365 certification quick evaluation'
+description: 'Microsoft 365 certiquick assessments action helps you get immediately compliance result by report or by deployments.'
+inputs:
+  report-name:
+    description: 'name of the compliance report'
+    required: false
+  deployment-ids:
+    description: 'deployment ids, array of string in json format'
+    required: false
+runs:
+  using: 'node16'
+  main: 'lib/index.js'

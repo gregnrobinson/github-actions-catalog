@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/github/automatic-contrib-prs",
+  "version_id": "b0ee6ff87a80",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/automatic-contrib-prs/action.yml",
+    "origin": "github.com/github/automatic-contrib-prs",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Automatic Contrib PRs",
+    "description": "A GitHub Action that opens adds CONTRIBUTING.md file in repositories that dont have them.",
+    "author": "github",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/github/automatic-contrib-prs:v2"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b0ee6ff87a80b00daa4366025276324496f3c21f9a5058116e0a4bb6e948b5b2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.985667Z"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "action_id": "marketplace/pascalgn/npm-publish-action",
+  "version_id": "ddde1777f3cb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pascalgn/npm-publish-action/action.yml",
+    "origin": "github.com/pascalgn/npm-publish-action",
+    "publisher": "pascalgn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Publish to npm",
+    "description": "Automatically publish new versions to npm",
+    "author": "pascalgn",
+    "inputs": [
+      {
+        "name": "commit_pattern",
+        "required": false,
+        "default": null,
+        "description": "The pattern that matches version update commits."
+      },
+      {
+        "name": "tag_name",
+        "required": false,
+        "default": null,
+        "description": "The name of the tag that you want to create for the version."
+      },
+      {
+        "name": "tag_message",
+        "required": false,
+        "default": null,
+        "description": "The message of the tag that you want to create for the version."
+      },
+      {
+        "name": "create_tag",
+        "required": false,
+        "default": null,
+        "description": "Whether to create a git tag or not."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": null,
+        "description": "Custom workspace directory that contains the package.json file."
+      },
+      {
+        "name": "publish_command",
+        "required": false,
+        "default": null,
+        "description": "Custom publish command."
+      },
+      {
+        "name": "publish_args",
+        "required": false,
+        "default": null,
+        "description": "Publish command arguments."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changed",
+        "description": "Whether the version has changed in the examined commits"
+      },
+      {
+        "name": "version",
+        "description": "The detected version number"
+      },
+      {
+        "name": "commit",
+        "description": "The SHA of the commit where the version change has been detected"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ddde1777f3cbb93309f93393e819ec9477368b749cda46e9692c70886c6f526f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.462643Z"
+  }
+}

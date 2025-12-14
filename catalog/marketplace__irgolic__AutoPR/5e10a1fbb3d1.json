@@ -1,0 +1,118 @@
+{
+  "action_id": "marketplace/irgolic/AutoPR",
+  "version_id": "5e10a1fbb3d1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/irgolic/AutoPR/action.yml",
+    "origin": "github.com/irgolic/AutoPR",
+    "publisher": "irgolic",
+    "verified": false
+  },
+  "definition": {
+    "name": "Automatic Pull Request",
+    "description": "Fix issues with AI-generated pull requests, powered by ChatGPT GPT-4 (AutoPR)",
+    "author": "",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "base_branch",
+        "required": false,
+        "default": "main",
+        "description": "Base branch"
+      },
+      {
+        "name": "loading_gif_url",
+        "required": false,
+        "default": "https://media0.giphy.com/media/l3nWhI38IWDofyDrW/giphy.gif",
+        "description": "URL of the gif to display while the PR is being generated"
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": "gpt-4",
+        "description": "Name of the OpenAI chat model"
+      },
+      {
+        "name": "context_limit",
+        "required": false,
+        "default": "8192",
+        "description": "Maximum size of the context window to use, varies depending on the model and preference"
+      },
+      {
+        "name": "min_tokens",
+        "required": false,
+        "default": "1000",
+        "description": "Minimum number of tokens to be made available for generation"
+      },
+      {
+        "name": "max_tokens",
+        "required": false,
+        "default": "2000",
+        "description": "Maximum number of tokens to generate"
+      },
+      {
+        "name": "num_reasks",
+        "required": false,
+        "default": "2",
+        "description": "Number of times to re-ask the model in file exploration and commit generation"
+      },
+      {
+        "name": "agent_id",
+        "required": false,
+        "default": "plan_and_code",
+        "description": "ID of the brain to use"
+      },
+      {
+        "name": "agent_config",
+        "required": false,
+        "default": "",
+        "description": "Configuration for the coordinating agent in yaml format"
+      },
+      {
+        "name": "target_branch_name_template",
+        "required": false,
+        "default": "autopr/{issue_number}",
+        "description": "Template for the name of the target branch"
+      },
+      {
+        "name": "temperature",
+        "required": false,
+        "default": "0.9",
+        "description": "Temperature for the model"
+      },
+      {
+        "name": "rail_temperture",
+        "required": false,
+        "default": "0.9",
+        "description": "Temperature for the guardrails calls"
+      },
+      {
+        "name": "overwrite_existing",
+        "required": false,
+        "default": "false",
+        "description": "Whether to overwrite existing branches and pull requests when creating from issues"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5e10a1fbb3d137099d2259a72185dfb19fe275e6efcfe691ec75c520286b40a1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.097823Z"
+  }
+}

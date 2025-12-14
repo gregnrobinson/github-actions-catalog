@@ -1,0 +1,18 @@
+name: Setup kubelogin
+description: Setup kubelogin in GitHub Actions
+inputs:
+  kubelogin-version:
+    description: 'The version of kubelogin to use. Defaults to the latest version.'
+    required: false
+  skip-cache:
+    description: 'Skip cache check? When set to "true", the action will always download the latest version of kubelogin.'
+    required: false
+    default: 'false'
+  github-api-base-url:
+    description: 'The base URL of GitHub API. Defaults to https://api.github.com.'
+    required: false
+branding:
+  color: green
+runs:
+  using: 'node20'
+  main: 'lib/index.js'

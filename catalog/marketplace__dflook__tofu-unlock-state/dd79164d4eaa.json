@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/dflook/tofu-unlock-state",
+  "version_id": "dd79164d4eaa",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-unlock-state/action.yml",
+    "origin": "github.com/dflook/tofu-unlock-state",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-unlock-state",
+    "description": "Force unlocks an OpenTofu remote state.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Path to the OpenTofu root module that defines the remote state to unlock"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to unlock the remote state for"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "lock_id",
+        "required": true,
+        "default": null,
+        "description": "The ID of the state lock to release."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/unlock-state.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "dd79164d4eaac9ddd7034b27c804ce6c329491baddc2d47bc75d2a5557d67ace",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.334767Z"
+  }
+}

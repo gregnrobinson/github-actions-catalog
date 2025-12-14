@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/aws-actions/sustainability-scanner",
+  "version_id": "c857bc30fa2d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/sustainability-scanner/action.yml",
+    "origin": "github.com/aws-actions/sustainability-scanner",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "AWS Sustainability Scanner GitHub Action",
+    "description": "Run AWS Sustainability Scanner against infrastructure as code as a pre-packaged GitHub Action",
+    "author": "AWS Sustainability",
+    "inputs": [
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "File path of the CloudFormation template to be scanned"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": ".",
+        "description": "Directory path with CloudFormation files to be scanned"
+      },
+      {
+        "name": "stack_name",
+        "required": false,
+        "default": null,
+        "description": "CDK stack name to be scanned"
+      },
+      {
+        "name": "rules_file",
+        "required": false,
+        "default": null,
+        "description": "File path to extend set of rules"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "results",
+        "description": "Results from the sustainability scan"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.file }}",
+        "${{ inputs.directory }}",
+        "${{ inputs.stack_name }}",
+        "${{ inputs.rules_file }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c857bc30fa2d69f5564b16aacef194bcc8c24677471b8ff71e68363f9a108d63",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.035880Z"
+  }
+}

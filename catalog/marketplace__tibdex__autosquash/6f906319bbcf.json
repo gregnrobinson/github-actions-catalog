@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/tibdex/autosquash",
+  "version_id": "6f906319bbcf",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tibdex/autosquash/action.yml",
+    "origin": "github.com/tibdex/autosquash",
+    "publisher": "tibdex",
+    "verified": false
+  },
+  "definition": {
+    "name": "Autosquash",
+    "description": "Automatically update PRs with outdated checks and squash and merge the ones matching all branch protections.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "Token for the GitHub API."
+      },
+      {
+        "name": "label",
+        "required": true,
+        "default": "autosquash",
+        "description": "Name of the label used by Autosquash to find the pull requests to handle."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6f906319bbcf61efe5b8bc8da1137bae552c0a086d7f7d761263b73516430fd9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.405648Z"
+  }
+}

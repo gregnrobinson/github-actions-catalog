@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accessibility-scanner - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>accessibility-scanner</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/accessibility-scanner</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/accessibility-scanner" target="_blank">github.com/github/accessibility-scanner</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Finds potential accessibility gaps, files GitHub issues to track them, and attempts to fix them with Copilot.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Code quality</span> <span class="badge badge-category">Communication</span> <span class="badge badge-category">Testing</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Code quality</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action focuses on identifying accessibility issues, which falls under code quality. Additionally, it files GitHub issues, linking it to communication and testing aspects.</p>
+            <p><strong>Tags:</strong> <span class="tag">accessibility</span> <span class="tag">code quality</span> <span class="tag">GitHub issues</span> <span class="tag">testing</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>urls</code></td>
+                <td>Yes</td>
+                <td>Newline-delimited list of URLs to check for accessibility issues</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>Yes</td>
+                <td>Repository (with owner) to file issues in</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>Personal access token (PAT) with fine-grained permissions &#39;contents: write&#39;, &#39;issues: write&#39;, and &#39;pull_requests: write&#39;</td>
+            </tr><tr>
+                <td><code>cache_key</code></td>
+                <td>Yes</td>
+                <td>Key for caching results across runs</td>
+            </tr><tr>
+                <td><code>login_url</code></td>
+                <td>No</td>
+                <td>If scanned pages require authentication, the URL of the login page</td>
+            </tr><tr>
+                <td><code>username</code></td>
+                <td>No</td>
+                <td>If scanned pages require authentication, the username to use for login</td>
+            </tr><tr>
+                <td><code>password</code></td>
+                <td>No</td>
+                <td>If scanned pages require authentication, the password to use for login</td>
+            </tr><tr>
+                <td><code>auth_context</code></td>
+                <td>No</td>
+                <td>If scanned pages require authentication, a stringified JSON object containing &#39;username&#39;, &#39;password&#39;, &#39;cookies&#39;, and/or &#39;localStorage&#39; from an authenticated session</td>
+            </tr><tr>
+                <td><code>skip_copilot_assignment</code></td>
+                <td>No</td>
+                <td>Whether to skip assigning filed issues to Copilot</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>results</code></td>
+                <td>List of issues and pull requests filed (and their associated finding(s)), as stringified JSON</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,96 @@
+{
+  "action_id": "marketplace/actions/upload-pages-artifact",
+  "version_id": "4524ed61c2fb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/upload-pages-artifact/action.yml",
+    "origin": "github.com/actions/upload-pages-artifact",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Upload GitHub Pages artifact",
+    "description": "A composite action that prepares your static assets to be deployed to GitHub Pages",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "name",
+        "required": false,
+        "default": "github-pages",
+        "description": "Artifact name"
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": "_site/",
+        "description": "Path of the directory containing the static assets."
+      },
+      {
+        "name": "retention-days",
+        "required": false,
+        "default": "1",
+        "description": "Duration after which artifact will expire in days."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "artifact_id",
+        "description": "The ID of the artifact that was uploaded."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Archive artifact",
+          "shell": "sh",
+          "if": "runner.os == 'Linux'",
+          "run": "echo ::group::Archive artifact\ntar \\\n  --dereference --hard-dereference \\\n  --directory \"$INPUT_PATH\" \\\n  -cvf \"$RUNNER_TEMP/artifact.tar\" \\\n  --exclude=.git \\\n  --exclude=.github \\\n  --exclude=\".[^/]*\" \\\n  .\necho ::endgroup::\n",
+          "env": {
+            "INPUT_PATH": "${{ inputs.path }}"
+          }
+        },
+        {
+          "name": "Archive artifact",
+          "shell": "sh",
+          "if": "runner.os == 'macOS'",
+          "run": "echo ::group::Archive artifact\ngtar \\\n  --dereference --hard-dereference \\\n  --directory \"$INPUT_PATH\" \\\n  -cvf \"$RUNNER_TEMP/artifact.tar\" \\\n  --exclude=.git \\\n  --exclude=.github \\\n  --exclude=\".[^/]*\" \\\n  .\necho ::endgroup::\n",
+          "env": {
+            "INPUT_PATH": "${{ inputs.path }}"
+          }
+        },
+        {
+          "name": "Archive artifact",
+          "shell": "bash",
+          "if": "runner.os == 'Windows'",
+          "run": "echo ::group::Archive artifact\ntar \\\n  --dereference --hard-dereference \\\n  --directory \"$INPUT_PATH\" \\\n  -cvf \"$RUNNER_TEMP\\artifact.tar\" \\\n  --exclude=.git \\\n  --exclude=.github \\\n  --exclude=\".[^/]*\" \\\n  --force-local \\\n  \".\"\necho ::endgroup::\n",
+          "env": {
+            "INPUT_PATH": "${{ inputs.path }}"
+          }
+        },
+        {
+          "name": "Upload artifact",
+          "id": "upload-artifact",
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "name": "${{ inputs.name }}",
+            "path": "${{ runner.temp }}/artifact.tar",
+            "retention-days": "${{ inputs.retention-days }}",
+            "if-no-files-found": "error"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4524ed61c2fb61b4d7e88de2d779fe937461b6926aeb716b56f047ae3abcd046",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.320289Z"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/peter-evans/autopep8",
+  "version_id": "2e3f95bc95ce",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/autopep8/action.yml",
+    "origin": "github.com/peter-evans/autopep8",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "autopep8",
+    "description": "Automatically formats Python code to conform to the PEP 8 style guide.",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": "--help",
+        "description": "Arguments to pass to autopep8"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "exit-code",
+        "description": "The exit code output by autopep8"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://peterevans/autopep8:2.0.0",
+      "args": [
+        "${{ inputs.args }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2e3f95bc95ceb96080ba3a6d7026555abff989819b04a15ba9695a8f1afcf4ad",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.482615Z"
+  }
+}

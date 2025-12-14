@@ -1,0 +1,77 @@
+name: 'Close Issue'
+description: 'A GitHub action to close an issue'
+inputs:
+  token:
+    required: false
+    description: 'GitHub auth token'
+    default: ${{ github.token }}
+  repository:
+    required: false
+    description: 'The GitHub repository containing the issue'
+    default: ${{ github.repository }}
+  issue-number:
+    required: false
+    description: 'The number of the issue to close'
+    default: ${{ github.event.issue.number }}
+  close-reason:
+    required: false
+    description: 'Reason for closing the issue, "completed" or "not_planned"'
+    default: 'completed'
+  comment:
+    required: false
+    description: 'A comment to make on the issue before closing'
+  labels:
+    required: false
+    description: 'A comma or newline separated list of labels.'
+runs:
+  using: composite
+  steps:
+    - name: Set parameters
+      id: params
+      shell: bash
+      run: |
+        if [ -n "${{ inputs.comment }}" ]; then
+          comment="--comment \"${{ inputs.comment }}\""
+          delimiter="$(openssl rand -hex 8)"
+          echo "comment<<$delimiter" >> $GITHUB_OUTPUT
+          echo "$comment" >> $GITHUB_OUTPUT
+          echo "$delimiter" >> $GITHUB_OUTPUT
+        fi
+
+        if [ "${{ inputs.close-reason }}" == "not_planned" ]; then
+          echo close-reason="not planned" >> $GITHUB_OUTPUT
+        else
+          echo close-reason="completed" >> $GITHUB_OUTPUT
+        fi
+
+        # Convert labels to comma separated list
+        if [ -n "${{ inputs.labels }}" ]; then
+          labels=$(echo "${{ inputs.labels }}" | tr '\n' ',' | sed 's/,$//')
+          # Remove trailing comma and whitespace
+          labels=$(echo $labels | sed 's/,$//' | sed 's/[[:space:]]//g')
+          echo labels=$labels >> $GITHUB_OUTPUT
+        fi
+
+    - name: Close Issue
+      shell: bash
+      run: |
+        gh issue close -R "${{ inputs.repository }}" \
+        --reason "${{ steps.params.outputs.close-reason }}" \
+        ${{ steps.params.outputs.comment }} \
+        "${{ inputs.issue-number }}"
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+
+    - name: Add Labels
+      if: steps.params.outputs.labels != ''
+      shell: bash
+      run: |
+        gh issue edit -R "${{ inputs.repository }}" \
+        --add-label "${{ steps.params.outputs.labels }}" \
+        "${{ inputs.issue-number }}"
+      env:
+        GH_TOKEN: ${{ inputs.token }}
+
+branding:
+  icon: 'git-pull-request'
+  color: 'gray-dark'

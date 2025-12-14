@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/calibreapp/github-actions",
+  "version_id": "8ceeb49a1465",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/calibreapp/github-actions/action.yml",
+    "origin": "github.com/calibreapp/github-actions",
+    "publisher": "calibreapp",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Actions",
+    "description": "Effortlessly add Calibre to your GitHub workflows",
+    "author": "Calibre",
+    "inputs": [
+      {
+        "name": "command",
+        "required": true,
+        "default": null,
+        "description": "The Calibre CLI command to run"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/calibreapp/github-actions/github-actions:main",
+      "args": [
+        "${{ inputs.command }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action integrates Calibre into GitHub workflows, which suggests it is used for building or managing dependencies related to document processing or conversion tasks.",
+        "tags": [
+          "Calibre",
+          "GitHub Actions",
+          "Build",
+          "Dependency Management",
+          "Automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8ceeb49a1465db2c0bf6302157238cb0220ffa6e28d06b209929d1d0a8b51465",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.826122Z"
+  }
+}

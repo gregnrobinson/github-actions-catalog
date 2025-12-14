@@ -1,0 +1,171 @@
+{
+  "action_id": "marketplace/appleboy/git-push-action",
+  "version_id": "fe1eddb8ea1b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/git-push-action/action.yml",
+    "origin": "github.com/appleboy/git-push-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Git Push Changes",
+    "description": "push changes to a remote git repository.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "author_name",
+        "required": false,
+        "default": "GitHub Actions",
+        "description": "git author name"
+      },
+      {
+        "name": "author_email",
+        "required": false,
+        "default": "41898282+github-actions[bot]@users.noreply.github.com",
+        "description": "git author email"
+      },
+      {
+        "name": "netrc_machine",
+        "required": false,
+        "default": null,
+        "description": "netrc machine"
+      },
+      {
+        "name": "netrc_username",
+        "required": false,
+        "default": null,
+        "description": "netrc username"
+      },
+      {
+        "name": "netrc_password",
+        "required": false,
+        "default": null,
+        "description": "netrc password"
+      },
+      {
+        "name": "ssh_key",
+        "required": false,
+        "default": null,
+        "description": "private ssh key"
+      },
+      {
+        "name": "remote",
+        "required": true,
+        "default": null,
+        "description": "url of the remote repo"
+      },
+      {
+        "name": "remote_name",
+        "required": false,
+        "default": "deploy",
+        "description": "name of the remote repo"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "master",
+        "description": "name of remote branch"
+      },
+      {
+        "name": "local_branch",
+        "required": false,
+        "default": "HEAD",
+        "description": "name of local branch"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": null,
+        "description": "path to git repo"
+      },
+      {
+        "name": "force",
+        "required": false,
+        "default": null,
+        "description": "force push to remote"
+      },
+      {
+        "name": "followtags",
+        "required": false,
+        "default": null,
+        "description": "push to remote with tags"
+      },
+      {
+        "name": "skip_verify",
+        "required": false,
+        "default": null,
+        "description": "skip ssl verification"
+      },
+      {
+        "name": "commit",
+        "required": false,
+        "default": null,
+        "description": "commit dirty changes"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": null,
+        "description": "commit message"
+      },
+      {
+        "name": "tag",
+        "required": false,
+        "default": null,
+        "description": "tag to add to the commit"
+      },
+      {
+        "name": "empty_commit",
+        "required": false,
+        "default": null,
+        "description": "allow empty commit"
+      },
+      {
+        "name": "no_verify",
+        "required": false,
+        "default": null,
+        "description": "bypasses the pre-commit and commit-msg hooks"
+      },
+      {
+        "name": "rebase",
+        "required": false,
+        "default": null,
+        "description": "rebase local branch on top of remote branch"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily used to push changes to a remote Git repository, which falls under deployment. It also involves communication with the remote repository.",
+        "tags": [
+          "git",
+          "push",
+          "deployment",
+          "repository",
+          "actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "fe1eddb8ea1bb662565d3775299ef66da850250ed41ddb13d4bb8ed69cd90d5f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.139454Z"
+  }
+}

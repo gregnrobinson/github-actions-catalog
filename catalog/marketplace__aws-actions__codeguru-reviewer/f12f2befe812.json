@@ -1,0 +1,172 @@
+{
+  "action_id": "marketplace/aws-actions/codeguru-reviewer",
+  "version_id": "f12f2befe812",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/codeguru-reviewer/action.yml",
+    "origin": "github.com/aws-actions/codeguru-reviewer",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "CodeGuru Reviewer",
+    "description": "AWS CodeGuru Reviewer Action",
+    "author": "",
+    "inputs": [
+      {
+        "name": "name",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "Repository name"
+      },
+      {
+        "name": "source_path",
+        "required": false,
+        "default": ".",
+        "description": "Path to Java source repository"
+      },
+      {
+        "name": "build_path",
+        "required": false,
+        "default": null,
+        "description": "Path to build artifact(s) - jar or class files in this directory will be uploaded for review"
+      },
+      {
+        "name": "destination_commit",
+        "required": false,
+        "default": "${{ github.event.before || github.event.pull_request.base.sha }}",
+        "description": "SHA of next commit to be committed to source code repository after an event"
+      },
+      {
+        "name": "source_commit",
+        "required": false,
+        "default": "${{ github.event.after || github.event.pull_request.head.sha }}",
+        "description": "SHA of previous commit in the source code repository existed before an event"
+      },
+      {
+        "name": "merge_base_commit",
+        "required": false,
+        "default": "${{ github.event.pull_request.merge_commit_sha }}",
+        "description": "SHA of a commit thats the merge base for before and after commits in a pull or merge request"
+      },
+      {
+        "name": "source_branch",
+        "required": false,
+        "default": "${{ github.head_ref || github.ref}}",
+        "description": "Source branch of the event"
+      },
+      {
+        "name": "destination_branch",
+        "required": false,
+        "default": "${{ github.base_ref || github.ref }}",
+        "description": "Destination branch of the event"
+      },
+      {
+        "name": "kms_key_id",
+        "required": false,
+        "default": null,
+        "description": "AWS KMS Key ID to use for encrypting source code/build artifacts. By default, Amazon-owned encryption key is used. Supplying this value overrides it to use Customer-owned encryption key"
+      },
+      {
+        "name": "author",
+        "required": false,
+        "default": "${{ github.event.actor }}",
+        "description": "Author/Actor who triggered an event in the source code repository"
+      },
+      {
+        "name": "event_id",
+        "required": false,
+        "default": "${{ github.event.number || github.run_number }}",
+        "description": "An identifier for the event that triggered CodeGuru Reviewer Analysis, e.g. Pull or Merge request id"
+      },
+      {
+        "name": "event_name",
+        "required": false,
+        "default": "${{ github.event_name }}",
+        "description": "Name of the event that triggered the CI/CD workflow [supported Events: push, pull, merge_request_event, schedule, workflow_dispatch]"
+      },
+      {
+        "name": "event_state",
+        "required": false,
+        "default": "${{ github.event.action }}",
+        "description": "State of the event that triggered the CI/CD workflow [example: pull_request: \"opened\"]"
+      },
+      {
+        "name": "client_id",
+        "required": false,
+        "default": "GithubActions@v1",
+        "description": "Unique identifier referring to a specific client version"
+      },
+      {
+        "name": "s3_bucket",
+        "required": true,
+        "default": null,
+        "description": "S3 Bucket which will be used for code reviews"
+      },
+      {
+        "name": "vendor_name",
+        "required": false,
+        "default": "GITHUB",
+        "description": "Vendor Name(e.g. GITHUB, GITLAB) for CI/CD."
+      },
+      {
+        "name": "output_format",
+        "required": false,
+        "default": "SARIF",
+        "description": "Expected format for the results (e.g SARIF, SAST, JENKINS)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://public.ecr.aws/i6i1s7m3/codegurureviewer-actions-public:latest",
+      "args": [
+        "--name",
+        "${{ inputs.name }}",
+        "--source_path",
+        "${{ inputs.source_path }}",
+        "--build_path",
+        "${{ inputs.build_path }}",
+        "--destination_branch",
+        "${{ inputs.destination_branch }}",
+        "--before_commit_sha",
+        "${{ inputs.destination_commit }}",
+        "--source_branch",
+        "${{ inputs.source_branch }}",
+        "--after_commit_sha",
+        "${{ inputs.source_commit }}",
+        "--kms_key_id",
+        "${{ inputs.kms_key_id }}",
+        "--agent",
+        "${{ inputs.author }}",
+        "--merge_commit_sha",
+        "${{ inputs.merge_base_commit }}",
+        "--event_id",
+        "${{ inputs.event_id }}",
+        "--event_name",
+        "${{ inputs.event_name }}",
+        "--event_state",
+        "${{ inputs.event_state }}",
+        "--client_id",
+        "${{ inputs.client_id }}",
+        "--s3_bucket",
+        "${{ inputs.s3_bucket }}",
+        "--vendor_name",
+        "${{ inputs.vendor_name }}",
+        "--output_format",
+        "${{ inputs.output_format }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f12f2befe8127be6055dbf966c18fb7bffe3192b34d22b8fc22ecdd60bd3e3e0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.057321Z"
+  }
+}

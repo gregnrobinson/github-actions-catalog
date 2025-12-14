@@ -1,0 +1,172 @@
+{
+  "action_id": "marketplace/actions/setup-java",
+  "version_id": "c0f91a3110f2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-java/action.yml",
+    "origin": "github.com/actions/setup-java",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Java JDK",
+    "description": "Set up a specific version of the Java JDK and add the command-line tools to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "java-version",
+        "required": false,
+        "default": null,
+        "description": "The Java version to set up. Takes a whole or semver Java version. See examples of supported syntax in README file"
+      },
+      {
+        "name": "java-version-file",
+        "required": false,
+        "default": null,
+        "description": "The path to the `.java-version` file. See examples of supported syntax in README file"
+      },
+      {
+        "name": "distribution",
+        "required": true,
+        "default": null,
+        "description": "Java distribution. See the list of supported distributions in README file"
+      },
+      {
+        "name": "java-package",
+        "required": false,
+        "default": "jdk",
+        "description": "The package type (jdk, jre, jdk+fx, jre+fx)"
+      },
+      {
+        "name": "architecture",
+        "required": false,
+        "default": null,
+        "description": "The architecture of the package (defaults to the action runner's architecture)"
+      },
+      {
+        "name": "jdkFile",
+        "required": false,
+        "default": null,
+        "description": "Path to where the compressed JDK is located"
+      },
+      {
+        "name": "check-latest",
+        "required": false,
+        "default": false,
+        "description": "Set this option if you want the action to check for the latest available version that satisfies the version spec"
+      },
+      {
+        "name": "server-id",
+        "required": false,
+        "default": "github",
+        "description": "ID of the distributionManagement repository in the pom.xml file. Default is `github`"
+      },
+      {
+        "name": "server-username",
+        "required": false,
+        "default": "GITHUB_ACTOR",
+        "description": "Environment variable name for the username for authentication to the Apache Maven repository. Default is $GITHUB_ACTOR"
+      },
+      {
+        "name": "server-password",
+        "required": false,
+        "default": "GITHUB_TOKEN",
+        "description": "Environment variable name for password or token for authentication to the Apache Maven repository. Default is $GITHUB_TOKEN"
+      },
+      {
+        "name": "settings-path",
+        "required": false,
+        "default": null,
+        "description": "Path to where the settings.xml file will be written. Default is ~/.m2."
+      },
+      {
+        "name": "overwrite-settings",
+        "required": false,
+        "default": true,
+        "description": "Overwrite the settings.xml file if it exists. Default is \"true\"."
+      },
+      {
+        "name": "gpg-private-key",
+        "required": false,
+        "default": null,
+        "description": "GPG private key to import. Default is empty string."
+      },
+      {
+        "name": "gpg-passphrase",
+        "required": false,
+        "default": null,
+        "description": "Environment variable name for the GPG private key passphrase. Default is $GPG_PASSPHRASE."
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": null,
+        "description": "Name of the build platform to cache dependencies. It can be \"maven\", \"gradle\" or \"sbt\"."
+      },
+      {
+        "name": "cache-dependency-path",
+        "required": false,
+        "default": null,
+        "description": "The path to a dependency file: pom.xml, build.gradle, build.sbt, etc. This option can be used with the `cache` option. If this option is omitted, the action searches for the dependency file in the entire repository. This option supports wildcards and a list of file names for caching multiple dependencies."
+      },
+      {
+        "name": "job-status",
+        "required": false,
+        "default": "${{ job.status }}",
+        "description": "Workaround to pass job status to post job step. This variable is not intended for manual setting"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.server_url == 'https://github.com' && github.token || '' }}",
+        "description": "The token used to authenticate when fetching version manifests hosted on github.com, such as for the Microsoft Build of OpenJDK. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting."
+      },
+      {
+        "name": "mvn-toolchain-id",
+        "required": false,
+        "default": null,
+        "description": "Name of Maven Toolchain ID if the default name of \"${distribution}_${java-version}\" is not wanted. See examples of supported syntax in Advanced Usage file"
+      },
+      {
+        "name": "mvn-toolchain-vendor",
+        "required": false,
+        "default": null,
+        "description": "Name of Maven Toolchain Vendor if the default name of \"${distribution}\" is not wanted. See examples of supported syntax in Advanced Usage file"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "distribution",
+        "description": "Distribution of Java that has been installed"
+      },
+      {
+        "name": "version",
+        "description": "Actual version of the java environment that has been installed"
+      },
+      {
+        "name": "path",
+        "description": "Path to where the java environment has been installed (same as $JAVA_HOME)"
+      },
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate an exact match was found for the primary key"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/setup/index.js",
+      "post": "dist/cleanup/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c0f91a3110f24715c76bb01aa28663fb35f6ea954144724783636b2ae782b38d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.316744Z"
+  }
+}

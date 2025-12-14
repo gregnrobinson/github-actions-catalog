@@ -1,0 +1,104 @@
+{
+  "action_id": "marketplace/peter-evans/install-llvm-action",
+  "version_id": "77360ec15a9e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/install-llvm-action/action.yml",
+    "origin": "github.com/peter-evans/install-llvm-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Install LLVM and Clang",
+    "description": "Downloads and installs LLVM and Clang binaries.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": null,
+        "description": "The version of LLVM and Clang binaries to install."
+      },
+      {
+        "name": "force-version",
+        "required": false,
+        "default": null,
+        "description": "Whether to accept unsupported LLVM and Clang versions."
+      },
+      {
+        "name": "ubuntu-version",
+        "required": false,
+        "default": null,
+        "description": "The version override of Ubuntu to use for the Linux platform."
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "The directory to install LLVM and Clang binaries to."
+      },
+      {
+        "name": "cached",
+        "required": false,
+        "default": null,
+        "description": "Whether the LLVM and Clang binaries were cached."
+      },
+      {
+        "name": "download-url",
+        "required": false,
+        "default": null,
+        "description": "The URL to download LLVM and Clang binaries from."
+      },
+      {
+        "name": "auth",
+        "required": false,
+        "default": null,
+        "description": "The Authorization header to use when downloading LLVM and Clang binaries."
+      },
+      {
+        "name": "env",
+        "required": false,
+        "default": null,
+        "description": "Whether to set CC and CXX environment variables to Clang paths."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "version",
+        "description": "The full version of LLVM and Clang binaries installed."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is focused on downloading and installing specific versions of LLVM and Clang, which are dependencies needed for building software. It also relates to the build process as these tools are commonly used in compilation.",
+        "tags": [
+          "LLVM",
+          "Clang",
+          "installation",
+          "dependencies",
+          "build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "77360ec15a9ebce3b2e95cb2e36a2a30849f26823e5567a08fd6c0f256d1f8bc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.490387Z"
+  }
+}

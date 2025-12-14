@@ -1,0 +1,154 @@
+{
+  "action_id": "marketplace/appleboy/docker-ecr-action",
+  "version_id": "c7d5f48ff078",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/docker-ecr-action/action.yml",
+    "origin": "github.com/appleboy/docker-ecr-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Docker ECR",
+    "description": "Upload Docker Image to Amazon Elastic Container Registry (ECR)",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "access_key",
+        "required": false,
+        "default": null,
+        "description": "amazon access key"
+      },
+      {
+        "name": "secret_key",
+        "required": false,
+        "default": null,
+        "description": "amazon secret access key"
+      },
+      {
+        "name": "registry",
+        "required": false,
+        "default": null,
+        "description": "docker registry"
+      },
+      {
+        "name": "region",
+        "required": false,
+        "default": "us-east-1",
+        "description": "amazon region, defaults to us-east-1"
+      },
+      {
+        "name": "repo",
+        "required": false,
+        "default": null,
+        "description": "repository name for the image"
+      },
+      {
+        "name": "lifecycle_policy",
+        "required": false,
+        "default": null,
+        "description": "filename of ecr lifecycle json policy"
+      },
+      {
+        "name": "repository_policy",
+        "required": false,
+        "default": null,
+        "description": "filename of ecr repository json policy"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": "latest",
+        "description": "repository tag for the image, defaults to latest"
+      },
+      {
+        "name": "dockerfile",
+        "required": false,
+        "default": "Dockerfile",
+        "description": "dockerfile to be used, defaults to Dockerfile"
+      },
+      {
+        "name": "auth",
+        "required": false,
+        "default": null,
+        "description": "auth token for the registry"
+      },
+      {
+        "name": "context",
+        "required": false,
+        "default": ".",
+        "description": "the context path to use, defaults to root of the git repo"
+      },
+      {
+        "name": "force_tag",
+        "required": false,
+        "default": null,
+        "description": "replace existing matched image tags"
+      },
+      {
+        "name": "insecure",
+        "required": false,
+        "default": null,
+        "description": "enable insecure communication to this registry"
+      },
+      {
+        "name": "mirror",
+        "required": false,
+        "default": null,
+        "description": "use a mirror registry instead of pulling images directly from the central Hub"
+      },
+      {
+        "name": "bip",
+        "required": false,
+        "default": null,
+        "description": "use for pass bridge ip"
+      },
+      {
+        "name": "custom_dns",
+        "required": false,
+        "default": null,
+        "description": "set custom dns servers for the container"
+      },
+      {
+        "name": "storage_driver",
+        "required": false,
+        "default": null,
+        "description": "supports aufs, overlay or vfs drivers"
+      },
+      {
+        "name": "cache_from",
+        "required": false,
+        "default": null,
+        "description": "images to consider as cache sources"
+      },
+      {
+        "name": "auto_tag",
+        "required": false,
+        "default": null,
+        "description": "default build tags"
+      },
+      {
+        "name": "daemon_off",
+        "required": false,
+        "default": null,
+        "description": "do not start the docker daemon"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c7d5f48ff0784c05978d2e58b57abf9c2c555d4bcd3ad57e0e4321644df38eb0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.117033Z"
+  }
+}

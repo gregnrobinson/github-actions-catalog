@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/appleboy/line-action",
+  "version_id": "4f74ad1cb31b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/line-action/action.yml",
+    "origin": "github.com/appleboy/line-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "LINE Message Notify",
+    "description": "Sending a Line message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "secret",
+        "required": true,
+        "default": null,
+        "description": "line channel secret"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "line channel access token"
+      },
+      {
+        "name": "room",
+        "required": false,
+        "default": null,
+        "description": "line room ID"
+      },
+      {
+        "name": "group",
+        "required": false,
+        "default": null,
+        "description": "line group ID"
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": null,
+        "description": "the message contents"
+      },
+      {
+        "name": "images",
+        "required": false,
+        "default": null,
+        "description": "line images"
+      },
+      {
+        "name": "videos",
+        "required": false,
+        "default": null,
+        "description": "line videos"
+      },
+      {
+        "name": "audios",
+        "required": false,
+        "default": null,
+        "description": "line audios"
+      },
+      {
+        "name": "stickers",
+        "required": false,
+        "default": null,
+        "description": "line stickers"
+      },
+      {
+        "name": "locations",
+        "required": false,
+        "default": null,
+        "description": "line locations"
+      },
+      {
+        "name": "delimiter",
+        "required": false,
+        "default": null,
+        "description": "line delimiter, default is ::"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4f74ad1cb31bf66dfee14eea03ae55c18770f96ab361e3a1979a41c666176697",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.188672Z"
+  }
+}

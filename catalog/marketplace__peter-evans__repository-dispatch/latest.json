@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/peter-evans/repository-dispatch",
+  "version_id": "453b51482b09",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/repository-dispatch/action.yml",
+    "origin": "github.com/peter-evans/repository-dispatch",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Repository Dispatch",
+    "description": "Create a repository dispatch event",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The full name of the repository to send the dispatch."
+      },
+      {
+        "name": "event-type",
+        "required": true,
+        "default": null,
+        "description": "A custom webhook event name."
+      },
+      {
+        "name": "client-payload",
+        "required": false,
+        "default": "{}",
+        "description": "JSON payload with extra information about the webhook event that your action or worklow may use."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to create a repository dispatch event, which facilitates communication between different parts of a workflow or between different workflows. It also serves as a notification mechanism for triggering events.",
+        "tags": [
+          "repository",
+          "dispatch",
+          "event",
+          "communication",
+          "notification"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "453b51482b0973cd7e3519cd2f7fe54ed55bb81614a5163e501939adaf05f145",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.478178Z"
+  }
+}

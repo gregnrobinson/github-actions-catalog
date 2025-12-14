@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/azure/azure-resource-login-action",
+  "version_id": "26cb9be2798b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/azure-resource-login-action/action.yml",
+    "origin": "github.com/azure/azure-resource-login-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "azure-resource-login",
+    "description": "Gets an Access Token for an specific Azure resource",
+    "author": "",
+    "inputs": [
+      {
+        "name": "creds",
+        "required": true,
+        "default": null,
+        "description": "Azure credentials for the service principal to log in"
+      },
+      {
+        "name": "resource-url",
+        "required": false,
+        "default": "",
+        "description": "Canonical resource url for what you want the token for"
+      },
+      {
+        "name": "resource-type-name",
+        "required": false,
+        "default": "Arm",
+        "description": "Optional resouce type name, supported values: AadGraph, AnalysisServices, Arm, Attestation, Batch, DataLake, KeyVault, OperationalInsights, ResourceManager, Storage, Synapse. Default value is Arm if not specified."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "token",
+        "description": "Authentication Token"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Logining in into Azure",
+          "uses": "Azure/login@v2.1.1",
+          "with": {
+            "creds": "${{ inputs.creds }}",
+            "enable-AzPSSession": true
+          }
+        },
+        {
+          "id": "adquire-token",
+          "name": "Adquiring access token",
+          "shell": "pwsh",
+          "run": "Set-PSRepository PSGallery -InstallationPolicy Trusted\nInstall-Module -Name Az.Accounts -AllowClobber\n\n$context = Get-AzContext\nif (\"${{ inputs.resource-url }}\" -ne \"\")\n{\n  $resource = Get-AzAccessToken -ResourceUrl ${{ inputs.resource-url }} -DefaultProfile $context\n}\nelse\n{\n  $resource = Get-AzAccessToken -ResourceTypeName ${{ inputs.resource-type-name }} -DefaultProfile $context\n}\n\n$resourceToken = $resource.Token\nwrite-host \"::debug::Setting 'token' variable to $resourceToken\"\nwrite-host \"::set-output name=token::$resourceToken\"\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "26cb9be2798b183f7f039178bbfb7207bcf82497028a8a4e74cfd2cdee561c5f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.580137Z"
+  }
+}

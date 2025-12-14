@@ -1,0 +1,123 @@
+{
+  "action_id": "marketplace/appleboy/whisper-action",
+  "version_id": "b3f32ed81ad5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/whisper-action/action.yml",
+    "origin": "github.com/appleboy/whisper-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Speech to Text OpenAI Whisper",
+    "description": "High-performance inference of OpenAI Whisper automatic speech recognition (ASR) model",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "model",
+        "required": false,
+        "default": "small",
+        "description": "public whisper model. (available: small, medium and large)"
+      },
+      {
+        "name": "audio_path",
+        "required": false,
+        "default": null,
+        "description": "Audio Path."
+      },
+      {
+        "name": "output_folder",
+        "required": false,
+        "default": null,
+        "description": "output folder."
+      },
+      {
+        "name": "output_format",
+        "required": false,
+        "default": "txt",
+        "description": "output format, support txt, srt, csv."
+      },
+      {
+        "name": "output_filename",
+        "required": false,
+        "default": null,
+        "description": "output filename."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "enable debug mode."
+      },
+      {
+        "name": "print_progress",
+        "required": false,
+        "default": "true",
+        "description": "print progress."
+      },
+      {
+        "name": "print_segment",
+        "required": false,
+        "default": null,
+        "description": "print segment."
+      },
+      {
+        "name": "youtube_url",
+        "required": false,
+        "default": null,
+        "description": "youtube url"
+      },
+      {
+        "name": "translate",
+        "required": false,
+        "default": null,
+        "description": "translate from source language to english"
+      },
+      {
+        "name": "cut_silences",
+        "required": false,
+        "default": null,
+        "description": "cut silences"
+      },
+      {
+        "name": "prompt",
+        "required": false,
+        "default": null,
+        "description": "initial prompt"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action performs speech recognition, which can be used for testing audio inputs and ensuring quality in applications that rely on voice data. It also relates to code quality as it can help verify the functionality of audio processing features.",
+        "tags": [
+          "speech recognition",
+          "OpenAI",
+          "Whisper",
+          "ASR",
+          "audio processing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b3f32ed81ad5e316754316ffbcfa0fd4c90aadebf5a5ae9163bef5631cba2328",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.136296Z"
+  }
+}

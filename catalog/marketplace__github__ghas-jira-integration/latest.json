@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/github/ghas-jira-integration",
+  "version_id": "ef01800bf1c3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/ghas-jira-integration/action.yml",
+    "origin": "github.com/github/ghas-jira-integration",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Sync GitHub Advanced Security and Jira",
+    "description": "This helps sync GHAS alerts to JIRA by creating an issue for each alert.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "jira_url",
+        "required": true,
+        "default": null,
+        "description": "URL of the JIRA instance"
+      },
+      {
+        "name": "jira_user",
+        "required": true,
+        "default": null,
+        "description": "JIRA account with the required permissions"
+      },
+      {
+        "name": "jira_token",
+        "required": true,
+        "default": null,
+        "description": "JIRA password or token"
+      },
+      {
+        "name": "jira_project",
+        "required": true,
+        "default": null,
+        "description": "JIRA project key"
+      },
+      {
+        "name": "jira_labels",
+        "required": false,
+        "default": null,
+        "description": "JIRA bug label(s). (e.g. valid format can be \"red-team,blue-team,green-team\", or \"red-team\") This tool will split the values entered by commas. Spaces in the double quotes will be respected and saved."
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub API token with the required permissions"
+      },
+      {
+        "name": "sync_direction",
+        "required": false,
+        "default": "both",
+        "description": "Which direction to synchronize in (\"gh2jira\", \"jira2gh\" or \"both\")"
+      },
+      {
+        "name": "issue_end_state",
+        "required": false,
+        "default": "Done",
+        "description": "Custom end state"
+      },
+      {
+        "name": "issue_reopen_state",
+        "required": false,
+        "default": "To Do",
+        "description": "Custom reopen state"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Run GitHub to Jira Sync",
+          "working-directory": "${{ github.action_path }}",
+          "shell": "bash",
+          "env": {
+            "INPUTS_GITHUB_TOKEN": "${{ inputs.github_token }}",
+            "INPUTS_JIRA_URL": "${{ inputs.jira_url }}",
+            "INPUTS_JIRA_USER": "${{ inputs.jira_user }}",
+            "INPUTS_JIRA_TOKEN": "${{ inputs.jira_token }}",
+            "INPUTS_JIRA_PROJECT": "${{ inputs.jira_project }}",
+            "INPUTS_JIRA_LABELS": "${{ inputs.jira_labels }}",
+            "INPUTS_SYNC_DIRECTION": "${{ inputs.sync_direction }}",
+            "INPUTS_ISSUE_END_STATE": "${{ inputs.issue_end_state }}",
+            "INPUTS_ISSUE_REOPEN_STATE": "${{ inputs.issue_reopen_state }}"
+          },
+          "run": "pip3 install pipenv\npipenv install\nREPOSITORY_NAME=\"$(echo \"$GITHUB_REPOSITORY\" | cut -d/ -f 2)\"\n# Run pipenv from the temporary directory\npipenv run ./gh2jira sync \\\n  --gh-url \"$GITHUB_API_URL\" \\\n  --gh-token \"$INPUTS_GITHUB_TOKEN\" \\\n  --gh-org \"$GITHUB_REPOSITORY_OWNER\" \\\n  --gh-repo \"$REPOSITORY_NAME\" \\\n  --jira-url \"$INPUTS_JIRA_URL\" \\\n  --jira-user \"$INPUTS_JIRA_USER\" \\\n  --jira-token \"$INPUTS_JIRA_TOKEN\" \\\n  --jira-project \"$INPUTS_JIRA_PROJECT\" \\\n  --jira-labels \"$INPUTS_JIRA_LABELS\" \\\n  --direction \"$INPUTS_SYNC_DIRECTION\" \\\n  --issue-end-state \"$INPUTS_ISSUE_END_STATE\" \\\n  --issue-reopen-state \"$INPUTS_ISSUE_REOPEN_STATE\"\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates communication between GitHub Advanced Security and Jira by creating issues for alerts, which falls under both Communication and Notification. Additionally, it involves security aspects by handling alerts related to GitHub Advanced Security.",
+        "tags": [
+          "GitHub",
+          "Jira",
+          "security",
+          "integration",
+          "alerts"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ef01800bf1c328b23efcb36ee791fa7d06fd33ca29abbd4b7375d8f04f8e408f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.990632Z"
+  }
+}

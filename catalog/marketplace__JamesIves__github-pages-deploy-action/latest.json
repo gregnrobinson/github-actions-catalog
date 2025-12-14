@@ -1,0 +1,159 @@
+{
+  "action_id": "marketplace/JamesIves/github-pages-deploy-action",
+  "version_id": "6f6e0f774cbf",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/JamesIves/github-pages-deploy-action/action.yml",
+    "origin": "github.com/JamesIves/github-pages-deploy-action",
+    "publisher": "JamesIves",
+    "verified": false
+  },
+  "definition": {
+    "name": "Deploy to GitHub Pages",
+    "description": "This action will handle the deployment process of your project to GitHub Pages.",
+    "author": "James Ives <iam@jamesiv.es>",
+    "inputs": [
+      {
+        "name": "ssh-key",
+        "required": false,
+        "default": null,
+        "description": "This option allows you to define a private SSH key to be used in conjunction with a repository deployment key to deploy using SSH. The private key should be stored in the `secrets / with` menu **as a secret**. The public should be stored in the repositories deployment keys menu and be given write access.\nAlternatively you can set this field to `true` to enable SSH endpoints for deployment without configuring the ssh client. This can be useful if you've already setup the SSH client using another package or action in a previous step.\n"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "This option defaults to the repository scoped GitHub Token.  However if you need more permissions for things such as deploying to another repository, you can add a Personal Access Token (PAT) here.  This should be stored in the `secrets / with` menu **as a secret**.\nWe recommend using a service account with the least permissions necessary and when generating a new PAT that you select the least permission scopes required.\n[Learn more about creating and using encrypted secrets here.](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)\n"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "gh-pages",
+        "description": "This is the branch you wish to deploy to, for example gh-pages or docs."
+      },
+      {
+        "name": "folder",
+        "required": true,
+        "default": null,
+        "description": "The folder in your repository that you want to deploy. If your build script compiles into a directory named build you would put it here. Folder paths cannot have a leading / or ./. If you wish to deploy the root directory you can place a . here."
+      },
+      {
+        "name": "target-folder",
+        "required": false,
+        "default": null,
+        "description": "If you would like to push the contents of the deployment folder into a specific directory on the deployment branch you can specify it here."
+      },
+      {
+        "name": "commit-message",
+        "required": false,
+        "default": null,
+        "description": "If you need to customize the commit message for an integration you can do so."
+      },
+      {
+        "name": "clean",
+        "required": false,
+        "default": true,
+        "description": "If your project generates hashed files on build you can use this option to automatically delete them from the target folder on the deployment branch with each deploy. This option is on by default and can be toggled off by setting it to false."
+      },
+      {
+        "name": "clean-exclude",
+        "required": false,
+        "default": null,
+        "description": "If you need to use clean but you would like to preserve certain files or folders you can use this option. This should contain each pattern as a single line in a multiline string."
+      },
+      {
+        "name": "dry-run",
+        "required": false,
+        "default": null,
+        "description": "Do not actually push back, but use `--dry-run` on `git push` invocations instead."
+      },
+      {
+        "name": "force",
+        "required": false,
+        "default": true,
+        "description": "Whether to force-push and overwrite any existing deployment. Setting this to false will attempt to rebase simultaneous deployments. This option is on by default and can be toggled off by setting it to false."
+      },
+      {
+        "name": "git-config-name",
+        "required": false,
+        "default": null,
+        "description": "Allows you to customize the name that is attached to the GitHub config which is used when pushing the deployment commits. If this is not included it will use the name in the GitHub context, followed by the name of the action."
+      },
+      {
+        "name": "git-config-email",
+        "required": false,
+        "default": null,
+        "description": "Allows you to customize the email that is attached to the GitHub config which is used when pushing the deployment commits. If this is not included it will use the email in the GitHub context, followed by a generic noreply GitHub email."
+      },
+      {
+        "name": "repository-name",
+        "required": false,
+        "default": null,
+        "description": "Allows you to specify a different repository path so long as you have permissions to push to it. This should be formatted like so: JamesIves/github-pages-deploy-action"
+      },
+      {
+        "name": "tag",
+        "required": false,
+        "default": null,
+        "description": "Add a tag to the commit, this can be used like so: 'v0.1'. Only works when 'dry-run' is not used."
+      },
+      {
+        "name": "single-commit",
+        "required": false,
+        "default": null,
+        "description": "This option can be used if you'd prefer to have a single commit on the deployment branch instead of maintaining the full history."
+      },
+      {
+        "name": "silent",
+        "required": false,
+        "default": null,
+        "description": "Silences the action output preventing it from displaying git messages."
+      },
+      {
+        "name": "attempt-limit",
+        "required": false,
+        "default": 3,
+        "description": "How many rebase attempts to make before suspending the job. This option defaults to `3` and may be useful to increase when there are multiple deployments in a single branch."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-status",
+        "description": "The status of the deployment that indicates if the run failed or passed. Possible outputs include: success|failed|skipped"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is primarily focused on deploying a project to GitHub Pages, which categorizes it under Deployment. It also involves authentication through SSH keys and tokens, placing it in the Authentication and Infrastructure categories as well.",
+        "tags": [
+          "GitHub Pages",
+          "deployment",
+          "SSH",
+          "GitHub Actions",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6f6e0f774cbf0404673c1cac9def11c158938bb299633fdf5259a10567c21399",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.853144Z"
+  }
+}

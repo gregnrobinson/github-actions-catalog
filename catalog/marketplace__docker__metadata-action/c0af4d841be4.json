@@ -1,0 +1,141 @@
+{
+  "action_id": "marketplace/docker/metadata-action",
+  "version_id": "c0af4d841be4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/docker/metadata-action/action.yml",
+    "origin": "github.com/docker/metadata-action",
+    "publisher": "docker",
+    "verified": true
+  },
+  "definition": {
+    "name": "Docker Metadata action",
+    "description": "GitHub Action to extract metadata (tags, labels) for Docker",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "context",
+        "required": true,
+        "default": "workflow",
+        "description": "Where to get context data. Allowed options are \"workflow\"  (default), \"git\"."
+      },
+      {
+        "name": "images",
+        "required": false,
+        "default": null,
+        "description": "List of Docker images to use as base name for tags"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": null,
+        "description": "List of tags as key-value pair attributes"
+      },
+      {
+        "name": "flavor",
+        "required": false,
+        "default": null,
+        "description": "Flavors to apply"
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "List of custom labels"
+      },
+      {
+        "name": "annotations",
+        "required": false,
+        "default": null,
+        "description": "List of custom annotations"
+      },
+      {
+        "name": "sep-tags",
+        "required": false,
+        "default": null,
+        "description": "Separator to use for tags output (default \\n)"
+      },
+      {
+        "name": "sep-labels",
+        "required": false,
+        "default": null,
+        "description": "Separator to use for labels output (default \\n)"
+      },
+      {
+        "name": "sep-annotations",
+        "required": false,
+        "default": null,
+        "description": "Separator to use for annotations output (default \\n)"
+      },
+      {
+        "name": "bake-target",
+        "required": false,
+        "default": null,
+        "description": "Bake target name (default docker-metadata-action)"
+      },
+      {
+        "name": "github-token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub Token as provided by secrets"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "version",
+        "description": "Generated Docker image version"
+      },
+      {
+        "name": "tags",
+        "description": "Generated Docker tags"
+      },
+      {
+        "name": "tag-names",
+        "description": "Generated Docker tag names without image base name"
+      },
+      {
+        "name": "labels",
+        "description": "Generated Docker labels"
+      },
+      {
+        "name": "annotations",
+        "description": "Generated annotations"
+      },
+      {
+        "name": "json",
+        "description": "JSON output of tags and labels"
+      },
+      {
+        "name": "bake-file-tags",
+        "description": "Bake definition file with tags"
+      },
+      {
+        "name": "bake-file-labels",
+        "description": "Bake definition file with labels"
+      },
+      {
+        "name": "bake-file-annotations",
+        "description": "Bake definition file with annotations"
+      },
+      {
+        "name": "bake-file",
+        "description": "Bake definition file with tags and labels"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c0af4d841be4127bac20facbcb267784a995006fcbf17d65afbee22fe24e67a4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.494494Z"
+  }
+}

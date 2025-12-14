@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/google-github-actions/upload-cloud-storage",
+  "version_id": "f22131c94ddc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/upload-cloud-storage/action.yml",
+    "origin": "github.com/google-github-actions/upload-cloud-storage",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Cloud Storage Uploader",
+    "description": "Upload files or folders to GCS buckets",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "Google Cloud project ID to use for billing and API requests. If not\nprovided, the project will be inferred from the environment, best-effort.\nTo explicitly set the value:\n\n```yaml\nproject_id: 'my-project'\n```"
+      },
+      {
+        "name": "universe",
+        "required": false,
+        "default": "googleapis.com",
+        "description": "The Google Cloud universe to use for constructing API endpoints. Trusted\nPartner Cloud and Google Distributed Hosted Cloud should set this to their\nuniverse address.\n\nYou can also override individual API endpoints by setting the environment\nvariable `GHA_ENDPOINT_OVERRIDE_<endpoint>` where `<endpoint>` is the API\nendpoint to override. For example:\n\n```yaml\nenv:\n  GHA_ENDPOINT_OVERRIDE_oauth2: 'https://oauth2.myapi.endpoint/v1'\n```\n\nFor more information about universes, see the Google Cloud documentation."
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "The path to a file or folder inside the action's filesystem that should be\nuploaded to the bucket.\n\nYou can specify either the absolute path or the relative path from the\naction:\n\n```yaml\npath: '/path/to/file'\n```\n\n```yaml\npath: '../path/to/file'\n```"
+      },
+      {
+        "name": "destination",
+        "required": true,
+        "default": null,
+        "description": "The destination for the file/folder in the form bucket-name or with an\noptional prefix in the form `bucket-name/prefix`. For example, to upload a\nfile named `file` to the GCS bucket `bucket-name`:\n\n```yaml\ndestination: 'bucket-name'\n```\n\nTo upload to a subfolder:\n\n```yaml\ndestination: 'bucket-name/prefix'\n```"
+      },
+      {
+        "name": "gzip",
+        "required": false,
+        "default": true,
+        "description": "Upload file(s) with gzip content encoding. To disable gzip\ncontent-encoding, set the value to false:\n\n```yaml\ngzip: false\n```"
+      },
+      {
+        "name": "resumable",
+        "required": false,
+        "default": true,
+        "description": "Enable resumable uploads. To disable resumable uploads, set the value to\nfalse:\n\n```yaml\nresumable: false\n```"
+      },
+      {
+        "name": "predefinedAcl",
+        "required": false,
+        "default": null,
+        "description": "Apply a predefined set of access controls to the files being uploaded. For\nexample, to grant project team members access to the uploaded files\naccording to their roles:\n\n```yaml\npredefinedAcl: 'projectPrivate'\n```\n\nAcceptable values are: `authenticatedRead`, `bucketOwnerFullControl`,\n`bucketOwnerRead`, `private`, `projectPrivate`, `publicRead`. See [the\ndocument](https://googleapis.dev/nodejs/storage/latest/global.html#UploadOptions)\nfor details."
+      },
+      {
+        "name": "headers",
+        "required": false,
+        "default": null,
+        "description": "Set object metadata. For example, to set the `Content-Type` header to\n`application/json` and custom metadata with key `custom-field` and value\n`custom-value`:\n\n```yaml\nheaders: |-\n  content-type: 'application/json'\n  x-goog-meta-custom-field: 'custom-value'\n```\n\nSettable fields are: `cache-control`, `content-disposition`,\n`content-encoding`, `content-language`, `content-type`, `custom-time`. See\n[the\ndocument](https://cloud.google.com/storage/docs/gsutil/addlhelp/WorkingWithObjectMetadata#settable-fields;-field-values)\nfor details. All custom metadata fields must be prefixed with\n`x-goog-meta-`."
+      },
+      {
+        "name": "parent",
+        "required": false,
+        "default": true,
+        "description": "Whether the parent directory should be included in GCS destination path. To disable this:\n\n```yaml\nparent: false\n```"
+      },
+      {
+        "name": "glob",
+        "required": false,
+        "default": null,
+        "description": "Glob pattern to match for files to upload.\n\n```yaml\nglob: '*.txt'\n```"
+      },
+      {
+        "name": "concurrency",
+        "required": false,
+        "default": "100",
+        "description": "Number of files to simultaneously upload.\n\n```yaml\nconcurrency: '10'\n```"
+      },
+      {
+        "name": "gcloudignore_path",
+        "required": false,
+        "default": ".gcloudignore",
+        "description": "Path to a gcloudignore file within the repository.\n\n```yaml\ngcloudignore_path: '.gcloudignore.dev'\n```"
+      },
+      {
+        "name": "process_gcloudignore",
+        "required": false,
+        "default": true,
+        "description": "Process a `.gcloudignore` file present in the top-level of the repository.\nIf true, the file is parsed and any filepaths that match are not uploaded\nto the storage bucket. To disable, set the value to false:\n\n```yaml\nprocess_gcloudignore: false\n```"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "uploaded",
+        "description": "Comma-separated list of files that were uploaded."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f22131c94ddc4b015d134a88a1a572c74dfe903dcc5caca0acf21ec2580553ab",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.764835Z"
+  }
+}

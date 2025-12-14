@@ -1,0 +1,49 @@
+name: 'Online Experimentation Deploy Metrics'
+description:
+  'Deploy metric definitions from a configuration file to the Online
+  Experimentation workspace'
+author: 'Microsoft'
+
+branding:
+  icon: 'heart'
+  color: 'red'
+
+# Define your inputs here.
+inputs:
+  path:
+    description:
+      'Source file(s) containing metrics. Multiple files can be specified in
+      list or glob format. Example: **/*.json or metrics/*.json. Use ! to
+      exclude files.'
+    required: true
+
+  online-experimentation-workspace-endpoint: # Online Experimentation workspace endpoint
+    description: 'Online Experimentation workspace endpoint'
+    required: true
+
+  operation: # Validate the configuration file only
+    description:
+      'Possible values: validate or deploy - deploy by default. validate: only
+      validates the configuration file. deploy: syncs the configuration file
+      with Online Experimentation workspace'
+    required: false
+    default: 'deploy'
+
+  strict:
+    description:
+      'If strict, the deploy operation deletes metrics not found in the config
+      file. Choices: true, false (default: true).'
+    required: false
+    default: 'true'
+
+  add-commit-hash-to-metric-description: # Add commit hash to metric description
+    description:
+      'Indicates whether to add the git commit hash to the metric description.
+      This is helpful to track the metric version used by experiment analysis.
+      Choices: true, false (default: false)'
+    required: false
+    default: 'false'
+
+runs:
+  using: node20
+  main: dist/index.js

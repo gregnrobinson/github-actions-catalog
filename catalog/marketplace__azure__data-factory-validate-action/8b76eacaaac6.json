@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/azure/data-factory-validate-action",
+  "version_id": "8b76eacaaac6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/data-factory-validate-action/action.yml",
+    "origin": "github.com/azure/data-factory-validate-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "data-factory-validate",
+    "description": "Validate all of the Azure Data Factory resources in the repository",
+    "author": "",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": "./",
+        "description": "Directory that contains all Data Factory resources"
+      },
+      {
+        "name": "id",
+        "required": false,
+        "default": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DataFactory/factories/dataFactory",
+        "description": "Data Factory resource ID"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.path }}",
+        "${{ inputs.id }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "8b76eacaaac69e96e61a2c2cdeaf83d4efb6afd53c337bcc3560e1c6869d1610",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.709527Z"
+  }
+}

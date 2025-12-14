@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure WebApp - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure WebApp</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/webapps-deploy</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/webapps-deploy" target="_blank">github.com/azure/webapps-deploy</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy Web Apps/Containerized Web Apps to Azure. github.com/Azure/Actions</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is specifically designed to deploy web applications to Azure, making Deployment its primary focus, while also involving Infrastructure as it interacts with cloud resources.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Deployment</span> <span class="tag">WebApps</span> <span class="tag">GitHub Actions</span> <span class="tag">Cloud</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>app-name</code></td>
+                <td>Yes</td>
+                <td>Name of the Azure Web App</td>
+            </tr><tr>
+                <td><code>publish-profile</code></td>
+                <td>No</td>
+                <td>Applies to Web Apps(Windows and Linux) and Web App Containers(linux). Multi container scenario not supported. Publish profile (*.publishsettings) file contents with Web Deploy secrets</td>
+            </tr><tr>
+                <td><code>slot-name</code></td>
+                <td>No</td>
+                <td>Enter an existing Slot other than the Production slot</td>
+            </tr><tr>
+                <td><code>package</code></td>
+                <td>No</td>
+                <td>Applies to Web App only: Path to package or folder. *.zip, *.war, *.jar or a folder to deploy</td>
+            </tr><tr>
+                <td><code>images</code></td>
+                <td>No</td>
+                <td>Applies to Web App Containers only: Specify the fully qualified container image(s) name. For example, &#39;myregistry.azurecr.io/nginx:latest&#39; or &#39;python:3.7.2-alpine/&#39;. For multi-container scenario multiple container image names can be provided (multi-line separated)</td>
+            </tr><tr>
+                <td><code>configuration-file</code></td>
+                <td>No</td>
+                <td>Applies to Web App Containers only: Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container scenario</td>
+            </tr><tr>
+                <td><code>startup-command</code></td>
+                <td>No</td>
+                <td>Enter the start up command. For ex. dotnet run or dotnet run</td>
+            </tr><tr>
+                <td><code>resource-group-name</code></td>
+                <td>No</td>
+                <td>Enter the resource group name of the web app</td>
+            </tr><tr>
+                <td><code>type</code></td>
+                <td>No</td>
+                <td>Enter deployment type (JAR, WAR, EAR, ZIP, Static)</td>
+            </tr><tr>
+                <td><code>target-path</code></td>
+                <td>No</td>
+                <td>Target path in the web app. For ex. &#39;/home/site/wwwroot&#39;</td>
+            </tr><tr>
+                <td><code>clean</code></td>
+                <td>No</td>
+                <td>Delete existing files target directory before deploying</td>
+            </tr><tr>
+                <td><code>restart</code></td>
+                <td>No</td>
+                <td>Restart the app service after deployment</td>
+            </tr><tr>
+                <td><code>sitecontainers-config</code></td>
+                <td>No</td>
+                <td>Applies to Sitecontainers, containes a list of siteContainer specs</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>webapp-url</code></td>
+                <td>URL to work with your webapp</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

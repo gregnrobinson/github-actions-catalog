@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/dflook/tofu-test",
+  "version_id": "d7280ba65cb3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-test/action.yml",
+    "origin": "github.com/dflook/tofu-test",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-test",
+    "description": "Execute automated tests for an OpenTofu module",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the OpenTofu module under test"
+      },
+      {
+        "name": "test_directory",
+        "required": false,
+        "default": "",
+        "description": "The directory within the module path that contains the test files."
+      },
+      {
+        "name": "test_filter",
+        "required": false,
+        "default": "",
+        "description": "The test files to run, one per line.\n\nIf not specified, all test files in the `test_directory` will be run.\nThe are paths relative to the module path.\n"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the tests. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `no-tests` - No tests were found to run.\n- `tests-failed` - One or more tests failed.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/test.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d7280ba65cb3f1d3eb100173edfe4701c312c811cc0800c8ad93ef7a7fa52236",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.378876Z"
+  }
+}

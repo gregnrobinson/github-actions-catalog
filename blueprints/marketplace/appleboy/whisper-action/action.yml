@@ -1,0 +1,38 @@
+name: 'Speech to Text OpenAI Whisper'
+description: 'High-performance inference of OpenAI Whisper automatic speech recognition (ASR) model'
+author: 'Bo-Yi Wu'
+inputs:
+  model:
+    description: 'public whisper model. (available: small, medium and large)'
+    default: 'small'
+  audio_path:
+    description: 'Audio Path.'
+  output_folder:
+    description: 'output folder.'
+  output_format:
+    description: 'output format, support txt, srt, csv.'
+    default: 'txt'
+  output_filename:
+    description: 'output filename.'
+  debug:
+    description: 'enable debug mode.'
+  print_progress:
+    description: 'print progress.'
+    default: 'true'
+  print_segment:
+    description: 'print segment.'
+  youtube_url:
+    description: 'youtube url'
+  translate:
+    description: 'translate from source language to english'
+  cut_silences:
+    description: 'cut silences'
+  prompt:
+    description: 'initial prompt'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'terminal'
+  color: 'gray-dark'

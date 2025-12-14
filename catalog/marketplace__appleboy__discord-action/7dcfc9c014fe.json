@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/appleboy/discord-action",
+  "version_id": "7dcfc9c014fe",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/discord-action/action.yml",
+    "origin": "github.com/appleboy/discord-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Discord Message Notify",
+    "description": "Send a message to a Discord channel using a webhook. This action allows you to notify a Discord channel by sending a message through a webhook.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "webhook_url",
+        "required": false,
+        "default": null,
+        "description": "The URL of the Discord webhook. This is the endpoint where the message will be sent."
+      },
+      {
+        "name": "webhook_id",
+        "required": false,
+        "default": null,
+        "description": "The ID of the Discord webhook. This is a unique identifier for the webhook."
+      },
+      {
+        "name": "webhook_token",
+        "required": false,
+        "default": null,
+        "description": "The token of the Discord webhook. This token is used to authenticate the webhook."
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": null,
+        "description": "The content of the message to send. The message can be up to 2000 characters long."
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "The content of the file to send. You can attach a file to the message."
+      },
+      {
+        "name": "color",
+        "required": false,
+        "default": null,
+        "description": "The color code for the embed message. This sets the color of the embed's side border."
+      },
+      {
+        "name": "wait",
+        "required": false,
+        "default": null,
+        "description": "Wait for server confirmation before responding. If set to true, the action will return the created message body."
+      },
+      {
+        "name": "tts",
+        "required": false,
+        "default": null,
+        "description": "Set to true if the message should be read aloud using text-to-speech. This enables the text-to-speech feature for the message."
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "Override the default username of the webhook. This allows you to set a custom username for the message sender."
+      },
+      {
+        "name": "avatar_url",
+        "required": false,
+        "default": null,
+        "description": "Override the default avatar of the webhook. This allows you to set a custom avatar for the message sender."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Enable debug mode. If set to true, the action will output the request and response details."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7dcfc9c014fe81a35efd6721d7a3d75c843b62e2e0d380435b5f70145bbd4f39",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.154286Z"
+  }
+}

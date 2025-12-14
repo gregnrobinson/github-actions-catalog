@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/pascalgn/automerge-action",
+  "version_id": "a51920a46441",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pascalgn/automerge-action/action.yml",
+    "origin": "github.com/pascalgn/automerge-action",
+    "publisher": "pascalgn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Merge pull requests (automerge-action)",
+    "description": "Automatically merge pull requests that are ready",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Automation",
+      "Code quality",
+      "Deployment"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Automation",
+        "reasoning": "This action automates the process of merging pull requests, which relates to both code quality and deployment as it helps maintain the integrity of the codebase and facilitates continuous integration.",
+        "tags": [
+          "automerge",
+          "pull requests",
+          "CI/CD",
+          "GitHub Actions",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a51920a46441076e84f9836bbd411d79407c952e244c5ce16e022d7da43c2e69",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.460396Z"
+  }
+}

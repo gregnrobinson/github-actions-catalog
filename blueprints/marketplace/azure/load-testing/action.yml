@@ -1,0 +1,38 @@
+name: 'Azure Load Testing'
+description: 'Automate continous regression testing with Azure Load Testing'
+inputs:
+  loadtestConfigFile:
+    description: 'Path of the YAML file. Should be fully qualified path or relative to the default working directory'
+    required: true
+  loadtestResource:
+    description: 'Enter or Select the name of an existing Azure Load Testing resource'
+    required: true
+  loadtestRunName:
+    description: 'Custom name for the load test run'
+    required: false
+  loadtestRunDescription:
+    description: 'Custom description for the load test run'
+    required: false
+  resourceGroup:
+    description: 'Enter or Select the Azure Resource Group that contains the Load test resource specified above'
+    required: true
+  secrets:
+    description: 'Enter secrets in JSON'
+    required: false
+  env:
+    description: 'Enter env in JSON'
+    required: false
+  overrideParameters:
+    description: 'Override parameters in the YAML config file using the JSON format with testId, displayName, description, engineInstances, autoStop supported.'
+    required: false
+  outputVariableName:
+    description: 'Name of the output variable that stores the test run ID for use in subsequent tasks.'
+    required: false
+
+branding:
+    icon: 'extension-icon.svg'
+    color: 'blue'
+runs:
+  using: 'node20'
+  main: 'lib/main.js'
+  post: 'lib/postProcessJob.js'

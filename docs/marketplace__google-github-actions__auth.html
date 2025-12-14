@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticate to Google Cloud - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Authenticate to Google Cloud</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/google-github-actions/auth</code></p>
+            <p><strong>Author:</strong> Google LLC</p>
+            <p><strong>Publisher:</strong> google-github-actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/google-github-actions/auth" target="_blank">github.com/google-github-actions/auth</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Authenticate to Google Cloud from GitHub Actions via Workload Identity
+Federation or service account keys.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Authentication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on authenticating to Google Cloud, which falls under the Authentication category. It also relates to Infrastructure as it enables interaction with cloud resources.</p>
+            <p><strong>Tags:</strong> <span class="tag">Google Cloud</span> <span class="tag">Authentication</span> <span class="tag">Workload Identity</span> <span class="tag">GitHub Actions</span> <span class="tag">Cloud Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>project_id</code></td>
+                <td>No</td>
+                <td>ID of the default project to use for future API calls and invocations. If
+unspecified, this action will attempt to extract the value from other
+inputs such as &quot;service_account&quot; or &quot;credentials_json&quot;.</td>
+            </tr><tr>
+                <td><code>workload_identity_provider</code></td>
+                <td>No</td>
+                <td>The full identifier of the Workload Identity Provider, including the
+project number, pool name, and provider name. If provided, this must be
+the full identifier which includes all parts, for example:
+&quot;projects/123456789/locations/global/workloadIdentityPools/my-pool/providers/my-provider&quot;.
+This is mutually exclusive with &quot;credentials_json&quot;.</td>
+            </tr><tr>
+                <td><code>service_account</code></td>
+                <td>No</td>
+                <td>Email address or unique identifier of the Google Cloud service account for
+which to generate credentials. This is required if
+&quot;workload_identity_provider&quot; is specified.</td>
+            </tr><tr>
+                <td><code>audience</code></td>
+                <td>No</td>
+                <td>The value for the audience (aud) parameter in GitHub&#39;s generated OIDC
+token. This value defaults to the value of &quot;workload_identity_provider&quot;,
+which is also the default value Google Cloud expects for the audience
+parameter on the token.</td>
+            </tr><tr>
+                <td><code>credentials_json</code></td>
+                <td>No</td>
+                <td>The Google Cloud JSON service account key to use for authentication. This
+is mutually exclusive with &quot;workload_identity_provider&quot;.</td>
+            </tr><tr>
+                <td><code>create_credentials_file</code></td>
+                <td>No</td>
+                <td>If true, the action will securely generate a credentials file which can be
+used for authentication via gcloud and Google Cloud SDKs.</td>
+            </tr><tr>
+                <td><code>export_environment_variables</code></td>
+                <td>No</td>
+                <td>If true, the action will export common environment variables which are
+known to be consumed by popular downstream libraries and tools, including:
+
+- CLOUDSDK_PROJECT
+- CLOUDSDK_CORE_PROJECT
+- GCP_PROJECT
+- GCLOUD_PROJECT
+- GOOGLE_CLOUD_PROJECT
+
+If &quot;create_credentials_file&quot; is true, additional environment variables are
+exported:
+
+- CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE
+- GOOGLE_APPLICATION_CREDENTIALS
+- GOOGLE_GHA_CREDS_PATH
+
+If false, the action will not export any environment variables, meaning
+future steps are unlikely to be automatically authenticated to Google
+Cloud.</td>
+            </tr><tr>
+                <td><code>token_format</code></td>
+                <td>No</td>
+                <td>Output format for the generated authentication token. For OAuth 2.0 access
+tokens, specify &quot;access_token&quot;. For OIDC tokens, specify &quot;id_token&quot;. To
+skip token generation, leave this value empty.</td>
+            </tr><tr>
+                <td><code>delegates</code></td>
+                <td>No</td>
+                <td>List of additional service account emails or unique identities to use for
+impersonation in the chain.</td>
+            </tr><tr>
+                <td><code>universe</code></td>
+                <td>No</td>
+                <td>The Google Cloud universe to use for constructing API endpoints. The
+default universe is &quot;googleapis.com&quot;, which corresponds to
+https://cloud.google.com. Trusted Partner Cloud and Google Distributed
+Hosted Cloud should set this to their universe address.</td>
+            </tr><tr>
+                <td><code>request_reason</code></td>
+                <td>No</td>
+                <td>An optional Reason Request System Parameter for each API call made by the
+GitHub Action. This will inject the &quot;X-Goog-Request-Reason&quot; HTTP header,
+which will provide user-supplied information in Google Cloud audit logs.</td>
+            </tr><tr>
+                <td><code>cleanup_credentials</code></td>
+                <td>No</td>
+                <td>If true, the action will remove any created credentials from the
+filesystem upon completion. This only applies if &quot;create_credentials_file&quot;
+is true.</td>
+            </tr><tr>
+                <td><code>access_token_lifetime</code></td>
+                <td>No</td>
+                <td>Desired lifetime duration of the access token, in seconds. This must be
+specified as the number of seconds with a trailing &quot;s&quot; (e.g. 30s). This is
+only valid when &quot;token_format&quot; is &quot;access_token&quot;.</td>
+            </tr><tr>
+                <td><code>access_token_scopes</code></td>
+                <td>No</td>
+                <td>List of OAuth 2.0 access scopes to be included in the generated token.
+This is only valid when &quot;token_format&quot; is &quot;access_token&quot;.</td>
+            </tr><tr>
+                <td><code>access_token_subject</code></td>
+                <td>No</td>
+                <td>Email address of a user to impersonate for Domain-Wide Delegation Access
+tokens created for Domain-Wide Delegation cannot have a lifetime beyond 1
+hour. This is only valid when &quot;token_format&quot; is &quot;access_token&quot;.</td>
+            </tr><tr>
+                <td><code>id_token_audience</code></td>
+                <td>No</td>
+                <td>The audience (aud) for the generated Google Cloud ID Token. This is only
+valid when &quot;token_format&quot; is &quot;id_token&quot;.</td>
+            </tr><tr>
+                <td><code>id_token_include_email</code></td>
+                <td>No</td>
+                <td>Optional parameter of whether to include the service account email in the
+generated token. If true, the token will contain &quot;email&quot; and
+&quot;email_verified&quot; claims. This is only valid when &quot;token_format&quot; is
+&quot;id_token&quot;.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>project_id</code></td>
+                <td>Provided or extracted value for the Google Cloud project ID.</td>
+            </tr><tr>
+                <td><code>credentials_file_path</code></td>
+                <td>Path on the local filesystem where the generated credentials file resides.
+This is only available if &quot;create_credentials_file&quot; was set to true.</td>
+            </tr><tr>
+                <td><code>auth_token</code></td>
+                <td>The intermediate authentication token, which could be used to call other
+Google Cloud APIs, depending on how you configured IAM.</td>
+            </tr><tr>
+                <td><code>access_token</code></td>
+                <td>The Google Cloud access token for calling other Google Cloud APIs. This is
+only available when &quot;token_format&quot; is &quot;access_token&quot;.</td>
+            </tr><tr>
+                <td><code>id_token</code></td>
+                <td>The Google Cloud ID token. This is only available when &quot;token_format&quot; is
+&quot;id_token&quot;.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

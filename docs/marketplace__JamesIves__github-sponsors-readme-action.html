@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add GitHub Sponsors to Readme - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Add GitHub Sponsors to Readme</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/JamesIves/github-sponsors-readme-action</code></p>
+            <p><strong>Author:</strong> James Ives &lt;iam@jamesiv.es&gt;</p>
+            <p><strong>Publisher:</strong> JamesIves</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/JamesIves/github-sponsors-readme-action" target="_blank">github.com/JamesIves/github-sponsors-readme-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This GitHub Action will automatically add your GitHub Sponsors to your README.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Documentation</span> <span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Documentation</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on updating documentation (README) to include GitHub Sponsors information, which falls under the Documentation category. It also facilitates communication about sponsorship, thus fitting into the Communication category.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitHub Sponsors</span> <span class="tag">README</span> <span class="tag">automation</span> <span class="tag">documentation</span> <span class="tag">communication</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>You must provide the action with a Personal Access Token (PAT) with either the user:read and org:read permission scope and store it in the secrets / with menu as a secret.  This should be generated from the account or organization that receives sponsorship.
+[Learn more about creating and using encrypted secrets here.](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
+</td>
+            </tr><tr>
+                <td><code>file</code></td>
+                <td>Yes</td>
+                <td>This should point to the file that you&#39;re generating, for example README.md or path/to/CREDITS.md</td>
+            </tr><tr>
+                <td><code>organization</code></td>
+                <td>No</td>
+                <td>If you&#39;re displaying sponsorship information as an organization you should toggle this option to true. You also need to provide the action with an org:read scoped PAT.</td>
+            </tr><tr>
+                <td><code>minimum</code></td>
+                <td>No</td>
+                <td>Using this input you can set the minimum sponsorship threshold. For example setting this to 500 will only display sponsors who give of $5 USD and more. By default the action will display all of your sponsors.</td>
+            </tr><tr>
+                <td><code>maximum</code></td>
+                <td>No</td>
+                <td>For example setting this to 1000 will only display sponsors who give of $10 USD and less. By default the action will display all of your sponsors.</td>
+            </tr><tr>
+                <td><code>marker</code></td>
+                <td>No</td>
+                <td>This allows you to modify the marker comment that is placed in your file. By default this is set to sponsors - &lt;!-- sponsors --&gt; &lt;!-- sponsors --&gt;, if you set this to gold for example you can place &lt;!-- gold --&gt; &lt;!-- gold --&gt; in your file.</td>
+            </tr><tr>
+                <td><code>template</code></td>
+                <td>No</td>
+                <td>Allows you to modify the default template. Please refer to the `template` section of this README for more information.</td>
+            </tr><tr>
+                <td><code>fallback</code></td>
+                <td>No</td>
+                <td>Allows you to specify a fallback if you have no sponsors. By default nothing is displayed.</td>
+            </tr><tr>
+                <td><code>active-only</code></td>
+                <td>No</td>
+                <td>If set to false, inactive sponsors will be displayed. This can be useful if you want to display all sponsors, regardless of their status.</td>
+            </tr><tr>
+                <td><code>include-private</code></td>
+                <td>No</td>
+                <td>If set to true, private sponsors will be displayed in the list, however any identifying information will be redacted. This can be useful if you want to display all sponsors, regardless of their privacy settings.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>sponsorshipStatus</code></td>
+                <td>The status of the action that indicates if the run failed or passed. Possible outputs include: success|failed</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

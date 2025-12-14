@@ -1,0 +1,47 @@
+name: 'Deploy K8S Tool'
+description: 'Generate a Kubeconfig or creating & updating K8s Deployments.'
+author: 'Bo-Yi Wu'
+inputs:
+  server:
+    description: 'Address of the Kubernetes cluster'
+    required: true
+  skip_tls_verify:
+    description: 'Skip validity check for server certificate (default: false)'
+  ca_cert:
+    description: 'PEM-encoded certificate authority certificates'
+  token:
+    description: 'Kubernetes service account token'
+    required: true
+  namespace:
+    description: 'Kubernetes namespace'
+  proxy_url:
+    description: 'URLs with http, https, and socks5'
+  templates:
+    description: 'Templates to render, supports glob pattern'
+  cluster_name:
+    description: 'Cluster name (default: "default")'
+    default: 'default'
+  authinfo_name:
+    description: 'AuthInfo name (default: "default")'
+    default: 'default'
+  context_name:
+    description: 'Context name (default: "default")'
+    default: 'default'
+  deployment:
+    description: 'Name of the Kubernetes deployment to update'
+  container:
+    description: 'Name of the container within the deployment to update'
+  image:
+    description: 'New image and tag for the container'
+  output:
+    description: 'Output kubeconfig to file'
+  debug:
+    description: 'Enable debug mode (default: false)'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: "cloud"
+  color: "blue"

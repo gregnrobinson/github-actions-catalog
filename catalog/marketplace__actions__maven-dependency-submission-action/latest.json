@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/actions/maven-dependency-submission-action",
+  "version_id": "d5ec219756a9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/maven-dependency-submission-action/action.yml",
+    "origin": "github.com/actions/maven-dependency-submission-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Maven Dependency Tree Dependency Submission",
+    "description": "A GitHub Action for Maven project to submit a complete dependency tree to populate the GitHub Dependency Graph",
+    "author": "",
+    "inputs": [
+      {
+        "name": "directory",
+        "required": false,
+        "default": "${{ github.workspace }}",
+        "description": "The directory that contains the maven project"
+      },
+      {
+        "name": "settings-file",
+        "required": false,
+        "default": null,
+        "description": "Optional path to a Maven settings.xml file for the dependencies to be resolved"
+      },
+      {
+        "name": "ignore-maven-wrapper",
+        "required": false,
+        "default": false,
+        "description": "Flag for optionally ignoring any maven wrapper files (mvnw) and instead rely on the PATH provided mvn"
+      },
+      {
+        "name": "maven-args",
+        "required": false,
+        "default": "",
+        "description": "Additional maven arguments to add to the command line invocation of maven when it generates the dependency snapshot"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use to submit the depedency snapshot to the repository"
+      },
+      {
+        "name": "snapshot-sha",
+        "required": false,
+        "default": "",
+        "description": "The SHA that the results will be linked to in the dependency snapshot"
+      },
+      {
+        "name": "snapshot-ref",
+        "required": false,
+        "default": "",
+        "description": "The ref that the results will be linked to in the dependency snapshot"
+      },
+      {
+        "name": "detector-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the detector that generated the dependency snapshot"
+      },
+      {
+        "name": "detector-version",
+        "required": false,
+        "default": null,
+        "description": "The version of the detector that generated the dependency snapshot"
+      },
+      {
+        "name": "detector-url",
+        "required": false,
+        "default": null,
+        "description": "The URL to the detector that generated the dependency snapshot"
+      },
+      {
+        "name": "correlator",
+        "required": false,
+        "default": "",
+        "description": "An optional identifier to distinguish between multiple dependency snapshots of the same type"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is specifically designed to submit a Maven project's dependency tree, which directly relates to managing dependencies. Additionally, it contributes to the documentation of dependencies in the GitHub Dependency Graph.",
+        "tags": [
+          "Maven",
+          "Dependency Graph",
+          "GitHub Actions",
+          "Dependency Management",
+          "Documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d5ec219756a9a8593528e3fd96f49ba6820e44a5c39917b944a918d752925e16",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.250493Z"
+  }
+}

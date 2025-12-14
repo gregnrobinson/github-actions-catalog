@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/yoshi389111/github-profile-3d-contrib",
+  "version_id": "cb27f2850b99",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/yoshi389111/github-profile-3d-contrib/action.yml",
+    "origin": "github.com/yoshi389111/github-profile-3d-contrib",
+    "publisher": "yoshi389111",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub-Profile-3D-Contrib",
+    "description": "Generate profile 3D Contributions",
+    "author": "yoshi389111",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "cb27f2850b99c2ef451cd59b6827b723d2cbbed13f7ec0c4bc056c41ce25cf51",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.895160Z"
+  }
+}

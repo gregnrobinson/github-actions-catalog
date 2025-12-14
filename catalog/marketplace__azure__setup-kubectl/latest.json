@@ -1,0 +1,62 @@
+{
+  "action_id": "marketplace/azure/setup-kubectl",
+  "version_id": "3d62a23da9d8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/setup-kubectl/action.yml",
+    "origin": "github.com/azure/setup-kubectl",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Kubectl tool installer",
+    "description": "Install a specific version of kubectl binary. Acceptable values are latest or any semantic version string like \"v1.15.0\"",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": "latest",
+        "description": "Version of kubectl"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "kubectl-path",
+        "description": "Path to the cached kubectl binary"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action installs a specific version of the kubectl binary, which is essential for managing Kubernetes clusters, thus falling under dependency management and infrastructure.",
+        "tags": [
+          "kubectl",
+          "installer",
+          "Kubernetes",
+          "dependency",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3d62a23da9d85211fcedcc01b7d44428e5d799a5b442408514d2ebd8c9e3e08a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.505347Z"
+  }
+}

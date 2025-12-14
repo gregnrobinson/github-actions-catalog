@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/dflook/terraform-new-workspace",
+  "version_id": "96c79b99df89",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-new-workspace/action.yml",
+    "origin": "github.com/dflook/terraform-new-workspace",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-new-workspace",
+    "description": "Creates a new Terraform workspace. If the workspace already exists, succeeds without doing anything.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the Terraform root module directory."
+      },
+      {
+        "name": "workspace",
+        "required": true,
+        "default": null,
+        "description": "The name of the Terraform workspace to create."
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/new-workspace.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is focused on creating and managing Terraform workspaces, which is a key aspect of infrastructure management and deployment in cloud environments.",
+        "tags": [
+          "Terraform",
+          "Infrastructure",
+          "Workspace",
+          "Deployment",
+          "Automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "96c79b99df89022dcfa33fb38f4e0a367bc45100cf989e237c45ddafc6c3f200",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.366295Z"
+  }
+}

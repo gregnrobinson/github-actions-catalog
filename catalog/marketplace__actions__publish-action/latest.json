@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/actions/publish-action",
+  "version_id": "e99bf5aeb467",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/publish-action/action.yml",
+    "origin": "github.com/actions/publish-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Publish action versions",
+    "description": "Move the major version tag to point to a specified ref",
+    "author": "",
+    "inputs": [
+      {
+        "name": "source-tag",
+        "required": true,
+        "default": null,
+        "description": "Tag name that the major tag will point to. Examples: v1.2.3, 1.2.3"
+      },
+      {
+        "name": "slack-webhook",
+        "required": false,
+        "default": null,
+        "description": "Slack Webhook URL to post a message"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token to get an authenticated Octokit"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "major-tag",
+        "description": "The major version tag that has been updated (created). Examples: v1, 1"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on publishing action versions, while it also involves authentication for accessing the GitHub API and can send notifications to Slack.",
+        "tags": [
+          "publish",
+          "versioning",
+          "GitHub Actions",
+          "Slack",
+          "authentication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e99bf5aeb467fe8a49a77dbd811ca6045ceadb1f0f617e5cea6ff4b1266a9785",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.215792Z"
+  }
+}

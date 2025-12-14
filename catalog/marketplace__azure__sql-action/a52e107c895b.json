@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/azure/sql-action",
+  "version_id": "a52e107c895b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/sql-action/action.yml",
+    "origin": "github.com/azure/sql-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure SQL Deploy",
+    "description": "Deploy a database project, DACPAC, or a SQL script to Azure SQL database",
+    "author": "",
+    "inputs": [
+      {
+        "name": "connection-string",
+        "required": true,
+        "default": null,
+        "description": "The connection string, including authentication information, for the Azure SQL Server database."
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "Path to the file used for this action. Supported file types are .sql, .dacpac, or .sqlproj."
+      },
+      {
+        "name": "action",
+        "required": false,
+        "default": null,
+        "description": "If not using a .sql file, the sqlpackage action to execute."
+      },
+      {
+        "name": "arguments",
+        "required": false,
+        "default": null,
+        "description": "In case of .dacpac or .sqlproj file types, additional sqlpackage arguments that will be applied. In case of .sql file type, additional go-sqlcmd argument that will be applied."
+      },
+      {
+        "name": "sqlpackage-path",
+        "required": false,
+        "default": null,
+        "description": "Specify a SqlPackage executable location to override the default locations."
+      },
+      {
+        "name": "build-arguments",
+        "required": false,
+        "default": null,
+        "description": "In case of a .sqlproj file, additional arguments that will be applied to dotnet build when building the database project."
+      },
+      {
+        "name": "skip-firewall-check",
+        "required": false,
+        "default": false,
+        "description": "Skip the firewall check when connecting to the Azure SQL Server."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a52e107c895b0e2b1832de709d7c3cb209aa9bdc2fe27fbdccdffeddf0ab05ed",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.587042Z"
+  }
+}

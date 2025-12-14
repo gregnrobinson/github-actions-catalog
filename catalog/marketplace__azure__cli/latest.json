@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/azure/cli",
+  "version_id": "654ccd14159a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/cli/action.yml",
+    "origin": "github.com/azure/cli",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure CLI Action",
+    "description": "Automate your GitHub workflows using Azure CLI scripts.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "inlineScript",
+        "required": true,
+        "default": null,
+        "description": "Specify the script here"
+      },
+      {
+        "name": "azcliversion",
+        "required": false,
+        "default": "agentazcliversion",
+        "description": "Azure CLI version to be used to execute the script. If not provided, latest version is used"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Build",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The Azure CLI Action is primarily used to automate workflows related to Azure infrastructure, making it a key tool for infrastructure management. It can also be used for building and deploying applications using Azure services.",
+        "tags": [
+          "Azure",
+          "CLI",
+          "Automation",
+          "Infrastructure",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "654ccd14159a86c1a8be1c64feac2cd448abb3e0a73ed3c7683383d0c5af91bd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.602001Z"
+  }
+}

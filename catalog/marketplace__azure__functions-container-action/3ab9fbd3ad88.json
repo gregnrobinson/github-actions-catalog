@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/azure/functions-container-action",
+  "version_id": "3ab9fbd3ad88",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/functions-container-action/action.yml",
+    "origin": "github.com/azure/functions-container-action",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Functions Container Action",
+    "description": "Deploy Functions Container to Azure",
+    "author": "",
+    "inputs": [
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Azure Function App"
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'."
+      },
+      {
+        "name": "container-command",
+        "required": false,
+        "default": null,
+        "description": "Enter the start up command. For ex. 'dotnet run' or '/azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost'"
+      },
+      {
+        "name": "slot-name",
+        "required": false,
+        "default": null,
+        "description": "Function app slot to be deploy to"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "URL to work with your function app"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "3ab9fbd3ad8864bbf62902fbfb40773e15bc84d9213c658906dfe144b5cf85f6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.588859Z"
+  }
+}

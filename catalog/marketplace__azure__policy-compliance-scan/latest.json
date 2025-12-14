@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/azure/policy-compliance-scan",
+  "version_id": "378afd55e78e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/policy-compliance-scan/action.yml",
+    "origin": "github.com/azure/policy-compliance-scan",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Policy Compliance Scan",
+    "description": "Triggers compliance scan on Azure resources and passes/fails based on the compliance state of the resources",
+    "author": "",
+    "inputs": [
+      {
+        "name": "scopes",
+        "required": true,
+        "default": null,
+        "description": "Mandatory. Takes full identifier for one or more azure resources, resource groups or subscriptions. The on-demand policy compliance scan is triggered for all of these. The ID can generally be found in the properties section of the resource in Azure Portal."
+      },
+      {
+        "name": "scopes-ignore",
+        "required": false,
+        "default": null,
+        "description": "Optional. Takes full identifier for one or more azure resources, resource groups(followed by /*). If the resources are found non-compliant after the scan completion, the action fails. However, in this input you can specify resources or resource groups for which the compliance state will be ignored. The action will pass irrespective of the compliance state of these resources. In case you want the action to always pass irrespective of the compliance state of resources, you can set its value as all."
+      },
+      {
+        "name": "policy-assignments-ignore",
+        "required": false,
+        "default": null,
+        "description": "Optional. Takes full identifier for one or more policy assignments ids. If the resources are found non-compliant for given policy assignment after the scan completion, the action fails. However, in this input you can specify policy assignments ids for which the compliance state will be ignored. The action will pass irrespective of the compliance state of these policies."
+      },
+      {
+        "name": "wait",
+        "required": false,
+        "default": true,
+        "description": "Optional. Depending on the breadth, the time taken for compliance scan can range from a few minutes to several hours. By default, the action will wait for the compliance scan to complete and succeed or fail based on the compliance state of resources. However, you can mark this input as false, in which case the action will trigger the compliance scan and succeed immediately. The status of the triggered scan and the compliance state of resources would have to be then viewed in activity log of the resource in Azure portal."
+      },
+      {
+        "name": "skip-report",
+        "required": false,
+        "default": false,
+        "description": "Optional. Defaults to false. If false, the action will upload a CSV file containing a list of resources that are non-compliant after the triggered scan is complete. The CSV file can be downloaded as an artifact from the workflow run for manual analysis. Note that the number of rows in CSV are capped at 100,000."
+      },
+      {
+        "name": "report-name",
+        "required": false,
+        "default": null,
+        "description": "Optional. The filename for the CSV to be uploaded. Ignored if skip-report is set to true."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/run.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Monitoring"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "The Azure Policy Compliance Scan focuses on assessing the compliance state of Azure resources, which is primarily a security concern, while also monitoring the compliance status of those resources.",
+        "tags": [
+          "Azure",
+          "Compliance",
+          "Security",
+          "Monitoring",
+          "Policy"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "378afd55e78e157b18456fa01f2cd440be17ea474cbe2755a5a5d2c770900085",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.538148Z"
+  }
+}

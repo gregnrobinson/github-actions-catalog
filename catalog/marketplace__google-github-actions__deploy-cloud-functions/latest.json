@@ -1,0 +1,270 @@
+{
+  "action_id": "marketplace/google-github-actions/deploy-cloud-functions",
+  "version_id": "19481c97802a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-cloud-functions/action.yml",
+    "origin": "github.com/google-github-actions/deploy-cloud-functions",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy to Cloud Functions",
+    "description": "Use this action to deploy code to Google Cloud Functions.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "project_id",
+        "required": false,
+        "default": null,
+        "description": "ID of the Google Cloud project in which to deploy the service. The default\nvalue is computed from the environment."
+      },
+      {
+        "name": "region",
+        "required": false,
+        "default": "us-central1",
+        "description": "Region in which the function should be deployed."
+      },
+      {
+        "name": "universe",
+        "required": false,
+        "default": "googleapis.com",
+        "description": "The Google Cloud universe to use for constructing API endpoints. Trusted\nPartner Cloud and Google Distributed Hosted Cloud should set this to their\nuniverse address.\n\nYou can also override individual API endpoints by setting the environment\nvariable `GHA_ENDPOINT_OVERRIDE_<endpoint>` where `<endpoint>` is the API\nendpoint to override. For example:\n\n```yaml\nenv:\n  GHA_ENDPOINT_OVERRIDE_oauth2: 'https://oauth2.myapi.endpoint/v1'\n```\n\nFor more information about universes, see the Google Cloud documentation."
+      },
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Cloud Function."
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Human-friendly description of the Cloud Function."
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "default": "GEN_2",
+        "description": "Runtime environment for the Cloud Function. Allowed values are \"GEN_1\" and\n\"GEN_2\", but this GitHub Action only provides support for \"GEN_2\"."
+      },
+      {
+        "name": "kms_key_name",
+        "required": false,
+        "default": null,
+        "description": "Resource name of a Google Cloud KMS crypto key used to encrypt/decrypt\nfunction resources. If specified, you must also provide an artifact\nregistry repository using the 'docker_repository' field that was created\nwith the same key."
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "List of labels that should be set on the function. These are\ncomma-separated or newline-separated `KEY=VALUE`. Keys or values that\ncontain separators must be escaped with a backslash (e.g. `\\,` or `\\\\n`)\nunless quoted. Any leading or trailing whitespace is trimmed unless values\nare quoted.\n\n```yaml\nlabels: |-\n  labela=my-label\n  labelb=my-other-label\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nGoogle Cloud restricts the allowed values and length for labels. Please\nsee the Google Cloud documentation for labels for more information."
+      },
+      {
+        "name": "source_dir",
+        "required": false,
+        "default": "./",
+        "description": "Path on disk to the root of the the function's source code. Defaults to\ncurrent directory. This does NOT follow symlinks to directories or files\nwhen generating the upload artifact.\n\n**NOTE:** The function source code must exist on the GitHub Actions\nfilesystem. This means you must have `use: actions/checkout@v4` before the\ndeployment step!."
+      },
+      {
+        "name": "runtime",
+        "required": true,
+        "default": null,
+        "description": "Runtime for the function, such as \"nodejs20\". For a list of all available\nruntimes, run:\n\n```sh\n$ gcloud functions runtimes list\n```\n\nThe available runtimes change over time."
+      },
+      {
+        "name": "build_environment_variables",
+        "required": false,
+        "default": null,
+        "description": "List of environment variables that should be set in the build environment.\nThese are comma-separated or newline-separated `KEY=VALUE`. Keys or values\nthat contain separators must be escaped with a backslash (e.g. `\\,` or\n`\\\\n`) unless quoted. Any leading or trailing whitespace is trimmed unless\nvalues are quoted.\n\n```yaml\nbuild_environment_variables: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nPrevious versions of this GitHub Action also included a separate input for\nsourcing values from a value, but this is no longer supported. Use a\ncommunity action or script to read the file in a separate step and import\nthe contents as an output."
+      },
+      {
+        "name": "build_service_account",
+        "required": false,
+        "default": null,
+        "description": "Service account to be used for building the container."
+      },
+      {
+        "name": "build_worker_pool",
+        "required": false,
+        "default": null,
+        "description": "Name of the Cloud Build Custom Worker Pool that should be used to build\nthe function. The format of this field is:\n\n    projects/[PROJECT]/locations/[REGION]/workerPools/[WORKER_POOL]\n\nwhere `[PROJECT]` and `[REGION]` are the project id and region\nrespectively where the worker pool is defined and `[WORKER_POOL]` is the\nshort name of the worker pool.\n\nIf the project ID is not the same as the function, then the Cloud\nFunctions Service Agent must be granted the role Cloud Build Custom\nWorkers Builder in the project."
+      },
+      {
+        "name": "docker_repository",
+        "required": false,
+        "default": null,
+        "description": "Repository in Artifact Registry to which the function docker image will be\npushed after it is built by Cloud Build. If unspecified, Cloud Functions\nwill create and use a repository named 'gcf-artifacts' for every deployed\nregion.\n\nThe value must match the pattern:\n\n    projects/[PROJECT]/locations/[LOCATION]/repositories/[REPOSITORY].\n\nCross-project repositories are not supported. Cross-location repositories\nare not supported. Repository format must be 'DOCKER'."
+      },
+      {
+        "name": "entry_point",
+        "required": false,
+        "default": null,
+        "description": "Name of a Google Cloud Function (as defined in source code) that will be\nexecuted. Defaults to the resource name suffix (ID of the function), if\nnot specified."
+      },
+      {
+        "name": "all_traffic_on_latest_revision",
+        "required": false,
+        "default": true,
+        "description": "If true, the latest function revision will be served all traffic."
+      },
+      {
+        "name": "cpu",
+        "required": false,
+        "default": null,
+        "description": "The number of available CPUs to set (e.g. 0.5, 2, 2000m). By default, a\nnew function's available CPUs is determined based on its memory value."
+      },
+      {
+        "name": "memory",
+        "required": false,
+        "default": null,
+        "description": "The amount of memory available for the function to use. Allowed values are\nof the format: <number><unit> with allowed units of \"k\", \"M\", \"G\", \"Ki\",\n\"Mi\", \"Gi\" (e.g 128M, 10Mb, 1024Gi).\n\nFor all generations, the default value is 256MB of memory."
+      },
+      {
+        "name": "environment_variables",
+        "required": false,
+        "default": null,
+        "description": "List of environment variables that should be set in the runtime\nenvironment. These are comma-separated or newline-separated `KEY=VALUE`.\nKeys or values that contain separators must be escaped with a backslash\n(e.g. `\\,` or `\\\\n`) unless quoted. Any leading or trailing whitespace is\ntrimmed unless values are quoted.\n\n```yaml\nenvironment_variables: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nPrevious versions of this GitHub Action also included a separate input for\nsourcing values from a value, but this is no longer supported. Use a\ncommunity action or script to read the file in a separate step and import\nthe contents as an output."
+      },
+      {
+        "name": "ingress_settings",
+        "required": false,
+        "default": "ALLOW_ALL",
+        "description": "Ingress settings controls what traffic can reach the function. Valid\nvalues are \"ALLOW_ALL\", \"ALLOW_INTERNAL_ONLY\", and\n\"ALLOW_INTERNAL_AND_GCLB\"."
+      },
+      {
+        "name": "max_instance_count",
+        "required": false,
+        "default": null,
+        "description": "Sets the maximum number of instances for the function. A function\nexecution that would exceed max-instances times out."
+      },
+      {
+        "name": "max_instance_request_concurrency",
+        "required": false,
+        "default": null,
+        "description": "Sets the maximum number of concurrent requests allowed per container\ninstance."
+      },
+      {
+        "name": "min_instance_count",
+        "required": false,
+        "default": null,
+        "description": "Sets the minimum number of instances for the function. This is helpful for\nreducing cold start times."
+      },
+      {
+        "name": "secrets",
+        "required": false,
+        "default": null,
+        "description": "List of KEY=VALUE pairs to use as secrets. These are comma-separated or\nnewline-separated `KEY=VALUE`. Keys or values that contain separators must\nbe escaped with a backslash (e.g. `\\,` or `\\\\n`) unless quoted. Any\nleading or trailing whitespace is trimmed unless values are quoted.\n\nThese can either be injected as environment variables or mounted as\nvolumes. Keys starting with a forward slash '/' are mount paths. All other\nkeys correspond to environment variables:\n\n```yaml\nwith:\n  secrets: |-\n    # As an environment variable:\n    KEY1=projects/my-project/secrets/my-secret/versions/latest\n\n    # As a volume mount:\n    /secrets/api/key=projects/my-project/secrets/my-secret/versions/123\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`."
+      },
+      {
+        "name": "service_account",
+        "required": false,
+        "default": null,
+        "description": "The email address of the IAM service account associated with the Cloud Run\nservice for the function. The service account represents the identity of\nthe running function, and determines what permissions the function has. If\nnot provided, the function will use the project's default service account\nfor Compute Engine.\n\nNote this differs from the service account used to deploy the Cloud\nFunction, which is the currently-authenticated principal. However, the\ndeploying service account must have permission to impersonate the runtime\nservice account, which can be achieved by granting the deployment service\naccount \"roles/iam.serviceAccountUser\" permission on the runtime service\naccount."
+      },
+      {
+        "name": "service_timeout",
+        "required": false,
+        "default": "60s",
+        "description": "The function execution timeout, specified as a time duration (e.g. \"30s\"\nfor 30 seconds)."
+      },
+      {
+        "name": "vpc_connector",
+        "required": false,
+        "default": null,
+        "description": "ID of the connector or fully qualified identifier for the connector."
+      },
+      {
+        "name": "vpc_connector_egress_settings",
+        "required": false,
+        "default": "PRIVATE_RANGES_ONLY",
+        "description": "Egress settings controls what traffic is diverted through the VPC Access\nConnector resource. Allowed values are \"PRIVATE_RANGES_ONLY\" and\n\"ALL_TRAFFIC\"."
+      },
+      {
+        "name": "event_trigger_location",
+        "required": false,
+        "default": null,
+        "description": "The location of the trigger, which must be a region or multi-region where\nthe relevant events originate."
+      },
+      {
+        "name": "event_trigger_type",
+        "required": false,
+        "default": null,
+        "description": "Specifies which action should trigger the function. For a list of\nacceptable values, run:\n\n```sh\n$ gcloud functions event-types list\n```\n\nThis usually requires the eventarc API to be enabled:\n\n```sh\n$ gcloud services enable eventarc.googleapis.com\n```\n\nThe available trigger types may change over time."
+      },
+      {
+        "name": "event_trigger_filters",
+        "required": false,
+        "default": null,
+        "description": "List of event filters that the trigger should monitor. An event that\nmatches all the filteres will trigger calls to the function. These are\ncomma-separated or newline-separated `ATTRIBUTE=VALUE`. Attributes or\nvalues that contain separators must be escaped with a backslash (e.g. `\\,`\nor `\\\\n`) unless quoted. To treat a value as a path pattern, prefix the\nvalue with the literal string `PATTERN:`. Any leading or trailing\nwhitespace is trimmed unless values are quoted.\n\n```yaml\nevent_trigger_type: 'google.cloud.audit.log.v1.written'\nevent_trigger_filters: |-\n  serviceName=compute.googleapis.com\n  methodName=PATTERN:compute.instances.*\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nFor more information, see [Eventarc\nTriggers](https://cloud.google.com/functions/docs/calling/eventarc) and\n[Eventarc Path\nPatterns](https://cloud.google.com/eventarc/docs/path-patterns)."
+      },
+      {
+        "name": "event_trigger_pubsub_topic",
+        "required": false,
+        "default": null,
+        "description": "Name of Google Cloud Pub/Sub topic. Every message published in this topic\nwill trigger function execution with message contents passed as input\ndata of the format:\n\n    projects/[PROJECT]/topics/[TOPIC]\n\nThe service account must have permissions on this topic."
+      },
+      {
+        "name": "event_trigger_service_account",
+        "required": false,
+        "default": null,
+        "description": "The email address of the IAM service account associated with the Eventarc\ntrigger for the function. This is used for authenticated invocation."
+      },
+      {
+        "name": "event_trigger_retry",
+        "required": false,
+        "default": true,
+        "description": "Describes whether event triggers should retry in case of function's\nexecution failure."
+      },
+      {
+        "name": "event_trigger_channel",
+        "required": false,
+        "default": null,
+        "description": "The name of the channel associated with the trigger in the format:\n\n    projects/[PROJECT]/locations/[LOCATION]/channels/<channel>\n\nYou must provide a channel to receive events from Eventarc SaaS partners."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "description": "Full resource name of the Cloud Function, of the format:\n\n    projects/[PROJECT]/locations/[LOCATION]/functions/<function>"
+      },
+      {
+        "name": "url",
+        "description": "The URL of your Cloud Function."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/main/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy code to Google Cloud Functions, which falls under the Deployment category. It also relates to Infrastructure as it involves cloud services.",
+        "tags": [
+          "Google Cloud",
+          "Deployment",
+          "Cloud Functions",
+          "Infrastructure",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "19481c97802a96cd5c080be74a7af8d07f8339df5eb2764b1553e8e0f521f62a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.742597Z"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/actions/publish-immutable-action",
+  "version_id": "9ba2877d3389",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/publish-immutable-action/action.yml",
+    "origin": "github.com/actions/publish-immutable-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Package and Publish",
+    "description": "Publish actions as OCI artifacts to GHCR",
+    "author": "",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub actions token used to authenticate with GitHub APIs"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "package-manifest-sha",
+        "description": "A sha256 hash of the package manifest"
+      },
+      {
+        "name": "attestation-manifest-sha",
+        "description": "The sha256 of the provenance attestation uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments."
+      },
+      {
+        "name": "referrer-index-manifest-sha",
+        "description": "The sha256 of the referrer index uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9ba2877d3389f7ba4bda9c65811a5f0fb5dbdfb89f7c71931f59f13538906820",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.252174Z"
+  }
+}

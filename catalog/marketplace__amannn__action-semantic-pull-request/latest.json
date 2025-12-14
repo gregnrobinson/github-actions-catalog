@@ -1,0 +1,129 @@
+{
+  "action_id": "marketplace/amannn/action-semantic-pull-request",
+  "version_id": "c4d5b21c44a6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amannn/action-semantic-pull-request/action.yml",
+    "origin": "github.com/amannn/action-semantic-pull-request",
+    "publisher": "amannn",
+    "verified": false
+  },
+  "definition": {
+    "name": "semantic-pull-request",
+    "description": "Ensure your PR title matches the Conventional Commits spec (https://www.conventionalcommits.org/).",
+    "author": "Jan Amann <jan@amann.work>",
+    "inputs": [
+      {
+        "name": "types",
+        "required": false,
+        "default": null,
+        "description": "Provide custom types (newline delimited) if you don't want the default ones from https://www.conventionalcommits.org. These are regex patterns auto-wrapped in `^ $`."
+      },
+      {
+        "name": "scopes",
+        "required": false,
+        "default": null,
+        "description": "Configure which scopes are allowed (newline delimited). These are regex patterns auto-wrapped in `^ $`."
+      },
+      {
+        "name": "requireScope",
+        "required": false,
+        "default": null,
+        "description": "Configure that a scope must always be provided."
+      },
+      {
+        "name": "disallowScopes",
+        "required": false,
+        "default": null,
+        "description": "Configure which scopes are disallowed in PR titles (newline delimited). These are regex patterns auto-wrapped in ` ^$`."
+      },
+      {
+        "name": "subjectPattern",
+        "required": false,
+        "default": null,
+        "description": "Configure additional validation for the subject based on a regex. E.g. '^(?![A-Z]).+$' ensures the subject doesn't start with an uppercase character."
+      },
+      {
+        "name": "subjectPatternError",
+        "required": false,
+        "default": null,
+        "description": "If `subjectPattern` is configured, you can use this property to override the default error message that is shown when the pattern doesn't match. The variables `subject` and `title` can be used within the message."
+      },
+      {
+        "name": "validateSingleCommit",
+        "required": false,
+        "default": null,
+        "description": "When using \"Squash and merge\" on a PR with only one commit, GitHub will suggest using that commit message instead of the PR title for the merge commit, and it's easy to commit this by mistake. Enable this option to also validate the commit message for one commit PRs."
+      },
+      {
+        "name": "validateSingleCommitMatchesPrTitle",
+        "required": false,
+        "default": null,
+        "description": "Related to `validateSingleCommit` you can opt-in to validate that the PR title matches a single commit to avoid confusion."
+      },
+      {
+        "name": "githubBaseUrl",
+        "required": false,
+        "default": "${{ github.api_url }}",
+        "description": "The GitHub base URL will be automatically set to the correct value from the GitHub context variable. If you want to override this, you can do so here (not recommended)."
+      },
+      {
+        "name": "ignoreLabels",
+        "required": false,
+        "default": null,
+        "description": "If the PR contains one of these labels (newline delimited), the validation is skipped. If you want to rerun the validation when labels change, you might want to use the `labeled` and `unlabeled` event triggers in your workflow."
+      },
+      {
+        "name": "headerPattern",
+        "required": false,
+        "default": null,
+        "description": "If you're using a format for the PR title that differs from the traditional Conventional Commits spec, you can use this to customize the parsing of the type, scope and subject. The `headerPattern` should contain a regex where the capturing groups in parentheses correspond to the parts listed in `headerPatternCorrespondence`. For more details see: https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-commits-parser#headerpattern"
+      },
+      {
+        "name": "headerPatternCorrespondence",
+        "required": false,
+        "default": null,
+        "description": "If `headerPattern` is configured, you can use this to define which capturing groups correspond to the type, scope and subject."
+      },
+      {
+        "name": "wip",
+        "required": false,
+        "default": null,
+        "description": "For work-in-progress PRs you can typically use draft pull requests from Github. However, private repositories on the free plan don't have this option and therefore this action allows you to opt-in to using the special '[WIP]' prefix to indicate this state. This will avoid the validation of the PR title and the pull request checks remain pending. Note that a second check will be reported if this is enabled."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action ensures that pull request titles adhere to the Conventional Commits specification, which is a practice aimed at improving code quality and maintainability. It also serves as a testing mechanism for PR compliance.",
+        "tags": [
+          "semantic",
+          "pull request",
+          "conventional commits",
+          "code quality",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c4d5b21c44a6ea9f4f8d53802f7bcfca9bf3acd3b15e51bc3ad88b4dbcf8118b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.834956Z"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/vn7n24fzkq/typescript-action",
+  "version_id": "15fd03362865",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vn7n24fzkq/typescript-action/action.yml",
+    "origin": "github.com/vn7n24fzkq/typescript-action",
+    "publisher": "vn7n24fzkq",
+    "verified": false
+  },
+  "definition": {
+    "name": "Your name here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "required": true,
+        "default": "default value if applicable",
+        "description": "input description here"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "15fd03362865ccb6758eede28a6ee0f33ee87e246950a19804bfe31cbe0a8c5c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.388866Z"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/azure/aca-review-apps",
+  "version_id": "68144457f47e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aca-review-apps/action.yml",
+    "origin": "github.com/azure/aca-review-apps",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Create Azure Container App Review Revisions",
+    "description": "GitHub Action to create a new Container App revision for PR review. github.com/Azure/Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "resource-group",
+        "required": true,
+        "default": null,
+        "description": "Name of the Resource Group in which the Container App will be created"
+      },
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "Name of the Container App"
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "Name of Container Image. If the `mode` input is `deactivate-revision`, this input is ignored."
+      },
+      {
+        "name": "revision-name-suffix",
+        "required": true,
+        "default": null,
+        "description": "Suffixes for New Revision or Target Revision of deactivation. If the `mode` input is `deactivate-revision`, this input needs to be set."
+      },
+      {
+        "name": "deactivate-revision-mode",
+        "required": false,
+        "default": null,
+        "description": "Enable Deactivation-Revision Mode of this action. `true` or `false`. Default value is `false`"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "Deployed App URL"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "68144457f47eee863342e81cfb3eb8444eb9cdd44117c0856757643c1e31abbb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.582063Z"
+  }
+}

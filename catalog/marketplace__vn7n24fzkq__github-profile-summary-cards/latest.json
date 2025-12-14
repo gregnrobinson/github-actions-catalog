@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/vn7n24fzkq/github-profile-summary-cards",
+  "version_id": "99b82e7e4d53",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vn7n24fzkq/github-profile-summary-cards/action.yml",
+    "origin": "github.com/vn7n24fzkq/github-profile-summary-cards",
+    "publisher": "vn7n24fzkq",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub-Profile-Summary-Cards",
+    "description": "Generate profile summary cards and commit to default branch",
+    "author": "vn7n24fzkq",
+    "inputs": [
+      {
+        "name": "USERNAME",
+        "required": true,
+        "default": "${{ github.repository_owner }}",
+        "description": "GitHub username"
+      },
+      {
+        "name": "BRANCH_NAME",
+        "required": false,
+        "default": "main",
+        "description": "The branch to push cards"
+      },
+      {
+        "name": "UTC_OFFSET",
+        "required": false,
+        "default": 0,
+        "description": "The UTC offset used in the Productive Time Card.(e.g., 8, -3)"
+      },
+      {
+        "name": "EXCLUDE",
+        "required": false,
+        "default": "",
+        "description": "A comma separated list of languages to exclude"
+      },
+      {
+        "name": "AUTO_PUSH",
+        "required": false,
+        "default": true,
+        "description": "Whether automatically push generated files to desired branch"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action generates profile summary cards that serve as documentation of a user's GitHub activity, making it primarily a documentation tool. It also communicates this information visually, which adds a communication aspect.",
+        "tags": [
+          "GitHub",
+          "profile",
+          "summary",
+          "cards",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "99b82e7e4d5302d59cdcf421bdfa6f34e41d416ce2a30fa9e39f0970ae1a73e1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.395663Z"
+  }
+}

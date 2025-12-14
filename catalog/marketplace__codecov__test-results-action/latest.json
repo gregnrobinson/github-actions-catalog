@@ -1,0 +1,226 @@
+{
+  "action_id": "marketplace/codecov/test-results-action",
+  "version_id": "d8bf9d04e4fb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/codecov/test-results-action/action.yml",
+    "origin": "github.com/codecov/test-results-action",
+    "publisher": "codecov",
+    "verified": true
+  },
+  "definition": {
+    "name": "Codecov Test Result Action",
+    "description": "GitHub Action that uploads test result reports for your repository to codecov.io",
+    "author": "Codecov",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Repository Codecov token. Used to authorize report uploads"
+      },
+      {
+        "name": "binary",
+        "required": false,
+        "default": null,
+        "description": "The file location of a pre-downloaded version of the CLI. If specified, integrity checking will be bypassed."
+      },
+      {
+        "name": "codecov_yml_path",
+        "required": false,
+        "default": null,
+        "description": "Specify the path to the Codecov YML"
+      },
+      {
+        "name": "commit_parent",
+        "required": false,
+        "default": null,
+        "description": "Override to specify the parent commit SHA"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "Directory to search for test result reports."
+      },
+      {
+        "name": "disable_search",
+        "required": false,
+        "default": null,
+        "description": "Disable search for test result files. This is helpful when specifying what files you want to upload with the --file option."
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": null,
+        "description": "Don't upload files to Codecov"
+      },
+      {
+        "name": "env_vars",
+        "required": false,
+        "default": null,
+        "description": "Environment variables to tag the upload with (e.g. PYTHON | OS,PYTHON)"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "Folders to exclude from search"
+      },
+      {
+        "name": "fail_ci_if_error",
+        "required": false,
+        "default": null,
+        "description": "Specify whether or not CI build should fail if Codecov runs into an error during upload"
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to test result file to upload"
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of files to upload"
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": null,
+        "description": "Flag upload to group test results (e.g. py3.10 | py3.11 | py3.12)"
+      },
+      {
+        "name": "handle_no_reports_found",
+        "required": false,
+        "default": null,
+        "description": "Raise no exceptions when no test result reports found"
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "User defined upload name. Visible in Codecov UI"
+      },
+      {
+        "name": "os",
+        "required": false,
+        "default": null,
+        "description": "Override the assumed OS. Options are linux | macos | windows."
+      },
+      {
+        "name": "override_branch",
+        "required": false,
+        "default": null,
+        "description": "Specify the branch name"
+      },
+      {
+        "name": "override_build",
+        "required": false,
+        "default": null,
+        "description": "Specify the build number"
+      },
+      {
+        "name": "override_build_url",
+        "required": false,
+        "default": null,
+        "description": "The URL of the build where this is running"
+      },
+      {
+        "name": "override_commit",
+        "required": false,
+        "default": null,
+        "description": "Specify the commit SHA"
+      },
+      {
+        "name": "override_pr",
+        "required": false,
+        "default": null,
+        "description": "Specify the pull request number"
+      },
+      {
+        "name": "report_code",
+        "required": false,
+        "default": null,
+        "description": "The code of the report. If unsure, do not include"
+      },
+      {
+        "name": "root_dir",
+        "required": false,
+        "default": null,
+        "description": "Used when not in git/hg project to identify project root directory"
+      },
+      {
+        "name": "slug",
+        "required": false,
+        "default": null,
+        "description": "Specify the slug manually (Enterprise use)"
+      },
+      {
+        "name": "url",
+        "required": false,
+        "default": null,
+        "description": "Specify the base url to upload (Enterprise use)"
+      },
+      {
+        "name": "use_oidc",
+        "required": false,
+        "default": null,
+        "description": "Use OIDC to authenticate with Codecov"
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": null,
+        "description": "Specify whether the Codecov output should be verbose"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Specify which version of the Codecov CLI should be used. Defaults to `latest`"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "Directory in which to execute codecov.sh"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action is primarily focused on uploading test result reports, which falls under Testing. It also contributes to Code quality by providing insights into test coverage and can be seen as a form of Publishing since it uploads results to an external service.",
+        "tags": [
+          "codecov",
+          "test results",
+          "coverage",
+          "CI",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d8bf9d04e4fb701ff6c29791728a0ad2737d3f3302f3ee0691e96dd7ac5bada2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.452602Z"
+  }
+}

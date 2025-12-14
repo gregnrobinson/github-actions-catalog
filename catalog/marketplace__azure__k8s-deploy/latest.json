@@ -1,0 +1,195 @@
+{
+  "action_id": "marketplace/azure/k8s-deploy",
+  "version_id": "091910f8c85e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/k8s-deploy/action.yml",
+    "origin": "github.com/azure/k8s-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy to Kubernetes cluster",
+    "description": "Deploy to a Kubernetes cluster including, but not limited to Azure Kubernetes Service (AKS) clusters",
+    "author": "",
+    "inputs": [
+      {
+        "name": "namespace",
+        "required": false,
+        "default": "",
+        "description": "Choose the target Kubernetes namespace. If the namespace is not provided, the commands will automatically use the namespace defined in the manifest files first or otherwise run in the default namespace."
+      },
+      {
+        "name": "manifests",
+        "required": true,
+        "default": null,
+        "description": "Path to the manifest files which will be used for deployment."
+      },
+      {
+        "name": "images",
+        "required": false,
+        "default": null,
+        "description": "Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test"
+      },
+      {
+        "name": "imagepullsecrets",
+        "required": false,
+        "default": null,
+        "description": "Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files"
+      },
+      {
+        "name": "pull-images",
+        "required": false,
+        "default": true,
+        "description": "Switch whether to pull the images from the registry before deployment to find out Dockerfile's path in order to add it to the annotations"
+      },
+      {
+        "name": "strategy",
+        "required": true,
+        "default": "basic",
+        "description": "Deployment strategy to be used. Allowed values are basic, canary and blue-green"
+      },
+      {
+        "name": "route-method",
+        "required": false,
+        "default": "service",
+        "description": "Route based on service, ingress or SMI for blue-green strategy"
+      },
+      {
+        "name": "version-switch-buffer",
+        "required": false,
+        "default": 0,
+        "description": "Indicates the buffer time in minutes before the switch is made to the green version (max is 300 min ie. 5hrs)"
+      },
+      {
+        "name": "traffic-split-method",
+        "required": false,
+        "default": "pod",
+        "description": "Traffic split method to be used. Allowed values are pod and smi"
+      },
+      {
+        "name": "traffic-split-annotations",
+        "required": false,
+        "default": null,
+        "description": "Annotations in the form of key/value pair to be added to TrafficSplit. Relevant only if deployement strategy is blue-green or canary"
+      },
+      {
+        "name": "baseline-and-canary-replicas",
+        "required": false,
+        "default": "",
+        "description": "Baseline and canary replicas count. Valid value between 0 to 100 (inclusive)"
+      },
+      {
+        "name": "percentage",
+        "required": false,
+        "default": 0,
+        "description": "Percentage of traffic redirect to canary deployment"
+      },
+      {
+        "name": "action",
+        "required": true,
+        "default": "deploy",
+        "description": "deploy, promote, or reject"
+      },
+      {
+        "name": "force",
+        "required": false,
+        "default": false,
+        "description": "Deploy when a previous deployment already exists. If true then --force argument is added to the apply command"
+      },
+      {
+        "name": "server-side",
+        "required": false,
+        "default": false,
+        "description": "The apply command runs in the server instead of the client. If true then --server-side argument is added to the apply command."
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": "10m",
+        "description": "Timeout for the rollout status"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "Github token"
+      },
+      {
+        "name": "annotate-resources",
+        "required": false,
+        "default": true,
+        "description": "Annotate the resources. If set to false all annotations are skipped completely."
+      },
+      {
+        "name": "annotate-namespace",
+        "required": false,
+        "default": true,
+        "description": "Annotate the target namespace. Ignored when annotate-resources is set to false or no namespace is provided."
+      },
+      {
+        "name": "private-cluster",
+        "required": false,
+        "default": false,
+        "description": "True if cluster is AKS private cluster"
+      },
+      {
+        "name": "resource-group",
+        "required": false,
+        "default": null,
+        "description": "Name of resource group - Only required if using private cluster"
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "Name of the private cluster - Only required if using private cluster"
+      },
+      {
+        "name": "skip-tls-verify",
+        "required": false,
+        "default": false,
+        "description": "True if the insecure-skip-tls-verify option should be used. Input should be 'true' or 'false'."
+      },
+      {
+        "name": "resource-type",
+        "required": false,
+        "default": "Microsoft.ContainerService/managedClusters",
+        "description": "Either Microsoft.ContainerService/managedClusters or Microsoft.ContainerService/fleets'."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy applications to a Kubernetes cluster, which falls under the Deployment category, and it also involves managing infrastructure components like Kubernetes.",
+        "tags": [
+          "Kubernetes",
+          "Deployment",
+          "Azure",
+          "AKS",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "091910f8c85e23d87e292004523a3e03e483c227271076bfbd6b1c3e5724443d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.694298Z"
+  }
+}

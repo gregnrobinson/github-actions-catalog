@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/google-github-actions/deploy-gke",
+  "version_id": "7244c920f449",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-gke/action.yml",
+    "origin": "github.com/google-github-actions/deploy-gke",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy GKE",
+    "description": "Use gke-deploy cli to deploy an image",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "Image to be deployed"
+      },
+      {
+        "name": "app_name",
+        "required": true,
+        "default": null,
+        "description": "Application name of the Kubernetes deployment"
+      },
+      {
+        "name": "region",
+        "required": true,
+        "default": null,
+        "description": "Region/zone of GKE cluster to deploy to."
+      },
+      {
+        "name": "cluster_name",
+        "required": true,
+        "default": null,
+        "description": "Name of GKE cluster to deploy to."
+      },
+      {
+        "name": "project_id",
+        "required": true,
+        "default": null,
+        "description": "Project of GKE cluster to deploy to."
+      },
+      {
+        "name": "namespace",
+        "required": false,
+        "default": null,
+        "description": "Namespace of GKE cluster to deploy to.\nIf not provided, it will not be passed to the binary."
+      },
+      {
+        "name": "expose",
+        "required": false,
+        "default": null,
+        "description": "The port provided will be used to expose the deployed workload object (i.e., port and targetPort will be set to the value provided in this flag).\nIf not provided, it will not be passed to the binary."
+      },
+      {
+        "name": "k8s_manifests",
+        "required": false,
+        "default": null,
+        "description": "Local or GCS path to configuration file or directory of configuration files to use to create Kubernetes objects (file or files in directory must end in \".yml\" or \".yaml\").\nPrefix this value with \"gs://\" to indicate a GCS path.\nIf not provided, it will not be passed to the binary."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.image }}",
+        "${{ inputs.app_name }}",
+        "${{ inputs.region }}",
+        "${{ inputs.cluster_name }}",
+        "${{ inputs.project_id }}",
+        "${{ inputs.namespace }}",
+        "${{ inputs.expose }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7244c920f449fbc48747246f2fc564a3ae1dbd406c074705eee83b09620b2b19",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.755637Z"
+  }
+}

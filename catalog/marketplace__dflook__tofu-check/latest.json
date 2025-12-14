@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/dflook/tofu-check",
+  "version_id": "5e1b97919409",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-check/action.yml",
+    "origin": "github.com/dflook/tofu-check",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-check",
+    "description": "Check if there are OpenTofu changes to apply",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "Path to the OpenTofu root module to check"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to run the plan in"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set for the tofu plan. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "parallelism",
+        "required": false,
+        "default": "0",
+        "description": "Limit the number of concurrent operations"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the there are outstanding changes to apply, this will be set to 'changes-to-apply'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when there are changes to apply.\n"
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/check.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action checks for changes in OpenTofu, which is a testing function to ensure that the infrastructure code is up to date. It also involves managing dependencies related to the OpenTofu module.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "testing",
+          "dependency management",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5e1b9791940981faeaa460a18505c515e52d38c349d73e423eee6762021b464c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.327130Z"
+  }
+}

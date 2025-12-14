@@ -1,0 +1,42 @@
+name: "Trigger Jenkins Multiple Jobs"
+description: "Triggering Jenkins Job through the API"
+author: "Bo-Yi Wu"
+inputs:
+  url:
+    description: "Jenkins base URL (e.g., http://jenkins.example.com/)"
+    required: true
+  user:
+    description: "Jenkins username"
+  token:
+    description: "Jenkins API token"
+  remote_token:
+    description: "Jenkins remote trigger token"
+  job:
+    description: "Jenkins job name(s) - can specify multiple"
+    required: true
+  parameters:
+    description: "Build parameters in multi-line key=value format (one per line)"
+  insecure:
+    description: "Allow insecure SSL connections (default: false)"
+    default: "false"
+  wait:
+    description: "Wait for job completion (default: false)"
+    default: "false"
+  poll_interval:
+    description: "Interval between status checks (default: 10s)"
+    default: "10s"
+  timeout:
+    description: "Maximum time to wait for job completion (default: 30m)"
+    default: "30m"
+  debug:
+    description: "Enable debug mode to show detailed parameter information (default: false)"
+    default: "false"
+  ca_cert:
+    description: "Custom CA certificate (PEM content, file path, or HTTP URL)"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "check-circle"
+  color: "green"

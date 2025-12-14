@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/peter-evans/close-pull",
+  "version_id": "7b880ce10025",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/close-pull/action.yml",
+    "origin": "github.com/peter-evans/close-pull",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Close Pull",
+    "description": "A GitHub action to close a pull request and optionally delete its branch",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a repo scoped PAT"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The GitHub repository containing the pull request"
+      },
+      {
+        "name": "pull-request-number",
+        "required": false,
+        "default": "${{ github.event.number }}",
+        "description": "The number of the pull request to close"
+      },
+      {
+        "name": "comment",
+        "required": false,
+        "default": null,
+        "description": "A comment to make on the pull request before closing"
+      },
+      {
+        "name": "delete-branch",
+        "required": false,
+        "default": false,
+        "description": "Delete the pull request branch"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set Parameters",
+          "id": "params",
+          "shell": "bash",
+          "run": "if [ -n \"${{ inputs.comment }}\" ]; then\n  comment=\"--comment \\\"${{ inputs.comment }}\\\"\"\n  delimiter=\"$(openssl rand -hex 8)\"\n  echo \"comment<<$delimiter\" >> $GITHUB_OUTPUT\n  echo \"$comment\" >> $GITHUB_OUTPUT\n  echo \"$delimiter\" >> $GITHUB_OUTPUT\nfi\nif [ \"${{ inputs.delete-branch }}\" = true ]; then\n  echo delete-branch=\"--delete-branch\" >> $GITHUB_OUTPUT\nfi\n"
+        },
+        {
+          "name": "Close Pull",
+          "shell": "bash",
+          "run": "gh pr close -R \"${{ inputs.repository }}\" \\\n${{ steps.params.outputs.comment }} \\\n${{ steps.params.outputs.delete-branch }} \\\n\"${{ inputs.pull-request-number }}\"\n",
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7b880ce100257260eb841a1f27e0c41b0a746fa0c413fe7ffe881b5362809064",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.502418Z"
+  }
+}

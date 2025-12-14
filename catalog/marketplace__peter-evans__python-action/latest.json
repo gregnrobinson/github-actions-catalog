@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/peter-evans/python-action",
+  "version_id": "ec7993c81bd3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/python-action/action.yml",
+    "origin": "github.com/peter-evans/python-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Python Action",
+    "description": "A template to bootstrap the creation of a multi-platform Python GitHub action",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "message",
+        "required": true,
+        "default": "Hello World!",
+        "description": "A message to the world"
+      },
+      {
+        "name": "sender",
+        "required": true,
+        "default": "Peter",
+        "description": "The sender of the message"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "reply",
+        "description": "A reply from the world"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to facilitate communication by sending a message and receiving a reply, which aligns it primarily with the Communication category. It may also be used in testing scenarios to validate outputs.",
+        "tags": [
+          "python",
+          "action",
+          "communication",
+          "testing",
+          "github"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ec7993c81bd3e79b8e6539b885c08d08cd601c5f96c76add1aa160b5d952d0cc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.475566Z"
+  }
+}

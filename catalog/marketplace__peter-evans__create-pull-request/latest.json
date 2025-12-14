@@ -1,0 +1,217 @@
+{
+  "action_id": "marketplace/peter-evans/create-pull-request",
+  "version_id": "497b8150b90e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/create-pull-request/action.yml",
+    "origin": "github.com/peter-evans/create-pull-request",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create Pull Request",
+    "description": "Creates a pull request for changes to your repository in the actions workspace",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The token that the action will use to create and update the pull request."
+      },
+      {
+        "name": "branch-token",
+        "required": false,
+        "default": null,
+        "description": "The token that the action will use to create and update the branch. Defaults to the value of `token`.\n"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": null,
+        "description": "Relative path under $GITHUB_WORKSPACE to the repository. Defaults to $GITHUB_WORKSPACE.\n"
+      },
+      {
+        "name": "add-paths",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline-separated list of file paths to commit. Paths should follow git's pathspec syntax. Defaults to adding all new and modified files.\n"
+      },
+      {
+        "name": "commit-message",
+        "required": false,
+        "default": "[create-pull-request] automated change",
+        "description": "The message to use when committing changes."
+      },
+      {
+        "name": "committer",
+        "required": false,
+        "default": "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>",
+        "description": "The committer name and email address in the format `Display Name <email@address.com>`. Defaults to the GitHub Actions bot user.\n"
+      },
+      {
+        "name": "author",
+        "required": false,
+        "default": "${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>",
+        "description": "The author name and email address in the format `Display Name <email@address.com>`. Defaults to the user who triggered the workflow run.\n"
+      },
+      {
+        "name": "signoff",
+        "required": false,
+        "default": false,
+        "description": "Add `Signed-off-by` line by the committer at the end of the commit log message."
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "create-pull-request/patch",
+        "description": "The pull request branch name."
+      },
+      {
+        "name": "delete-branch",
+        "required": false,
+        "default": false,
+        "description": "Delete the `branch` if it doesn't have an active pull request associated with it.\n"
+      },
+      {
+        "name": "branch-suffix",
+        "required": false,
+        "default": null,
+        "description": "The branch suffix type when using the alternative branching strategy."
+      },
+      {
+        "name": "base",
+        "required": false,
+        "default": null,
+        "description": "The pull request base branch. Defaults to the branch checked out in the workflow.\n"
+      },
+      {
+        "name": "push-to-fork",
+        "required": false,
+        "default": null,
+        "description": "A fork of the checked out parent repository to which the pull request branch will be pushed. e.g. `owner/repo-fork`. The pull request will be created to merge the fork's branch into the parent's base.\n"
+      },
+      {
+        "name": "sign-commits",
+        "required": false,
+        "default": false,
+        "description": "Sign commits as `github-actions[bot]` when using `GITHUB_TOKEN`, or your own bot when using GitHub App tokens."
+      },
+      {
+        "name": "title",
+        "required": false,
+        "default": "Changes by create-pull-request action",
+        "description": "The title of the pull request."
+      },
+      {
+        "name": "body",
+        "required": false,
+        "default": "Automated changes by [create-pull-request](https://github.com/peter-evans/create-pull-request) GitHub action",
+        "description": "The body of the pull request."
+      },
+      {
+        "name": "body-path",
+        "required": false,
+        "default": null,
+        "description": "The path to a file containing the pull request body. Takes precedence over `body`."
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of labels."
+      },
+      {
+        "name": "assignees",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of assignees (GitHub usernames)."
+      },
+      {
+        "name": "reviewers",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of reviewers (GitHub usernames) to request a review from."
+      },
+      {
+        "name": "team-reviewers",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of GitHub teams to request a review from. Note that a `repo` scoped Personal Access Token (PAT) may be required.\n"
+      },
+      {
+        "name": "milestone",
+        "required": false,
+        "default": null,
+        "description": "The number of the milestone to associate the pull request with."
+      },
+      {
+        "name": "draft",
+        "required": false,
+        "default": false,
+        "description": "Create a draft pull request. Valid values are `true` (only on create), `always-true` (on create and update), and `false`.\n"
+      },
+      {
+        "name": "maintainer-can-modify",
+        "required": false,
+        "default": true,
+        "description": "Indicates whether maintainers can modify the pull request."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pull-request-number",
+        "description": "The pull request number"
+      },
+      {
+        "name": "pull-request-url",
+        "description": "The URL of the pull request."
+      },
+      {
+        "name": "pull-request-operation",
+        "description": "The pull request operation performed by the action, `created`, `updated` or `closed`."
+      },
+      {
+        "name": "pull-request-head-sha",
+        "description": "The commit SHA of the pull request branch."
+      },
+      {
+        "name": "pull-request-branch",
+        "description": "The pull request branch name"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on creating pull requests, which facilitates communication and collaboration among developers. It also indirectly contributes to code quality by enabling code reviews and testing through pull requests.",
+        "tags": [
+          "pull request",
+          "GitHub",
+          "collaboration",
+          "automation",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "497b8150b90e3771de7a8e6de08a370695b3a08b316b608609f9ea2ea28a1070",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.515186Z"
+  }
+}

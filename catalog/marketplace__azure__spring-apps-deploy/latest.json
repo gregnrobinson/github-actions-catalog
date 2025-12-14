@@ -1,0 +1,267 @@
+{
+  "action_id": "marketplace/azure/spring-apps-deploy",
+  "version_id": "0b190c0473b2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/spring-apps-deploy/action.yml",
+    "origin": "github.com/azure/spring-apps-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Spring Apps",
+    "description": "Deploy applications to Azure Spring Apps and manage deployments.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "azure-subscription",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Resource Manager subscription for the deployment."
+      },
+      {
+        "name": "action",
+        "required": true,
+        "default": "deploy",
+        "description": "Action to be performed on Azure Spring Apps."
+      },
+      {
+        "name": "service-name",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Spring Apps service to which to deploy."
+      },
+      {
+        "name": "app-name",
+        "required": true,
+        "default": null,
+        "description": "Select the Azure Spring Apps app to deploy."
+      },
+      {
+        "name": "use-staging-deployment",
+        "required": true,
+        "default": true,
+        "description": "Automatically select the deployment that's set as Staging at the time the task runs."
+      },
+      {
+        "name": "create-new-deployment",
+        "required": false,
+        "default": false,
+        "description": "Whether to target the deployment that's set as Staging at the time of execution. If unchecked, the 'Deployment Name' setting must be set."
+      },
+      {
+        "name": "deployment-name",
+        "required": false,
+        "default": null,
+        "description": "The deployment to which this task will apply. Lowercase letters, - and numbers only; must start with a letter."
+      },
+      {
+        "name": "package",
+        "required": false,
+        "default": "${{ github.workspace }}/**/*.jar",
+        "description": "File path to the package or a folder containing the Spring Apps app contents."
+      },
+      {
+        "name": "target-module",
+        "required": false,
+        "default": null,
+        "description": "Child module to be deployed, required for multiple jar packages built from source code."
+      },
+      {
+        "name": "cpu",
+        "required": false,
+        "default": "1",
+        "description": "The CPU resource quantity. It should be 500m or number of CPU cores. It is effective only when creating new deployment."
+      },
+      {
+        "name": "memory",
+        "required": false,
+        "default": "1Gi",
+        "description": "The memory resource quantity. It should be 512Mi or #Gi, e.g., 1Gi, 3Gi. It is effective only when creating new deployment."
+      },
+      {
+        "name": "environment-variables",
+        "required": false,
+        "default": null,
+        "description": "Edit the app's environment variables."
+      },
+      {
+        "name": "jvm-options",
+        "required": false,
+        "default": null,
+        "description": "Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`"
+      },
+      {
+        "name": "runtime-version",
+        "required": false,
+        "default": null,
+        "description": "The runtime on which the app will run."
+      },
+      {
+        "name": "dotnetcore-mainentry-path",
+        "required": false,
+        "default": null,
+        "description": "The path to the .NET executable relative to zip root."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The runtime on which the app will run."
+      },
+      {
+        "name": "build-name",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) The build name."
+      },
+      {
+        "name": "builder",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) Build service builder used to build the executable."
+      },
+      {
+        "name": "build-cpu",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) CPU resource quantity for build container. Should be 500m or number of CPU cores. Default: 1"
+      },
+      {
+        "name": "build-memory",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) Memory resource quantity for build container. Should be 512Mi or #Gi, e.g., 1Gi, 3Gi. Default: 2Gi."
+      },
+      {
+        "name": "build-env",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) Space-separated environment variables for the build process in 'key[=value]' format."
+      },
+      {
+        "name": "config-file-patterns",
+        "required": false,
+        "default": null,
+        "description": "(Enterprise Tier Only) Config file patterns separated with ',' to decide which patterns of Application Configuration Service will be used. Use '\"\"' to clear existing configurations."
+      },
+      {
+        "name": "container-registry",
+        "required": false,
+        "default": "docker.io",
+        "description": "The registry of the container image.  Default: docker.io."
+      },
+      {
+        "name": "registry-username",
+        "required": false,
+        "default": null,
+        "description": "The username of the container registry."
+      },
+      {
+        "name": "registry-password",
+        "required": false,
+        "default": null,
+        "description": "The password of the container registry."
+      },
+      {
+        "name": "container-image",
+        "required": false,
+        "default": null,
+        "description": "The container image."
+      },
+      {
+        "name": "container-command",
+        "required": false,
+        "default": null,
+        "description": "The command of the container."
+      },
+      {
+        "name": "container-args",
+        "required": false,
+        "default": null,
+        "description": "The arguments of the container."
+      },
+      {
+        "name": "language-framework",
+        "required": false,
+        "default": null,
+        "description": "The language framework of the container."
+      },
+      {
+        "name": "enable-liveness-probe",
+        "required": false,
+        "default": null,
+        "description": "If false, will disable the liveness probe of the app instance.  Allowed values: false, true."
+      },
+      {
+        "name": "enable-readiness-probe",
+        "required": false,
+        "default": null,
+        "description": "If false, will disable the readiness probe of the app instance.  Allowed values: false, true."
+      },
+      {
+        "name": "enable-startup-probe",
+        "required": false,
+        "default": null,
+        "description": "If false, will disable the startup probe of the app instance.  Allowed values: false, true."
+      },
+      {
+        "name": "termination-grace-period-seconds",
+        "required": false,
+        "default": null,
+        "description": "Optional duration in seconds the app instance needs to terminate gracefully."
+      },
+      {
+        "name": "liveness-probe-config",
+        "required": false,
+        "default": null,
+        "description": "A json file path indicates the liveness probe config"
+      },
+      {
+        "name": "readiness-probe-config",
+        "required": false,
+        "default": null,
+        "description": "A json file path indicates the readiness probe config"
+      },
+      {
+        "name": "startup-probe-config",
+        "required": false,
+        "default": null,
+        "description": "A json file path indicates the startup probe config"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is specifically designed to deploy applications to Azure Spring Apps, which falls under the deployment category, and it also involves managing infrastructure on Azure.",
+        "tags": [
+          "Azure",
+          "Deployment",
+          "Spring Apps",
+          "Infrastructure",
+          "Cloud"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0b190c0473b26f340197465a7242f09f58c42f87933470ae8fb68705e8ce1958",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.596468Z"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "action_id": "marketplace/JS-DevTools/npm-publish",
+  "version_id": "8a2fbc2252c4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/JS-DevTools/npm-publish/action.yml",
+    "origin": "github.com/JS-DevTools/npm-publish",
+    "publisher": "JS-DevTools",
+    "verified": false
+  },
+  "definition": {
+    "name": "NPM Publish",
+    "description": "Fast, easy publishing to NPM",
+    "author": "James Messinger",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "The NPM access token to use when publishing"
+      },
+      {
+        "name": "registry",
+        "required": false,
+        "default": null,
+        "description": "The NPM registry URL to use"
+      },
+      {
+        "name": "package",
+        "required": false,
+        "default": null,
+        "description": "The path to your package or its package.json file"
+      },
+      {
+        "name": "tag",
+        "required": false,
+        "default": null,
+        "description": "The distribution tag to publish"
+      },
+      {
+        "name": "access",
+        "required": false,
+        "default": null,
+        "description": "Determines whether the published package should be publicly visible, or restricted to members of your NPM organization.\n"
+      },
+      {
+        "name": "provenance",
+        "required": false,
+        "default": null,
+        "description": "Attach provenance statements when publishing."
+      },
+      {
+        "name": "strategy",
+        "required": false,
+        "default": null,
+        "description": "Version check and release strategy. If \"all\" (default), package will be published if its version is simply not yet published. If \"upgrade\", package will be published if its version is higher than the existing tag, according to semantic versioning.\n"
+      },
+      {
+        "name": "ignore-scripts",
+        "required": false,
+        "default": null,
+        "description": "Run npm with the --ignore-scripts flag as a security precaution. Enabled by default.\n"
+      },
+      {
+        "name": "dry-run",
+        "required": false,
+        "default": null,
+        "description": "Run npm with the --dry-run flag to avoid actually publishing anything."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "id",
+        "description": "The identifier of the published package. If a release was published, format is `${name}@${version}. If no release occurred, will be an empty string.\n"
+      },
+      {
+        "name": "type",
+        "description": "The type of version change that occurred on the published tag. If release was an upgrade, will be a semver release type (\"major\", \"minor\", ...). If the published tag had no previous version, will be \"initial\". If version was change was not an upgrade, will be \"different\". If no release occurred, will be an empty string.\n"
+      },
+      {
+        "name": "name",
+        "description": "Name of the package."
+      },
+      {
+        "name": "version",
+        "description": "Version of the package."
+      },
+      {
+        "name": "old-version",
+        "description": "The previous version on the distribution tag. If there was no previous version on the tag, will be an empty string.\n"
+      },
+      {
+        "name": "registry",
+        "description": "The registry used for version checking and publishing."
+      },
+      {
+        "name": "tag",
+        "description": "The distribution tag used for version checking and publishing."
+      },
+      {
+        "name": "access",
+        "description": "The package access setting used. If configured by the action or package.json, will be \"public\" or \"protected\". If not configured for a non-scoped package, will be \"public\". If not configured for a scoped package, will be \"default\".\n"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "action.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is specifically designed for publishing packages to NPM, which falls under the Publishing category. It also requires an NPM access token for authentication, linking it to the Authentication category.",
+        "tags": [
+          "npm",
+          "publish",
+          "package",
+          "registry",
+          "authentication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8a2fbc2252c4e5cd9a43d6b997aac68b23ec97960e3b0ba1b237f8a268890d8e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.838437Z"
+  }
+}

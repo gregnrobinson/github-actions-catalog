@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/azure/IaC-Telemetry",
+  "version_id": "2e37b91df079",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/IaC-Telemetry/action.yml",
+    "origin": "github.com/azure/IaC-Telemetry",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "IaC Telemetry",
+    "description": "Send IaC Telemetry",
+    "author": "",
+    "inputs": [
+      {
+        "name": "event-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the event: plan-success, plan-failure, apply-success, apply-failure"
+      },
+      {
+        "name": "directory",
+        "required": true,
+        "default": null,
+        "description": "Directory to run Terraform commands"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "curl https://dc.services.visualstudio.com/v2/track -d @- <<EOF\n{\n  \"name\": \"EventData\",\n  \"time\": \"$(date --utc +%FT%T.%3NZ)\",\n  \"iKey\": \"b565e06f-9e18-4198-a62b-764a48d4e187\",\n  \"data\": {\n    \"baseType\": \"EventData\",\n    \"baseData\": {\n      \"name\": \"${{ inputs.event-name }}\",\n      \"properties\": {\n        \"workflow\": \"${{ github.workflow }}\",\n        \"run_number\": \"${{ github.run_number }}\",\n        \"actor\": \"${{ github.actor }}\",\n        \"repository\": \"${{ github.repository }}\",\n        \"event_name\": \"${{ github.event_name }}\",\n        \"directory\": \"${{ inputs.directory }}\"\n      }\n    }\n  }\n}\nEOF\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "The action is focused on sending telemetry data related to Infrastructure as Code (IaC) events, which falls under monitoring. Additionally, it communicates the status of these events.",
+        "tags": [
+          "IaC",
+          "Telemetry",
+          "Monitoring",
+          "Azure",
+          "Terraform"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "2e37b91df07962c0b63a0bac18ea8a3cec17b528f184f735908338c45d4bb894",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.708208Z"
+  }
+}

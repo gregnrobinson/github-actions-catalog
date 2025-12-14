@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/actions/configure-pages",
+  "version_id": "ee83c3028384",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/configure-pages/action.yml",
+    "origin": "github.com/actions/configure-pages",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Configure GitHub Pages",
+    "description": "A GitHub Action to enable Pages, extract various metadata about a site, and configure some supported static site generators.",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "static_site_generator",
+        "required": false,
+        "default": null,
+        "description": "Optional static site generator to attempt to configure: \"nuxt\", \"next\", \"gatsby\", or \"sveltekit\""
+      },
+      {
+        "name": "generator_config_file",
+        "required": false,
+        "default": null,
+        "description": "Optional file path to static site generator configuration file"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub token"
+      },
+      {
+        "name": "enablement",
+        "required": false,
+        "default": "false",
+        "description": "Try to enable Pages for the repository if it is not already enabled. This option requires a token other than `GITHUB_TOKEN` to be provided. In the context of a Personal Access Token, the `repo` scope or Pages write permission is required. In the context of a GitHub App, the `administration:write` and `pages:write` permissions are required."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "base_url",
+        "description": "GitHub Pages site full base URL. Examples: \"https://octocat.github.io/my-repo\", \"https://octocat.github.io\", \"https://www.example.com\""
+      },
+      {
+        "name": "origin",
+        "description": "GitHub Pages site origin. Examples: \"https://octocat.github.io\", \"https://www.example.com\""
+      },
+      {
+        "name": "host",
+        "description": "GitHub Pages site host. Examples: \"octocat.github.io\", \"www.example.com\""
+      },
+      {
+        "name": "base_path",
+        "description": "GitHub Pages site full base path. Examples: \"/my-repo\" or \"\""
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Documentation",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying GitHub Pages, which falls under the Deployment category. Additionally, it involves configuring metadata and settings for a static site, linking it to Documentation and Infrastructure.",
+        "tags": [
+          "GitHub Pages",
+          "static site generator",
+          "deployment",
+          "configuration",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ee83c302838439770e9c45fe62f6abfd58341f57ac21ebaf848fb5e3a9fbcb67",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.294274Z"
+  }
+}

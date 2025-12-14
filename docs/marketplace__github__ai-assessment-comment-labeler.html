@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assessment Comment Labeler - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>AI Assessment Comment Labeler</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/ai-assessment-comment-labeler</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/ai-assessment-comment-labeler" target="_blank">github.com/github/ai-assessment-comment-labeler</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Generate an AI comment based on a prompt file and labels.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action generates comments based on AI assessments, which falls under communication. It also relates to code quality by providing assessments and labels that can help improve the codebase.</p>
+            <p><strong>Tags:</strong> <span class="tag">AI</span> <span class="tag">comment</span> <span class="tag">labeler</span> <span class="tag">GitHub</span> <span class="tag">automation</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>Yes</td>
+                <td>The token to use</td>
+            </tr><tr>
+                <td><code>ai_review_label</code></td>
+                <td>Yes</td>
+                <td>The label applied to the issue to trigger AI review</td>
+            </tr><tr>
+                <td><code>issue_number</code></td>
+                <td>Yes</td>
+                <td>The issue number to comment on</td>
+            </tr><tr>
+                <td><code>issue_body</code></td>
+                <td>Yes</td>
+                <td>The body of the issue to comment on</td>
+            </tr><tr>
+                <td><code>prompts_directory</code></td>
+                <td>Yes</td>
+                <td>The path to the prompts directory where the .prompt.yml files are located</td>
+            </tr><tr>
+                <td><code>labels_to_prompts_mapping</code></td>
+                <td>Yes</td>
+                <td>A mapping of labels to prompt files, separated by &#39;|&#39;. Format: &#39;label1,prompt1.prompt.yml|label2,prompt2.prompt.yml&#39;</td>
+            </tr><tr>
+                <td><code>model</code></td>
+                <td>No</td>
+                <td>The model to use for AI generation. Will be inferred from the .prompt.yml file if not provided. Action will fail if not found in the file and not provided.</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>No</td>
+                <td>The endpoint to use. Defaults to the OpenAI API endpoint &quot;https://models.github.ai/inference&quot;</td>
+            </tr><tr>
+                <td><code>max_tokens</code></td>
+                <td>No</td>
+                <td>The maximum number of tokens to generate. Will be inferred from the .prompt.yml file if not provided. Defaults to 200 if not found in the file.</td>
+            </tr><tr>
+                <td><code>repo_name</code></td>
+                <td>No</td>
+                <td>The name of the repository. Will be inferred from the GitHub context if not provided.</td>
+            </tr><tr>
+                <td><code>owner</code></td>
+                <td>No</td>
+                <td>The owner of the repository. Will be inferred from the GitHub context if not provided.</td>
+            </tr><tr>
+                <td><code>assessment_regex_pattern</code></td>
+                <td>No</td>
+                <td>Regex pattern for capturing the assessment line in the AI response used for creating the label to add to the issue. Default: &quot;^###.*[aA]ssessment:\s*(.+)$&quot;</td>
+            </tr><tr>
+                <td><code>assessment_regex_flags</code></td>
+                <td>No</td>
+                <td>Regex flags for the assessment regex pattern. e.g.: &quot;i&quot; for case-insensitive matching.</td>
+            </tr><tr>
+                <td><code>no_comment_regex_pattern</code></td>
+                <td>No</td>
+                <td>Regex pattern for capturing the no comment directive in the AI response. e.g.: &quot;&lt;!--.*no.*comment.*--&gt;&quot;</td>
+            </tr><tr>
+                <td><code>no_comment_regex_flags</code></td>
+                <td>No</td>
+                <td>Regex flags for the no comment regex pattern. e.g.: &quot;i&quot; for case-insensitive matching.</td>
+            </tr><tr>
+                <td><code>suppress_labels</code></td>
+                <td>No</td>
+                <td>Do not add any labels to the issue. Useful if you just want to get the AI assessments and labels as outputs.</td>
+            </tr><tr>
+                <td><code>suppress_comments</code></td>
+                <td>No</td>
+                <td>Do not add any comments to the issue. Useful if you just want to get the AI assessments and labels as outputs.</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>ai_assessments</code></td>
+                <td>JSON array of objects representing all assessments made by the AI e.g. &quot;[{&quot;prompt&quot;: &quot;security.prompt.yml&quot;, &quot;assessmentLabel&quot;: &quot;ai:security:high risk&quot;, &quot;response&quot;: &quot;### Assessment: High Risk\nThe code contains...&quot;}]&quot;</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

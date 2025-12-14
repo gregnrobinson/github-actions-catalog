@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/actions/component-detection-dependency-submission-action",
+  "version_id": "56e3453b7767",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/component-detection-dependency-submission-action/action.yml",
+    "origin": "github.com/actions/component-detection-dependency-submission-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Component Detection dependency submission action",
+    "description": "Upload information about your dependencies to the GitHub dependency graph using dependency submission API. ",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Personal Access Token (PAT). Defaults to PAT provided by Actions runner."
+      },
+      {
+        "name": "filePath",
+        "required": false,
+        "default": ".",
+        "description": "The path to the directory containing the environment files to upload. Defaults to Actions working directory."
+      },
+      {
+        "name": "directoryExclusionList",
+        "required": false,
+        "default": null,
+        "description": "Filters out specific directories following a minimatch pattern."
+      },
+      {
+        "name": "detectorArgs",
+        "required": false,
+        "default": null,
+        "description": "Comma separated list of properties that can affect the detectors execution, like EnableIfDefaultOff that allows a specific detector that is in beta to run, the format for this property is DetectorId=EnableIfDefaultOff, for example Pip=EnableIfDefaultOff."
+      },
+      {
+        "name": "dockerImagesToScan",
+        "required": false,
+        "default": null,
+        "description": "Comma separated list of docker image names or hashes to execute container scanning on, ex: ubuntu:16.04,56bab49eef2ef07505f6a1b0d5bd3a601dfc3c76ad4460f24c91d6fa298369ab"
+      },
+      {
+        "name": "detectorsFilter",
+        "required": false,
+        "default": null,
+        "description": "A comma separated list with the identifiers of the specific detectors to be used. This is meant to be used for testing purposes only."
+      },
+      {
+        "name": "detectorsCategories",
+        "required": false,
+        "default": null,
+        "description": "A comma separated list with the categories of components that are going to be scanned. The detectors that are going to run are the ones that belongs to the categories. The possible values are: Npm, NuGet, Maven, RubyGems, Cargo, Pip, GoMod, CocoaPods, Linux."
+      },
+      {
+        "name": "correlator",
+        "required": false,
+        "default": null,
+        "description": "An optional identifier to distinguish between multiple dependency snapshots of the same type."
+      },
+      {
+        "name": "detector-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the detector. If provided, detector-version and detector-url must also be provided."
+      },
+      {
+        "name": "detector-version",
+        "required": false,
+        "default": null,
+        "description": "The version of the detector. If provided, detector-name and detector-url must also be provided."
+      },
+      {
+        "name": "detector-url",
+        "required": false,
+        "default": null,
+        "description": "The URL of the detector. If provided, detector-name and detector-version must also be provided."
+      },
+      {
+        "name": "snapshot-sha",
+        "required": false,
+        "default": null,
+        "description": "The SHA of the commit to associate with the snapshot. If provided, snapshot-ref must also be provided."
+      },
+      {
+        "name": "snapshot-ref",
+        "required": false,
+        "default": null,
+        "description": "The Git reference to associate with the snapshot. If provided, snapshot-sha must also be provided."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "56e3453b77679b8c7d1c99cbfe441dc061af2deee1ed32443a1f788e424085fa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.225081Z"
+  }
+}

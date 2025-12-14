@@ -1,0 +1,98 @@
+{
+  "action_id": "marketplace/codecov/basic-test-results",
+  "version_id": "512eca4c8034",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/codecov/basic-test-results/action.yml",
+    "origin": "github.com/codecov/basic-test-results",
+    "publisher": "codecov",
+    "verified": true
+  },
+  "definition": {
+    "name": "Basic Test Results",
+    "description": "Aggregates and processes tests files in CI. Outputs the failed tests as a comment on the PR.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "'The secrets.GITHUB_TOKEN to be able to interact with the current PR and comment on it.'\n"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "Directory to search for test result reports. Will run test processing on all files in the directory."
+      },
+      {
+        "name": "disable-search",
+        "required": false,
+        "default": null,
+        "description": "Disable search for test result files. This is helpful when specifying what files you want to run test report processing with the --file option."
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "Directories to exclude from search."
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to the junit file to run test result processing."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Specify which version of the Codecov CLI should be used. Defaults to `latest`."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "uses": "actions/setup-python@v5",
+          "with": {
+            "python-version": "3.12"
+          }
+        },
+        {
+          "name": "Install Codecov CLI",
+          "env": {
+            "VERSION": "${{ inputs.version }}"
+          },
+          "run": "if [[ -z \"${VERSION}\" ]]; then\n  pip install codecov-cli\nelse\n  pip install codecov-cli==${VERSION}\nfi\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Run Test Results Processor",
+          "if": "${{ !cancelled() }}",
+          "shell": "bash",
+          "env": {
+            "GITHUB_TOKEN": "${{ inputs.github-token }}",
+            "TEST_DIR": "${{ inputs.directory }}",
+            "DISABLE_SEARCH": "${{ inputs.disable-search }}",
+            "EXCLUDE": "${{ inputs.exclude }}",
+            "FILE": "${{ inputs.file }}"
+          },
+          "run": "codecov_cli_args=()\nif [[ ! -z \"${TEST_DIR}\" ]]; then\n  codecov_cli_args+=(\"--dir\" ${TEST_DIR})\nfi\nif [[ ! -z \"${DISABLE_SEARCH}\" ]]; then\n  codecov_cli_args+=(\"--disable-search\")\nfi\nif [[ ! -z \"${EXCLUDE}\" ]]; then\n  codecov_cli_args+=(\"--exclude\" ${EXCLUDE})\nfi\nif [[ ! -z \"${FILE}\" ]]; then\n  codecov_cli_args+=(\"--file\" ${FILE})\nfi\ncodecovcli process-test-results --github-token ${GITHUB_TOKEN} ${codecov_cli_args[*]}\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "512eca4c8034eabbc16dc2bf57fc5d00e39ded67a2c8e9cbc7deb4e0b6e192af",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.425254Z"
+  }
+}

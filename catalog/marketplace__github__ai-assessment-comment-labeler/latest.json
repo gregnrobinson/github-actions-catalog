@@ -1,0 +1,159 @@
+{
+  "action_id": "marketplace/github/ai-assessment-comment-labeler",
+  "version_id": "6db2aa2b58f7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/ai-assessment-comment-labeler/action.yml",
+    "origin": "github.com/github/ai-assessment-comment-labeler",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "AI Assessment Comment Labeler",
+    "description": "Generate an AI comment based on a prompt file and labels.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "The token to use"
+      },
+      {
+        "name": "ai_review_label",
+        "required": true,
+        "default": null,
+        "description": "The label applied to the issue to trigger AI review"
+      },
+      {
+        "name": "issue_number",
+        "required": true,
+        "default": null,
+        "description": "The issue number to comment on"
+      },
+      {
+        "name": "issue_body",
+        "required": true,
+        "default": null,
+        "description": "The body of the issue to comment on"
+      },
+      {
+        "name": "prompts_directory",
+        "required": true,
+        "default": null,
+        "description": "The path to the prompts directory where the .prompt.yml files are located"
+      },
+      {
+        "name": "labels_to_prompts_mapping",
+        "required": true,
+        "default": null,
+        "description": "A mapping of labels to prompt files, separated by '|'. Format: 'label1,prompt1.prompt.yml|label2,prompt2.prompt.yml'"
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": null,
+        "description": "The model to use for AI generation. Will be inferred from the .prompt.yml file if not provided. Action will fail if not found in the file and not provided."
+      },
+      {
+        "name": "endpoint",
+        "required": false,
+        "default": "https://models.github.ai/inference",
+        "description": "The endpoint to use. Defaults to the OpenAI API endpoint \"https://models.github.ai/inference\""
+      },
+      {
+        "name": "max_tokens",
+        "required": false,
+        "default": null,
+        "description": "The maximum number of tokens to generate. Will be inferred from the .prompt.yml file if not provided. Defaults to 200 if not found in the file."
+      },
+      {
+        "name": "repo_name",
+        "required": false,
+        "default": null,
+        "description": "The name of the repository. Will be inferred from the GitHub context if not provided."
+      },
+      {
+        "name": "owner",
+        "required": false,
+        "default": null,
+        "description": "The owner of the repository. Will be inferred from the GitHub context if not provided."
+      },
+      {
+        "name": "assessment_regex_pattern",
+        "required": false,
+        "default": "^###.*[aA]ssessment:\\s*(.+)$",
+        "description": "Regex pattern for capturing the assessment line in the AI response used for creating the label to add to the issue. Default: \"^###.*[aA]ssessment:\\s*(.+)$\""
+      },
+      {
+        "name": "assessment_regex_flags",
+        "required": false,
+        "default": "",
+        "description": "Regex flags for the assessment regex pattern. e.g.: \"i\" for case-insensitive matching."
+      },
+      {
+        "name": "no_comment_regex_pattern",
+        "required": false,
+        "default": "",
+        "description": "Regex pattern for capturing the no comment directive in the AI response. e.g.: \"<!--.*no.*comment.*-->\""
+      },
+      {
+        "name": "no_comment_regex_flags",
+        "required": false,
+        "default": "",
+        "description": "Regex flags for the no comment regex pattern. e.g.: \"i\" for case-insensitive matching."
+      },
+      {
+        "name": "suppress_labels",
+        "required": false,
+        "default": "false",
+        "description": "Do not add any labels to the issue. Useful if you just want to get the AI assessments and labels as outputs."
+      },
+      {
+        "name": "suppress_comments",
+        "required": false,
+        "default": "false",
+        "description": "Do not add any comments to the issue. Useful if you just want to get the AI assessments and labels as outputs."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ai_assessments",
+        "description": "JSON array of objects representing all assessments made by the AI e.g. \"[{\"prompt\": \"security.prompt.yml\", \"assessmentLabel\": \"ai:security:high risk\", \"response\": \"### Assessment: High Risk\\nThe code contains...\"}]\""
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action generates comments based on AI assessments, which falls under communication. It also relates to code quality by providing assessments and labels that can help improve the codebase.",
+        "tags": [
+          "AI",
+          "comment",
+          "labeler",
+          "GitHub",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6db2aa2b58f735918585e575d4d6c809a23c84ca26887b312f14b9a1ff9cdd28",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.930730Z"
+  }
+}

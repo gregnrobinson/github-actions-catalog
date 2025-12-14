@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/actions/setup-elixir",
+  "version_id": "4334d2a5f762",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-elixir/action.yml",
+    "origin": "github.com/actions/setup-elixir",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Elixir",
+    "description": "Set up a specific version of OTP and Elixir and add the command-line tools to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "elixir-version",
+        "required": false,
+        "default": null,
+        "description": "Version range or exact version of Elixir to use"
+      },
+      {
+        "name": "otp-version",
+        "required": false,
+        "default": null,
+        "description": "Version range or exact version of OTP to use"
+      },
+      {
+        "name": "experimental-otp",
+        "required": false,
+        "default": false,
+        "description": "Whether to use experimental builds of OTP (images that have not yet been fully tested include ubuntu-16.04, ubuntu-18.04, ubuntu-20.04)"
+      },
+      {
+        "name": "install-hex",
+        "required": false,
+        "default": true,
+        "description": "Whether to install Hex"
+      },
+      {
+        "name": "install-rebar",
+        "required": false,
+        "default": true,
+        "description": "Whether to install Rebar"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "elixir-version",
+        "description": "Exact version of Elixir that was installed"
+      },
+      {
+        "name": "otp-version",
+        "description": "Exact version of OTP that was installed"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action sets up specific versions of Elixir and OTP, which are dependencies for Elixir applications, and modifies the environment to include their command-line tools, indicating a focus on dependency management and infrastructure setup.",
+        "tags": [
+          "elixir",
+          "otp",
+          "setup",
+          "dependency",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4334d2a5f762105667892a1f34973d35cee717e9b3fc6e214277c8ff3791968b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.291985Z"
+  }
+}

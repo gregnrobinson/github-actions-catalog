@@ -1,0 +1,36 @@
+name: "Azure Machine Learning Run Action"
+description: "Submit a run to an Azure Machine Learning Workspace with this GitHub Action"
+author: "azure/gh-aml"
+inputs:
+  azure_credentials:
+    description: "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS"
+    required: true
+  parameters_file:
+    description: "JSON file including the parameters of the run."
+    required: true
+    default: "run.json"
+outputs:
+  experiment_name:
+    description: "Name of the experiment of the run"
+  run_id:
+    description: "ID of the run"
+  run_url:
+    description: "URL to the run in the Azure Machine Learning Studio"
+  run_metrics:
+    description: "Metrics of the run (will only be provided if wait_for_completion is set to True)"
+  run_metrics_markdown:
+    description: "Metrics of the run formatted as markdown table (will only be provided if wait_for_completion is set to True)"
+  published_pipeline_id:
+    description: "Id of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+  published_pipeline_status:
+    description: "Status of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+  published_pipeline_endpoint:
+    description: "Endpoint of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+  artifact_path:
+    description: "Path of downloaded artifacts and logs from Azure Machine Learning (pipeline) run (will only be provided if wait_for_completion and download_artifacts is set to True)"
+branding:
+  icon: "chevron-up"
+  color: "blue"
+runs:
+  using: "docker"
+  image: "Dockerfile"

@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/azure/manage-azure-policy",
+  "version_id": "4f002e190198",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/manage-azure-policy/action.yml",
+    "origin": "github.com/azure/manage-azure-policy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Manage Azure Policy",
+    "description": "Create or update Azure policies from your GitHub Workflows using Manage Azure Policy action.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "paths",
+        "required": true,
+        "default": null,
+        "description": "mandatory. The path(s) to the directory that contains Azure policy files. The files present only in these directories  will be considered by this action for updating policies in Azure. You can use wild card characters as mentioned * or ** for specifying sub folders in a path. For more details on the use of the wild cards check [glob wildcard patterns](https://github.com/isaacs/node-glob#glob-primer). Note that a definition file should be named as policy.json and assignment filenames should start with assign keyword."
+      },
+      {
+        "name": "ignore-paths",
+        "required": false,
+        "default": null,
+        "description": "Optional. These are the directory paths that will be ignored by the action. If you have a specific policy folder that is not ready to be applied yet, specify the path here. Note that ignore-paths has a higher precedence compared to paths parameter."
+      },
+      {
+        "name": "assignments",
+        "required": false,
+        "default": null,
+        "description": "Optional. These are policy assignment files that would be considered by the action. This parameter is especially useful if you want to apply only those assignments that correspond to a specific environment for following a safe deployment practice. E.g. _assign.AllowedVMSKUs-dev-rg.json_. You can use wild card character * to match multiple file names. E.g. _assign.\\*dev\\*.json_. If this parameter is not specified, the action will consider all assignment files that are present in the directories mentioned in paths parameter."
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "default": null,
+        "description": "Optional. There are 2 modes for this action - _incremental_ and _complete_. If not specified, the action will use incremental mode by default. In incremental mode, the action will compare already exisiting policy in azure with the contents of policy provided in repository file. It will apply the policy only if there is a mismatch. On the contrary, the complete mode will apply all the files present in the specified paths irrespective of whether or not repository policy file has been updated."
+      },
+      {
+        "name": "enforce",
+        "required": false,
+        "default": null,
+        "description": "Optional. To override the property enforcementMode in assignments. Input is similar to assignments input. Add ~ at the beginning if you do not want to enforce the assignment(s)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "lib/run.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on managing Azure policies, which directly relates to infrastructure management and deployment practices within Azure environments.",
+        "tags": [
+          "Azure",
+          "Policy Management",
+          "Infrastructure",
+          "Deployment",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4f002e19019884dc7f9874f984699b29d492fb298e79b0a10cd817e58300c171",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.567718Z"
+  }
+}

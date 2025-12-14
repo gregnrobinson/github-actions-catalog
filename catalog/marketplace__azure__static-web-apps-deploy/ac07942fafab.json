@@ -1,0 +1,147 @@
+{
+  "action_id": "marketplace/azure/static-web-apps-deploy",
+  "version_id": "ac07942fafab",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/static-web-apps-deploy/action.yml",
+    "origin": "github.com/azure/static-web-apps-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Static Web Apps Deploy",
+    "description": "Deploys an application to Azure Static Web Apps",
+    "author": "",
+    "inputs": [
+      {
+        "name": "action",
+        "required": true,
+        "default": null,
+        "description": "Action to perform"
+      },
+      {
+        "name": "app_location",
+        "required": true,
+        "default": null,
+        "description": "Directory location of the application source code"
+      },
+      {
+        "name": "azure_static_web_apps_api_token",
+        "required": true,
+        "default": null,
+        "description": "Required token"
+      },
+      {
+        "name": "api_build_command",
+        "required": false,
+        "default": null,
+        "description": "Custom command for Oryx to run when building Azure Functions source code"
+      },
+      {
+        "name": "api_location",
+        "required": false,
+        "default": null,
+        "description": "Directory location of the Azure Functions source code"
+      },
+      {
+        "name": "app_artifact_location",
+        "required": false,
+        "default": null,
+        "description": "Identical in use to output_location"
+      },
+      {
+        "name": "output_location",
+        "required": false,
+        "default": null,
+        "description": "Directory location of the compiled application code after building"
+      },
+      {
+        "name": "app_build_command",
+        "required": false,
+        "default": null,
+        "description": "Custom command for Oryx to run when building application source code"
+      },
+      {
+        "name": "repo_token",
+        "required": false,
+        "default": null,
+        "description": "Token for interacting with the Github repository. Currently used only for commenting on Pull Requests."
+      },
+      {
+        "name": "routes_location",
+        "required": false,
+        "default": null,
+        "description": "Directory location where the routes.json file can be found in the source code"
+      },
+      {
+        "name": "skip_app_build",
+        "required": false,
+        "default": null,
+        "description": "Skips the build step for the application source code if set to true."
+      },
+      {
+        "name": "config_file_location",
+        "required": false,
+        "default": null,
+        "description": "Directory location where the staticwebapp.config.json file can be found in the source code"
+      },
+      {
+        "name": "skip_api_build",
+        "required": false,
+        "default": null,
+        "description": "Skips the build step for the Azure Functions source code if set to true."
+      },
+      {
+        "name": "production_branch",
+        "required": false,
+        "default": null,
+        "description": "When specified, deployments from other branches will be considered preview environments."
+      },
+      {
+        "name": "deployment_environment",
+        "required": false,
+        "default": null,
+        "description": "Name of the Azure Static Web Apps environment to deploy to."
+      },
+      {
+        "name": "is_static_export",
+        "required": false,
+        "default": null,
+        "description": "Indicates you are using `next export` to generate a static site if set to true."
+      },
+      {
+        "name": "data_api_location",
+        "required": false,
+        "default": null,
+        "description": "Directory location of the Data API configuration files"
+      },
+      {
+        "name": "github_id_token",
+        "required": false,
+        "default": null,
+        "description": "GitHub Auth id token"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "static_web_app_url",
+        "description": "Url of the application"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ac07942fafabf1ea993f75ad8ec72eb44b76bea87113bce6559514c654f1bae8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.520178Z"
+  }
+}

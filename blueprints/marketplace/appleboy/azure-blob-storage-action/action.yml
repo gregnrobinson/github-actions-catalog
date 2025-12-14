@@ -1,0 +1,35 @@
+name: "Azure Blob storage Tool"
+description: "Update ExpiresAt of a blob in Azure Blob storage"
+author: "Bo-Yi Wu"
+inputs:
+  account_name:
+    description: "Account name of Azure Blob storage"
+    required: true
+  account_key:
+    description: "Account key of Azure Blob storage"
+    required: true
+  container_name:
+    description: "Container name of Azure Blob storage"
+    required: true
+  blob_name:
+    description: "Blob name of Azure Blob storage"
+    required: true
+  duration:
+    description: "ExpiresAt duration"
+    default: "1h"
+
+outputs:
+  expire_at:
+    description: "ExpiresAt of the blob"
+  blob_url:
+    description: "URL of the blob"
+  expire_at_unix:
+    description: "ExpiresAt of the blob in Unix timestamp"
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "cloud"
+  color: "blue"

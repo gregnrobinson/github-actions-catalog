@@ -1,0 +1,175 @@
+{
+  "action_id": "marketplace/github/lock",
+  "version_id": "6f62f82c1f54",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/lock/action.yml",
+    "origin": "github.com/github/lock",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "deploy-lock",
+    "description": "Lock Action to support deployment locking for the branch-deploy Action",
+    "author": "Grant Birkinbine",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client - Provided for you by default!"
+      },
+      {
+        "name": "environment",
+        "required": true,
+        "default": "production",
+        "description": "The explict environment to apply locking actions to when running in headless mode - OR the default environment to use when running in the context of IssueOps commands in a comment - Examples: production, development, etc - Use \"global\" for the global lock environment"
+      },
+      {
+        "name": "environment_targets",
+        "required": false,
+        "default": "production,development,staging",
+        "description": "Optional (or additional) target environments to select for use with lock/unlock. Example, \"production,development,staging\". Example  usage: `.lock development`, `.lock production`, `.unlock staging`"
+      },
+      {
+        "name": "lock_trigger",
+        "required": false,
+        "default": ".lock",
+        "description": "The string to look for in comments as an IssueOps lock trigger. Used for locking branch deployments on a specific branch. Example: \"lock\""
+      },
+      {
+        "name": "unlock_trigger",
+        "required": false,
+        "default": ".unlock",
+        "description": "The string to look for in comments as an IssueOps unlock trigger. Used for unlocking branch deployments. Example: \"unlock\""
+      },
+      {
+        "name": "reaction",
+        "required": false,
+        "default": "eyes",
+        "description": "If set, the specified emoji \"reaction\" is put on the comment to indicate that the trigger was detected. For example, \"rocket\" or \"eyes\""
+      },
+      {
+        "name": "lock_info_alias",
+        "required": false,
+        "default": ".wcid",
+        "description": "An alias or shortcut to get details about the current lock (if it exists) Example: \".info\""
+      },
+      {
+        "name": "global_lock_flag",
+        "required": false,
+        "default": "--global",
+        "description": "The flag to pass into the lock command to lock all environments. Example: \"--global\""
+      },
+      {
+        "name": "prefix_only",
+        "required": false,
+        "default": "true",
+        "description": "If \"false\", the trigger can match anywhere in the comment"
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "default": null,
+        "description": "The mode to use \"lock\", \"unlock\", or \"check\". If not provided, the default mode assumes the workflow is not headless and triggered by a comment on a pull request - Example: .lock / .unlock"
+      },
+      {
+        "name": "reason",
+        "required": false,
+        "default": null,
+        "description": "Reason for claiming the deployment lock for this repository"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "triggered",
+        "description": "The string \"true\" if the trigger was found, otherwise the string \"false\""
+      },
+      {
+        "name": "comment_id",
+        "description": "The comment id which triggered this deployment (if it was not headless)"
+      },
+      {
+        "name": "type",
+        "description": "The type of trigger which was found - 'lock', 'unlock', or 'info-info-alias'"
+      },
+      {
+        "name": "comment_body",
+        "description": "The comment body which triggered this action (if it was not headless)"
+      },
+      {
+        "name": "headless",
+        "description": "The string \"true\" if the run was headless, otherwise the string \"false\" - Headless in this context would be if the \"mode\" was set and the Action was not invoked by a comment on a pull request"
+      },
+      {
+        "name": "locked",
+        "description": "If the mode is set to \"check\", this output will be \"true\" if a lock exists, otherwise \"false\""
+      },
+      {
+        "name": "lock_environment",
+        "description": "When running in headless mode and the \"mode\" is set to \"check\", this output will be the environment name that holds the lock, otherwise it will be empty"
+      },
+      {
+        "name": "branch",
+        "description": "If the mode is set to \"check\", this output will be the branch name that holds the lock, otherwise it will be empty"
+      },
+      {
+        "name": "created_by",
+        "description": "If the mode is set to \"check\", this output will be the user that holds the lock, otherwise it will be empty"
+      },
+      {
+        "name": "created_at",
+        "description": "If the mode is set to \"check\", this output will be the ISO 8601 format date that the lock was claimed, otherwise it will be empty"
+      },
+      {
+        "name": "reason",
+        "description": "If the mode is set to \"check\", this output will be the reason the deployment lock was claimed, otherwise it will be empty"
+      },
+      {
+        "name": "link",
+        "description": "If the mode is set to \"check\", this output will be the link to the GitHub issue comment or action run that claimed the lock, otherwise it will be empty"
+      },
+      {
+        "name": "global_lock_claimed",
+        "description": "The string \"true\" if the global lock was claimed"
+      },
+      {
+        "name": "global_lock_released",
+        "description": "The string \"true\" if the global lock was released"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is focused on managing deployment locks, which directly relates to deployment processes. Additionally, it involves communication through comments for triggering actions.",
+        "tags": [
+          "deployment",
+          "lock",
+          "GitHub Actions",
+          "infrastructure",
+          "communication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6f62f82c1f5497c737ddb3cd73a72a398a56063cd0a30de7b054d0ab2ada5cd9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.914663Z"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/azure/mysql",
+  "version_id": "3001f9284c1d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/mysql/action.yml",
+    "origin": "github.com/azure/mysql",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure MYSQL Deploy",
+    "description": "Deploy\u202fto\u202fAzure\u202fMySQL\u202fdatabase\u202fusing\u202fSQL\u202fscript\u202ffiles",
+    "author": "",
+    "inputs": [
+      {
+        "name": "server-name",
+        "required": true,
+        "default": null,
+        "description": "Server\u202fname\u202fof\u202fAzure\u202fDB\u202ffor\u202fMysql.\u202fExample:\u202ffabrikam.mysql.database.azure.com.\u202fWhen\u202fyou\u202fconnect\u202fusing\u202fMysql\u202fWorkbench,\u202fthis\u202fis\u202fthe\u202fsame\u202fvalue\u202fthat\u202fis\u202fused\u202ffor\u202fHostname\u202fin\u202fParameters"
+      },
+      {
+        "name": "connection-string",
+        "required": false,
+        "default": null,
+        "description": "The\u202fconnection\u202fstring,\u202fincluding\u202fauthentication\u202finformation,\u202ffor\u202fthe\u202fAzure\u202fMySQL\u202fServer. (deprecated)"
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "Azure MySQL Server username for login"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "Azure MySQL Server password for login"
+      },
+      {
+        "name": "database",
+        "required": false,
+        "default": null,
+        "description": "Azure MySQL Server database (optional) to connect to. No database will be used automatically."
+      },
+      {
+        "name": "sql-file",
+        "required": true,
+        "default": null,
+        "description": "Path\u202fto\u202fSQL\u202fscript\u202ffile to\u202fdeploy"
+      },
+      {
+        "name": "arguments",
+        "required": false,
+        "default": null,
+        "description": "Additional\u202foptions\u202fsupported\u202fby\u202fmysql\u202fsimple\u202fSQL\u202fshell.\u202fThese\u202foptions\u202fwill\u202fbe\u202fapplied\u202fwhen\u202fexecuting\u202fthe\u202fgiven\u202ffile\u202fon\u202fthe\u202fAzure\u202fDB\u202ffor\u202fMysql."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy to an Azure MySQL database, which falls under the Deployment category, while also involving infrastructure management.",
+        "tags": [
+          "Azure",
+          "MySQL",
+          "Deployment",
+          "Database",
+          "Infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3001f9284c1dc439f762133250fd3e501dafd81cadd86de4ccce9fbee9ddd703",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.668001Z"
+  }
+}

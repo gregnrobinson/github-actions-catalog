@@ -1,0 +1,111 @@
+{
+  "action_id": "marketplace/calibreapp/image-actions",
+  "version_id": "f47923b01dee",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/calibreapp/image-actions/action.yml",
+    "origin": "github.com/calibreapp/image-actions",
+    "publisher": "calibreapp",
+    "verified": false
+  },
+  "definition": {
+    "name": "Image Actions",
+    "description": "Compresses Images for the Web",
+    "author": "Calibre",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The token that the action will use to create and update the pull request."
+      },
+      {
+        "name": "jpegQuality",
+        "required": false,
+        "default": "85",
+        "description": "JPEG quality level"
+      },
+      {
+        "name": "jpegProgressive",
+        "required": false,
+        "default": "false",
+        "description": "Use progressive (interlaced) scan for JPEG"
+      },
+      {
+        "name": "pngQuality",
+        "required": false,
+        "default": "80",
+        "description": "PNG quality level"
+      },
+      {
+        "name": "webpQuality",
+        "required": false,
+        "default": "85",
+        "description": "WEBP quality level"
+      },
+      {
+        "name": "avifQuality",
+        "required": false,
+        "default": "75",
+        "description": "AVIF quality level"
+      },
+      {
+        "name": "ignorePaths",
+        "required": false,
+        "default": "node_modules/**",
+        "description": "Paths to ignore during search"
+      },
+      {
+        "name": "compressOnly",
+        "required": false,
+        "default": "false",
+        "description": "Images will be compressed. No commit, or comments will be added to your Pull Request"
+      },
+      {
+        "name": "minPctChange",
+        "required": false,
+        "default": "5",
+        "description": "Minimun percentage reduction to be committed"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "markdown",
+        "description": "Output param used to store the Markdown summary for subsequent actions to use"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Optimization",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action compresses images, which is primarily a build-related task aimed at optimizing assets for web use. It also involves packaging as it prepares images for deployment.",
+        "tags": [
+          "image compression",
+          "web optimization",
+          "GitHub Actions",
+          "Calibre",
+          "asset management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f47923b01dee48631886d7de1f4705a868217277aed60bfef86925e0d235a6b3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.824958Z"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "action_id": "marketplace/appleboy/telegram-action",
+  "version_id": "4f26af92c3e4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/telegram-action/action.yml",
+    "origin": "github.com/appleboy/telegram-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Telegram Message Notify",
+    "description": "Sending a Telegram message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "to",
+        "required": false,
+        "default": null,
+        "description": "telegram user"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "telegram token"
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": null,
+        "description": "telegram message"
+      },
+      {
+        "name": "message_file",
+        "required": false,
+        "default": null,
+        "description": "overwrite the default message template with the contents of the specified file"
+      },
+      {
+        "name": "socks5",
+        "required": false,
+        "default": null,
+        "description": "support socks5 proxy URL"
+      },
+      {
+        "name": "photo",
+        "required": false,
+        "default": null,
+        "description": "send the photo message."
+      },
+      {
+        "name": "document",
+        "required": false,
+        "default": null,
+        "description": "send the document message."
+      },
+      {
+        "name": "sticker",
+        "required": false,
+        "default": null,
+        "description": "send the sticker message."
+      },
+      {
+        "name": "audio",
+        "required": false,
+        "default": null,
+        "description": "send the audio message."
+      },
+      {
+        "name": "voice",
+        "required": false,
+        "default": null,
+        "description": "send the voice message."
+      },
+      {
+        "name": "location",
+        "required": false,
+        "default": null,
+        "description": "send the location message."
+      },
+      {
+        "name": "venue",
+        "required": false,
+        "default": null,
+        "description": "send the venue message."
+      },
+      {
+        "name": "video",
+        "required": false,
+        "default": null,
+        "description": "send the video message."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "enable debug mode."
+      },
+      {
+        "name": "format",
+        "required": false,
+        "default": null,
+        "description": "message format: markdown or html"
+      },
+      {
+        "name": "disable_web_page_preview",
+        "required": false,
+        "default": null,
+        "description": "disables link previews for links in this message"
+      },
+      {
+        "name": "disable_notification",
+        "required": false,
+        "default": null,
+        "description": "disables notifications for this message, supports sending a message without notification,"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on sending messages via Telegram, which falls under communication. Additionally, it serves the purpose of notifying users, thus fitting into the notification category as well.",
+        "tags": [
+          "telegram",
+          "notification",
+          "communication",
+          "message",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4f26af92c3e42d6c38f57d4377f3a535014ecf9d8a3fd7e452ef39ecba9b7397",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.179132Z"
+  }
+}

@@ -1,0 +1,182 @@
+{
+  "action_id": "marketplace/github/accessibility-scanner",
+  "version_id": "1788175ad189",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/accessibility-scanner/action.yml",
+    "origin": "github.com/github/accessibility-scanner",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "accessibility-scanner",
+    "description": "Finds potential accessibility gaps, files GitHub issues to track them, and attempts to fix them with Copilot.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "urls",
+        "required": true,
+        "default": null,
+        "description": "Newline-delimited list of URLs to check for accessibility issues"
+      },
+      {
+        "name": "repository",
+        "required": true,
+        "default": null,
+        "description": "Repository (with owner) to file issues in"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "Personal access token (PAT) with fine-grained permissions 'contents: write', 'issues: write', and 'pull_requests: write'"
+      },
+      {
+        "name": "cache_key",
+        "required": true,
+        "default": null,
+        "description": "Key for caching results across runs"
+      },
+      {
+        "name": "login_url",
+        "required": false,
+        "default": null,
+        "description": "If scanned pages require authentication, the URL of the login page"
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "If scanned pages require authentication, the username to use for login"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "If scanned pages require authentication, the password to use for login"
+      },
+      {
+        "name": "auth_context",
+        "required": false,
+        "default": null,
+        "description": "If scanned pages require authentication, a stringified JSON object containing 'username', 'password', 'cookies', and/or 'localStorage' from an authenticated session"
+      },
+      {
+        "name": "skip_copilot_assignment",
+        "required": false,
+        "default": "false",
+        "description": "Whether to skip assigning filed issues to Copilot"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "results",
+        "description": "List of issues and pull requests filed (and their associated finding(s)), as stringified JSON"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Make sub-actions referenceable",
+          "working-directory": "${{ github.action_path }}",
+          "shell": "bash",
+          "run": "RUNNER_WORK_DIR=\"$(realpath \"${GITHUB_WORKSPACE}/../..\")\"\nACTION_DIR=\"${RUNNER_WORK_DIR}/_actions/github/accessibility-scanner/current\"\nmkdir -p \"${ACTION_DIR}/.github/actions\"\nif [ \"$(realpath \".github/actions\")\" != \"$(realpath \"${ACTION_DIR}/.github/actions\")\" ]; then\n  cp -a \".github/actions/.\" \"${ACTION_DIR}/.github/actions/\"\nfi\n"
+        },
+        {
+          "name": "Restore cached results",
+          "id": "restore",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/gh-cache/cache",
+          "with": {
+            "key": "${{ inputs.cache_key }}",
+            "token": "${{ inputs.token }}"
+          }
+        },
+        {
+          "if": "${{ steps.restore.outputs.value }}",
+          "name": "Normalize cache format",
+          "id": "normalize_cache",
+          "shell": "bash",
+          "run": "# Migrate cache format from v1 to v2:\n# If cached data is a list of Finding objects, each with 'issueUrl' keys (i.e. v1),\n# convert to a list of (partial) Result objects, each with 'findings' and 'issue' keys (i.e. v2).\n# Otherwise, re-output as-is.\nprintf '%s' \"value=$(printf '%s' '${{ steps.restore.outputs.value }}' | jq -c 'if (type == \"array\" and length > 0 and (.[0] | has(\"issueUrl\"))) then map({findings: [del(.issueUrl)], issue: {url: .issueUrl}}) else . end' )\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "if": "${{ inputs.login_url && inputs.username && inputs.password && !inputs.auth_context }}",
+          "name": "Authenticate",
+          "id": "auth",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/auth",
+          "with": {
+            "login_url": "${{ inputs.login_url }}",
+            "username": "${{ inputs.username }}",
+            "password": "${{ inputs.password }}"
+          }
+        },
+        {
+          "name": "Find",
+          "id": "find",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/find",
+          "with": {
+            "urls": "${{ inputs.urls }}",
+            "auth_context": "${{ inputs.auth_context || steps.auth.outputs.auth_context }}"
+          }
+        },
+        {
+          "name": "File",
+          "id": "file",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/file",
+          "with": {
+            "findings": "${{ steps.find.outputs.findings }}",
+            "repository": "${{ inputs.repository }}",
+            "token": "${{ inputs.token }}",
+            "cached_filings": "${{ steps.normalize_cache.outputs.value }}"
+          }
+        },
+        {
+          "if": "${{ steps.file.outputs.filings }}",
+          "name": "Get issues from filings",
+          "id": "get_issues_from_filings",
+          "shell": "bash",
+          "run": "# Extract open issues from Filing objects and output as a single-line JSON array\nissues=$(jq -c '[.[] | select(.issue.state == \"open\") | .issue]' <<< '${{ steps.file.outputs.filings }}')\necho \"issues=$issues\" >> \"$GITHUB_OUTPUT\"\n"
+        },
+        {
+          "if": "${{ inputs.skip_copilot_assignment != 'true' }}",
+          "name": "Fix",
+          "id": "fix",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/fix",
+          "with": {
+            "issues": "${{ steps.get_issues_from_filings.outputs.issues }}",
+            "repository": "${{ inputs.repository }}",
+            "token": "${{ inputs.token }}"
+          }
+        },
+        {
+          "name": "Set results output",
+          "id": "results",
+          "uses": "actions/github-script@v8",
+          "with": {
+            "script": "const filings = ${{ steps.file.outputs.filings || '\"\"' }} || [];\nconst fixings = ${{ steps.fix.outputs.fixings || '\"\"' }} || [];\nconst fixingsByIssueUrl = fixings.reduce((acc, fixing) => {\n  if (fixing.issue && fixing.issue.url) {\n    acc[fixing.issue.url] = fixing;\n  }\n  return acc;\n}, {});\nconst results = filings;\nfor (const result of results) {\n  if (result.issue && result.issue.url && fixingsByIssueUrl[result.issue.url]) {\n    result.pullRequest = fixingsByIssueUrl[result.issue.url].pullRequest;\n  }\n}\ncore.setOutput('results', JSON.stringify(results));\ncore.debug(`Results: ${JSON.stringify(results)}`);\n"
+          }
+        },
+        {
+          "name": "Save cached results",
+          "uses": "./../../_actions/github/accessibility-scanner/current/.github/actions/gh-cache/cache",
+          "with": {
+            "key": "${{ inputs.cache_key }}",
+            "value": "${{ steps.results.outputs.results }}",
+            "token": "${{ inputs.token }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1788175ad189c405c33c8b7b6d4339393351a9ee30362a85bb2b6c3753ef0eed",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.925487Z"
+  }
+}

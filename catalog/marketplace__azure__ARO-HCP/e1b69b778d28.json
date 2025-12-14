@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/azure/ARO-HCP",
+  "version_id": "e1b69b778d28",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/ARO-HCP/action.yml",
+    "origin": "github.com/azure/ARO-HCP",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Install Azure CLI",
+    "description": "installs the azure-cli at a given version",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "latest",
+        "description": "Azure CLI Version to install"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "install azure-cli",
+          "shell": "bash",
+          "env": {
+            "AZ_VER": "${{ inputs.version }}"
+          },
+          "run": "if [[ \"${AZ_VER}\" == \"latest\" ]]; then\n  # If AZ_VER == latest, then don't bother installing a specific version of az\n  exit 0\nfi\nsudo mkdir -p /etc/apt/keyrings\ncurl -sLS https://packages.microsoft.com/keys/microsoft.asc |\ngpg --dearmor | sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null\nsudo chmod go+r /etc/apt/keyrings/microsoft.gpg\nAZ_DIST=$(lsb_release -cs)\necho \"Types: deb\nURIs: https://packages.microsoft.com/repos/azure-cli/\nSuites: ${AZ_DIST}\nComponents: main\nArchitectures: $(dpkg --print-architecture)\nSigned-by: /etc/apt/keyrings/microsoft.gpg\" | sudo tee /etc/apt/sources.list.d/azure-cli.sources\nsudo apt-get update\n# Obtain the currently installed distribution\nAZ_DIST=$(lsb_release -cs)\n# Install a specific version\nsudo apt-get install azure-cli=${AZ_VER}-1~${AZ_DIST} --allow-downgrades\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e1b69b778d288510e9da0b1b1896748ed98c6897f916976e0cd3906e37e1cadb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.525571Z"
+  }
+}

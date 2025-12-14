@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/irgolic/pull-request-comment-trigger",
+  "version_id": "5204fef8b217",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/irgolic/pull-request-comment-trigger/action.yml",
+    "origin": "github.com/irgolic/pull-request-comment-trigger",
+    "publisher": "irgolic",
+    "verified": false
+  },
+  "definition": {
+    "name": "Pull Request Comment Trigger fork",
+    "description": "Look for a \"trigger word\" in a pull-request description or comment, so that later steps can know whether or not to run.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "reaction",
+        "required": false,
+        "default": "",
+        "description": "If set, the specified emoji \"reaction\" is put on the comment to indicate that the trigger was detected. For example, \"rocket\"."
+      },
+      {
+        "name": "trigger",
+        "required": true,
+        "default": null,
+        "description": "The string to look for in pull-request descriptions and comments. For example \"#build/android\""
+      },
+      {
+        "name": "prefix_only",
+        "required": false,
+        "default": "false",
+        "description": "If 'true', the trigger must match the start of the comment."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "triggered",
+        "description": "the string 'true' if the trigger was found, otherwise the string 'false'"
+      },
+      {
+        "name": "comment_body",
+        "description": "The comment body."
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is primarily focused on detecting specific comments in pull requests, which falls under communication. It also serves to notify subsequent steps based on the presence of a trigger word, linking it to notification and testing as it influences the workflow execution.",
+        "tags": [
+          "pull request",
+          "trigger",
+          "comment",
+          "notification",
+          "workflow"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5204fef8b2175499f3e86c757d2a97ec0ea207a1be55c40baf16c81654de73f6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.091903Z"
+  }
+}

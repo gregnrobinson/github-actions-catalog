@@ -1,0 +1,172 @@
+{
+  "action_id": "marketplace/pypa/gh-action-pip-audit",
+  "version_id": "68331dcfdeac",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pypa/gh-action-pip-audit/action.yml",
+    "origin": "github.com/pypa/gh-action-pip-audit",
+    "publisher": "pypa",
+    "verified": false
+  },
+  "definition": {
+    "name": "gh-action-pip-audit",
+    "description": "Use pip-audit to scan Python dependencies for known vulnerabilities",
+    "author": "William Woodruff <william@trailofbits.com>",
+    "inputs": [
+      {
+        "name": "summary",
+        "required": false,
+        "default": true,
+        "description": "render a Markdown summary of the audit (default true)"
+      },
+      {
+        "name": "no-deps",
+        "required": false,
+        "default": false,
+        "description": "don't do any dependency resolution (requires fully pinned requirements) (default false)"
+      },
+      {
+        "name": "require-hashes",
+        "required": false,
+        "default": false,
+        "description": "enforce hashes (requirements-style inputs only) (default false)"
+      },
+      {
+        "name": "vulnerability-service",
+        "required": false,
+        "default": "PyPI",
+        "description": "the vulnerability service to use (PyPI or OSV, defaults to PyPI)"
+      },
+      {
+        "name": "inputs",
+        "required": false,
+        "default": "",
+        "description": "the inputs to audit, whitespace separated (defaults to current path)"
+      },
+      {
+        "name": "virtual-environment",
+        "required": false,
+        "default": "",
+        "description": "the virtual environment to audit within (default none)"
+      },
+      {
+        "name": "local",
+        "required": false,
+        "default": false,
+        "description": "for environmental audits, consider only packages marked local (default false)"
+      },
+      {
+        "name": "index-url",
+        "required": false,
+        "default": "",
+        "description": "the base URL for the PEP 503-compatible package index to use"
+      },
+      {
+        "name": "extra-index-urls",
+        "required": false,
+        "default": "",
+        "description": "extra PEP 503-compatible indexes to use, whitespace separated"
+      },
+      {
+        "name": "ignore-vulns",
+        "required": false,
+        "default": "",
+        "description": "vulnerabilities to explicitly exclude, if present (whitespace separated)"
+      },
+      {
+        "name": "disable-pip",
+        "required": false,
+        "default": false,
+        "description": "disable pip"
+      },
+      {
+        "name": "locked",
+        "required": false,
+        "default": false,
+        "description": "audit lock files from the local Python project"
+      },
+      {
+        "name": "internal-be-careful-allow-failure",
+        "required": false,
+        "default": false,
+        "description": "don't fail the job if the audit fails (default false)"
+      },
+      {
+        "name": "internal-be-careful-extra-flags",
+        "required": false,
+        "default": "",
+        "description": "extra flags to be passed in to pip-audit"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "internal-be-careful-output",
+        "description": "the column-formatted output from pip-audit, wrapped as base64"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set up pip-audit",
+          "run": "# NOTE: Sourced, not executed as a script.\nsource \"${{ github.action_path }}/setup/setup.bash\"\n",
+          "env": {
+            "GHA_PIP_AUDIT_VIRTUAL_ENVIRONMENT": "${{ inputs.virtual-environment }}"
+          },
+          "shell": "bash"
+        },
+        {
+          "name": "Run pip-audit",
+          "id": "pip-audit",
+          "run": "# NOTE: Sourced, not executed as a script.\nsource \"${{ github.action_path }}/setup/venv.bash\"\n\npython \"${{ github.action_path }}/action.py\" \"$GHA_PIP_AUDIT_INPUTS\"\n",
+          "env": {
+            "GHA_PIP_AUDIT_INPUTS": "${{ inputs.inputs }}",
+            "GHA_PIP_AUDIT_SUMMARY": "${{ inputs.summary }}",
+            "GHA_PIP_AUDIT_NO_DEPS": "${{ inputs.no-deps }}",
+            "GHA_PIP_AUDIT_REQUIRE_HASHES": "${{ inputs.require-hashes }}",
+            "GHA_PIP_AUDIT_VULNERABILITY_SERVICE": "${{ inputs.vulnerability-service }}",
+            "GHA_PIP_AUDIT_VIRTUAL_ENVIRONMENT": "${{ inputs.virtual-environment }}",
+            "GHA_PIP_AUDIT_LOCAL": "${{ inputs.local }}",
+            "GHA_PIP_AUDIT_INDEX_URL": "${{ inputs.index-url }}",
+            "GHA_PIP_AUDIT_EXTRA_INDEX_URLS": "${{ inputs.extra-index-urls }}",
+            "GHA_PIP_AUDIT_IGNORE_VULNS": "${{ inputs.ignore-vulns }}",
+            "GHA_PIP_DISABLE_PIP": "${{ inputs.disable-pip }}",
+            "GHA_PIP_AUDIT_LOCKED": "${{ inputs.locked }}",
+            "GHA_PIP_AUDIT_INTERNAL_BE_CAREFUL_ALLOW_FAILURE": "${{ inputs.internal-be-careful-allow-failure }}",
+            "GHA_PIP_AUDIT_INTERNAL_BE_CAREFUL_EXTRA_FLAGS": "${{ inputs.internal-be-careful-extra-flags }}"
+          },
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Dependency management",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "This action scans Python dependencies for known vulnerabilities, which directly relates to security. It also involves dependency management and contributes to code quality by ensuring that dependencies are safe.",
+        "tags": [
+          "pip-audit",
+          "security",
+          "dependency-check",
+          "python",
+          "vulnerabilities"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "68331dcfdeac986e940bef7703a7e9748fac505411b20ca73b23490b9e77f8f1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.444026Z"
+  }
+}

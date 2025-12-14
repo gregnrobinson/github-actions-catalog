@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package and Publish - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Package and Publish</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/publish-immutable-action</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/publish-immutable-action" target="_blank">github.com/actions/publish-immutable-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Publish actions as OCI artifacts to GHCR</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Publishing</span> <span class="badge badge-category">Packaging</span> <span class="badge badge-category">Authentication</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Publishing</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on publishing actions as OCI artifacts, which falls under the Publishing category. It also involves authentication with GitHub APIs, making Authentication a relevant secondary category.</p>
+            <p><strong>Tags:</strong> <span class="tag">GitHub Actions</span> <span class="tag">OCI</span> <span class="tag">GHCR</span> <span class="tag">Publish</span> <span class="tag">Package</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>github-token</code></td>
+                <td>No</td>
+                <td>The GitHub actions token used to authenticate with GitHub APIs</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>package-manifest-sha</code></td>
+                <td>A sha256 hash of the package manifest</td>
+            </tr><tr>
+                <td><code>attestation-manifest-sha</code></td>
+                <td>The sha256 of the provenance attestation uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments.</td>
+            </tr><tr>
+                <td><code>referrer-index-manifest-sha</code></td>
+                <td>The sha256 of the referrer index uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

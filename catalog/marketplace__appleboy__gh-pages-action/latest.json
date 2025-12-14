@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/appleboy/gh-pages-action",
+  "version_id": "3f06ae069326",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/gh-pages-action/action.yml",
+    "origin": "github.com/appleboy/gh-pages-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Pages Deploy",
+    "description": "Deploy the static file to GitHub Page",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "username"
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "password"
+      },
+      {
+        "name": "upstream_name",
+        "required": false,
+        "default": "origin",
+        "description": "git upstream to target"
+      },
+      {
+        "name": "target_branch",
+        "required": false,
+        "default": "gh-pages",
+        "description": "git branch to target"
+      },
+      {
+        "name": "temporary_base",
+        "required": false,
+        "default": ".tmp",
+        "description": "temporary directory for pages pull"
+      },
+      {
+        "name": "pages_directory",
+        "required": false,
+        "default": "docs",
+        "description": "directory of content to publish"
+      },
+      {
+        "name": "target_directory",
+        "required": false,
+        "default": null,
+        "description": "directory of content to sync"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "exclude files matching PATTERN"
+      },
+      {
+        "name": "commit_author",
+        "required": false,
+        "default": "GitHub Action",
+        "description": "git author name"
+      },
+      {
+        "name": "commit_author_email",
+        "required": false,
+        "default": "github-action@users.noreply.github.com",
+        "description": "git author email"
+      },
+      {
+        "name": "remote_url",
+        "required": false,
+        "default": null,
+        "description": "git remote url"
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": null,
+        "description": "git clone path"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Documentation",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is primarily focused on deploying static files to GitHub Pages, which falls under the Deployment category. It also relates to Documentation and Publishing as it involves making content available on the web.",
+        "tags": [
+          "GitHub Pages",
+          "deployment",
+          "static site",
+          "publishing",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3f06ae069326c3c1106bda9ee00ab58ec064bfe5566ba3d2454d26263d4b0660",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.119852Z"
+  }
+}

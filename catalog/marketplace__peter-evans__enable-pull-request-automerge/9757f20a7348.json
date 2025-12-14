@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/peter-evans/enable-pull-request-automerge",
+  "version_id": "9757f20a7348",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/enable-pull-request-automerge/action.yml",
+    "origin": "github.com/peter-evans/enable-pull-request-automerge",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Enable Pull Request Automerge",
+    "description": "A GitHub action to enable auto-merge on a pull request",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The target GitHub repository containing the pull request"
+      },
+      {
+        "name": "pull-request-number",
+        "required": true,
+        "default": null,
+        "description": "The number of the target pull request"
+      },
+      {
+        "name": "merge-method",
+        "required": false,
+        "default": "merge",
+        "description": "The merge method to use. `merge`, `rebase` or `squash`."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Lowercase",
+          "id": "lowercase",
+          "shell": "bash",
+          "run": "echo merge-method=$(echo \"${{ inputs.merge-method }}\" | tr '[:upper:]' '[:lower:]') >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "name": "Enable automerge",
+          "shell": "bash",
+          "run": "gh pr merge -R \"${{ inputs.repository }}\" --${{ steps.lowercase.outputs.merge-method }} --auto \"${{ inputs.pull-request-number }}\"",
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9757f20a7348d8e5ef9e96400d5c0518719accbca28050f0edeff563a640f175",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.481297Z"
+  }
+}

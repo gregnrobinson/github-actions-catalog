@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/actions/jekyll-build-pages",
+  "version_id": "d4d5a6b67d85",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/jekyll-build-pages/action.yml",
+    "origin": "github.com/actions/jekyll-build-pages",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Build Jekyll for GitHub Pages",
+    "description": "A simple GitHub Action for producing Jekyll build artifacts compatible with GitHub Pages",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "source",
+        "required": false,
+        "default": "./",
+        "description": "Directory where the source files reside."
+      },
+      {
+        "name": "destination",
+        "required": false,
+        "default": "./_site",
+        "description": "Output directory of the build. Although it can be nested inside the source, it cannot be the same as the source directory."
+      },
+      {
+        "name": "future",
+        "required": false,
+        "default": false,
+        "description": "Publishes posts with a future date. When set to true, the build is made with the --future option which overrides the future option that may be set in a Jekyll configuration file."
+      },
+      {
+        "name": "build_revision",
+        "required": false,
+        "default": "${{ github.sha }}",
+        "description": "The SHA-1 of the git commit for which the build is running. Default to GITHUB_SHA."
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": true,
+        "description": "Verbose output"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/actions/jekyll-build-pages:v1.0.13"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action is primarily focused on building Jekyll artifacts, which falls under the Build category, and it also involves preparing content for GitHub Pages, aligning it with Publishing.",
+        "tags": [
+          "Jekyll",
+          "GitHub Pages",
+          "Build",
+          "Action",
+          "Static Site"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d4d5a6b67d8524727ebf3ecfd1e26f771fe54360e2784bd37f4206e0a47c564b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.283459Z"
+  }
+}

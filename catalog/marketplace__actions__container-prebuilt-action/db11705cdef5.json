@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/actions/container-prebuilt-action",
+  "version_id": "db11705cdef5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/container-prebuilt-action/action.yml",
+    "origin": "github.com/actions/container-prebuilt-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Your input description here"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "greeting",
+        "description": "Your output description here"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/actions/container-prebuilt-action:v0.2.0",
+      "env": {
+        "INPUT_WHO_TO_GREET": "${{ inputs.who-to-greet }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "db11705cdef5f4996e3e0bdff0757087fcf9d25bb2361b1e12e437f84adf01b3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.310482Z"
+  }
+}

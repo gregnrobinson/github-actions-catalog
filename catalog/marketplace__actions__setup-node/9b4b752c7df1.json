@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/actions/setup-node",
+  "version_id": "9b4b752c7df1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-node/action.yml",
+    "origin": "github.com/actions/setup-node",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Node.js environment",
+    "description": "Setup a Node.js environment by adding problem matchers and optionally downloading and adding it to the PATH.",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "node-version",
+        "required": false,
+        "default": null,
+        "description": "Version Spec of the version to use. Examples: 12.x, 10.15.1, >=10.15.0."
+      },
+      {
+        "name": "node-version-file",
+        "required": false,
+        "default": null,
+        "description": "File containing the version Spec of the version to use.  Examples: package.json, .nvmrc, .node-version, .tool-versions."
+      },
+      {
+        "name": "architecture",
+        "required": false,
+        "default": null,
+        "description": "Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default."
+      },
+      {
+        "name": "check-latest",
+        "required": false,
+        "default": false,
+        "description": "Set this option if you want the action to check for the latest available version that satisfies the version spec."
+      },
+      {
+        "name": "registry-url",
+        "required": false,
+        "default": null,
+        "description": "Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN."
+      },
+      {
+        "name": "scope",
+        "required": false,
+        "default": null,
+        "description": "Optional scope for authenticating against scoped registries. Will fall back to the repository owner when using the GitHub Packages registry (https://npm.pkg.github.com/)."
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.server_url == 'https://github.com' && github.token || '' }}",
+        "description": "Used to pull node distributions from node-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting."
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": null,
+        "description": "Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm."
+      },
+      {
+        "name": "package-manager-cache",
+        "required": false,
+        "default": true,
+        "description": "Set to false to disable automatic caching. By default, caching is enabled when either devEngines.packageManager or the top-level packageManager field in package.json specifies npm as the package manager."
+      },
+      {
+        "name": "cache-dependency-path",
+        "required": false,
+        "default": null,
+        "description": "Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies."
+      },
+      {
+        "name": "mirror",
+        "required": false,
+        "default": null,
+        "description": "Used to specify an alternative mirror to downlooad Node.js binaries from"
+      },
+      {
+        "name": "mirror-token",
+        "required": false,
+        "default": null,
+        "description": "The token used as Authorization header when fetching from the mirror"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate if a cache was hit."
+      },
+      {
+        "name": "node-version",
+        "description": "The installed node version."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/setup/index.js",
+      "post": "dist/cache-save/index.js",
+      "post-if": "success()"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9b4b752c7df1071ddb7d1ba132503d86239da9e86e9f505809112a3af9079659",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.264147Z"
+  }
+}

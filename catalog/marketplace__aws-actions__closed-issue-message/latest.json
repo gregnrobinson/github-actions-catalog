@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/aws-actions/closed-issue-message",
+  "version_id": "14c15bb96a58",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/closed-issue-message/action.yml",
+    "origin": "github.com/aws-actions/closed-issue-message",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Closed Issue Message",
+    "description": "Add a default comment on all issues that get closed",
+    "author": "",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "required": true,
+        "default": null,
+        "description": "Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}"
+      },
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "description": "The message you want to be commented whenever an issue is closed"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "entrypoint.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action adds a comment to closed issues, which falls under communication and serves as a notification to users about the closure.",
+        "tags": [
+          "issue",
+          "comment",
+          "notification",
+          "GitHub Actions",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "14c15bb96a588fd9dc8d08b28a805c42bebd24484348183548b2f3f2770e0a7c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.020751Z"
+  }
+}

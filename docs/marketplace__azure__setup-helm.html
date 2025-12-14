@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helm tool installer - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Helm tool installer</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/setup-helm</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/setup-helm" target="_blank">github.com/azure/setup-helm</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Install a specific version of helm binary. Acceptable values are latest or any semantic version string like 1.15.0</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on installing the Helm tool, which is a dependency management tool for Kubernetes. It also relates to infrastructure as it prepares the environment for deploying applications.</p>
+            <p><strong>Tags:</strong> <span class="tag">helm</span> <span class="tag">dependency management</span> <span class="tag">kubernetes</span> <span class="tag">infrastructure</span> <span class="tag">tool installer</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>Yes</td>
+                <td>Version of helm</td>
+            </tr><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GitHub token. Used to be required to fetch the latest version</td>
+            </tr><tr>
+                <td><code>downloadBaseURL</code></td>
+                <td>No</td>
+                <td>Set the download base URL</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>helm-path</code></td>
+                <td>Path to the cached helm binary</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "action_id": "marketplace/peter-evans/create-or-update-project-card",
+  "version_id": "23a838857e55",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/create-or-update-project-card/action.yml",
+    "origin": "github.com/peter-evans/create-or-update-project-card",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create or Update Project Card",
+    "description": "A GitHub action to create or update a project card",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a repo scoped PAT"
+      },
+      {
+        "name": "project-location",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The location of the project. Either a repository, organization, or user.\n"
+      },
+      {
+        "name": "project-number",
+        "required": false,
+        "default": null,
+        "description": "The number of the project. Semi-required. Either `project-number` OR `project-name` must be supplied.\n"
+      },
+      {
+        "name": "project-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the project. Semi-required. Either `project-number` OR `project-name` must be supplied. Note that a project's name is not unique. The action will use the first matching project found.\n"
+      },
+      {
+        "name": "column-name",
+        "required": true,
+        "default": null,
+        "description": "The name of the column to add a card to, or move an existing card to."
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The GitHub repository containing the issue or pull request."
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": "${{ github.event.issue.number }}",
+        "description": "The issue or pull request number to associate with the card."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "card-id",
+        "description": "The ID of the card."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates the creation or updating of project cards, which is primarily a communication tool within GitHub projects. It also relates to documentation as it helps in organizing project tasks.",
+        "tags": [
+          "GitHub",
+          "project management",
+          "automation",
+          "project card",
+          "communication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "23a838857e55427ab3fe568a2487703b5228f097336dad951836fb42c5c9a328",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.488073Z"
+  }
+}

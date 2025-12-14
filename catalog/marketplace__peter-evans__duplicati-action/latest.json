@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/peter-evans/duplicati-action",
+  "version_id": "d92a3be58359",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/duplicati-action/action.yml",
+    "origin": "github.com/peter-evans/duplicati-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Duplicati Action",
+    "description": "A GitHub action for Duplicati - Store securely encrypted backups in the cloud!",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Backup",
+      "Security",
+      "Deployment"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Backup",
+        "reasoning": "The action is designed for securely storing encrypted backups, which primarily falls under backup. It also relates to security due to the encryption aspect and deployment as it involves storing data in the cloud.",
+        "tags": [
+          "backup",
+          "encryption",
+          "cloud",
+          "security",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d92a3be583595cb7671d88b93c0e56edd9364731a4d0f4c1bc7736f9aefe10ef",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.464769Z"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/aws-actions/aws-devicefarm-mobile-device-testing",
+  "version_id": "33f3accd3a64",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/aws-devicefarm-mobile-device-testing/action.yml",
+    "origin": "github.com/aws-actions/aws-devicefarm-mobile-device-testing",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "AWS Device Farm Mobile Device Testing GitHub Action",
+    "description": "GitHub action for automated mobile device testing on AWS Device Farm",
+    "author": "AWS Device Farm",
+    "inputs": [
+      {
+        "name": "run-settings-json",
+        "required": true,
+        "default": null,
+        "description": "The Run Settings as a json string. The schema for the contents of this file can be found here: https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-device-farm/Interface/ScheduleRunCommandInput/ The following fields support supplying an ARN or a Name.\n  - projectArn\n  - devicePoolArn\n  - networkProfileArn\n  - vpceConfigurationArns\nThe following fields support supplying an ARN or a path to the file to be found within the repository:\n  - appArn\n  - testPackageArn\n  - testSpecArn\n  - extraDataPackageArn\n  NOTE: If the file specified is not found in the repo the existing Project Uploads in Device Farm will be searched for one with matching type and name."
+      },
+      {
+        "name": "artifact-types",
+        "required": false,
+        "default": "",
+        "description": "(Optional) A comma delimited list of Device Farm Artifacts that should be downloaded after the jobs completes. https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-device-farm/Interface/ListArtifactsCommandOutput/ Note: To download all artifact types set the value to ALL. To download none skip this input. They will be downloaded to a folder. The name of the folder can be found by referencing the output with name artifact-folder. Please use the GitHub Action [upload-artifact](https://github.com/actions/upload-artifact) to store them."
+      },
+      {
+        "name": "upload-poll-interval",
+        "required": false,
+        "default": "1000",
+        "description": "(Optional) The duration (in milliseconds) between successive polls for the status of the file upload."
+      },
+      {
+        "name": "run-poll-interval",
+        "required": false,
+        "default": "30000",
+        "description": "(Optional) The duration (in milliseconds) between successive polls for the status of the test run."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "arn",
+        "description": "The ARN of the AWS Device Farm Automated Test Run"
+      },
+      {
+        "name": "status",
+        "description": "The status of the Automated Test Run"
+      },
+      {
+        "name": "result",
+        "description": "The result of the Automated Test Run"
+      },
+      {
+        "name": "artifact-folder",
+        "description": "The name of the folder that the test artifacts are downloaded into"
+      },
+      {
+        "name": "console-url",
+        "description": "The AWS Console URL for the test run"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/cleanup/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "33f3accd3a6494aacfea156ea1f1c9d52f761aea76519f1caac436a0a26d43a4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.046501Z"
+  }
+}

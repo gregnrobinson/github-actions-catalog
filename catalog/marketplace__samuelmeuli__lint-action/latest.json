@@ -1,0 +1,969 @@
+{
+  "action_id": "marketplace/samuelmeuli/lint-action",
+  "version_id": "d1e1f6116ec7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/samuelmeuli/lint-action/action.yml",
+    "origin": "github.com/samuelmeuli/lint-action",
+    "publisher": "samuelmeuli",
+    "verified": false
+  },
+  "definition": {
+    "name": "Lint Action",
+    "description": "GitHub Action for detecting and fixing linting errors",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to authenticated with GitHub."
+      },
+      {
+        "name": "continue_on_error",
+        "required": false,
+        "default": "true",
+        "description": "Whether the workflow run should also fail when linter failures are detected"
+      },
+      {
+        "name": "auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether linters should try to fix code style issues automatically"
+      },
+      {
+        "name": "commit",
+        "required": false,
+        "default": "true",
+        "description": "Whether to commit and push the changes made by auto_fix"
+      },
+      {
+        "name": "git_no_verify",
+        "required": false,
+        "default": "false",
+        "description": "Bypass the pre-commit and pre-push git hooks"
+      },
+      {
+        "name": "git_name",
+        "required": false,
+        "default": "Lint Action",
+        "description": "Username for auto-fix commits"
+      },
+      {
+        "name": "git_email",
+        "required": false,
+        "default": "lint-action@samuelmeuli.com",
+        "description": "Email address for auto-fix commits"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Fix code style issues with ${linter}",
+        "description": "Template for auto-fix commit messages. The \"${linter}\" variable can be used to insert the name of the linter which has created the auto-fix"
+      },
+      {
+        "name": "check_name",
+        "required": false,
+        "default": "${linter}",
+        "description": "Template for the name of the check run. The \"${linter}\" and \"${dir}\" variables can be used to insert the name and directory of the linter."
+      },
+      {
+        "name": "neutral_check_on_warning",
+        "required": false,
+        "default": "false",
+        "description": "Whether the check run should conclude with a neutral status instead of success when the linter finds only warnings"
+      },
+      {
+        "name": "stylelint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable stylelint checks"
+      },
+      {
+        "name": "stylelint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "stylelint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the stylelint command should be run"
+      },
+      {
+        "name": "stylelint_extensions",
+        "required": false,
+        "default": "css",
+        "description": "Extensions of files to check with stylelint"
+      },
+      {
+        "name": "stylelint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "stylelint_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "gofmt",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable gofmt checks"
+      },
+      {
+        "name": "gofmt_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "gofmt_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the gofmt command should be run"
+      },
+      {
+        "name": "gofmt_extensions",
+        "required": false,
+        "default": "go",
+        "description": "Extensions of files to check with gofmt"
+      },
+      {
+        "name": "gofmt_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "gofmt_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "golint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable golint checks"
+      },
+      {
+        "name": "golint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "golint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the golint command should be run"
+      },
+      {
+        "name": "golint_extensions",
+        "required": false,
+        "default": "go",
+        "description": "Extensions of files to check with golint"
+      },
+      {
+        "name": "golint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "golint_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "eslint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable ESLint checks"
+      },
+      {
+        "name": "eslint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "eslint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the ESLint command should be run"
+      },
+      {
+        "name": "eslint_extensions",
+        "required": false,
+        "default": "js",
+        "description": "Extensions of files to check with ESLint"
+      },
+      {
+        "name": "eslint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn."
+      },
+      {
+        "name": "eslint_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "prettier",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable Prettier checks"
+      },
+      {
+        "name": "prettier_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "prettier_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the Prettier command should be run"
+      },
+      {
+        "name": "prettier_extensions",
+        "required": false,
+        "default": "css,html,js,json,jsx,md,sass,scss,ts,tsx,vue,yaml,yml",
+        "description": "Extensions of files to check with Prettier"
+      },
+      {
+        "name": "prettier_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn."
+      },
+      {
+        "name": "prettier_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "xo",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable XO checks"
+      },
+      {
+        "name": "xo_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "xo_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the XO command should be run"
+      },
+      {
+        "name": "xo_extensions",
+        "required": false,
+        "default": "js",
+        "description": "Extensions of files to check with XO"
+      },
+      {
+        "name": "xo_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn."
+      },
+      {
+        "name": "xo_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "tsc",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable TypeScript checks"
+      },
+      {
+        "name": "tsc_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "tsc_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the TSC command should be run"
+      },
+      {
+        "name": "tsc_extensions",
+        "required": false,
+        "default": "ts",
+        "description": "Extensions of files to check with TSC"
+      },
+      {
+        "name": "tsc_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command. Will default to `npx --no-install` for NPM and `yarn run --silent` for Yarn."
+      },
+      {
+        "name": "tsc_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "php_codesniffer",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable PHP_CodeSniffer checks"
+      },
+      {
+        "name": "php_codesniffer_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "php_codesniffer_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the PHP_CodeSniffer command should be run"
+      },
+      {
+        "name": "php_codesniffer_extensions",
+        "required": false,
+        "default": "php",
+        "description": "Extensions of files to check with PHP_CodeSniffer"
+      },
+      {
+        "name": "php_codesniffer_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "php_codesniffer_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "autopep8",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable autopep8 checks"
+      },
+      {
+        "name": "autopep8_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "autopep8_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the autopep8 command should be run"
+      },
+      {
+        "name": "autopep8_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with autopep8"
+      },
+      {
+        "name": "autopep8_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "autopep8_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "black",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable Black checks"
+      },
+      {
+        "name": "black_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "black_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the Black command should be run"
+      },
+      {
+        "name": "black_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with Black"
+      },
+      {
+        "name": "black_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "black_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "clang_format",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable ClangFormat checks"
+      },
+      {
+        "name": "clang_format_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "clang_format_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the ClangFormat command should be run"
+      },
+      {
+        "name": "clang_format_extensions",
+        "required": false,
+        "default": "c,cc,cpp,h,hpp,m,mm",
+        "description": "Extensions of files to check with ClangFormat"
+      },
+      {
+        "name": "clang_format_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "clang_format_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "flake8",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable Flake8 checks"
+      },
+      {
+        "name": "flake8_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "flake8_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the Flake8 command should be run"
+      },
+      {
+        "name": "flake8_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with Flake8"
+      },
+      {
+        "name": "flake8_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "flake8_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "mypy",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable Mypy checks"
+      },
+      {
+        "name": "mypy_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "mypy_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the Mypy command should be run"
+      },
+      {
+        "name": "mypy_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with Mypy"
+      },
+      {
+        "name": "mypy_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "mypy_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "oitnb",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable oitnb checks"
+      },
+      {
+        "name": "oitnb_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "oitnb_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the oitnb command should be run"
+      },
+      {
+        "name": "oitnb_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with oitnb"
+      },
+      {
+        "name": "oitnb_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "oitnb_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "pylint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable Pylint checks"
+      },
+      {
+        "name": "pylint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "pylint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the Pylint command should be run"
+      },
+      {
+        "name": "pylint_extensions",
+        "required": false,
+        "default": "py",
+        "description": "Extensions of files to check with Pylint"
+      },
+      {
+        "name": "pylint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "pylint_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "rubocop",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable RuboCop checks"
+      },
+      {
+        "name": "rubocop_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "rubocop_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the RuboCop command should be run"
+      },
+      {
+        "name": "rubocop_extensions",
+        "required": false,
+        "default": "rb",
+        "description": "Extensions of files to check with RuboCop"
+      },
+      {
+        "name": "rubocop_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "rubocop_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "erblint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable ERB Lint checks"
+      },
+      {
+        "name": "erblint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "erblint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the ERB Lint command should be run"
+      },
+      {
+        "name": "erblint_extensions",
+        "required": false,
+        "default": "erb",
+        "description": "Extensions of files to check with ERB Lint"
+      },
+      {
+        "name": "erblint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "erblint_auto_fix",
+        "required": false,
+        "default": "false",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "clippy",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable clippy"
+      },
+      {
+        "name": "clippy_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "clippy_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the RuboCop command should be run"
+      },
+      {
+        "name": "clippy_extensions",
+        "required": false,
+        "default": "rs",
+        "description": "Extensions of files to check with RuboCop"
+      },
+      {
+        "name": "clippy_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "clippy_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "rustfmt",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable rustfmt"
+      },
+      {
+        "name": "rustfmt_args",
+        "required": false,
+        "default": "-- --color=never",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "rustfmt_extensions",
+        "required": false,
+        "default": "rs",
+        "description": "Extensions of files to check with rustfmt"
+      },
+      {
+        "name": "rustfmt_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the rustfmt command should be run"
+      },
+      {
+        "name": "rustfmt_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "swiftformat",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable SwiftFormat checks"
+      },
+      {
+        "name": "swiftformat_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "swiftformat_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the SwiftFormat command should be run"
+      },
+      {
+        "name": "swiftformat_extensions",
+        "required": false,
+        "default": "swift",
+        "description": "Extensions of files to check with SwiftFormat"
+      },
+      {
+        "name": "swiftformat_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "swiftformat_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "swift_format_lockwood",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable SwiftFormat checks"
+      },
+      {
+        "name": "swift_format_lockwood_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "swift_format_lockwood_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the SwiftFormat command should be run"
+      },
+      {
+        "name": "swift_format_lockwood_extensions",
+        "required": false,
+        "default": "swift",
+        "description": "Extensions of files to check with SwiftFormat"
+      },
+      {
+        "name": "swift_format_lockwood_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "swift_format_lockwood_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "swift_format_official",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable swift-format checks"
+      },
+      {
+        "name": "swift_format_official_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "swift_format_official_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the swift-format command should be run"
+      },
+      {
+        "name": "swift_format_official_extensions",
+        "required": false,
+        "default": "swift",
+        "description": "Extrensions of files to check with swift-format"
+      },
+      {
+        "name": "swift_format_official_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "swift_format_official_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "swiftlint",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable SwiftLint checks"
+      },
+      {
+        "name": "swiftlint_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "swiftlint_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the SwiftLint command should be run"
+      },
+      {
+        "name": "swiftlint_extensions",
+        "required": false,
+        "default": "swift",
+        "description": "Extensions of files to check with SwiftLint"
+      },
+      {
+        "name": "swiftlint_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "swiftlint_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      },
+      {
+        "name": "dotnet_format",
+        "required": false,
+        "default": "false",
+        "description": "Enable or disable dotnet-format checks"
+      },
+      {
+        "name": "dotnet_format_args",
+        "required": false,
+        "default": "",
+        "description": "Additional arguments to pass to the linter"
+      },
+      {
+        "name": "dotnet_format_dir",
+        "required": false,
+        "default": null,
+        "description": "Directory where the dotnet-format command should be run"
+      },
+      {
+        "name": "dotnet_format_extensions",
+        "required": false,
+        "default": "cs",
+        "description": "Extensions of files to check with dotnet-format"
+      },
+      {
+        "name": "dotnet_format_command_prefix",
+        "required": false,
+        "default": "",
+        "description": "Shell command to prepend to the linter command"
+      },
+      {
+        "name": "dotnet_format_auto_fix",
+        "required": false,
+        "default": "true",
+        "description": "Whether this linter should try to fix code style issues automatically. If set to `true`, it will only work if \"auto_fix\" is set to `true` as well"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Lint Action is focused on detecting and fixing linting errors, which directly relates to maintaining code quality. Additionally, it can be considered a testing tool as it checks the code for style issues.",
+        "tags": [
+          "linting",
+          "code quality",
+          "testing",
+          "GitHub Action",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d1e1f6116ec742ab9c0046e710707c8dd8755ba1860800ebbb35a9372995b092",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.885562Z"
+  }
+}

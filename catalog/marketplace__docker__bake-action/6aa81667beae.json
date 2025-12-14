@@ -1,0 +1,130 @@
+{
+  "action_id": "marketplace/docker/bake-action",
+  "version_id": "6aa81667beae",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/docker/bake-action/action.yml",
+    "origin": "github.com/docker/bake-action",
+    "publisher": "docker",
+    "verified": true
+  },
+  "definition": {
+    "name": "Docker Buildx Bake",
+    "description": "GitHub Action to use Docker Buildx Bake as a high-level build command",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "builder",
+        "required": false,
+        "default": null,
+        "description": "Builder instance"
+      },
+      {
+        "name": "workdir",
+        "required": false,
+        "default": ".",
+        "description": "Working directory of bake execution"
+      },
+      {
+        "name": "source",
+        "required": false,
+        "default": null,
+        "description": "Context to build from. Can be either local or a remote bake definition"
+      },
+      {
+        "name": "allow",
+        "required": false,
+        "default": null,
+        "description": "Allow build to access specified resources (e.g., network.host)"
+      },
+      {
+        "name": "call",
+        "required": false,
+        "default": null,
+        "description": "Set method for evaluating build (e.g., check)"
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": null,
+        "description": "List of bake definition files"
+      },
+      {
+        "name": "no-cache",
+        "required": false,
+        "default": "false",
+        "description": "Do not use cache when building the image"
+      },
+      {
+        "name": "pull",
+        "required": false,
+        "default": "false",
+        "description": "Always attempt to pull a newer version of the image"
+      },
+      {
+        "name": "load",
+        "required": false,
+        "default": "false",
+        "description": "Load is a shorthand for --set=*.output=type=docker"
+      },
+      {
+        "name": "provenance",
+        "required": false,
+        "default": null,
+        "description": "Provenance is a shorthand for --set=*.attest=type=provenance"
+      },
+      {
+        "name": "push",
+        "required": false,
+        "default": "false",
+        "description": "Push is a shorthand for --set=*.output=type=registry"
+      },
+      {
+        "name": "sbom",
+        "required": false,
+        "default": null,
+        "description": "SBOM is a shorthand for --set=*.attest=type=sbom"
+      },
+      {
+        "name": "set",
+        "required": false,
+        "default": null,
+        "description": "List of targets values to override (eg. targetpattern.key=value)"
+      },
+      {
+        "name": "targets",
+        "required": false,
+        "default": null,
+        "description": "List of bake targets"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "API token used to authenticate to a Git repository for remote definitions"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "metadata",
+        "description": "Build result metadata"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6aa81667beae57b8762e027de1f65e28c34ced922836451e4b6dfd45cc3d472f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.453702Z"
+  }
+}

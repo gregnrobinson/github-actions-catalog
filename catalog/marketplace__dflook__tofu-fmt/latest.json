@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/dflook/tofu-fmt",
+  "version_id": "74c1d0a285e9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-fmt/action.yml",
+    "origin": "github.com/dflook/tofu-fmt",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-fmt",
+    "description": "Rewrite OpenTofu files into canonical format",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path containing OpenTofu files to format."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to inspect when discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set when initializing OpenTofu. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line. This is used for discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\n"
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line. This is used for discovering the OpenTofu version to use, if the version is not otherwise specified.\nSee [dflook/tofu-version](https://github.com/dflook/terraform-github-actions/tree/main/tofu-version#tofu-version-action) for details.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/fmt.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is focused on rewriting OpenTofu files into a canonical format, which directly relates to improving code quality. Additionally, it involves managing variables and dependencies within OpenTofu, aligning it with dependency management.",
+        "tags": [
+          "OpenTofu",
+          "formatting",
+          "code quality",
+          "dependency management",
+          "terraform"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "74c1d0a285e9d835c20c1eeb21b5eaa8d6c9df7a261b5bd764158743408feff9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.405485Z"
+  }
+}

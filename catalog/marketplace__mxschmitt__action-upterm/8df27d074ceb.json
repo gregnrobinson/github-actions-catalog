@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/mxschmitt/action-upterm",
+  "version_id": "8df27d074ceb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mxschmitt/action-upterm/action.yml",
+    "origin": "github.com/mxschmitt/action-upterm",
+    "publisher": "mxschmitt",
+    "verified": false
+  },
+  "definition": {
+    "name": "Debug with ssh",
+    "description": "This GitHub Action enables direct interaction with the host system running your GitHub Actions via SSH",
+    "author": "Owen Ou",
+    "inputs": [
+      {
+        "name": "limit-access-to-actor",
+        "required": false,
+        "default": "false",
+        "description": "If only the public SSH keys of the user triggering the workflow should be authorized"
+      },
+      {
+        "name": "limit-access-to-users",
+        "required": false,
+        "default": "",
+        "description": "If only the public SSH keys of the listed GitHub users should be authorized"
+      },
+      {
+        "name": "upterm-server",
+        "required": true,
+        "default": "ssh://uptermd.upterm.dev:22",
+        "description": "upterm server address (required), supported protocols are ssh, ws, or wss."
+      },
+      {
+        "name": "ssh-known-hosts",
+        "required": false,
+        "default": "",
+        "description": "Content for ~/.ssh/known_hosts file on the server"
+      },
+      {
+        "name": "wait-timeout-minutes",
+        "required": false,
+        "default": "",
+        "description": "Integer number of minutes to wait for user to connect before shutting down server. Once a user connects, the server will stay up."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "8df27d074cebe139fbfcb034c2627f7c8ace5cca581249db21f8a967161ff9ca",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.543716Z"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/aws-actions/codeguru-security",
+  "version_id": "aed89959e47d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/codeguru-security/action.yml",
+    "origin": "github.com/aws-actions/codeguru-security",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "CodeGuru Security",
+    "description": "AWS CodeGuru Security Action",
+    "author": "",
+    "inputs": [
+      {
+        "name": "source_path",
+        "required": false,
+        "default": ".",
+        "description": "Path to source repository"
+      },
+      {
+        "name": "aws_region",
+        "required": true,
+        "default": null,
+        "description": "AWS region where you want to run workflow"
+      },
+      {
+        "name": "scan_name",
+        "required": true,
+        "default": "CGS-Github-${{ github.event.repository.name }}",
+        "description": "The name of the scan"
+      },
+      {
+        "name": "analysis_type",
+        "required": false,
+        "default": null,
+        "description": "The type of analysis you want CodeGuru Security to perform in the scan, either Security or All. Defaults to Security type if missing."
+      },
+      {
+        "name": "fail_on_severity",
+        "required": false,
+        "default": null,
+        "description": "Fails the action run if any finding is higher than or equal to severity is provided. Default the script does not break the action run. [example: Info, Low, Medium, High, Critical]"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://public.ecr.aws/l6c8c5q3/codegurusecurity-actions-public:latest",
+      "args": [
+        "--source_path",
+        "${{ inputs.source_path }}",
+        "--aws_region",
+        "${{ inputs.aws_region }}",
+        "--scan_name",
+        "${{ inputs.scan_name }}",
+        "--output_file_prefix",
+        "codeguru-security-results",
+        "--output_file_format",
+        "SARIF",
+        "--analysis_type",
+        "${{ inputs.analysis_type }}",
+        "--fail_on_severity",
+        "${{ inputs.fail_on_severity }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "aed89959e47d91276832da706ee09c2d7749a8e27445fb8ae66c977751386c18",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.033801Z"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/appleboy/codegpt-action",
+  "version_id": "72522816c3ad",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/codegpt-action/action.yml",
+    "origin": "github.com/appleboy/codegpt-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "CodeGPT",
+    "description": "Github Action for CodeGPT",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "openai_api_key",
+        "required": true,
+        "default": "",
+        "description": "OpenAI API Key"
+      },
+      {
+        "name": "openai_base_url",
+        "required": false,
+        "default": null,
+        "description": "OpenAI Base URL"
+      },
+      {
+        "name": "openai_org_id",
+        "required": false,
+        "default": "",
+        "description": "OpenAI ORG ID"
+      },
+      {
+        "name": "openai_model",
+        "required": false,
+        "default": "gpt-3.5-turbo",
+        "description": "OpenAI Model"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "review",
+        "description": "Code review"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is primarily focused on performing code reviews, which falls under code quality. It also requires an OpenAI API key for authentication, placing it in the authentication category as well.",
+        "tags": [
+          "CodeGPT",
+          "Code review",
+          "OpenAI",
+          "GitHub Action",
+          "AI"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "72522816c3ad5c1402d19eb9baa2a34c7b8a1454a50c85540bdebc25176ab600",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.181408Z"
+  }
+}

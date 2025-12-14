@@ -1,0 +1,217 @@
+{
+  "action_id": "marketplace/aws-actions/application-observability-for-aws",
+  "version_id": "548fe3fb95d8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/application-observability-for-aws/action.yml",
+    "origin": "github.com/aws-actions/application-observability-for-aws",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Application observability for AWS",
+    "description": "Support Agentic AI\u2013driven performance investigation and resolution using live production telemetry.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "bot_name",
+        "required": false,
+        "default": "@awsapm",
+        "description": "The bot name to respond to in comments (e.g., @awsapm)"
+      },
+      {
+        "name": "target_branch",
+        "required": false,
+        "default": null,
+        "description": "The branch to merge PRs into (defaults to repository default branch)"
+      },
+      {
+        "name": "branch_prefix",
+        "required": false,
+        "default": "awsapm/",
+        "description": "Prefix for branches created by the action (e.g., 'awsapm/', 'awsapm-')"
+      },
+      {
+        "name": "allowed_non_write_users",
+        "required": false,
+        "default": "",
+        "description": "Comma-separated list of GitHub usernames allowed to use this action even without write access. Empty string (default) means only users with write/admin access can use it."
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub token to use for API calls. If not provided, uses the default GitHub Actions token."
+      },
+      {
+        "name": "custom_prompt",
+        "required": false,
+        "default": "",
+        "description": "Custom instructions to guide the AI agent's analysis and actions"
+      },
+      {
+        "name": "cli_tool",
+        "required": false,
+        "default": "claude_code",
+        "description": "CLI tool to use for investigation"
+      },
+      {
+        "name": "output_file",
+        "required": false,
+        "default": null,
+        "description": "Path to AI agent execution output file (used to post results back to GitHub). For claude_code path, pass this from claude-code-base-action outputs in a second call to this action."
+      },
+      {
+        "name": "output_status",
+        "required": false,
+        "default": null,
+        "description": "Execution status from AI agent (success or failure). Only used when output_file is provided."
+      },
+      {
+        "name": "comment_id",
+        "required": false,
+        "default": null,
+        "description": "GitHub comment ID to update with results (required for Step 3 - pass from Step 1 output: steps.prepare.outputs.awsapm_comment_id)"
+      },
+      {
+        "name": "enable_cloudwatch_mcp",
+        "required": false,
+        "default": "true",
+        "description": "Enable CloudWatch MCP server for metrics, alarms, and log insights"
+      },
+      {
+        "name": "test_mode",
+        "required": false,
+        "default": "false",
+        "description": "Enable integration test mode (internal use only)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "prompt_file",
+        "description": "Path to the generated prompt file for claude-code-base-action"
+      },
+      {
+        "name": "mcp_config_file",
+        "description": "Path to the MCP servers configuration JSON file"
+      },
+      {
+        "name": "allowed_tools",
+        "description": "Comma-separated list of allowed tools"
+      },
+      {
+        "name": "awsapm_comment_id",
+        "description": "GitHub comment ID for tracking the investigation"
+      },
+      {
+        "name": "branch_name",
+        "description": "The branch created by Application observability for AWS Action for this execution"
+      },
+      {
+        "name": "github_token",
+        "description": "The GitHub token used by the action"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Validate test mode usage",
+          "if": "inputs.test_mode == 'true'",
+          "shell": "bash",
+          "run": "if [[ \"${{ github.repository }}\" != \"aws-actions/application-observability-for-aws\" || \"${{ github.ref_name }}\" != \"main\" ]]; then\n  echo \"::error::not authorized to run test mode in this repository\"\n  exit 1\nfi\n"
+        },
+        {
+          "name": "Install Node.js",
+          "uses": "actions/setup-node@v4",
+          "with": {
+            "node-version": "20"
+          }
+        },
+        {
+          "name": "Install Dependencies",
+          "shell": "bash",
+          "run": "cd ${GITHUB_ACTION_PATH}\nnpm install\n"
+        },
+        {
+          "name": "Init action",
+          "id": "init",
+          "if": "inputs.output_file == ''",
+          "shell": "bash",
+          "run": "node ${GITHUB_ACTION_PATH}/src/init.js\n",
+          "env": {
+            "CUSTOM_PROMPT": "${{ inputs.custom_prompt }}",
+            "BOT_NAME": "${{ inputs.bot_name }}",
+            "TARGET_BRANCH": "${{ inputs.target_branch }}",
+            "BRANCH_PREFIX": "${{ inputs.branch_prefix }}",
+            "OVERRIDE_GITHUB_TOKEN": "${{ inputs.github_token }}",
+            "ALLOWED_NON_WRITE_USERS": "${{ inputs.allowed_non_write_users }}",
+            "GITHUB_RUN_ID": "${{ github.run_id }}",
+            "DEFAULT_WORKFLOW_TOKEN": "${{ github.token }}",
+            "TEST_MODE": "${{ inputs.test_mode }}"
+          }
+        },
+        {
+          "name": "Validate CLI Tool",
+          "id": "validate-cli",
+          "if": "inputs.output_file == '' && inputs.cli_tool != 'claude_code'",
+          "continue-on-error": true,
+          "shell": "bash",
+          "run": "# Create error output file\nmkdir -p ${{ runner.temp }}/awsapm-output\nERROR_FILE=\"${{ runner.temp }}/awsapm-output/validation-error.txt\"\n\ncat > \"$ERROR_FILE\" << 'EOF'\n\u274c **Invalid CLI Tool**\n\nThe CLI tool `${{ inputs.cli_tool }}` is not supported.\n\n**Supported tools:**\n- `claude_code` (default)\n\nPlease update your workflow configuration to use `cli_tool: \"claude_code\"` or remove the `cli_tool` input to use the default.\nEOF\n\necho \"validation_error_file=$ERROR_FILE\" >> $GITHUB_OUTPUT\necho \"::error::Unsupported cli_tool: ${{ inputs.cli_tool }}. Only 'claude_code' is supported.\"\nexit 1  # Fail the step but continue workflow to post error\n"
+        },
+        {
+          "name": "Install MCP Tools",
+          "if": "steps.init.outputs.contains_trigger == 'true' && steps.validate-cli.outcome == 'skipped'",
+          "shell": "bash",
+          "run": "set -e  # Exit immediately if any command fails\n\n# Install uv/uvx for MCP server execution\necho \"Installing uv package manager for MCP server support...\"\ncurl -LsSf https://astral.sh/uv/install.sh | sh\necho \"$HOME/.cargo/bin\" >> \"$GITHUB_PATH\"\n\n# Verify uvx installation\nif ! command -v uvx &> /dev/null; then\n  echo \"::error::uvx installation failed - MCP tools can not work\"\n  exit 1\nfi\necho \"uvx installed successfully\"\nuvx --version\n"
+        },
+        {
+          "name": "Prepare Claude Configuration",
+          "id": "prepare-claude",
+          "if": "steps.init.outputs.contains_trigger == 'true' && steps.validate-cli.outcome == 'skipped'",
+          "shell": "bash",
+          "run": "cd ${GITHUB_ACTION_PATH}\nnode src/prepare-claude-config.js\n",
+          "env": {
+            "GITHUB_TOKEN": "${{ steps.init.outputs.GITHUB_TOKEN }}",
+            "ENABLE_CLOUDWATCH_MCP": "${{ inputs.enable_cloudwatch_mcp }}",
+            "INPUT_PROMPT_FILE": "${{ runner.temp }}/awsapm-prompts/awsapm-prompt.txt",
+            "OUTPUT_DIR": "${{ runner.temp }}/awsapm-prompts"
+          }
+        },
+        {
+          "name": "Post Investigation Results",
+          "if": "inputs.output_file != '' ||\n(steps.validate-cli.outcome == 'failure' && steps.init.outputs.awsapm_comment_id != '')\n",
+          "shell": "bash",
+          "run": "cd ${GITHUB_ACTION_PATH}\nnode src/post-result.js\n",
+          "env": {
+            "AWSAPM_COMMENT_ID": "${{ inputs.comment_id || steps.init.outputs.awsapm_comment_id }}",
+            "CLAUDE_EXECUTION_FILE": "${{ steps.validate-cli.outputs.validation_error_file || inputs.output_file }}",
+            "CLAUDE_CONCLUSION": "${{ steps.validate-cli.outcome == 'failure' && 'failure' || inputs.output_status }}",
+            "GITHUB_TOKEN": "${{ steps.init.outputs.GITHUB_TOKEN || inputs.github_token }}",
+            "REPOSITORY": "${{ github.repository }}",
+            "GITHUB_SERVER_URL": "${{ github.server_url }}",
+            "GITHUB_RUN_ID": "${{ github.run_id }}",
+            "TRIGGER_USERNAME": "${{ github.event.comment.user.login || github.event.issue.user.login || github.event.pull_request.user.login || github.event.sender.login || github.triggering_actor || github.actor || 'unknown' }}"
+          }
+        },
+        {
+          "name": "Fail Workflow on Validation Error",
+          "if": "steps.validate-cli.outcome == 'failure'",
+          "shell": "bash",
+          "run": "echo \"::error::Workflow stopped due to validation error. See the posted comment for details.\"\nexit 1"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "548fe3fb95d8fecb797cfb9931159654fcf8e101c8ee1bf9c4faec24abc164d3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.084684Z"
+  }
+}

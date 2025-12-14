@@ -1,0 +1,185 @@
+{
+  "action_id": "marketplace/stefanzweifel/git-auto-commit-action",
+  "version_id": "57c14e922154",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/stefanzweifel/git-auto-commit-action/action.yml",
+    "origin": "github.com/stefanzweifel/git-auto-commit-action",
+    "publisher": "stefanzweifel",
+    "verified": false
+  },
+  "definition": {
+    "name": "Git Auto Commit",
+    "description": "Automatically commits files which have been changed during the workflow run and push changes back to remote repository.",
+    "author": "Stefan Zweifel <stefan@stefanzweifel.dev>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Apply automatic changes",
+        "description": "Commit message"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "${{ github.head_ref }}",
+        "description": "Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event"
+      },
+      {
+        "name": "commit_options",
+        "required": false,
+        "default": "",
+        "description": "Commit options (eg. --no-verify)"
+      },
+      {
+        "name": "add_options",
+        "required": false,
+        "default": "",
+        "description": "Add options (eg. -u)"
+      },
+      {
+        "name": "status_options",
+        "required": false,
+        "default": "",
+        "description": "Status options (eg. --untracked-files=no)"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": ".",
+        "description": "File pattern used for `git add`. For example `src/*.js`"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": ".",
+        "description": "Local file path to the git repository. Defaults to the current directory (`.`)"
+      },
+      {
+        "name": "commit_user_name",
+        "required": false,
+        "default": "github-actions[bot]",
+        "description": "Name used for the commit user"
+      },
+      {
+        "name": "commit_user_email",
+        "required": false,
+        "default": "41898282+github-actions[bot]@users.noreply.github.com",
+        "description": "Email address used for the commit user"
+      },
+      {
+        "name": "commit_author",
+        "required": false,
+        "default": "${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>",
+        "description": "Value used for the commit author. Defaults to the username of whoever triggered this workflow run."
+      },
+      {
+        "name": "tag_name",
+        "required": false,
+        "default": "",
+        "description": "Tag name used for creating a new git tag with the commit. Keep this empty, if no tag should be created."
+      },
+      {
+        "name": "tagging_message",
+        "required": false,
+        "default": "",
+        "description": "Tagging message used for creating a new git tag with the commit. Keep this empty, if no tag should be created."
+      },
+      {
+        "name": "push_options",
+        "required": false,
+        "default": "",
+        "description": "Push options (eg. --force)"
+      },
+      {
+        "name": "skip_dirty_check",
+        "required": false,
+        "default": false,
+        "description": "Skip the check if the git repository is dirty and always try to create a commit."
+      },
+      {
+        "name": "skip_fetch",
+        "required": false,
+        "default": false,
+        "description": "Skip the call to git-fetch."
+      },
+      {
+        "name": "skip_checkout",
+        "required": false,
+        "default": false,
+        "description": "Skip the call to git-checkout."
+      },
+      {
+        "name": "disable_globbing",
+        "required": false,
+        "default": false,
+        "description": "Stop the shell from expanding filenames (https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html)"
+      },
+      {
+        "name": "create_branch",
+        "required": false,
+        "default": false,
+        "description": "Create new branch with the name of `branch`-input in local and remote repository, if it doesn't exist yet."
+      },
+      {
+        "name": "create_git_tag_only",
+        "required": false,
+        "default": false,
+        "description": "Perform a clean git tag and push, without commiting anything"
+      },
+      {
+        "name": "internal_git_binary",
+        "required": false,
+        "default": "git",
+        "description": "Internal use only! Path to git binary used to check if git is available. (Don't change this!)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changes_detected",
+        "description": "Value is \"true\", if the repository was dirty and file changes have been detected. Value is \"false\", if no changes have been detected."
+      },
+      {
+        "name": "commit_hash",
+        "description": "Full hash of the created commit. Only present if the \"changes_detected\" output is \"true\"."
+      },
+      {
+        "name": "create_git_tag_only",
+        "description": "Value is \"true\", if a git tag was created using the `create_git_tag_only`-input."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Automation",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action automates the process of committing changes, which relates to code quality by ensuring that updates are consistently tracked. It also involves dependency management as it handles changes in the repository.",
+        "tags": [
+          "git",
+          "auto-commit",
+          "workflow",
+          "automation",
+          "repository"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "57c14e922154f245fd64236bc2593183bada356bbc344817838b13bc3ddb685b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.416719Z"
+  }
+}

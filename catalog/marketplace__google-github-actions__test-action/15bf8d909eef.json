@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/google-github-actions/test-action",
+  "version_id": "15bf8d909eef",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/google-github-actions/test-action/action.yml",
+    "origin": "github.com/google-github-actions/test-action",
+    "publisher": "google-github-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Google Actions Testing",
+    "description": "This action is for testing only.",
+    "author": "Google LLC",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "15bf8d909eef2e0cd8b83e2ee63c7e29370676120bb80b8d2abdf0c7b881ebda",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.760709Z"
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "action_id": "marketplace/github/update-project-action",
+  "version_id": "cd9ccee9b96f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/update-project-action/action.yml",
+    "origin": "github.com/github/update-project-action",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Update project",
+    "description": "Updates an item's fields on a GitHub Projects (beta) board based on a workflow dispatch (or other) event's input.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "organization",
+        "required": false,
+        "default": "${{ github.repository_owner }}",
+        "description": "The organization that contains the project, defaults to the current repository owner"
+      },
+      {
+        "name": "project_number",
+        "required": true,
+        "default": null,
+        "description": "The project number from the project's URL"
+      },
+      {
+        "name": "operation",
+        "required": false,
+        "default": "update",
+        "description": "Operation type (update, read, or clear)"
+      },
+      {
+        "name": "content_id",
+        "required": true,
+        "default": null,
+        "description": "The global ID of the issue or pull request within the project"
+      },
+      {
+        "name": "field",
+        "required": true,
+        "default": null,
+        "description": "The field on the project to set the value of"
+      },
+      {
+        "name": "value",
+        "required": false,
+        "default": null,
+        "description": "The value to set the project field to. Only required for operation type read"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "A GitHub Token with access to both the source issue and the destination project (`repo` and `write:org` scopes)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "project_id",
+        "description": "The global ID of the project"
+      },
+      {
+        "name": "item_id",
+        "description": "The global ID of the issue or pull request"
+      },
+      {
+        "name": "item_title",
+        "description": "The title of the issue or pull request"
+      },
+      {
+        "name": "field_id",
+        "description": "The global ID of the field"
+      },
+      {
+        "name": "field_read_value",
+        "description": "The value of the field before the update"
+      },
+      {
+        "name": "field_updated_value",
+        "description": "The value of the field after the update"
+      },
+      {
+        "name": "field_type",
+        "description": "The updated field's ProjectV2FieldType (text, single_select, number, date, or iteration)"
+      },
+      {
+        "name": "option_id",
+        "description": "The global ID of the selected option"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action updates project items on GitHub Projects, which involves communication with the GitHub API to manage project fields. It also relates to code quality as it helps maintain project organization and tracking.",
+        "tags": [
+          "GitHub",
+          "project management",
+          "update",
+          "workflow",
+          "API"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "cd9ccee9b96fe423e620514b1d3390d7dbf9699b2a351bc886c4f857378e2a4e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.900789Z"
+  }
+}

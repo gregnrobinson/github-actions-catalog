@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy LAMP stack on Azure Virtual Machine - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Deploy LAMP stack on Azure Virtual Machine</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/LAMPStack-Azure-VirtualMachine</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/LAMPStack-Azure-VirtualMachine" target="_blank">github.com/azure/LAMPStack-Azure-VirtualMachine</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>This action helps create an Azure Virtual Machine and deploy LAMP stack on it</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action primarily focuses on deploying a LAMP stack on an Azure Virtual Machine, which falls under the Deployment category. Additionally, it requires Azure authentication details, placing it in the Authentication and Infrastructure categories as well.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">LAMP</span> <span class="tag">Virtual Machine</span> <span class="tag">Deployment</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>client-id</code></td>
+                <td>Yes</td>
+                <td>Client id to login to azure</td>
+            </tr><tr>
+                <td><code>tenant-id</code></td>
+                <td>Yes</td>
+                <td>Tenant id to login to azure</td>
+            </tr><tr>
+                <td><code>subscription-id</code></td>
+                <td>Yes</td>
+                <td>Subscription id to be used with your az login</td>
+            </tr><tr>
+                <td><code>resource-group-name</code></td>
+                <td>Yes</td>
+                <td>Resource group to deploy your resources to</td>
+            </tr><tr>
+                <td><code>admin-username</code></td>
+                <td>Yes</td>
+                <td>Admin username to login to vm</td>
+            </tr><tr>
+                <td><code>admin-password</code></td>
+                <td>Yes</td>
+                <td>Admin password to login to vm</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

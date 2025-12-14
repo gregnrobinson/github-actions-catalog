@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-eks-fargate",
+  "version_id": "946c4f9ff859",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/amazon-eks-fargate/action.yml",
+    "origin": "github.com/aws-actions/amazon-eks-fargate",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "EKS on Fargate",
+    "description": "Creates and EKS on Fargate cluster",
+    "author": "Michael Hausenblas, hausenb@amazon.com",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on creating an Amazon EKS cluster, which falls under infrastructure management and deployment of cloud resources.",
+        "tags": [
+          "EKS",
+          "Fargate",
+          "AWS",
+          "Infrastructure",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "946c4f9ff859607c1de52bb30424e4aa0edc3061ec841605dce99041ca9240cc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.086756Z"
+  }
+}

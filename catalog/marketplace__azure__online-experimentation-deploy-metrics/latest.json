@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/azure/online-experimentation-deploy-metrics",
+  "version_id": "749d086cbe7e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/online-experimentation-deploy-metrics/action.yml",
+    "origin": "github.com/azure/online-experimentation-deploy-metrics",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Online Experimentation Deploy Metrics",
+    "description": "Deploy metric definitions from a configuration file to the Online Experimentation workspace",
+    "author": "Microsoft",
+    "inputs": [
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "Source file(s) containing metrics. Multiple files can be specified in list or glob format. Example: **/*.json or metrics/*.json. Use ! to exclude files."
+      },
+      {
+        "name": "online-experimentation-workspace-endpoint",
+        "required": true,
+        "default": null,
+        "description": "Online Experimentation workspace endpoint"
+      },
+      {
+        "name": "operation",
+        "required": false,
+        "default": "deploy",
+        "description": "Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: syncs the configuration file with Online Experimentation workspace"
+      },
+      {
+        "name": "strict",
+        "required": false,
+        "default": "true",
+        "description": "If strict, the deploy operation deletes metrics not found in the config file. Choices: true, false (default: true)."
+      },
+      {
+        "name": "add-commit-hash-to-metric-description",
+        "required": false,
+        "default": "false",
+        "description": "Indicates whether to add the git commit hash to the metric description. This is helpful to track the metric version used by experiment analysis. Choices: true, false (default: false)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is focused on deploying metric definitions to an Online Experimentation workspace, which clearly falls under the Deployment category. Additionally, it involves interacting with infrastructure components.",
+        "tags": [
+          "deployment",
+          "metrics",
+          "online experimentation",
+          "azure",
+          "configuration"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "749d086cbe7e6f303b9f28736e95b5075d4cc9ef4b32980f6dbfc7a53c319451",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.565123Z"
+  }
+}

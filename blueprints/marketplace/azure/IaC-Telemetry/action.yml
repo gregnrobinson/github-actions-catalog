@@ -1,0 +1,35 @@
+name: "IaC Telemetry"
+description: "Send IaC Telemetry"
+inputs:
+  event-name:
+    description: "Name of the event: plan-success, plan-failure, apply-success, apply-failure"
+    required: true
+  directory:
+    description: "Directory to run Terraform commands"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        curl https://dc.services.visualstudio.com/v2/track -d @- <<EOF
+        {
+          "name": "EventData",
+          "time": "$(date --utc +%FT%T.%3NZ)",
+          "iKey": "b565e06f-9e18-4198-a62b-764a48d4e187",
+          "data": {
+            "baseType": "EventData",
+            "baseData": {
+              "name": "${{ inputs.event-name }}",
+              "properties": {
+                "workflow": "${{ github.workflow }}",
+                "run_number": "${{ github.run_number }}",
+                "actor": "${{ github.actor }}",
+                "repository": "${{ github.repository }}",
+                "event_name": "${{ github.event_name }}",
+                "directory": "${{ inputs.directory }}"
+              }
+            }
+          }
+        }
+        EOF
+      shell: bash

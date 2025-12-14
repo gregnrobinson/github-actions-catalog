@@ -1,0 +1,28 @@
+name: 'Azure SQL Deploy'
+description: 'Deploy a database project, DACPAC, or a SQL script to Azure SQL database'
+inputs:
+  connection-string:
+    description: 'The connection string, including authentication information, for the Azure SQL Server database.'
+    required: true
+  path:
+    description: 'Path to the file used for this action. Supported file types are .sql, .dacpac, or .sqlproj.'
+    required: true
+  action:
+    description: 'If not using a .sql file, the sqlpackage action to execute.'
+    required: false
+  arguments:
+    description: 'In case of .dacpac or .sqlproj file types, additional sqlpackage arguments that will be applied. In case of .sql file type, additional go-sqlcmd argument that will be applied.'
+    required: false
+  sqlpackage-path:
+    description: 'Specify a SqlPackage executable location to override the default locations.'
+    required: false
+  build-arguments:
+    description: 'In case of a .sqlproj file, additional arguments that will be applied to dotnet build when building the database project.'
+    required: false
+  skip-firewall-check:
+    description: 'Skip the firewall check when connecting to the Azure SQL Server.'
+    required: false
+    default: false
+runs:
+  using: 'node20'
+  main: 'lib/main.js'

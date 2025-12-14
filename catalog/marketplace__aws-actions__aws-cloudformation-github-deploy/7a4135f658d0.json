@@ -1,0 +1,129 @@
+{
+  "action_id": "marketplace/aws-actions/aws-cloudformation-github-deploy",
+  "version_id": "7a4135f658d0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/aws-cloudformation-github-deploy/action.yml",
+    "origin": "github.com/aws-actions/aws-cloudformation-github-deploy",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "AWS CloudFormation \"Deploy CloudFormation Stack\" Action for GitHub Actions",
+    "description": "Deploys a AWS CloudFormation stack",
+    "author": "",
+    "inputs": [
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "The name of the CloudFormation stack"
+      },
+      {
+        "name": "template",
+        "required": true,
+        "default": null,
+        "description": "The path or URL to the CloudFormation template"
+      },
+      {
+        "name": "capabilities",
+        "required": false,
+        "default": "CAPABILITY_IAM",
+        "description": "The comma-delimited list of stack template capabilities to acknowledge. Defaults to 'CAPABILITY_IAM'"
+      },
+      {
+        "name": "parameter-overrides",
+        "required": false,
+        "default": null,
+        "description": "The parameters to override in the stack inputs. You can pass a comma-delimited list or a file URL. Comma-delimited list has each entry formatted as <ParameterName>=<ParameterValue> or <ParameterName>=\"<ParameterValue>,<ParameterValue>\". A JSON file can be a local file with a \"file://\" prefix or remote URL. The file should look like: [ { \"ParameterKey\": \"KeyPairName\", \"ParameterValue\": \"MyKey\" }]"
+      },
+      {
+        "name": "no-execute-changeset",
+        "required": false,
+        "default": "0",
+        "description": "Indicates whether to execute to the change set or have it reviewed. Default to '0' (will execute the change set)"
+      },
+      {
+        "name": "no-delete-failed-changeset",
+        "required": false,
+        "default": "0",
+        "description": "Indicates whether to delete to a failed change set. Default to '0' (will delete the failed changeset)"
+      },
+      {
+        "name": "no-fail-on-empty-changeset",
+        "required": false,
+        "default": "0",
+        "description": "If the CloudFormation change set is empty, do not fail. Defaults to '0' (will fail on empty change set)"
+      },
+      {
+        "name": "disable-rollback",
+        "required": false,
+        "default": "0",
+        "description": "Disable rollback of the stack if stack creation fails. Defaults to '0' (will rollback if stack creation fails). This input is only used for stack creation, not for stack update"
+      },
+      {
+        "name": "timeout-in-minutes",
+        "required": false,
+        "default": null,
+        "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED. This input is only used for stack creation, not for stack update"
+      },
+      {
+        "name": "notification-arns",
+        "required": false,
+        "default": null,
+        "description": "The comma-delimited list of Amazon SNS topic ARNs to publish stack related events"
+      },
+      {
+        "name": "role-arn",
+        "required": false,
+        "default": null,
+        "description": "The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack"
+      },
+      {
+        "name": "tags",
+        "required": false,
+        "default": null,
+        "description": "Key-value pairs to associate with this stack. This input should be JSON-formatted, for example [ { \"Key\": \"string\", \"Value\": \"string\" } ]"
+      },
+      {
+        "name": "termination-protection",
+        "required": false,
+        "default": "0",
+        "description": "Whether to enable termination protection on the specified stack. Defaults to '0' (terminated protection will be disabled) This input is only used for stack creation, not for stack update"
+      },
+      {
+        "name": "http-proxy",
+        "required": false,
+        "default": null,
+        "description": "Proxy to use for the AWS SDK agent"
+      },
+      {
+        "name": "change-set-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the change set to create. Defaults to '<stack-name>-CS'"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "stack-id",
+        "description": "The id of the deployed stack. In addition, any outputs declared in the deployed CloudFormation stack will also be set as outputs for the action, e.g. if the stack has a stack output named 'foo', this action will also have an output named 'foo'."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7a4135f658d0a0f1acd0de63f9fa94f4593cc0b7d4eb50f3b271830b4cccf1c7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.025095Z"
+  }
+}

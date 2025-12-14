@@ -1,0 +1,96 @@
+{
+  "action_id": "marketplace/dflook/tofu-output",
+  "version_id": "17719a21f92e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/tofu-output/action.yml",
+    "origin": "github.com/dflook/tofu-output",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "tofu-output",
+    "description": "Retrieve the root-level outputs from an OpenTofu configuration.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the OpenTofu root module directory."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "OpenTofu workspace to get outputs from"
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": null,
+        "description": "Variables to set when initializing OpenTofu. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n"
+      },
+      {
+        "name": "var_file",
+        "required": false,
+        "default": null,
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the OpenTofu config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nOpenTofu list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ],
+    "runs": {
+      "env": {
+        "OPENTOFU": true
+      },
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/output.sh"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action retrieves outputs from an OpenTofu configuration, which is primarily related to infrastructure management. It also involves managing variables and configurations, aligning with dependency management.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "outputs",
+          "configuration",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "17719a21f92e604e6cfb540b261b47d55c3f56709c7eccbb45ac8cc8a79c00cf",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.340709Z"
+  }
+}

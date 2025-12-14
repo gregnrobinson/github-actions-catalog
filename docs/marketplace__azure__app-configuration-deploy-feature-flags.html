@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure App Configuration Deploy Feature Flags - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure App Configuration Deploy Feature Flags</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/app-configuration-deploy-feature-flags</code></p>
+            <p><strong>Author:</strong> Microsoft</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/app-configuration-deploy-feature-flags" target="_blank">github.com/azure/app-configuration-deploy-feature-flags</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Deploy feature flags from a GitHub repository to Azure App Configuration</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Deployment</span> <span class="badge badge-category">Infrastructure</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Deployment</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is focused on deploying feature flags to Azure App Configuration, which falls under the deployment category. It also involves infrastructure as it interacts with Azure services.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Deployment</span> <span class="tag">Feature Flags</span> <span class="tag">Configuration</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>Source file(s) containing feature flags. Multiple files can be specified in list or glob format. Example: **/*.json or FeatureFlags/*.json. Use ! to exclude files.</td>
+            </tr><tr>
+                <td><code>app-configuration-endpoint</code></td>
+                <td>No</td>
+                <td>Destination endpoint for the Azure App Configuration store.</td>
+            </tr><tr>
+                <td><code>label</code></td>
+                <td>No</td>
+                <td>Azure App Configuration label to apply to the feature flags. If not specficed, the default is no label.</td>
+            </tr><tr>
+                <td><code>operation</code></td>
+                <td>No</td>
+                <td>Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: deploys the feature flags to Azure App Configuration.</td>
+            </tr><tr>
+                <td><code>strict</code></td>
+                <td>No</td>
+                <td>If strict, the sync operation deletes feature flags not found in the config file. Choices: true, false.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

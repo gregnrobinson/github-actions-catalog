@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/appleboy/facebook-action",
+  "version_id": "1a945cd5b625",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/facebook-action/action.yml",
+    "origin": "github.com/appleboy/facebook-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Facebook Message Notify",
+    "description": "Sending a Facebook message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "fb_page_token",
+        "required": false,
+        "default": null,
+        "description": "Token is the access token of the Facebook page to send messages from.."
+      },
+      {
+        "name": "fb_verify_token",
+        "required": false,
+        "default": null,
+        "description": "The token used to verify facebook."
+      },
+      {
+        "name": "to",
+        "required": false,
+        "default": null,
+        "description": "Recipient is who the message was sent to (required)."
+      },
+      {
+        "name": "app_secret",
+        "required": false,
+        "default": null,
+        "description": "The app secret from the facebook developer portal."
+      },
+      {
+        "name": "verify",
+        "required": false,
+        "default": null,
+        "description": "verifying webhooks on the Facebook Developer Portal."
+      },
+      {
+        "name": "images",
+        "required": false,
+        "default": null,
+        "description": "send the image message. Ex: https://golang.org/doc/gopher/gophercolor.png"
+      },
+      {
+        "name": "audios",
+        "required": false,
+        "default": null,
+        "description": "send the audio message."
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": null,
+        "description": "send the file message."
+      },
+      {
+        "name": "videos",
+        "required": false,
+        "default": null,
+        "description": "send the video message."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to send messages via Facebook, which clearly falls under communication and notification categories.",
+        "tags": [
+          "facebook",
+          "notification",
+          "communication",
+          "message",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1a945cd5b625e94a22d70db8b9b6716174dbf7d669f7f095621e33fda02be852",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.174724Z"
+  }
+}

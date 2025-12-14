@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/peter-evans/ghaction-import-gpg",
+  "version_id": "392987fd26ad",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/ghaction-import-gpg/action.yml",
+    "origin": "github.com/peter-evans/ghaction-import-gpg",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Import GPG",
+    "description": "GitHub Action to easily import a GPG key",
+    "author": "crazy-max",
+    "inputs": [
+      {
+        "name": "gpg_private_key",
+        "required": true,
+        "default": null,
+        "description": "GPG private key exported as an ASCII armored version or its base64 encoding"
+      },
+      {
+        "name": "passphrase",
+        "required": false,
+        "default": null,
+        "description": "Passphrase of the GPG private key"
+      },
+      {
+        "name": "trust_level",
+        "required": false,
+        "default": null,
+        "description": "Set key's trust level"
+      },
+      {
+        "name": "git_config_global",
+        "required": false,
+        "default": "false",
+        "description": "Set Git config global"
+      },
+      {
+        "name": "git_user_signingkey",
+        "required": false,
+        "default": "false",
+        "description": "Set GPG signing keyID for this Git repository"
+      },
+      {
+        "name": "git_commit_gpgsign",
+        "required": false,
+        "default": "false",
+        "description": "Sign all commits automatically"
+      },
+      {
+        "name": "git_tag_gpgsign",
+        "required": false,
+        "default": "false",
+        "description": "Sign all tags automatically"
+      },
+      {
+        "name": "git_push_gpgsign",
+        "required": false,
+        "default": "if-asked",
+        "description": "Sign all pushes automatically"
+      },
+      {
+        "name": "git_committer_name",
+        "required": false,
+        "default": null,
+        "description": "Commit author's name"
+      },
+      {
+        "name": "git_committer_email",
+        "required": false,
+        "default": null,
+        "description": "Commit author's email"
+      },
+      {
+        "name": "workdir",
+        "required": false,
+        "default": ".",
+        "description": "Working directory (below repository root)"
+      },
+      {
+        "name": "fingerprint",
+        "required": false,
+        "default": null,
+        "description": "Specific fingerprint to use (subkey)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "fingerprint",
+        "description": "Fingerprint of the GPG key (recommended as user ID)"
+      },
+      {
+        "name": "keyid",
+        "description": "Low 64 bits of the X.509 certificate SHA-1 fingerprint"
+      },
+      {
+        "name": "name",
+        "description": "Name associated with the GPG key"
+      },
+      {
+        "name": "email",
+        "description": "Email address associated with the GPG key"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "392987fd26ad0cc034ffa83e00231f249d7f136fec5d35f1fb31a9a445563397",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.510224Z"
+  }
+}

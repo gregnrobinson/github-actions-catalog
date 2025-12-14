@@ -1,0 +1,54 @@
+name: Update project
+description: Updates an item's fields on a GitHub Projects (beta) board based on a workflow dispatch (or other) event's input.
+inputs:
+  organization:
+    description: The organization that contains the project, defaults to the current repository owner
+    required: false
+    default: ${{ github.repository_owner }}
+  project_number:
+    description: The project number from the project's URL
+    required: true
+  operation:
+    description: Operation type (update, read, or clear)
+    default: update
+    required: false
+  content_id:
+    description: The global ID of the issue or pull request within the project
+    required: true
+  field:
+    description: The field on the project to set the value of
+    required: true
+  value:
+    description: The value to set the project field to. Only required for operation type read
+    required: false
+  github_token:
+    description: A GitHub Token with access to both the source issue and the destination project (`repo` and `write:org` scopes)
+    required: true
+outputs:
+  project_id:
+    description: "The global ID of the project"
+    value: ${{ steps.parse_project_metadata.outputs.project_id }}
+  item_id:
+    description: "The global ID of the issue or pull request"
+    value: ${{ steps.parse_project_metadata.outputs.item_id }}
+  item_title:
+    description: "The title of the issue or pull request"
+    value: ${{ steps.parse_project_metadata.outputs.item_title }}
+  field_id:
+    description: "The global ID of the field"
+    value: ${{ steps.parse_project_metadata.outputs.field_id }}
+  field_read_value:
+    description: "The value of the field before the update"
+    value: ${{ steps.parse_content_metadata.outputs.item_value }}
+  field_updated_value:
+    description: "The value of the field after the update"
+    value: ${{ steps.output_values.outputs.field_updated_value }}
+  field_type:
+    description: "The updated field's ProjectV2FieldType (text, single_select, number, date, or iteration)"
+    value: ${{ steps.parse_project_metadata.outputs.field_type }}
+  option_id:
+    description: "The global ID of the selected option"
+    value: ${{ steps.parse_project_metadata.outputs.option_id }}
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

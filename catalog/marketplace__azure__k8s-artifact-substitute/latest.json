@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/k8s-artifact-substitute",
+  "version_id": "752db0ed843a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/k8s-artifact-substitute/action.yml",
+    "origin": "github.com/azure/k8s-artifact-substitute",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Kubernetes Artifact Substitue",
+    "description": "Swap images/digests in Kubernetes manifest files",
+    "author": "",
+    "inputs": [
+      {
+        "name": "manifests",
+        "required": true,
+        "default": null,
+        "description": "Path to the manifest files which will be used for deployment."
+      },
+      {
+        "name": "images",
+        "required": true,
+        "default": null,
+        "description": "Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "manifests",
+        "description": "Paths to the new manifests as a multiline string. Each manifest path is on a new line."
+      },
+      {
+        "name": "directory",
+        "description": "Path to the new manifests directory. All new manifests are in the root-level."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is focused on modifying Kubernetes manifest files for deployment purposes, which aligns it primarily with the Deployment category. It also involves managing images, which relates to Packaging and Infrastructure.",
+        "tags": [
+          "Kubernetes",
+          "Deployment",
+          "Manifest",
+          "Image Substitution",
+          "Azure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "752db0ed843a9ae560c933588a5598ec2e437e3839ef4cedfa3f0dc5f96cd30c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.614006Z"
+  }
+}

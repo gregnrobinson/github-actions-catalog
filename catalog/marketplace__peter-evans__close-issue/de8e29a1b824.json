@@ -1,0 +1,94 @@
+{
+  "action_id": "marketplace/peter-evans/close-issue",
+  "version_id": "de8e29a1b824",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/close-issue/action.yml",
+    "origin": "github.com/peter-evans/close-issue",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Close Issue",
+    "description": "A GitHub action to close an issue",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub auth token"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The GitHub repository containing the issue"
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": "${{ github.event.issue.number }}",
+        "description": "The number of the issue to close"
+      },
+      {
+        "name": "close-reason",
+        "required": false,
+        "default": "completed",
+        "description": "Reason for closing the issue, \"completed\" or \"not_planned\""
+      },
+      {
+        "name": "comment",
+        "required": false,
+        "default": null,
+        "description": "A comment to make on the issue before closing"
+      },
+      {
+        "name": "labels",
+        "required": false,
+        "default": null,
+        "description": "A comma or newline separated list of labels."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set parameters",
+          "id": "params",
+          "shell": "bash",
+          "run": "if [ -n \"${{ inputs.comment }}\" ]; then\n  comment=\"--comment \\\"${{ inputs.comment }}\\\"\"\n  delimiter=\"$(openssl rand -hex 8)\"\n  echo \"comment<<$delimiter\" >> $GITHUB_OUTPUT\n  echo \"$comment\" >> $GITHUB_OUTPUT\n  echo \"$delimiter\" >> $GITHUB_OUTPUT\nfi\n\nif [ \"${{ inputs.close-reason }}\" == \"not_planned\" ]; then\n  echo close-reason=\"not planned\" >> $GITHUB_OUTPUT\nelse\n  echo close-reason=\"completed\" >> $GITHUB_OUTPUT\nfi\n\n# Convert labels to comma separated list\nif [ -n \"${{ inputs.labels }}\" ]; then\n  labels=$(echo \"${{ inputs.labels }}\" | tr '\\n' ',' | sed 's/,$//')\n  # Remove trailing comma and whitespace\n  labels=$(echo $labels | sed 's/,$//' | sed 's/[[:space:]]//g')\n  echo labels=$labels >> $GITHUB_OUTPUT\nfi\n"
+        },
+        {
+          "name": "Close Issue",
+          "shell": "bash",
+          "run": "gh issue close -R \"${{ inputs.repository }}\" \\\n--reason \"${{ steps.params.outputs.close-reason }}\" \\\n${{ steps.params.outputs.comment }} \\\n\"${{ inputs.issue-number }}\"\n",
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        },
+        {
+          "name": "Add Labels",
+          "if": "steps.params.outputs.labels != ''",
+          "shell": "bash",
+          "run": "gh issue edit -R \"${{ inputs.repository }}\" \\\n--add-label \"${{ steps.params.outputs.labels }}\" \\\n\"${{ inputs.issue-number }}\"\n",
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "de8e29a1b8244dd7777cfbb68bcb4bd4c582746d76c369e16a53f312adb65568",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.485842Z"
+  }
+}

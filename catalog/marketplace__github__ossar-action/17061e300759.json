@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/github/ossar-action",
+  "version_id": "17061e300759",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/ossar-action/action.yml",
+    "origin": "github.com/github/ossar-action",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "ossar-action",
+    "description": "Run open source security static analysis tools without the added complexity with OSSAR (Open Source Static Analysis Runner)",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "config",
+        "required": false,
+        "default": null,
+        "description": "A file path to a .gdnconfig file."
+      },
+      {
+        "name": "policy",
+        "required": false,
+        "default": null,
+        "description": "The name of the well known policy to use. If empty, defaults to the policy/github.gdnpolicy file in the action repo."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "sarifFile",
+        "description": "A file path to a SARIF results file."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/action.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "17061e3007594d9d4d417d92fb53297740e3da7c04df27fe2486a30419a46384",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.972281Z"
+  }
+}

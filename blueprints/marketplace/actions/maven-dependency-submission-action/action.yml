@@ -1,0 +1,65 @@
+name: Maven Dependency Tree Dependency Submission
+description: A GitHub Action for Maven project to submit a complete dependency tree to populate the GitHub Dependency Graph
+
+branding:
+  icon: feather
+  color: green
+
+inputs:
+  directory:
+    description: The directory that contains the maven project
+    type: string
+    default: ${{ github.workspace }}
+
+  settings-file:
+    description: Optional path to a Maven settings.xml file for the dependencies to be resolved
+    type: string
+
+  ignore-maven-wrapper:
+    description: Flag for optionally ignoring any maven wrapper files (mvnw) and instead rely on the PATH provided mvn
+    type: boolean
+    default: false
+
+  maven-args:
+    description: Additional maven arguments to add to the command line invocation of maven when it generates the dependency snapshot
+    type: string
+    default: ''
+
+  token:
+    description: The GitHub token to use to submit the depedency snapshot to the repository
+    type: string
+    default: ${{ github.token }}
+
+  snapshot-sha:
+    description: The SHA that the results will be linked to in the dependency snapshot
+    type: string
+    required: false
+    default: ''
+
+  snapshot-ref:
+    description: The ref that the results will be linked to in the dependency snapshot
+    type: string
+    required: false
+    default: ''
+
+  detector-name:
+    description: The name of the detector that generated the dependency snapshot
+    type: string
+
+  detector-version:
+    description: The version of the detector that generated the dependency snapshot
+    type: string
+
+  detector-url:
+    description: The URL to the detector that generated the dependency snapshot
+    type: string
+
+  correlator:
+    description: An optional identifier to distinguish between multiple dependency snapshots of the same type
+    type: string
+    required: false
+    default: ''
+
+runs:
+  using: node20
+  main: dist/index.js

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Cache</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/actions/cache</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> actions</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/actions/cache" target="_blank">github.com/actions/cache</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Cache artifacts like dependencies and build outputs to improve workflow execution time</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Dependency management</span> <span class="badge badge-category">Caching</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Dependency management</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is designed to cache artifacts like dependencies and build outputs, which directly relates to managing dependencies and improving workflow execution time.</p>
+            <p><strong>Tags:</strong> <span class="tag">cache</span> <span class="tag">dependencies</span> <span class="tag">workflow</span> <span class="tag">performance</span> <span class="tag">GitHub Actions</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>Yes</td>
+                <td>A list of files, directories, and wildcard patterns to cache and restore</td>
+            </tr><tr>
+                <td><code>key</code></td>
+                <td>Yes</td>
+                <td>An explicit key for restoring and saving the cache</td>
+            </tr><tr>
+                <td><code>restore-keys</code></td>
+                <td>No</td>
+                <td>An ordered multiline string listing the prefix-matched keys, that are used for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.</td>
+            </tr><tr>
+                <td><code>upload-chunk-size</code></td>
+                <td>No</td>
+                <td>The chunk size used to split up large files during upload, in bytes</td>
+            </tr><tr>
+                <td><code>enableCrossOsArchive</code></td>
+                <td>No</td>
+                <td>An optional boolean when enabled, allows windows runners to save or restore caches that can be restored or saved respectively on other platforms</td>
+            </tr><tr>
+                <td><code>fail-on-cache-miss</code></td>
+                <td>No</td>
+                <td>Fail the workflow if cache entry is not found</td>
+            </tr><tr>
+                <td><code>lookup-only</code></td>
+                <td>No</td>
+                <td>Check if a cache entry exists for the given input(s) (key, restore-keys) without downloading the cache</td>
+            </tr><tr>
+                <td><code>save-always</code></td>
+                <td>No</td>
+                <td>Run the post step to save the cache even if another step before fails</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>cache-hit</code></td>
+                <td>A boolean value to indicate an exact match was found for the primary key</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

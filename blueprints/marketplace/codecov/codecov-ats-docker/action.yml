@@ -1,0 +1,118 @@
+name: 'ATS'
+description: 'RUN ATS'
+inputs:
+  container:
+    description: 'container to run in'
+    required: true
+  static_token:
+    description: 'Codecov static token'
+    required: true
+  codecov_token:
+    description: 'Codecov upload token'
+    required: true
+  output_path:
+    description: 'output path for test file in container, must be a fully qualified path'
+    default: '/tmp'
+    required: false
+  local_output_path:
+    description: 'where to copy the files out of the container'
+    default: '.'
+    required: false
+  install_cli:
+    required: false
+    default: 'true'
+    description: 'Whether to install the Codecov CLI. Set to false if you have previously installed the CLI.'
+  main_branch:
+    required: false
+    default: 'origin/main'
+    description: 'The main branch to compare against'
+  run_tests:
+    required: false
+    default: 'false'
+    description: 'Whether to run the tests with the given command in the container. If set to true, this will run the test command and upload to Codecov'
+  test_command:
+    required: false
+    description: 'Command to run in container to execute tests. Required when run_tests is true. This should be `pytest` with the desired args at this point.'
+  codecov_url:
+    required: false
+    description: 'URL of Codecov'
+    default: 'https://api.codecov.io'
+  codecov_cli_version:
+    required: false
+    description: 'Version of CLI to use'
+    default: '0.3.8'
+  codecov_cli_upload_args:
+    required: false
+    default: ''
+    description: 'List of args to pass to cli on upload. This is kind of a hack pending a more robust solution'
+  codecov_cli_yml_path:
+    required: false
+    default: ''
+    description: 'Path to codecov cli yml. Currently expected to include flag as well --codecov-yml-path=codecov_cli.yml for ex.'
+outputs:
+  test_skip_list:
+    description: "the tests to skip"
+    value: ${{ steps.outputs.outputs.test_skip_list }}
+  runner_options:
+    description: "the runner options"
+    value: ${{ steps.outputs.outputs.runner_options }}
+  test_list:
+    description: "the tests to run"
+    value: ${{ steps.outputs.outputs.test_list }}
+runs:
+  using: "composite"
+  steps:
+    - id: container-running
+      name: Ensure container is running
+      run: docker ps | grep ${{ inputs.container }}
+      shell: bash
+    - run: echo command="docker exec ${{ inputs.container }} sh -c" >> $GITHUB_OUTPUT
+      name: Set container exec command
+      id: command
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "pip install codecov-cli==${{ inputs.codecov_cli_version }}"
+      if: inputs.install_cli == 'true'
+      name: Install Codecov CLI
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "codecovcli -u ${{ inputs.codecov_url }} create-commit -t ${{ inputs.codecov_token }} --fail-on-error"
+      name: Create Codecov Commit
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "codecovcli -u ${{ inputs.codecov_url }} create-report -t ${{ inputs.codecov_token }} --fail-on-error"
+      name: Create Codecov Report
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "codecovcli -u ${{ inputs.codecov_url }} static-analysis --token=${{inputs.static_token}}"
+      name: Run Static Analysis
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "codecovcli -u ${{ inputs.codecov_url }} label-analysis --base-sha=$(git merge-base HEAD^ ${{ inputs.main_branch }}) --token=${{inputs.static_token}} --dry-run --dry-run-output-path=${{ inputs.output_path }}/codecov_analysis > /dev/null"
+      name: Run Label Analysis
+      shell: bash
+    - run: |
+        ${{ steps.command.outputs.command }} "jq -r '.ats_tests_to_run []' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\"//g > ${{ inputs.output_path }}/test_list"
+        docker cp ${{ inputs.container }}:${{ inputs.output_path }}/test_list ${{ inputs.local_output_path }}/test_list
+      name: Parse tests to run
+      shell: bash
+    - run: |
+        ${{ steps.command.outputs.command }} "jq -r '.ats_tests_to_skip []' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\"//g > ${{ inputs.output_path }}/test_skip_list"
+        docker cp ${{ inputs.container }}:${{ inputs.output_path }}/test_skip_list ${{ inputs.local_output_path }}/test_skip_list
+      name: Parse tests to skip
+      shell: bash
+    - run: |
+        ${{ steps.command.outputs.command }} "jq -r '.runner_options | join(\" \")' ${{ inputs.output_path }}/codecov_analysis.json | sed s/\\\"//g | tr -d '\n'> ${{ inputs.output_path }}/runner_options"
+        docker cp ${{ inputs.container }}:${{ inputs.output_path }}/runner_options ${{ inputs.local_output_path }}/runner_options
+      name: Parse runner options
+      shell: bash
+    - run: |
+        echo test_list=$(cat ${{ inputs.local_output_path }}/test_list) >> $GITHUB_OUTPUT
+        echo test_skip_list=$(cat ${{ inputs.local_output_path }}/test_skip_list) >> $GITHUB_OUTPUT
+        echo runner_options=$(cat ${{ inputs.local_output_path }}/runner_options) >> $GITHUB_OUTPUT
+      shell: bash
+      name: Setup outputs
+      id: outputs
+    - run: ${{ steps.command.outputs.command }} "${{ inputs.test_command }} ${{ steps.outputs.outputs.runner_options }} `cat ${{ inputs.local_output_path }}/test_list | tr '\n' ' '`"
+      name: Run tests
+      if: inputs.run_tests == 'true'
+      shell: bash
+    - run: ${{ steps.command.outputs.command }} "codecovcli ${{ inputs.codecov_cli_yml_path }} -u ${{ inputs.codecov_url }} do-upload -t ${{ inputs.codecov_token }} ${{ inputs.codecov_cli_upload_args }} --fail-on-error"
+      name: Upload to Codecov
+      if: inputs.run_tests == 'true'
+      shell: bash

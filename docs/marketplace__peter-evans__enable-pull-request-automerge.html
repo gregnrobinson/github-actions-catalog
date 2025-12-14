@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enable Pull Request Automerge - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Enable Pull Request Automerge</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/peter-evans/enable-pull-request-automerge</code></p>
+            <p><strong>Author:</strong> Unknown</p>
+            <p><strong>Publisher:</strong> peter-evans</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/peter-evans/enable-pull-request-automerge" target="_blank">github.com/peter-evans/enable-pull-request-automerge</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>A GitHub action to enable auto-merge on a pull request</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Automation</span> <span class="badge badge-category">Communication</span> <span class="badge badge-category">Deployment</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Automation</p>
+            <p><strong>Confidence:</strong> medium</p>
+            <p><strong>Reasoning:</strong> This action automates the process of enabling auto-merge for pull requests, which falls under automation. It also involves communication with the GitHub API and can impact deployment workflows.</p>
+            <p><strong>Tags:</strong> <span class="tag">pull request</span> <span class="tag">automerge</span> <span class="tag">GitHub Action</span> <span class="tag">automation</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>token</code></td>
+                <td>No</td>
+                <td>GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>No</td>
+                <td>The target GitHub repository containing the pull request</td>
+            </tr><tr>
+                <td><code>pull-request-number</code></td>
+                <td>Yes</td>
+                <td>The number of the target pull request</td>
+            </tr><tr>
+                <td><code>merge-method</code></td>
+                <td>No</td>
+                <td>The merge method to use. `merge`, `rebase` or `squash`.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

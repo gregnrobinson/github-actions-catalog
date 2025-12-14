@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/azure/setup-azd",
+  "version_id": "0bbdcaf1526b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/setup-azd/action.yml",
+    "origin": "github.com/azure/setup-azd",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "setup-azd",
+    "description": "This action downloads and installs azd",
+    "author": "Azure Developer CLI Team",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "latest",
+        "description": "The version of azd to install (default: latest)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on downloading and installing a specific tool (azd), which is essential for managing dependencies in Azure development. It also relates to infrastructure as it sets up a tool used for deploying and managing Azure resources.",
+        "tags": [
+          "azd",
+          "Azure",
+          "setup",
+          "dependency",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0bbdcaf1526b3e05fc81e8e261f598bd8de4ef7e765f9803fcb4a4c08f99cf3a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.526586Z"
+  }
+}

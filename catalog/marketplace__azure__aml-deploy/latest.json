@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/azure/aml-deploy",
+  "version_id": "5a6067726927",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aml-deploy/action.yml",
+    "origin": "github.com/azure/aml-deploy",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Machine Learning Deploy Action",
+    "description": "Deploy a registered model in your Azure Machine Learning Workspace with this GitHub Action",
+    "author": "azure/gh-aml",
+    "inputs": [
+      {
+        "name": "azure_credentials",
+        "required": true,
+        "default": null,
+        "description": "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS"
+      },
+      {
+        "name": "model_name",
+        "required": true,
+        "default": null,
+        "description": "Name of the model that will be deployed"
+      },
+      {
+        "name": "model_version",
+        "required": true,
+        "default": null,
+        "description": "Version of the model that will be deployed"
+      },
+      {
+        "name": "parameters_file",
+        "required": true,
+        "default": "deploy.json",
+        "description": "JSON file including the parameters for deployment. This looks in the .ml/.azure/ directory"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "service_scoring_uri",
+        "description": "Scoring URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)"
+      },
+      {
+        "name": "service_swagger_uri",
+        "description": "Swagger URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)"
+      },
+      {
+        "name": "acr_address",
+        "description": "The DNS name or IP address (e.g. myacr.azurecr.io) of the Azure Container Registry (ACR) (only provided if create_image is not None)"
+      },
+      {
+        "name": "acr_username",
+        "description": "The username for ACR (only provided if create_image is not None)"
+      },
+      {
+        "name": "acr_password",
+        "description": "The password for ACR (only provided if create_image is not None)"
+      },
+      {
+        "name": "package_location",
+        "description": "Full URI of the docker image (e.g. myacr.azurecr.io/azureml/azureml_*) (only provided if create_image is not None)"
+      },
+      {
+        "name": "profiling_details",
+        "description": "Dictionary of details of the model profiling result. This will only be provided, if the model profiling method is used and successfully executed."
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy a model to Azure Machine Learning, making deployment its primary function. It also requires Azure credentials for authentication, linking it to both authentication and infrastructure categories.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Deployment",
+          "GitHub Action",
+          "Model"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5a60677269272e81fe8eeade97149fac72b13d966ff977ecb18ab9c37981bf44",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.706741Z"
+  }
+}

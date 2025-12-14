@@ -1,0 +1,62 @@
+{
+  "action_id": "marketplace/actions/typescript-action",
+  "version_id": "00ff2612fae7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/typescript-action/action.yml",
+    "origin": "github.com/actions/typescript-action",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "required": true,
+        "default": "1000",
+        "description": "Your input description here"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "Your output description here"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action is likely designed to facilitate the building or testing of TypeScript code, as it involves inputs and outputs that suggest timing functionality, which is common in build processes. However, without specific details on its functionality, the confidence is medium.",
+        "tags": [
+          "typescript",
+          "action",
+          "build",
+          "testing",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "00ff2612fae77e2f9c51b6f634935ed80309f17f69f4cd0ad68b0890a1d6b0a2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.206383Z"
+  }
+}

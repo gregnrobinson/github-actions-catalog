@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Actions - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Image Actions</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/calibreapp/image-actions</code></p>
+            <p><strong>Author:</strong> Calibre</p>
+            <p><strong>Publisher:</strong> calibreapp</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/calibreapp/image-actions" target="_blank">github.com/calibreapp/image-actions</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Compresses Images for the Web</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Build</span> <span class="badge badge-category">Optimization</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Build</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action compresses images, which is primarily a build-related task aimed at optimizing assets for web use. It also involves packaging as it prepares images for deployment.</p>
+            <p><strong>Tags:</strong> <span class="tag">image compression</span> <span class="tag">web optimization</span> <span class="tag">GitHub Actions</span> <span class="tag">Calibre</span> <span class="tag">asset management</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>GITHUB_TOKEN</code></td>
+                <td>No</td>
+                <td>The token that the action will use to create and update the pull request.</td>
+            </tr><tr>
+                <td><code>jpegQuality</code></td>
+                <td>No</td>
+                <td>JPEG quality level</td>
+            </tr><tr>
+                <td><code>jpegProgressive</code></td>
+                <td>No</td>
+                <td>Use progressive (interlaced) scan for JPEG</td>
+            </tr><tr>
+                <td><code>pngQuality</code></td>
+                <td>No</td>
+                <td>PNG quality level</td>
+            </tr><tr>
+                <td><code>webpQuality</code></td>
+                <td>No</td>
+                <td>WEBP quality level</td>
+            </tr><tr>
+                <td><code>avifQuality</code></td>
+                <td>No</td>
+                <td>AVIF quality level</td>
+            </tr><tr>
+                <td><code>ignorePaths</code></td>
+                <td>No</td>
+                <td>Paths to ignore during search</td>
+            </tr><tr>
+                <td><code>compressOnly</code></td>
+                <td>No</td>
+                <td>Images will be compressed. No commit, or comments will be added to your Pull Request</td>
+            </tr><tr>
+                <td><code>minPctChange</code></td>
+                <td>No</td>
+                <td>Minimun percentage reduction to be committed</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>markdown</code></td>
+                <td>Output param used to store the Markdown summary for subsequent actions to use</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

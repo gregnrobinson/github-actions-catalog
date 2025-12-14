@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegEx Issue Labeler - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>RegEx Issue Labeler</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/issue-labeler</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/issue-labeler" target="_blank">github.com/github/issue-labeler</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Labels issues automatically based on their body</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Code quality</span> <span class="badge badge-category">Automation</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action automatically labels issues based on their content, facilitating communication within the team and improving code quality by organizing issues effectively.</p>
+            <p><strong>Tags:</strong> <span class="tag">issue labeling</span> <span class="tag">automation</span> <span class="tag">GitHub Actions</span> <span class="tag">communication</span> <span class="tag">code quality</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>repo-token</code></td>
+                <td>No</td>
+                <td>The GITHUB_TOKEN secret</td>
+            </tr><tr>
+                <td><code>configuration-path</code></td>
+                <td>Yes</td>
+                <td>The path to the label configuration file. If the file doesn&#39;t exist at the specified path on the runner, action will read from the source repository via the Github API.</td>
+            </tr><tr>
+                <td><code>enable-versioned-regex</code></td>
+                <td>Yes</td>
+                <td>Controls if versioned regex templates are being used</td>
+            </tr><tr>
+                <td><code>versioned-regex</code></td>
+                <td>No</td>
+                <td>The regex version number to use. Only required if using versioned regex files</td>
+            </tr><tr>
+                <td><code>not-before</code></td>
+                <td>No</td>
+                <td>Is optional and will result in any issues prior to this timestamp to be ignored</td>
+            </tr><tr>
+                <td><code>body-missing-regex-label</code></td>
+                <td>No</td>
+                <td>The name of the label that should be added to an issue where the specified `version-regex` can not be found.</td>
+            </tr><tr>
+                <td><code>include-title</code></td>
+                <td>No</td>
+                <td>Include the title in the regex target</td>
+            </tr><tr>
+                <td><code>include-body</code></td>
+                <td>No</td>
+                <td>Include the body in the regex target</td>
+            </tr><tr>
+                <td><code>sync-labels</code></td>
+                <td>No</td>
+                <td>Remove the label from the issue if the label regex does not match</td>
+            </tr><tr>
+                <td><code>issue-number</code></td>
+                <td>No</td>
+                <td>The number of the issue/PR to label</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>labels-added</code></td>
+                <td>The labels that were added by the action, as a stringified array.</td>
+            </tr><tr>
+                <td><code>labels-removed</code></td>
+                <td>The labels that were removed by the action, as a stringified array.</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/appleboy/jira-action",
+  "version_id": "ddf99d665775",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/jira-action/action.yml",
+    "origin": "github.com/appleboy/jira-action",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Issue Integration",
+    "description": "Jira Issue Integration",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "base_url",
+        "required": false,
+        "default": null,
+        "description": "The base URL of the Jira instance."
+      },
+      {
+        "name": "insecure",
+        "required": false,
+        "default": null,
+        "description": "Allow insecure SSL connections."
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "Username for Basic authentication. Recommended only for scripts or bots."
+      },
+      {
+        "name": "password",
+        "required": false,
+        "default": null,
+        "description": "Password for Basic authentication. Recommended only for scripts or bots."
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Personal access token (PAT) for authentication. This method uses the user account associated with the token."
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": null,
+        "description": "The fully-formed reference of the branch or tag that triggered the workflow run."
+      },
+      {
+        "name": "issue_pattern",
+        "required": false,
+        "default": "([A-Z]{1,10}-[1-9][0-9]*)",
+        "description": "Pattern to match strings referencing an alphanumeric issue, e.g., ABC-1234."
+      },
+      {
+        "name": "transition",
+        "required": false,
+        "default": null,
+        "description": "Move the issue to a specific status, e.g., Done, In Progress."
+      },
+      {
+        "name": "resolution",
+        "required": false,
+        "default": null,
+        "description": "Set the resolution of the issue, e.g., Done, Fixed."
+      },
+      {
+        "name": "assignee",
+        "required": false,
+        "default": null,
+        "description": "Assign the issue to a specific user."
+      },
+      {
+        "name": "comment",
+        "required": false,
+        "default": null,
+        "description": "The comment to add to the issue."
+      },
+      {
+        "name": "markdown",
+        "required": false,
+        "default": "false",
+        "description": "convert the markdown format to Jira format."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ddf99d665775710187d38659a33f3330406c78428ffdcfb850143ce628bde4e1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.145600Z"
+  }
+}

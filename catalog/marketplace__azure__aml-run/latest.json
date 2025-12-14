@@ -1,0 +1,101 @@
+{
+  "action_id": "marketplace/azure/aml-run",
+  "version_id": "730be7b293d4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/aml-run/action.yml",
+    "origin": "github.com/azure/aml-run",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Azure Machine Learning Run Action",
+    "description": "Submit a run to an Azure Machine Learning Workspace with this GitHub Action",
+    "author": "azure/gh-aml",
+    "inputs": [
+      {
+        "name": "azure_credentials",
+        "required": true,
+        "default": null,
+        "description": "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS"
+      },
+      {
+        "name": "parameters_file",
+        "required": true,
+        "default": "run.json",
+        "description": "JSON file including the parameters of the run."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "experiment_name",
+        "description": "Name of the experiment of the run"
+      },
+      {
+        "name": "run_id",
+        "description": "ID of the run"
+      },
+      {
+        "name": "run_url",
+        "description": "URL to the run in the Azure Machine Learning Studio"
+      },
+      {
+        "name": "run_metrics",
+        "description": "Metrics of the run (will only be provided if wait_for_completion is set to True)"
+      },
+      {
+        "name": "run_metrics_markdown",
+        "description": "Metrics of the run formatted as markdown table (will only be provided if wait_for_completion is set to True)"
+      },
+      {
+        "name": "published_pipeline_id",
+        "description": "Id of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+      },
+      {
+        "name": "published_pipeline_status",
+        "description": "Status of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+      },
+      {
+        "name": "published_pipeline_endpoint",
+        "description": "Endpoint of the publised pipeline (will only be provided if you submitted a pipeline and pipeline_publish is set to True)"
+      },
+      {
+        "name": "artifact_path",
+        "description": "Path of downloaded artifacts and logs from Azure Machine Learning (pipeline) run (will only be provided if wait_for_completion and download_artifacts is set to True)"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying a machine learning run to Azure, which falls under deployment. It also involves infrastructure management as it interacts with Azure resources, and it can be used for testing machine learning models.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Deployment",
+          "GitHub Action",
+          "Automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "730be7b293d49241ab4aa4da9ef121292d804cced908c4c2b4544f64f58c89ec",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.551518Z"
+  }
+}

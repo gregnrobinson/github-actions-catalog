@@ -1,0 +1,35 @@
+name: "Trigger GitLab CI Pipeline"
+description: "Triggering GitLab CI Pipeline through the API"
+author: "Bo-Yi Wu"
+inputs:
+  host:
+    description: "gitlab-ci base url"
+    default: "https://gitlab.com"
+  token:
+    description: "gitlab-ci token"
+    required: true
+  ref:
+    description: "gitlab-ci valid refs are only the branches and tags"
+    default: "main"
+  project_id:
+    description: "gitlab project id"
+    required: true
+  insecure:
+    description: "insecure mode"
+  variables:
+    description: "pass CI/CD variables"
+  debug:
+    description: "debug mode"
+  timeout:
+    description: "timeout waiting for pipeline to complete"
+  interval:
+    description: "interval waiting for pipeline to complete"
+  wait:
+    description: "wait for pipeline to complete"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "check-circle"
+  color: "orange"

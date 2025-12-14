@@ -1,0 +1,92 @@
+{
+  "action_id": "marketplace/actions/deploy-pages",
+  "version_id": "0ff88ca222c0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/deploy-pages/action.yml",
+    "origin": "github.com/actions/deploy-pages",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy GitHub Pages site",
+    "description": "A GitHub Action to deploy an artifact as a GitHub Pages site",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub token"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": "600000",
+        "description": "Time in milliseconds after which to timeout and cancel the deployment (default: 10 minutes)"
+      },
+      {
+        "name": "error_count",
+        "required": false,
+        "default": "10",
+        "description": "Maximum number of status report errors before cancelling a deployment (default: 10)"
+      },
+      {
+        "name": "reporting_interval",
+        "required": false,
+        "default": "5000",
+        "description": "Time in milliseconds between two deployment status report (default: 5 seconds)"
+      },
+      {
+        "name": "artifact_name",
+        "required": false,
+        "default": "github-pages",
+        "description": "Name of the artifact to deploy"
+      },
+      {
+        "name": "preview",
+        "required": false,
+        "default": "false",
+        "description": "Is this attempting to deploy a pull request as a GitHub Pages preview site? (NOTE: This feature is only in alpha currently and is not available to the public!)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "page_url",
+        "description": "URL to deployed GitHub Pages"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy an artifact as a GitHub Pages site, which falls under the Deployment category. It also involves publishing the site, making Publishing a relevant secondary category.",
+        "tags": [
+          "GitHub Pages",
+          "Deployment",
+          "Publishing",
+          "CI/CD",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0ff88ca222c067f34d29b7078bd0c387b7efedcd14d17ad794aef1c4224f900f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.296372Z"
+  }
+}

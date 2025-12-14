@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-snapcraft",
+  "version_id": "286c25afe35c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/samuelmeuli/action-snapcraft/action.yml",
+    "origin": "github.com/samuelmeuli/action-snapcraft",
+    "publisher": "samuelmeuli",
+    "verified": false
+  },
+  "definition": {
+    "name": "Snapcraft Action",
+    "description": "GitHub Action for setting up Snapcraft",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "channel",
+        "required": false,
+        "default": "stable",
+        "description": "The channel to install Snapcraft from"
+      },
+      {
+        "name": "skip_install",
+        "required": false,
+        "default": null,
+        "description": "Skip installation (login only)"
+      },
+      {
+        "name": "use_lxd",
+        "required": false,
+        "default": null,
+        "description": "Whether to install and configure lxd"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The Snapcraft Action is primarily focused on setting up the Snapcraft tool, which is used for managing software packages, thus falling under Infrastructure. It also involves managing dependencies related to Snapcraft installations.",
+        "tags": [
+          "Snapcraft",
+          "Infrastructure",
+          "Dependency management",
+          "GitHub Action",
+          "Packaging"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "286c25afe35cc7ffe6d119497d21b83a87a32d7f7ed04413d41d4cb346487b0b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.888130Z"
+  }
+}

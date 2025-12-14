@@ -1,0 +1,154 @@
+{
+  "action_id": "marketplace/benchmark-action/github-action-benchmark",
+  "version_id": "a6e895cd7a12",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/benchmark-action/github-action-benchmark/action.yml",
+    "origin": "github.com/benchmark-action/github-action-benchmark",
+    "publisher": "benchmark-action",
+    "verified": false
+  },
+  "definition": {
+    "name": "Continuous Benchmark",
+    "description": "Continuous Benchmark using GitHub pages as dash board for keeping performance",
+    "author": "github-action-benchmark developers <https://github.com/benchmark-action>",
+    "inputs": [
+      {
+        "name": "name",
+        "required": true,
+        "default": "Benchmark",
+        "description": "Name of the benchmark. This value must be identical among all benchmarks"
+      },
+      {
+        "name": "tool",
+        "required": true,
+        "default": null,
+        "description": "Tool to use get benchmark output. One of \"cargo\", \"go\", \"benchmarkjs\", \"pytest\", \"googlecpp\", \"catch2\", \"julia\", \"benchmarkdotnet\", \"customBiggerIsBetter\", \"customSmallerIsBetter\""
+      },
+      {
+        "name": "output-file-path",
+        "required": true,
+        "default": null,
+        "description": "A path to file which contains the benchmark output"
+      },
+      {
+        "name": "gh-pages-branch",
+        "required": true,
+        "default": "gh-pages",
+        "description": "Branch for gh-pages"
+      },
+      {
+        "name": "gh-repository",
+        "required": false,
+        "default": null,
+        "description": "Url to an optional different repository to store benchmark results"
+      },
+      {
+        "name": "benchmark-data-dir-path",
+        "required": true,
+        "default": "dev/bench",
+        "description": "Path to directory which contains benchmark files on GitHub pages branch"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": null,
+        "description": "GitHub API token to pull/push GitHub pages branch and deploy GitHub pages. For public repository, this must be personal access token for now. Please read README.md for more details"
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": null,
+        "description": "optional Ref to use when finding commit"
+      },
+      {
+        "name": "auto-push",
+        "required": false,
+        "default": false,
+        "description": "Push GitHub Pages branch to remote automatically. This option requires github-token input"
+      },
+      {
+        "name": "skip-fetch-gh-pages",
+        "required": false,
+        "default": false,
+        "description": "Skip pulling GitHub Pages branch before generating an auto commit"
+      },
+      {
+        "name": "comment-always",
+        "required": false,
+        "default": false,
+        "description": "Leave a comment with benchmark result comparison. To enable this feature, github-token input must be given as well"
+      },
+      {
+        "name": "summary-always",
+        "required": false,
+        "default": false,
+        "description": "Leave a job summary with benchmark result comparison"
+      },
+      {
+        "name": "save-data-file",
+        "required": false,
+        "default": true,
+        "description": "Save the benchmark data to external file"
+      },
+      {
+        "name": "comment-on-alert",
+        "required": false,
+        "default": false,
+        "description": "Leave an alert comment when current benchmark result is worse than previous. Threshold is specified with alert-threshold input. To enable this feature, github-token input must be given as well"
+      },
+      {
+        "name": "alert-threshold",
+        "required": false,
+        "default": "200%",
+        "description": "Threshold which determines if an alert should happen or not. Percentage value such as \"150%\". For example, 150% means that an alert happens when current benchmark result is 1.5x worse than previous"
+      },
+      {
+        "name": "fail-on-alert",
+        "required": false,
+        "default": false,
+        "description": "Workflow fails when alert comment happens"
+      },
+      {
+        "name": "fail-threshold",
+        "required": false,
+        "default": null,
+        "description": "Threshold which determines if the current workflow fails. Format is the same as alert-threshold input. If this value is not specified, the same value as alert-threshold is used"
+      },
+      {
+        "name": "alert-comment-cc-users",
+        "required": false,
+        "default": null,
+        "description": "Comma separated GitHub user names which start with @ (e.g. \"@foo,@bar\"). They will be mentioned in commit comment for alert."
+      },
+      {
+        "name": "external-data-json-path",
+        "required": false,
+        "default": null,
+        "description": "JSON data file for storing benchmark results. When this input is set, github-action-benchmark no longer uses Git branch to store data. Instead, it reads and appends benchmark data from/to the file. User must store the file anywhere"
+      },
+      {
+        "name": "max-items-in-chart",
+        "required": false,
+        "default": null,
+        "description": "Max data points in a benchmark chart to avoid making the chart too busy. Value must be unsigned integer. No limit by default"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/src/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a6e895cd7a123f809c64bea8dff29caac071bb213fe53c249757d86fae86f87f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.830948Z"
+  }
+}

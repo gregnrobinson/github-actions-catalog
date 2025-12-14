@@ -1,0 +1,208 @@
+{
+  "action_id": "marketplace/codecov/codecov-ats",
+  "version_id": "53d803e08087",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/codecov/codecov-ats/action.yml",
+    "origin": "github.com/codecov/codecov-ats",
+    "publisher": "codecov",
+    "verified": true
+  },
+  "definition": {
+    "name": "Codecov ATS",
+    "description": "GitHub Action that returns selected test labels from Codecov\u2602\ufe0f to CI",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Repository upload token - get it from codecov.io. Required or set it with the environment variable CODECOV_TOKEN"
+      },
+      {
+        "name": "static_token",
+        "required": false,
+        "default": null,
+        "description": "Repository static token - get it from codecov.io. Required or set it with the environment variable CODECOV_STATIC_TOKEN"
+      },
+      {
+        "name": "enterprise_url",
+        "required": false,
+        "default": null,
+        "description": "Change the upload host (Enterprise use only)"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": null,
+        "description": "File pattern to search for. Defaults to \"*\""
+      },
+      {
+        "name": "folders_to_exclude",
+        "required": false,
+        "default": null,
+        "description": "Avoid certain folders when uploading static analysis"
+      },
+      {
+        "name": "force",
+        "required": false,
+        "default": null,
+        "description": "Force upload of files during static analysis regardless if they are new"
+      },
+      {
+        "name": "label_max_wait_time",
+        "required": false,
+        "default": null,
+        "description": "Max time (in seconds) to wait for the label analysis. Default is to wait forever."
+      },
+      {
+        "name": "os",
+        "required": false,
+        "default": null,
+        "description": "Override the assumed OS. Options are linux | macos | windows."
+      },
+      {
+        "name": "output_variable",
+        "required": false,
+        "default": null,
+        "description": "Variable to save down tests string. Defaults to CODECOV_ATS_TESTS"
+      },
+      {
+        "name": "override_base_commit",
+        "required": false,
+        "default": null,
+        "description": "Override the assumed base commit."
+      },
+      {
+        "name": "override_branch",
+        "required": false,
+        "default": null,
+        "description": "Branch to which this commit belongs to"
+      },
+      {
+        "name": "override_commit",
+        "required": false,
+        "default": null,
+        "description": "Commit SHA (with 40 chars)"
+      },
+      {
+        "name": "override_parent",
+        "required": false,
+        "default": null,
+        "description": "SHA (with 40 chars) of what should be the parent of this commit"
+      },
+      {
+        "name": "override_pr",
+        "required": false,
+        "default": null,
+        "description": "Specify the pull request number mannually."
+      },
+      {
+        "name": "override_slug",
+        "required": false,
+        "default": null,
+        "description": "owner/repo slug used instead of the private repo token in Self-hosted"
+      },
+      {
+        "name": "static_folders_to_exclude",
+        "required": false,
+        "default": null,
+        "description": "Folders not to search during static analysis"
+      },
+      {
+        "name": "static_folder_to_search",
+        "required": false,
+        "default": null,
+        "description": "Folder to search during static analysis"
+      },
+      {
+        "name": "static_force",
+        "required": false,
+        "default": null,
+        "description": "Force running of static analysis"
+      },
+      {
+        "name": "static_number_processes",
+        "required": false,
+        "default": null,
+        "description": "Number of processes to use during static analysis"
+      },
+      {
+        "name": "static_search_pattern",
+        "required": false,
+        "default": null,
+        "description": "File pattern to search for during static analysis"
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": null,
+        "description": "Specify whether the Codecov output should be verbose"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Specify which version of the Codecov CLI should be used. Defaults to `latest`"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "id": "codecov-ats",
+          "run": "echo \"${{ github.action_path }}\" >> $GITHUB_PATH\necho \"Running ATS Action version: $(cat ${{ github.action_path }}/dist/VERSION)\"\n\n${{ github.action_path }}/dist/codecov_ats.sh | tee codecov_ats_output.txt\n\nif [[ $? == 0 ]]; then\n  echo \"Codecov: Action complete. Check codecov_ats folder for results.\"\n  cat codecov_ats/result.json\nelse\n  echo \"Codecov: Action failed to successfully run\"\n  exit 1;\nfi\n",
+          "shell": "bash",
+          "env": {
+            "INPUTS_CODECOV_STATIC_TOKEN": "${{ inputs.static_token }}",
+            "INPUTS_CODECOV_TOKEN": "${{ inputs.token }}",
+            "INPUTS_ENTERPRISE_URL": "${{ inputs.enterprise_url }}",
+            "INPUTS_LABEL_MAX_WAIT_TIME": "${{ inputs.label_max_wait_time }}",
+            "INPUTS_OVERRIDE_BASE_COMMIT": "${{ inputs.override_base_commit }}",
+            "INPUTS_OVERRIDE_BRANCH": "${{ inputs.override_branch }}",
+            "INPUTS_OVERRIDE_COMMIT": "${{ inputs.override_commit }}",
+            "INPUTS_OVERRIDE_PARENT": "${{ inputs.override_parent }}",
+            "INPUTS_OVERRIDE_PR": "${{ inputs.override_pr }}",
+            "INPUTS_OVERRIDE_SLUG": "${{ inputs.override_slug }}",
+            "INPUTS_STATIC_FOLDERS_TO_EXCLUDE": "${{ inputs.static_folder_to_exclude }}",
+            "INPUTS_STATIC_FOLDER_TO_SEARCH": "${{ inputs.static_folder_to_search }}",
+            "INPUTS_STATIC_FORCE": "${{ inputs.static_force }}",
+            "INPUTS_STATIC_NUMBER_PROCESSES": "${{ inputs.static_number_processes }}",
+            "INPUTS_STATIC_SEARCH_PATTERN": "${{ inputs.static_search_pattern }}",
+            "INPUTS_VERBOSE": "${{ inputs.verbose }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is primarily focused on returning test labels from Codecov, which is related to testing and code quality. It also involves authentication through the use of tokens.",
+        "tags": [
+          "codecov",
+          "testing",
+          "CI",
+          "code quality",
+          "authentication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "53d803e08087c31754826c190e2a882ae2fd6944e3d0320c6403e9923fd0a066",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.446421Z"
+  }
+}

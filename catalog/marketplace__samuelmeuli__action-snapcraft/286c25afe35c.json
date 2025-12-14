@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-snapcraft",
+  "version_id": "286c25afe35c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/samuelmeuli/action-snapcraft/action.yml",
+    "origin": "github.com/samuelmeuli/action-snapcraft",
+    "publisher": "samuelmeuli",
+    "verified": false
+  },
+  "definition": {
+    "name": "Snapcraft Action",
+    "description": "GitHub Action for setting up Snapcraft",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "channel",
+        "required": false,
+        "default": "stable",
+        "description": "The channel to install Snapcraft from"
+      },
+      {
+        "name": "skip_install",
+        "required": false,
+        "default": null,
+        "description": "Skip installation (login only)"
+      },
+      {
+        "name": "use_lxd",
+        "required": false,
+        "default": null,
+        "description": "Whether to install and configure lxd"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "286c25afe35cc7ffe6d119497d21b83a87a32d7f7ed04413d41d4cb346487b0b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.888130Z"
+  }
+}

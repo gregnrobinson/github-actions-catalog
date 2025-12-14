@@ -1,0 +1,88 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-ecr-login",
+  "version_id": "f7b030f7f056",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecr-login/action.yml",
+    "origin": "github.com/aws-actions/amazon-ecr-login",
+    "publisher": "aws-actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Amazon ECR \"Login\" Action for GitHub Actions",
+    "description": "Logs in the local Docker client to one or more Amazon ECR Private registries or an Amazon ECR Public registry",
+    "author": "",
+    "inputs": [
+      {
+        "name": "http-proxy",
+        "required": false,
+        "default": null,
+        "description": "Proxy to use for the AWS SDK agent."
+      },
+      {
+        "name": "mask-password",
+        "required": false,
+        "default": "true",
+        "description": "Mask the docker password to prevent it being printed to action logs if debug logging is enabled. NOTE: This will prevent the Docker password output from being shared between separate jobs. Options: ['true', 'false']"
+      },
+      {
+        "name": "registries",
+        "required": false,
+        "default": null,
+        "description": "A comma-delimited list of AWS account IDs that are associated with the ECR Private registries. If you do not specify a registry, the default ECR Private registry is assumed. If 'public' is given as input to 'registry-type', this input is ignored."
+      },
+      {
+        "name": "registry-type",
+        "required": false,
+        "default": "private",
+        "description": "Which ECR registry type to log into. Options: [private, public]"
+      },
+      {
+        "name": "skip-logout",
+        "required": false,
+        "default": "false",
+        "description": "Whether to skip explicit logout of the registries during post-job cleanup. Exists for backward compatibility on self-hosted runners. Not recommended. Options: ['true', 'false']"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "registry",
+        "description": "The URI of the ECR Private or ECR Public registry. If logging into multiple registries on ECR Private, this output will not be set."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/cleanup/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Infrastructure",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action primarily handles authentication to Amazon ECR, which is essential for accessing Docker images stored in AWS. It also relates to infrastructure as it prepares the environment for Docker image management and packaging.",
+        "tags": [
+          "AWS",
+          "ECR",
+          "Docker",
+          "Authentication",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f7b030f7f056711d2ec8a1d723bf7db40cd412fdbd1527a3d544a1d02a5aed36",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.071362Z"
+  }
+}

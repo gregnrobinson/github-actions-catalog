@@ -1,0 +1,17 @@
+name: Autosquash
+author: Thibault Derousseaux <tibdex@gmail.com>
+description: Automatically update PRs with outdated checks and squash and merge the ones matching all branch protections.
+inputs:
+  github_token:
+    description: Token for the GitHub API.
+    required: true
+  label:
+    default: autosquash
+    description: Name of the label used by Autosquash to find the pull requests to handle.
+    required: true
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: box
+  color: yellow

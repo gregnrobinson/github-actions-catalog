@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/azure/k8s-create-secret",
+  "version_id": "a23d7739c3b5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/k8s-create-secret/action.yml",
+    "origin": "github.com/azure/k8s-create-secret",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Create secret in Kubernetes cluster",
+    "description": "Create a generic secret, docker-registry secret, or TLS secret in a Kubernetes such as Azure Kubernetes Service (AKS) clusters",
+    "author": "",
+    "inputs": [
+      {
+        "name": "namespace",
+        "required": false,
+        "default": null,
+        "description": "Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace."
+      },
+      {
+        "name": "secret-type",
+        "required": false,
+        "default": "kubernetes.io/dockerconfigjson",
+        "description": "Type of Kubernetes secret. Defaults to 'kubernetes.io/dockerconfigjson'."
+      },
+      {
+        "name": "secret-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the secret. You can use this secret name in the Kubernetes YAML configuration file."
+      },
+      {
+        "name": "container-registry-url",
+        "required": false,
+        "default": null,
+        "description": "Container Registry URL"
+      },
+      {
+        "name": "container-registry-username",
+        "required": false,
+        "default": null,
+        "description": "Container Registry user name"
+      },
+      {
+        "name": "container-registry-password",
+        "required": false,
+        "default": null,
+        "description": "Container Registry password"
+      },
+      {
+        "name": "container-registry-email",
+        "required": false,
+        "default": null,
+        "description": "Container Registry email (optional even when using url,username,password)"
+      },
+      {
+        "name": "string-data",
+        "required": false,
+        "default": null,
+        "description": "JSON object with plaintext string data for secret ex: {\"key1\":\"value1\"}"
+      },
+      {
+        "name": "data",
+        "required": false,
+        "default": null,
+        "description": "JSON object with the serialized form of the secret data in a base64 encoded string ex: {\"key1\":\"[base64 encoded data]\"}"
+      },
+      {
+        "name": "tls-cert",
+        "required": false,
+        "default": null,
+        "description": "Base64 encoded TLS certificate (PEM format)"
+      },
+      {
+        "name": "tls-key",
+        "required": false,
+        "default": null,
+        "description": "Base64 encoded TLS private key (PEM format)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "secret-name",
+        "description": "Secret name"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a23d7739c3b57b67473f1c17b59682b8ebb6bf4b4cc78d7d5f7e8e5dd53f1af0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.697418Z"
+  }
+}

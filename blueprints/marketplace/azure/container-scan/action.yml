@@ -1,0 +1,38 @@
+name: 'Container image scan'
+description: 'Scan container images for vulnerabilities and CIS guidelines'
+inputs:
+  image-name:
+    description: 'Docker image to scan'
+    required: true
+  severity-threshold:
+    description: '(Optional) Minimum severity threshold set to control flagging of the vulnerabilities found during the scan. The available levels are: (UNKNOWN, LOW, MEDIUM, HIGH, CRITICAL); if you set the severity-threshold to be `MEDIUM` every CVE found of a level higher than or equal to `MEDIUM` would be displayed'
+    required: false
+    default: 'HIGH'
+  username:
+    description: 'Username to authenticate to the Docker registry'
+    required: false
+  password:
+    description: 'Password to authenticate to the Docker registry'
+    required: false
+  token:
+    description: 'Github token'
+    default: ${{ github.token }}
+    required: true
+  trivy-version:
+    description: 'Version of Trivy to run'
+    default: 'latest'
+    required: false
+  run-quality-checks:
+    description: 'Add additional checks to ensure the image is secure and follows best practices and CIS standards'
+    default: 'true'
+    required: false
+
+outputs:
+  scan-report-path:
+    description: 'File path where the scan results are stored'
+  check-run-url:
+    description: 'URL of the check run. Overview about finding of vulnerabilities and best-practices.'
+
+runs:
+  using: 'node12'
+  main: 'lib/main.js'

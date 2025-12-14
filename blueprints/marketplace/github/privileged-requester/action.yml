@@ -1,0 +1,57 @@
+name: 'Privileged Requester'
+description: 'Checks a PR against configurable criteria to determine whether or not the PR should be automatically approved'
+branding:
+  icon: 'check'
+  color: 'green'
+inputs:
+  github_token:
+    description: |
+      'The GitHub token used to create an authenticated client - Provided for you by default! - Repository scoped token'
+
+      You can use the default provided token or you can provide a PAT as an alternative robot user token
+    required: true
+    default: ${{ github.token }}
+  handle:
+    description: 'When using the default github.token (from above), the "handle" is fetched from this input since the token is repository scoped and it cannot even read its own handle. You should not need to change this input.'
+    required: true
+    default: 'github-actions[bot]'
+  path:
+    description: 'Path where the privileged requester configuration can be found'
+    required: true
+    default: config/privileged-requester.yaml
+  prCreator:
+    description: 'The creator of the PR for this pull request event'
+    required: true
+    default: ${{ github.event.pull_request.user.login }}
+  prNumber:
+    description: 'The number of the PR for this pull request event'
+    required: true
+    default: ${{ github.event.pull_request.number }}
+  checkCommits:
+    description: 'An option to check that every commit in the PR is made from the privileged requester'
+    required: true
+    default: 'true'
+  checkDiff:
+    description: 'An option to check that the PR diff only has a removal diff, with no additions'
+    required: true
+    default: 'true'
+  checkLabels:
+    description: 'An option to check that the labels on the PR match those defined in the privileged requester config'
+    required: true
+    default: 'true'
+  commitVerification:
+    description: 'Whether or not to validate all commits have proper verification via GPG signed commits'
+    required: true
+    default: 'false'
+  fallback_to_commit_author:
+    description: 'Whether or not to fallback to the commit author value if the commit login value is missing'
+    required: true
+    default: 'false'
+outputs:
+  approved: # output will be available to future steps
+    description: "Whether or not the PR was approved - 'true' or 'false'"
+  commits_verified:
+    description: The string "true" if all commits in the PR are signed/verified
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,0 +1,104 @@
+{
+  "action_id": "marketplace/azure/WordPress-Azure-VirtualMachine",
+  "version_id": "11fadb82c1b6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/azure/WordPress-Azure-VirtualMachine/action.yml",
+    "origin": "github.com/azure/WordPress-Azure-VirtualMachine",
+    "publisher": "azure",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy WordPress on Azure Virtual Machine - Azure Quickstart Template",
+    "description": "This action helps create an Azure Virtual Machine and deploy Wordpress on it",
+    "author": "",
+    "inputs": [
+      {
+        "name": "client-id",
+        "required": true,
+        "default": null,
+        "description": "Client id to login to azure"
+      },
+      {
+        "name": "tenant-id",
+        "required": true,
+        "default": null,
+        "description": "Tenant id to login to azure"
+      },
+      {
+        "name": "subscription-id",
+        "required": true,
+        "default": null,
+        "description": "Subscription id to be used with your az login"
+      },
+      {
+        "name": "resource-group-name",
+        "required": true,
+        "default": null,
+        "description": "Resource group to deploy your resources to"
+      },
+      {
+        "name": "admin-username",
+        "required": true,
+        "default": null,
+        "description": "Admin username to login to app"
+      },
+      {
+        "name": "admin-password",
+        "required": true,
+        "default": null,
+        "description": "Admin password to login to app and mySql"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Checkout master",
+          "uses": "actions/checkout@v3"
+        },
+        {
+          "name": "az cli login",
+          "uses": "azure/login@v1",
+          "with": {
+            "client-id": "${{ inputs.client-id }}",
+            "tenant-id": "${{ inputs.tenant-id }}",
+            "subscription-id": "${{ inputs.subscription-id }}",
+            "enable-AzPSSession": true
+          }
+        },
+        {
+          "name": "Az deploy - Wordpress on VM",
+          "uses": "azure/arm-deploy@v1",
+          "with": {
+            "subscriptionId": "${{ inputs.subscription-id }}",
+            "resourceGroupName": "${{ inputs.resource-group-name }}",
+            "template": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wordpress/wordpress-single-vm-ubuntu/azuredeploy.json",
+            "parameters": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/application-workloads/wordpress/wordpress-single-vm-ubuntu/azuredeploy.parameters.json authenticationType=password mySqlPassword=${{ inputs.admin-password }} vmDnsName=dns-vm-2 vmSize=Standard_D2as_v4 adminUsername=${{ inputs.admin-username }} adminPasswordOrKey=${{inputs.admin-password}}",
+            "failOnStdErr": false
+          }
+        },
+        {
+          "name": "Fetch deployment record - Run Azure PowerShell inline script",
+          "uses": "azure/powershell@v1",
+          "with": {
+            "inlineScript": "Get-AzResourceGroupDeploymentOperation -ResourceGroupName ${{ inputs.resource-group-name }} -DeploymentName \"azuredeploy\"\n",
+            "azPSVersion": "latest"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "11fadb82c1b634ce777d1ee175f534867cb077649d45c2d8553bc17a422985ee",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.577805Z"
+  }
+}

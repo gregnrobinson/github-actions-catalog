@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/dflook/terraform-output",
+  "version_id": "c89ceffc23a8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dflook/terraform-output/action.yml",
+    "origin": "github.com/dflook/terraform-output",
+    "publisher": "dflook",
+    "verified": false
+  },
+  "definition": {
+    "name": "terraform-output",
+    "description": "Retrieve the root-level outputs from a Terraform configuration.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the Terraform root module directory."
+      },
+      {
+        "name": "workspace",
+        "required": false,
+        "default": "default",
+        "description": "Terraform workspace to get outputs from"
+      },
+      {
+        "name": "backend_config",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config values, one per line."
+      },
+      {
+        "name": "backend_config_file",
+        "required": false,
+        "default": "",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the Terraform config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nTerraform list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://danielflook/terraform-github-actions@sha256:5bdd47d526c0770b32f11f395c953d5bb06aa77ea4cb8818c4cda6167a0018cc",
+      "entrypoint": "/entrypoints/output.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c89ceffc23a833a496fa3148aaf63c3cf91228efd895be608561b97d7948e981",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.364412Z"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/actions/setup-haskell",
+  "version_id": "4cea180c420c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions/setup-haskell/action.yml",
+    "origin": "github.com/actions/setup-haskell",
+    "publisher": "actions",
+    "verified": true
+  },
+  "definition": {
+    "name": "Setup Haskell",
+    "description": "Set up a specific version of GHC and Cabal and add the command-line tools to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "ghc-version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of GHC to use. If set to \"latest\", it will always get the latest stable version."
+      },
+      {
+        "name": "cabal-version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of Cabal to use. If set to \"latest\", it will always get the latest stable version."
+      },
+      {
+        "name": "stack-version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of Stack to use. If set to \"latest\", it will always get the latest stable version."
+      },
+      {
+        "name": "enable-stack",
+        "required": false,
+        "default": null,
+        "description": "If specified, will setup Stack"
+      },
+      {
+        "name": "stack-no-global",
+        "required": false,
+        "default": null,
+        "description": "If specified, enable-stack must be set. Prevents installing GHC and Cabal globally"
+      },
+      {
+        "name": "stack-setup-ghc",
+        "required": false,
+        "default": null,
+        "description": "If specified, enable-stack must be set. Will run stack setup to install the specified GHC"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ghc-path",
+        "description": "The path of the ghc executable _directory_"
+      },
+      {
+        "name": "cabal-path",
+        "description": "The path of the cabal executable _directory_"
+      },
+      {
+        "name": "stack-path",
+        "description": "The path of the stack executable _directory_"
+      },
+      {
+        "name": "cabal-store",
+        "description": "The path to the cabal store"
+      },
+      {
+        "name": "ghc-exe",
+        "description": "The path of the ghc _executable_"
+      },
+      {
+        "name": "cabal-exe",
+        "description": "The path of the cabal _executable_"
+      },
+      {
+        "name": "stack-exe",
+        "description": "The path of the stack _executable_"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up specific versions of GHC, Cabal, and Stack, which are essential for managing dependencies in Haskell projects. It also prepares the environment for building Haskell applications.",
+        "tags": [
+          "Haskell",
+          "GHC",
+          "Cabal",
+          "Stack",
+          "Dependency Management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4cea180c420c8a4738fb4217d999d2461be4d744abda74e9e7b417301134172a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.298994Z"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "action_id": "marketplace/peter-evans/find-comment",
+  "version_id": "3cd0fcb2206f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/find-comment/action.yml",
+    "origin": "github.com/peter-evans/find-comment",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Find Comment",
+    "description": "Find an issue or pull request comment",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GITHUB_TOKEN or a repo scoped PAT."
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": "${{ github.repository }}",
+        "description": "The full name of the repository containing the issue or pull request."
+      },
+      {
+        "name": "issue-number",
+        "required": false,
+        "default": null,
+        "description": "The number of the issue or pull request in which to search."
+      },
+      {
+        "name": "comment-author",
+        "required": false,
+        "default": null,
+        "description": "The GitHub user name of the comment author."
+      },
+      {
+        "name": "body-includes",
+        "required": false,
+        "default": null,
+        "description": "A string to search for in the body of comments."
+      },
+      {
+        "name": "body-regex",
+        "required": false,
+        "default": null,
+        "description": "A regular expression to search for in the body of comments."
+      },
+      {
+        "name": "direction",
+        "required": false,
+        "default": "first",
+        "description": "Search direction, specified as `first` or `last`"
+      },
+      {
+        "name": "nth",
+        "required": false,
+        "default": 0,
+        "description": "0-indexed number, specifying which comment to return if multiple are found"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "comment-id",
+        "description": "The id of the matching comment found."
+      },
+      {
+        "name": "comment-node-id",
+        "description": "The GraphQL node id of the matching comment found."
+      },
+      {
+        "name": "comment-body",
+        "description": "The body of the matching comment found."
+      },
+      {
+        "name": "comment-author",
+        "description": "The author of the matching comment found."
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to find comments on issues or pull requests, which is primarily a communication function. Additionally, it can relate to code quality by facilitating discussions around code reviews.",
+        "tags": [
+          "comment",
+          "issue",
+          "pull request",
+          "GitHub",
+          "communication"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3cd0fcb2206f027fd38445c6982692027c5de6a2ce0ce3e6269aab9426a54f2b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.499878Z"
+  }
+}

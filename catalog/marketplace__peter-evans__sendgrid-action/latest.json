@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/peter-evans/sendgrid-action",
+  "version_id": "06e0c0219f37",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/sendgrid-action/action.yml",
+    "origin": "github.com/peter-evans/sendgrid-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "SendGrid Action",
+    "description": "Send email with SendGrid",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to send emails using SendGrid, which falls under the Communication category, and it also serves the purpose of sending notifications.",
+        "tags": [
+          "SendGrid",
+          "email",
+          "notification",
+          "communication",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "06e0c0219f373712a8941d0aafd6cf991e07fcce8aa5a029837e3503a8ce9c36",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:52.476541Z"
+  }
+}

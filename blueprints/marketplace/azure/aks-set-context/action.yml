@@ -1,0 +1,34 @@
+name: 'Azure Kubernetes set context'
+description: 'Sets the kubeconfig on the machine to communicate with the Azure Kubernetes cluster.'
+# Azure/login must be run before this action
+inputs:
+   resource-group:
+      description: 'Resource Group Name'
+      required: true
+   cluster-name:
+      description: 'AKS Cluster Name'
+      required: true
+   subscription:
+      description: 'AKS Cluster Subscription'
+      required: false
+   admin:
+      description: 'Get cluster admin credentials. Values: true or false'
+      default: false
+      required: false
+   use-kubelogin:
+      description: 'Enables kubelogin for non-admin user scenario. Values: true or false'
+      default: false
+      required: false
+   public-fqdn:
+      description: 'Get private cluster credential with server address to be public fqdn.  Values: true or false'
+      default: false
+      required: false
+   resource-type:
+      description: Either Microsoft.ContainerService/managedClusters or Microsoft.ContainerService/fleets'.
+      required: false
+      default: 'Microsoft.ContainerService/managedClusters'
+branding:
+   color: 'green'
+runs:
+   using: 'node20'
+   main: 'lib/index.js'

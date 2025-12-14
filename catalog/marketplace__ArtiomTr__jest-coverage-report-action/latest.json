@@ -1,0 +1,156 @@
+{
+  "action_id": "marketplace/ArtiomTr/jest-coverage-report-action",
+  "version_id": "b12148dfb4eb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/ArtiomTr/jest-coverage-report-action/action.yml",
+    "origin": "github.com/ArtiomTr/jest-coverage-report-action",
+    "publisher": "ArtiomTr",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jest coverage report",
+    "description": "Track your code coverage in each pull request.",
+    "author": "Artiom Tretjakovas <artiom.tretjakovas2@gmail.com>",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "A github access token"
+      },
+      {
+        "name": "test-script",
+        "required": false,
+        "default": "npx jest",
+        "description": "A custom npm script to get coverage"
+      },
+      {
+        "name": "threshold",
+        "required": false,
+        "default": null,
+        "description": "Coverage threshold. If total coverage is less than threshold, PR will be rejected"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "Custom working directory"
+      },
+      {
+        "name": "icons",
+        "required": false,
+        "default": "emoji",
+        "description": "Which icons to use. Available choices: emoji, ascii"
+      },
+      {
+        "name": "annotations",
+        "required": false,
+        "default": "all",
+        "description": "What type of annotations show. Options: none, coverage, failed-tests, all"
+      },
+      {
+        "name": "package-manager",
+        "required": false,
+        "default": "npm",
+        "description": "Which package manager to use; can be `npm`, `yarn`, `pnpm`, or `bun`"
+      },
+      {
+        "name": "skip-step",
+        "required": false,
+        "default": "none",
+        "description": "`none` for running all steps, `install` to skip installing dependencies or `all` to skip installing dependencies and running the test script"
+      },
+      {
+        "name": "custom-title",
+        "required": false,
+        "default": null,
+        "description": "Sets the title of the coverage report comment in Github."
+      },
+      {
+        "name": "coverage-file",
+        "required": false,
+        "default": null,
+        "description": "Path to file the a previously generated report.json file. (bypasses running the test again)"
+      },
+      {
+        "name": "base-coverage-file",
+        "required": false,
+        "default": null,
+        "description": "Path to the report.json file to compare against. This should be from the branch the PR is merging into."
+      },
+      {
+        "name": "prnumber",
+        "required": false,
+        "default": null,
+        "description": "Pull Request number for this commit. Use if your action is running in a PR, but non on the pull_request event, so that you do not get multiple comments."
+      },
+      {
+        "name": "output",
+        "required": false,
+        "default": "comment",
+        "description": "What output should action produce? `comment` - add comment to PR, `report-markdown` - report markdown text in \"outputs.report\"."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "description": "Generated markdown report. Exists only if input option \"output\" is set to \"report-markdown\"."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "$GITHUB_ACTION_PATH/run.sh",
+          "shell": "bash",
+          "id": "main",
+          "env": {
+            "INPUT_GITHUB-TOKEN": "${{ inputs.github-token }}",
+            "INPUT_TEST-SCRIPT": "${{ inputs.test-script }}",
+            "INPUT_THRESHOLD": "${{ inputs.threshold }}",
+            "INPUT_WORKING-DIRECTORY": "${{ inputs.working-directory }}",
+            "INPUT_ICONS": "${{ inputs.icons }}",
+            "INPUT_ANNOTATIONS": "${{ inputs.annotations }}",
+            "INPUT_PACKAGE-MANAGER": "${{ inputs.package-manager }}",
+            "INPUT_SKIP-STEP": "${{ inputs.skip-step }}",
+            "INPUT_CUSTOM-TITLE": "${{ inputs.custom-title }}",
+            "INPUT_COVERAGE-FILE": "${{ inputs.coverage-file }}",
+            "INPUT_BASE-COVERAGE-FILE": "${{ inputs.base-coverage-file }}",
+            "INPUT_PRNUMBER": "${{ inputs.prnumber }}",
+            "INPUT_OUTPUT": "${{ inputs.output }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action generates a coverage report for tests, which directly relates to testing and code quality. It also has the potential to notify users about coverage thresholds in pull requests.",
+        "tags": [
+          "jest",
+          "coverage",
+          "report",
+          "testing",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b12148dfb4ebe4051c6b9696c95799c84635b7ea3364ff944b9b5ebc576cf2e2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.501109Z"
+  }
+}

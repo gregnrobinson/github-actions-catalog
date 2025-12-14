@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruffleHog OSS - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>TruffleHog OSS</h1>
+
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/appleboy/trufflehog</code></p>
+            <p><strong>Author:</strong> Truffle Security Co. &lt;support@trufflesec.com&gt;</p>
+            <p><strong>Publisher:</strong> appleboy</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/appleboy/trufflehog" target="_blank">github.com/appleboy/trufflehog</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Scan Github Actions with TruffleHog.</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Security</span> <span class="badge badge-category">Code quality</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Security</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> TruffleHog is designed to scan for sensitive information in code, which falls under security. Additionally, it contributes to code quality by identifying potential vulnerabilities.</p>
+            <p><strong>Tags:</strong> <span class="tag">security</span> <span class="tag">code quality</span> <span class="tag">trufflehog</span> <span class="tag">github actions</span> <span class="tag">scanning</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>path</code></td>
+                <td>No</td>
+                <td>Repository path</td>
+            </tr><tr>
+                <td><code>base</code></td>
+                <td>No</td>
+                <td>Start scanning from here (usually main branch).</td>
+            </tr><tr>
+                <td><code>head</code></td>
+                <td>No</td>
+                <td>Scan commits until here (usually dev branch).</td>
+            </tr><tr>
+                <td><code>extra_args</code></td>
+                <td>No</td>
+                <td>Extra args to be passed to the trufflehog cli.</td>
+            </tr><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>Scan with this trufflehog cli version.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

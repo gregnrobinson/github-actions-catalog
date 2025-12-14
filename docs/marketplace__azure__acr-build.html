@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Container Registry Build - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Azure Container Registry Build</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/azure/acr-build</code></p>
+            <p><strong>Author:</strong> Alessandro Vozza</p>
+            <p><strong>Publisher:</strong> azure</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/azure/acr-build" target="_blank">github.com/azure/acr-build</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Use ACR to build a container image</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Build</span> <span class="badge badge-category">Authentication</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Packaging</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Build</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> The action is primarily focused on building container images, which categorizes it under Build. It also requires authentication through a service principal, linking it to Authentication and Infrastructure as it interacts with Azure services.</p>
+            <p><strong>Tags:</strong> <span class="tag">Azure</span> <span class="tag">Container Registry</span> <span class="tag">Build</span> <span class="tag">Docker</span> <span class="tag">CI/CD</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>service_principal</code></td>
+                <td>Yes</td>
+                <td>Service Principal with Contributor role on the ACR</td>
+            </tr><tr>
+                <td><code>service_principal_password</code></td>
+                <td>Yes</td>
+                <td>Service Principal password</td>
+            </tr><tr>
+                <td><code>tenant</code></td>
+                <td>Yes</td>
+                <td>Azure Container Registry tenant</td>
+            </tr><tr>
+                <td><code>registry</code></td>
+                <td>Yes</td>
+                <td>The name of the ACR, minus the .azurecr.io</td>
+            </tr><tr>
+                <td><code>repository</code></td>
+                <td>Yes</td>
+                <td>Repository to use</td>
+            </tr><tr>
+                <td><code>git_access_token</code></td>
+                <td>Yes</td>
+                <td>Github access token for private repositories</td>
+            </tr><tr>
+                <td><code>image</code></td>
+                <td>No</td>
+                <td>Docker image name</td>
+            </tr><tr>
+                <td><code>tag</code></td>
+                <td>No</td>
+                <td>Docker image tag, default to the commit SHA</td>
+            </tr><tr>
+                <td><code>branch</code></td>
+                <td>No</td>
+                <td>Branch to build from, defaults to master</td>
+            </tr><tr>
+                <td><code>folder</code></td>
+                <td>Yes</td>
+                <td>The folder in the Github repo that holds the source</td>
+            </tr><tr>
+                <td><code>dockerfile</code></td>
+                <td>No</td>
+                <td>The location of the Dockerfile; defaults to ./Dockerfile</td>
+            </tr><tr>
+                <td><code>build_args</code></td>
+                <td>No</td>
+                <td>JSON specifying key=value pairs as as Docker build arguments</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Setup Buildx - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Docker Setup Buildx</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/docker/setup-buildx-action</code></p>
+            <p><strong>Author:</strong> docker</p>
+            <p><strong>Publisher:</strong> docker</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/docker/setup-buildx-action" target="_blank">github.com/docker/setup-buildx-action</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Set up Docker Buildx</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Build</span> <span class="badge badge-category">Infrastructure</span> <span class="badge badge-category">Dependency management</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Build</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is primarily focused on setting up Docker Buildx, which is essential for building Docker images, thus categorizing it under Build. It also involves infrastructure setup for building processes and managing dependencies related to Docker builds.</p>
+            <p><strong>Tags:</strong> <span class="tag">Docker</span> <span class="tag">Buildx</span> <span class="tag">CI/CD</span> <span class="tag">Container</span> <span class="tag">Infrastructure</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>version</code></td>
+                <td>No</td>
+                <td>Buildx version. (eg. v0.3.0)</td>
+            </tr><tr>
+                <td><code>driver</code></td>
+                <td>No</td>
+                <td>Sets the builder driver to be used</td>
+            </tr><tr>
+                <td><code>driver-opts</code></td>
+                <td>No</td>
+                <td>List of additional driver-specific options. (eg. image=moby/buildkit:master)</td>
+            </tr><tr>
+                <td><code>buildkitd-flags</code></td>
+                <td>No</td>
+                <td>BuildKit daemon flags</td>
+            </tr><tr>
+                <td><code>buildkitd-config</code></td>
+                <td>No</td>
+                <td>BuildKit daemon config file</td>
+            </tr><tr>
+                <td><code>buildkitd-config-inline</code></td>
+                <td>No</td>
+                <td>Inline BuildKit daemon config</td>
+            </tr><tr>
+                <td><code>install</code></td>
+                <td>No</td>
+                <td>Sets up docker build command as an alias to docker buildx build</td>
+            </tr><tr>
+                <td><code>use</code></td>
+                <td>No</td>
+                <td>Switch to this builder instance</td>
+            </tr><tr>
+                <td><code>name</code></td>
+                <td>No</td>
+                <td>Name of the builder. If not specified, one will be generated or if it already exists, it will be used instead of creating a new one.</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>No</td>
+                <td>Optional address for docker socket or context from `docker context ls`</td>
+            </tr><tr>
+                <td><code>platforms</code></td>
+                <td>No</td>
+                <td>Fixed platforms for current node. If not empty, values take priority over the detected ones</td>
+            </tr><tr>
+                <td><code>append</code></td>
+                <td>No</td>
+                <td>Append additional nodes to the builder</td>
+            </tr><tr>
+                <td><code>keep-state</code></td>
+                <td>No</td>
+                <td>Keep BuildKit state on cleanup. This is only useful on persistent self-hosted runners.</td>
+            </tr><tr>
+                <td><code>cache-binary</code></td>
+                <td>No</td>
+                <td>Cache buildx binary to GitHub Actions cache backend</td>
+            </tr><tr>
+                <td><code>cleanup</code></td>
+                <td>No</td>
+                <td>Cleanup temp files and remove builder at the end of a job</td>
+            </tr><tr>
+                <td><code>config</code></td>
+                <td>No</td>
+                <td>BuildKit daemon config file</td>
+            </tr><tr>
+                <td><code>config-inline</code></td>
+                <td>No</td>
+                <td>Inline BuildKit daemon config</td>
+            </tr></tbody></table></div>
+        <div class="section"><h3>Outputs</h3><table class="outputs-table"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>name</code></td>
+                <td>Builder name</td>
+            </tr><tr>
+                <td><code>driver</code></td>
+                <td>Builder driver</td>
+            </tr><tr>
+                <td><code>platforms</code></td>
+                <td>Builder node platforms (preferred or available)</td>
+            </tr><tr>
+                <td><code>nodes</code></td>
+                <td>Builder nodes metadata</td>
+            </tr><tr>
+                <td><code>endpoint</code></td>
+                <td>Builder node endpoint (deprecated, use nodes output instead)</td>
+            </tr><tr>
+                <td><code>status</code></td>
+                <td>Builder node status (deprecated, use nodes output instead)</td>
+            </tr><tr>
+                <td><code>flags</code></td>
+                <td>Builder node flags (deprecated, use nodes output instead)</td>
+            </tr></tbody></table></div>
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>

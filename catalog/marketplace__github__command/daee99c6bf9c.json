@@ -1,0 +1,202 @@
+{
+  "action_id": "marketplace/github/command",
+  "version_id": "daee99c6bf9c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/command/action.yml",
+    "origin": "github.com/github/command",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "command-action",
+    "description": "IssueOps commands in GitHub Actions",
+    "author": "Grant Birkinbine",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client - Provided for you by default!"
+      },
+      {
+        "name": "status",
+        "required": true,
+        "default": "${{ job.status }}",
+        "description": "The status of the GitHub Actions - For use in the post run workflow - Provided for you by default!"
+      },
+      {
+        "name": "command",
+        "required": true,
+        "default": null,
+        "description": "The string to look for in comments as an IssueOps trigger/command. Example: \".lint\""
+      },
+      {
+        "name": "reaction",
+        "required": true,
+        "default": "eyes",
+        "description": "If set, the specified emoji \"reaction\" is put on the comment to indicate that the trigger was detected. For example, \"rocket\" or \"eyes\""
+      },
+      {
+        "name": "success_reaction",
+        "required": true,
+        "default": "+1",
+        "description": "The reaction to add to the comment that triggered the Action if its execution was successful"
+      },
+      {
+        "name": "failure_reaction",
+        "required": true,
+        "default": "-1",
+        "description": "The reaction to add to the comment that triggered the Action if its execution failed"
+      },
+      {
+        "name": "allowed_contexts",
+        "required": true,
+        "default": "pull_request",
+        "description": "A comma separated list of comment contexts that are allowed to trigger this IssueOps command. Pull requests and issues are the only currently supported contexts"
+      },
+      {
+        "name": "permissions",
+        "required": true,
+        "default": "write,admin",
+        "description": "The allowed GitHub permissions an actor can have to invoke IssueOps commands - Example: \"write,admin\""
+      },
+      {
+        "name": "allow_drafts",
+        "required": true,
+        "default": "false",
+        "description": "Whether or not to allow this IssueOps command to be run on draft pull requests"
+      },
+      {
+        "name": "allow_forks",
+        "required": true,
+        "default": "false",
+        "description": "Whether or not to allow this IssueOps command to be run on forked pull requests"
+      },
+      {
+        "name": "skip_ci",
+        "required": true,
+        "default": "false",
+        "description": "Whether or not to require passing CI checks before this IssueOps command can be run"
+      },
+      {
+        "name": "skip_reviews",
+        "required": true,
+        "default": "false",
+        "description": "Whether or not to require reviews before this IssueOps command can be run"
+      },
+      {
+        "name": "param_separator",
+        "required": true,
+        "default": "|",
+        "description": "The separator to use for parsing parameters in comments in IssueOps commands. Parameters will are saved as outputs and can be used in subsequent steps"
+      },
+      {
+        "name": "allowlist",
+        "required": false,
+        "default": "false",
+        "description": "A comma separated list of GitHub usernames or teams that should be allowed to use the IssueOps commands configured in this Action. If unset, then all users meeting the \"permissions\" requirement will be able to run commands. Example: \"monalisa,octocat,my-org/my-team\""
+      },
+      {
+        "name": "allowlist_pat",
+        "required": false,
+        "default": "false",
+        "description": "A GitHub personal access token with \"read:org\" scopes. This is only needed if you are using the \"allowlist\" option with a GitHub org team. For example: \"my-org/my-team\""
+      },
+      {
+        "name": "skip_completing",
+        "required": true,
+        "default": "false",
+        "description": "If set to \"true\", skip the process of completing the Action. This is useful if you want to customize the way this Action completes - For example, custom reactions, comments, etc"
+      },
+      {
+        "name": "fork_review_bypass",
+        "required": true,
+        "default": "false",
+        "description": "If set to \"true\", allow forks to bypass the review requirement if the operation is being made on a pull request from a fork. This option is potentially dangerous if you are checking out code in your workflow as a result of invoking this Action. If the code you are checking out has not been reviewed, then you might open yourself up to a TOCTOU vulnerability. You should always ensure that the code you are checking out has been reviewed, and that you checkout an exact commit sha rather than a ref."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "triggered",
+        "description": "The string \"true\" if the trigger was found, otherwise the string \"false\" - Just because the workflow was triggered does not mean it should continue. This is a step 1/2 check"
+      },
+      {
+        "name": "continue",
+        "description": "The string \"true\" if the workflow should continue, otherwise empty - Use this to conditionally control if your workflow should proceed or not. This is a step 2/2 check"
+      },
+      {
+        "name": "comment_body",
+        "description": "The comment body"
+      },
+      {
+        "name": "actor",
+        "description": "The GitHub handle of the actor that invoked the IssueOps command"
+      },
+      {
+        "name": "params",
+        "description": "The raw parameters that were passed into the IssueOps command"
+      },
+      {
+        "name": "comment_id",
+        "description": "The comment id which triggered this action"
+      },
+      {
+        "name": "issue_number",
+        "description": "The issue number which this Action was triggered on"
+      },
+      {
+        "name": "initial_reaction_id",
+        "description": "The reaction id for the initial reaction on the trigger comment"
+      },
+      {
+        "name": "fork",
+        "description": "The string \"true\" if the pull request is a fork, otherwise \"false\""
+      },
+      {
+        "name": "fork_ref",
+        "description": "The true ref of the fork"
+      },
+      {
+        "name": "fork_label",
+        "description": "The API label field returned for the fork"
+      },
+      {
+        "name": "fork_checkout",
+        "description": "The console command presented in the GitHub UI to checkout a given fork locally"
+      },
+      {
+        "name": "fork_full_name",
+        "description": "The full name of the fork in \"org/repo\" format"
+      },
+      {
+        "name": "sha",
+        "description": "The commit sha if being used in the context of a pull request"
+      },
+      {
+        "name": "ref",
+        "description": "The ref if being used in the context of a pull request"
+      },
+      {
+        "name": "base_ref",
+        "description": "The base ref that the pull request is merging into (if available and run in the context of a pull request)"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "daee99c6bf9ca8b6b7dad485c5ad6c025470fa9b0e938e7b7ad891910cf1c65d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.979217Z"
+  }
+}

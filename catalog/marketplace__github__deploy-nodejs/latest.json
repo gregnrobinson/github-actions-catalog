@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/github/deploy-nodejs",
+  "version_id": "e6821f53c310",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/github/deploy-nodejs/action.yml",
+    "origin": "github.com/github/deploy-nodejs",
+    "publisher": "github",
+    "verified": true
+  },
+  "definition": {
+    "name": "Deploy-NodeJS",
+    "description": "Install NodeJS on your GitHub Action runner.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on installing NodeJS, which is essential for setting up the infrastructure needed to run NodeJS applications. It also relates to deployment as it prepares the environment for deploying NodeJS applications.",
+        "tags": [
+          "NodeJS",
+          "Deployment",
+          "Infrastructure",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e6821f53c3102063d2a2dfe38ae002c0ebdefd755a6fea2bac55382172cf4558",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-14T22:40:51.984632Z"
+  }
+}

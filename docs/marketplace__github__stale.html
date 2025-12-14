@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Close Stale Issues - Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <a href="index.html" class="back-link">← Back to Catalog</a>
+
+        <div class="detail-header">
+            <h1>Close Stale Issues</h1>
+            <span class="badge badge-verified">✓ Official Publisher</span>
+        </div>
+
+        <div class="detail-meta">
+            <p><strong>Action ID:</strong> <code>marketplace/github/stale</code></p>
+            <p><strong>Author:</strong> GitHub</p>
+            <p><strong>Publisher:</strong> github</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/github/stale" target="_blank">github.com/github/stale</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Description</h2>
+            <p>Close issues and pull requests with no recent activity</p>
+        </div>
+
+        <div class="section"><h3>Categories</h3><p><span class="badge badge-category">Communication</span> <span class="badge badge-category">Notification</span></p></div>
+        <div class="section">
+            <h3>Categorization</h3>
+            <p><strong>Primary:</strong> Communication</p>
+            <p><strong>Confidence:</strong> high</p>
+            <p><strong>Reasoning:</strong> This action is designed to manage stale issues and pull requests by posting messages, which falls under communication and notification categories.</p>
+            <p><strong>Tags:</strong> <span class="tag">stale</span> <span class="tag">issues</span> <span class="tag">pull requests</span> <span class="tag">automation</span> <span class="tag">GitHub</span></p>
+        </div>
+        <div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody><tr>
+                <td><code>repo-token</code></td>
+                <td>Yes</td>
+                <td>Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.</td>
+            </tr><tr>
+                <td><code>stale-issue-message</code></td>
+                <td>No</td>
+                <td>The message to post on the issue when tagging it. If none provided, will not mark issues stale.</td>
+            </tr><tr>
+                <td><code>stale-pr-message</code></td>
+                <td>No</td>
+                <td>The message to post on the pr when tagging it. If none provided, will not mark pull requests stale.</td>
+            </tr><tr>
+                <td><code>close-issue-message</code></td>
+                <td>No</td>
+                <td>The message to post on the issue when closing it. If none provided, will not comment when closing an issue.</td>
+            </tr><tr>
+                <td><code>close-pr-message</code></td>
+                <td>No</td>
+                <td>The message to post on the pr when closing it. If none provided, will not comment when closing a pull requests.</td>
+            </tr><tr>
+                <td><code>days-before-stale</code></td>
+                <td>No</td>
+                <td>The number of days old an issue can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.</td>
+            </tr><tr>
+                <td><code>days-before-close</code></td>
+                <td>No</td>
+                <td>The number of days to wait to close an issue or pull request after it being marked stale. Set to -1 to never close stale issues.</td>
+            </tr><tr>
+                <td><code>stale-issue-label</code></td>
+                <td>No</td>
+                <td>The label to apply when an issue is stale.</td>
+            </tr><tr>
+                <td><code>close-issue-label</code></td>
+                <td>No</td>
+                <td>The label to apply when an issue is closed.</td>
+            </tr><tr>
+                <td><code>exempt-issue-labels</code></td>
+                <td>No</td>
+                <td>The labels to apply when an issue is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;)</td>
+            </tr><tr>
+                <td><code>stale-pr-label</code></td>
+                <td>No</td>
+                <td>The label to apply when a pull request is stale.</td>
+            </tr><tr>
+                <td><code>close-pr-label</code></td>
+                <td>No</td>
+                <td>The label to apply when a pull request is closed.</td>
+            </tr><tr>
+                <td><code>exempt-pr-labels</code></td>
+                <td>No</td>
+                <td>The labels to apply when a pull request is exempt from being marked stale. Separate multiple labels with commas (eg. &quot;label1,label2&quot;)</td>
+            </tr><tr>
+                <td><code>only-labels</code></td>
+                <td>No</td>
+                <td>Only issues or pull requests with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels.</td>
+            </tr><tr>
+                <td><code>operations-per-run</code></td>
+                <td>No</td>
+                <td>The maximum number of operations per run, used to control rate limiting.</td>
+            </tr><tr>
+                <td><code>remove-stale-when-updated</code></td>
+                <td>No</td>
+                <td>Remove stale labels from issues when they are updated or commented on.</td>
+            </tr><tr>
+                <td><code>debug-only</code></td>
+                <td>No</td>
+                <td>Run the processor in debug mode without actually performing any operations on live issues.</td>
+            </tr><tr>
+                <td><code>ascending</code></td>
+                <td>No</td>
+                <td>The order to get issues or pull requests. Defaults to false, which is descending</td>
+            </tr><tr>
+                <td><code>skip-stale-pr-message</code></td>
+                <td>No</td>
+                <td>Skip adding stale message when marking a pull request as stale.</td>
+            </tr><tr>
+                <td><code>skip-stale-issue-message</code></td>
+                <td>No</td>
+                <td>Skip adding stale message when marking an issue as stale.</td>
+            </tr></tbody></table></div>
+
+    </main>
+
+    <footer>
+        <p>Generated on 2025-12-14 17:56 UTC</p>
+    </footer>
+</body>
+</html>
