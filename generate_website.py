@@ -164,7 +164,7 @@ def generate_action_modal(action):
         category_badges = ""
         for cat in categories:
             category_badges += f'<span class="badge badge-category-primary">{escape_html(cat)}</span>'
-        categories_html = f'<div class="section"><h3>Categories</h3><p>{category_badges}</p></div>'
+        categories_html = f'<div class="section"><h3>Categories</h3><div class="modal-categories">{category_badges}</div></div>'
 
     # Build action.yml section
     action_yml_html = ""
@@ -174,11 +174,6 @@ def generate_action_modal(action):
             <h3>action.yml</h3>
             <pre><code>{action_yml_escaped}</code></pre>
         </div>'''
-
-    # Build verification badge
-    verified_badge = ""
-    if verified:
-        verified_badge = '<span class="badge badge-verified">✓ Official Publisher</span>'
 
     # Build origin link
     origin_html = ""
@@ -191,9 +186,8 @@ def generate_action_modal(action):
             <span class="close">&times;</span>
 
             <h1>{escape_html(name or action_id)}</h1>
-            {verified_badge}
 
-            <div class="modal-section">
+            <div class="modal-section modal-info-section">
                 <p><strong>Action ID:</strong> <code>{escape_html(action_id)}</code></p>
                 <p><strong>Author:</strong> {escape_html(author or "Unknown")}</p>
                 <p><strong>Publisher:</strong> {escape_html(publisher or "internal")}</p>
@@ -1370,8 +1364,12 @@ body {
     border-bottom: 1px solid var(--dark-border);
 }
 
+.modal-info-section p {
+    margin: 0.35rem 0;
+}
+
 .modal-section p {
-    margin: 0.75rem 0;
+    margin: 0.0rem 0;
 }
 
 .modal-section p:first-child {
@@ -1399,6 +1397,12 @@ body {
 .modal-section .badge {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+}
+
+.modal-categories {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .release-section {
