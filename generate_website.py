@@ -672,8 +672,24 @@ def generate_workflow_builder():
             background: var(--primary-dark);
         }}
 
+        .step-collapse {{
+            background: var(--dark-bg-tertiary);
+            color: var(--dark-text);
+            border: 1px solid var(--dark-border);
+        }}
+
+        .step-collapse:hover {{
+            background: var(--dark-bg-secondary);
+            border-color: var(--primary);
+        }}
+
         .step-inputs {{
             margin-top: 0.75rem;
+            transition: all 0.3s ease;
+        }}
+
+        .step-inputs.collapsed {{
+            display: none;
         }}
 
         .step-input {{
@@ -880,7 +896,8 @@ jobs:
                 name: action.name || action.id,
                 inputs: {{}},
                 inputs_schema: action.inputs || [],
-                sanitized_id: action.id.replace(/\\//g, '__')
+                sanitized_id: action.id.replace(/\\//g, '__'),
+                collapsed: false
             }};
 
             workflowSteps.push(step);
@@ -889,6 +906,11 @@ jobs:
 
         function removeStep(index) {{
             workflowSteps.splice(index, 1);
+            renderWorkflow();
+        }}
+
+        function toggleCollapse(index) {{
+            workflowSteps[index].collapsed = !workflowSteps[index].collapsed;
             renderWorkflow();
         }}
 
@@ -918,7 +940,8 @@ jobs:
 
                     let inputsHtml = '';
                     if (step.inputs_schema && step.inputs_schema.length > 0) {{
-                        inputsHtml = '<div class="step-inputs">';
+                        const collapsedClass = step.collapsed ? 'collapsed' : '';
+                        inputsHtml = `<div class="step-inputs ${{collapsedClass}}">`;
                         step.inputs_schema.forEach(input => {{
                             const value = step.inputs[input.name] || '';
                             const isRequired = input.required ? 'required' : 'optional';
@@ -937,10 +960,17 @@ jobs:
                         inputsHtml += '</div>';
                     }}
 
+                    const collapseIcon = step.collapsed ? '▶' : '▼';
+                    const collapseText = step.collapsed ? 'Expand' : 'Collapse';
+                    const collapseBtn = step.inputs_schema && step.inputs_schema.length > 0
+                        ? `<button class="step-btn step-collapse" onclick="toggleCollapse(${{index}})">${{collapseIcon}} ${{collapseText}}</button>`
+                        : '';
+
                     stepDiv.innerHTML = `
                         <div class="step-header">
                             <div class="step-name">Step ${{index + 1}}: ${{step.name}}</div>
                             <div class="step-buttons">
+                                ${{collapseBtn}}
                                 <button class="step-btn step-details" onclick="viewDetails(${{index}})">ℹ️ Details</button>
                                 <button class="step-btn step-remove" onclick="removeStep(${{index}})">Remove</button>
                             </div>
