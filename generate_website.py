@@ -490,7 +490,7 @@ def generate_workflow_builder():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workflow Generator - GitHub Actions Catalog</title>
+    <title>Workflow Builder - GitHub Actions Catalog</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .workflow-builder {{
@@ -772,14 +772,14 @@ def generate_workflow_builder():
         <div class="container navbar-content">
             <div class="navbar-left">
                 <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
-                <p class="navbar-subtitle">Workflow Generator</p>
+                <p class="navbar-subtitle">Workflow Builder</p>
             </div>
             <a href="index.html" class="navbar-btn">← Back to Catalog</a>
         </div>
     </nav>
 
     <main class="container">
-        <h1>Workflow Generator</h1>
+        <h1>Workflow Builder</h1>
         <p style="color: var(--dark-text-secondary); margin-bottom: 2rem;">Build GitHub Actions workflows by selecting and configuring actions</p>
 
         <div class="workflow-builder">
