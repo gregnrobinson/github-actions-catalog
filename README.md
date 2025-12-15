@@ -2,6 +2,14 @@
 
 An internal catalog platform for organizations to host and discover both official internal actions and curated marketplace actions for workflow development.
 
+## 🌐 Live Demo
+
+**[View Live Demo →](https://gregnrobinson.github.io/github-actions-catalog)**
+
+Try the catalog now! Search, filter, and explore actions.
+
+---
+
 ## Overview
 
 This project provides your organization with:
