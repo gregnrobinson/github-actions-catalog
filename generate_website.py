@@ -77,6 +77,30 @@ def load_action_yml(action):
 
     return None
 
+def get_catalog_stats(actions):
+    """Get catalog statistics."""
+    internal_count = 0
+    marketplace_count = 0
+    verified_count = 0
+
+    for action in actions:
+        action_type = get_action_type(action)
+
+        if action_type == "marketplace":
+            marketplace_count += 1
+        else:
+            internal_count += 1
+
+        if action.get("source", {}).get("verified"):
+            verified_count += 1
+
+    return {
+        "total": len(actions),
+        "internal": internal_count,
+        "marketplace": marketplace_count,
+        "verified": verified_count
+    }
+
 def generate_action_card(action):
     """Generate HTML card for an action."""
     action_id = action.get("action_id", "")
@@ -183,6 +207,7 @@ def generate_action_modal(action):
         action_yml_escaped = escape_html(action_yml)
         action_yml_html = f'''<div class="section">
             <h3>action.yml</h3>
+            <!-- pragma: allowlist secret -->
             <pre><code>{action_yml_escaped}</code></pre>
         </div>'''
 
@@ -223,6 +248,7 @@ def generate_index():
     """Generate main index page."""
     actions = load_catalog()
     categories = get_all_categories(actions)
+    stats = get_catalog_stats(actions)
 
     # Generate action cards
     cards_html = ""
@@ -251,11 +277,30 @@ def generate_index():
     <nav class="navbar">
         <div class="container">
             <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
-            <p class="navbar-subtitle">Browse {len(actions)} GitHub Actions</p>
+            <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
         </div>
     </nav>
 
     <main class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">{stats['total']}</div>
+                <div class="stat-label">Total Actions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{stats['internal']}</div>
+                <div class="stat-label">Internal Actions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{stats['marketplace']}</div>
+                <div class="stat-label">Marketplace Actions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{stats['verified']}</div>
+                <div class="stat-label">Verified Publishers</div>
+            </div>
+        </div>
+
         <div class="search-section">
             <input type="text" id="searchInput" class="search-input" placeholder="Search actions by name or description...">
 
@@ -274,7 +319,7 @@ def generate_index():
         </div>
 
         <div class="results-info">
-            <p id="resultCount">Showing {len(actions)} actions</p>
+            <p id="resultCount">Showing {stats['total']} actions</p>
         </div>
 
         <div class="actions-grid">
@@ -380,50 +425,79 @@ def generate_styles():
 }
 
 :root {
-    --primary: #0969da;
-    --primary-dark: #0860ca;
-    --success: #1a7f37;
-    --gray-100: #f6f8fa;
-    --gray-200: #eaeef2;
+    --primary: #58a6ff;
+    --primary-dark: #1f6feb;
+    --success: #3fb950;
+    --dark-bg: #0d1117;
+    --dark-bg-secondary: #161b22;
+    --dark-bg-tertiary: #21262d;
+    --dark-border: #30363d;
+    --dark-text: #c9d1d9;
+    --dark-text-secondary: #8b949e;
     --gray-300: #d0d7de;
-    --gray-600: #57606a;
-    --gray-700: #424a53;
-    --gray-800: #2d333b;
-    --gray-900: #0d1117;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
-    color: var(--gray-800);
-    background: var(--gray-100);
+    color: var(--dark-text);
+    background: var(--dark-bg);
 }
 
 .navbar {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
     color: white;
     padding: 2rem 0;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
     margin-bottom: 2rem;
+    border-bottom: 1px solid var(--dark-border);
 }
 
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 600;
     text-decoration: none;
-    color: white;
+    color: var(--primary);
 }
 
 .navbar-subtitle {
     font-size: 0.9rem;
-    opacity: 0.9;
+    opacity: 0.8;
     margin-top: 0.5rem;
+    color: var(--dark-text-secondary);
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--dark-bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--dark-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.stat-label {
+    color: var(--dark-text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
 }
 
 .search-section {
@@ -437,16 +511,22 @@ body {
     flex: 1;
     min-width: 250px;
     padding: 0.75rem 1rem;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--dark-border);
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.2s;
+    background: var(--dark-bg-secondary);
+    color: var(--dark-text);
+}
+
+.search-input::placeholder {
+    color: var(--dark-text-secondary);
 }
 
 .search-input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.1);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
 }
 
 .filter-group {
@@ -457,10 +537,11 @@ body {
 
 .category-filter {
     padding: 0.75rem 1rem;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--dark-border);
     border-radius: 6px;
     font-size: 1rem;
-    background: white;
+    background: var(--dark-bg-secondary);
+    color: var(--dark-text);
     cursor: pointer;
     transition: border-color 0.2s;
 }
@@ -472,7 +553,7 @@ body {
 
 .results-info {
     margin-bottom: 1.5rem;
-    color: var(--gray-600);
+    color: var(--dark-text-secondary);
 }
 
 .actions-grid {
@@ -483,8 +564,8 @@ body {
 }
 
 .action-card {
-    background: white;
-    border: 1px solid var(--gray-200);
+    background: var(--dark-bg-secondary);
+    border: 1px solid var(--dark-border);
     border-radius: 8px;
     padding: 1.5rem;
     transition: all 0.2s;
@@ -495,8 +576,9 @@ body {
 
 .action-card:hover {
     border-color: var(--primary);
-    box-shadow: 0 3px 12px rgba(9, 105, 218, 0.15);
+    box-shadow: 0 3px 12px rgba(88, 166, 255, 0.15);
     transform: translateY(-2px);
+    background: var(--dark-bg-tertiary);
 }
 
 .card-header {
@@ -512,17 +594,18 @@ body {
     margin: 0;
     flex: 1;
     word-break: break-word;
+    color: var(--primary);
 }
 
 .card-description {
-    color: var(--gray-600);
+    color: var(--dark-text-secondary);
     margin-bottom: 1rem;
     flex-grow: 1;
 }
 
 .card-meta {
     margin-bottom: 1rem;
-    color: var(--gray-600);
+    color: var(--dark-text-secondary);
     font-size: 0.9rem;
 }
 
@@ -555,7 +638,7 @@ body {
 
 .badge-category-primary {
     background: #3b2667;
-    color: white;
+    color: #c9d1d9;
     font-weight: 600;
 }
 
@@ -566,17 +649,18 @@ body {
 
 .badge-internal {
     background: #3b2667;
-    color: white;
+    color: #c9d1d9;
 }
 
 .badge-marketplace {
-    background: var(--primary);
+    background: #1f6feb;
     color: white;
 }
 
 .badge-more {
-    background: var(--gray-300);
-    color: var(--gray-800);
+    background: var(--dark-bg-tertiary);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
 }
 
 .modal {
@@ -587,23 +671,23 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
     overflow-y: auto;
 }
 
 .modal-content {
-    background: white;
+    background: var(--dark-bg-secondary);
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 8px;
     max-width: 900px;
     max-height: 90vh;
     overflow-y: auto;
-    border: 1px solid var(--gray-300);
+    border: 1px solid var(--dark-border);
 }
 
 .close {
-    color: var(--gray-600);
+    color: var(--dark-text-secondary);
     float: right;
     font-size: 2rem;
     font-weight: bold;
@@ -611,18 +695,19 @@ body {
 }
 
 .close:hover {
-    color: var(--gray-900);
+    color: var(--dark-text);
 }
 
 .modal-content h1 {
     margin: 0 0 1rem 0;
     font-size: 1.8rem;
+    color: var(--primary);
 }
 
 .modal-section {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--dark-border);
 }
 
 .modal-section:last-child {
@@ -632,12 +717,13 @@ body {
 .modal-section h2,
 .modal-section h3 {
     margin: 0 0 1rem 0;
+    color: var(--primary);
 }
 
 .section {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--dark-border);
 }
 
 .section:last-child {
@@ -646,6 +732,7 @@ body {
 
 .section h3 {
     margin: 0 0 1rem 0;
+    color: var(--primary);
 }
 
 table {
@@ -657,28 +744,30 @@ table {
 th, td {
     padding: 0.75rem;
     text-align: left;
-    border-bottom: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--dark-border);
 }
 
 th {
-    background: var(--gray-100);
+    background: var(--dark-bg-tertiary);
     font-weight: 600;
 }
 
 code {
-    background: var(--gray-100);
+    background: var(--dark-bg-tertiary);
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-family: monospace;
+    color: #79c0ff;
 }
 
 pre {
-    background: var(--gray-900);
-    color: #f0f0f0;
+    background: var(--dark-bg);
+    color: var(--dark-text);
     padding: 1rem;
     border-radius: 6px;
     overflow-x: auto;
     margin-top: 1rem;
+    border: 1px solid var(--dark-border);
 }
 
 pre code {
@@ -689,11 +778,12 @@ pre code {
 }
 
 footer {
-    background: var(--gray-900);
-    color: white;
+    background: var(--dark-bg-secondary);
+    color: var(--dark-text-secondary);
     text-align: center;
     padding: 2rem;
     margin-top: 3rem;
+    border-top: 1px solid var(--dark-border);
 }
 
 @media (max-width: 768px) {
