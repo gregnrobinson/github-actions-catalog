@@ -2,6 +2,11 @@ name: Build and Publish Catalog
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'config/publishers.json'
 
 jobs:
   generate:
