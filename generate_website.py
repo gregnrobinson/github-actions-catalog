@@ -1098,7 +1098,7 @@ body {
 }
 
 .navbar-btn {
-    background: var(--primary);
+    background: #1f6feb;  /* Darker blue */
     color: white;
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
@@ -1109,7 +1109,7 @@ body {
 }
 
 .navbar-btn:hover {
-    background: var(--primary-dark);
+    background: #1a5dc4;  /* Even darker on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
 }
