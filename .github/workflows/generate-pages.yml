@@ -29,8 +29,11 @@ jobs:
         with:
           python-version: '3.14'
 
-      - name: Generate website
-        run: python3 generate_website.py
+      - name: Build Catalog
+        run: ./build.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

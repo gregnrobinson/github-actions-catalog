@@ -7,6 +7,11 @@ echo "🚀 Starting full sync of GitHub Actions Catalog"
 echo "================================================"
 echo ""
 
+# Install Dependencies
+echo "🔧 Installing dependencies..."
+pip install -r requirements.txt
+echo "✅ Dependencies installed"
+
 # Step 1: Fetch publishers
 echo "📥 Step 1: Fetching publishers..."
 python3 fetch_publishers.py
