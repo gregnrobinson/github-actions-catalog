@@ -1,33 +1,14 @@
 # 🚀 GitHub Actions Catalog
 
-An internal catalog platform for organizations to host and discover both official internal actions and curated marketplace actions for workflow development.
+A fully static, self-hosted catalog platform for organizations to discover and manage both official internal actions and curated marketplace actions. **100% hosted on GitHub Pages** - no external infrastructure required.
 
 ## 🌐 Live Demo
 
 **[View Live Demo →](https://gregnrobinson.github.io/github-actions-catalog)**
 
-Try the catalog now! Search, filter, and explore actions.
+Try the catalog now! Search, filter, and explore actions with the workflow builder.
 
 ---
-
-## Overview
-
-This project provides your organization with:
-
-- **📚 Unified Action Discovery** - Browse internal actions and marketplace recommendations in one place
-- **🏢 Internal Actions Showcase** - Highlight your organization's custom GitHub Actions
-- **🔍 Smart Search & Filtering** - Search by name, ID, description, or category
-- **✅ Publisher Verification** - Distinguish between internal and marketplace actions
-- **📊 Intelligent Categorization** - Automatically categorized for easy discovery
-- **🌐 Static Website** - Fast, searchable interface (GitHub Pages or internal hosting)
-- **⚡ Auto-Updates** - Automatically refreshes when catalog changes
-
-## Perfect For
-
-✅ **Internal Teams** - Publish and discover company-built actions
-✅ **Workflow Developers** - Find approved actions for your CI/CD pipelines
-✅ **DevOps Teams** - Centralize action governance and usage
-✅ **Multiple Teams** - Share reusable automation across your organization
 
 ## Quick Start
 
@@ -35,31 +16,51 @@ This project provides your organization with:
 
 - Python 3.11+
 - Git
-- Access to organization repository
+- **GitHub Personal Access Token** (for fetching release information)
+- **OpenAI API Key** (optional, for AI-powered action categorization)
 
 ### Installation
 
 ```bash
-git clone https://github.com/your-org/github-actions-catalog.git
+git clone https://github.com/gregnrobinson/github-actions-catalog.git
 cd github-actions-catalog
 pip install -r requirements.txt
 ```
 
-### Building the Catalog
+### Environment Setup
+
+Create a `.env` file or export these variables:
 
 ```bash
-# Build catalog from blueprint actions
-python3 github-actions-catalog/build_catalog.py --no-categorize
+# Required for fetching GitHub release information
+export GITHUB_TOKEN="ghp_your_github_token_here"
 
-# Force update publisher verification status
-python3 github-actions-catalog/build_catalog.py --no-categorize --force-publisher-update
+# Optional: Required only if using AI categorization
+export OPENAI_API_KEY="sk-your_openai_api_key_here"
 ```
 
-### Generating the Website
+**Getting Tokens:**
+
+1. **GitHub Token**: Go to [GitHub Settings → Developer settings → Personal access tokens](https://github.com/settings/tokens) and create a token with `public_repo` scope
+2. **OpenAI API Key** (optional): Get your API key from [OpenAI Platform](https://platform.openai.com/api-keys)
+
+### Build Everything
 
 ```bash
-# Generate static HTML website
-cd github-actions-catalog
+# Build catalog and generate website in one command
+./build.sh
+```
+
+Or run individual scripts:
+
+```bash
+# Build catalog without AI categorization (no OpenAI key needed)
+python3 build_catalog.py --no-categorize
+
+# Build catalog with AI categorization (requires OpenAI key)
+python3 build_catalog.py
+
+# Generate static website
 python3 generate_website.py
 
 # Test locally
@@ -69,438 +70,222 @@ python3 -m http.server 8000
 
 Visit `http://localhost:8000` in your browser.
 
-## Project Structure
+---
+
+## What's Included
+
+### 🔍 Features
+
+- **Action Catalog** - Browse internal and marketplace actions
+- **Smart Search** - Filter by name, category, or description
+- **Workflow Builder** - Visual workflow generator with YAML output
+- **Action Details** - View inputs, outputs, and usage examples
+- **Publisher Verification** - Distinguish internal vs marketplace actions
+- **AI Categorization** - Automatic action categorization with OpenAI (optional)
+- **Zero Infrastructure** - 100% static site hosted on GitHub Pages
+
+### 🏗️ Architecture
+
+This catalog is completely serverless and runs entirely on GitHub Pages:
+
+- **Static HTML/CSS/JS** - No backend server required
+- **GitHub Pages Hosting** - Free, reliable, and scalable
+- **Build-time Generation** - Catalog built once, served as static files
+- **Client-side Search** - Fast filtering without server calls
+- **Zero Cost** - No hosting fees, only GitHub Pages (free for public repos)
+
+### 📁 Project Structure
 
 ```
-├── github-actions-catalog/
-│   ├── catalog/                 # Generated action catalog
-│   │   ├── {action-id}/
-│   │   │   ├── latest.json      # Latest action data
-│   │   │   └── history/         # Historical versions
-│   │   └── metadata.json        # Catalog metadata
-│   ├── config/
-│   │   ├── blueprint_actions.yaml    # Source action definitions
-│   │   └── categorization_config.yaml # Category mappings
-│   ├── build_catalog.py         # Catalog builder script
-│   ├── generate_website.py      # Website generator
-│   └── docs/                    # Generated website (GitHub Pages)
-│       ├── index.html           # Main catalog page
-│       ├── styles.css           # Styling
-│       ├── metadata.json        # Website metadata
-│       └── {action-id}.html     # Individual action pages
-├── .github/
-│   └── workflows/
-│       └── generate-pages.yml   # Auto-deploy workflow
-└── README.md
+github-actions-catalog/
+├── blueprints/
+│   ├── internal_actions/              # Your custom actions
+│   │   └── your-org/
+│   │       └── deploy-action/
+│   │           └── action.yml
+│   └── marketplace_actions/           # Curated marketplace actions
+│       └── actions/
+│           └── checkout/
+│               └── action.yml
+├── config/
+│   └── categorization_config.yaml     # Category mappings
+├── catalog/                            # Generated catalog data
+│   └── catalog.json
+├── docs/                               # Generated website (GitHub Pages source)
+│   ├── index.html                     # Main catalog page
+│   ├── workflow-builder.html          # Workflow builder
+│   └── styles.css                     # Styling
+├── build_catalog.py                   # Catalog builder
+├── generate_website.py                # Website generator
+├── requirements.txt                   # Python dependencies
+└── build.sh                           # Build everything
 ```
 
-## Features
+---
 
-### 🔍 Search & Discovery
+## Adding Actions
 
-- **Real-time Search** - Filters as you type
-- **Category Filtering** - Browse by action purpose and use case
-- **Action Details** - View inputs, outputs, requirements, and documentation
-- **Publisher Info** - Identify internal vs. marketplace actions
-- **Usage Examples** - See how actions are used in workflows
+### 1. Create Action in Blueprints
 
-### 🏢 Internal vs. Marketplace Actions
-
-Actions are clearly marked as:
-
-- **🟢 Internal** - Built by your organization
-  - Custom to your workflows
-  - Owned by your team
-  - Version controlled in your repos
-
-- **🔵 Marketplace** - Official GitHub Actions
-  - Pre-vetted and recommended
-  - Community maintained
-  - Battle-tested by the community
-
-### 📊 Smart Categorization
-
-Actions are organized by:
-- **Build** - Compilation, testing, artifact creation
-- **Testing** - Test execution, coverage, quality gates
-- **Deployment** - Release, publish, promote to production
-- **Authentication** - Security, credentials, OIDC
-- **Communication** - Notifications, Slack, Teams, email
-- **Data** - Processing, analysis, database operations
-- **Developer Tools** - Code quality, linting, formatting
-- **Monitoring** - Logging, observability, telemetry
-
-### 🌐 Website Features
-
-- **Responsive Design** - Works on desktop, tablet, mobile
-- **Fast Performance** - Static HTML, no server needed
-- **Offline Capable** - Download and reference locally
-- **GitHub Pages Hosted** - Free hosting for public/private repos
-
-## Usage
-
-### For Workflow Developers
-
-#### Finding Actions
-
-1. Visit your organization's Actions Catalog
-2. Search for what you need (e.g., "deploy", "test", "notify")
-3. Filter by category to narrow results
-4. Click "View Details" for usage instructions
-5. Copy the action reference into your workflow
-
-#### Using Internal Actions
-
-```yaml
-name: Deploy Application
-
-on: [push]
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # Use an internal action from your catalog
-      - uses: your-org/internal-deploy-action@v1
-        with:
-          environment: production
-          version: ${{ github.ref }}
-```
-
-#### Using Marketplace Actions
-
-```yaml
-- uses: actions/setup-node@v4
-  with:
-    node-version: '18'
-```
-
-### For DevOps/Platform Teams
-
-#### Adding New Internal Actions
-
-1. Build and publish your action to a repository
-2. Add entry to `github-actions-catalog/config/blueprint_actions.yaml`
-3. Specify as internal in the configuration
-4. Run `build_catalog.py` to add to catalog
-5. Run `generate_website.py` to update website
-6. Commit and push changes
-
-Example internal action:
-
-```yaml
-actions:
-  - action_id: your-org/deploy-to-aks
-    definition:
-      name: "Deploy to Azure Kubernetes Service"
-      description: "Deploy applications to your organization's AKS clusters"
-      author: "Platform Team"
-      inputs:
-        - name: "cluster-name"
-          description: "AKS cluster name"
-          required: true
-        - name: "namespace"
-          description: "Kubernetes namespace"
-          required: true
-        - name: "image"
-          description: "Container image URI"
-          required: true
-      outputs:
-        - name: "deployment-status"
-          description: "Status of the deployment"
-    source:
-      verified: true
-      publisher: "your-org"
-      origin: "github.com/your-org/actions-deploy-aks"
-```
-
-#### Adding Marketplace Actions
-
-Recommend marketplace actions your organization approves:
-
-```yaml
-actions:
-  - action_id: actions/setup-node
-    definition:
-      name: "Setup Node.js environment"
-      description: "Set up a Node.js environment and add to PATH"
-      author: "GitHub"
-      inputs:
-        - name: "node-version"
-          description: "Version of Node.js to use"
-          required: false
-      outputs:
-        - name: "node-version"
-          description: "Installed Node.js version"
-    source:
-      verified: true
-      publisher: "GitHub"
-      origin: "github.com/actions/setup-node"
-```
-
-#### Updating Publisher Status
-
-Force refresh action verification:
+Add your action under `blueprints/internal_actions/`:
 
 ```bash
-cd github-actions-catalog
-python3 build_catalog.py --no-categorize --force-publisher-update
+# Create action directory
+mkdir -p blueprints/internal_actions/your-org/deploy-action
+
+# Create action.yml
+cat > blueprints/internal_actions/your-org/deploy-action/action.yml << 'EOF'
+name: "Deploy to Production"
+description: "Deploy applications to production environment"
+author: "Platform Team"
+
+inputs:
+  environment:
+    description: "Target environment"
+    required: true
+  version:
+    description: "Application version to deploy"
+    required: false
+    default: "latest"
+
+outputs:
+  deployment-url:
+    description: "Deployed application URL"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Deploy
+      shell: bash
+      run: |
+        echo "Deploying to ${{ inputs.environment }}"
+EOF
 ```
 
-## Automation
+### 2. Rebuild
 
-### GitHub Actions Workflow
+```bash
+./build.sh
+```
+
+### 3. Deploy
+
+```bash
+git add .
+git commit -m "Add deploy action"
+git push
+```
+
+The GitHub Actions workflow will automatically deploy to GitHub Pages.
+
+---
+
+## Configuration
+
+### GitHub Pages Setup
+
+1. Go to repository **Settings** → **Pages**
+2. Set source to **Deploy from a branch**
+3. Select branch: **main**, folder: **/docs**
+4. Click **Save**
+
+Your catalog will be live at: `https://<username>.github.io/<repo>/`
+
+**That's it!** No servers, no infrastructure, no deployment pipelines. GitHub Pages automatically serves your static site.
+
+### Automation
 
 The `.github/workflows/generate-pages.yml` workflow automatically:
-1. Detects changes to catalog files
-2. Rebuilds the website
-3. Commits updated `docs/` folder
-4. Deploys to GitHub Pages (or internal hosting)
+- Rebuilds catalog when actions change
+- Regenerates static website files
+- Commits updated files to `docs/` folder
+- GitHub Pages automatically deploys the changes
 
 **Requirements:**
-- Personal Access Token (PAT) with `repo` and `workflow` scopes
+- Personal Access Token (PAT) with `repo` scope
 - Stored as `CATALOG_DEPLOY_TOKEN` in repository secrets
 
-## Security
+**How it works:**
+1. Push changes to blueprints or config
+2. GitHub Actions runs build scripts
+3. Commits generated files to `docs/`
+4. GitHub Pages serves updated site (usually within 1-2 minutes)
 
-### Scanning for Secrets
-
-Before committing, scan for sensitive information:
-
-```bash
-# Install detect-secrets
-pip install detect-secrets
-
-# Scan repository
-detect-secrets scan .
-
-# Create baseline
-detect-secrets scan > .secrets.baseline
-
-# Audit findings
-detect-secrets audit .secrets.baseline
-```
-
-### Pre-commit Hooks
-
-Install pre-commit hooks to automatically scan on commit:
-
-```bash
-pip install pre-commit
-pre-commit install
-pre-commit run --all-files
-```
-
-### Access Control
-
-For private catalogs:
-- Enable GitHub repository access controls
-- Restrict to organization members only
-- Set up team-based permissions for catalog updates
+---
 
 ## Development
 
-### Building Locally
+### Build Options
 
 ```bash
-# Full rebuild
-cd github-actions-catalog
+# Build catalog without AI categorization (faster, no OpenAI key needed)
 python3 build_catalog.py --no-categorize
-python3 generate_website.py
 
-# Test locally
+# Build with AI categorization
+python3 build_catalog.py
+
+# Force rebuild all actions (ignore cache)
+python3 build_catalog.py --no-cache
+
+# Force re-categorize all actions
+python3 build_catalog.py --force-categorize
+
+# Update only release information
+python3 build_catalog.py --update-releases
+
+# Update publisher verification status
+python3 build_catalog.py --force-publisher-update
+```
+
+### Generate Website Only
+
+```bash
+python3 generate_website.py
+```
+
+### Test Locally
+
+```bash
 cd docs
 python3 -m http.server 8000
 ```
 
-### Testing Changes
+Open `http://localhost:8000` - you'll see exactly what GitHub Pages will serve.
 
-1. Make changes to `blueprint_actions.yaml`
-2. Run build and generate scripts
-3. Test in local server
-4. Commit and push (workflow auto-deploys)
+### Cost Management
 
-## Deployment
+The catalog builder can use OpenAI GPT-4o-mini for automatic categorization:
+- **Cost**: ~$0.0001-0.0003 per action
+- **Total**: ~$0.03-0.10 for 300+ actions
+- **Caching**: Only categorizes new/changed actions
 
-### GitHub Pages Setup (Public/Private Repos)
-
-1. Go to repository Settings
-2. Navigate to Pages
-3. Set source to "Deploy from a branch"
-4. Select `gh-pages` or `main/docs` branch
-5. Save
-
-Your catalog will be available at: `https://<org>.github.io/<repo>/`
-
-### Internal Hosting
-
-For air-gapped or fully internal networks:
-1. Generate catalog locally
-2. Host `docs/` folder on internal web server
-3. Distribute link to organization teams
-
-### Custom Domain
-
-To use a custom domain:
-
-1. Add `CNAME` file to `docs/` folder with your domain
-2. Configure DNS records
-3. Enable HTTPS in repository settings
-
-## API Reference
-
-### Catalog Structure
-
-Each action in the catalog contains:
-
-```json
-{
-  "action_id": "your-org/action-name",
-  "definition": {
-    "name": "Display Name",
-    "description": "What this action does",
-    "author": "Team Name",
-    "inputs": [...],
-    "outputs": [...]
-  },
-  "source": {
-    "verified": true,
-    "publisher": "your-org",
-    "origin": "github.com/your-org/repo"
-  },
-  "annotations": {
-    "categories": ["Build", "Deployment"],
-    "confidence": "high",
-    "evidence": [...]
-  }
-}
+Skip categorization to avoid costs:
+```bash
+python3 build_catalog.py --no-categorize
 ```
 
-### Metadata Files
-
-**docs/metadata.json** - Website statistics:
-```json
-{
-  "generated_at": "2024-12-14T10:30:00Z",
-  "total_actions": 344,
-  "internal_actions": 45,
-  "marketplace_actions": 299,
-  "categories": ["Build", "Testing", ...],
-  "verified_publishers": 12
-}
-```
-
-## Troubleshooting
-
-### Website Styling Not Applied
-
-If the website loads but styles aren't visible:
-
-1. Check `docs/styles.css` exists:
-   ```bash
-   ls -lh github-actions-catalog/docs/styles.css
-   ```
-
-2. Regenerate:
-   ```bash
-   cd github-actions-catalog
-   python3 generate_website.py
-   ```
-
-3. Check browser console for errors (F12)
-
-### Actions Not Appearing
-
-1. Verify `blueprint_actions.yaml` has valid YAML
-2. Check action IDs are unique
-3. Rebuild catalog:
-   ```bash
-   python3 build_catalog.py --no-categorize
-   ```
-
-4. Regenerate website:
-   ```bash
-   python3 generate_website.py
-   ```
-
-### Changes Not Deploying
-
-1. Verify `CATALOG_DEPLOY_TOKEN` is set in repository secrets
-2. Check workflow file at `.github/workflows/generate-pages.yml`
-3. Review workflow run logs for errors
-4. Manually trigger workflow if needed
-
-## Contributing
-
-To add actions to the catalog:
-
-1. **For Internal Actions:**
-   - Publish action to your organization's GitHub
-   - Add entry to `blueprint_actions.yaml`
-   - Submit PR for review
-
-2. **For Marketplace Recommendations:**
-   - Propose action in issue
-   - Get approval from platform team
-   - Add to `blueprint_actions.yaml`
-   - Submit PR for review
-
-**Process:**
-1. Create feature branch
-2. Update `blueprint_actions.yaml`
-3. Test locally with `generate_website.py`
-4. Commit with clear messages
-5. Create Pull Request
-6. Get team approval
-7. Merge and auto-deploy
-
-## License
-
-This project is licensed under the MIT License - see LICENSE file for details.
-
-## Support
-
-For issues, questions, or action requests:
-- Open an issue on GitHub
-- Contact your DevOps/Platform team
-- Check existing issues first
-
-## Internal Resources
-
-- [Internal Actions Documentation](https://github.com/your-org)
-- [Workflow Examples](https://github.com/your-org)
-- [GitHub Actions Marketplace](https://github.com/marketplace?type=actions)
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-
-## FAQ
-
-**Q: Can I use actions from this catalog in my workflows?**
-A: Yes! This catalog is designed for your organization to discover and use both internal and approved marketplace actions.
-
-**Q: Who maintains this catalog?**
-A: Your organization's DevOps/Platform team manages and curates the action list.
-
-**Q: How do I request a new internal action?**
-A: Open an issue or contact your platform team with your use case.
-
-**Q: Can I use marketplace actions not in this catalog?**
-A: Check with your platform team about your organization's action policies.
-
-**Q: How often is the catalog updated?**
-A: Automatically when changes are committed. Check the workflow runs for status.
+**GitHub Pages is free for:**
+- Public repositories (unlimited)
+- Private repositories (limited bandwidth)
 
 ---
 
-**Last Updated:** December 2024
+## Why GitHub Pages?
 
-**Total Actions:** 344+
+✅ **Zero Infrastructure** - No servers to maintain
+✅ **Zero Cost** - Free for public repos
+✅ **Global CDN** - Fast worldwide access
+✅ **Auto SSL** - HTTPS by default
+✅ **Git-based Deployment** - Just commit and push
+✅ **High Availability** - Backed by GitHub's infrastructure
+✅ **Version Control** - Every change is tracked in git
 
-**Internal Actions:** 45+
+---
 
-**Marketplace Actions:** 299+
+## Support
 
-**Categories:** 8 primary categories
-
-Made by your organization for your organization 🚀
+For issues or questions:
+- Open an issue on [GitHub](https://github.com/gregnrobinson/github-actions-catalog/issues)
+- Check [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- Check [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- Contact your DevOps/Platform team
