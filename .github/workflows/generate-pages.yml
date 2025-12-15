@@ -5,6 +5,17 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'generate_website.py'
+      - 'config/**'
+      - 'catalog/**'
+      - 'blueprints/**'
+      - 'docs/**'
+      - 'fetch_actions.py'
+      - 'build_catalog.py'
+      - 'generate_website.py'
+      - 'build.sh'
+      - '.github/workflows/generate-pages.yml'
 
 jobs:
   generate:
