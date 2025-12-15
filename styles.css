@@ -338,6 +338,25 @@ body {
     border-bottom: 1px solid var(--dark-border);
 }
 
+.modal-section p {
+    margin: 0.75rem 0;
+}
+
+.modal-section p:first-child {
+    margin-top: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .modal-section:last-child {
     border-bottom: none;
 }
