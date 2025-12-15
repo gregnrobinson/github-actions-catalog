@@ -1,0 +1,143 @@
+{
+  "action_id": "internal/contoso/deploy-kubernetes",
+  "version_id": "a9ea42fbe5a3",
+  "source": {
+    "type": "internal",
+    "action_yml_path": "blueprints/internal/contoso/deploy-kubernetes/action.yml",
+    "origin": null,
+    "publisher": null,
+    "verified": false
+  },
+  "definition": {
+    "name": "Deploy to Kubernetes",
+    "description": "Deploy containerized applications to Kubernetes clusters with built-in health checks and rollback support",
+    "author": "Platform Engineering Team",
+    "inputs": [
+      {
+        "name": "environment",
+        "required": true,
+        "default": null,
+        "description": "Target environment (dev, staging, prod)"
+      },
+      {
+        "name": "image-tag",
+        "required": true,
+        "default": null,
+        "description": "Docker image tag to deploy"
+      },
+      {
+        "name": "namespace",
+        "required": false,
+        "default": "default",
+        "description": "Kubernetes namespace"
+      },
+      {
+        "name": "replicas",
+        "required": false,
+        "default": "3",
+        "description": "Number of pod replicas"
+      },
+      {
+        "name": "health-check-timeout",
+        "required": false,
+        "default": "300",
+        "description": "Health check timeout in seconds"
+      },
+      {
+        "name": "rollback-on-failure",
+        "required": false,
+        "default": "true",
+        "description": "Automatically rollback on deployment failure (true/false)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-url",
+        "description": "URL of the deployed application"
+      },
+      {
+        "name": "deployment-version",
+        "description": "Deployed version identifier"
+      },
+      {
+        "name": "rollback-revision",
+        "description": "Previous revision number for rollback"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Validate environment",
+          "shell": "bash",
+          "run": "if [[ ! \"${{ inputs.environment }}\" =~ ^(dev|staging|prod)$ ]]; then\n  echo \"\u274c Invalid environment: ${{ inputs.environment }}\"\n  echo \"Must be one of: dev, staging, prod\"\n  exit 1\nfi\necho \"\u2705 Environment validated: ${{ inputs.environment }}\"\n"
+        },
+        {
+          "name": "Setup kubectl",
+          "shell": "bash",
+          "run": "echo \"\ud83d\udd27 Setting up kubectl...\"\nkubectl version --client\n"
+        },
+        {
+          "name": "Configure cluster access",
+          "shell": "bash",
+          "run": "echo \"\ud83d\udd10 Configuring cluster access for ${{ inputs.environment }}...\"\n# Your cluster configuration logic here\n# Example: aws eks update-kubeconfig --name my-cluster-${{ inputs.environment }}\n"
+        },
+        {
+          "name": "Deploy to Kubernetes",
+          "shell": "bash",
+          "run": "echo \"\ud83d\ude80 Deploying image tag: ${{ inputs.image-tag }}\"\necho \"\ud83d\udce6 Namespace: ${{ inputs.namespace }}\"\necho \"\ud83d\udd22 Replicas: ${{ inputs.replicas }}\"\n\nkubectl set image deployment/myapp \\\n  myapp=myregistry.io/myapp:${{ inputs.image-tag }} \\\n  -n ${{ inputs.namespace }}\n\nkubectl scale deployment/myapp \\\n  --replicas=${{ inputs.replicas }} \\\n  -n ${{ inputs.namespace }}\n"
+        },
+        {
+          "name": "Wait for rollout",
+          "shell": "bash",
+          "run": "echo \"\u23f3 Waiting for deployment to complete...\"\nkubectl rollout status deployment/myapp \\\n  -n ${{ inputs.namespace }} \\\n  --timeout=${{ inputs.health-check-timeout }}s\n"
+        },
+        {
+          "name": "Health check",
+          "shell": "bash",
+          "run": "echo \"\ud83c\udfe5 Running health checks...\"\nPODS=$(kubectl get pods -n ${{ inputs.namespace }} -l app=myapp -o jsonpath='{.items[*].metadata.name}')\n\nfor POD in $PODS; do\n  echo \"Checking pod: $POD\"\n  kubectl wait --for=condition=ready pod/$POD \\\n    -n ${{ inputs.namespace }} \\\n    --timeout=60s\ndone\n\necho \"\u2705 All pods are healthy\"\n"
+        },
+        {
+          "name": "Get deployment info",
+          "shell": "bash",
+          "run": "echo \"\ud83d\udcca Deployment Information:\"\nkubectl get deployment myapp -n ${{ inputs.namespace }}\n\n# Set outputs\necho \"deployment-url=https://myapp-${{ inputs.environment }}.example.com\" >> $GITHUB_OUTPUT\necho \"deployment-version=${{ inputs.image-tag }}\" >> $GITHUB_OUTPUT\n\nREVISION=$(kubectl rollout history deployment/myapp -n ${{ inputs.namespace }} | tail -n 2 | head -n 1 | awk '{print $1}')\necho \"rollback-revision=$REVISION\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "name": "Rollback on failure",
+          "if": "failure() && inputs.rollback-on-failure == 'true'",
+          "shell": "bash",
+          "run": "echo \"\u274c Deployment failed! Rolling back...\"\nkubectl rollout undo deployment/myapp -n ${{ inputs.namespace }}\nkubectl rollout status deployment/myapp -n ${{ inputs.namespace }}\necho \"\ud83d\udd04 Rollback completed\"\nexit 1"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Monitoring"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying applications to Kubernetes, which falls under the Deployment category. Additionally, it includes health checks and rollback support, indicating a monitoring aspect.",
+        "tags": [
+          "Kubernetes",
+          "Deployment",
+          "Containerization",
+          "Rollback",
+          "Health Checks"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a9ea42fbe5a3dafc915fdb3f70f8d0da0a8d4728a4246b0f5f2a960e7ebeea25",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T04:14:30.064260Z"
+  }
+}

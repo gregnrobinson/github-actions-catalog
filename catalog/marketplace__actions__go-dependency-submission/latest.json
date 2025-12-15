@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/actions/go-dependency-submission",
-  "version_id": "be8e11c955ed",
+  "version_id": "e3bcc87e3d1a",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/actions/go-dependency-submission/action.yml",
@@ -84,7 +84,8 @@
   },
   "annotations": {
     "categories": [
-      "Dependency management"
+      "Dependency management",
+      "Documentation"
     ],
     "confidence": "high",
     "evidence": [
@@ -92,7 +93,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action specifically calculates and submits dependencies for a Go build-target, which directly relates to managing dependencies in a project.",
+        "reasoning": "The action focuses on calculating and submitting dependencies for a Go build-target, which directly relates to dependency management. It also allows for metadata submission, which can be considered part of documentation.",
         "tags": [
           "Go",
           "dependencies",
@@ -104,9 +105,9 @@
     ]
   },
   "cache": {
-    "source_hash": "be8e11c955ed4d1614d704b11e2dbe1950c8a18f044b018c169f2f3890a6d44c",
+    "source_hash": "e3bcc87e3d1adb45c3f11fc1e60934a0abd92bebd49495b25599f3a353b8d1cd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.709038Z"
+    "generated_at": "2025-12-15T04:14:32.984163Z"
   }
 }

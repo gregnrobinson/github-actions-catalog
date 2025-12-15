@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/actions/setup-node",
-  "version_id": "9b4b752c7df1",
+  "version_id": "f5aba8a0b5fe",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/actions/setup-node/action.yml",
@@ -123,21 +123,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action sets up a Node.js environment, which is primarily about managing dependencies related to Node.js versions. It also plays a role in building applications that rely on Node.js.",
+        "reasoning": "This action sets up a Node.js environment, which is primarily about managing dependencies related to Node.js versions. It also facilitates building applications by ensuring the correct environment is in place.",
         "tags": [
           "Node.js",
           "setup",
           "environment",
-          "dependencies",
+          "dependency",
           "build"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "9b4b752c7df1071ddb7d1ba132503d86239da9e86e9f505809112a3af9079659",
+    "source_hash": "f5aba8a0b5fe2a864ca06e0bde028fbed29938820b736bf6070b585c1b1a9160",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.662771Z"
+    "generated_at": "2025-12-15T04:14:32.453397Z"
   }
 }

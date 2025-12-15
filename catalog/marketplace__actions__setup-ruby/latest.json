@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/actions/setup-ruby",
-  "version_id": "262702497614",
+  "version_id": "8d326fb1040d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/actions/setup-ruby/action.yml",
@@ -43,7 +43,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Build"
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -51,21 +51,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is primarily focused on setting up a specific version of Ruby, which is essential for managing dependencies in a project. It also facilitates the build process by ensuring the correct Ruby environment is available.",
+        "reasoning": "This action sets up a specific version of Ruby, which is essential for managing dependencies in a project. It also modifies the environment to include Ruby tools, indicating an infrastructure setup.",
         "tags": [
-          "Ruby",
+          "ruby",
           "setup",
-          "dependency management",
-          "build",
-          "GitHub Actions"
+          "dependency",
+          "infrastructure",
+          "environment"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "262702497614ac6e9bb80dda75acd96b67332e8f09ae5b9fb956645a88de1c57",
+    "source_hash": "8d326fb1040d193e4743a3a892babcbb8924b5d706927d74daa36a4bfbe72288",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.652470Z"
+    "generated_at": "2025-12-15T04:14:31.450303Z"
   }
 }

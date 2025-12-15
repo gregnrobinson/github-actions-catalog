@@ -283,28 +283,25 @@ def find_internal_actions():
     """Find all internal action.yml files."""
     actions = []
 
-    if not BLUEPRINTS_DIR.exists():
-        print(f"⚠️  {BLUEPRINTS_DIR} not found")
+    internal_dir = BLUEPRINTS_DIR / "internal"
+    if not internal_dir.exists():
         return actions
 
-    # Scan: blueprints/*/.github/actions/*/action.yml
-    for repo_dir in BLUEPRINTS_DIR.iterdir():
-        if not repo_dir.is_dir():
-            continue
-        if repo_dir.name in ["marketplace", "marketplace_actions"]:
+    # Scan: blueprints/internal/{org}/{action_name}/action.yml
+    for org_dir in internal_dir.iterdir():
+        if not org_dir.is_dir():
             continue
 
-        actions_dir = repo_dir / ".github" / "actions"
-        if not actions_dir.exists():
-            continue
+        org_name = org_dir.name
 
-        for action_dir in actions_dir.iterdir():
+        for action_dir in org_dir.iterdir():
             if not action_dir.is_dir():
                 continue
 
             action_yml = action_dir / "action.yml"
             if action_yml.exists():
-                action_id = f"internal/{repo_dir.name}/.github/actions/{action_dir.name}"
+                action_name = action_dir.name
+                action_id = f"internal/{org_name}/{action_name}"
                 actions.append({
                     "action_id": action_id,
                     "action_yml_path": action_yml,
