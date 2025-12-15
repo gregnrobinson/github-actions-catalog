@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/pypa/gh-action-pip-audit/action.yml",
     "origin": "github.com/pypa/gh-action-pip-audit",
     "publisher": "pypa",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2024-08-08T18:56:09Z",
+      "html_url": "https://github.com/pypa/gh-action-pip-audit/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "gh-action-pip-audit",
@@ -143,8 +151,7 @@
   "annotations": {
     "categories": [
       "Security",
-      "Dependency management",
-      "Code quality"
+      "Dependency management"
     ],
     "confidence": "high",
     "evidence": [
@@ -152,11 +159,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "This action scans Python dependencies for known vulnerabilities, which directly relates to security. It also involves dependency management and contributes to code quality by ensuring that dependencies are safe.",
+        "reasoning": "The action scans Python dependencies for known vulnerabilities, which directly relates to security. It also involves managing dependencies by auditing them.",
         "tags": [
           "pip-audit",
           "security",
-          "dependency-check",
+          "dependency-scanning",
           "python",
           "vulnerabilities"
         ]
@@ -167,6 +174,6 @@
     "source_hash": "68331dcfdeac986e940bef7703a7e9748fac505411b20ca73b23490b9e77f8f1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.444026Z"
+    "generated_at": "2025-12-15T02:18:59.690285Z"
   }
 }

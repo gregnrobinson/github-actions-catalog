@@ -1,0 +1,154 @@
+{
+  "action_id": "marketplace/google-github-actions/run-gemini-cli",
+  "version": "4ce130152ce3",
+  "definition": {
+    "name": "Run Gemini CLI",
+    "description": "Invoke the Gemini CLI from a GitHub Action.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "gcp_location",
+        "description": "The Google Cloud location.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcp_project_id",
+        "description": "The Google Cloud project ID.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcp_service_account",
+        "description": "The Google Cloud service account email.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcp_workload_identity_provider",
+        "description": "The Google Cloud Workload Identity Provider.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcp_token_format",
+        "description": "The token format for authentication. Set to \"access_token\" to generate access tokens (requires service account), or set to empty string for direct WIF. Can be \"access_token\" or \"id_token\".",
+        "required": false,
+        "default": "access_token"
+      },
+      {
+        "name": "gcp_access_token_scopes",
+        "description": "The access token scopes when using token_format \"access_token\". Comma-separated list of OAuth 2.0 scopes.",
+        "required": false,
+        "default": "https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/userinfo.email,https://www.googleapis.com/auth/userinfo.profile"
+      },
+      {
+        "name": "gemini_api_key",
+        "description": "The API key for the Gemini API.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gemini_cli_version",
+        "description": "The version of the Gemini CLI to install. Can be \"latest\", \"preview\", \"nightly\", a specific version number, or a git branch, tag, or commit. For more information, see [Gemini CLI releases](https://github.com/google-gemini/gemini-cli/blob/main/docs/releases.md).",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "gemini_debug",
+        "description": "Enable debug logging and output streaming.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gemini_model",
+        "description": "The model to use with Gemini.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "google_api_key",
+        "description": "The Vertex AI API key to use with Gemini.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "prompt",
+        "description": "A string passed to the Gemini CLI's [`--prompt` argument](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md#command-line-arguments).",
+        "required": false,
+        "default": "You are a helpful assistant."
+      },
+      {
+        "name": "settings",
+        "description": "A JSON string written to `.gemini/settings.json` to configure the CLI's _project_ settings.\nFor more details, see the documentation on [settings files](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/configuration.md#settings-files).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_gemini_code_assist",
+        "description": "Whether to use Code Assist for Gemini model access instead of the default Gemini API key.\nFor more information, see the [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/authentication.md).",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_vertex_ai",
+        "description": "Whether to use Vertex AI for Gemini model access instead of the default Gemini API key.\nFor more information, see the [Gemini CLI documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/authentication.md).",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "extensions",
+        "description": "A list of Gemini CLI extensions to install.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "upload_artifacts",
+        "description": "Whether to upload artifacts to the github action.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_pnpm",
+        "description": "Whether or not to use pnpm instead of npm to install gemini-cli",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "workflow_name",
+        "description": "The GitHub workflow name, used for telemetry purposes.",
+        "required": false,
+        "default": "${{ github.workflow }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "summary",
+        "description": "The summarized output from the Gemini CLI execution."
+      },
+      {
+        "name": "error",
+        "description": "The error output from the Gemini CLI execution, if any."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/run-gemini-cli",
+    "latest_release": {
+      "tag_name": "v0.1.16",
+      "name": "v0.1.16",
+      "published_at": "2025-12-02T09:14:28Z",
+      "html_url": "https://github.com/google-github-actions/run-gemini-cli/releases/tag/v0.1.16",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:49.764995Z"
+}

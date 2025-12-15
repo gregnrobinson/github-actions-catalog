@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/ammaraskar/mypy",
+  "version": "cd49f50de7f7",
+  "definition": {
+    "name": "Mypy",
+    "description": "Optional Static Typing for Python.",
+    "author": "Jukka Lehtosalo and contributors",
+    "inputs": [
+      {
+        "name": "options",
+        "description": "Options passed to mypy. Use `mypy --help` to see available options.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "paths",
+        "description": "Explicit paths to run mypy on. Defaults to the current directory.\n",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "version",
+        "description": "Mypy version to use (PEP440) - e.g. \"0.910\"\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "install_types",
+        "description": "Whether to automatically install missing library stub packages. ('yes'|'no', default: 'yes')\n",
+        "required": false,
+        "default": "yes"
+      },
+      {
+        "name": "install_project_dependencies",
+        "description": "Whether to attempt to install project dependencies into mypy environment. ('yes'|'no', default: 'yes')\n",
+        "required": false,
+        "default": "yes"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "ammaraskar",
+    "verified": false,
+    "origin": "github.com/ammaraskar/mypy"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:58.510230Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-refresh/action.yml",
     "origin": "github.com/dflook/tofu-refresh",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:58Z",
+      "html_url": "https://github.com/dflook/tofu-refresh/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-refresh",
@@ -92,14 +100,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on refreshing the state of OpenTofu, which is related to infrastructure management and deployment processes. It also involves managing variables and configurations that are essential for dependency management.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "deployment",
+          "state management",
+          "Terraform"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "9fa9453e705bb804dbfb0d2ddccd6f57ff456ecd38e4a9355a393b8c1b086619",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.393901Z"
+    "generated_at": "2025-12-15T02:18:59.627779Z"
   }
 }

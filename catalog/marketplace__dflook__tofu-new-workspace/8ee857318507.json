@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/dflook/tofu-new-workspace",
+  "version": "8ee857318507",
+  "definition": {
+    "name": "tofu-new-workspace",
+    "description": "Creates a new OpenTofu workspace. If the workspace already exists, succeeds without doing anything.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the OpenTofu root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "The name of the OpenTofu workspace to create.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set when initializing OpenTofu. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-new-workspace",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:44Z",
+      "html_url": "https://github.com/dflook/tofu-new-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:44.611355Z"
+}

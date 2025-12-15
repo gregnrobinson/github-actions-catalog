@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/static-web-apps-deploy/action.yml",
     "origin": "github.com/azure/static-web-apps-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "GitHub Action for deploying to Azure Static Web Apps",
+      "published_at": "2021-05-13T14:37:44Z",
+      "html_url": "https://github.com/Azure/static-web-apps-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Static Web Apps Deploy",
@@ -134,14 +142,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy applications to Azure Static Web Apps, which falls under the Deployment category. Additionally, it involves infrastructure management as it interacts with Azure services.",
+        "tags": [
+          "Azure",
+          "Deployment",
+          "Static Web Apps",
+          "Infrastructure",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ac07942fafabf1ea993f75ad8ec72eb44b76bea87113bce6559514c654f1bae8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.520178Z"
+    "generated_at": "2025-12-15T02:18:59.794562Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/auth/action.yml",
     "origin": "github.com/google-github-actions/auth",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3",
+      "published_at": "2025-09-03T02:14:46Z",
+      "html_url": "https://github.com/google-github-actions/auth/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Authenticate to Google Cloud",
@@ -145,14 +153,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action is specifically designed to authenticate to Google Cloud, which falls under the Authentication category. It also involves aspects of Infrastructure as it interacts with cloud resources.",
+        "tags": [
+          "Google Cloud",
+          "Authentication",
+          "GitHub Actions",
+          "Workload Identity",
+          "Service Account"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "e42c1d07b2c211b52c2d64d9a232d3f7ed194562c9fecdea63dfba6abfca08bd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.752897Z"
+    "generated_at": "2025-12-15T02:19:00.038272Z"
   }
 }

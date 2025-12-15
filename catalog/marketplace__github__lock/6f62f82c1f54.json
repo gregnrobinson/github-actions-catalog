@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/lock/action.yml",
     "origin": "github.com/github/lock",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-11-26T22:10:00Z",
+      "html_url": "https://github.com/github/lock/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "deploy-lock",
@@ -144,14 +152,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is designed to manage deployment locks, which directly relates to the Deployment category. It also involves communication aspects by handling triggers through comments.",
+        "tags": [
+          "deployment",
+          "lock",
+          "GitHub Actions",
+          "infrastructure",
+          "communication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6f62f82c1f5497c737ddb3cd73a72a398a56063cd0a30de7b054d0ab2ada5cd9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.914663Z"
+    "generated_at": "2025-12-15T02:19:00.310648Z"
   }
 }

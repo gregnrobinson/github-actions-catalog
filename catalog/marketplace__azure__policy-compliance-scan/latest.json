@@ -67,7 +67,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The Azure Policy Compliance Scan focuses on assessing the compliance state of Azure resources, which is primarily a security concern, while also monitoring the compliance status of those resources.",
+        "reasoning": "The action focuses on scanning Azure resources for compliance, which is a key aspect of security. Additionally, it monitors the compliance state of resources, making it relevant for monitoring as well.",
         "tags": [
           "Azure",
           "Compliance",
@@ -82,6 +82,6 @@
     "source_hash": "378afd55e78e157b18456fa01f2cd440be17ea474cbe2755a5a5d2c770900085",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.538148Z"
+    "generated_at": "2025-12-15T02:18:59.812006Z"
   }
 }

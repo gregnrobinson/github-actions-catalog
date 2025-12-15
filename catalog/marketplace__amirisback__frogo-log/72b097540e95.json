@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-log",
+  "version": "72b097540e95",
+  "definition": {
+    "name": "Frogo-Log",
+    "description": "SDK for your Log problem to make easier developing android apps",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-log",
+    "latest_release": {
+      "tag_name": "2.0.9",
+      "name": "Release v2.0.9",
+      "published_at": "2022-03-09T05:09:45Z",
+      "html_url": "https://github.com/amirisback/frogo-log/releases/tag/2.0.9",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:46.326898Z"
+}

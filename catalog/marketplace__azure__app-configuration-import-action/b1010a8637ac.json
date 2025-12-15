@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/azure/app-configuration-import-action",
+  "version": "b1010a8637ac",
+  "definition": {
+    "name": "app-configuration-import",
+    "description": "Import application key-values and feature flags into an Azure App Configuration",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "name",
+        "description": "App Configuration name.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "path",
+        "description": "Configuration file path",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "sourceName",
+        "description": "App Configuration source of importing. Note that importing feature flags from App Service is not supported.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "appServiceAccountName",
+        "description": "App service account name",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "prefix",
+        "description": "Prefix to be appended to the front of imported keys.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "label",
+        "description": "Label to be assigned to imported key-values and feature flags.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/app-configuration-import-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "App Configuration Import Action v1.0.0",
+      "published_at": "2021-10-01T15:32:08Z",
+      "html_url": "https://github.com/Azure/app-configuration-import-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:36.379537Z"
+}

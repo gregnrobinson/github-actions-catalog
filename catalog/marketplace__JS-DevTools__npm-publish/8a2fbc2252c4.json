@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/JS-DevTools/npm-publish/action.yml",
     "origin": "github.com/JS-DevTools/npm-publish",
     "publisher": "JS-DevTools",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.1.1",
+      "name": "v4.1.1",
+      "published_at": "2025-09-26T04:13:03Z",
+      "html_url": "https://github.com/JS-DevTools/npm-publish/releases/tag/v4.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "NPM Publish",
@@ -108,14 +116,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on publishing packages to NPM, which falls under the Publishing category. It also involves authentication through the NPM access token and relates to managing dependencies.",
+        "tags": [
+          "npm",
+          "publish",
+          "package",
+          "JavaScript",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "8a2fbc2252c4e5cd9a43d6b997aac68b23ec97960e3b0ba1b237f8a268890d8e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.838437Z"
+    "generated_at": "2025-12-15T02:19:00.173553Z"
   }
 }

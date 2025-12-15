@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/tibdex/sync-branches",
+  "version": "825a434a2b11",
+  "definition": {
+    "name": "Sync branches",
+    "description": "Automatically merge a repository branch into other branches to keep them in sync.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "body_template",
+        "description": "Lodash template for the syncing PR's body.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n",
+        "required": false,
+        "default": "Sync `<%= base %>` with `<%= head %>`."
+      },
+      {
+        "name": "branches_pattern",
+        "description": "Branches matching this `minimatch` pattern will be synced with the branch from which this action is run.\nIf empty, all the protected branches will be synced.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "github_token",
+        "description": "Token for the GitHub API.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "head_template",
+        "description": "Lodash template for the syncing PR's head branch.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n",
+        "required": false,
+        "default": "sync-<%= base %>-with-<%= head %>"
+      },
+      {
+        "name": "labels_template",
+        "description": "Lodash template compiling to a JSON array of labels to add to the syncing PR.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "title_template",
+        "description": "Lodash template for the syncing PR's title.\nThe data properties are:\n  - base: syncing PR's base branch\n  - head: branch to merge into `base`.\n",
+        "required": false,
+        "default": "Sync `<%= base %>` with `<%= head %>`"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "created_pull_requests",
+        "description": "A JSON stringified object mapping the base branch of the created pull requests to their number."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tibdex",
+    "verified": false,
+    "origin": "github.com/tibdex/sync-branches",
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2022-10-20T15:43:17Z",
+      "html_url": "https://github.com/tibdex/sync-branches/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:10.776716Z"
+}

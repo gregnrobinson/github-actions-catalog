@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/actions/publish-immutable-action",
+  "version": "57df91869b95",
+  "definition": {
+    "name": "Package and Publish",
+    "description": "Publish actions as OCI artifacts to GHCR",
+    "author": "actions",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "The GitHub actions token used to authenticate with GitHub APIs",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "package-manifest-sha",
+        "description": "A sha256 hash of the package manifest"
+      },
+      {
+        "name": "attestation-manifest-sha",
+        "description": "The sha256 of the provenance attestation uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments."
+      },
+      {
+        "name": "referrer-index-manifest-sha",
+        "description": "The sha256 of the referrer index uploaded to GHCR. This is not present if the package is not attested, e.g. in enterprise environments."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/publish-immutable-action",
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2024-10-22T14:11:43Z",
+      "html_url": "https://github.com/actions/publish-immutable-action/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:09.899502Z"
+}

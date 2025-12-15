@@ -40,7 +40,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The Gosec Security Checker is primarily focused on identifying security issues in Go code, which places it firmly in the Security category, while also serving as a testing tool for code quality.",
+        "reasoning": "The Gosec Security Checker is primarily focused on identifying security issues in Go code, which places it firmly in the Security category. Additionally, it functions as a testing tool to ensure code quality regarding security vulnerabilities.",
         "tags": [
           "gosec",
           "security",
@@ -55,6 +55,6 @@
     "source_hash": "ef92d83e31232d97f85960bfee69896c46cdcc6823c94485f727f8930614c094",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.170386Z"
+    "generated_at": "2025-12-15T02:19:00.567314Z"
   }
 }

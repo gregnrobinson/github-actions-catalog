@@ -1,0 +1,205 @@
+{
+  "action_id": "marketplace/codecov/test-results-action",
+  "version": "638f76dd987b",
+  "definition": {
+    "name": "Codecov Test Result Action",
+    "description": "GitHub Action that uploads test result reports for your repository to codecov.io",
+    "author": "Codecov",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "Repository Codecov token. Used to authorize report uploads",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "binary",
+        "description": "The file location of a pre-downloaded version of the CLI. If specified, integrity checking will be bypassed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codecov_yml_path",
+        "description": "Specify the path to the Codecov YML",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "commit_parent",
+        "description": "Override to specify the parent commit SHA",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "directory",
+        "description": "Directory to search for test result reports.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "disable_search",
+        "description": "Disable search for test result files. This is helpful when specifying what files you want to upload with the --file option.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dry_run",
+        "description": "Don't upload files to Codecov",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "env_vars",
+        "description": "Environment variables to tag the upload with (e.g. PYTHON | OS,PYTHON)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude",
+        "description": "Folders to exclude from search",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fail_ci_if_error",
+        "description": "Specify whether or not CI build should fail if Codecov runs into an error during upload",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file",
+        "description": "Path to test result file to upload",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "files",
+        "description": "Comma-separated list of files to upload",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "flags",
+        "description": "Flag upload to group test results (e.g. py3.10 | py3.11 | py3.12)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "handle_no_reports_found",
+        "description": "Raise no exceptions when no test result reports found",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "description": "User defined upload name. Visible in Codecov UI",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "os",
+        "description": "Override the assumed OS. Options are linux | macos | windows.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_branch",
+        "description": "Specify the branch name",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_build",
+        "description": "Specify the build number",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_build_url",
+        "description": "The URL of the build where this is running",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_commit",
+        "description": "Specify the commit SHA",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_pr",
+        "description": "Specify the pull request number",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "report_code",
+        "description": "The code of the report. If unsure, do not include",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "root_dir",
+        "description": "Used when not in git/hg project to identify project root directory",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "slug",
+        "description": "Specify the slug manually (Enterprise use)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "url",
+        "description": "Specify the base url to upload (Enterprise use)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_oidc",
+        "description": "Use OIDC to authenticate with Codecov",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "verbose",
+        "description": "Specify whether the Codecov output should be verbose",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "description": "Specify which version of the Codecov CLI should be used. Defaults to `latest`",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "working-directory",
+        "description": "Directory in which to execute codecov.sh",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "codecov",
+    "verified": false,
+    "origin": "github.com/codecov/test-results-action",
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2025-05-22T16:55:01Z",
+      "html_url": "https://github.com/codecov/test-results-action/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:24.209995Z"
+}

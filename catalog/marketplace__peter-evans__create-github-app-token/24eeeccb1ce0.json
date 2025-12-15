@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/peter-evans/create-github-app-token",
+  "version": "24eeeccb1ce0",
+  "definition": {
+    "name": "Create GitHub App Token",
+    "description": "GitHub Action for creating a GitHub App installation access token",
+    "author": "Gregor Martynus and Parker Brown",
+    "inputs": [
+      {
+        "name": "app-id",
+        "description": "GitHub App ID",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "app_id",
+        "description": "GitHub App ID",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "private-key",
+        "description": "GitHub App private key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "private_key",
+        "description": "GitHub App private key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "owner",
+        "description": "The owner of the GitHub App installation (defaults to current repository owner)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repositories",
+        "description": "Repositories to install the GitHub App on (defaults to current repository if owner is unset)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip-token-revoke",
+        "description": "If truthy, the token will not be revoked when the current job is complete",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip_token_revoke",
+        "description": "If truthy, the token will not be revoked when the current job is complete",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-api-url",
+        "description": "The URL of the GitHub REST API.",
+        "required": false,
+        "default": "${{ github.api_url }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "token",
+        "description": "GitHub installation access token"
+      },
+      {
+        "name": "installation-id",
+        "description": "GitHub App installation ID"
+      },
+      {
+        "name": "app-slug",
+        "description": "GitHub App slug"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/create-github-app-token"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:34.544751Z"
+}

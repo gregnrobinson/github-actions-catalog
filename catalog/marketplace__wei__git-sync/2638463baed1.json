@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/wei/git-sync",
+  "version": "2638463baed1",
+  "definition": {
+    "name": "Git Sync Action",
+    "description": "\ud83d\udd03  Sync between two independent repositories",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "source_repo",
+        "description": "GitHub repo slug or full url",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "source_branch",
+        "description": "Branch name to sync from",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "destination_repo",
+        "description": "GitHub repo slug or full url",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "destination_branch",
+        "description": "Branch name to sync to",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "ssh_private_key",
+        "description": "SSH key used to authenticate with source and destination ssh urls provided (optional if public or https url with authentication)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source_ssh_private_key",
+        "description": "SSH key used to authenticate with source ssh url provided (optional if public or https url with authentication)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "destination_ssh_private_key",
+        "description": "SSH key used to authenticate with destination ssh url provided (optional if public or https url with authentication)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wei",
+    "verified": false,
+    "origin": "github.com/wei/git-sync",
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "feat: add support for source/destination ssh keys",
+      "published_at": "2021-01-18T02:53:32Z",
+      "html_url": "https://github.com/wei/git-sync/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:15.345578Z"
+}

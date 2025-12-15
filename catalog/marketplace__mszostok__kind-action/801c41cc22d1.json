@@ -1,0 +1,119 @@
+{
+  "action_id": "marketplace/mszostok/kind-action",
+  "version": "801c41cc22d1",
+  "definition": {
+    "name": "Kind Cluster",
+    "description": "Create a kind (Kubernetes IN Docker) cluster",
+    "author": "The Helm authors",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "The kind version to use (default: v0.29.0)",
+        "required": false,
+        "default": "v0.29.0"
+      },
+      {
+        "name": "config",
+        "description": "The path to the kind config file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kubeconfig",
+        "description": "The path to the kubeconfig config file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "node_image",
+        "description": "The Docker image for the cluster nodes",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cluster_name",
+        "description": "The name of the cluster to create (default: chart-testing)",
+        "required": false,
+        "default": "chart-testing"
+      },
+      {
+        "name": "wait",
+        "description": "The duration to wait for the control plane to become ready (default: 60s)",
+        "required": false,
+        "default": "60s"
+      },
+      {
+        "name": "verbosity",
+        "description": "The verbosity level for kind (default: 0)",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "kubectl_version",
+        "description": "The kubectl version to use (default: v1.31.11)",
+        "required": false,
+        "default": "v1.31.11"
+      },
+      {
+        "name": "registry",
+        "description": "Whether to configure an insecure local registry (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "registry_image",
+        "description": "The registry image to use (default: registry:2)",
+        "required": false,
+        "default": "registry:2"
+      },
+      {
+        "name": "registry_name",
+        "description": "The registry name to use (default: kind-registry)",
+        "required": false,
+        "default": "kind-registry"
+      },
+      {
+        "name": "registry_port",
+        "description": "The local port used to bind the registry (default: 5000)",
+        "required": false,
+        "default": "5000"
+      },
+      {
+        "name": "registry_enable_delete",
+        "description": "Enable delete operations on the registry (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "install_only",
+        "description": "Skips cluster creation, only install kind (default: false)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore_failed_clean",
+        "description": "Whether to ignore the post-delete the cluster (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "cloud_provider",
+        "description": "Whether to use cloud provider loadbalancer (default: false)",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "mszostok",
+    "verified": false,
+    "origin": "github.com/mszostok/kind-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:09.736768Z"
+}

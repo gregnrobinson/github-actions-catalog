@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/tgymnich/action",
+  "version": "429ccbbf58b8",
+  "definition": {
+    "name": "valar-action",
+    "description": "GitHub Action for Valar",
+    "author": "Valar",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "Valar token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "workdir",
+        "description": "Path where valar push will be run",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tgymnich",
+    "verified": false,
+    "origin": "github.com/tgymnich/action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:08.445218Z"
+}

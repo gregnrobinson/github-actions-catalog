@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/creyD/autoflake_action",
+  "version": "23047c478c35",
+  "definition": {
+    "name": "Autoflake Action",
+    "description": "Automatically runs autoflake on all your changes.",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "description": "Commit message",
+        "required": false,
+        "default": "Removed unused imports and variables"
+      },
+      {
+        "name": "commit_options",
+        "description": "Commit options",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file_pattern",
+        "description": "File pattern used for `git add`",
+        "required": false,
+        "default": "*"
+      },
+      {
+        "name": "checkpath",
+        "description": "Path autoflake checks",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "options",
+        "description": "Parameters for autoflake",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "dry",
+        "description": "Should this script apply autoflake directly or just warn?",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "no_commit",
+        "description": "Can be used to avoid committing the changes",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub Token or PAT token used to authenticate against a repository",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "creyD",
+    "verified": false,
+    "origin": "github.com/creyD/autoflake_action",
+    "latest_release": {
+      "tag_name": "v1.1",
+      "name": "v1.1: Added support for a default GITHUB_TOKEN",
+      "published_at": "2023-05-23T12:08:04Z",
+      "html_url": "https://github.com/creyD/autoflake_action/releases/tag/v1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:44.512744Z"
+}

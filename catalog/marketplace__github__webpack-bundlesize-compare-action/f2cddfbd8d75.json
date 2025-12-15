@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/github/webpack-bundlesize-compare-action",
+  "version": "f2cddfbd8d75",
+  "definition": {
+    "name": "Bundle comparison",
+    "description": "Compare the bundle size between the base branch and the current branch",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "current-stats-json-path",
+        "description": "The path to the current stats.json file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "base-stats-json-path",
+        "description": "The path to the base stats.json file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "The Github token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "title",
+        "description": "An optional addition to the title, which also helps key comments, useful if running more than 1 copy of this action",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "describe-assets",
+        "description": "Optional specification describing asset changes. May be one of the convenience\nkeywords \"all\", \"none\", or \"changed-only\" (for all except the unchanged section), OR\na string of space-separated section names, e.g. \"added bigger unchanged\", where\nall sections are:\n  - added\n  - removed\n  - bigger\n  - smaller\n  - unchanged\nIf not provided, \"all\" is used (equivalent to \"added removed bigger smaller unchanged\")\n",
+        "required": false,
+        "default": "all"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/webpack-bundlesize-compare-action",
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0",
+      "published_at": "2024-06-03T15:10:09Z",
+      "html_url": "https://github.com/github/webpack-bundlesize-compare-action/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:28.855195Z"
+}

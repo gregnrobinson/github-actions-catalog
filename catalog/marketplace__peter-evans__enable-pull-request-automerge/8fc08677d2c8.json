@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/peter-evans/enable-pull-request-automerge",
+  "version": "8fc08677d2c8",
+  "definition": {
+    "name": "Enable Pull Request Automerge",
+    "description": "A GitHub action to enable auto-merge on a pull request",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The target GitHub repository containing the pull request",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "pull-request-number",
+        "description": "The number of the target pull request",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "merge-method",
+        "description": "The merge method to use. `merge`, `rebase` or `squash`.",
+        "required": false,
+        "default": "merge"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/enable-pull-request-automerge",
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "Enable Pull Request Automerge v3.0.0",
+      "published_at": "2023-03-23T06:36:11Z",
+      "html_url": "https://github.com/peter-evans/enable-pull-request-automerge/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:31.469764Z"
+}

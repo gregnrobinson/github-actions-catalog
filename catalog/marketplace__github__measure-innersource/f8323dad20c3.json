@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/measure-innersource/action.yml",
     "origin": "github.com/github/measure-innersource",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.3.4",
+      "name": "v1.3.4",
+      "published_at": "2025-12-01T13:48:29Z",
+      "html_url": "https://github.com/github/measure-innersource/releases/tag/v1.3.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "measure-innersource",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Monitoring"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action focuses on measuring and reporting collaboration metrics, which falls under code quality and monitoring aspects of a repository.",
+        "tags": [
+          "innersource",
+          "collaboration",
+          "metrics",
+          "reporting",
+          "code quality"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "f8323dad20c36e2a02d635d42c0ae6e6c5bcdbbeb588402e66a59aa00faf64b5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.961294Z"
+    "generated_at": "2025-12-15T02:19:00.355589Z"
   }
 }

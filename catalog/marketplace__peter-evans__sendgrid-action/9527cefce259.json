@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/peter-evans/sendgrid-action",
+  "version": "9527cefce259",
+  "definition": {
+    "name": "SendGrid Action",
+    "description": "Send email with SendGrid",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/sendgrid-action",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "SendGrid Action v1.0.1",
+      "published_at": "2020-02-06T12:18:00Z",
+      "html_url": "https://github.com/peter-evans/sendgrid-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:29.901020Z"
+}

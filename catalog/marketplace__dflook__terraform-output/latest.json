@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-output/action.yml",
     "origin": "github.com/dflook/terraform-output",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:38Z",
+      "html_url": "https://github.com/dflook/terraform-output/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-output",
@@ -61,13 +69,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action retrieves outputs from a Terraform configuration, which is primarily related to infrastructure management. It also involves managing dependencies as it interacts with Terraform's configuration.",
+        "reasoning": "The action retrieves outputs from a Terraform configuration, which is primarily related to infrastructure management. It also involves managing dependencies related to Terraform configurations.",
         "tags": [
           "Terraform",
-          "infrastructure",
-          "outputs",
-          "dependency management",
-          "automation"
+          "Infrastructure",
+          "Outputs",
+          "Dependency Management",
+          "Automation"
         ]
       }
     ]
@@ -76,6 +84,6 @@
     "source_hash": "c89ceffc23a833a496fa3148aaf63c3cf91228efd895be608561b97d7948e981",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.364412Z"
+    "generated_at": "2025-12-15T02:18:59.598150Z"
   }
 }

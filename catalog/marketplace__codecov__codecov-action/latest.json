@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/codecov/codecov-action/action.yml",
     "origin": "github.com/codecov/codecov-action",
     "publisher": "codecov",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.5.2",
+      "name": "v5.5.2",
+      "published_at": "2025-12-09T19:21:50Z",
+      "html_url": "https://github.com/codecov/codecov-action/releases/tag/v5.5.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Codecov",
@@ -448,13 +456,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The Codecov action is primarily used for uploading coverage reports, which is a key aspect of testing and ensuring code quality. It also supports publishing coverage data to the Codecov platform.",
+        "reasoning": "The Codecov action is primarily focused on uploading coverage reports, which is a key part of testing and ensuring code quality. Additionally, it involves publishing coverage data to an external service.",
         "tags": [
           "codecov",
           "coverage",
           "testing",
           "code quality",
-          "CI/CD"
+          "CI"
         ]
       }
     ]
@@ -463,6 +471,6 @@
     "source_hash": "bedb7e4255288119f74b86d0dba52f4d2f699c8ab93e4e822d56ceca6fe7a256",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.440567Z"
+    "generated_at": "2025-12-15T02:19:01.002718Z"
   }
 }

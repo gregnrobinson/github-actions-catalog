@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/peter-evans/python-action",
+  "version": "8d21cf856401",
+  "definition": {
+    "name": "Python Action",
+    "description": "A template to bootstrap the creation of a multi-platform Python GitHub action",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "message",
+        "description": "A message to the world",
+        "required": true,
+        "default": "Hello World!"
+      },
+      {
+        "name": "sender",
+        "description": "The sender of the message",
+        "required": true,
+        "default": "Peter"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "reply",
+        "description": "A reply from the world"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/python-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:29.400295Z"
+}

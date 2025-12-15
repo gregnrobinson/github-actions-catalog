@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/codecov/codecov-ats-docker/action.yml",
     "origin": "github.com/codecov/codecov-ats-docker",
     "publisher": "codecov",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "v0.0.1",
+      "published_at": "2023-10-18T22:41:16Z",
+      "html_url": "https://github.com/codecov/codecov-ats-docker/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "ATS",
@@ -195,7 +203,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is designed to run tests and upload coverage reports, which falls under Testing and Code quality. It also requires authentication tokens for Codecov, categorizing it under Authentication.",
+        "reasoning": "The action is primarily focused on running tests and uploading coverage reports, which falls under Testing. It also involves the use of tokens for authentication with Codecov, placing it in the Authentication category as well.",
         "tags": [
           "codecov",
           "testing",
@@ -210,6 +218,6 @@
     "source_hash": "77293a1dd29711822dacfb5cb16f4eacfb0c1d9072ad3679fe586287b39b9e7d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.459276Z"
+    "generated_at": "2025-12-15T02:19:01.020701Z"
   }
 }

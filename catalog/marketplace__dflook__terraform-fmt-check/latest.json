@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-fmt-check/action.yml",
     "origin": "github.com/dflook/terraform-fmt-check",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:49Z",
+      "html_url": "https://github.com/dflook/terraform-fmt-check/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-fmt-check",
@@ -61,13 +69,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action checks the formatting of Terraform configuration files, which directly relates to code quality. It also serves a testing purpose by verifying that the files adhere to a specified format.",
+        "reasoning": "The action checks the formatting of Terraform configuration files, which falls under code quality practices. Additionally, it serves a testing purpose by validating the format of the files.",
         "tags": [
           "terraform",
           "code quality",
           "format check",
           "testing",
-          "OpenTofu"
+          "open tofu"
         ]
       }
     ]
@@ -76,6 +84,6 @@
     "source_hash": "60d9e794da6cc7237d29410db46fcdaa6a0c6ce73aecc53fea5db7fa370773ab",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.330049Z"
+    "generated_at": "2025-12-15T02:18:59.565746Z"
   }
 }

@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/actions/configure-pages",
+  "version": "a1854c7422cc",
+  "definition": {
+    "name": "Configure GitHub Pages",
+    "description": "A GitHub Action to enable Pages, extract various metadata about a site, and configure some supported static site generators.",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "static_site_generator",
+        "description": "Optional static site generator to attempt to configure: \"nuxt\", \"next\", \"gatsby\", or \"sveltekit\"",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "generator_config_file",
+        "description": "Optional file path to static site generator configuration file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "GitHub token",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "enablement",
+        "description": "Try to enable Pages for the repository if it is not already enabled. This option requires a token other than `GITHUB_TOKEN` to be provided. In the context of a Personal Access Token, the `repo` scope or Pages write permission is required. In the context of a GitHub App, the `administration:write` and `pages:write` permissions are required.",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "base_url",
+        "description": "GitHub Pages site full base URL. Examples: \"https://octocat.github.io/my-repo\", \"https://octocat.github.io\", \"https://www.example.com\""
+      },
+      {
+        "name": "origin",
+        "description": "GitHub Pages site origin. Examples: \"https://octocat.github.io\", \"https://www.example.com\""
+      },
+      {
+        "name": "host",
+        "description": "GitHub Pages site host. Examples: \"octocat.github.io\", \"www.example.com\""
+      },
+      {
+        "name": "base_path",
+        "description": "GitHub Pages site full base path. Examples: \"/my-repo\" or \"\""
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/configure-pages",
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "v5.0.0",
+      "published_at": "2024-03-30T00:49:12Z",
+      "html_url": "https://github.com/actions/configure-pages/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:16.619109Z"
+}

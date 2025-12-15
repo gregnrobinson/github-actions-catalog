@@ -1,0 +1,97 @@
+{
+  "action_id": "marketplace/renovatebot/github-action",
+  "version": "ba1b4f1fa0a8",
+  "definition": {
+    "name": "Renovate Bot GitHub Action",
+    "description": "GitHub Action to run self-hosted Renovate.",
+    "author": "Jeroen de Bruijn",
+    "inputs": [
+      {
+        "name": "configurationFile",
+        "description": "Configuration file to configure Renovate. Either use this input or the\n'RENOVATE_CONFIG_FILE' environment variable.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "GitHub personal access token that Renovate should use. This should be\nconfigured using a Secret. Either use this input or the 'RENOVATE_TOKEN'\nenvironment variable.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "env-regex",
+        "description": "Override the environment variables which will be passsed into the renovate container.\nDefaults to `^(?:RENOVATE_\\\\w+|LOG_LEVEL|GITHUB_COM_TOKEN|NODE_OPTIONS|(?:HTTPS?|NO)_PROXY|(?:https?|no)_proxy)$`\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "renovate-version",
+        "description": "Renovate version to use.\n",
+        "required": false,
+        "default": "42"
+      },
+      {
+        "name": "renovate-image",
+        "description": "Renovate docker image name.\n",
+        "required": false,
+        "default": "ghcr.io/renovatebot/renovate"
+      },
+      {
+        "name": "mount-docker-socket",
+        "description": "Mount the Docker socket inside the renovate container so that the commands\ncan use Docker. Also add the user inside the renovate container to the\ndocker group for socket permissions.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "docker-socket-host-path",
+        "description": "Allows the overriding of the host path for the Docker socket that is mounted into the container.\nUseful on systems where the host Docker socket is located somewhere other than '/var/run/docker.sock' (the default).\nOnly applicable when 'mount-docker-socket' is true.\n",
+        "required": false,
+        "default": "/var/run/docker.sock"
+      },
+      {
+        "name": "docker-cmd-file",
+        "description": "Override docker command. Default command is `renovate`\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "docker-network",
+        "description": "Docker network.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "docker-user",
+        "description": "Docker user. Default to an unprivileged user\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "docker-volumes",
+        "description": "Docker volume mounts. Default to /tmp:/tmp\n",
+        "required": false,
+        "default": "/tmp:/tmp"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "renovatebot",
+    "verified": false,
+    "origin": "github.com/renovatebot/github-action",
+    "latest_release": {
+      "tag_name": "v44.1.0",
+      "name": "v44.1.0",
+      "published_at": "2025-12-12T15:00:08Z",
+      "html_url": "https://github.com/renovatebot/github-action/releases/tag/v44.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:14.652113Z"
+}

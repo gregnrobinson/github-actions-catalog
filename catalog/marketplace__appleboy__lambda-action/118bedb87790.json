@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/lambda-action/action.yml",
     "origin": "github.com/appleboy/lambda-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.2.0",
+      "name": "",
+      "published_at": "2024-04-22T07:34:31Z",
+      "html_url": "https://github.com/appleboy/lambda-action/releases/tag/v0.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS Lambda Deploy",
@@ -201,14 +209,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying code to AWS Lambda, which falls under the Deployment category. It also requires AWS credentials for authentication, linking it to both Authentication and Infrastructure categories.",
+        "tags": [
+          "AWS",
+          "Lambda",
+          "Deployment",
+          "Infrastructure",
+          "Authentication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "118bedb87790060dcfb1aae4fbc4ac5037e26ea23599ef8013616a4afc3df7af",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.108894Z"
+    "generated_at": "2025-12-15T02:19:00.515136Z"
   }
 }

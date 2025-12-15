@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/renovatebot/github-action/action.yml",
     "origin": "github.com/renovatebot/github-action",
     "publisher": "renovatebot",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v44.1.0",
+      "name": "v44.1.0",
+      "published_at": "2025-12-12T15:00:08Z",
+      "html_url": "https://github.com/renovatebot/github-action/releases/tag/v44.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Renovate Bot GitHub Action",
@@ -89,6 +97,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
+      "Configuration",
       "Authentication"
     ],
     "confidence": "high",
@@ -97,13 +106,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The Renovate Bot GitHub Action is primarily focused on managing dependencies by automating the process of updating them. It also requires authentication via a GitHub personal access token, which places it in the Authentication category.",
+        "reasoning": "The Renovate Bot GitHub Action is primarily focused on managing dependencies by automating the update process for them. It also requires authentication via a GitHub token, which is relevant for accessing repositories.",
         "tags": [
           "Renovate",
           "Dependency Management",
           "GitHub Action",
           "Automation",
-          "Token"
+          "Configuration"
         ]
       }
     ]
@@ -112,6 +121,6 @@
     "source_hash": "a58f4dc63eb93ac735c6423d0131f2222d81e096f8f90a5c7ba4f7659a583e5c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.356245Z"
+    "generated_at": "2025-12-15T02:19:00.289320Z"
   }
 }

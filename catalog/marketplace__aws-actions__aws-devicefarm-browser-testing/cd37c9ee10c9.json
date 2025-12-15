@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-devicefarm-browser-testing/action.yml",
     "origin": "github.com/aws-actions/aws-devicefarm-browser-testing",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2",
+      "name": "v2.2",
+      "published_at": "2024-08-14T04:31:57Z",
+      "html_url": "https://github.com/aws-actions/aws-devicefarm-browser-testing/releases/tag/v2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS Device Farm Browser Testing GitHub Action",
@@ -68,14 +76,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Testing",
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is primarily focused on automated browser testing, which falls under the Testing category. It also involves deployment aspects by interacting with AWS Device Farm infrastructure.",
+        "tags": [
+          "AWS",
+          "Device Farm",
+          "Browser Testing",
+          "Automation",
+          "GitHub Action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "cd37c9ee10c91154bf856e789e14cb2fe4dc34fbf1bcd4223236910f044e4df4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.027657Z"
+    "generated_at": "2025-12-15T02:19:00.437628Z"
   }
 }

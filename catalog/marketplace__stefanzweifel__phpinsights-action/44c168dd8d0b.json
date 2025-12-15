@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/stefanzweifel/phpinsights-action/action.yml",
     "origin": "github.com/stefanzweifel/phpinsights-action",
     "publisher": "stefanzweifel",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2020-02-11T18:40:57Z",
+      "html_url": "https://github.com/stefanzweifel/phpinsights-action/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "PHP Insights Action",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The PHP Insights Action is focused on analyzing the quality of PHP code, which falls under code quality. It may also involve testing aspects of the code to ensure standards are met.",
+        "tags": [
+          "PHP",
+          "code quality",
+          "insights",
+          "testing",
+          "GitHub Action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "44c168dd8d0b4d7ef739de1dd1649b65e0287e71242c34ab9d57bab11da73802",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.411527Z"
+    "generated_at": "2025-12-15T02:19:00.963259Z"
   }
 }

@@ -67,12 +67,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Publishing",
-        "reasoning": "The action is designed to update posts on Ghost, which falls under the publishing category. It also involves communication with the Ghost Admin API, making it relevant to communication.",
+        "reasoning": "The action is primarily focused on updating posts in Ghost, which falls under the publishing category. It also involves communication with the Ghost API, making it relevant to communication.",
         "tags": [
           "Ghost",
           "posts",
-          "update",
           "API",
+          "update",
           "scheduling"
         ]
       }
@@ -82,6 +82,6 @@
     "source_hash": "8ceb58d6c97717ebd26fb83e41de61275adc3d461d09a8abce2e620a416daa60",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.303937Z"
+    "generated_at": "2025-12-15T02:19:00.198335Z"
   }
 }

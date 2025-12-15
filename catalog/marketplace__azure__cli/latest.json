@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/cli/action.yml",
     "origin": "github.com/azure/cli",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2.0",
+      "name": "GitHub Action for Azure CLI v2.2.0",
+      "published_at": "2025-09-22T06:36:56Z",
+      "html_url": "https://github.com/Azure/cli/releases/tag/v2.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure CLI Action",
@@ -44,7 +52,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The Azure CLI Action is primarily used to automate workflows related to Azure infrastructure, making it a key tool for infrastructure management. It can also be used for building and deploying applications using Azure services.",
+        "reasoning": "The Azure CLI Action is primarily used for automating workflows related to Azure infrastructure, which places it in the Infrastructure category. It can also be used for building and deploying applications, hence the secondary categories.",
         "tags": [
           "Azure",
           "CLI",
@@ -59,6 +67,6 @@
     "source_hash": "654ccd14159a86c1a8be1c64feac2cd448abb3e0a73ed3c7683383d0c5af91bd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.602001Z"
+    "generated_at": "2025-12-15T02:18:59.878936Z"
   }
 }

@@ -28,6 +28,7 @@
   "annotations": {
     "categories": [
       "Testing",
+      "Documentation",
       "Code quality"
     ],
     "confidence": "high",
@@ -36,13 +37,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is designed to identify errors during Sphinx builds, which directly relates to testing and ensuring code quality.",
+        "reasoning": "This action is designed to identify errors during Sphinx builds, which is primarily related to testing the output of documentation generation. It also contributes to code quality by ensuring that documentation is error-free.",
         "tags": [
           "Sphinx",
           "problem matcher",
           "testing",
-          "code quality",
-          "GitHub Actions"
+          "documentation",
+          "code quality"
         ]
       }
     ]
@@ -51,6 +52,6 @@
     "source_hash": "efdc519c859eac645f91cb20c9ad4b40156c543bb031da7f92858d54bb43190d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.070955Z"
+    "generated_at": "2025-12-15T02:18:59.752992Z"
   }
 }

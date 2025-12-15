@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/lukka/get-cmake",
+  "version": "6a615f177350",
+  "definition": {
+    "name": "get-cmake",
+    "description": "Installs CMake and Ninja, and caches them on cloud based GitHub cache, and/or on the local GitHub runner cache.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "cmakeVersion",
+        "description": "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `\u02c63.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ninjaVersion",
+        "description": "Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "useCloudCache",
+        "description": "Optional argument indicating whether to use the cloud based storage of the GitHub cache. Suited for the GitHub-hosted runners.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "useLocalCache",
+        "description": "Optional argument indicating whether to use the local cache on the GitHub runner file system. Suited for the self-hosted GitHub runners.",
+        "required": false,
+        "default": false
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cmake-path",
+        "description": "The path to the installed CMake executable"
+      },
+      {
+        "name": "ninja-path",
+        "description": "The path to the installed Ninja executable"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/get-cmake",
+    "latest_release": {
+      "tag_name": "v4.2.1",
+      "name": "CMake v4.2.1",
+      "published_at": "2025-12-09T04:50:53Z",
+      "html_url": "https://github.com/lukka/get-cmake/releases/tag/v4.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:57.779854Z"
+}

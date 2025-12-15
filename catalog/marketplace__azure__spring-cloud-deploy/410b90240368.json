@@ -1,0 +1,109 @@
+{
+  "action_id": "marketplace/azure/spring-cloud-deploy",
+  "version": "410b90240368",
+  "definition": {
+    "name": "Azure Spring Cloud",
+    "description": "Deploy applications to Azure Spring Cloud and manage deployments.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "azure-subscription",
+        "description": "Select the Azure Resource Manager subscription for the deployment.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "action",
+        "description": "Action to be performed on Azure Spring Cloud.",
+        "required": true,
+        "default": "deploy"
+      },
+      {
+        "name": "service-name",
+        "description": "Select the Azure Spring Cloud service to which to deploy.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "app-name",
+        "description": "Select the Azure Spring Cloud app to deploy.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "use-staging-deployment",
+        "description": "Automatically select the deployment that's set as Staging at the time the task runs.",
+        "required": true,
+        "default": true
+      },
+      {
+        "name": "create-new-deployment",
+        "description": "Whether to target the deployment that's set as Staging at the time of execution. If unchecked, the 'Deployment Name' setting must be set.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "deployment-name",
+        "description": "The deployment to which this task will apply. Lowercase letters, - and numbers only; must start with a letter.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "package",
+        "description": "File path to the package or a folder containing the Spring Cloud app contents.",
+        "required": false,
+        "default": "${{ github.workspace }}/**/*.jar"
+      },
+      {
+        "name": "environment-variables",
+        "description": "Edit the app's environment variables.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "jvm-options",
+        "description": "Edit the app's JVM options. A String containing JVM Options. Example: `-Xms1024m -Xmx2048m`",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "runtime-version",
+        "description": "The runtime on which the app will run.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dotnetcore-mainentry-path",
+        "description": "The path to the .NET executable relative to zip root.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "description": "The runtime on which the app will run.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/spring-cloud-deploy",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "GitHub Action for deploying to Azure Spring Cloud",
+      "published_at": "2021-11-10T07:13:34Z",
+      "html_url": "https://github.com/Azure/spring-cloud-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:03.144839Z"
+}

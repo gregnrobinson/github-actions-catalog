@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/benchmark-action/github-action-benchmark/action.yml",
     "origin": "github.com/benchmark-action/github-action-benchmark",
     "publisher": "benchmark-action",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.20.7",
+      "name": "v1.20.7",
+      "published_at": "2025-09-06T11:41:52Z",
+      "html_url": "https://github.com/benchmark-action/github-action-benchmark/releases/tag/v1.20.7",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Continuous Benchmark",
@@ -141,14 +149,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Testing",
+      "Monitoring"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is focused on benchmarking performance, which falls under testing, and it also involves monitoring performance metrics through a dashboard.",
+        "tags": [
+          "benchmark",
+          "performance",
+          "testing",
+          "monitoring",
+          "GitHub Pages"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "a6e895cd7a123f809c64bea8dff29caac071bb213fe53c249757d86fae86f87f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.830948Z"
+    "generated_at": "2025-12-15T02:19:00.149136Z"
   }
 }

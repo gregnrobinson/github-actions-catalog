@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/ai-assessment-comment-labeler/action.yml",
     "origin": "github.com/github/ai-assessment-comment-labeler",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2025-09-22T14:41:00Z",
+      "html_url": "https://github.com/github/ai-assessment-comment-labeler/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AI Assessment Comment Labeler",
@@ -139,7 +147,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action generates comments based on AI assessments, which falls under communication. It also relates to code quality by providing assessments and labels that can help improve the codebase.",
+        "reasoning": "The action generates comments based on AI assessments, which falls under communication. Additionally, it relates to code quality by providing assessments and labels for issues.",
         "tags": [
           "AI",
           "comment",
@@ -154,6 +162,6 @@
     "source_hash": "6db2aa2b58f735918585e575d4d6c809a23c84ca26887b312f14b9a1ff9cdd28",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.930730Z"
+    "generated_at": "2025-12-15T02:19:00.327636Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/setup-sam/action.yml",
     "origin": "github.com/aws-actions/setup-sam",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2",
+      "published_at": "2022-04-28T17:44:37Z",
+      "html_url": "https://github.com/aws-actions/setup-sam/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup AWS SAM CLI",
@@ -45,14 +53,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action sets up the AWS SAM CLI, which is essential for managing serverless applications on AWS, thus falling under Infrastructure. It also manages dependencies related to the AWS SAM CLI installation.",
+        "tags": [
+          "AWS",
+          "SAM",
+          "CLI",
+          "setup",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1851098fbf95618f9888fccd6ae6a9f0151f3a5591b1a17d8073179e4c9176b1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.996003Z"
+    "generated_at": "2025-12-15T02:19:00.404131Z"
   }
 }

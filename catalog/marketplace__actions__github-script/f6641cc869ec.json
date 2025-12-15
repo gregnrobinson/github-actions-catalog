@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/actions/github-script",
+  "version": "f6641cc869ec",
+  "definition": {
+    "name": "GitHub Script",
+    "description": "Run simple scripts using the GitHub client",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "script",
+        "description": "The script to run",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "The GitHub token used to create an authenticated client",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "debug",
+        "description": "Whether to tell the GitHub client to log details of its requests. true or false. Default is to run in debug mode when the GitHub Actions step debug logging is turned on.",
+        "required": false,
+        "default": "${{ runner.debug == '1' }}"
+      },
+      {
+        "name": "user-agent",
+        "description": "An optional user-agent string",
+        "required": false,
+        "default": "actions/github-script"
+      },
+      {
+        "name": "previews",
+        "description": "A comma-separated list of GraphQL API previews to accept",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "result-encoding",
+        "description": "Either \"string\" or \"json\" (default \"json\")\u2014how the result will be encoded",
+        "required": false,
+        "default": "json"
+      },
+      {
+        "name": "retries",
+        "description": "The number of times to retry a request",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "retry-exempt-status-codes",
+        "description": "A comma separated list of status codes that will NOT be retried e.g. \"400,500\". No effect unless `retries` is set",
+        "required": false,
+        "default": "400,401,403,404,422"
+      },
+      {
+        "name": "base-url",
+        "description": "An optional GitHub REST API URL to connect to a different GitHub instance. For example, https://my.github-enterprise-server.com/api/v3",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The return value of the script, stringified with `JSON.stringify`"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/github-script",
+    "latest_release": {
+      "tag_name": "v8",
+      "name": "v8.0.0",
+      "published_at": "2025-09-04T14:57:03Z",
+      "html_url": "https://github.com/actions/github-script/releases/tag/v8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:04.637890Z"
+}

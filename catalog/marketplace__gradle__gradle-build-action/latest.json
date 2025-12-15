@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/gradle/gradle-build-action/action.yml",
     "origin": "github.com/gradle/gradle-build-action",
     "publisher": "gradle",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.5.0",
+      "name": "v3.5.0",
+      "published_at": "2024-07-15T19:29:12Z",
+      "html_url": "https://github.com/gradle/gradle-build-action/releases/tag/v3.5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "setup-gradle",
@@ -321,7 +329,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action configures Gradle for building projects and manages dependencies through caching and generating a dependency graph, making it primarily a build tool with a focus on dependency management.",
+        "reasoning": "The action is primarily focused on configuring Gradle for building projects, which falls under the Build category. Additionally, it manages dependencies through caching and generating a dependency graph, placing it in the Dependency management category as well.",
         "tags": [
           "Gradle",
           "build",
@@ -336,6 +344,6 @@
     "source_hash": "c406f83a85346ba7af6b67e225411d22fc61b5c6ea2122033b4fd52cecd92522",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.327670Z"
+    "generated_at": "2025-12-15T02:19:00.238405Z"
   }
 }

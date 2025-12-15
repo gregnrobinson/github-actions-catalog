@@ -1,0 +1,162 @@
+{
+  "action_id": "marketplace/docker/setup-buildx-action",
+  "version": "b0dfd1b890f9",
+  "definition": {
+    "name": "Docker Setup Buildx",
+    "description": "Set up Docker Buildx",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "Buildx version. (eg. v0.3.0)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "driver",
+        "description": "Sets the builder driver to be used",
+        "required": false,
+        "default": "docker-container"
+      },
+      {
+        "name": "driver-opts",
+        "description": "List of additional driver-specific options. (eg. image=moby/buildkit:master)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "buildkitd-flags",
+        "description": "BuildKit daemon flags",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "buildkitd-config",
+        "description": "BuildKit daemon config file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "buildkitd-config-inline",
+        "description": "Inline BuildKit daemon config",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "install",
+        "description": "Sets up docker build command as an alias to docker buildx build",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use",
+        "description": "Switch to this builder instance",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "name",
+        "description": "Name of the builder. If not specified, one will be generated or if it already exists, it will be used instead of creating a new one.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "endpoint",
+        "description": "Optional address for docker socket or context from `docker context ls`",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platforms",
+        "description": "Fixed platforms for current node. If not empty, values take priority over the detected ones",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "append",
+        "description": "Append additional nodes to the builder",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "keep-state",
+        "description": "Keep BuildKit state on cleanup. This is only useful on persistent self-hosted runners.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "cache-binary",
+        "description": "Cache buildx binary to GitHub Actions cache backend",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "cleanup",
+        "description": "Cleanup temp files and remove builder at the end of a job",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "config",
+        "description": "BuildKit daemon config file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "config-inline",
+        "description": "Inline BuildKit daemon config",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "description": "Builder name"
+      },
+      {
+        "name": "driver",
+        "description": "Builder driver"
+      },
+      {
+        "name": "platforms",
+        "description": "Builder node platforms (preferred or available)"
+      },
+      {
+        "name": "nodes",
+        "description": "Builder nodes metadata"
+      },
+      {
+        "name": "endpoint",
+        "description": "Builder node endpoint (deprecated, use nodes output instead)"
+      },
+      {
+        "name": "status",
+        "description": "Builder node status (deprecated, use nodes output instead)"
+      },
+      {
+        "name": "flags",
+        "description": "Builder node flags (deprecated, use nodes output instead)"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/setup-buildx-action",
+    "latest_release": {
+      "tag_name": "v3.11.1",
+      "name": "v3.11.1",
+      "published_at": "2025-06-18T08:40:20Z",
+      "html_url": "https://github.com/docker/setup-buildx-action/releases/tag/v3.11.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:52.681767Z"
+}

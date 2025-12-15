@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/kubernetes-action/action.yml",
     "origin": "github.com/appleboy/kubernetes-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "v0.0.1",
+      "published_at": "2023-06-03T11:48:09Z",
+      "html_url": "https://github.com/appleboy/kubernetes-action/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy K8S Tool",
@@ -111,14 +119,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is focused on generating Kubeconfig and managing Kubernetes deployments, which directly relates to deployment and infrastructure management.",
+        "tags": [
+          "Kubernetes",
+          "Deployment",
+          "Infrastructure",
+          "Kubeconfig",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "0a14876a02458b05c8c255de74a692262e7310375516fc0184ea1cdbb6993819",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.196617Z"
+    "generated_at": "2025-12-15T02:19:00.598074Z"
   }
 }

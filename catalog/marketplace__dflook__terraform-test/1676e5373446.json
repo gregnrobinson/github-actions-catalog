@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/dflook/terraform-test",
+  "version": "1676e5373446",
+  "definition": {
+    "name": "terraform-test",
+    "description": "Execute automated tests for a Terraform module",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform module under test",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "test_directory",
+        "description": "The directory within the module path that contains the test files.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "test_filter",
+        "description": "The test files to run, one per line.\n\nIf not specified, all test files in the `test_directory` will be run.\nThe are paths relative to the module path.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the tests. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "junit-xml-path",
+        "description": "A test report in JUnit XML format.\n\nThe path is relative to the Actions workspace.\n\nThis will only be available when using Terraform 1.11.0 or later.\n"
+      },
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `no-tests` - No tests were found to run.\n- `tests-failed` - One or more tests failed.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-test",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:38Z",
+      "html_url": "https://github.com/dflook/terraform-test/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:39.577687Z"
+}

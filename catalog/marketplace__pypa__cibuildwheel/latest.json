@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/pypa/cibuildwheel/action.yml",
     "origin": "github.com/pypa/cibuildwheel",
     "publisher": "pypa",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.3.0",
+      "name": "",
+      "published_at": "2025-11-12T19:28:16Z",
+      "html_url": "https://github.com/pypa/cibuildwheel/releases/tag/v3.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "cibuildwheel",
@@ -91,13 +99,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is focused on building Python wheels, which falls under the Build category, and it also involves packaging the output as Python distributions.",
+        "reasoning": "The action installs and runs cibuildwheel, which is primarily used for building Python wheels, making it a build tool. It also involves packaging as it outputs wheel files.",
         "tags": [
           "cibuildwheel",
-          "python",
+          "Python",
           "build",
           "packaging",
-          "CI"
+          "GitHub Actions"
         ]
       }
     ]
@@ -106,6 +114,6 @@
     "source_hash": "bdce0e8736123076ee9953d5121ea19c490fac8e67d064a8bb1b96cb52412fb7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.432177Z"
+    "generated_at": "2025-12-15T02:18:59.678247Z"
   }
 }

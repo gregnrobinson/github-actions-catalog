@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/run-gemini-cli/action.yml",
     "origin": "github.com/google-github-actions/run-gemini-cli",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.1.16",
+      "name": "v0.1.16",
+      "published_at": "2025-12-02T09:14:28Z",
+      "html_url": "https://github.com/google-github-actions/run-gemini-cli/releases/tag/v0.1.16",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Run Gemini CLI",
@@ -260,14 +268,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is designed to invoke the Gemini CLI, which is likely used for infrastructure-related tasks, while also potentially being used to run tests or checks as part of a CI/CD pipeline.",
+        "tags": [
+          "Gemini",
+          "CLI",
+          "Google Cloud",
+          "Infrastructure",
+          "Testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "d3793ae65381944efd334f0e62771fecbd7d7230ca5ff665c30e39db30765981",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.781189Z"
+    "generated_at": "2025-12-15T02:19:00.071367Z"
   }
 }

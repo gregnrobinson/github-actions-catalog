@@ -1,0 +1,320 @@
+{
+  "action_id": "marketplace/crowdin/github-action",
+  "version": "fd2c432e3317",
+  "definition": {
+    "name": "crowdin-action",
+    "description": "This action allows you to manage and synchronize localization resources with your Crowdin project",
+    "author": "crowdin",
+    "inputs": [
+      {
+        "name": "upload_sources",
+        "description": "Upload sources to Crowdin",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "upload_sources_args",
+        "description": "Additional arguments which will be passed to the `upload sources` cli command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "upload_translations",
+        "description": "Upload translations to Crowdin",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "upload_language",
+        "description": "Use this option to upload translations for a single specified language - Case-Sensitive",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "auto_approve_imported",
+        "description": "Automatically approves uploaded translations",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "import_eq_suggestions",
+        "description": "Defines whether to add translation if it is equal to source string in Crowdin project",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "upload_translations_args",
+        "description": "Additional arguments which will be passed to the `upload translations` cli command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "download_sources",
+        "description": "Defines whether to download source files from the Crowdin project",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "push_sources",
+        "description": "Push downloaded sources to the branch",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "download_sources_args",
+        "description": "Additional arguments which will be passed to the `download sources` cli command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "download_translations",
+        "description": "Defines whether to download translation files from the Crowdin project",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "download_language",
+        "description": "Use this option to download translations for a single specified language",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "download_bundle",
+        "description": "Download bundle from Crowdin project (by ID)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "skip_untranslated_strings",
+        "description": "Skip untranslated strings in exported files (does not work with .docx, .html, .md and other document files)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "skip_untranslated_files",
+        "description": "Omit downloading not fully translated files",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "export_only_approved",
+        "description": "Include approved translations only in exported files. If not combined with --skip-untranslated-strings option, strings without approval are fulfilled with the source language",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "push_translations",
+        "description": "Push downloaded translations to the branch",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "commit_message",
+        "description": "Commit message for download translations",
+        "required": false,
+        "default": "New Crowdin translations by GitHub Action"
+      },
+      {
+        "name": "localization_branch_name",
+        "description": "To download translations to the specified version branch",
+        "required": false,
+        "default": "l10n_crowdin_action"
+      },
+      {
+        "name": "create_pull_request",
+        "description": "Create pull request after pushing to branch",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "pull_request_title",
+        "description": "The title of the new pull request",
+        "required": false,
+        "default": "New Crowdin translations by GitHub Action"
+      },
+      {
+        "name": "pull_request_body",
+        "description": "The contents of the pull request",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull_request_assignees",
+        "description": "Add up to 10 assignees to the created pull request (separated by comma)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull_request_reviewers",
+        "description": "Usernames of people from whom a review is requested for this pull request (separated by comma)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull_request_team_reviewers",
+        "description": "Team slugs from which a review is requested for this pull request (separated by comma)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull_request_labels",
+        "description": "To add labels for created pull request",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull_request_base_branch_name",
+        "description": "Create pull request to specified branch instead of default one",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "download_translations_args",
+        "description": "Additional arguments which will be passed to the `download translations` cli command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "skip_ref_checkout",
+        "description": "Skip default git checkout on GITHUB_REF",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "crowdin_branch_name",
+        "description": "Option to upload or download files to the specified version branch in your Crowdin project",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "config",
+        "description": "Option to specify a path to the configuration file, without / at the beginning",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dryrun_action",
+        "description": "Option to preview the list of managed files",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "github_base_url",
+        "description": "Option to configure the base URL of GitHub server, if using GHE.",
+        "required": false,
+        "default": "github.com"
+      },
+      {
+        "name": "github_api_base_url",
+        "description": "Options to configure the base URL of GitHub server for API requests, if using GHE and different from api.github_base_url.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github_user_name",
+        "description": "Option to configure GitHub user name on commits.",
+        "required": false,
+        "default": "Crowdin Bot"
+      },
+      {
+        "name": "github_user_email",
+        "description": "Option to configure GitHub user email on commits.",
+        "required": false,
+        "default": "support+bot@crowdin.com"
+      },
+      {
+        "name": "gpg_private_key",
+        "description": "GPG private key in ASCII-armored format",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gpg_passphrase",
+        "description": "GPG Passphrase",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "project_id",
+        "description": "Numerical ID of the project",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Personal access token required for authentication",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "base_url",
+        "description": "Base URL of Crowdin server for API requests execution",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "base_path",
+        "description": "Path to your project directory on a local machine, without / at the beginning",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source",
+        "description": "Path to the source files, without / at the beginning",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "translation",
+        "description": "Path to the translation files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "command",
+        "description": "Crowdin CLI command to execute",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "command_args",
+        "description": "Additional arguments which will be passed to the Crowdin CLI command",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pull_request_url",
+        "description": "The URL of the pull request created by the workflow"
+      },
+      {
+        "name": "pull_request_number",
+        "description": "The number of the pull request created by the workflow"
+      },
+      {
+        "name": "pull_request_created",
+        "description": "Whether a new pull request was created (true) or an existing one was found (false)"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "crowdin",
+    "verified": false,
+    "origin": "github.com/crowdin/github-action",
+    "latest_release": {
+      "tag_name": "v2.13.0",
+      "name": "v2.13.0",
+      "published_at": "2025-12-02T09:23:33Z",
+      "html_url": "https://github.com/crowdin/github-action/releases/tag/v2.13.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:04.889311Z"
+}

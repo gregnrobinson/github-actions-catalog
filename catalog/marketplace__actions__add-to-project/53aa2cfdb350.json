@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/add-to-project/action.yml",
     "origin": "github.com/actions/add-to-project",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "v1.0.2",
+      "published_at": "2024-06-24T21:04:37Z",
+      "html_url": "https://github.com/actions/add-to-project/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Add To GitHub projects",
@@ -50,14 +58,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates the organization of issues and PRs within GitHub projects, which is a form of communication and project management. It also requires a GitHub token, indicating a dependency on GitHub's API.",
+        "tags": [
+          "GitHub",
+          "projects",
+          "automation",
+          "issues",
+          "PRs"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "53aa2cfdb350a672f4b3861b4f74fe85a331a42c0448453b175ff6ddbd3be724",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.203139Z"
+    "generated_at": "2025-12-15T02:19:00.603815Z"
   }
 }

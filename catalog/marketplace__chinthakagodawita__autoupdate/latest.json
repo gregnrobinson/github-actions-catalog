@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/chinthakagodawita/autoupdate/action.yml",
     "origin": "github.com/chinthakagodawita/autoupdate",
     "publisher": "chinthakagodawita",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.7.0",
+      "name": "v1.7.0",
+      "published_at": "2023-03-26T03:10:31Z",
+      "html_url": "https://github.com/chinthakagodawita/autoupdate/releases/tag/v1.7.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Auto Update",
@@ -22,8 +30,7 @@
   "annotations": {
     "categories": [
       "Communication",
-      "Code quality",
-      "Testing"
+      "Dependency management"
     ],
     "confidence": "medium",
     "evidence": [
@@ -31,13 +38,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action facilitates communication by automatically updating pull requests, which can improve code quality and testing by ensuring that PRs are in sync with the destination branch.",
+        "reasoning": "The action facilitates communication by automatically updating pull requests, which helps keep them in sync with the destination branch. It also relates to dependency management as it ensures that the changes from the destination branch are reflected in the PR.",
         "tags": [
           "auto-update",
           "pull-request",
           "GitHub Action",
-          "automation",
-          "code-sync"
+          "dependency-management",
+          "synchronization"
         ]
       }
     ]
@@ -46,6 +53,6 @@
     "source_hash": "ad5eef70f4c2ded06a76de56cb3317e0ad64e2230105f7f1027e4a40923e880c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.192216Z"
+    "generated_at": "2025-12-15T02:19:00.012233Z"
   }
 }

@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/azure/load-testing",
+  "version": "dde93633ff6f",
+  "definition": {
+    "name": "Azure Load Testing",
+    "description": "Automate continous regression testing with Azure Load Testing",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "loadtestConfigFile",
+        "description": "Path of the YAML file. Should be fully qualified path or relative to the default working directory",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "loadtestResource",
+        "description": "Enter or Select the name of an existing Azure Load Testing resource",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "loadtestRunName",
+        "description": "Custom name for the load test run",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "loadtestRunDescription",
+        "description": "Custom description for the load test run",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resourceGroup",
+        "description": "Enter or Select the Azure Resource Group that contains the Load test resource specified above",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "secrets",
+        "description": "Enter secrets in JSON",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "env",
+        "description": "Enter env in JSON",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "overrideParameters",
+        "description": "Override parameters in the YAML config file using the JSON format with testId, displayName, description, engineInstances, autoStop supported.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "outputVariableName",
+        "description": "Name of the output variable that stores the test run ID for use in subsequent tasks.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/load-testing",
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "Fix minor issues for headers",
+      "published_at": "2025-12-08T05:43:07Z",
+      "html_url": "https://github.com/Azure/load-testing/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:32.845188Z"
+}

@@ -1,0 +1,34 @@
+{
+  "action_id": "marketplace/peter-evans/rust-wasm-action",
+  "version": "650a23203190",
+  "definition": {
+    "name": "Hello World",
+    "description": "Hello World from Rust-generated WebAssembly!",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "actor",
+        "description": "The user that triggered the workflow",
+        "required": false,
+        "default": "${{ github.actor }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The result of the action execution"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/rust-wasm-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:37.146450Z"
+}

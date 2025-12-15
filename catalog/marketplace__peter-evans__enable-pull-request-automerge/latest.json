@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/enable-pull-request-automerge/action.yml",
     "origin": "github.com/peter-evans/enable-pull-request-automerge",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "Enable Pull Request Automerge v3.0.0",
+      "published_at": "2023-03-23T06:36:11Z",
+      "html_url": "https://github.com/peter-evans/enable-pull-request-automerge/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Enable Pull Request Automerge",
@@ -61,23 +69,22 @@
   },
   "annotations": {
     "categories": [
-      "Automation",
       "Communication",
-      "Deployment"
+      "Automation"
     ],
     "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Automation",
-        "reasoning": "This action automates the process of enabling auto-merge for pull requests, which falls under automation. It also involves communication with the GitHub API and can impact deployment workflows.",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates communication by enabling auto-merge on pull requests, which streamlines the collaboration process. It also falls under automation as it automates the merging process.",
         "tags": [
           "pull request",
           "automerge",
           "GitHub Action",
           "automation",
-          "CI/CD"
+          "collaboration"
         ]
       }
     ]
@@ -86,6 +93,6 @@
     "source_hash": "9757f20a7348d8e5ef9e96400d5c0518719accbca28050f0edeff563a640f175",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.481297Z"
+    "generated_at": "2025-12-15T02:19:01.040624Z"
   }
 }

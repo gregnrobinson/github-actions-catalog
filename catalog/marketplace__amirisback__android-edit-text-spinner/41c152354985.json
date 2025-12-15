@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/android-edit-text-spinner",
+  "version": "41c152354985",
+  "definition": {
+    "name": "Android-Research-Tech",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/android-edit-text-spinner"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:44.047509Z"
+}

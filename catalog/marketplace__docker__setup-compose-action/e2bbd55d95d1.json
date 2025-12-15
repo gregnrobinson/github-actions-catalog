@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/docker/setup-compose-action",
+  "version": "e2bbd55d95d1",
+  "definition": {
+    "name": "Docker Setup Compose",
+    "description": "Set up Docker Compose",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "Compose version. (eg. v2.32.4)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cache-binary",
+        "description": "Cache compose binary to GitHub Actions cache backend",
+        "required": false,
+        "default": "true"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/setup-compose-action",
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v1.2.0",
+      "published_at": "2025-02-26T15:37:52Z",
+      "html_url": "https://github.com/docker/setup-compose-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:53.119801Z"
+}

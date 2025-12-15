@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/azure/data-factory-deploy-action",
+  "version": "05227689e91e",
+  "definition": {
+    "name": "data-factory-deploy",
+    "description": "Deploy Azure Data Factory resources",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "resourceGroupName",
+        "description": "Data Factory resource group name",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "dataFactoryName",
+        "description": "Data factory name",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "armTemplateFile",
+        "description": "ARM template file name",
+        "required": false,
+        "default": "ARMTemplateForFactory.json"
+      },
+      {
+        "name": "armTemplateParametersFile",
+        "description": "ARM template parameters file name",
+        "required": false,
+        "default": "ARMTemplateParametersForFactory.json"
+      },
+      {
+        "name": "additionalParameters",
+        "description": "Parameters which will be replaced in the ARM template",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "skipAzModuleInstallation",
+        "description": "Parameters which skip the Az module installation",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/data-factory-deploy-action",
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "GitHub Action for Azure Data Factory Deploy",
+      "published_at": "2022-01-06T13:02:22Z",
+      "html_url": "https://github.com/Azure/data-factory-deploy-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:34.592428Z"
+}

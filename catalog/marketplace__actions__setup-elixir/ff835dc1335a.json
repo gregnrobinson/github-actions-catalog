@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/actions/setup-elixir",
+  "version": "ff835dc1335a",
+  "definition": {
+    "name": "Setup Elixir",
+    "description": "Set up a specific version of OTP and Elixir and add the command-line tools to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "elixir-version",
+        "description": "Version range or exact version of Elixir to use",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "otp-version",
+        "description": "Version range or exact version of OTP to use",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "experimental-otp",
+        "description": "Whether to use experimental builds of OTP (images that have not yet been fully tested include ubuntu-16.04, ubuntu-18.04, ubuntu-20.04)",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "install-hex",
+        "description": "Whether to install Hex",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "install-rebar",
+        "description": "Whether to install Rebar",
+        "required": false,
+        "default": true
+      }
+    ],
+    "outputs": [
+      {
+        "name": "elixir-version",
+        "description": "Exact version of Elixir that was installed"
+      },
+      {
+        "name": "otp-version",
+        "description": "Exact version of OTP that was installed"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/setup-elixir",
+    "latest_release": {
+      "tag_name": "v1.5.0",
+      "name": "Add support for experimental OTP builds",
+      "published_at": "2020-11-17T13:38:58Z",
+      "html_url": "https://github.com/actions/setup-elixir/releases/tag/v1.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:16.038554Z"
+}

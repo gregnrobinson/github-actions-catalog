@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/WordPress-Azure-App-Service/action.yml",
     "origin": "github.com/azure/WordPress-Azure-App-Service",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:19:29Z",
+      "html_url": "https://github.com/Azure/WordPress-Azure-App-Service/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy a Wordpress on Azure App service",
@@ -82,7 +90,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is primarily focused on deploying a WordPress application to Azure, which falls under the Deployment category. It also requires authentication details to log in to Azure, placing it in the Authentication and Infrastructure categories as well.",
+        "reasoning": "The action is primarily focused on deploying a WordPress application to Azure, which falls under Deployment. Additionally, it requires authentication details to log in to Azure, categorizing it under Authentication and Infrastructure as well.",
         "tags": [
           "Azure",
           "WordPress",
@@ -97,6 +105,6 @@
     "source_hash": "e1995f1d9a8f8b1e481eac6c58b0728e295cb030628f3c58e68e4f0aa4952273",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.503887Z"
+    "generated_at": "2025-12-15T02:18:59.777849Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-test/action.yml",
     "origin": "github.com/dflook/tofu-test",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:32Z",
+      "html_url": "https://github.com/dflook/tofu-test/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-test",
@@ -69,13 +77,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is specifically designed to execute automated tests for an OpenTofu module, which clearly aligns it with the Testing category.",
+        "reasoning": "The action is specifically designed to execute automated tests for an OpenTofu module, which clearly falls under the Testing category.",
         "tags": [
-          "automated tests",
+          "testing",
           "OpenTofu",
-          "testing framework",
-          "module testing",
-          "CI/CD"
+          "automation",
+          "CI/CD",
+          "GitHub Actions"
         ]
       }
     ]
@@ -84,6 +92,6 @@
     "source_hash": "d7280ba65cb3f1d3eb100173edfe4701c312c811cc0800c8ad93ef7a7fa52236",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.378876Z"
+    "generated_at": "2025-12-15T02:18:59.612809Z"
   }
 }

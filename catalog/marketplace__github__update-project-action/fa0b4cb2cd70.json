@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/github/update-project-action",
+  "version": "fa0b4cb2cd70",
+  "definition": {
+    "name": "Update project",
+    "description": "Updates an item's fields on a GitHub Projects (beta) board based on a workflow dispatch (or other) event's input.",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "organization",
+        "description": "The organization that contains the project, defaults to the current repository owner",
+        "required": false,
+        "default": "${{ github.repository_owner }}"
+      },
+      {
+        "name": "project_number",
+        "description": "The project number from the project's URL",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "operation",
+        "description": "Operation type (update, read, or clear)",
+        "required": false,
+        "default": "update"
+      },
+      {
+        "name": "content_id",
+        "description": "The global ID of the issue or pull request within the project",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "field",
+        "description": "The field on the project to set the value of",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "value",
+        "description": "The value to set the project field to. Only required for operation type read",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github_token",
+        "description": "A GitHub Token with access to both the source issue and the destination project (`repo` and `write:org` scopes)",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "project_id",
+        "description": "The global ID of the project"
+      },
+      {
+        "name": "item_id",
+        "description": "The global ID of the issue or pull request"
+      },
+      {
+        "name": "item_title",
+        "description": "The title of the issue or pull request"
+      },
+      {
+        "name": "field_id",
+        "description": "The global ID of the field"
+      },
+      {
+        "name": "field_read_value",
+        "description": "The value of the field before the update"
+      },
+      {
+        "name": "field_updated_value",
+        "description": "The value of the field after the update"
+      },
+      {
+        "name": "field_type",
+        "description": "The updated field's ProjectV2FieldType (text, single_select, number, date, or iteration)"
+      },
+      {
+        "name": "option_id",
+        "description": "The global ID of the selected option"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/update-project-action",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3",
+      "published_at": "2024-02-13T21:03:00Z",
+      "html_url": "https://github.com/github/update-project-action/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:16.510354Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/setup-licensed/action.yml",
     "origin": "github.com/github/setup-licensed",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.3.1",
+      "name": "1.3.1: dependencies bump",
+      "published_at": "2024-12-02T21:21:31Z",
+      "html_url": "https://github.com/github/setup-licensed/releases/tag/v1.3.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup github/licensed",
@@ -41,7 +49,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Authentication"
+      "Build"
     ],
     "confidence": "high",
     "evidence": [
@@ -49,13 +57,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action sets up the github/licensed tool, which is primarily used for managing dependencies related to licensing. It also includes an authentication token for GitHub API access, making authentication a relevant secondary category.",
+        "reasoning": "The action sets up the 'github/licensed' tool, which is primarily used for managing dependencies and licenses in a project. It also involves installation, which relates to the build process.",
         "tags": [
+          "dependency",
+          "license",
+          "setup",
           "github",
-          "licensed",
-          "dependency management",
-          "authentication",
-          "setup"
+          "actions"
         ]
       }
     ]
@@ -64,6 +72,6 @@
     "source_hash": "268e57b85e3f84ef82ef5bb0c8c4d152f6c586a2ae62ef0218a54ccb925799e0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.909451Z"
+    "generated_at": "2025-12-15T02:19:00.305158Z"
   }
 }

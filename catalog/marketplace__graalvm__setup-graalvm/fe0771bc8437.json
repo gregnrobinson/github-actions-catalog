@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/graalvm/setup-graalvm/action.yml",
     "origin": "github.com/graalvm/setup-graalvm",
     "publisher": "graalvm",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.4.4",
+      "name": "v1.4.4",
+      "published_at": "2025-12-02T08:48:00Z",
+      "html_url": "https://github.com/graalvm/setup-graalvm/releases/tag/v1.4.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Action for GraalVM",
@@ -118,14 +126,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up a specific version of the GraalVM JDK, which is essential for managing dependencies in Java projects, and it also facilitates the build process by ensuring the correct environment is configured.",
+        "tags": [
+          "GraalVM",
+          "Java",
+          "JDK",
+          "setup",
+          "dependency"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "fe0771bc8437f0923653e955df8c665cabe44e21a902fa4223bc66047379175e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.287957Z"
+    "generated_at": "2025-12-15T02:19:00.178011Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/scout-action/action.yml",
     "origin": "github.com/docker/scout-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.18.2",
+      "name": "v1.18.2",
+      "published_at": "2025-07-21T14:32:34Z",
+      "html_url": "https://github.com/docker/scout-action/releases/tag/v1.18.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Scout",
@@ -299,7 +307,6 @@
   "annotations": {
     "categories": [
       "Security",
-      "Code quality",
       "Dependency management"
     ],
     "confidence": "high",
@@ -308,10 +315,10 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action focuses on identifying vulnerabilities in Docker images, which is a key aspect of security. Additionally, it helps in assessing the quality of base images and managing dependencies through the generation of an SBOM.",
+        "reasoning": "The action focuses on identifying vulnerabilities in Docker images, which falls under security, and it also helps in managing dependencies by suggesting better base images and generating an SBOM.",
         "tags": [
           "Docker",
-          "vulnerability",
+          "vulnerabilities",
           "SBOM",
           "security",
           "dependency management"
@@ -323,6 +330,6 @@
     "source_hash": "f71f0a714743c17a98aac5813cb055399cb449bcc0641b8534c49949ab1f702b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.482401Z"
+    "generated_at": "2025-12-15T02:18:59.732415Z"
   }
 }

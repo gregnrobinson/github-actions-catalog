@@ -1,0 +1,127 @@
+{
+  "action_id": "marketplace/CodelyTV/pr-size-labeler",
+  "version": "78335920a91b",
+  "definition": {
+    "name": "Pull Request size labeler",
+    "description": "Label a PR based on the amount of changes",
+    "author": "CodelyTV",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "description": "GitHub token needed to interact with the repository",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "xs_label",
+        "description": "Label for xs PR",
+        "required": false,
+        "default": "size/xs"
+      },
+      {
+        "name": "xs_max_size",
+        "description": "Max size for a PR to be considered xs",
+        "required": false,
+        "default": "10"
+      },
+      {
+        "name": "s_label",
+        "description": "Label for s PR",
+        "required": false,
+        "default": "size/s"
+      },
+      {
+        "name": "s_max_size",
+        "description": "Max size for a PR to be considered s",
+        "required": false,
+        "default": "100"
+      },
+      {
+        "name": "m_label",
+        "description": "Label for m PR",
+        "required": false,
+        "default": "size/m"
+      },
+      {
+        "name": "m_max_size",
+        "description": "Max size for a PR to be considered m",
+        "required": false,
+        "default": "500"
+      },
+      {
+        "name": "l_label",
+        "description": "Label for l PR",
+        "required": false,
+        "default": "size/l"
+      },
+      {
+        "name": "l_max_size",
+        "description": "Max size for a PR to be considered l",
+        "required": false,
+        "default": "1000"
+      },
+      {
+        "name": "xl_label",
+        "description": "Label for xl PR",
+        "required": false,
+        "default": "size/xl"
+      },
+      {
+        "name": "fail_if_xl",
+        "description": "Report GitHub Workflow failure if the PR size is xl allowing to forbid PR merge",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "message_if_xl",
+        "description": "Message to show if the PR size is xl",
+        "required": false,
+        "default": "This PR exceeds the recommended size of 1000 lines. Please make sure you are NOT addressing multiple issues with one PR. Note this PR might be rejected due to its size.\n"
+      },
+      {
+        "name": "github_api_url",
+        "description": "URL to the API of your Github Server, only necessary for Github Enterprise customers",
+        "required": false,
+        "default": "${{ github.api_url }}"
+      },
+      {
+        "name": "files_to_ignore",
+        "description": "Whitespace separated list of files to ignore when calculating the PR size (sum of changes)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ignore_line_deletions",
+        "description": "Whether to ignore lines which are deleted when calculating the PR size. If set to \"true\", deleted lines will be ignored.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "ignore_file_deletions",
+        "description": "Whether to ignore files which are deleted when calculating the PR size. If set to \"true\", deleted files will be ignored.",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "CodelyTV",
+    "verified": false,
+    "origin": "github.com/CodelyTV/pr-size-labeler",
+    "latest_release": {
+      "tag_name": "v1.10.3",
+      "name": "v1.10.3",
+      "published_at": "2025-05-25T18:02:36Z",
+      "html_url": "https://github.com/CodelyTV/pr-size-labeler/releases/tag/v1.10.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:26.676906Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/cleanowners/action.yml",
     "origin": "github.com/github/cleanowners",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.12",
+      "name": "v1.2.12",
+      "published_at": "2025-12-01T13:56:03Z",
+      "html_url": "https://github.com/github/cleanowners/releases/tag/v1.2.12",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Cleanowners action",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Cleanowners action focuses on maintaining the integrity of CODEOWNERS files, which directly relates to code quality and documentation practices within a repository.",
+        "tags": [
+          "CODEOWNERS",
+          "code quality",
+          "documentation",
+          "GitHub Action",
+          "repository management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "551c92991916aa7435ae4e693452253f03536caa62b4c571687995cde38217f7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.981190Z"
+    "generated_at": "2025-12-15T02:19:00.377082Z"
   }
 }

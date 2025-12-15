@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-create/action.yml",
     "origin": "github.com/atlassian/gajira-create",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update dependencies and node version",
+      "published_at": "2022-11-20T23:50:34Z",
+      "html_url": "https://github.com/atlassian/gajira-create/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Create issue",
@@ -56,14 +64,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is designed to create a new issue in Jira, which facilitates communication and tracking within teams. It primarily serves as a means to notify team members of new issues.",
+        "tags": [
+          "Jira",
+          "issue creation",
+          "project management",
+          "communication",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "21694f42c87f53384cfa6eb3ba91a80a62dfbead2d5294b18211603aee625a38",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.406725Z"
+    "generated_at": "2025-12-15T02:19:00.399140Z"
   }
 }

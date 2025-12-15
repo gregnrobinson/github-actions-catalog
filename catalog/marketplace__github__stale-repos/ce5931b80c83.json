@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/stale-repos/action.yml",
     "origin": "github.com/github/stale-repos",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v8.0.3",
+      "name": "v8.0.3",
+      "published_at": "2025-12-01T13:55:06Z",
+      "html_url": "https://github.com/github/stale-repos/releases/tag/v8.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "stale-repos",
@@ -25,14 +33,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Monitoring",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "This action monitors repositories to identify which ones are stale, thus falling under monitoring. It also relates to code quality as it helps maintain an organization's repository health.",
+        "tags": [
+          "stale",
+          "repository",
+          "monitoring",
+          "code quality",
+          "github action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ce5931b80c835e7bf9427cfd2c5b4925c59236222e55a6f6e12a0d589e5c35a3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.897421Z"
+    "generated_at": "2025-12-15T02:19:00.292566Z"
   }
 }

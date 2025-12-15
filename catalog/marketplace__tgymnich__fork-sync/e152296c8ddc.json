@@ -1,0 +1,109 @@
+{
+  "action_id": "marketplace/tgymnich/fork-sync",
+  "version": "e152296c8ddc",
+  "definition": {
+    "name": "Fork Sync",
+    "description": "Keep your fork up to date",
+    "author": "tgymnich",
+    "inputs": [
+      {
+        "name": "owner",
+        "description": "Owner of the forked repository",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repo",
+        "description": "Name of the forked repository",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Token for the github API",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "head",
+        "description": "Branch to track",
+        "required": false,
+        "default": "master"
+      },
+      {
+        "name": "base",
+        "description": "Branch to keep updated",
+        "required": false,
+        "default": "master"
+      },
+      {
+        "name": "merge_method",
+        "description": "Merge method to use",
+        "required": false,
+        "default": "merge"
+      },
+      {
+        "name": "pr_title",
+        "description": "The title of the pull request",
+        "required": false,
+        "default": "Fork Sync: Update from parent repository"
+      },
+      {
+        "name": "pr_message",
+        "description": "The message in the pull request",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore_fail",
+        "description": "Ignore Exceptions",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "auto_approve",
+        "description": "Automatically approve pull request before merge",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "auto_merge",
+        "description": "Automatically merge the pull request",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "retries",
+        "description": "Retry count",
+        "required": false,
+        "default": 4
+      },
+      {
+        "name": "retry_after",
+        "description": "Delay amount between retries",
+        "required": false,
+        "default": 60
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tgymnich",
+    "verified": false,
+    "origin": "github.com/tgymnich/fork-sync",
+    "latest_release": {
+      "tag_name": "v2.0.10",
+      "name": "v2.0.10",
+      "published_at": "2024-06-11T07:55:14Z",
+      "html_url": "https://github.com/tgymnich/fork-sync/releases/tag/v2.0.10",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:08.857965Z"
+}

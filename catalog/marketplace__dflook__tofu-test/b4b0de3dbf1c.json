@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/dflook/tofu-test",
+  "version": "b4b0de3dbf1c",
+  "definition": {
+    "name": "tofu-test",
+    "description": "Execute automated tests for an OpenTofu module",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the OpenTofu module under test",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "test_directory",
+        "description": "The directory within the module path that contains the test files.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "test_filter",
+        "description": "The test files to run, one per line.\n\nIf not specified, all test files in the `test_directory` will be run.\nThe are paths relative to the module path.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the tests. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `no-tests` - No tests were found to run.\n- `tests-failed` - One or more tests failed.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-test",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:32Z",
+      "html_url": "https://github.com/dflook/tofu-test/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:42.501911Z"
+}

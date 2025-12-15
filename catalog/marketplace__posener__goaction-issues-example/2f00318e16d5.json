@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/posener/goaction-issues-example",
+  "version": "2f00318e16d5",
+  "definition": {
+    "name": "goaction-issues-example",
+    "description": "An example of using goaction with Github APIs.",
+    "author": "posener",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "description": "A token for Github APIs.",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "posener",
+    "verified": false,
+    "origin": "github.com/posener/goaction-issues-example"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:45.677920Z"
+}

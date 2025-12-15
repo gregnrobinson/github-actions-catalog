@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/CodelyTV/pr-size-labeler/action.yml",
     "origin": "github.com/CodelyTV/pr-size-labeler",
     "publisher": "CodelyTV",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.10.3",
+      "name": "v1.10.3",
+      "published_at": "2025-05-25T18:02:36Z",
+      "html_url": "https://github.com/CodelyTV/pr-size-labeler/releases/tag/v1.10.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Pull Request size labeler",
@@ -146,7 +154,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action labels pull requests based on the size of changes, which helps in assessing code quality and facilitates communication among team members regarding the nature of the changes. It also serves as a notification mechanism for reviewers.",
+        "reasoning": "The action labels pull requests based on the size of changes, which relates to code quality. It also communicates the size of the PR through labels, serving as a notification to reviewers.",
         "tags": [
           "pull request",
           "labeling",
@@ -161,6 +169,6 @@
     "source_hash": "3090932e08e762b3a1b18af72da3c2f2ffd168654ca3f936fd974b3c158b0911",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.571312Z"
+    "generated_at": "2025-12-15T02:19:00.752999Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/stefanzweifel/changelog-updater-action/action.yml",
     "origin": "github.com/stefanzweifel/changelog-updater-action",
     "publisher": "stefanzweifel",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.12.0",
+      "name": "v1.12.0",
+      "published_at": "2024-11-16T09:20:36Z",
+      "html_url": "https://github.com/stefanzweifel/changelog-updater-action/releases/tag/v1.12.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Changelog Updater",
@@ -103,13 +111,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The Changelog Updater action focuses on automatically updating the CHANGELOG, which is a documentation task. It also contributes to code quality by ensuring that release notes are consistently maintained and published.",
+        "reasoning": "The Changelog Updater action is primarily focused on updating the CHANGELOG, which is a documentation task. It also contributes to code quality by ensuring that release notes are consistently maintained and published.",
         "tags": [
           "changelog",
           "documentation",
           "release notes",
           "automation",
-          "GitHub Actions"
+          "github actions"
         ]
       }
     ]
@@ -118,6 +126,6 @@
     "source_hash": "064cc96ce62946ef9a32c8d41343510b17b7fcc0118f6ddc22dcfc2b663d1392",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.422246Z"
+    "generated_at": "2025-12-15T02:19:00.975515Z"
   }
 }

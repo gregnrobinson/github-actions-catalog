@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/mxschmitt/free-disk-space",
+  "version_id": "f9cf20220a18",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mxschmitt/free-disk-space/action.yml",
+    "origin": "github.com/mxschmitt/free-disk-space",
+    "publisher": "mxschmitt",
+    "verified": false
+  },
+  "definition": {
+    "name": "Free Disk Space (Ubuntu)",
+    "description": "A configurable GitHub Action to free up disk space on an Ubuntu GitHub Actions runner.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "android",
+        "required": false,
+        "default": "true",
+        "description": "Remove Android runtime"
+      },
+      {
+        "name": "dotnet",
+        "required": false,
+        "default": "true",
+        "description": "Remove .NET runtime"
+      },
+      {
+        "name": "haskell",
+        "required": false,
+        "default": "true",
+        "description": "Remove Haskell runtime"
+      },
+      {
+        "name": "large-packages",
+        "required": false,
+        "default": "true",
+        "description": "Remove large packages"
+      },
+      {
+        "name": "docker-images",
+        "required": false,
+        "default": "true",
+        "description": "Remove Docker images"
+      },
+      {
+        "name": "tool-cache",
+        "required": false,
+        "default": "false",
+        "description": "Remove image tool cache"
+      },
+      {
+        "name": "swap-storage",
+        "required": false,
+        "default": "true",
+        "description": "Remove swap storage"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "shell": "bash",
+          "run": "\n# ======\n# MACROS\n# ======\n\n# macro to print a line of equals\n# (silly but works)\nprintSeparationLine() {\n  str=${1:=}\n  num=${2:-80}\n  counter=1\n  output=\"\"\n  while [ $counter -le $num ]\n  do\n     output=\"${output}${str}\"\n     counter=$((counter+1))\n  done\n  echo \"${output}\"\n}\n\n# macro to compute available space\n# REF: https://unix.stackexchange.com/a/42049/60849\n# REF: https://stackoverflow.com/a/450821/408734\ngetAvailableSpace() { echo $(df -a $1 | awk 'NR > 1 {avail+=$4} END {print avail}'); }\n\n# macro to make Kb human readable (assume the input is Kb)\n# REF: https://unix.stackexchange.com/a/44087/60849\nformatByteCount() { echo $(numfmt --to=iec-i --suffix=B --padding=7 $1'000'); }\n\n# macro to output saved space\nprintSavedSpace() {\n  saved=${1}\n  title=${2:-}\n\n  echo \"\"\n  printSeparationLine '*' 80\n  if [ ! -z \"${title}\" ]; then\n    echo \"=> ${title}: Saved $(formatByteCount $saved)\"\n  else\n    echo \"=> Saved $(formatByteCount $saved)\"\n  fi\n  printSeparationLine '*' 80\n  echo \"\"\n}\n\n# macro to print output of dh with caption\nprintDH() {\n  caption=${1:-}\n\n  printSeparationLine '=' 80\n  echo \"${caption}\"\n  echo \"\"\n  echo \"$ dh -h /\"\n  echo \"\"\n  df -h /\n  echo \"$ dh -a /\"\n  echo \"\"\n  df -a /\n  echo \"$ dh -a\"\n  echo \"\"\n  df -a\n  printSeparationLine '=' 80\n}\n\n\n\n# ======\n# SCRIPT\n# ======\n\n# Display initial disk space stats\n\nAVAILABLE_INITIAL=$(getAvailableSpace)\nAVAILABLE_ROOT_INITIAL=$(getAvailableSpace '/')\n\nprintDH \"BEFORE CLEAN-UP:\"\necho \"\"\n\n\n# Option: Remove Android library\n\nif [[ ${{ inputs.android }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo rm -rf /usr/local/lib/android || true\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Android library\"\nfi\n\n# Option: Remove .NET runtime\n\nif [[ ${{ inputs.dotnet }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  # https://github.community/t/bigger-github-hosted-runners-disk-space/17267/11\n  sudo rm -rf /usr/share/dotnet || true\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \".NET runtime\"\nfi\n\n# Option: Remove Haskell runtime\n\nif [[ ${{ inputs.haskell }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo rm -rf /opt/ghc || true\n  sudo rm -rf /usr/local/.ghcup || true\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Haskell runtime\"\nfi\n\n# Option: Remove large packages\n# REF: https://github.com/apache/flink/blob/master/tools/azure-pipelines/free_disk_space.sh\n\nif [[ ${{ inputs.large-packages }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo apt-get remove -y '^aspnetcore-.*' || echo \"::warning::The command [sudo apt-get remove -y '^aspnetcore-.*'] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y '^dotnet-.*' --fix-missing || echo \"::warning::The command [sudo apt-get remove -y '^dotnet-.*' --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y '^llvm-.*' --fix-missing || echo \"::warning::The command [sudo apt-get remove -y '^llvm-.*' --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y 'php.*' --fix-missing || echo \"::warning::The command [sudo apt-get remove -y 'php.*' --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y '^mongodb-.*' --fix-missing || echo \"::warning::The command [sudo apt-get remove -y '^mongodb-.*' --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y '^mysql-.*' --fix-missing || echo \"::warning::The command [sudo apt-get remove -y '^mysql-.*' --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell mono-devel libgl1-mesa-dri --fix-missing || echo \"::warning::The command [sudo apt-get remove -y azure-cli google-chrome-stable firefox powershell mono-devel libgl1-mesa-dri --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y google-cloud-sdk --fix-missing || echo \"::debug::The command [sudo apt-get remove -y google-cloud-sdk --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get remove -y google-cloud-cli --fix-missing || echo \"::debug::The command [sudo apt-get remove -y google-cloud-cli --fix-missing] failed to complete successfully. Proceeding...\"\n  sudo apt-get autoremove -y || echo \"::warning::The command [sudo apt-get autoremove -y] failed to complete successfully. Proceeding...\"\n  sudo apt-get clean || echo \"::warning::The command [sudo apt-get clean] failed to complete successfully. Proceeding...\"\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Large misc. packages\"\nfi\n\n# Option: Remove Docker images\n\nif [[ ${{ inputs.docker-images }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo docker image prune --all --force || true\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Docker images\"\nfi\n\n# Option: Remove tool cache\n# REF: https://github.com/actions/virtual-environments/issues/2875#issuecomment-1163392159\n\nif [[ ${{ inputs.tool-cache }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo rm -rf \"$AGENT_TOOLSDIRECTORY\" || true\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Tool cache\"\nfi\n\n# Option: Remove Swap storage\n\nif [[ ${{ inputs.swap-storage }} == 'true' ]]; then\n  BEFORE=$(getAvailableSpace)\n\n  sudo swapoff -a || true\n  sudo rm -f /mnt/swapfile || true\n  free -h\n\n  AFTER=$(getAvailableSpace)\n  SAVED=$((AFTER-BEFORE))\n  printSavedSpace $SAVED \"Swap storage\"\nfi\n\n\n\n# Output saved space statistic\n\nAVAILABLE_END=$(getAvailableSpace)\nAVAILABLE_ROOT_END=$(getAvailableSpace '/')\n\necho \"\"\nprintDH \"AFTER CLEAN-UP:\"\n\necho \"\"\necho \"\"\n\necho \"/dev/root:\"\nprintSavedSpace $((AVAILABLE_ROOT_END - AVAILABLE_ROOT_INITIAL))\necho \"overall:\"\nprintSavedSpace $((AVAILABLE_END - AVAILABLE_INITIAL))\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f9cf20220a185cc2b8449305bcc58eb7f7c7fed6101e115d7bbc18c4a89e8a22",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:01.097605Z"
+  }
+}

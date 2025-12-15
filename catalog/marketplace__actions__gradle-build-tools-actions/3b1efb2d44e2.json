@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/actions/gradle-build-tools-actions",
+  "version": "3b1efb2d44e2",
+  "definition": {
+    "name": "Build with Gradle",
+    "description": "A collection of actions for building Gradle projects, as well as generating a dependency graph via Dependency Submission.",
+    "author": "actions",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/gradle-build-tools-actions"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:06.922510Z"
+}

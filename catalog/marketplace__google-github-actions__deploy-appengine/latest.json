@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-appengine/action.yml",
     "origin": "github.com/google-github-actions/deploy-appengine",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-09-03T01:08:36Z",
+      "html_url": "https://github.com/google-github-actions/deploy-appengine/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy to App Engine",
@@ -122,7 +130,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy and promote a service to Google App Engine, which clearly falls under the Deployment category. Additionally, it involves managing infrastructure on Google Cloud, placing it in the Infrastructure category as well.",
+        "reasoning": "The action is specifically designed to deploy and promote a service to Google App Engine, which falls under the deployment category. It also involves infrastructure management as it interacts with cloud services.",
         "tags": [
           "Google Cloud",
           "App Engine",
@@ -137,6 +145,6 @@
     "source_hash": "51a61ce6e78b1b9a1bf7ae384bc43e89c954cca94fe3536cf9be01627b555e93",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.732752Z"
+    "generated_at": "2025-12-15T02:19:00.017840Z"
   }
 }

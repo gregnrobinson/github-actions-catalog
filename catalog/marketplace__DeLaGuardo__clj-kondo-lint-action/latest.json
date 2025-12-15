@@ -37,7 +37,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action is likely focused on linting, which is a process that checks code for errors and enforces coding standards, thus falling under code quality and testing.",
+        "reasoning": "The action is likely focused on linting, which is a code quality check, and it may also be used in testing workflows to ensure code adheres to specified standards.",
         "tags": [
           "linting",
           "clj-kondo",
@@ -52,6 +52,6 @@
     "source_hash": "7af43332cd16b5484523276b6c01a08b1d178eaf7691b441515b66cbdee2ae4b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.272972Z"
+    "generated_at": "2025-12-15T02:19:00.160936Z"
   }
 }

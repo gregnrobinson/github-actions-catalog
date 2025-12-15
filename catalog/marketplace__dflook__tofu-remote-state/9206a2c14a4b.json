@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/dflook/tofu-remote-state",
+  "version": "9206a2c14a4b",
+  "definition": {
+    "name": "tofu-remote-state",
+    "description": "Retrieves the root-level outputs from an OpenTofu remote state.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "backend_type",
+        "description": "The name of the OpenTofu plugin used for backend state",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "workspace",
+        "description": "OpenTofu workspace to get the outputs for",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the OpenTofu config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nOpenTofu list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-remote-state",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:09Z",
+      "html_url": "https://github.com/dflook/tofu-remote-state/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:35.659301Z"
+}

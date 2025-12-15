@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/github/actions-oidc-debugger",
+  "version": "a8197e035b19",
+  "definition": {
+    "name": "OIDC Debugger",
+    "description": "Print the GitHub Actions OIDC claims.",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "audience",
+        "description": "The audience to use when requesting the JWT. Your Github server URL and repository owner (e.g. https://github.com/github).",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/actions-oidc-debugger",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-07-08T20:03:22Z",
+      "html_url": "https://github.com/github/actions-oidc-debugger/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:27.218452Z"
+}

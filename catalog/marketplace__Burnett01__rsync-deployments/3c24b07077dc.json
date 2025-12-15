@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/Burnett01/rsync-deployments",
+  "version": "3c24b07077dc",
+  "definition": {
+    "name": "Rsync Deployments Action",
+    "description": "GitHub Action for deploying code via rsync over ssh",
+    "author": "Burnett01",
+    "inputs": [
+      {
+        "name": "switches",
+        "description": "The switches",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "rsh",
+        "description": "The remote shell argument",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "legacy_allow_rsa_hostkeys",
+        "description": "Enables support for legacy RSA host keys on OpenSSH 8.8+",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "strict_hostkeys_checking",
+        "description": "Controls strict host keys checking",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "path",
+        "description": "The local path",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "remote_path",
+        "description": "The remote path",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "remote_host",
+        "description": "The remote host",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "remote_port",
+        "description": "The remote port",
+        "required": false,
+        "default": 22
+      },
+      {
+        "name": "remote_user",
+        "description": "The remote user",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "remote_key",
+        "description": "The remote key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "remote_key_pass",
+        "description": "The remote key passphrase",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "debug",
+        "description": "Debug the action",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "Burnett01",
+    "verified": false,
+    "origin": "github.com/Burnett01/rsync-deployments",
+    "latest_release": {
+      "tag_name": "v8",
+      "name": "v8",
+      "published_at": "2025-12-06T21:51:52Z",
+      "html_url": "https://github.com/Burnett01/rsync-deployments/releases/tag/v8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:21.282045Z"
+}

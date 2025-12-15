@@ -1,0 +1,114 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-ecs-render-task-definition",
+  "version": "04ae971ad1c0",
+  "definition": {
+    "name": "Amazon ECS \"Render Task Definition\" Action for GitHub Actions",
+    "description": "Inserts a container image URI into a container definition in an Amazon ECS task definition JSON file, creating a new file.",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "task-definition",
+        "description": "The path to the ECS task definition JSON file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "task-definition-arn",
+        "description": "The full Amazon Resource Name (ARN) of the task definition to be used",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "task-definition-family",
+        "description": "The name of a family that the task definition is registered to",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "task-definition-revision",
+        "description": "The revision of the task definition being used",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container-name",
+        "description": "The name of the container or containers defined in the containerDefinitions section of the ECS task definition. If more than one container, add the names comma separated.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "image",
+        "description": "The URI of the container image to insert into the ECS task definition",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "environment-variables",
+        "description": "Variables to add to the container. Each variable is of the form KEY=value, you can specify multiple variables with multi-line YAML strings.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "log-configuration-log-driver",
+        "description": "Create/Override logDriver inside logConfiguration",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "log-configuration-options",
+        "description": "Create/Override options inside logConfiguration. Each variable is of the form key=value, you can specify multiple variables with multi-line YAML strings.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "docker-labels",
+        "description": "Create/Override options inside dockerLabels. Each variable is key=value, you can specify multiple variables with multi-line YAML.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "command",
+        "description": "The command used by ECS to start the container image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "env-files",
+        "description": "S3 object arns to set env variables onto the container. You can specify multiple files with multi-line YAML strings.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secrets",
+        "description": "Secrets to add to the container. Each secret is of the form KEY=valueFrom, where valueFrom is a secret arn. You can specify multiple secrets with multi-line YAML strings.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "task-definition",
+        "description": "The path to the rendered task definition file"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/amazon-ecs-render-task-definition",
+    "latest_release": {
+      "tag_name": "v1.8.1",
+      "name": "v1.8.1",
+      "published_at": "2025-10-16T14:55:43Z",
+      "html_url": "https://github.com/aws-actions/amazon-ecs-render-task-definition/releases/tag/v1.8.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:38.455887Z"
+}

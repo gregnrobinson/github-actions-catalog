@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/dflook/terraform-validate",
+  "version": "349e0bfc6441",
+  "definition": {
+    "name": "terraform-validate",
+    "description": "Validate a Terraform configuration directory",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform module to validate",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "Terraform workspace to use for the `terraform.workspace` value while validating. Note that for remote operations in a cloud backend, this is always `default`.\n\nAlso used for discovering the Terraform version to use, if not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\n",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line.\nThis is used for discovering the Terraform version to use, if not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\nThis is used for discovering the Terraform version to use, if not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the validation failed, this will be set to 'validate-failed'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when the validate fails.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-validate",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:04Z",
+      "html_url": "https://github.com/dflook/terraform-validate/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:41.505426Z"
+}

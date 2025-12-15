@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/arm-deploy/action.yml",
     "origin": "github.com/azure/arm-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2",
+      "published_at": "2024-02-13T01:52:27Z",
+      "html_url": "https://github.com/Azure/arm-deploy/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy Azure Resource Manager (ARM) Template",
@@ -93,14 +101,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is specifically designed to deploy Azure Resource Manager templates, which falls under the deployment category, and it also involves managing Azure infrastructure resources.",
+        "tags": [
+          "Azure",
+          "ARM",
+          "Deployment",
+          "Infrastructure",
+          "GitHub Action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "efd33a569114fcd8a32e4a6f0ca6643b855d72c7250ad1f2b79dfe905aeff865",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.562914Z"
+    "generated_at": "2025-12-15T02:18:59.837788Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/sql-action/action.yml",
     "origin": "github.com/azure/sql-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.3",
+      "name": "skip-firewall-check and sqlpackage-path options",
+      "published_at": "2024-07-01T19:54:57Z",
+      "html_url": "https://github.com/Azure/sql-action/releases/tag/v2.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure SQL Deploy",
@@ -73,7 +81,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy database projects or scripts to Azure SQL, making deployment its primary function. It also involves infrastructure as it interacts with Azure SQL databases.",
+        "reasoning": "The action is primarily focused on deploying database projects or scripts to Azure SQL, which falls under the Deployment category. It also involves infrastructure as it interacts with Azure SQL databases.",
         "tags": [
           "Azure",
           "SQL",
@@ -88,6 +96,6 @@
     "source_hash": "a52e107c895b0e2b1832de709d7c3cb209aa9bdc2fe27fbdccdffeddf0ab05ed",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.587042Z"
+    "generated_at": "2025-12-15T02:18:59.862620Z"
   }
 }

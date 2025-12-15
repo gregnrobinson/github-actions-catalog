@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amannn/action-semantic-pull-request/action.yml",
     "origin": "github.com/amannn/action-semantic-pull-request",
     "publisher": "amannn",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v6.1.1",
+      "name": "v6.1.1",
+      "published_at": "2025-08-22T07:20:13Z",
+      "html_url": "https://github.com/amannn/action-semantic-pull-request/releases/tag/v6.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "semantic-pull-request",
@@ -109,13 +117,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action ensures that pull request titles adhere to the Conventional Commits specification, which is a practice aimed at improving code quality and maintainability. It also serves as a testing mechanism for PR compliance.",
+        "reasoning": "This action ensures that pull request titles adhere to the Conventional Commits specification, which is a practice aimed at improving code quality and maintainability. It also serves as a validation step in the testing process for PRs.",
         "tags": [
-          "semantic",
-          "pull request",
-          "conventional commits",
-          "code quality",
-          "automation"
+          "pull-request",
+          "conventional-commits",
+          "code-quality",
+          "validation",
+          "github-action"
         ]
       }
     ]
@@ -124,6 +132,6 @@
     "source_hash": "c4d5b21c44a6ea9f4f8d53802f7bcfca9bf3acd3b15e51bc3ad88b4dbcf8118b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.834956Z"
+    "generated_at": "2025-12-15T02:19:00.159810Z"
   }
 }

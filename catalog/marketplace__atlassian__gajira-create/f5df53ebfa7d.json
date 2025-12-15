@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/atlassian/gajira-create",
+  "version": "f5df53ebfa7d",
+  "definition": {
+    "name": "Jira Create issue",
+    "description": "Create a new Jira issue",
+    "author": "atlassian",
+    "inputs": [
+      {
+        "name": "project",
+        "description": "Key of the project",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "issuetype",
+        "description": "Type of the issue to be created. Example: 'Incident'",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "summary",
+        "description": "Issue summary",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "description",
+        "description": "Issue description",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fields",
+        "description": "Additional fields in JSON format",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue",
+        "description": "Key of the newly created issue"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "atlassian",
+    "verified": false,
+    "origin": "github.com/atlassian/gajira-create",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update dependencies and node version",
+      "published_at": "2022-11-20T23:50:34Z",
+      "html_url": "https://github.com/atlassian/gajira-create/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:31.884693Z"
+}

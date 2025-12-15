@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/aws-actions/codeguru-security",
+  "version": "eae9a262e1b9",
+  "definition": {
+    "name": "CodeGuru Security",
+    "description": "AWS CodeGuru Security Action",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "source_path",
+        "description": "Path to source repository",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "aws_region",
+        "description": "AWS region where you want to run workflow",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "scan_name",
+        "description": "The name of the scan",
+        "required": true,
+        "default": "CGS-Github-${{ github.event.repository.name }}"
+      },
+      {
+        "name": "analysis_type",
+        "description": "The type of analysis you want CodeGuru Security to perform in the scan, either Security or All. Defaults to Security type if missing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fail_on_severity",
+        "description": "Fails the action run if any finding is higher than or equal to severity is provided. Default the script does not break the action run. [example: Info, Low, Medium, High, Critical]",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/codeguru-security",
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "",
+      "published_at": "2023-06-21T22:16:27Z",
+      "html_url": "https://github.com/aws-actions/codeguru-security/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:37.740487Z"
+}

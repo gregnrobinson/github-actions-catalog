@@ -155,7 +155,8 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Build"
+      "Build",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -163,12 +164,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is primarily focused on setting up a specific version of the Java JDK, which is essential for managing dependencies in Java projects. It also facilitates the build process by ensuring the correct Java environment is available.",
+        "reasoning": "This action is primarily focused on setting up a specific version of the Java JDK, which is essential for managing dependencies in Java projects. It also facilitates the build process by ensuring the correct environment is available.",
         "tags": [
           "Java",
           "JDK",
           "setup",
-          "dependency management",
+          "dependency",
           "build"
         ]
       }
@@ -178,6 +179,6 @@
     "source_hash": "e69e972d96187b23851246394c87aa6454c685a6d4f957e099899ed2c44a6e8e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.292768Z"
+    "generated_at": "2025-12-15T02:19:00.183141Z"
   }
 }

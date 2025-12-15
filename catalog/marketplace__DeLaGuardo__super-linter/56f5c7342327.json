@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/DeLaGuardo/super-linter",
+  "version": "56f5c7342327",
+  "definition": {
+    "name": "Super-Linter",
+    "description": "It is a simple combination of various linters, written in bash, to help validate your source code.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/super-linter"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:00.967025Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/login-action/action.yml",
     "origin": "github.com/docker/login-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.6.0",
+      "name": "v3.6.0",
+      "published_at": "2025-09-29T10:34:04Z",
+      "html_url": "https://github.com/docker/login-action/releases/tag/v3.6.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Login",
@@ -58,14 +66,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action is primarily focused on authenticating users against a Docker registry, which falls under the Authentication category. Additionally, it is related to Packaging as it prepares the environment for Docker image management.",
+        "tags": [
+          "Docker",
+          "Login",
+          "Authentication",
+          "Registry",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "587be1a5960e33449503bef5ae88b5c59776470619adb65dc7163b239f86a312",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.496554Z"
+    "generated_at": "2025-12-15T02:18:59.746544Z"
   }
 }

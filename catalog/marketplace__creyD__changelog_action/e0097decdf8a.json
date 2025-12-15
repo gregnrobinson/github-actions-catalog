@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/creyD/changelog_action",
+  "version": "e0097decdf8a",
+  "definition": {
+    "name": "Changelog Action",
+    "description": "Automatically creates a changelog for Pull Requests",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "creyD",
+    "verified": false,
+    "origin": "github.com/creyD/changelog_action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:43.941679Z"
+}

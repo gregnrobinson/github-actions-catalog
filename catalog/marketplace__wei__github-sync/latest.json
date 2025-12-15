@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/wei/github-sync/action.yml",
     "origin": "github.com/wei/github-sync",
     "publisher": "wei",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.3.0",
+      "name": "feat: sync tags",
+      "published_at": "2020-10-07T00:18:22Z",
+      "html_url": "https://github.com/repo-sync/github-sync/releases/tag/v2.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Repo Sync",
@@ -60,23 +68,22 @@
   },
   "annotations": {
     "categories": [
-      "Dependency management",
-      "Code quality",
-      "Infrastructure"
+      "Infrastructure",
+      "Dependency management"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "This action is primarily focused on syncing repositories, which relates to managing dependencies between codebases. It also touches on infrastructure as it deals with repository management.",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is designed to sync a repository with a remote, which falls under infrastructure management. It also involves managing dependencies between branches in different repositories.",
         "tags": [
-          "repository",
-          "sync",
           "GitHub",
-          "dependency",
-          "infrastructure"
+          "sync",
+          "repository",
+          "infrastructure",
+          "dependency management"
         ]
       }
     ]
@@ -85,6 +92,6 @@
     "source_hash": "072cef27448cab145703251edd5db3b5e24882b2aeeb2280aa5865bc9b5ca949",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.718795Z"
+    "generated_at": "2025-12-15T02:19:00.945524Z"
   }
 }

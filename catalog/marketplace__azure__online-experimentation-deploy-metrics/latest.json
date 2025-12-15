@@ -63,11 +63,11 @@
         "primary_category": "Deployment",
         "reasoning": "The action is focused on deploying metric definitions to an Online Experimentation workspace, which clearly falls under the Deployment category. Additionally, it involves interacting with infrastructure components.",
         "tags": [
-          "deployment",
-          "metrics",
-          "online experimentation",
-          "azure",
-          "configuration"
+          "Azure",
+          "Deployment",
+          "Metrics",
+          "Online Experimentation",
+          "Configuration"
         ]
       }
     ]
@@ -76,6 +76,6 @@
     "source_hash": "749d086cbe7e6f303b9f28736e95b5075d4cc9ef4b32980f6dbfc7a53c319451",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.565123Z"
+    "generated_at": "2025-12-15T02:18:59.840072Z"
   }
 }

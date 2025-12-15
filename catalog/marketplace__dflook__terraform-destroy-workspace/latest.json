@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-destroy-workspace/action.yml",
     "origin": "github.com/dflook/terraform-destroy-workspace",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:15Z",
+      "html_url": "https://github.com/dflook/terraform-destroy-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-destroy-workspace",
@@ -84,13 +92,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is primarily focused on managing Terraform workspaces, which is a key aspect of infrastructure management. It also involves deploying changes by destroying resources, thus fitting into the deployment category.",
+        "reasoning": "The action is specifically designed to manage Terraform workspaces, which falls under infrastructure management and deployment of resources. It also involves dependency management through the use of variables in Terraform.",
         "tags": [
-          "terraform",
-          "infrastructure",
-          "deployment",
-          "workspace",
-          "resource management"
+          "Terraform",
+          "Infrastructure",
+          "Deployment",
+          "Workspace",
+          "Automation"
         ]
       }
     ]
@@ -99,6 +107,6 @@
     "source_hash": "68cbcc31cf9d19e6151e2f988349e944e41fd18ae6b36080805b88497ed3391b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.416459Z"
+    "generated_at": "2025-12-15T02:18:59.653240Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/git-push-action/action.yml",
     "origin": "github.com/appleboy/git-push-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2024-11-17T06:03:56Z",
+      "html_url": "https://github.com/appleboy/git-push-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Git Push Changes",
@@ -143,7 +151,7 @@
   "annotations": {
     "categories": [
       "Deployment",
-      "Communication"
+      "Code quality"
     ],
     "confidence": "high",
     "evidence": [
@@ -151,13 +159,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is primarily used to push changes to a remote Git repository, which falls under deployment. It also involves communication with the remote repository.",
+        "reasoning": "The action is primarily used to push changes to a remote git repository, which falls under deployment. Additionally, it can be seen as contributing to code quality by ensuring that changes are versioned and integrated properly.",
         "tags": [
           "git",
           "push",
           "deployment",
-          "repository",
-          "actions"
+          "version control",
+          "repository"
         ]
       }
     ]
@@ -166,6 +174,6 @@
     "source_hash": "fe1eddb8ea1bb662565d3775299ef66da850250ed41ddb13d4bb8ed69cd90d5f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.139454Z"
+    "generated_at": "2025-12-15T02:19:00.535731Z"
   }
 }

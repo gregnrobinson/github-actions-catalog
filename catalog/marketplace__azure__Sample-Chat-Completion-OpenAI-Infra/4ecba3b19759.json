@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/Sample-Chat-Completion-OpenAI-Infra",
+  "version": "4ecba3b19759",
+  "definition": {
+    "name": "Azure Infrastructure for Open AI powered Chat",
+    "description": "This action helps deploy Infrastructure to Azure that helps achieve a chat-completion experience powered by Open AI",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "location",
+        "description": "Location to deploy resources to",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "env-name",
+        "description": "Name of environment where env values are set",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "openai-location",
+        "description": "Location to deploy OpenAI resources to",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "documentintelligence-location",
+        "description": "",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "bring-your-own-data",
+        "description": "Boolean to indicate if you are bringing your own data",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "data-path",
+        "description": "Path to data to be used to train the OpenAI model",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "additional-args",
+        "description": "Additional arguments to be passed to the deployment script",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/Sample-Chat-Completion-OpenAI-Infra",
+    "latest_release": {
+      "tag_name": "v6",
+      "name": "",
+      "published_at": "2024-09-16T14:22:22Z",
+      "html_url": "https://github.com/Azure/Sample-Chat-Completion-OpenAI-Infra/releases/tag/v6",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:12.435191Z"
+}

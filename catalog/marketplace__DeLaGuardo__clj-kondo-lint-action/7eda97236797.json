@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/DeLaGuardo/clj-kondo-lint-action",
+  "version": "7eda97236797",
+  "definition": {
+    "name": "Your name here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "input description here",
+        "required": false,
+        "default": "default value if applicable"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/clj-kondo-lint-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:00.329287Z"
+}

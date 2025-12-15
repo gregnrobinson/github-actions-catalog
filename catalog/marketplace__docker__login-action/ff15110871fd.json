@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/docker/login-action",
+  "version": "ff15110871fd",
+  "definition": {
+    "name": "Docker Login",
+    "description": "GitHub Action to login against a Docker registry",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "registry",
+        "description": "Server address of Docker registry. If not set then will default to Docker Hub",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "username",
+        "description": "Username used to log against the Docker registry",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "Password or personal access token used to log against the Docker registry",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ecr",
+        "description": "Specifies whether the given registry is ECR (auto, true or false)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "logout",
+        "description": "Log out from the Docker registry at the end of a job",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "registry-auth",
+        "description": "Raw authentication to registries, defined as YAML objects",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/login-action",
+    "latest_release": {
+      "tag_name": "v3.6.0",
+      "name": "v3.6.0",
+      "published_at": "2025-09-29T10:34:04Z",
+      "html_url": "https://github.com/docker/login-action/releases/tag/v3.6.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:56.656145Z"
+}

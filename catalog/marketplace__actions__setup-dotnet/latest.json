@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-dotnet/action.yml",
     "origin": "github.com/actions/setup-dotnet",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.0.1",
+      "name": "v5.0.1",
+      "published_at": "2025-11-25T02:50:59Z",
+      "html_url": "https://github.com/actions/setup-dotnet/releases/tag/v5.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup .NET Core SDK",
@@ -91,13 +99,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is primarily focused on setting up the .NET Core SDK for building applications, which falls under the Build category. Additionally, it involves authentication to a private NuGet repository, linking it to Dependency management and Authentication.",
+        "reasoning": "The action is primarily used to set up the .NET Core SDK for building applications, which falls under the Build category. It also involves managing dependencies through the installation of specific SDK versions and authenticating to a private NuGet repository.",
         "tags": [
           "dotnet",
           "sdk",
           "build",
-          "nuget",
-          "setup"
+          "dependency",
+          "nuget"
         ]
       }
     ]
@@ -106,6 +114,6 @@
     "source_hash": "df2162084bf21ce021b484c7b0bb0255b989d79e92663072261e68c5b4ec3e41",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.233395Z"
+    "generated_at": "2025-12-15T02:19:00.632135Z"
   }
 }

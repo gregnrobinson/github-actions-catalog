@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-devicefarm-mobile-device-testing/action.yml",
     "origin": "github.com/aws-actions/aws-devicefarm-mobile-device-testing",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.3",
+      "name": "v2.3",
+      "published_at": "2024-08-14T04:26:19Z",
+      "html_url": "https://github.com/aws-actions/aws-devicefarm-mobile-device-testing/releases/tag/v2.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS Device Farm Mobile Device Testing GitHub Action",
@@ -78,7 +86,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "This action is primarily focused on automating mobile device testing, which falls under the Testing category. It also involves deploying tests to AWS Device Farm, thus relating to Deployment and Infrastructure.",
+        "reasoning": "This action is primarily focused on automated mobile device testing, which falls under the Testing category. It also involves deploying tests to AWS Device Farm, linking it to Deployment and Infrastructure categories.",
         "tags": [
           "AWS",
           "Device Farm",
@@ -93,6 +101,6 @@
     "source_hash": "33f3accd3a6494aacfea156ea1f1c9d52f761aea76519f1caac436a0a26d43a4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.046501Z"
+    "generated_at": "2025-12-15T02:19:00.458151Z"
   }
 }

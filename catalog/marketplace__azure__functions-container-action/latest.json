@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/functions-container-action/action.yml",
     "origin": "github.com/azure/functions-container-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "Release v1.2.2",
+      "published_at": "2024-05-30T15:01:12Z",
+      "html_url": "https://github.com/Azure/functions-container-action/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Functions Container Action",
@@ -60,7 +68,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy a containerized Azure Function, which falls under the Deployment category. Additionally, it involves Azure infrastructure management.",
+        "reasoning": "The Azure Functions Container Action is primarily focused on deploying a containerized Azure Function, which falls under the Deployment category. It also involves infrastructure management by working with Azure services.",
         "tags": [
           "Azure",
           "Functions",
@@ -75,6 +83,6 @@
     "source_hash": "3ab9fbd3ad8864bbf62902fbfb40773e15bc84d9213c658906dfe144b5cf85f6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.588859Z"
+    "generated_at": "2025-12-15T02:18:59.864431Z"
   }
 }

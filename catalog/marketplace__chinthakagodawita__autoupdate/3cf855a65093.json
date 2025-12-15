@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/chinthakagodawita/autoupdate",
+  "version": "3cf855a65093",
+  "definition": {
+    "name": "Auto Update",
+    "description": "A GitHub Action that auto-updates PRs with changes from their destination branch",
+    "author": "chinthakagodawita",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "chinthakagodawita",
+    "verified": false,
+    "origin": "github.com/chinthakagodawita/autoupdate",
+    "latest_release": {
+      "tag_name": "v1.7.0",
+      "name": "v1.7.0",
+      "published_at": "2023-03-26T03:10:31Z",
+      "html_url": "https://github.com/chinthakagodawita/autoupdate/releases/tag/v1.7.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:45.074283Z"
+}

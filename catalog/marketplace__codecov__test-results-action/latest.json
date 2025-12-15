@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/codecov/test-results-action/action.yml",
     "origin": "github.com/codecov/test-results-action",
     "publisher": "codecov",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2025-05-22T16:55:01Z",
+      "html_url": "https://github.com/codecov/test-results-action/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Codecov Test Result Action",
@@ -198,7 +206,7 @@
     "categories": [
       "Testing",
       "Code quality",
-      "Publishing"
+      "Authentication"
     ],
     "confidence": "high",
     "evidence": [
@@ -206,13 +214,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "This action is primarily focused on uploading test result reports, which falls under Testing. It also contributes to Code quality by providing insights into test coverage and can be seen as a form of Publishing since it uploads results to an external service.",
+        "reasoning": "This action is primarily focused on uploading test result reports, which falls under Testing. It also requires a token for authorization, linking it to Authentication.",
         "tags": [
           "codecov",
           "test results",
-          "coverage",
-          "CI",
-          "GitHub Action"
+          "CI/CD",
+          "GitHub Action",
+          "reporting"
         ]
       }
     ]
@@ -221,6 +229,6 @@
     "source_hash": "d8bf9d04e4fb701ff6c29791728a0ad2737d3f3302f3ee0691e96dd7ac5bada2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.452602Z"
+    "generated_at": "2025-12-15T02:19:01.013890Z"
   }
 }

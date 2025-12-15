@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/yoshi389111/github-profile-3d-contrib",
+  "version": "1d32bcf61b0d",
+  "definition": {
+    "name": "GitHub-Profile-3D-Contrib",
+    "description": "Generate profile 3D Contributions",
+    "author": "yoshi389111",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "yoshi389111",
+    "verified": false,
+    "origin": "github.com/yoshi389111/github-profile-3d-contrib",
+    "latest_release": {
+      "tag_name": "v0.9.1",
+      "name": "v0.9.1 release",
+      "published_at": "2025-09-13T00:45:39Z",
+      "html_url": "https://github.com/yoshi389111/github-profile-3d-contrib/releases/tag/v0.9.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:15.056697Z"
+}

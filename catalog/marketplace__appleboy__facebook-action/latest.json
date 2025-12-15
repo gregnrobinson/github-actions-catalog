@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/facebook-action/action.yml",
     "origin": "github.com/appleboy/facebook-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "",
+      "published_at": "2019-09-29T06:28:57Z",
+      "html_url": "https://github.com/appleboy/facebook-action/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Facebook Message Notify",
@@ -85,7 +93,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is designed to send messages via Facebook, which clearly falls under communication and notification categories.",
+        "reasoning": "The action is designed to send messages via Facebook, which falls under communication and notification categories.",
         "tags": [
           "facebook",
           "notification",
@@ -100,6 +108,6 @@
     "source_hash": "1a945cd5b625e94a22d70db8b9b6716174dbf7d669f7f095621e33fda02be852",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.174724Z"
+    "generated_at": "2025-12-15T02:19:00.571518Z"
   }
 }

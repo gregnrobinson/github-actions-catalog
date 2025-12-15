@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/peter-evans/rebase",
+  "version": "d7de05171144",
+  "definition": {
+    "name": "Rebase Pulls",
+    "description": "Rebase pull requests in a repository",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GitHub auth token",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The target GitHub repository",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "head",
+        "description": "Filter pull requests by head user or head organization and branch name in the format user:ref-name or organization:ref-name. For example: github:new-script-format or octocat:test-branch.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "base",
+        "description": "Filter pull requests by base branch name. Example: gh-pages.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "include-labels",
+        "description": "A comma or newline separated list of pull request labels to include. Allows any labels if unspecified.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude-labels",
+        "description": "A comma or newline separated list of pull request labels to exclude",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude-drafts",
+        "description": "Exclude draft pull requests",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "rebase-options",
+        "description": "A comma or newline separated list of options to pass to the git rebase command. For example, `-Xtheirs`.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/rebase",
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Rebase v4.0.0",
+      "published_at": "2025-12-09T20:48:26Z",
+      "html_url": "https://github.com/peter-evans/rebase/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:39.212374Z"
+}

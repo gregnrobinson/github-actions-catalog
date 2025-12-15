@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/appleboy/jira-action",
+  "version": "9faa9e9a3e8a",
+  "definition": {
+    "name": "Jira Issue Integration",
+    "description": "Jira Issue Integration",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "base_url",
+        "description": "The base URL of the Jira instance.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "insecure",
+        "description": "Allow insecure SSL connections.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "username",
+        "description": "Username for Basic authentication. Recommended only for scripts or bots.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "Password for Basic authentication. Recommended only for scripts or bots.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Personal access token (PAT) for authentication. This method uses the user account associated with the token.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ref",
+        "description": "The fully-formed reference of the branch or tag that triggered the workflow run.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "issue_pattern",
+        "description": "Pattern to match strings referencing an alphanumeric issue, e.g., ABC-1234.",
+        "required": false,
+        "default": "([A-Z]{1,10}-[1-9][0-9]*)"
+      },
+      {
+        "name": "transition",
+        "description": "Move the issue to a specific status, e.g., Done, In Progress.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resolution",
+        "description": "Set the resolution of the issue, e.g., Done, Fixed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "assignee",
+        "description": "Assign the issue to a specific user.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "comment",
+        "description": "The comment to add to the issue.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "markdown",
+        "description": "convert the markdown format to Jira format.",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/jira-action",
+    "latest_release": {
+      "tag_name": "v0.4.3",
+      "name": "v0.4.3",
+      "published_at": "2025-11-12T10:44:52Z",
+      "html_url": "https://github.com/appleboy/jira-action/releases/tag/v0.4.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:50.313524Z"
+}

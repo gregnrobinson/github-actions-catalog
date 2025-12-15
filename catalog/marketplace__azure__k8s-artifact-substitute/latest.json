@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-artifact-substitute/action.yml",
     "origin": "github.com/azure/k8s-artifact-substitute",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2024-06-28T15:59:59Z",
+      "html_url": "https://github.com/Azure/k8s-artifact-substitute/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Kubernetes Artifact Substitue",
@@ -53,7 +61,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is focused on modifying Kubernetes manifest files for deployment purposes, which aligns it primarily with the Deployment category. It also involves managing images, which relates to Packaging and Infrastructure.",
+        "reasoning": "The action is focused on modifying Kubernetes manifest files for deployment purposes, making it primarily a deployment tool. It also involves packaging by substituting images in the manifests.",
         "tags": [
           "Kubernetes",
           "Deployment",
@@ -68,6 +76,6 @@
     "source_hash": "752db0ed843a9ae560c933588a5598ec2e437e3839ef4cedfa3f0dc5f96cd30c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.614006Z"
+    "generated_at": "2025-12-15T02:18:59.892628Z"
   }
 }

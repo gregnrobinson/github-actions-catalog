@@ -84,11 +84,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is focused on downloading and installing specific versions of LLVM and Clang, which are dependencies needed for building software. It also relates to the build process as these tools are commonly used in compilation.",
+        "reasoning": "This action is focused on downloading and installing LLVM and Clang binaries, which are dependencies required for building software. It directly relates to managing dependencies in a project.",
         "tags": [
           "LLVM",
           "Clang",
-          "installation",
+          "install",
           "dependencies",
           "build"
         ]
@@ -99,6 +99,6 @@
     "source_hash": "77360ec15a9ebce3b2e95cb2e36a2a30849f26823e5567a08fd6c0f256d1f8bc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.490387Z"
+    "generated_at": "2025-12-15T02:19:01.049472Z"
   }
 }

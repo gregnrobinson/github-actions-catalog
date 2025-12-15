@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/android-app-call-submodule-as-library",
+  "version": "41c152354985",
+  "definition": {
+    "name": "Android-Research-Tech",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/android-app-call-submodule-as-library",
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Release v1.0.0",
+      "published_at": "2023-03-01T11:21:40Z",
+      "html_url": "https://github.com/amirisback/android-app-call-submodule-as-library/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:35.829104Z"
+}

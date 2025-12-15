@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/quran-android/action.yml",
     "origin": "github.com/amirisback/quran-android",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "1.0.0",
+      "published_at": "2025-09-16T11:45:18Z",
+      "html_url": "https://github.com/amirisback/quran-android/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Quran Android",
@@ -30,14 +38,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action provides an SDK that aids in developing Android apps, which falls under dependency management. Additionally, it includes an input description, suggesting some level of documentation.",
+        "tags": [
+          "SDK",
+          "Android",
+          "development",
+          "dependency",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7d1d1ceadfe41d8bbf5e683f430dd988c72f7d4c746b286ff346d524148b78e4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.592591Z"
+    "generated_at": "2025-12-15T02:19:00.771126Z"
   }
 }

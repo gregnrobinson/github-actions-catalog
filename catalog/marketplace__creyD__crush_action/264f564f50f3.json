@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/creyD/crush_action/action.yml",
     "origin": "github.com/creyD/crush_action",
     "publisher": "creyD",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0",
+      "name": "Initial Release",
+      "published_at": "2020-03-18T13:46:24Z",
+      "html_url": "https://github.com/creyD/crush_action/releases/tag/v1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Crush Action",
@@ -51,14 +59,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Build",
+      "Dependency management",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The Crush Action focuses on reducing file sizes for images, which is a part of the build process to optimize assets. It also relates to packaging as it prepares files for deployment by minimizing their size.",
+        "tags": [
+          "image optimization",
+          "file size reduction",
+          "PNG",
+          "JPG",
+          "build"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "264f564f50f30deda3fb1686fd803d00743c64ec0903e0f340789171af7aa970",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.809839Z"
+    "generated_at": "2025-12-15T02:19:01.113594Z"
   }
 }

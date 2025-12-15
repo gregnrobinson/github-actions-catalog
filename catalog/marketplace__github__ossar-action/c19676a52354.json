@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/github/ossar-action",
+  "version": "c19676a52354",
+  "definition": {
+    "name": "ossar-action",
+    "description": "Run open source security static analysis tools without the added complexity with OSSAR (Open Source Static Analysis Runner)",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "config",
+        "description": "A file path to a .gdnconfig file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "policy",
+        "description": "The name of the well known policy to use. If empty, defaults to the policy/github.gdnpolicy file in the action repo.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "sarifFile",
+        "description": "A file path to a SARIF results file."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/ossar-action",
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2024-04-18T09:05:08Z",
+      "html_url": "https://github.com/github/ossar-action/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:25.168412Z"
+}

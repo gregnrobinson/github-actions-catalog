@@ -1,0 +1,126 @@
+{
+  "action_id": "marketplace/docker/bake-action",
+  "version": "839ff551af44",
+  "definition": {
+    "name": "Docker Buildx Bake",
+    "description": "GitHub Action to use Docker Buildx Bake as a high-level build command",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "builder",
+        "description": "Builder instance",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "workdir",
+        "description": "Working directory of bake execution",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "source",
+        "description": "Context to build from. Can be either local or a remote bake definition",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "allow",
+        "description": "Allow build to access specified resources (e.g., network.host)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "call",
+        "description": "Set method for evaluating build (e.g., check)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "files",
+        "description": "List of bake definition files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "no-cache",
+        "description": "Do not use cache when building the image",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "pull",
+        "description": "Always attempt to pull a newer version of the image",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "load",
+        "description": "Load is a shorthand for --set=*.output=type=docker",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "provenance",
+        "description": "Provenance is a shorthand for --set=*.attest=type=provenance",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "push",
+        "description": "Push is a shorthand for --set=*.output=type=registry",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "sbom",
+        "description": "SBOM is a shorthand for --set=*.attest=type=sbom",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "set",
+        "description": "List of targets values to override (eg. targetpattern.key=value)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "targets",
+        "description": "List of bake targets",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "API token used to authenticate to a Git repository for remote definitions",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "metadata",
+        "description": "Build result metadata"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/bake-action",
+    "latest_release": {
+      "tag_name": "v6.10.0",
+      "name": "v6.10.0",
+      "published_at": "2025-11-27T12:21:39Z",
+      "html_url": "https://github.com/docker/bake-action/releases/tag/v6.10.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:53.469023Z"
+}

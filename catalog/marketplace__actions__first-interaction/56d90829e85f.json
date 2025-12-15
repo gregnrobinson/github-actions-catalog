@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/actions/first-interaction",
+  "version": "56d90829e85f",
+  "definition": {
+    "name": "First Interaction",
+    "description": "Greet first-time contributors when they open an issue or PR",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "issue_message",
+        "description": "Comment to post on an individual's first issue",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_message",
+        "description": "Comment to post on an individual's first pull request",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repo_token",
+        "description": "Token with permissions to post issue and PR comments",
+        "required": true,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/first-interaction",
+    "latest_release": {
+      "tag_name": "v3.1.0",
+      "name": "v3.1.0",
+      "published_at": "2025-10-03T13:58:45Z",
+      "html_url": "https://github.com/actions/first-interaction/releases/tag/v3.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:11.954052Z"
+}

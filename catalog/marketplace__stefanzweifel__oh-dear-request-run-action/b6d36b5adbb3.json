@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/stefanzweifel/oh-dear-request-run-action/action.yml",
     "origin": "github.com/stefanzweifel/oh-dear-request-run-action",
     "publisher": "stefanzweifel",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2021-06-16T19:13:21Z",
+      "html_url": "https://github.com/stefanzweifel/oh-dear-request-run-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Request Run for Oh Dear",
@@ -38,14 +46,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Monitoring"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action triggers a new run for an Oh Dear site, which involves communication with an external API and is related to monitoring the site's status.",
+        "tags": [
+          "Oh Dear",
+          "API",
+          "monitoring",
+          "request",
+          "run"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b6d36b5adbb3778238848f49cc6707a534671d2665d24312c6fa193f31e589de",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.418382Z"
+    "generated_at": "2025-12-15T02:19:00.971984Z"
   }
 }

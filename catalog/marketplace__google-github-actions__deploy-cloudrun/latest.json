@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-cloudrun/action.yml",
     "origin": "github.com/google-github-actions/deploy-cloudrun",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3",
+      "published_at": "2025-09-03T14:05:15Z",
+      "html_url": "https://github.com/google-github-actions/deploy-cloudrun/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy to Cloud Run",
@@ -180,7 +188,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy applications to Google Cloud Run, which falls under the Deployment category. Additionally, it involves infrastructure management by interacting with cloud services.",
+        "reasoning": "The action is specifically designed to deploy applications to Google Cloud Run, which falls under the Deployment category, and it also involves cloud infrastructure management.",
         "tags": [
           "Google Cloud",
           "Cloud Run",
@@ -195,6 +203,6 @@
     "source_hash": "a9de564114b6478b92dde8538dff2ac1f3c7bc98f87476ea3dfd72a0eec2e2c7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.804828Z"
+    "generated_at": "2025-12-15T02:19:00.096727Z"
   }
 }

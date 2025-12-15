@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/jekyll-build-pages/action.yml",
     "origin": "github.com/actions/jekyll-build-pages",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.13",
+      "name": "v1.0.13",
+      "published_at": "2024-08-06T23:48:04Z",
+      "html_url": "https://github.com/actions/jekyll-build-pages/releases/tag/v1.0.13",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Build Jekyll for GitHub Pages",
@@ -67,13 +75,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is primarily focused on building Jekyll artifacts, which falls under the Build category, and it also involves preparing content for GitHub Pages, aligning it with Publishing.",
+        "reasoning": "This action is primarily focused on building Jekyll pages, which falls under the Build category, and it also involves producing artifacts for GitHub Pages, making it relevant to Publishing.",
         "tags": [
           "Jekyll",
           "GitHub Pages",
           "Build",
-          "Action",
-          "Static Site"
+          "Static Site",
+          "CI/CD"
         ]
       }
     ]
@@ -82,6 +90,6 @@
     "source_hash": "d4d5a6b67d8524727ebf3ecfd1e26f771fe54360e2784bd37f4206e0a47c564b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.283459Z"
+    "generated_at": "2025-12-15T02:19:00.683528Z"
   }
 }

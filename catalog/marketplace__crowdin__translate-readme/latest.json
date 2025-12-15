@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/crowdin/translate-readme/action.yml",
     "origin": "github.com/crowdin/translate-readme",
     "publisher": "crowdin",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.2",
+      "name": "v0.1.2",
+      "published_at": "2024-02-05T10:03:51Z",
+      "html_url": "https://github.com/crowdin/translate-readme/releases/tag/v0.1.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Translate Readme",
@@ -65,8 +73,7 @@
   "annotations": {
     "categories": [
       "Documentation",
-      "Localization",
-      "Communication"
+      "Localization"
     ],
     "confidence": "high",
     "evidence": [
@@ -74,13 +81,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action focuses on automating the translation of README files, which falls under documentation. It also involves communication as it translates content for broader accessibility.",
+        "reasoning": "The action automates the translation of README.md files, which falls under the documentation category. Additionally, it involves localization processes.",
         "tags": [
           "translation",
           "README",
           "Crowdin",
           "localization",
-          "automation"
+          "documentation"
         ]
       }
     ]
@@ -89,6 +96,6 @@
     "source_hash": "b196291d17c7593daf0bc2d2e0c0193c79b3277f2343fc3555c2397654695e1d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.669076Z"
+    "generated_at": "2025-12-15T02:19:00.887011Z"
   }
 }

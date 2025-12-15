@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/CodelyTV/no-branches",
+  "version": "d57478d929a0",
+  "definition": {
+    "name": "No Branches",
+    "description": "Automatically remove any branch",
+    "author": "CodelyTV",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "description": "GitHub token",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "CodelyTV",
+    "verified": false,
+    "origin": "github.com/CodelyTV/no-branches",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version",
+      "published_at": "2020-04-08T13:15:14Z",
+      "html_url": "https://github.com/CodelyTV/no-branches/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:24.486423Z"
+}

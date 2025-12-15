@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-create-secret/action.yml",
     "origin": "github.com/azure/k8s-create-secret",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.0.1",
+      "name": "v5.0.1",
+      "published_at": "2024-09-06T21:28:43Z",
+      "html_url": "https://github.com/Azure/k8s-create-secret/releases/tag/v5.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create secret in Kubernetes cluster",
@@ -92,14 +100,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is primarily focused on creating secrets in a Kubernetes cluster, which is an infrastructure-related task. Additionally, it involves managing sensitive information, thus falling under the security category.",
+        "tags": [
+          "Kubernetes",
+          "Secrets",
+          "Azure",
+          "AKS",
+          "Infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "a23d7739c3b57b67473f1c17b59682b8ebb6bf4b4cc78d7d5f7e8e5dd53f1af0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.697418Z"
+    "generated_at": "2025-12-15T02:18:59.980684Z"
   }
 }

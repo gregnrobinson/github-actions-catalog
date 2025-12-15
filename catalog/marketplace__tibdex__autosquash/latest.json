@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tibdex/autosquash/action.yml",
     "origin": "github.com/tibdex/autosquash",
     "publisher": "tibdex",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2021-04-05T09:54:17Z",
+      "html_url": "https://github.com/tibdex/autosquash/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Autosquash",
@@ -34,23 +42,23 @@
   },
   "annotations": {
     "categories": [
-      "Automation",
       "Code quality",
-      "Testing"
+      "Testing",
+      "Communication"
     ],
     "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Automation",
-        "reasoning": "The action automates the process of updating pull requests and squashing them, which relates to code quality and testing by ensuring that outdated checks are handled. However, it does not fit neatly into the other established categories.",
+        "primary_category": "Code quality",
+        "reasoning": "The action focuses on updating pull requests and managing branch protections, which relates to maintaining code quality. It also involves communication with the GitHub API to handle PRs.",
         "tags": [
           "autosquash",
           "pull requests",
-          "automation",
-          "GitHub Actions",
-          "code quality"
+          "GitHub API",
+          "code quality",
+          "automation"
         ]
       }
     ]
@@ -59,6 +67,6 @@
     "source_hash": "6f906319bbcf61efe5b8bc8da1137bae552c0a086d7f7d761263b73516430fd9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.405648Z"
+    "generated_at": "2025-12-15T02:19:00.939640Z"
   }
 }

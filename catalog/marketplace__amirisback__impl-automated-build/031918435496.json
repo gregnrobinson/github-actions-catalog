@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/impl-automated-build",
+  "version": "031918435496",
+  "definition": {
+    "name": "automated-build-android-app-with-github-action",
+    "description": "Automated build android app bundle and apk with github action",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/impl-automated-build"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:36.357722Z"
+}

@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/raeperd/google-drive-download-action",
+  "version": "6bade0ab05be",
+  "definition": {
+    "name": "google-drive-download-action",
+    "description": "Github action for downlaoding google drive files or folder using Drives: list API",
+    "author": "raeperd",
+    "inputs": [
+      {
+        "name": "clientId",
+        "description": "Client id of oauth2 client application",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "clientSecret",
+        "description": "Client secret of oauth2 client application",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "redirectUri",
+        "description": "Redirect uri of oauth2 client application",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "credential_json",
+        "description": "credential.json with refresh_token and scope https://www.googleapis.com/auth/drive.readonly",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "q",
+        "description": "Query string to search for files and folders",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "path",
+        "description": "Path to download files default to working directory",
+        "required": false,
+        "default": "./"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "raeperd",
+    "verified": false,
+    "origin": "github.com/raeperd/google-drive-download-action",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2022-01-31T05:28:39Z",
+      "html_url": "https://github.com/raeperd/google-drive-download-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:06.056548Z"
+}

@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/github/setup-licensed",
+  "version": "004a611c1a31",
+  "definition": {
+    "name": "Setup github/licensed",
+    "description": "Setup github/licensed for use in GitHub Actions workflows",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "Authentication token to use with the GitHub API",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "description": "The github/licensed version to install",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "install-dir",
+        "description": "The target install directory for the github/licensed executable",
+        "required": false,
+        "default": "/usr/local/bin"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/setup-licensed",
+    "latest_release": {
+      "tag_name": "v1.3.1",
+      "name": "1.3.1: dependencies bump",
+      "published_at": "2024-12-02T21:21:31Z",
+      "html_url": "https://github.com/github/setup-licensed/releases/tag/v1.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:17.986393Z"
+}

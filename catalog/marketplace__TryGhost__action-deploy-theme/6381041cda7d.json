@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/TryGhost/action-deploy-theme",
+  "version": "6381041cda7d",
+  "definition": {
+    "name": "Deploy Ghost Theme",
+    "description": "Build & deploy a theme to your Ghost site",
+    "author": "TryGhost",
+    "inputs": [
+      {
+        "name": "api-url",
+        "description": "Ghost Admin API Url",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "api-key",
+        "description": "Ghost Admin API Key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "exclude",
+        "description": "Files or folders to exclude (space-separated list)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "theme-name",
+        "description": "A custom theme name that overrides the default name in package.json",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file",
+        "description": "Path to a built zip file. If this is included, the `exclude` and `theme-name` options are ignored",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "working-directory",
+        "description": "A custom directory to zip when a theme is in a subdirectory",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "TryGhost",
+    "verified": false,
+    "origin": "github.com/TryGhost/action-deploy-theme",
+    "latest_release": {
+      "tag_name": "v1.6.6",
+      "name": "v1.6.6",
+      "published_at": "2024-02-08T07:41:37Z",
+      "html_url": "https://github.com/TryGhost/action-deploy-theme/releases/tag/v1.6.6",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:07.367981Z"
+}

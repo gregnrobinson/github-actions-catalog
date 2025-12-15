@@ -151,7 +151,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is designed to manage stale issues and pull requests by posting messages, which falls under communication and notification categories.",
+        "reasoning": "This action is primarily focused on managing stale issues and pull requests, which involves communicating with users about the status of their contributions. It also sends notifications when tagging issues and pull requests as stale.",
         "tags": [
           "stale",
           "issues",
@@ -166,6 +166,6 @@
     "source_hash": "a6436d70b8daaac21dae7eb1678b57d149b954e0d0eca49ceb3379674141b0c9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.904896Z"
+    "generated_at": "2025-12-15T02:19:00.300533Z"
   }
 }

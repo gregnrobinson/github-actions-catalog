@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/stefanzweifel/oh-dear-request-run-action",
+  "version": "d314a42dd358",
+  "definition": {
+    "name": "Request Run for Oh Dear",
+    "description": "Trigger a new run for an Oh Dear site.",
+    "author": "Stefan Zweifel <stefan@stefanzweifel.dev>",
+    "inputs": [
+      {
+        "name": "oh_dear_token",
+        "description": "Valid API token to communicate with the Oh Dear API.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "check_id",
+        "description": "The ID of the check that should run.",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "stefanzweifel",
+    "verified": false,
+    "origin": "github.com/stefanzweifel/oh-dear-request-run-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2021-06-16T19:13:21Z",
+      "html_url": "https://github.com/stefanzweifel/oh-dear-request-run-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:20.308317Z"
+}

@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/tibdex/github-app-token",
+  "version": "a95581f88f6d",
+  "definition": {
+    "name": "GitHub App token",
+    "description": "Run a GitHub Action as a GitHub App instead of using secrets.GITHUB_TOKEN or a personal access token.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "app_id",
+        "description": "ID of the GitHub App.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github_api_url",
+        "description": "The API URL of the GitHub server.",
+        "required": false,
+        "default": "${{ github.api_url }}"
+      },
+      {
+        "name": "installation_retrieval_mode",
+        "description": "The mode used to retrieve the installation for which the token will be requested.\nOne of: - id: use the installation with the specified ID. - organization: use an organization installation (https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-an-organization-installation-for-the-authenticated-app). - repository: use a repository installation (https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-a-repository-installation-for-the-authenticated-app). - user: use a user installation (https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#get-a-user-installation-for-the-authenticated-app).",
+        "required": false,
+        "default": "repository"
+      },
+      {
+        "name": "installation_retrieval_payload",
+        "description": "The payload used to retrieve the installation.\nExamples for each retrieval mode: - id: 1337 - organization: github - repository: tibdex/github-app-token - user: tibdex",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "permissions",
+        "description": "The JSON-stringified permissions granted to the token. Defaults to all permissions granted to the GitHub app. See https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#create-an-installation-access-token-for-an-app's `permissions`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "private_key",
+        "description": "Private key of the GitHub App (can be Base64 encoded).",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repositories",
+        "description": "The JSON-stringified array of the full names of the repositories the token should have access to. Defaults to all repositories that the installation can access. See https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#create-an-installation-access-token-for-an-app's `repositories`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "revoke",
+        "description": "Revoke the token at the end of the job.",
+        "required": false,
+        "default": true
+      }
+    ],
+    "outputs": [
+      {
+        "name": "token",
+        "description": "An installation access token for the GitHub App."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tibdex",
+    "verified": false,
+    "origin": "github.com/tibdex/github-app-token",
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0",
+      "published_at": "2023-09-19T16:12:16Z",
+      "html_url": "https://github.com/tibdex/github-app-token/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:11.700050Z"
+}

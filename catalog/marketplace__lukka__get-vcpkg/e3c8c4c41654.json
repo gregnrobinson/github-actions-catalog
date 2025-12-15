@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/lukka/get-vcpkg",
+  "version": "e3c8c4c41654",
+  "definition": {
+    "name": "get-vcpkg",
+    "description": "Run vcpkg to build C/C++ dependencies and cache them automatically.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "vpkg_root_path",
+        "description": "Specify a directory where vcpkg is already installed.",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg"
+      },
+      {
+        "name": "vcpkgjson_path",
+        "description": "Specify the full path to vcpkg.json.",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg.json"
+      },
+      {
+        "name": "appended_cache_key",
+        "description": "This value is added to the precomputed key used to restore/save the cached artifacts produced by vcpkg.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build_command",
+        "description": "The full command to build, e.g. cmake -S ./src -B ./build && cmake --build ./build",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache_key",
+        "description": "The key of the newly created cache entry."
+      },
+      {
+        "name": "vcpkg_root",
+        "description": "The path to vcpkg."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/get-vcpkg"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:54.993799Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tgymnich/fork-sync/action.yml",
     "origin": "github.com/tgymnich/fork-sync",
     "publisher": "tgymnich",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.10",
+      "name": "v2.0.10",
+      "published_at": "2024-06-11T07:55:14Z",
+      "html_url": "https://github.com/tgymnich/fork-sync/releases/tag/v2.0.10",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Fork Sync",
@@ -101,7 +109,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Communication"
+      "Documentation"
     ],
     "confidence": "high",
     "evidence": [
@@ -109,13 +117,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is designed to keep a forked repository up to date, which falls under dependency management. It may also involve communication with the GitHub API to sync changes.",
+        "reasoning": "The action is designed to keep a forked repository up to date, which falls under dependency management. It also involves some level of documentation as it requires inputs for configuration.",
         "tags": [
           "fork",
           "sync",
           "repository",
-          "GitHub",
-          "dependency management"
+          "github",
+          "dependency"
         ]
       }
     ]
@@ -124,6 +132,6 @@
     "source_hash": "c71f931eabb61b473f94e6a9c35581bd5cf44d928c91c96931d231af4d510a6e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.694069Z"
+    "generated_at": "2025-12-15T02:19:00.916201Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/Ilshidur/action-discord/action.yml",
     "origin": "github.com/Ilshidur/action-discord",
     "publisher": "Ilshidur",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.4.0",
+      "name": "0.4.0",
+      "published_at": "2025-07-30T12:01:57Z",
+      "html_url": "https://github.com/Ilshidur/action-discord/releases/tag/0.4.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Actions for Discord",
@@ -27,14 +35,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is designed to send messages to Discord, which falls under communication and notification categories.",
+        "tags": [
+          "Discord",
+          "notification",
+          "communication",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "2a39c7259e2383a08013c8b4d78769b440e12aeb81342eba6a2278003a521f10",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.088952Z"
+    "generated_at": "2025-12-15T02:18:59.774180Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/azure-resource-login-action/action.yml",
     "origin": "github.com/azure/azure-resource-login-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2024-07-04T13:45:09Z",
+      "html_url": "https://github.com/Azure/azure-resource-login-action/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "azure-resource-login",
@@ -59,14 +67,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action is primarily focused on obtaining an access token for Azure resources, which falls under authentication. It also relates to infrastructure as it interacts with Azure services.",
+        "tags": [
+          "Azure",
+          "Authentication",
+          "Access Token",
+          "Infrastructure",
+          "Service Principal"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "26cb9be2798b183f7f039178bbfb7207bcf82497028a8a4e74cfd2cdee561c5f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.580137Z"
+    "generated_at": "2025-12-15T02:18:59.854835Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/raeperd/google-drive-download-action/action.yml",
     "origin": "github.com/raeperd/google-drive-download-action",
     "publisher": "raeperd",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2022-01-31T05:28:39Z",
+      "html_url": "https://github.com/raeperd/google-drive-download-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "google-drive-download-action",
@@ -57,14 +65,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action requires OAuth2 credentials (clientId, clientSecret, redirectUri) for authentication to access Google Drive, making Authentication the primary category. It also involves managing dependencies related to accessing files from Google Drive.",
+        "tags": [
+          "google-drive",
+          "oauth2",
+          "download",
+          "action",
+          "github"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "db4ad92c242482b4e53a8e03f896358caece73a9a301471880b885df00709dba",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.299330Z"
+    "generated_at": "2025-12-15T02:19:00.192089Z"
   }
 }

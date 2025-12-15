@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/ammaraskar/gcc-problem-matcher/action.yml",
     "origin": "github.com/ammaraskar/gcc-problem-matcher",
     "publisher": "ammaraskar",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.3.0",
+      "name": "Update for node16 deprecation",
+      "published_at": "2024-01-25T20:48:53Z",
+      "html_url": "https://github.com/ammaraskar/gcc-problem-matcher/releases/tag/0.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GCC Problem Matcher",
@@ -30,7 +38,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The GCC Problem Matcher is designed to identify errors during GCC builds, which directly relates to testing the code quality and correctness of the build process.",
+        "reasoning": "The GCC Problem Matcher is designed to identify errors during GCC builds, which directly relates to testing the code quality by catching compilation issues.",
         "tags": [
           "GCC",
           "problem matcher",
@@ -45,6 +53,6 @@
     "source_hash": "a0d97927a6c207e061cce82c2e47640feb6d312ddc6852dbbdb6e16564a4a6f9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.077804Z"
+    "generated_at": "2025-12-15T02:18:59.760335Z"
   }
 }

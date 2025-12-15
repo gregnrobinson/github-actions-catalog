@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/sql-action",
+  "version": "1229ac0897d3",
+  "definition": {
+    "name": "Azure SQL Deploy",
+    "description": "Deploy a database project, DACPAC, or a SQL script to Azure SQL database",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "connection-string",
+        "description": "The connection string, including authentication information, for the Azure SQL Server database.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "path",
+        "description": "Path to the file used for this action. Supported file types are .sql, .dacpac, or .sqlproj.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "action",
+        "description": "If not using a .sql file, the sqlpackage action to execute.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "arguments",
+        "description": "In case of .dacpac or .sqlproj file types, additional sqlpackage arguments that will be applied. In case of .sql file type, additional go-sqlcmd argument that will be applied.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "sqlpackage-path",
+        "description": "Specify a SqlPackage executable location to override the default locations.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build-arguments",
+        "description": "In case of a .sqlproj file, additional arguments that will be applied to dotnet build when building the database project.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip-firewall-check",
+        "description": "Skip the firewall check when connecting to the Azure SQL Server.",
+        "required": false,
+        "default": false
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/sql-action",
+    "latest_release": {
+      "tag_name": "v2.3",
+      "name": "skip-firewall-check and sqlpackage-path options",
+      "published_at": "2024-07-01T19:54:57Z",
+      "html_url": "https://github.com/Azure/sql-action/releases/tag/v2.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:19.030770Z"
+}

@@ -1,0 +1,120 @@
+{
+  "action_id": "marketplace/pypa/gh-action-pip-audit",
+  "version": "0f0662782d59",
+  "definition": {
+    "name": "gh-action-pip-audit",
+    "description": "Use pip-audit to scan Python dependencies for known vulnerabilities",
+    "author": "William Woodruff <william@trailofbits.com>",
+    "inputs": [
+      {
+        "name": "summary",
+        "description": "render a Markdown summary of the audit (default true)",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "no-deps",
+        "description": "don't do any dependency resolution (requires fully pinned requirements) (default false)",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "require-hashes",
+        "description": "enforce hashes (requirements-style inputs only) (default false)",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "vulnerability-service",
+        "description": "the vulnerability service to use (PyPI or OSV, defaults to PyPI)",
+        "required": false,
+        "default": "PyPI"
+      },
+      {
+        "name": "inputs",
+        "description": "the inputs to audit, whitespace separated (defaults to current path)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "virtual-environment",
+        "description": "the virtual environment to audit within (default none)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "local",
+        "description": "for environmental audits, consider only packages marked local (default false)",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "index-url",
+        "description": "the base URL for the PEP 503-compatible package index to use",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "extra-index-urls",
+        "description": "extra PEP 503-compatible indexes to use, whitespace separated",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ignore-vulns",
+        "description": "vulnerabilities to explicitly exclude, if present (whitespace separated)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "disable-pip",
+        "description": "disable pip",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "locked",
+        "description": "audit lock files from the local Python project",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "internal-be-careful-allow-failure",
+        "description": "don't fail the job if the audit fails (default false)",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "internal-be-careful-extra-flags",
+        "description": "extra flags to be passed in to pip-audit",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "internal-be-careful-output",
+        "description": "the column-formatted output from pip-audit, wrapped as base64"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "pypa",
+    "verified": false,
+    "origin": "github.com/pypa/gh-action-pip-audit",
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2024-08-08T18:56:09Z",
+      "html_url": "https://github.com/pypa/gh-action-pip-audit/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:51.985877Z"
+}

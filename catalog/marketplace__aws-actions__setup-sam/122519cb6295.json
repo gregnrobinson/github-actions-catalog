@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/aws-actions/setup-sam",
+  "version": "122519cb6295",
+  "definition": {
+    "name": "Setup AWS SAM CLI",
+    "description": "Setup AWS SAM CLI and add it to the PATH",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "The AWS SAM CLI version to install",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "python",
+        "description": "The Python interpreter to use for AWS SAM CLI",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use-installer",
+        "description": "Set to true to install using native installers instead of pip",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "token",
+        "description": "Authentication token to be used to call GITHUB Apis",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/setup-sam",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2",
+      "published_at": "2022-04-28T17:44:37Z",
+      "html_url": "https://github.com/aws-actions/setup-sam/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:33.884230Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/JamesIves/f45-lionheart-strava-importer/action.yml",
     "origin": "github.com/JamesIves/f45-lionheart-strava-importer",
     "publisher": "JamesIves",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2025-03-15T11:54:40Z",
+      "html_url": "https://github.com/JamesIves/f45-lionheart-strava-importer/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "F45 Lionheart Strava Importer",
@@ -91,7 +99,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action fetches workout data from the F45 Lionheart API and pushes it to Strava, which involves communication between services. It also requires authentication with Strava credentials.",
+        "reasoning": "The action fetches workout data from the F45 Lionheart API and communicates it to Strava, which falls under Communication. It also requires authentication credentials for Strava, placing it in the Authentication category, and it involves deploying data to a service, thus fitting into Deployment as well.",
         "tags": [
           "Strava",
           "F45",
@@ -106,6 +114,6 @@
     "source_hash": "b273d3a435276add653095768194a77ef08da0f1c906facbd97a89658237827d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.856109Z"
+    "generated_at": "2025-12-15T02:19:00.223607Z"
   }
 }

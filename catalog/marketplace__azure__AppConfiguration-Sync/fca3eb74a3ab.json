@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/azure/AppConfiguration-Sync",
+  "version": "fca3eb74a3ab",
+  "definition": {
+    "name": "Azure App Configuration Sync (Deprecated)",
+    "description": "DEPRECATED: Use Azure CLI action instead. Follow [these instructions](https://aka.ms/appconfig/githubactions) to set up.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "configurationFile",
+        "description": "Path to the configuration file in the repo, relative to the repo root. Also supports glob patterns and multiple files",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "format",
+        "description": "Format of the configuration file. Valid values are: json, yaml, properties",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "connectionString",
+        "description": "Connection string for the App Configuration instance",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "separator",
+        "description": "Separator used when flattening the configuration file to key-value pairs",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "strict",
+        "description": "Specifies whether to use a strict sync which will make the App Configuration instance exactly match the configuration file (deleting key-values not in the configuration file). Defaults to false",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "prefix",
+        "description": "Prefix that will be added to the front of the keys",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "label",
+        "description": "Label to use when setting the key-value pairs. If not specified, a null label will be used",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "depth",
+        "description": "Max depth (positive number) for flattening the configuration file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tags",
+        "description": "Stringified form of a JSON object with the following shape: { [propertyName: string]: string; }",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "contentType",
+        "description": "Content type associated with the values",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/AppConfiguration-Sync",
+    "latest_release": {
+      "tag_name": "v1.1.7",
+      "name": "v1.1.7",
+      "published_at": "2024-09-09T18:29:22Z",
+      "html_url": "https://github.com/Azure/AppConfiguration-Sync/releases/tag/v1.1.7",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:23.459662Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/codecov/basic-test-results/action.yml",
     "origin": "github.com/codecov/basic-test-results",
     "publisher": "codecov",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "Initial Release",
+      "published_at": "2024-10-28T15:42:43Z",
+      "html_url": "https://github.com/codecov/basic-test-results/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Basic Test Results",
@@ -85,14 +93,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Testing",
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action processes test results and outputs failed tests as comments on a pull request, which directly relates to testing and communication about code quality.",
+        "tags": [
+          "test results",
+          "CI",
+          "PR comments",
+          "code quality",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "512eca4c8034eabbc16dc2bf57fc5d00e39ded67a2c8e9cbc7deb4e0b6e192af",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.425254Z"
+    "generated_at": "2025-12-15T02:19:00.984937Z"
   }
 }

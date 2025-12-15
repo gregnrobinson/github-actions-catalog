@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/appleboy/facebook-action",
+  "version": "05aafe141c1b",
+  "definition": {
+    "name": "Facebook Message Notify",
+    "description": "Sending a Facebook message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "fb_page_token",
+        "description": "Token is the access token of the Facebook page to send messages from..",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fb_verify_token",
+        "description": "The token used to verify facebook.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to",
+        "description": "Recipient is who the message was sent to (required).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "app_secret",
+        "description": "The app secret from the facebook developer portal.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "verify",
+        "description": "verifying webhooks on the Facebook Developer Portal.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "images",
+        "description": "send the image message. Ex: https://golang.org/doc/gopher/gophercolor.png",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "audios",
+        "description": "send the audio message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "files",
+        "description": "send the file message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "videos",
+        "description": "send the video message.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/facebook-action",
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "",
+      "published_at": "2019-09-29T06:28:57Z",
+      "html_url": "https://github.com/appleboy/facebook-action/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:54.367551Z"
+}

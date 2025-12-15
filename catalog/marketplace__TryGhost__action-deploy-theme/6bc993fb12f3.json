@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/TryGhost/action-deploy-theme/action.yml",
     "origin": "github.com/TryGhost/action-deploy-theme",
     "publisher": "TryGhost",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.6.6",
+      "name": "v1.6.6",
+      "published_at": "2024-02-08T07:41:37Z",
+      "html_url": "https://github.com/TryGhost/action-deploy-theme/releases/tag/v1.6.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy Ghost Theme",
@@ -57,14 +65,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is focused on deploying a theme to a Ghost site, which falls under the Deployment category, while also involving a build process for the theme itself.",
+        "tags": [
+          "Ghost",
+          "Deployment",
+          "Theme",
+          "Build",
+          "API"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6bc993fb12f3f3858d6c63acaaa16cc635ac016c7d554619a3bde255245dfc69",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.305678Z"
+    "generated_at": "2025-12-15T02:19:00.201514Z"
   }
 }

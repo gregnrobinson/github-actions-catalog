@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/crowdin/translate-readme",
+  "version": "ad08da5996cc",
+  "definition": {
+    "name": "Translate Readme",
+    "description": "Automate translation of your README.md files via Crowdin",
+    "author": "Andrii Bodnar",
+    "inputs": [
+      {
+        "name": "file",
+        "description": "The Readme file name",
+        "required": false,
+        "default": "README.md"
+      },
+      {
+        "name": "branch",
+        "description": "Specify branch name to create in Crowdin",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "destination",
+        "description": "A directory where the localized readmes will be placed",
+        "required": false,
+        "default": "./"
+      },
+      {
+        "name": "languages",
+        "description": "A list of languages to translate the Readme",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "language_switcher",
+        "description": "Defines whether to add a language switcher to the Readme",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "upload_sources",
+        "description": "Defines whether to upload the source file to Crowdin",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "download_translations",
+        "description": "Defines whether to download translations from Crowdin",
+        "required": false,
+        "default": "true"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "crowdin",
+    "verified": false,
+    "origin": "github.com/crowdin/translate-readme",
+    "latest_release": {
+      "tag_name": "v0.1.2",
+      "name": "v0.1.2",
+      "published_at": "2024-02-05T10:03:51Z",
+      "html_url": "https://github.com/crowdin/translate-readme/releases/tag/v0.1.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:04.248958Z"
+}

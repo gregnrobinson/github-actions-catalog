@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/azure/k8s-set-context",
+  "version": "648fb980eb26",
+  "definition": {
+    "name": "Kubernetes Set Context",
+    "description": "Set the context of a target Kubernetes cluster and export the kubeconfig which is used by subsequent actions",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "cluster-type",
+        "description": "Acceptable values: generic or arc",
+        "required": true,
+        "default": "generic"
+      },
+      {
+        "name": "method",
+        "description": "Acceptable values: kubeconfig or service-account or service-principal",
+        "required": true,
+        "default": "kubeconfig"
+      },
+      {
+        "name": "kubeconfig",
+        "description": "Contents of kubeconfig file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kubeconfig-encoding",
+        "description": "Encoding of the kubeconfig input. Accepts \"plaintext\" (default) or \"base64\".",
+        "required": false,
+        "default": "plaintext"
+      },
+      {
+        "name": "context",
+        "description": "If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "k8s-url",
+        "description": "Cluster Url",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "k8s-secret",
+        "description": "Service account secret (run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Token extracted from the secret of service account (should be base 64 decoded)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resource-group",
+        "description": "Azure resource group name",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cluster-name",
+        "description": "Azure connected cluster name",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/k8s-set-context",
+    "latest_release": {
+      "tag_name": "v4.0.2",
+      "name": "v4.0.2",
+      "published_at": "2025-11-13T22:20:00Z",
+      "html_url": "https://github.com/Azure/k8s-set-context/releases/tag/v4.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:31.409420Z"
+}

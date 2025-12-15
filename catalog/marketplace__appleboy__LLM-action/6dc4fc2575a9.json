@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/appleboy/LLM-action",
+  "version": "6dc4fc2575a9",
+  "definition": {
+    "name": "LLM Action",
+    "description": "GitHub Action to interact with OpenAI Compatible LLM services",
+    "author": "appleboy",
+    "inputs": [
+      {
+        "name": "base_url",
+        "description": "Base URL for OpenAI Compatible API endpoint",
+        "required": false,
+        "default": "https://api.openai.com/v1"
+      },
+      {
+        "name": "api_key",
+        "description": "API Key for authentication",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "model",
+        "description": "Model name to use",
+        "required": false,
+        "default": "gpt-4o"
+      },
+      {
+        "name": "skip_ssl_verify",
+        "description": "Skip SSL certificate verification",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "system_prompt",
+        "description": "System prompt to set the context. Supports plain text, file path, or URL (http://, https://). For files, use absolute/relative path or file:// prefix. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}}, {{.MODEL}}).",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "input_prompt",
+        "description": "User input prompt for the LLM. Supports plain text, file path, or URL (http://, https://). For files, use absolute/relative path or file:// prefix. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}}, {{.MODEL}}).",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "temperature",
+        "description": "Temperature for response randomness (0.0-2.0)",
+        "required": false,
+        "default": "0.7"
+      },
+      {
+        "name": "max_tokens",
+        "description": "Maximum tokens in the response",
+        "required": false,
+        "default": "1000"
+      },
+      {
+        "name": "tool_schema",
+        "description": "JSON schema for structured output via function calling. Supports plain text, file path, or URL. Supports Go templates with environment variables (e.g., {{.GITHUB_REPOSITORY}}).",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug mode to print all parameters",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "headers",
+        "description": "Custom HTTP headers to include in API requests. Format: \"Header1:Value1,Header2:Value2\" or multiline with one header per line. Useful for log analysis or custom authentication.",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "response",
+        "description": "The response from the LLM"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/LLM-action",
+    "latest_release": {
+      "tag_name": "v1.3.0",
+      "name": "v1.3.0",
+      "published_at": "2025-12-11T05:46:10Z",
+      "html_url": "https://github.com/appleboy/LLM-action/releases/tag/v1.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:58.027964Z"
+}

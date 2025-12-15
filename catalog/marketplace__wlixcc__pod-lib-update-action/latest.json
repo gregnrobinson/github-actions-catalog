@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/wlixcc/pod-lib-update-action/action.yml",
     "origin": "github.com/wlixcc/pod-lib-update-action",
     "publisher": "wlixcc",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Update you pod lib with tag",
+      "published_at": "2020-02-24T07:52:58Z",
+      "html_url": "https://github.com/wlixcc/pod-lib-update-action/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "pod lib update",
@@ -48,7 +56,7 @@
     "categories": [
       "Dependency management",
       "Build",
-      "Publishing"
+      "Packaging"
     ],
     "confidence": "high",
     "evidence": [
@@ -56,13 +64,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is focused on updating pod libraries, which falls under dependency management, and it also involves building and publishing the updated library version.",
+        "reasoning": "This action is focused on updating pod libraries, which falls under dependency management, and it also involves building and packaging the library for distribution.",
         "tags": [
-          "pod",
+          "CocoaPods",
           "dependency",
           "library",
           "update",
-          "cocoapods"
+          "automation"
         ]
       }
     ]
@@ -71,6 +79,6 @@
     "source_hash": "66ed4ebb3c77c724a7c10b9b287fbd705fc3702c75952ebfd13e0ed42620df06",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.729148Z"
+    "generated_at": "2025-12-15T02:19:00.957945Z"
   }
 }

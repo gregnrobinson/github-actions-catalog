@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-unlock-state/action.yml",
     "origin": "github.com/dflook/tofu-unlock-state",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:22Z",
+      "html_url": "https://github.com/dflook/tofu-unlock-state/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-unlock-state",
@@ -55,14 +63,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is designed to unlock a remote state for OpenTofu, which is related to infrastructure management and deployment processes.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "deployment",
+          "state management",
+          "terraform"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "dd79164d4eaac9ddd7034b27c804ce6c329491baddc2d47bc75d2a5557d67ace",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.334767Z"
+    "generated_at": "2025-12-15T02:18:59.570121Z"
   }
 }

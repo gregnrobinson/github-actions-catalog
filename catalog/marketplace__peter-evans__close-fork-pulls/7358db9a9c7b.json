@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/close-fork-pulls/action.yml",
     "origin": "github.com/peter-evans/close-fork-pulls",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Close Fork Pulls v4.0.0",
+      "published_at": "2025-10-01T16:20:57Z",
+      "html_url": "https://github.com/peter-evans/close-fork-pulls/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Close Fork Pulls",
@@ -39,14 +47,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Security"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is primarily focused on managing pull requests, which involves communication with contributors. It also relates to code quality by potentially closing unreviewed or unnecessary pull requests, and it has a security aspect by managing contributions from forks.",
+        "tags": [
+          "pull requests",
+          "GitHub",
+          "close",
+          "forks",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7358db9a9c7b5a2869f5b3eff96c20ac1dc09d0f59a44a6a877e787157be1400",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.473969Z"
+    "generated_at": "2025-12-15T02:19:01.034561Z"
   }
 }

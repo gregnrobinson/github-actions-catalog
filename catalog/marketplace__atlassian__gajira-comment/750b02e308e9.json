@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/atlassian/gajira-comment",
+  "version": "750b02e308e9",
+  "definition": {
+    "name": "Jira Add Comment",
+    "description": "Add a comment to an issue",
+    "author": "atlassian",
+    "inputs": [
+      {
+        "name": "issue",
+        "description": "Key of the issue to be commented on",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "comment",
+        "description": "Comment",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "atlassian",
+    "verified": false,
+    "origin": "github.com/atlassian/gajira-comment",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Ownership transfer and update dependencies",
+      "published_at": "2022-11-20T23:47:18Z",
+      "html_url": "https://github.com/atlassian/gajira-comment/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:32.773379Z"
+}

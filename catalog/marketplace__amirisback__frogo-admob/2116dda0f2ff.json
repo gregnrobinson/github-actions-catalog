@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-admob/action.yml",
     "origin": "github.com/amirisback/frogo-admob",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "5.3.8",
+      "name": "Release v5.3.8",
+      "published_at": "2024-09-09T02:59:12Z",
+      "html_url": "https://github.com/amirisback/frogo-admob/releases/tag/5.3.8",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "FrogoAdmob",
@@ -30,14 +38,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is designed to assist with integrating Admob into Android apps, which suggests it helps manage dependencies related to advertising. Additionally, it includes an input description, indicating some level of documentation.",
+        "tags": [
+          "Admob",
+          "Android",
+          "Dependency",
+          "Helper",
+          "Integration"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "2116dda0f2ff0d9783caaed8eaae0d72282e3b08f809179020bfc1f3488def28",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.615320Z"
+    "generated_at": "2025-12-15T02:19:00.799335Z"
   }
 }

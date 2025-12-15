@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/aks-set-context",
+  "version": "c4fae2a38693",
+  "definition": {
+    "name": "Azure Kubernetes set context",
+    "description": "Sets the kubeconfig on the machine to communicate with the Azure Kubernetes cluster.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "resource-group",
+        "description": "Resource Group Name",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "cluster-name",
+        "description": "AKS Cluster Name",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "subscription",
+        "description": "AKS Cluster Subscription",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "admin",
+        "description": "Get cluster admin credentials. Values: true or false",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "use-kubelogin",
+        "description": "Enables kubelogin for non-admin user scenario. Values: true or false",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "public-fqdn",
+        "description": "Get private cluster credential with server address to be public fqdn.  Values: true or false",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "resource-type",
+        "description": "Either Microsoft.ContainerService/managedClusters or Microsoft.ContainerService/fleets'.",
+        "required": false,
+        "default": "Microsoft.ContainerService/managedClusters"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/aks-set-context",
+    "latest_release": {
+      "tag_name": "v4.0.3",
+      "name": "v4.0.3",
+      "published_at": "2025-04-21T18:11:41Z",
+      "html_url": "https://github.com/Azure/aks-set-context/releases/tag/v4.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:18.606213Z"
+}

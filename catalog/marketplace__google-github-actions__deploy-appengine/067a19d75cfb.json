@@ -1,0 +1,122 @@
+{
+  "action_id": "marketplace/google-github-actions/deploy-appengine",
+  "version": "067a19d75cfb",
+  "definition": {
+    "name": "Deploy to App Engine",
+    "description": "Deploy and promote a new service to Google App Engine.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "project_id",
+        "description": "ID of the Google Cloud project. If not provided, this is inherited from\nthe environment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "working_directory",
+        "description": "The working directory to use. **GitHub Actions do not honor [default\nworking-directory\nsettings](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#defaultsrun).**\nThe `deliverables` input is a relative path based on this setting.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "deliverables",
+        "description": "The [yaml\nfiles](https://cloud.google.com/appengine/docs/standard/nodejs/configuration-files#optional_configuration_files)\nfor the services or configurations you want to deploy. If not given,\ndefaults to app.yaml in the current directory. If that is not found,\nattempts to automatically generate necessary configuration files (such as\napp.yaml) in the current directory (example, `app.yaml cron.yaml`).\n\nNote: The additional deliverables may require additional roles for your\nservice account user.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build_env_vars",
+        "description": "List of build environment variables that should be set in the build\nenvironment. These are comma-separated or newline-separated `KEY=VALUE`.\nKeys or values that contain separators must be escaped with a backslash\n(e.g. `\\,` or `\\\\n`) unless quoted. Any leading or trailing whitespace is\ntrimmed unless values are quoted.\n\n```yaml\nbuild_env_vars: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nTo include build environment variables defined in another file, use the\n[`includes` directive][includes-directive] in your `app.yaml`.\n\nThis will overwrite any duplicate key environment variables defined in the\n`app.yaml`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "env_vars",
+        "description": "List of environment variables that should be set in the environment. These\nare comma-separated or newline-separated `KEY=VALUE`. Keys or values that\ncontain separators must be escaped with a backslash (e.g. `\\,` or `\\\\n`)\nunless quoted. Any leading or trailing whitespace is trimmed unless values\nare quoted.\n\n```yaml\nenv_vars: |-\n  FRUIT=apple\n  SENTENCE=\" this will retain leading and trailing spaces \"\n```\n\nThis value will only be set if the input is a non-empty value. If a\nnon-empty value is given, the field values will be overwritten (not\nmerged). To remove all values, set the value to the literal string `{}`.\n\nTo include environment variables defined in another file, use the\n[`includes` directive][includes-directive] in your `app.yaml`.\n\nThis will overwrite any duplicate key environment variables defined in the\n`app.yaml`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "image_url",
+        "description": "Fully-qualified name\nof the container image to deploy. For example:\n\n    us-docker.pkg.dev/cloudrun/container/hello:latest\n\nor\n\n    us-docker.pkg.dev/my-project/my-container/image:1.2.3",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "description": "The version of the app that will be created or replaced by this\ndeployment. If you do not specify a version, one will be generated for\nyou.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "promote",
+        "description": "Promote the deployed version to receive all traffic.",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "flags",
+        "description": "Space separate list of additional Cloud Functions flags to pass to the\ndeploy command. This can be used to apply advanced features that are not\nexposed via this GitHub Action.\n\n```yaml\nwith:\n  flags: '--ignore-file=...'\n```\n\nFlags that include other flags must quote the _entire_ outer flag value. For\nexample, to pass `--args=-X=123`:\n\n```yaml\nwith:\n  flags: 'flags: '--ignore-file=...' \"--args=-X=123\"'\n```\n\nSee the [complete list of\nflags](https://cloud.google.com/sdk/gcloud/reference/app/deploy#FLAGS) for\nmore information.\n\nPlease note, this GitHub Action does not parse or validate the flags. You\nare responsible for making sure the flags are available on the gcloud\nversion and subcommand.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcloud_version",
+        "description": "Version of the Cloud SDK to install. If unspecified or set to \"latest\",\nthe latest available gcloud SDK version for the target platform will be\ninstalled. Example: \"290.0.1\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcloud_component",
+        "description": "Version of the Cloud SDK components to install and use. If unspecified,\nthe latest or released version will be used. This is the equivalent of\nrunning 'gcloud alpha COMMAND' or 'gcloud beta COMMAND'. Valid values are\n`alpha` or `beta`. The default value is to use the stable track.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "name",
+        "description": "The fully-qualified resource name of the deployment. This will be of the\nformat `apps/[PROJECT]/services/[SERVICE]/versions/[VERSION]`."
+      },
+      {
+        "name": "runtime",
+        "description": "The computed deployment runtime."
+      },
+      {
+        "name": "service_account_email",
+        "description": "The email address of the runtime service account."
+      },
+      {
+        "name": "serving_status",
+        "description": "The current serving status. The value is usually \"SERVING\", unless the\ndeployment failed to start."
+      },
+      {
+        "name": "version_id",
+        "description": "Unique identifier for the version, or the specified version if one was\ngiven."
+      },
+      {
+        "name": "version_url",
+        "description": "URL of the version of the AppEngine service that was deployed."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/deploy-appengine",
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-09-03T01:08:36Z",
+      "html_url": "https://github.com/google-github-actions/deploy-appengine/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:45.837950Z"
+}

@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/posener/goaction-example",
+  "version": "e2014086d610",
+  "definition": {
+    "name": "goaction-example",
+    "description": "Package main is an example of the simplest goaction sctipt.",
+    "author": "posener",
+    "inputs": [
+      {
+        "name": "who",
+        "description": "Say hello to who",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "posener",
+    "verified": false,
+    "origin": "github.com/posener/goaction-example"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:47.616526Z"
+}

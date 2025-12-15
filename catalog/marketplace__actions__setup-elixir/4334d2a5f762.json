@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-elixir/action.yml",
     "origin": "github.com/actions/setup-elixir",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.5.0",
+      "name": "Add support for experimental OTP builds",
+      "published_at": "2020-11-17T13:38:58Z",
+      "html_url": "https://github.com/actions/setup-elixir/releases/tag/v1.5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Elixir",
@@ -60,14 +68,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up specific versions of Elixir and OTP, which are dependencies for building applications. It also modifies the environment to include these tools, indicating an infrastructure aspect.",
+        "tags": [
+          "elixir",
+          "otp",
+          "setup",
+          "dependency",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "4334d2a5f762105667892a1f34973d35cee717e9b3fc6e214277c8ff3791968b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.291985Z"
+    "generated_at": "2025-12-15T02:19:00.699010Z"
   }
 }

@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/appleboy/codegpt-action",
+  "version": "daff50c5de88",
+  "definition": {
+    "name": "CodeGPT",
+    "description": "Github Action for CodeGPT",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "openai_api_key",
+        "description": "OpenAI API Key",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "openai_base_url",
+        "description": "OpenAI Base URL",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "openai_org_id",
+        "description": "OpenAI ORG ID",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "openai_model",
+        "description": "OpenAI Model",
+        "required": false,
+        "default": "gpt-3.5-turbo"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "review",
+        "description": "Code review"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/codegpt-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:56.107166Z"
+}

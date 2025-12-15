@@ -57,7 +57,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Build"
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -65,11 +65,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is primarily used to check out a repository, which is essential for managing dependencies in a project, and it also plays a role in the build process by allowing access to the codebase at a specific reference.",
+        "reasoning": "The action is primarily focused on checking out a repository, which is essential for managing dependencies in a project. It also involves infrastructure aspects by interacting with the GitHub repository.",
         "tags": [
           "checkout",
           "repository",
-          "git",
+          "GitHub",
           "actions",
           "dependency"
         ]
@@ -80,6 +80,6 @@
     "source_hash": "c8fdc90b83a6eb9285002e4e369f87bcfd7a8f543b8739ba00ae53dbfb806d47",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.397963Z"
+    "generated_at": "2025-12-15T02:18:59.631861Z"
   }
 }

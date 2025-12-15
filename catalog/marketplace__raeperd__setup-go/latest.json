@@ -76,7 +76,8 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Build"
+      "Build",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -84,7 +85,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action sets up a Go environment, which is essential for managing dependencies and building Go applications. It directly relates to ensuring the correct version of Go is available for the build process.",
+        "reasoning": "This action sets up a Go environment, which is essential for managing dependencies and building Go applications. It also modifies the system's PATH, indicating an infrastructure aspect.",
         "tags": [
           "Go",
           "setup",
@@ -99,6 +100,6 @@
     "source_hash": "ebb00c4462c87740b2cd811941f13ecb03a9d1b417a0db745c5c2df858cdebea",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.297707Z"
+    "generated_at": "2025-12-15T02:19:00.190045Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/automatic-contrib-prs/action.yml",
     "origin": "github.com/github/automatic-contrib-prs",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.1.8",
+      "name": "v2.1.8",
+      "published_at": "2025-02-17T17:08:06Z",
+      "html_url": "https://github.com/github/automatic-contrib-prs/releases/tag/v2.1.8",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Automatic Contrib PRs",
@@ -20,14 +28,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action focuses on adding a CONTRIBUTING.md file to repositories, which directly relates to documentation practices.",
+        "tags": [
+          "documentation",
+          "contributing",
+          "github action",
+          "repository",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b0ee6ff87a80b00daa4366025276324496f3c21f9a5058116e0a4bb6e948b5b2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.985667Z"
+    "generated_at": "2025-12-15T02:19:00.382190Z"
   }
 }

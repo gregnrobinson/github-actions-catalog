@@ -1,0 +1,95 @@
+{
+  "action_id": "marketplace/TryGhost/mysql-action",
+  "version": "9bf2bc7f8e8d",
+  "definition": {
+    "name": "Setup MySQL",
+    "description": "Setup a MySQL database",
+    "author": "Mirro Mutth",
+    "inputs": [
+      {
+        "name": "host port",
+        "description": "The port of host",
+        "required": false,
+        "default": 3306
+      },
+      {
+        "name": "container port",
+        "description": "The port of container",
+        "required": false,
+        "default": 3306
+      },
+      {
+        "name": "character set server",
+        "description": "--character-set-server - The character set of MySQL server",
+        "required": false,
+        "default": "utf8mb4"
+      },
+      {
+        "name": "collation server",
+        "description": "--collation-server - The character collation of MySQL server",
+        "required": false,
+        "default": "utf8mb4_0900_ai_ci"
+      },
+      {
+        "name": "mysql version",
+        "description": "Version of MySQL to use",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "mysql root password",
+        "description": "MYSQL_ROOT_PASSWORD - root superuser password",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "mysql database",
+        "description": "MYSQL_DATABASE - name for the default database that is created",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "mysql user",
+        "description": "MYSQL_USER - create the specified user with superuser power for created database",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "mysql password",
+        "description": "MYSQL_PASSWORD - specified superuser password which user is power for created database",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "authentication plugin",
+        "description": "Set authentication plugin. Login/password is used as default. Changes default behaviour of MySQL 8.0+, where `caching_sha2_password` is a default value.",
+        "required": false,
+        "default": "mysql_native_password"
+      },
+      {
+        "name": "use tmpfs",
+        "description": "Whether or not to use Docker's tmpfs feature for MySQL's storage",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "tmpfs size",
+        "description": "Desired size of tmpfs volume",
+        "required": false,
+        "default": "3072M"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "TryGhost",
+    "verified": false,
+    "origin": "github.com/TryGhost/mysql-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:06.481761Z"
+}

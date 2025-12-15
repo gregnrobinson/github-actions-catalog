@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/vn7n24fzkq/github-action-test/action.yml",
     "origin": "github.com/vn7n24fzkq/github-action-test",
     "publisher": "vn7n24fzkq",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.2",
+      "name": "test",
+      "published_at": "2020-08-24T07:06:32Z",
+      "html_url": "https://github.com/vn7n24fzkq/github-action-test/releases/tag/0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub-Profile-Summary-Cards",
@@ -27,14 +35,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Documentation",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action generates profile summary cards, which are a form of documentation for GitHub profiles, and commits them to the default branch, indicating a publishing aspect.",
+        "tags": [
+          "GitHub",
+          "profile",
+          "summary",
+          "cards",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "c733029ac3af0b8d5c751e032adead2fa090ac40739616904d0b41fa2d13982a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.393646Z"
+    "generated_at": "2025-12-15T02:19:00.903553Z"
   }
 }

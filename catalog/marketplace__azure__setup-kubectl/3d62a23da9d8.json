@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/setup-kubectl/action.yml",
     "origin": "github.com/azure/setup-kubectl",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.0.1",
+      "name": "v4.0.1",
+      "published_at": "2025-06-20T22:46:49Z",
+      "html_url": "https://github.com/Azure/setup-kubectl/releases/tag/v4.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Kubectl tool installer",
@@ -32,14 +40,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is focused on installing a specific version of the kubectl binary, which is essential for managing Kubernetes clusters, thus falling under dependency management and infrastructure.",
+        "tags": [
+          "kubectl",
+          "installer",
+          "Kubernetes",
+          "dependency",
+          "setup"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "3d62a23da9d85211fcedcc01b7d44428e5d799a5b442408514d2ebd8c9e3e08a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.505347Z"
+    "generated_at": "2025-12-15T02:18:59.779328Z"
   }
 }

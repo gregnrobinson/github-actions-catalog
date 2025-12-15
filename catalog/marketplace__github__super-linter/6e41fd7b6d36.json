@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/super-linter/action.yml",
     "origin": "github.com/github/super-linter",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v7",
+      "name": "v7",
+      "published_at": "2024-08-29T18:28:26Z",
+      "html_url": "https://github.com/github/super-linter/releases/tag/v7",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Super-Linter",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "Super-Linter is primarily focused on validating source code through linting and analysis, which falls under code quality. It also contributes to testing by ensuring code adheres to specified standards.",
+        "tags": [
+          "linter",
+          "code quality",
+          "static analysis",
+          "validation",
+          "github action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6e41fd7b6d367c844a21388f0d3bb6fc28736a52a3730602bc39be046a41782c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.896374Z"
+    "generated_at": "2025-12-15T02:19:00.291327Z"
   }
 }

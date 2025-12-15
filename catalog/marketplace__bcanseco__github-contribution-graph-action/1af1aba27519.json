@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/bcanseco/github-contribution-graph-action/action.yml",
     "origin": "github.com/bcanseco/github-contribution-graph-action",
     "publisher": "bcanseco",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.0.2",
+      "name": "Fix FORCE_PUSH not working",
+      "published_at": "2023-01-22T21:53:09Z",
+      "html_url": "https://github.com/bcanseco/github-contribution-graph-action/releases/tag/2.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Autopopulate your contribution graph",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is intended to enhance the contribution graph, which relates to code quality and visibility in documentation of contributions. However, it does not directly impact the code itself.",
+        "tags": [
+          "contribution",
+          "graph",
+          "GitHub",
+          "automation",
+          "commit"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1af1aba275190f0aabc0f5cb037d2a18cd7ead84181c4b6591b197e7adf252b0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.193012Z"
+    "generated_at": "2025-12-15T02:19:00.013200Z"
   }
 }

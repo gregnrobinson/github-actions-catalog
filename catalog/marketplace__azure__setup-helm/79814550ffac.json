@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/azure/setup-helm",
+  "version": "79814550ffac",
+  "definition": {
+    "name": "Helm tool installer",
+    "description": "Install a specific version of helm binary. Acceptable values are latest or any semantic version string like 1.15.0",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "Version of helm",
+        "required": true,
+        "default": "latest"
+      },
+      {
+        "name": "token",
+        "description": "GitHub token. Used to be required to fetch the latest version",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "downloadBaseURL",
+        "description": "Set the download base URL",
+        "required": false,
+        "default": "https://get.helm.sh"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "helm-path",
+        "description": "Path to the cached helm binary"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/setup-helm",
+    "latest_release": {
+      "tag_name": "v4.3.1",
+      "name": "v4.3.1",
+      "published_at": "2025-08-19T20:52:43Z",
+      "html_url": "https://github.com/Azure/setup-helm/releases/tag/v4.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:16.470803Z"
+}

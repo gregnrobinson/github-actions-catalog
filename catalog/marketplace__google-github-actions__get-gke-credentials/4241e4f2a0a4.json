@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/google-github-actions/get-gke-credentials",
+  "version": "4241e4f2a0a4",
+  "definition": {
+    "name": "Get GKE Credentials",
+    "description": "Generate ephemeral credentials for authenticating to Google Kubernetes Engine\n(GKE) and kubectl, helm, etc.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "cluster_name",
+        "description": "Name of the cluster for which to get credentials. This can be specified as\na full resource name:\n\n    projects/<project>/locations/<location>/clusters/<cluster>\n\nIn which case the `project_id` and `location` inputs are optional. If only\nspecified as a name:\n\n    <cluster>\n\nthen both the `project_id` and `location` may be required.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "location",
+        "description": "Location (region or zone) in which the cluster resides. This value is\nrequired unless `cluster_name` is a full resource name.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "project_id",
+        "description": "Project ID where the cluster is deployed. If provided, this will override\nthe project configured by previous steps or environment variables. If not\nprovided, the project will be inferred from the environment, best-effort.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "context_name",
+        "description": "Name to use when creating the `kubectl` context. If not specified, the\ndefault value is `gke_<project>_<location>_<cluster>`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "namespace",
+        "description": "Name of the Kubernetes namespace to use within the context.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_auth_provider",
+        "description": "Set this to true to use the Google Cloud auth plugin in `kubectl` instead\nof inserting a short-lived access token.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_internal_ip",
+        "description": "Set this to true to use the internal IP address for the cluster endpoint.\nThis is mostly used with private GKE clusters.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_connect_gateway",
+        "description": "Set this to true to use the [Connect Gateway\nendpoint](https://cloud.google.com/anthos/multicluster-management/gateway)\nto connect to cluster.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_dns_based_endpoint",
+        "description": "Set this true to use [DNS-based endpoint](https://cloud.google.com/kubernetes-engine/docs/concepts/network-isolation#dns-based_endpoint)\nto connect to the cluster.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "fleet_membership_name",
+        "description": "Fleet membership name to use for generating Connect Gateway endpoint, of\nthe form:\n\n    projects/<project>/locations/<location>/memberships/<membership>\n\nThis only applies if `use_connect_gateway` is true. Defaults to auto\ndiscovery if empty.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "quota_project_id",
+        "description": "Project ID from which to pull quota. The caller must have\n`serviceusage.services.use` permission on the project. If unspecified,\nthis defaults to the project of the authenticated principle. This is an\nadvanced setting, most users should leave this blank.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "kubeconfig_path",
+        "description": "Path on the local filesystem where the generated Kubernetes configuration\nfile resides."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/get-gke-credentials",
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-09-03T01:53:57Z",
+      "html_url": "https://github.com/google-github-actions/get-gke-credentials/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:52.076250Z"
+}

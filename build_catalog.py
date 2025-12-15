@@ -4,6 +4,7 @@ Build action catalog from internal and marketplace actions.
 Scans action.yml files and generates latest.json + versioned snapshots.
 Then categorizes actions using OpenAI GPT with cost tracking.
 Includes caching to skip unchanged files (use --no-cache to force rebuild).
+Fetches latest GitHub releases for marketplace actions.
 """
 
 import json
@@ -18,6 +19,9 @@ from openai import OpenAI
 # Use current working directory
 BLUEPRINTS_DIR = Path.cwd() / "blueprints"
 CATALOG_DIR = Path.cwd() / "catalog"
+
+# GitHub API token from environment
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 
 # GitHub Marketplace action categories
 GITHUB_CATEGORIES = [
@@ -45,6 +49,134 @@ USE_CACHE = "--no-cache" not in sys.argv
 SKIP_CATEGORIZE = "--no-categorize" in sys.argv
 FORCE_CATEGORIZE = "--force-categorize" in sys.argv
 FORCE_PUBLISHER_UPDATE = "--force-publisher-update" in sys.argv
+UPDATE_RELEASES = "--update-releases" in sys.argv
+
+def get_latest_release(origin):
+    """Fetch latest release from GitHub repository."""
+    if not origin or not GITHUB_TOKEN:
+        return None
+
+    try:
+        import requests
+
+        # Extract owner/repo from origin (e.g., github.com/actions/checkout)
+        parts = origin.replace("github.com/", "").split("/")
+        if len(parts) < 2:
+            return None
+
+        owner = parts[0]
+        repo = parts[1]
+
+        # GitHub API endpoint for latest release
+        url = f"https://api.github.com/repos/{owner}/{repo}/releases/latest"
+        headers = {
+            "Authorization": f"Bearer {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28"
+        }
+
+        response = requests.get(url, headers=headers, timeout=10)
+
+        if response.status_code == 200:
+            release_data = response.json()
+            return {
+                "tag_name": release_data.get("tag_name"),
+                "name": release_data.get("name"),
+                "published_at": release_data.get("published_at"),
+                "html_url": release_data.get("html_url"),
+                "prerelease": release_data.get("prerelease", False),
+                "draft": release_data.get("draft", False)
+            }
+        elif response.status_code == 404:
+            # No releases found
+            return None
+        else:
+            return None
+
+    except Exception:
+        return None
+
+def update_release_info_only():
+    """Update only release information in existing catalog entries."""
+    if not GITHUB_TOKEN:
+        print("❌ GITHUB_TOKEN not set - cannot fetch releases")
+        return
+
+    print("🔄 Updating release information for marketplace actions\n")
+
+    updated_count = 0
+    skipped_count = 0
+    error_count = 0
+
+    # Find all catalog entries
+    if not CATALOG_DIR.exists():
+        print("❌ Catalog directory not found")
+        return
+
+    for entry_dir in CATALOG_DIR.iterdir():
+        if not entry_dir.is_dir():
+            continue
+
+        latest_file = entry_dir / "latest.json"
+        if not latest_file.exists():
+            continue
+
+        try:
+            # Load existing entry
+            with open(latest_file, "r") as f:
+                catalog_entry = json.load(f)
+
+            action_id = catalog_entry.get("action_id", "")
+            source = catalog_entry.get("source", {})
+            origin = source.get("origin")
+
+            # Only update marketplace actions with origin
+            if source.get("type") != "marketplace" or not origin:
+                continue
+
+            print(f"Updating {action_id}...", end=" ", flush=True)
+
+            # Fetch latest release
+            latest_release = get_latest_release(origin)
+
+            if latest_release:
+                # Update release info
+                old_release = source.get("latest_release", {})
+                old_tag = old_release.get("tag_name", "none")
+                new_tag = latest_release.get("tag_name", "unknown")
+
+                source["latest_release"] = latest_release
+                catalog_entry["source"] = source
+
+                # Save updated entry
+                with open(latest_file, "w") as f:
+                    json.dump(catalog_entry, f, indent=2)
+
+                # Also update versioned file if it exists
+                version_id = catalog_entry.get("version_id")
+                if version_id:
+                    version_file = entry_dir / f"{version_id}.json"
+                    if version_file.exists():
+                        with open(version_file, "w") as f:
+                            json.dump(catalog_entry, f, indent=2)
+
+                if old_tag != new_tag:
+                    print(f"✅ Updated {old_tag} → {new_tag}")
+                else:
+                    print(f"✅ {new_tag} (unchanged)")
+                updated_count += 1
+            else:
+                print("⏭️  No release found")
+                skipped_count += 1
+
+        except Exception as e:
+            print(f"❌ Error: {e}")
+            error_count += 1
+
+    print(f"\n✅ Updated: {updated_count}")
+    print(f"⏭️  Skipped: {skipped_count}")
+    if error_count > 0:
+        print(f"❌ Errors: {error_count}")
 
 def load_approved_publishers():
     """Load approved publishers from config file."""
@@ -272,17 +404,26 @@ def build_catalog_entry(action_info):
             # Look up in approved publishers dict
             is_verified = APPROVED_PUBLISHERS.get(publisher, False)
 
+    # Build source object
+    source = {
+        "type": action_info["source_type"],
+        "action_yml_path": str(action_yml_path.relative_to(Path.cwd())),
+        "origin": action_info["origin"],
+        "publisher": publisher,
+        "verified": is_verified
+    }
+
+    # Fetch latest release for marketplace actions
+    if action_info["source_type"] == "marketplace" and action_info["origin"]:
+        latest_release = get_latest_release(action_info["origin"])
+        if latest_release:
+            source["latest_release"] = latest_release
+
     # Build catalog entry
     catalog_entry = {
         "action_id": action_id,
         "version_id": version_id,
-        "source": {
-            "type": action_info["source_type"],
-            "action_yml_path": str(action_yml_path.relative_to(Path.cwd())),
-            "origin": action_info["origin"],
-            "publisher": publisher,
-            "verified": is_verified
-        },
+        "source": source,
         "definition": normalized,
         "annotations": {
             "categories": [],
@@ -452,10 +593,20 @@ def print_usage():
     print("  --no-categorize           Skip OpenAI categorization")
     print("  --force-categorize        Re-categorize all actions")
     print("  --force-publisher-update  Rebuild all marketplace actions if publisher")
-    print("                            verification status changed\n")
+    print("                            verification status changed")
+    print("  --update-releases         Only update release information (fast)\n")
+    print("Environment Variables:")
+    print("  GITHUB_TOKEN              GitHub personal access token for release fetching")
+    print("  OPENAI_API_KEY            OpenAI API key for categorization\n")
 
 def main():
     """Main catalog build and categorization workflow."""
+
+    # If --update-releases flag is set, only update releases and exit
+    if UPDATE_RELEASES:
+        update_release_info_only()
+        return
+
     print("🔨 Building action catalog\n")
     print(f"📁 Working directory: {Path.cwd()}")
 
@@ -466,6 +617,9 @@ def main():
 
     if FORCE_PUBLISHER_UPDATE:
         print("🔄 Force publisher update enabled (--force-publisher-update)")
+
+    if not GITHUB_TOKEN:
+        print("⚠️  GITHUB_TOKEN not set - release information will not be fetched")
 
     print()
 
@@ -484,6 +638,7 @@ def main():
     success_count = 0
     skipped_count = 0
     publisher_updated_count = 0
+    releases_fetched = 0
 
     for action_info in all_actions:
         action_id = action_info["action_id"]
@@ -530,14 +685,21 @@ def main():
         write_catalog_files(catalog_entry, version_id)
         built_entries.append(catalog_entry)
 
+        # Check if release was fetched
+        has_release = catalog_entry.get("source", {}).get("latest_release") is not None
+        if has_release:
+            releases_fetched += 1
+
         if is_publisher_update:
             old_verified = get_existing_publisher_verified(action_id)
             new_verified = catalog_entry["source"]["verified"]
             publisher = catalog_entry["source"]["publisher"]
-            print(f"✅ ({version_id}) {publisher}: {old_verified}→{new_verified}")
+            release_indicator = " 📦" if has_release else ""
+            print(f"✅ ({version_id}) {publisher}: {old_verified}→{new_verified}{release_indicator}")
             publisher_updated_count += 1
         else:
-            print(f"✅ ({version_id})")
+            release_indicator = " 📦" if has_release else ""
+            print(f"✅ ({version_id}){release_indicator}")
 
         success_count += 1
 
@@ -545,6 +707,8 @@ def main():
     print(f"⏭️  Skipped: {skipped_count} (unchanged)")
     if publisher_updated_count > 0:
         print(f"🔄 Publisher updates: {publisher_updated_count}")
+    if releases_fetched > 0:
+        print(f"📦 Releases fetched: {releases_fetched}")
     print()
 
     # Skip categorization if --no-categorize flag

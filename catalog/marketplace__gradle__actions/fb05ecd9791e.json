@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/gradle/actions",
+  "version": "fb05ecd9791e",
+  "definition": {
+    "name": "Build with Gradle",
+    "description": "A collection of actions for building Gradle projects, as well as generating a dependency graph via Dependency Submission.",
+    "author": "gradle",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "gradle",
+    "verified": false,
+    "origin": "github.com/gradle/actions",
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "v5.0.0",
+      "published_at": "2025-10-01T10:09:40Z",
+      "html_url": "https://github.com/gradle/actions/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:11.881275Z"
+}

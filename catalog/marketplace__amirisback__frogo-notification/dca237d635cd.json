@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-notification",
+  "version": "dca237d635cd",
+  "definition": {
+    "name": "Frogo-Notification",
+    "description": "Library Easy Notification, Full and Clear Documentation, ",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-notification",
+    "latest_release": {
+      "tag_name": "1.1.1",
+      "name": "Release v1.1.1",
+      "published_at": "2022-03-09T05:20:26Z",
+      "html_url": "https://github.com/amirisback/frogo-notification/releases/tag/1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:42.846582Z"
+}

@@ -1,0 +1,152 @@
+{
+  "action_id": "marketplace/docker/cagent-action",
+  "version": "b2983924d1d0",
+  "definition": {
+    "name": "CAgent Runner",
+    "description": "Run a CAgent AI agent with a single line",
+    "author": "Docker",
+    "inputs": [
+      {
+        "name": "agent",
+        "description": "Agent identifier (e.g., docker/code-analyzer from Docker Hub, or path to .yaml file)",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "prompt",
+        "description": "Prompt to pass to the agent. If not provided, uses a default based on the agent type",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cagent-version",
+        "description": "Version of cagent to use",
+        "required": false,
+        "default": "v1.9.12"
+      },
+      {
+        "name": "mcp-gateway",
+        "description": "Install mcp-gateway (true/false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "mcp-gateway-version",
+        "description": "Version of mcp-gateway to use (specifying this will enable mcp-gateway installation)",
+        "required": false,
+        "default": "v0.22.0"
+      },
+      {
+        "name": "anthropic-api-key",
+        "description": "Anthropic API key (defaults to ANTHROPIC_API_KEY secret)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "openai-api-key",
+        "description": "OpenAI API key (defaults to OPENAI_API_KEY secret)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "google-api-key",
+        "description": "Google API key for Gemini (defaults to GOOGLE_API_KEY secret)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "GitHub token for API access (defaults to GITHUB_TOKEN env var)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "timeout",
+        "description": "Timeout in seconds for agent execution (0 for no timeout)",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug mode with verbose logging (true/false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "working-directory",
+        "description": "Working directory to run the agent in",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "yolo",
+        "description": "Enable yolo mode - auto-approve all prompts (true/false)",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "extra-args",
+        "description": "Additional arguments to pass to cagent exec",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "exit-code",
+        "description": "Exit code from cagent exec"
+      },
+      {
+        "name": "output-file",
+        "description": "Path to the output log file"
+      },
+      {
+        "name": "cagent-version",
+        "description": "Version of cagent that was used"
+      },
+      {
+        "name": "mcp-gateway-installed",
+        "description": "Whether mcp-gateway was installed (true/false)"
+      },
+      {
+        "name": "execution-time",
+        "description": "Agent execution time in seconds"
+      },
+      {
+        "name": "security-blocked",
+        "description": "Whether execution was blocked due to security concerns"
+      },
+      {
+        "name": "secrets-detected",
+        "description": "Whether secrets were detected in output"
+      },
+      {
+        "name": "prompt-suspicious",
+        "description": "Whether suspicious patterns were detected in user prompt"
+      },
+      {
+        "name": "input-risk-level",
+        "description": "Risk level of input (low/medium/high)"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/cagent-action",
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "v1.0.2",
+      "published_at": "2025-11-13T15:09:56Z",
+      "html_url": "https://github.com/docker/cagent-action/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:54.378748Z"
+}

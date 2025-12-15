@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/ai-inference/action.yml",
     "origin": "github.com/actions/ai-inference",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.4",
+      "name": "v2.0.4",
+      "published_at": "2025-11-30T21:49:09Z",
+      "html_url": "https://github.com/actions/ai-inference/releases/tag/v2.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AI Inference",
@@ -118,7 +126,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action generates AI responses based on prompts, which can be considered a form of communication. It may also be used in testing scenarios to validate AI outputs.",
+        "reasoning": "The action generates AI responses based on prompts, which can be seen as a form of communication. Additionally, it can be used in testing scenarios where AI responses are evaluated.",
         "tags": [
           "AI",
           "inference",
@@ -133,6 +141,6 @@
     "source_hash": "43c4d0d5b299f6a4f936318cbb18d76d06d4a34cabd1cda09e8cde4036b04aa5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.200655Z"
+    "generated_at": "2025-12-15T02:19:00.602049Z"
   }
 }

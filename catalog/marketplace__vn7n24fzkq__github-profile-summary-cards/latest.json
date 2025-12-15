@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/vn7n24fzkq/github-profile-summary-cards/action.yml",
     "origin": "github.com/vn7n24fzkq/github-profile-summary-cards",
     "publisher": "vn7n24fzkq",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.7.0",
+      "name": "v0.7.0",
+      "published_at": "2024-05-12T15:45:52Z",
+      "html_url": "https://github.com/vn7n24fzkq/github-profile-summary-cards/releases/tag/v0.7.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub-Profile-Summary-Cards",
@@ -61,7 +69,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action generates profile summary cards that serve as documentation of a user's GitHub activity, making it primarily a documentation tool. It also communicates this information visually, which adds a communication aspect.",
+        "reasoning": "This action generates profile summary cards, which serve as a form of documentation for a user's GitHub profile, and it communicates user activity visually.",
         "tags": [
           "GitHub",
           "profile",
@@ -76,6 +84,6 @@
     "source_hash": "99b82e7e4d5302d59cdcf421bdfa6f34e41d416ce2a30fa9e39f0970ae1a73e1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.395663Z"
+    "generated_at": "2025-12-15T02:19:00.905444Z"
   }
 }

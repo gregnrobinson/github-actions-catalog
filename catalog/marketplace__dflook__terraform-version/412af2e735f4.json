@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-version/action.yml",
     "origin": "github.com/dflook/terraform-version",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:04Z",
+      "html_url": "https://github.com/dflook/terraform-version/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-version",
@@ -55,14 +63,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on determining and printing the versions of Terraform and its providers, which relates to managing dependencies. Additionally, it provides information that can be useful for documentation purposes.",
+        "tags": [
+          "Terraform",
+          "versioning",
+          "dependency",
+          "infrastructure",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "412af2e735f4bcae039c7f4da4e138564070148ca8f2a8ee26a7c148d6625f85",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.403136Z"
+    "generated_at": "2025-12-15T02:18:59.636744Z"
   }
 }

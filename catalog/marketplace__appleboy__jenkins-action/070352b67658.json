@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/appleboy/jenkins-action",
+  "version": "070352b67658",
+  "definition": {
+    "name": "Trigger Jenkins Multiple Jobs",
+    "description": "Triggering Jenkins Job through the API",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "url",
+        "description": "Jenkins base URL (e.g., http://jenkins.example.com/)",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "user",
+        "description": "Jenkins username",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Jenkins API token",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "remote_token",
+        "description": "Jenkins remote trigger token",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "job",
+        "description": "Jenkins job name(s) - can specify multiple",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "parameters",
+        "description": "Build parameters in multi-line key=value format (one per line)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "insecure",
+        "description": "Allow insecure SSL connections (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "wait",
+        "description": "Wait for job completion (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "poll_interval",
+        "description": "Interval between status checks (default: 10s)",
+        "required": false,
+        "default": "10s"
+      },
+      {
+        "name": "timeout",
+        "description": "Maximum time to wait for job completion (default: 30m)",
+        "required": false,
+        "default": "30m"
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug mode to show detailed parameter information (default: false)",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "ca_cert",
+        "description": "Custom CA certificate (PEM content, file path, or HTTP URL)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/jenkins-action",
+    "latest_release": {
+      "tag_name": "v1.4.0",
+      "name": "v1.4.0",
+      "published_at": "2025-12-06T05:48:20Z",
+      "html_url": "https://github.com/appleboy/jenkins-action/releases/tag/v1.4.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:57.115976Z"
+}

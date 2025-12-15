@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/atlassian/gajira-find-issue-key",
+  "version": "d128815ae20b",
+  "definition": {
+    "name": "Jira Find issue key",
+    "description": "Find an issue inside event",
+    "author": "atlassian",
+    "inputs": [
+      {
+        "name": "string",
+        "description": "Provide a string to extract issue key from",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "from",
+        "description": "Find from predefined place (should be either 'branch', or 'commits')",
+        "required": false,
+        "default": "commits"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue",
+        "description": "Key of the found issue"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "atlassian",
+    "verified": false,
+    "origin": "github.com/atlassian/gajira-find-issue-key",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update dependencies and node version",
+      "published_at": "2022-11-20T23:58:01Z",
+      "html_url": "https://github.com/atlassian/gajira-find-issue-key/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:31.033233Z"
+}

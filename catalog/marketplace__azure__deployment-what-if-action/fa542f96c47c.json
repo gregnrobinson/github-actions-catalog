@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/azure/deployment-what-if-action",
+  "version": "fa542f96c47c",
+  "definition": {
+    "name": "deployment-what-if",
+    "description": "Preview Azure infrastructure changes before its deployment",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "subscription",
+        "description": "Subscription ID",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "resourceGroup",
+        "description": "Resource group name",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "templateFile",
+        "description": "ARM template or Bicep file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "parametersFile",
+        "description": "Parameters file for the ARM template or Bicep",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "additionalParameters",
+        "description": "Additional parameters to be applied on the ARM template or Bicep. Multiple parameters should be separated by spaces.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/deployment-what-if-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "GitHub Action for Azure Deployment What-If",
+      "published_at": "2021-09-16T14:32:10Z",
+      "html_url": "https://github.com/Azure/deployment-what-if-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:27.862386Z"
+}

@@ -46,7 +46,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action installs the Azure CLI, which is a dependency for interacting with Azure services, making it primarily about dependency management. It also relates to infrastructure as it prepares the environment for Azure operations.",
+        "reasoning": "The action installs the Azure CLI, which is a dependency for working with Azure services, making it primarily related to dependency management. It also falls under infrastructure as it facilitates cloud resource management.",
         "tags": [
           "Azure",
           "CLI",
@@ -61,6 +61,6 @@
     "source_hash": "e1b69b778d288510e9da0b1b1896748ed98c6897f916976e0cd3906e37e1cadb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.525571Z"
+    "generated_at": "2025-12-15T02:18:59.800112Z"
   }
 }

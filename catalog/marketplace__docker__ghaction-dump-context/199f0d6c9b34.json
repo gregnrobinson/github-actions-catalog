@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/docker/ghaction-dump-context",
+  "version": "199f0d6c9b34",
+  "definition": {
+    "name": "Dump context",
+    "description": "GitHub Action composite to dump context",
+    "author": "crazy-max",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/ghaction-dump-context"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:55.190689Z"
+}

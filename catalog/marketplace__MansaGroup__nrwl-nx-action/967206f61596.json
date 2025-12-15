@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/MansaGroup/nrwl-nx-action",
+  "version": "967206f61596",
+  "definition": {
+    "name": "Nrwl Nx",
+    "description": "Wrap the Nx monorepo tool and execute tasks depending on the action context",
+    "author": "Mansa Group",
+    "inputs": [
+      {
+        "name": "targets",
+        "description": "Comma-separated list of targets to execute",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "projects",
+        "description": "Comma-separated list of projects to use",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "all",
+        "description": "Run the targets on all projects",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "affected",
+        "description": "Use the Nx' affected subcommand to only process affected projects",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "parallel",
+        "description": "Number of tasks to execute in parallel (can be expensive)",
+        "required": false,
+        "default": "3"
+      },
+      {
+        "name": "args",
+        "description": "Optional arguments to append to the Nx command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "nxCloud",
+        "description": "Enable support for Nx Cloud",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "workingDirectory",
+        "description": "Path to the Nx workspace, needed if not the repository root",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "MansaGroup",
+    "verified": false,
+    "origin": "github.com/MansaGroup/nrwl-nx-action",
+    "latest_release": {
+      "tag_name": "v3.2.2",
+      "name": "v3.2.2",
+      "published_at": "2023-01-30T13:22:18Z",
+      "html_url": "https://github.com/MansaGroup/nrwl-nx-action/releases/tag/v3.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:25.282653Z"
+}

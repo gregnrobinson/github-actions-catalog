@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecr-login/action.yml",
     "origin": "github.com/aws-actions/amazon-ecr-login",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.1",
+      "name": "v2.0.1",
+      "published_at": "2023-10-02T21:18:49Z",
+      "html_url": "https://github.com/aws-actions/amazon-ecr-login/releases/tag/v2.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Amazon ECR \"Login\" Action for GitHub Actions",
@@ -68,13 +76,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "This action primarily handles authentication to Amazon ECR, which is essential for accessing Docker images stored in AWS. It also relates to infrastructure as it prepares the environment for Docker image management and packaging.",
+        "reasoning": "This action primarily handles authentication to Amazon ECR, which is essential for accessing container registries. It also relates to infrastructure as it interacts with cloud services and packaging due to its role in preparing Docker images for deployment.",
         "tags": [
           "AWS",
           "ECR",
           "Docker",
           "Authentication",
-          "GitHub Actions"
+          "Infrastructure"
         ]
       }
     ]
@@ -83,6 +91,6 @@
     "source_hash": "f7b030f7f056711d2ec8a1d723bf7db40cd412fdbd1527a3d544a1d02a5aed36",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.071362Z"
+    "generated_at": "2025-12-15T02:19:00.487529Z"
   }
 }

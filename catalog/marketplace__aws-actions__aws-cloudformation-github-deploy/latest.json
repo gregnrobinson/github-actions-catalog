@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-cloudformation-github-deploy/action.yml",
     "origin": "github.com/aws-actions/aws-cloudformation-github-deploy",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2024-02-06T16:33:27Z",
+      "html_url": "https://github.com/aws-actions/aws-cloudformation-github-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS CloudFormation \"Deploy CloudFormation Stack\" Action for GitHub Actions",
@@ -126,7 +134,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is specifically designed to deploy AWS CloudFormation stacks, which falls under the Deployment category, and it also relates to Infrastructure as it manages cloud resources.",
+        "reasoning": "This action is specifically designed to deploy an AWS CloudFormation stack, which falls under the deployment category, and it also involves infrastructure management.",
         "tags": [
           "AWS",
           "CloudFormation",
@@ -141,6 +149,6 @@
     "source_hash": "7a4135f658d0a0f1acd0de63f9fa94f4593cc0b7d4eb50f3b271830b4cccf1c7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.025095Z"
+    "generated_at": "2025-12-15T02:19:00.434537Z"
   }
 }

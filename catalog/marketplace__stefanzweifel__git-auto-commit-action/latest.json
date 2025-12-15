@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/stefanzweifel/git-auto-commit-action/action.yml",
     "origin": "github.com/stefanzweifel/git-auto-commit-action",
     "publisher": "stefanzweifel",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v7.0.0",
+      "name": "v7.0.0",
+      "published_at": "2025-10-12T14:32:36Z",
+      "html_url": "https://github.com/stefanzweifel/git-auto-commit-action/releases/tag/v7.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Git Auto Commit",
@@ -165,13 +173,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action automates the process of committing changes, which relates to code quality by ensuring that updates are consistently tracked. It also involves dependency management as it handles changes in the repository.",
+        "reasoning": "The action automates the process of committing changes, which relates to maintaining code quality by ensuring that updates are tracked. It also involves managing dependencies in the context of version control.",
         "tags": [
           "git",
           "auto-commit",
-          "workflow",
           "automation",
-          "repository"
+          "version-control",
+          "workflow"
         ]
       }
     ]
@@ -180,6 +188,6 @@
     "source_hash": "57c14e922154f245fd64236bc2593183bada356bbc344817838b13bc3ddb685b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.416719Z"
+    "generated_at": "2025-12-15T02:19:00.970492Z"
   }
 }

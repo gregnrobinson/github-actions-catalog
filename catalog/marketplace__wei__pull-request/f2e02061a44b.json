@@ -1,0 +1,138 @@
+{
+  "action_id": "marketplace/wei/pull-request",
+  "version": "f2e02061a44b",
+  "definition": {
+    "name": "GitHub Pull Request Action",
+    "description": "\u2935\ufe0f Create pull request",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "destination_repository",
+        "description": "Repository (user/repo) to create the pull request in, falls back to checkout repository or triggered repository",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source_branch",
+        "description": "Branch name to pull from, default is triggered branch",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "destination_branch",
+        "description": "Branch name to sync to in this repo, default is master",
+        "required": false,
+        "default": "master"
+      },
+      {
+        "name": "pr_title",
+        "description": "Pull request title",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_body",
+        "description": "Pull request body",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_template",
+        "description": "Pull request template",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_reviewer",
+        "description": "Pull request reviewers, comma-separated list (no spaces)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_assignee",
+        "description": "Pull request assignees, comma-separated list (no spaces)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_label",
+        "description": "Pull request labels, comma-separated list (no spaces)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_milestone",
+        "description": "Pull request milestone",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_draft",
+        "description": "Draft pull request",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_allow_empty",
+        "description": "Create PR even if no changes",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "working_directory",
+        "description": "Change working directory",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub token secret",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "debug",
+        "description": "Bash set -x debugging mode",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_url",
+        "description": "Pull request URL"
+      },
+      {
+        "name": "pr_number",
+        "description": "Pull request number"
+      },
+      {
+        "name": "pr_created",
+        "description": "Boolean string indicating if a pull request was created from the action run"
+      },
+      {
+        "name": "has_changed_files",
+        "description": "Boolean string indicating whether any file has been changed"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wei",
+    "verified": false,
+    "origin": "github.com/wei/pull-request",
+    "latest_release": {
+      "tag_name": "v2.12.1",
+      "name": "Release v2.12.1",
+      "published_at": "2023-01-21T16:38:00Z",
+      "html_url": "https://github.com/repo-sync/pull-request/releases/tag/v2.12.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:13.925639Z"
+}

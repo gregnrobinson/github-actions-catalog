@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/azure-blob-storage-action/action.yml",
     "origin": "github.com/appleboy/azure-blob-storage-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2024-10-08T15:28:37Z",
+      "html_url": "https://github.com/appleboy/azure-blob-storage-action/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Blob storage Tool",
@@ -66,7 +74,6 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Deployment",
       "Dependency management"
     ],
     "confidence": "high",
@@ -75,13 +82,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action interacts with Azure Blob storage, which is primarily an infrastructure service for storing data. It also involves deployment aspects as it updates the expiration of blobs, which can be part of a deployment strategy.",
+        "reasoning": "The action is focused on managing Azure Blob storage, which falls under infrastructure management. It also involves handling dependencies related to storage accounts and keys.",
         "tags": [
           "Azure",
           "Blob Storage",
           "Infrastructure",
-          "Deployment",
-          "Action"
+          "Dependency Management",
+          "Cloud"
         ]
       }
     ]
@@ -90,6 +97,6 @@
     "source_hash": "7ebd9d988bff238a6dcffc580744bf600e3d3c57f8a78e42a39d2f27ca25b34b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.176656Z"
+    "generated_at": "2025-12-15T02:19:00.573493Z"
   }
 }

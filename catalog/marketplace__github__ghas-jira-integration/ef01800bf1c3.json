@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/ghas-jira-integration/action.yml",
     "origin": "github.com/github/ghas-jira-integration",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.4",
+      "name": "v1.2.4",
+      "published_at": "2023-12-01T19:46:26Z",
+      "html_url": "https://github.com/github/ghas-jira-integration/releases/tag/v1.2.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Sync GitHub Advanced Security and Jira",
@@ -93,14 +101,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action facilitates communication between GitHub Advanced Security and Jira by creating issues for alerts, which falls under both Communication and Notification. Additionally, it involves security alerts, linking it to the Security category.",
+        "tags": [
+          "GitHub",
+          "Jira",
+          "security",
+          "integration",
+          "alerts"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ef01800bf1c328b23efcb36ee791fa7d06fd33ca29abbd4b7375d8f04f8e408f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.990632Z"
+    "generated_at": "2025-12-15T02:19:00.388044Z"
   }
 }

@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/dflook/checkout",
+  "version": "d265ba42b7db",
+  "definition": {
+    "name": "Checkout",
+    "description": "Checkout a GitHub repository at a particular ref",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "repository",
+        "description": "Repository name with owner. For example, actions/checkout",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "ref",
+        "description": "The branch, tag or SHA to checkout. When checking out the repository that triggered a workflow, this defaults to the reference or SHA for that event.  Otherwise, uses the default branch.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Token to use when checking out the repository",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "path",
+        "description": "Relative path under $GITHUB_WORKSPACE to place the repository",
+        "required": false,
+        "default": "."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "ref",
+        "description": "The branch, tag or SHA that was checked out"
+      },
+      {
+        "name": "commit",
+        "description": "The commit SHA that was checked out"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/checkout"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:45.101017Z"
+}

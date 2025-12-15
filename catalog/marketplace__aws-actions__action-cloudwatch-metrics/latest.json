@@ -61,12 +61,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Monitoring",
-        "reasoning": "This action is focused on publishing metrics to Amazon CloudWatch, which falls under monitoring and infrastructure categories.",
+        "reasoning": "This action is focused on publishing metrics to Amazon CloudWatch, which is primarily a monitoring tool. It also relates to infrastructure as it interacts with AWS services.",
         "tags": [
           "CloudWatch",
           "Metrics",
-          "Monitoring",
           "AWS",
+          "Monitoring",
           "Infrastructure"
         ]
       }
@@ -76,6 +76,6 @@
     "source_hash": "741368bc12b9626a63e2e7f3dca6d74f66a8f04c09787eac3ddaca2ef868cfe5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.013157Z"
+    "generated_at": "2025-12-15T02:19:00.421966Z"
   }
 }

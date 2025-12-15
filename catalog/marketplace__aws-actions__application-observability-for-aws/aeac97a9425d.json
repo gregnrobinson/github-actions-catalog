@@ -1,0 +1,128 @@
+{
+  "action_id": "marketplace/aws-actions/application-observability-for-aws",
+  "version": "aeac97a9425d",
+  "definition": {
+    "name": "Application observability for AWS",
+    "description": "Support Agentic AI\u2013driven performance investigation and resolution using live production telemetry.",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "bot_name",
+        "description": "The bot name to respond to in comments (e.g., @awsapm)",
+        "required": false,
+        "default": "@awsapm"
+      },
+      {
+        "name": "target_branch",
+        "description": "The branch to merge PRs into (defaults to repository default branch)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "branch_prefix",
+        "description": "Prefix for branches created by the action (e.g., 'awsapm/', 'awsapm-')",
+        "required": false,
+        "default": "awsapm/"
+      },
+      {
+        "name": "allowed_non_write_users",
+        "description": "Comma-separated list of GitHub usernames allowed to use this action even without write access. Empty string (default) means only users with write/admin access can use it.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub token to use for API calls. If not provided, uses the default GitHub Actions token.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "custom_prompt",
+        "description": "Custom instructions to guide the AI agent's analysis and actions",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "cli_tool",
+        "description": "CLI tool to use for investigation",
+        "required": false,
+        "default": "claude_code"
+      },
+      {
+        "name": "output_file",
+        "description": "Path to AI agent execution output file (used to post results back to GitHub). For claude_code path, pass this from claude-code-base-action outputs in a second call to this action.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "output_status",
+        "description": "Execution status from AI agent (success or failure). Only used when output_file is provided.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "comment_id",
+        "description": "GitHub comment ID to update with results (required for Step 3 - pass from Step 1 output: steps.prepare.outputs.awsapm_comment_id)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "enable_cloudwatch_mcp",
+        "description": "Enable CloudWatch MCP server for metrics, alarms, and log insights",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "test_mode",
+        "description": "Enable integration test mode (internal use only)",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "prompt_file",
+        "description": "Path to the generated prompt file for claude-code-base-action"
+      },
+      {
+        "name": "mcp_config_file",
+        "description": "Path to the MCP servers configuration JSON file"
+      },
+      {
+        "name": "allowed_tools",
+        "description": "Comma-separated list of allowed tools"
+      },
+      {
+        "name": "awsapm_comment_id",
+        "description": "GitHub comment ID for tracking the investigation"
+      },
+      {
+        "name": "branch_name",
+        "description": "The branch created by Application observability for AWS Action for this execution"
+      },
+      {
+        "name": "github_token",
+        "description": "The GitHub token used by the action"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/application-observability-for-aws",
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2025-12-10T20:14:23Z",
+      "html_url": "https://github.com/aws-actions/application-observability-for-aws/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:43.850833Z"
+}

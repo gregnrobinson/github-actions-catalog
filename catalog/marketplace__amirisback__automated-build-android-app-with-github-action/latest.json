@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/automated-build-android-app-with-github-action/action.yml",
     "origin": "github.com/amirisback/automated-build-android-app-with-github-action",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.2.6",
+      "name": "2.2.6",
+      "published_at": "2025-11-17T04:34:16Z",
+      "html_url": "https://github.com/amirisback/automated-build-android-app-with-github-action/releases/tag/2.2.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "automated-build-android-app-with-github-action",
@@ -32,6 +40,7 @@
   "annotations": {
     "categories": [
       "Build",
+      "Packaging",
       "Deployment"
     ],
     "confidence": "high",
@@ -40,13 +49,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is focused on automating the build process for Android applications, which primarily falls under the Build category. Additionally, it can be used in the context of deploying the built applications.",
+        "reasoning": "The action is focused on automating the build process for an Android app, which primarily falls under the Build category. It also involves creating APKs and app bundles, linking it to Packaging and Deployment.",
         "tags": [
           "android",
           "build",
-          "github action",
-          "automation",
-          "apk"
+          "github-action",
+          "apk",
+          "automation"
         ]
       }
     ]
@@ -55,6 +64,6 @@
     "source_hash": "47b56f0fc6b3f66dc370addfc34a3f43c003c89259995735ac2a9bdf53f5d810",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.629302Z"
+    "generated_at": "2025-12-15T02:19:00.812482Z"
   }
 }

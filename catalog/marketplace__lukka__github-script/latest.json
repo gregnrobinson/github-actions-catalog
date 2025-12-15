@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lukka/github-script",
-  "version_id": "139d0a131a60",
+  "version_id": "e312844dcaa2",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lukka/github-script/action.yml",
@@ -64,8 +64,8 @@
   "annotations": {
     "categories": [
       "Automation",
-      "Authentication",
-      "Communication"
+      "Communication",
+      "Authentication"
     ],
     "confidence": "medium",
     "evidence": [
@@ -73,21 +73,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Automation",
-        "reasoning": "The action allows users to run scripts that can interact with the GitHub API, which involves both automation and potentially authentication when using the GitHub token. It also facilitates communication with the GitHub client.",
+        "reasoning": "The action allows users to run scripts that can automate tasks within GitHub, which falls under automation. It also involves using a GitHub token for authentication, making it relevant to both communication with the GitHub API and authentication.",
         "tags": [
           "GitHub",
           "script",
           "automation",
           "API",
-          "client"
+          "token"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "139d0a131a60ef1d01b26c3387b66b53efe4e03094186b8d5361e4800ea32bb3",
+    "source_hash": "e312844dcaa2384ae953e3bdbbcb17b004481125488eb2e0e4d169dca7ac2ede",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.246770Z"
+    "generated_at": "2025-12-15T02:19:00.127207Z"
   }
 }

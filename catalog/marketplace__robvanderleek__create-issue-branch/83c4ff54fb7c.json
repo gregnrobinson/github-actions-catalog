@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/robvanderleek/create-issue-branch",
+  "version": "83c4ff54fb7c",
+  "definition": {
+    "name": "Create Issue Branch",
+    "description": "GitHub action that creates a new branch after assigning an issue.",
+    "author": "robvanderleek",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "branchName",
+        "description": "Name of the branch that was created"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "robvanderleek",
+    "verified": false,
+    "origin": "github.com/robvanderleek/create-issue-branch",
+    "latest_release": {
+      "tag_name": "v1.9.0",
+      "name": "v1.9.0",
+      "published_at": "2025-03-18T21:22:30Z",
+      "html_url": "https://github.com/robvanderleek/create-issue-branch/releases/tag/v1.9.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:45.729247Z"
+}

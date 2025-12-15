@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-deploy/action.yml",
     "origin": "github.com/azure/k8s-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.0.4",
+      "name": "v5.0.4",
+      "published_at": "2025-08-06T17:20:54Z",
+      "html_url": "https://github.com/Azure/k8s-deploy/releases/tag/v5.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy to Kubernetes cluster",
@@ -175,7 +183,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy applications to a Kubernetes cluster, which falls under the Deployment category, and it also involves managing infrastructure components like Kubernetes.",
+        "reasoning": "This action is specifically designed to deploy applications to a Kubernetes cluster, which falls under the Deployment category. It also involves managing infrastructure by interacting with Kubernetes resources.",
         "tags": [
           "Kubernetes",
           "Deployment",
@@ -190,6 +198,6 @@
     "source_hash": "091910f8c85e23d87e292004523a3e03e483c227271076bfbd6b1c3e5724443d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.694298Z"
+    "generated_at": "2025-12-15T02:18:59.977327Z"
   }
 }

@@ -1,0 +1,42 @@
+{
+  "action_id": "marketplace/actions/javascript-action",
+  "version": "313d9f21ed8c",
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "description": "Your input description here",
+        "required": true,
+        "default": "1000"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "Your output description here"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/javascript-action",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2020-07-17T13:05:35Z",
+      "html_url": "https://github.com/actions/javascript-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:02.804034Z"
+}

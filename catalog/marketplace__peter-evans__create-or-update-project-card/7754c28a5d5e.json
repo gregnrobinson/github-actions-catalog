@@ -1,0 +1,78 @@
+{
+  "action_id": "marketplace/peter-evans/create-or-update-project-card",
+  "version": "7754c28a5d5e",
+  "definition": {
+    "name": "Create or Update Project Card",
+    "description": "A GitHub action to create or update a project card",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GITHUB_TOKEN or a repo scoped PAT",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "project-location",
+        "description": "The location of the project. Either a repository, organization, or user.\n",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "project-number",
+        "description": "The number of the project. Semi-required. Either `project-number` OR `project-name` must be supplied.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "project-name",
+        "description": "The name of the project. Semi-required. Either `project-number` OR `project-name` must be supplied. Note that a project's name is not unique. The action will use the first matching project found.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "column-name",
+        "description": "The name of the column to add a card to, or move an existing card to.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repository",
+        "description": "The GitHub repository containing the issue or pull request.",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "issue-number",
+        "description": "The issue or pull request number to associate with the card.",
+        "required": false,
+        "default": "${{ github.event.issue.number }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "card-id",
+        "description": "The ID of the card."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/create-or-update-project-card",
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "Create or Update Project Card v3.0.0",
+      "published_at": "2024-01-25T12:13:59Z",
+      "html_url": "https://github.com/peter-evans/create-or-update-project-card/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:32.928494Z"
+}

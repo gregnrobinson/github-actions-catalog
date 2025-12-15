@@ -1,0 +1,252 @@
+{
+  "action_id": "marketplace/appleboy/ssh-action",
+  "version": "ff88b02e97fd",
+  "definition": {
+    "name": "SSH Remote Commands",
+    "description": "Executing remote ssh commands",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "host",
+        "description": "SSH host address or IP to connect to.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "port",
+        "description": "SSH port number for the connection.",
+        "required": false,
+        "default": "22"
+      },
+      {
+        "name": "passphrase",
+        "description": "Passphrase to decrypt the SSH private key if protected.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "username",
+        "description": "SSH username for authentication on the remote server.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "SSH password for authentication (use secrets for sensitive data).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "protocol",
+        "description": "IP protocol version to use. Options: \"tcp\" (default), \"tcp4\" (IPv4 only), or \"tcp6\" (IPv6 only).",
+        "required": false,
+        "default": "tcp"
+      },
+      {
+        "name": "sync",
+        "description": "When true, executes commands synchronously across multiple hosts (one after another).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_insecure_cipher",
+        "description": "Enable additional legacy ciphers that might be less secure but more compatible with older systems.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cipher",
+        "description": "Specify custom cipher algorithms for encryption. Leave empty to use secure defaults.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "timeout",
+        "description": "Maximum time to wait when establishing the SSH connection, e.g., '30s', '1m'.",
+        "required": false,
+        "default": "30s"
+      },
+      {
+        "name": "command_timeout",
+        "description": "Maximum execution time for the remote commands before terminating, e.g., '10m', '1h'.",
+        "required": false,
+        "default": "10m"
+      },
+      {
+        "name": "key",
+        "description": "Raw content of the SSH private key for authentication (use secrets for sensitive data).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "key_path",
+        "description": "Path to the SSH private key file on the runner.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fingerprint",
+        "description": "SHA256 fingerprint of the host public key for verification to prevent MITM attacks.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_host",
+        "description": "Proxy server hostname or IP if connecting through an SSH jump host.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_port",
+        "description": "SSH port number for the proxy connection.",
+        "required": false,
+        "default": "22"
+      },
+      {
+        "name": "proxy_username",
+        "description": "Username for authentication on the proxy server.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_password",
+        "description": "Password for authentication on the proxy server (use secrets for sensitive data).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_protocol",
+        "description": "IP protocol version for proxy. Options: \"tcp\" (default), \"tcp4\" (IPv4 only), or \"tcp6\" (IPv6 only).",
+        "required": false,
+        "default": "tcp"
+      },
+      {
+        "name": "proxy_passphrase",
+        "description": "Passphrase to decrypt the proxy SSH private key if protected.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_timeout",
+        "description": "Maximum time to wait when establishing the proxy SSH connection, e.g., '30s', '1m'.",
+        "required": false,
+        "default": "30s"
+      },
+      {
+        "name": "proxy_key",
+        "description": "Raw content of the SSH proxy private key for authentication (use secrets for sensitive data).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_key_path",
+        "description": "Path to the SSH proxy private key file on the runner.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_fingerprint",
+        "description": "SHA256 fingerprint of the proxy host public key for verification.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_cipher",
+        "description": "Specify custom cipher algorithms for proxy connection encryption.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_use_insecure_cipher",
+        "description": "Enable additional legacy ciphers for proxy connections (less secure but more compatible).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "script",
+        "description": "Commands to execute on the remote server (inline script string).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "script_path",
+        "description": "Path to a local file containing commands to execute on the remote server.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "envs",
+        "description": "Environment variables to expose to the remote script, format: key=value,key2=value2.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "envs_format",
+        "description": "Format specification for environment variable transfer (for advanced usage).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "Set to true to enable verbose logging for troubleshooting connection issues.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "allenvs",
+        "description": "When true, passes all GitHub Actions environment variables to the remote script.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "request_pty",
+        "description": "Request a pseudo-terminal from the server (required for interactive commands or sudo).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "curl_insecure",
+        "description": "When true, uses the --insecure option with curl for insecure downloads.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "capture_stdout",
+        "description": "When true, captures and returns standard output from the commands as action output.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "version",
+        "description": "The version of drone-ssh to use.\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "stdout",
+        "description": "Standard output of the executed commands when capture_stdout is enabled."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/ssh-action",
+    "latest_release": {
+      "tag_name": "v1.2.4",
+      "name": "v1.2.4",
+      "published_at": "2025-11-28T15:10:36Z",
+      "html_url": "https://github.com/appleboy/ssh-action/releases/tag/v1.2.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:47.654259Z"
+}

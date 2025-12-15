@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-codebuild-run-build/action.yml",
     "origin": "github.com/aws-actions/aws-codebuild-run-build",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.18",
+      "name": "v1.0.18",
+      "published_at": "2024-12-05T19:06:13Z",
+      "html_url": "https://github.com/aws-actions/aws-codebuild-run-build/releases/tag/v1.0.18",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "\"AWS CodeBuild run build\" Action For GitHub Actions",
@@ -139,13 +147,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is primarily focused on executing a build process using AWS CodeBuild, which falls under the Build category. It also involves deployment aspects as it triggers builds in a cloud infrastructure.",
+        "reasoning": "This action is primarily focused on executing a build process using AWS CodeBuild, which falls under the Build category. It also relates to Deployment and Infrastructure as it interacts with AWS services for building and deploying applications.",
         "tags": [
           "AWS",
           "CodeBuild",
           "Build",
-          "Infrastructure",
-          "Deployment"
+          "CI/CD",
+          "Infrastructure"
         ]
       }
     ]
@@ -154,6 +162,6 @@
     "source_hash": "8590091edf36c354012a457ef946c078e41bc123b553247c06158bc6aabb3a38",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.031518Z"
+    "generated_at": "2025-12-15T02:19:00.441867Z"
   }
 }

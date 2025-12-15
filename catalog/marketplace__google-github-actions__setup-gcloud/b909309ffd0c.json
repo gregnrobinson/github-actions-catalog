@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/setup-gcloud/action.yml",
     "origin": "github.com/google-github-actions/setup-gcloud",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-08-28T13:37:55Z",
+      "html_url": "https://github.com/google-github-actions/setup-gcloud/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Set up gcloud Cloud SDK environment",
@@ -56,14 +64,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Dependency management",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets up the Google Cloud SDK environment, which is primarily related to infrastructure management. It also involves dependency management by installing specific versions of the SDK and can involve authentication for accessing Google Cloud resources.",
+        "tags": [
+          "gcloud",
+          "Google Cloud",
+          "SDK",
+          "infrastructure",
+          "setup"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b909309ffd0c2533382744ac4e2491a06a92ad11c68dab725d3694bb072ddfb0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.787357Z"
+    "generated_at": "2025-12-15T02:19:00.077206Z"
   }
 }

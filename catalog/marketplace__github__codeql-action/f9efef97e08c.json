@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/codeql-action/action.yml",
     "origin": "github.com/github/codeql-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "codeql-bundle-v2.23.8",
+      "name": "CodeQL Bundle v2.23.8",
+      "published_at": "2025-12-11T15:44:31Z",
+      "html_url": "https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.23.8",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "CodeQL: Stub",
@@ -26,14 +34,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Security",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is related to CodeQL, which is used for code quality and security analysis. It also emphasizes reading the documentation, making it relevant for documentation as well.",
+        "tags": [
+          "CodeQL",
+          "code scanning",
+          "security",
+          "code quality",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "f9efef97e08cd143979b5e314e0cecf45f1cfcb92c02c2dafadc4c7244ef76e7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.991736Z"
+    "generated_at": "2025-12-15T02:19:00.389157Z"
   }
 }

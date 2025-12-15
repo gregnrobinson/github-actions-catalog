@@ -1,0 +1,118 @@
+{
+  "action_id": "marketplace/actions/ai-inference",
+  "version": "8dc646efed32",
+  "definition": {
+    "name": "AI Inference",
+    "description": "Generate an AI response based on a provided prompt",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "prompt",
+        "description": "The prompt for the model",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "prompt-file",
+        "description": "Path to a file containing the prompt (supports .txt and .prompt.yml formats)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "input",
+        "description": "Template variables in YAML format for .prompt.yml files",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "file_input",
+        "description": "Template variables in YAML format mapping variable names to file paths. The file contents will be used for templating.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "model",
+        "description": "The model to use",
+        "required": false,
+        "default": "openai/gpt-4o"
+      },
+      {
+        "name": "endpoint",
+        "description": "The endpoint to use",
+        "required": false,
+        "default": "https://models.github.ai/inference"
+      },
+      {
+        "name": "system-prompt",
+        "description": "The system prompt for the model",
+        "required": false,
+        "default": "You are a helpful assistant"
+      },
+      {
+        "name": "system-prompt-file",
+        "description": "Path to a file containing the system prompt",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "max-tokens",
+        "description": "The maximum number of tokens to generate",
+        "required": false,
+        "default": "200"
+      },
+      {
+        "name": "token",
+        "description": "The token to use",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "enable-github-mcp",
+        "description": "Enable Model Context Protocol integration with GitHub tools",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "github-mcp-token",
+        "description": "The token to use for GitHub MCP server (defaults to the main token if not specified). This must be a PAT for MCP to work.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "github-mcp-toolsets",
+        "description": "Comma-separated list of toolsets to enable for GitHub MCP (e.g., \"repos,issues,pull_requests,actions\"). Use \"all\" for all toolsets, \"default\" for default set. If not specified, uses default toolsets (context,repos,issues,pull_requests,users).",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "response",
+        "description": "The response from the model"
+      },
+      {
+        "name": "response-file",
+        "description": "The file path where the response is saved"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/ai-inference",
+    "latest_release": {
+      "tag_name": "v2.0.4",
+      "name": "v2.0.4",
+      "published_at": "2025-11-30T21:49:09Z",
+      "html_url": "https://github.com/actions/ai-inference/releases/tag/v2.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:59.688880Z"
+}

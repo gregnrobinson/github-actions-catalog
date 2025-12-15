@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/get-gke-credentials/action.yml",
     "origin": "github.com/google-github-actions/get-gke-credentials",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-09-03T01:53:57Z",
+      "html_url": "https://github.com/google-github-actions/get-gke-credentials/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Get GKE Credentials",
@@ -102,7 +110,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "The action generates ephemeral credentials for authenticating to Google Kubernetes Engine, which primarily falls under authentication. It also relates to infrastructure as it deals with accessing and managing Kubernetes clusters.",
+        "reasoning": "This action generates ephemeral credentials for authenticating to Google Kubernetes Engine, making authentication its primary function, while also relating to infrastructure management.",
         "tags": [
           "GKE",
           "Kubernetes",
@@ -117,6 +125,6 @@
     "source_hash": "425994e812e27d41a26bfc4b57f60ca4f0551afccec717f37c5fc1fe96053808",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.797554Z"
+    "generated_at": "2025-12-15T02:19:00.087459Z"
   }
 }

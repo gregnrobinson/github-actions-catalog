@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-refresh/action.yml",
     "origin": "github.com/dflook/terraform-refresh",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:37Z",
+      "html_url": "https://github.com/dflook/terraform-refresh/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-refresh",
@@ -93,12 +101,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on refreshing the Terraform state, which is a key aspect of managing infrastructure as code, and it also involves managing dependencies related to Terraform configurations.",
+        "reasoning": "The action is focused on refreshing the Terraform state, which is a key aspect of managing infrastructure as code. It also involves handling variables and state management, which aligns with dependency management.",
         "tags": [
           "terraform",
           "infrastructure",
           "state management",
-          "dependency management",
+          "devops",
           "automation"
         ]
       }
@@ -108,6 +116,6 @@
     "source_hash": "c7d39ffcd37d8a291dd2e9f9f96c76aee9a248eebcd7f0f7404171e11eeb0094",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.388038Z"
+    "generated_at": "2025-12-15T02:18:59.621997Z"
   }
 }

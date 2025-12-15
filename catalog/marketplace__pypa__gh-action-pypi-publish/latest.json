@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/pypa/gh-action-pypi-publish/action.yml",
     "origin": "github.com/pypa/gh-action-pypi-publish",
     "publisher": "pypa",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.13.0",
+      "name": "v1.13.0",
+      "published_at": "2025-09-04T01:36:59Z",
+      "html_url": "https://github.com/pypa/gh-action-pypi-publish/releases/tag/v1.13.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "pypi-publish",
@@ -159,8 +167,8 @@
   "annotations": {
     "categories": [
       "Publishing",
-      "Authentication",
-      "Packaging"
+      "Packaging",
+      "Authentication"
     ],
     "confidence": "high",
     "evidence": [
@@ -168,12 +176,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Publishing",
-        "reasoning": "This action is primarily focused on publishing Python packages to PyPI, which falls under the Publishing category. It also involves authentication through user credentials or access tokens, and it deals with packaging by uploading distribution packages.",
+        "reasoning": "This action is primarily focused on publishing Python distribution packages to PyPI, which falls under the Publishing category. It also involves authentication through user credentials, making Authentication a relevant secondary category.",
         "tags": [
           "PyPI",
           "Python",
           "publish",
-          "packaging",
+          "distribution",
           "GitHub Action"
         ]
       }
@@ -183,6 +191,6 @@
     "source_hash": "878868d866c77d1e3d4dda4a20b94e2dfed9a40ddd516a062331ca1240aa54a3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.438926Z"
+    "generated_at": "2025-12-15T02:18:59.684969Z"
   }
 }

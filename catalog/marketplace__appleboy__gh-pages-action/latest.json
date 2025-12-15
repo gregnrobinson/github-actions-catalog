@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/gh-pages-action/action.yml",
     "origin": "github.com/appleboy/gh-pages-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.2",
+      "name": "",
+      "published_at": "2020-03-08T14:54:47Z",
+      "html_url": "https://github.com/appleboy/gh-pages-action/releases/tag/v0.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Pages Deploy",
@@ -104,13 +112,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying static files to GitHub Pages, which falls under the Deployment category. It also relates to Documentation and Publishing as it involves making content available on the web.",
+        "reasoning": "The action is specifically designed to deploy static files to GitHub Pages, which falls under the Deployment category. It also relates to Documentation and Publishing as it involves making content available on the web.",
         "tags": [
           "GitHub Pages",
-          "deployment",
-          "static site",
-          "publishing",
-          "action"
+          "Deployment",
+          "Static Site",
+          "Publishing",
+          "Action"
         ]
       }
     ]
@@ -119,6 +127,6 @@
     "source_hash": "3f06ae069326c3c1106bda9ee00ab58ec064bfe5566ba3d2454d26263d4b0660",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.119852Z"
+    "generated_at": "2025-12-15T02:19:00.520771Z"
   }
 }

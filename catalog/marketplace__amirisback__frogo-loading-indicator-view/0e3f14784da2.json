@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/frogo-loading-indicator-view",
+  "version": "0e3f14784da2",
+  "definition": {
+    "name": "Frogo-Loading-Indicator-View",
+    "description": "Loading for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-loading-indicator-view"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:55.455348Z"
+}

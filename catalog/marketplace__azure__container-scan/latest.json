@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/container-scan/action.yml",
     "origin": "github.com/azure/container-scan",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.1",
+      "name": "New output variable for checkrun URL",
+      "published_at": "2021-06-09T07:44:52Z",
+      "html_url": "https://github.com/Azure/container-scan/releases/tag/v0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Container image scan",
@@ -82,7 +90,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action scans container images for vulnerabilities, which directly relates to security. Additionally, it assesses compliance with CIS guidelines, contributing to code quality.",
+        "reasoning": "The action scans container images for vulnerabilities, which is primarily a security measure, and also assesses compliance with CIS guidelines, contributing to code quality.",
         "tags": [
           "container scan",
           "vulnerability",
@@ -97,6 +105,6 @@
     "source_hash": "8cb5f1e41f28f250f8f814a95e3a14d1a463eb47eed89619aa8e24bf4a68e08b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.600636Z"
+    "generated_at": "2025-12-15T02:18:59.877649Z"
   }
 }

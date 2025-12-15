@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/creyD/autopep8_action/action.yml",
     "origin": "github.com/creyD/autopep8_action",
     "publisher": "creyD",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.1",
+      "name": "v4.1 Fixed a bug with the action path",
+      "published_at": "2023-05-24T09:25:23Z",
+      "html_url": "https://github.com/creyD/autopep8_action/releases/tag/v4.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Autopep8 Action",
@@ -79,13 +87,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The Autopep8 Action is primarily focused on improving code quality by automatically formatting Python code to comply with PEP-8 standards. It can also be seen as a testing tool since it ensures that the code adheres to style guidelines.",
+        "reasoning": "The Autopep8 Action is primarily focused on improving code quality by ensuring PEP-8 compliance, which is a coding standard for Python. It also relates to testing as it prepares code for better maintainability and readability.",
         "tags": [
           "autopep8",
           "code quality",
           "python",
-          "formatting",
-          "github action"
+          "linting",
+          "formatting"
         ]
       }
     ]
@@ -94,6 +102,6 @@
     "source_hash": "9bc7091eb1b99953f7572f53b9c48fcc75d18f47ec6025ec9105ea30e52e4eb8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.802314Z"
+    "generated_at": "2025-12-15T02:19:01.106099Z"
   }
 }

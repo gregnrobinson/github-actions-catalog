@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/bake-action/action.yml",
     "origin": "github.com/docker/bake-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.10.0",
+      "name": "v6.10.0",
+      "published_at": "2025-11-27T12:21:39Z",
+      "html_url": "https://github.com/docker/bake-action/releases/tag/v6.10.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Buildx Bake",
@@ -127,7 +135,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is primarily focused on building Docker images using Docker Buildx Bake, which falls under the Build category. Additionally, it involves packaging the built images, hence the Packaging category as well.",
+        "reasoning": "The action is specifically designed for building Docker images using Docker Buildx Bake, which falls primarily under the Build category. Additionally, it involves packaging the built images, justifying its inclusion in the Packaging category as well.",
         "tags": [
           "Docker",
           "Buildx",
@@ -142,6 +150,6 @@
     "source_hash": "6aa81667beae57b8762e027de1f65e28c34ced922836451e4b6dfd45cc3d472f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.453702Z"
+    "generated_at": "2025-12-15T02:18:59.700870Z"
   }
 }

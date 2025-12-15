@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/super-linter",
+  "version": "7cbe760cb569",
+  "definition": {
+    "name": "Super-Linter",
+    "description": "Super-linter is a ready-to-run collection of linters and code analyzers, to help validate your source code.",
+    "author": "Super-linter contributors",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/super-linter",
+    "latest_release": {
+      "tag_name": "v7",
+      "name": "v7",
+      "published_at": "2024-08-29T18:28:26Z",
+      "html_url": "https://github.com/github/super-linter/releases/tag/v7",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:15.385484Z"
+}

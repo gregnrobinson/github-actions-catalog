@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/CodelyTV/no-pull-requests",
+  "version": "2de08093ed49",
+  "definition": {
+    "name": "No Pull Requests",
+    "description": "Automatically closes any open pull request",
+    "author": "CodelyTV",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "description": "GitHub token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "Message to show when the pull request is closed",
+        "required": false,
+        "default": "\ud83d\ude45 We do not accept Pull Requests!"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "CodelyTV",
+    "verified": false,
+    "origin": "github.com/CodelyTV/no-pull-requests",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version!",
+      "published_at": "2020-04-08T12:15:42Z",
+      "html_url": "https://github.com/CodelyTV/no-pull-requests/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:27.245001Z"
+}

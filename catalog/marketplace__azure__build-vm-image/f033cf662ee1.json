@@ -1,0 +1,146 @@
+{
+  "action_id": "marketplace/azure/build-vm-image",
+  "version": "f033cf662ee1",
+  "definition": {
+    "name": "Build Azure Virtual Machine Image",
+    "description": "Create custom virtual machine images that contain artifacts built in CI workflows",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "location",
+        "description": "This is the Azure region in which the Image Builder will run.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resource-group-name",
+        "description": "This is the Resource Group where the temporary Imagebuilder Template resource will be created.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "image-builder-template-name",
+        "description": "The name of the image builder template resource to be used for creating and running the Image builder service.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build-timeout-in-minutes",
+        "description": "The value is an integer which is used as timeout in minutes for running the image build.",
+        "required": false,
+        "default": 240
+      },
+      {
+        "name": "vm-size",
+        "description": "You can override the VM size, from the default value i.e. Standard_D1_v2.",
+        "required": false,
+        "default": "Standard_D1_v2"
+      },
+      {
+        "name": "managed-identity",
+        "description": "The identity that will be used to do the role assignment and resource creation",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source-image-type",
+        "description": "[ PlatformImage | SharedImageGallery | ManagedImage ]",
+        "required": false,
+        "default": "PlatformImage"
+      },
+      {
+        "name": "source-os-type",
+        "description": "OS types supported: [ linux | windows ].",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "source-image",
+        "description": "Value of source-image supported by Azure Image Builder.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "customizer-source",
+        "description": "This takes the path to a directory or a file in the runner. By default, it points to the default download directory of the github runner.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "customizer-script",
+        "description": "The customer can enter multi inline powershell or shell commands and use variables to point to directories inside the downloaded location.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "customizer-windows-update",
+        "description": "The value is boolean and set to false by default. This value is for Windows images only, the image builder will run Windows Update at the end of the customizations and also handle the reboots it requires.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "dist-type",
+        "description": "ManagedImage | SharedImageGallery | VHD",
+        "required": false,
+        "default": "ManagedImage"
+      },
+      {
+        "name": "dist-resource-id",
+        "description": "Image Resource Id to be created by AIB",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dist-location",
+        "description": "location of Image created by AIB",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-output-name",
+        "description": "Every Image builder run is identified with a unique run id.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dist-image-tags",
+        "description": "The values set will be used to set the user defined tags on the custom image artifact created.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "imagebuilder-run-status",
+        "description": "This value of this output will be the value of Image builder Run status set to either Succeeded or Failed based on the runState returned by Azure Image Builder."
+      },
+      {
+        "name": "run-output-name",
+        "description": "The action emits output value run-output-name which can be used to get the details of the Image Builder Run."
+      },
+      {
+        "name": "custom-image-uri",
+        "description": "Upon successful completion, The github action emits the URI or resource id of the Image distributed."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/build-vm-image",
+    "latest_release": {
+      "tag_name": "v0.1.1",
+      "name": "Updating new set of locations for AIB",
+      "published_at": "2022-11-23T17:22:05Z",
+      "html_url": "https://github.com/Azure/build-vm-image/releases/tag/v0.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:33.389122Z"
+}

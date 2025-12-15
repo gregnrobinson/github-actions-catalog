@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-clj-kondo/action.yml",
     "origin": "github.com/DeLaGuardo/setup-clj-kondo",
     "publisher": "DeLaGuardo",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "",
+      "published_at": "2019-11-25T15:10:26Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-clj-kondo/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup clj-kondo",
@@ -37,7 +45,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action provisions a hosted runner with a specific tool (clj-kondo), which falls under infrastructure setup, and it also manages the installation of a dependency.",
+        "reasoning": "The action sets up a hosted runner with a specific tool (clj-kondo), which falls under infrastructure provisioning. It also manages the installation of a specific version of a dependency.",
         "tags": [
           "clj-kondo",
           "setup",
@@ -52,6 +60,6 @@
     "source_hash": "5259dc2719432ebc91c382c6aa86eb6f788a07bf26e87b75fedcbbf754219ffe",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.280704Z"
+    "generated_at": "2025-12-15T02:19:00.169733Z"
   }
 }

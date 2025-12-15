@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-graalvm",
+  "version": "de73a194ef2a",
+  "definition": {
+    "name": "Setup GraalVM environment",
+    "description": "Setup your runner with GraalVM",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "graalvm-version",
+        "description": "(deparecated) The GraalVM version to make available on the path.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "graalvm",
+        "description": "The GraalVM version, defaults to 21.0.0.2",
+        "required": false,
+        "default": "21.0.0.2"
+      },
+      {
+        "name": "java",
+        "description": "The Java version GraalVM is based on, defaults to java8",
+        "required": false,
+        "default": "java8"
+      },
+      {
+        "name": "arch",
+        "description": "The desired architecture. Options are - \"amd64\" (default), and \"aarch64\" (for linux only)",
+        "required": false,
+        "default": "amd64"
+      },
+      {
+        "name": "personal-token",
+        "description": "https://docs.github.com/en/actions/security-guides/automatic-token-authentication",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/setup-graalvm",
+    "latest_release": {
+      "tag_name": "5.0",
+      "name": "Nightly Builds!",
+      "published_at": "2021-09-24T13:04:34Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-graalvm/releases/tag/5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:01.638730Z"
+}

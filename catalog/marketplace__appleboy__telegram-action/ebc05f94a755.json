@@ -1,0 +1,133 @@
+{
+  "action_id": "marketplace/appleboy/telegram-action",
+  "version": "ebc05f94a755",
+  "definition": {
+    "name": "Telegram Message Notify",
+    "description": "Sending a Telegram message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "to",
+        "description": "telegram user",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "telegram token",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "telegram message",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "message_file",
+        "description": "overwrite the default message template with the contents of the specified file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "socks5",
+        "description": "support socks5 proxy URL",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "photo",
+        "description": "send the photo message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "document",
+        "description": "send the document message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "sticker",
+        "description": "send the sticker message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "audio",
+        "description": "send the audio message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "voice",
+        "description": "send the voice message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "location",
+        "description": "send the location message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "venue",
+        "description": "send the venue message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "video",
+        "description": "send the video message.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "enable debug mode.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "format",
+        "description": "message format: markdown or html",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "disable_web_page_preview",
+        "description": "disables link previews for links in this message",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "disable_notification",
+        "description": "disables notifications for this message, supports sending a message without notification,",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/telegram-action",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2024-11-15T17:41:33Z",
+      "html_url": "https://github.com/appleboy/telegram-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:55.583047Z"
+}

@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/dflook/terraform-new-workspace",
+  "version": "fda356b5790f",
+  "definition": {
+    "name": "terraform-new-workspace",
+    "description": "Creates a new Terraform workspace. If the workspace already exists, succeeds without doing anything.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "The name of the Terraform workspace to create.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-new-workspace",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:05Z",
+      "html_url": "https://github.com/dflook/terraform-new-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:41.045058Z"
+}

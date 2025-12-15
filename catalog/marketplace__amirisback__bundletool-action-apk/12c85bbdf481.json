@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/amirisback/bundletool-action-apk",
+  "version": "12c85bbdf481",
+  "definition": {
+    "name": "BundleTool Action APK",
+    "description": "This action will help you convert your aab to apks file.",
+    "author": "Faisal Amir",
+    "inputs": [
+      {
+        "name": "aabFile",
+        "description": "Path to your aab file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "base64Keystore",
+        "description": "The key used to sign the apk encoded in base 64",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "keystorePassword",
+        "description": "The keystore password",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "keystoreAlias",
+        "description": "The keystore alias",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "keyPassword",
+        "description": "The password to the key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "bundletoolVersion",
+        "description": "The version of bundletool to use",
+        "required": false,
+        "default": "latest"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/bundletool-action-apk",
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Release v1.0.0",
+      "published_at": "2023-06-18T22:31:41Z",
+      "html_url": "https://github.com/amirisback/bundletool-action-apk/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:47.607778Z"
+}

@@ -59,13 +59,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is primarily focused on detecting specific comments in pull requests, which falls under communication. It also serves to notify subsequent steps based on the presence of a trigger word, linking it to notification and testing as it influences the workflow execution.",
+        "reasoning": "This action focuses on detecting specific comments in pull requests, which is a form of communication. It also serves to trigger subsequent actions based on the presence of these comments, aligning with notification and testing categories.",
         "tags": [
           "pull request",
-          "trigger",
           "comment",
+          "trigger",
           "notification",
-          "workflow"
+          "communication"
         ]
       }
     ]
@@ -74,6 +74,6 @@
     "source_hash": "5204fef8b2175499f3e86c757d2a97ec0ea207a1be55c40baf16c81654de73f6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.091903Z"
+    "generated_at": "2025-12-15T02:19:00.506386Z"
   }
 }

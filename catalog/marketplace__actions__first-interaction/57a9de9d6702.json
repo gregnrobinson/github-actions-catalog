@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/first-interaction/action.yml",
     "origin": "github.com/actions/first-interaction",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.1.0",
+      "name": "v3.1.0",
+      "published_at": "2025-10-03T13:58:45Z",
+      "html_url": "https://github.com/actions/first-interaction/releases/tag/v3.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "First Interaction",
@@ -39,14 +47,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is designed to greet first-time contributors by posting comments on issues or pull requests, which falls under communication and notification categories.",
+        "tags": [
+          "first interaction",
+          "contributor",
+          "greeting",
+          "issue",
+          "pull request"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "57a9de9d6702af1f3d683efcdd22c97d53c9884de36473c543613c8d44c1d8e8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.260858Z"
+    "generated_at": "2025-12-15T02:19:00.659555Z"
   }
 }

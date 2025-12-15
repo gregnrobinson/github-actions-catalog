@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/azure/login",
+  "version": "c52b8f5c02fc",
+  "definition": {
+    "name": "Azure Login",
+    "description": "Authenticate to Azure and run your Azure CLI or Azure PowerShell based actions or scripts.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "creds",
+        "description": "Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "client-id",
+        "description": "ClientId of the Azure Service principal created.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tenant-id",
+        "description": "TenantId of the Azure Service principal created.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "subscription-id",
+        "description": "Azure subscriptionId",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "enable-AzPSSession",
+        "description": "Set this value to true to enable Azure PowerShell Login in addition to Azure CLI login",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "environment",
+        "description": "Name of the environment. Supported values are azurecloud, azurestack, azureusgovernment, azurechinacloud, azuregermancloud. Default being azurecloud",
+        "required": false,
+        "default": "azurecloud"
+      },
+      {
+        "name": "allow-no-subscriptions",
+        "description": "Set this value to true to enable support for accessing tenants without subscriptions",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "audience",
+        "description": "Provide audience field for access-token. Default value is api://AzureADTokenExchange",
+        "required": false,
+        "default": "api://AzureADTokenExchange"
+      },
+      {
+        "name": "auth-type",
+        "description": "The type of authentication. Supported values are SERVICE_PRINCIPAL, IDENTITY. Default value is SERVICE_PRINCIPAL",
+        "required": false,
+        "default": "SERVICE_PRINCIPAL"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/login",
+    "latest_release": {
+      "tag_name": "v2.3.0",
+      "name": "Azure Login Action v2.3.0",
+      "published_at": "2025-04-02T02:15:04Z",
+      "html_url": "https://github.com/Azure/login/releases/tag/v2.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:41.810584Z"
+}

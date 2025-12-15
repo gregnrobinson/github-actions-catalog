@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/github/issue-labeler",
+  "version": "8ef5d9015800",
+  "definition": {
+    "name": "RegEx Issue Labeler",
+    "description": "Labels issues automatically based on their body",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "description": "The GITHUB_TOKEN secret",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "configuration-path",
+        "description": "The path to the label configuration file. If the file doesn't exist at the specified path on the runner, action will read from the source repository via the Github API.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "enable-versioned-regex",
+        "description": "Controls if versioned regex templates are being used",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "versioned-regex",
+        "description": "The regex version number to use. Only required if using versioned regex files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "not-before",
+        "description": "Is optional and will result in any issues prior to this timestamp to be ignored",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body-missing-regex-label",
+        "description": "The name of the label that should be added to an issue where the specified `version-regex` can not be found.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "include-title",
+        "description": "Include the title in the regex target",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "include-body",
+        "description": "Include the body in the regex target",
+        "required": false,
+        "default": "1"
+      },
+      {
+        "name": "sync-labels",
+        "description": "Remove the label from the issue if the label regex does not match",
+        "required": false,
+        "default": "0"
+      },
+      {
+        "name": "issue-number",
+        "description": "The number of the issue/PR to label",
+        "required": false,
+        "default": "${{ github.event.issue.number || github.event.pull_request.number }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "labels-added",
+        "description": "The labels that were added by the action, as a stringified array."
+      },
+      {
+        "name": "labels-removed",
+        "description": "The labels that were removed by the action, as a stringified array."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/issue-labeler",
+    "latest_release": {
+      "tag_name": "v3.4",
+      "name": "v3.4",
+      "published_at": "2024-01-31T16:17:03Z",
+      "html_url": "https://github.com/github/issue-labeler/releases/tag/v3.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:17.561703Z"
+}

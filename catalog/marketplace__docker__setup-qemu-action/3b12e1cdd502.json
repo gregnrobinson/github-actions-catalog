@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/docker/setup-qemu-action",
+  "version": "3b12e1cdd502",
+  "definition": {
+    "name": "Docker Setup QEMU",
+    "description": "Install QEMU static binaries",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "image",
+        "description": "QEMU static binaries Docker image (e.g. tonistiigi/binfmt:latest)",
+        "required": false,
+        "default": "docker.io/tonistiigi/binfmt:latest"
+      },
+      {
+        "name": "platforms",
+        "description": "Platforms to install (e.g. arm64,riscv64,arm)",
+        "required": false,
+        "default": "all"
+      },
+      {
+        "name": "cache-image",
+        "description": "Cache binfmt image to GitHub Actions cache backend",
+        "required": false,
+        "default": "true"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "platforms",
+        "description": "Available platforms (comma separated)"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/setup-qemu-action",
+    "latest_release": {
+      "tag_name": "v3.7.0",
+      "name": "v3.7.0",
+      "published_at": "2025-11-05T15:03:37Z",
+      "html_url": "https://github.com/docker/setup-qemu-action/releases/tag/v3.7.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:55.604104Z"
+}

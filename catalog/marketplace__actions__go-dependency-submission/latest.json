@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/go-dependency-submission/action.yml",
     "origin": "github.com/actions/go-dependency-submission",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.3",
+      "name": "v2.0.3",
+      "published_at": "2025-03-26T15:34:14Z",
+      "html_url": "https://github.com/actions/go-dependency-submission/releases/tag/v2.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Go Dependency Submission",
@@ -76,8 +84,7 @@
   },
   "annotations": {
     "categories": [
-      "Dependency management",
-      "Documentation"
+      "Dependency management"
     ],
     "confidence": "high",
     "evidence": [
@@ -85,11 +92,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action focuses on calculating and submitting dependencies for a Go project, which directly relates to dependency management. It also allows for metadata submission, which can be considered part of documentation.",
+        "reasoning": "The action specifically calculates and submits dependencies for a Go build-target, which directly relates to managing dependencies in a project.",
         "tags": [
           "Go",
           "dependencies",
-          "GitHub Action",
+          "GitHub Actions",
           "submission",
           "API"
         ]
@@ -100,6 +107,6 @@
     "source_hash": "be8e11c955ed4d1614d704b11e2dbe1950c8a18f044b018c169f2f3890a6d44c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.301920Z"
+    "generated_at": "2025-12-15T02:19:00.709038Z"
   }
 }

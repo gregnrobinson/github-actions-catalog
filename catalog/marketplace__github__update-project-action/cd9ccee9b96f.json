@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/update-project-action/action.yml",
     "origin": "github.com/github/update-project-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3",
+      "published_at": "2024-02-13T21:03:00Z",
+      "html_url": "https://github.com/github/update-project-action/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Update project",
@@ -96,14 +104,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action updates fields on a GitHub Projects board, which involves communication with the project management aspect of GitHub. It also relates to code quality by managing project items effectively.",
+        "tags": [
+          "GitHub Projects",
+          "update",
+          "workflow",
+          "communication",
+          "project management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "cd9ccee9b96fe423e620514b1d3390d7dbf9699b2a351bc886c4f857378e2a4e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.900789Z"
+    "generated_at": "2025-12-15T02:19:00.296066Z"
   }
 }

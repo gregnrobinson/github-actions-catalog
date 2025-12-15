@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/tibdex/backport",
+  "version": "bce81d9b89f7",
+  "definition": {
+    "name": "Backporting",
+    "description": "Automatically backport PRs to other branches by simply labeling them.\n",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "body_template",
+        "description": "Lodash template for the backport PR's body.\nThe data properties are:\n  - base: backport PR's base branch\n  - body: original PR's body\n  - mergeCommitSha: SHA of the original PR's merge commit\n  - number: original PR's number\n",
+        "required": false,
+        "default": "Backport <%= mergeCommitSha %> from #<%= number %>."
+      },
+      {
+        "name": "github_token",
+        "description": "Token for the GitHub API.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "head_template",
+        "description": "Lodash template for the backport PR's head branch.\nThe data properties are:\n  - base: backport PR's base branch\n  - number: original PR's number\n",
+        "required": false,
+        "default": "backport-<%= number %>-to-<%= base %>"
+      },
+      {
+        "name": "label_pattern",
+        "description": "The regular expression pattern that PR labels will be tested on to decide whether the PR should be backported and where. The backport PR's base branch will be extracted from the pattern's required `base` named capturing group.\n",
+        "required": false,
+        "default": "^backport (?<base>([^ ]+))$"
+      },
+      {
+        "name": "labels_template",
+        "description": "Lodash template compiling to a JSON array of labels to add to the backport PR.\nThe data properties are:\n  - base: backport PR's base branch\n  - labels: array containing the original PR's labels, excluding those matching `label_pattern`.\n",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "title_template",
+        "description": "Lodash template for the backport PR's title.\nThe data properties are:\n  - base: backport PR's base branch\n  - number: original PR's number\n  - title: original PR's title\n",
+        "required": false,
+        "default": "[Backport <%= base %>] <%= title %>"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "created_pull_requests",
+        "description": "A JSON stringified object mapping the base branch of the created pull requests to their number."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tibdex",
+    "verified": false,
+    "origin": "github.com/tibdex/backport",
+    "latest_release": {
+      "tag_name": "v2.0.4",
+      "name": "v2.0.4",
+      "published_at": "2023-08-01T21:23:23Z",
+      "html_url": "https://github.com/tibdex/backport/releases/tag/v2.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:12.210296Z"
+}

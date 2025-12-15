@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/azure/cli",
+  "version": "5e979f3d9923",
+  "definition": {
+    "name": "Azure CLI Action",
+    "description": "Automate your GitHub workflows using Azure CLI scripts.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "inlineScript",
+        "description": "Specify the script here",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "azcliversion",
+        "description": "Azure CLI version to be used to execute the script. If not provided, latest version is used",
+        "required": false,
+        "default": "agentazcliversion"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/cli",
+    "latest_release": {
+      "tag_name": "v2.2.0",
+      "name": "GitHub Action for Azure CLI v2.2.0",
+      "published_at": "2025-09-22T06:36:56Z",
+      "html_url": "https://github.com/Azure/cli/releases/tag/v2.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:22.322668Z"
+}

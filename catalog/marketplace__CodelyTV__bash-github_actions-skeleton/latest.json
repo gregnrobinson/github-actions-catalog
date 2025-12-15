@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/CodelyTV/bash-github_actions-skeleton",
-  "version_id": "71aa3205170e",
+  "version_id": "23b0e2b0975a",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/CodelyTV/bash-github_actions-skeleton/action.yml",
@@ -38,30 +38,29 @@
   },
   "annotations": {
     "categories": [
-      "Documentation",
-      "Build"
+      "Authentication"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Documentation",
-        "reasoning": "This action appears to be a skeleton for creating GitHub Actions, which primarily serves as documentation and a template for building new actions. It may also assist in the build process by providing a structured starting point.",
+        "primary_category": "Authentication",
+        "reasoning": "The action requires a GitHub token as an input, indicating that it is primarily focused on authentication.",
         "tags": [
-          "GitHub Actions",
-          "template",
-          "skeleton",
-          "documentation",
-          "build"
+          "GitHub",
+          "authentication",
+          "token",
+          "action",
+          "skeleton"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "71aa3205170e2ce134e13e24de8be6e26b0ee13ecabeb05ab7afc876f34c83a3",
+    "source_hash": "23b0e2b0975a3cfe94c0469d364389949f8228de0775324090c40c6bca1e5548",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.566008Z"
+    "generated_at": "2025-12-15T02:19:00.747178Z"
   }
 }

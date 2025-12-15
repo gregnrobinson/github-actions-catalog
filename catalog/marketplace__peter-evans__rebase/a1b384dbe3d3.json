@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/rebase/action.yml",
     "origin": "github.com/peter-evans/rebase",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Rebase v4.0.0",
+      "published_at": "2025-12-09T20:48:26Z",
+      "html_url": "https://github.com/peter-evans/rebase/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Rebase Pulls",
@@ -69,14 +77,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Communication",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is primarily focused on improving the quality of code by rebasing pull requests, which is a common practice in code review processes. It also involves communication aspects as it interacts with pull requests in a repository.",
+        "tags": [
+          "rebase",
+          "pull requests",
+          "GitHub",
+          "code quality",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "a1b384dbe3d395221750c5899ca8aa0b17c535bd6654f934caf54eeda20a0e69",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.519989Z"
+    "generated_at": "2025-12-15T02:19:01.076898Z"
   }
 }

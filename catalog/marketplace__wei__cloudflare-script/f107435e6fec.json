@@ -1,0 +1,42 @@
+{
+  "action_id": "marketplace/wei/cloudflare-script",
+  "version": "f107435e6fec",
+  "definition": {
+    "name": "cloudflare-script",
+    "description": "Run inline scripts using the Cloudflare TypeScript SDK",
+    "author": "wei",
+    "inputs": [
+      {
+        "name": "script",
+        "description": "TypeScript script to execute using Cloudflare SDK",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The result of the script execution, if the script returns a value"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wei",
+    "verified": false,
+    "origin": "github.com/wei/cloudflare-script",
+    "latest_release": {
+      "tag_name": "v5.2.0",
+      "name": "Cloudflare Script Action v5.2.0",
+      "published_at": "2025-10-03T06:07:21Z",
+      "html_url": "https://github.com/wei/cloudflare-script/releases/tag/v5.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:14.862126Z"
+}

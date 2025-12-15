@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/frogo-android-sdk",
+  "version": "2dac4c419ade",
+  "definition": {
+    "name": "Frogo-Android-SDK",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-android-sdk"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:41.802438Z"
+}

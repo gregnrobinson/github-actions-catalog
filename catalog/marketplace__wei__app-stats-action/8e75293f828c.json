@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/wei/app-stats-action",
+  "version": "8e75293f828c",
+  "definition": {
+    "name": "GitHub App Statistics",
+    "description": "Retrieve statistics for a GitHub App",
+    "author": "wei",
+    "inputs": [
+      {
+        "name": "id",
+        "description": "App ID",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "private_key",
+        "description": "contents of the app's *.pem private key file.",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "installations",
+        "description": "Number of installations"
+      },
+      {
+        "name": "repositories",
+        "description": "Number of repositories"
+      },
+      {
+        "name": "suspended_installations",
+        "description": "Number of suspended installations"
+      },
+      {
+        "name": "popular_repositories",
+        "description": "JSON string for user/organization login and total number of stars of public repositories the app is installed on"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wei",
+    "verified": false,
+    "origin": "github.com/wei/app-stats-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:15.764425Z"
+}

@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/kick-start-android-webview",
+  "version": "213437d2a2ef",
+  "definition": {
+    "name": "Base-Webview-Project",
+    "description": "Base Webview Project with Admob",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/kick-start-android-webview"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:45.059061Z"
+}

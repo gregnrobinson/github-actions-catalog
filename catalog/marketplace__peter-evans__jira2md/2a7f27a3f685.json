@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/jira2md/action.yml",
     "origin": "github.com/peter-evans/jira2md",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-11-14T14:56:44Z",
+      "html_url": "https://github.com/peter-evans/jira2md/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "jira2md",
@@ -38,14 +46,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is designed to convert text formatting between Jira and GitHub markdown, which is primarily a documentation-related task.",
+        "tags": [
+          "jira",
+          "markdown",
+          "conversion",
+          "documentation",
+          "github"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "2a7f27a3f685eed38723a54f8136ccd6f9b7b3bc6099fe506e3ae85f69cf62b9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.467088Z"
+    "generated_at": "2025-12-15T02:19:01.031394Z"
   }
 }

@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/repo-sync/github-sync",
+  "version": "0bd3cfbe6832",
+  "definition": {
+    "name": "GitHub Repo Sync",
+    "description": "\u2935\ufe0f Sync current repository with remote",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "source_repo",
+        "description": "GitHub public repo slug or full https clone url (with access_token if needed)",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "source_branch",
+        "description": "Branch name to sync from",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "destination_branch",
+        "description": "Branch name to sync to in this repo",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub token secret",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "sync_tags",
+        "description": "Should tags also be synced",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "repo-sync",
+    "verified": false,
+    "origin": "github.com/repo-sync/github-sync",
+    "latest_release": {
+      "tag_name": "v2.3.0",
+      "name": "feat: sync tags",
+      "published_at": "2020-10-07T00:18:22Z",
+      "html_url": "https://github.com/repo-sync/github-sync/releases/tag/v2.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:50.048537Z"
+}

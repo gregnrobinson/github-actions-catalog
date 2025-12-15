@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/gradle/wrapper-validation-action/action.yml",
     "origin": "github.com/gradle/wrapper-validation-action",
     "publisher": "gradle",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.5.0",
+      "name": "v3.5.0",
+      "published_at": "2024-07-15T19:31:50Z",
+      "html_url": "https://github.com/gradle/wrapper-validation-action/releases/tag/v3.5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Gradle Wrapper Validation",
@@ -58,14 +66,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action validates Gradle Wrapper JAR files, which directly relates to ensuring code quality and proper dependency management. It also plays a role in testing the integrity of the Gradle setup.",
+        "tags": [
+          "Gradle",
+          "validation",
+          "wrapper",
+          "code quality",
+          "testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "bcb05b373e0c8ddc05ed5cda92fce843128461ff2b2ffa67e5ee069274ea2cd9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.330092Z"
+    "generated_at": "2025-12-15T02:19:00.241258Z"
   }
 }

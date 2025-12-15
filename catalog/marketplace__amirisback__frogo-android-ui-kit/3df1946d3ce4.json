@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-android-ui-kit",
+  "version": "3df1946d3ce4",
+  "definition": {
+    "name": "Frogo-Android-UI-Kit",
+    "description": "Library Easy UI Kit Based on Design Guideline, Full and Clear Documentation, :books:",
+    "author": "Muhammad Faisal Amir - Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-android-ui-kit",
+    "latest_release": {
+      "tag_name": "1.0.5",
+      "name": "Release v1.0.5",
+      "published_at": "2022-02-12T14:03:46Z",
+      "html_url": "https://github.com/frogobox/frogo-android-ui-kit/releases/tag/1.0.5",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:29.420681Z"
+}

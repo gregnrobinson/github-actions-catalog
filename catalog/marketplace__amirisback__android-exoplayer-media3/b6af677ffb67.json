@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/android-exoplayer-media3",
+  "version_id": "b6af677ffb67",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/android-exoplayer-media3/action.yml",
+    "origin": "github.com/amirisback/android-exoplayer-media3",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Android-Research-Tech",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b6af677ffb67bc2088df01f527c63d03e086f9bfdb68dafa44ff99123e2c5c85",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:00.821403Z"
+  }
+}

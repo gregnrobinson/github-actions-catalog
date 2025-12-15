@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/peter-evans/ssh-agent",
+  "version": "1bc4ca5ec556",
+  "definition": {
+    "name": "webfactory/ssh-agent",
+    "description": "Run `ssh-agent` and load an SSH key to access other private repositories",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "ssh-private-key",
+        "description": "Private SSH key to register in the SSH agent",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "ssh-auth-sock",
+        "description": "Where to place the SSH Agent auth socket",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/ssh-agent"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:34.008229Z"
+}

@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/tibdex/auto-update",
+  "version": "fb20fda96005",
+  "definition": {
+    "name": "Auto-update",
+    "description": "Automatically keep pull requests with auto-merged enabled up to date with their base branch.",
+    "author": "Thibault Derousseaux <tibdex@gmail.com>",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "Token for the GitHub API.",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "tibdex",
+    "verified": false,
+    "origin": "github.com/tibdex/auto-update",
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2022-11-29T11:22:20Z",
+      "html_url": "https://github.com/tibdex/auto-update/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:11.283516Z"
+}

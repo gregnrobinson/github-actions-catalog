@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tgymnich/setup-swift/action.yml",
     "origin": "github.com/tgymnich/setup-swift",
     "publisher": "tgymnich",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.9",
+      "name": "v1.0.9",
+      "published_at": "2021-01-31T19:58:20Z",
+      "html_url": "https://github.com/tgymnich/setup-swift/releases/tag/v1.0.9",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Swift Action",
@@ -29,6 +37,7 @@
   "annotations": {
     "categories": [
       "Infrastructure",
+      "Build",
       "Dependency management"
     ],
     "confidence": "high",
@@ -37,13 +46,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action sets up a Swift environment, which falls under infrastructure as it prepares the necessary environment for building and running Swift applications. It also involves managing the version of Swift, linking it to dependency management.",
+        "reasoning": "The action sets up a Swift environment, which is essential for building and managing dependencies in Swift projects, making it primarily an infrastructure action with ties to build and dependency management.",
         "tags": [
           "Swift",
           "setup",
           "environment",
           "infrastructure",
-          "dependency"
+          "build"
         ]
       }
     ]
@@ -52,6 +61,6 @@
     "source_hash": "c75690dad8d8ef1b5710fe5df6e8ac79477bfb5ea31708a49584bee94f5156f8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.683231Z"
+    "generated_at": "2025-12-15T02:19:00.906338Z"
   }
 }

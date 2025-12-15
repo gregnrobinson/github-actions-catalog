@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/aci-deploy/action.yml",
     "origin": "github.com/azure/aci-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.3",
+      "name": "Releaseing v1.1.3",
+      "published_at": "2021-08-24T08:11:46Z",
+      "html_url": "https://github.com/Azure/aci-deploy/releases/tag/v1.1.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy to Azure Container Instances",
@@ -228,13 +236,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is specifically designed to deploy applications to Azure Container Instances, making Deployment its primary focus. It also involves infrastructure management by creating resources in Azure.",
+        "reasoning": "This action is specifically designed to deploy applications to Azure Container Instances, which falls under the Deployment category. Additionally, it involves managing resources in Azure, linking it to Infrastructure.",
         "tags": [
           "Azure",
-          "Container Instances",
+          "Container",
           "Deployment",
-          "Infrastructure",
-          "GitHub Actions"
+          "ACI",
+          "Infrastructure"
         ]
       }
     ]
@@ -243,6 +251,6 @@
     "source_hash": "87c55196eb4ea66cba2e1cef1444912769077a1ef7ce5c66122039d0cdbdb270",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.636845Z"
+    "generated_at": "2025-12-15T02:18:59.914709Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/acr-build/action.yml",
     "origin": "github.com/azure/acr-build",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2021-11-29T09:46:28Z",
+      "html_url": "https://github.com/Azure/acr-build/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Container Registry Build",
@@ -93,14 +101,33 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Build",
+      "Authentication",
+      "Infrastructure",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is primarily focused on building a container image, which falls under the Build category. It also involves authentication through a service principal and relates to infrastructure as it interacts with Azure services.",
+        "tags": [
+          "Azure",
+          "Container Registry",
+          "Build",
+          "Docker",
+          "Infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6a69255a342d6d62b43b9343ae086f6606a822bf0dcbcd18b7d8e4d685ae85f2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.627352Z"
+    "generated_at": "2025-12-15T02:18:59.905322Z"
   }
 }

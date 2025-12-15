@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-clj-kondo",
+  "version": "99a6dfffbe97",
+  "definition": {
+    "name": "Setup clj-kondo",
+    "description": "Provision hosted runner with clj-kondo",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "desired version of clj-kondo to install",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/setup-clj-kondo",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "",
+      "published_at": "2019-11-25T15:10:26Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-clj-kondo/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:02.949500Z"
+}

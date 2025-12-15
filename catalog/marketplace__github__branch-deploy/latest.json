@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/branch-deploy/action.yml",
     "origin": "github.com/github/branch-deploy",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v11.1.2",
+      "name": "v11.1.2",
+      "published_at": "2025-11-26T21:57:59Z",
+      "html_url": "https://github.com/github/branch-deploy/releases/tag/v11.1.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "branch-deploy",
@@ -480,7 +488,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is primarily focused on enabling branch deployments, which falls under the Deployment category. It also involves communication aspects related to issue operations and status updates during the deployment process.",
+        "reasoning": "The action is primarily focused on enabling branch deployments, which falls under the Deployment category. It also involves communication aspects through issue comments and status updates related to the deployment process.",
         "tags": [
           "branch-deploy",
           "GitHub Actions",
@@ -495,6 +503,6 @@
     "source_hash": "b38d3bccaefc1910604a079b0d79b9557d482509d7dca0087dba41130c4485a7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.954443Z"
+    "generated_at": "2025-12-15T02:19:00.349026Z"
   }
 }

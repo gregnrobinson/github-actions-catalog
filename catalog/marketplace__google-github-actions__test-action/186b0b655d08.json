@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/google-github-actions/test-action",
+  "version": "186b0b655d08",
+  "definition": {
+    "name": "Google Actions Testing",
+    "description": "This action is for testing only.",
+    "author": "Google LLC",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/test-action",
+    "latest_release": {
+      "tag_name": "v2.0.1",
+      "name": "v2.0.1",
+      "published_at": "2024-09-09T15:42:39Z",
+      "html_url": "https://github.com/google-github-actions/test-action/releases/tag/v2.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:48.412516Z"
+}

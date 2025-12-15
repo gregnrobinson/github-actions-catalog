@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/create-cloud-deploy-release/action.yml",
     "origin": "github.com/google-github-actions/create-cloud-deploy-release",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2025-09-02T23:53:56Z",
+      "html_url": "https://github.com/google-github-actions/create-cloud-deploy-release/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create Cloud Deploy Release",
@@ -132,14 +140,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to create a release in Cloud Deploy, which is a deployment service, making Deployment the primary category. It also relates to Infrastructure as it interacts with cloud resources.",
+        "tags": [
+          "cloud",
+          "deployment",
+          "Google Cloud",
+          "release",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "c3b7f104512cb64e2dba976880d08b3da13034f6dead6799aca1066095423aaa",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.759578Z"
+    "generated_at": "2025-12-15T02:19:00.046026Z"
   }
 }

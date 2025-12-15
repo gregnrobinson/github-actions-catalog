@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/DeLaGuardo/super-linter",
-  "version_id": "e9e513ba3d06",
+  "version_id": "a8c1ca772b7d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/DeLaGuardo/super-linter/action.yml",
@@ -30,21 +30,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "Super-Linter is designed to validate source code using various linters, which directly relates to code quality. Additionally, it can be used in the testing phase of the development process to ensure code adheres to specified standards.",
+        "reasoning": "Super-Linter is designed to validate source code using various linters, which directly relates to ensuring code quality. Additionally, it can be used as part of testing processes to catch issues early.",
         "tags": [
           "linter",
           "code quality",
-          "validation",
+          "testing",
           "GitHub Actions",
-          "testing"
+          "validation"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "e9e513ba3d0671a59ea3d6f6dbf7d5c860491bce05747ad3c9d7446e4cd47426",
+    "source_hash": "a8c1ca772b7d8d72b9ec30e54383d6bdf90e78fa7b9b8aac4f7ce30ffed591b8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.273787Z"
+    "generated_at": "2025-12-15T02:19:00.161880Z"
   }
 }

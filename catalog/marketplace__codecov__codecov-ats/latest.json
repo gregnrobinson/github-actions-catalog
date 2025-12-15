@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/codecov/codecov-ats/action.yml",
     "origin": "github.com/codecov/codecov-ats",
     "publisher": "codecov",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.3.0",
+      "name": "v0.3.0",
+      "published_at": "2024-01-09T17:41:09Z",
+      "html_url": "https://github.com/codecov/codecov-ats/releases/tag/v0.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Codecov ATS",
@@ -188,12 +196,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is primarily focused on returning test labels from Codecov, which is related to testing and code quality. It also involves authentication through the use of tokens.",
+        "reasoning": "The action is primarily focused on retrieving test labels from Codecov, which is related to testing and code quality. It also involves authentication through tokens for accessing Codecov.",
         "tags": [
           "codecov",
           "testing",
-          "CI",
           "code quality",
+          "CI",
           "authentication"
         ]
       }
@@ -203,6 +211,6 @@
     "source_hash": "53d803e08087c31754826c190e2a882ae2fd6944e3d0320c6403e9923fd0a066",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.446421Z"
+    "generated_at": "2025-12-15T02:19:01.008504Z"
   }
 }

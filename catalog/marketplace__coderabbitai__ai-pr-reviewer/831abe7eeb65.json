@@ -1,0 +1,151 @@
+{
+  "action_id": "marketplace/coderabbitai/ai-pr-reviewer",
+  "version": "831abe7eeb65",
+  "definition": {
+    "name": "AI-based PR Reviewer & Summarizer with Chat Capabilities",
+    "description": "AI-based PR Reviewer & Summarizer with Chat Capabilities",
+    "author": "CodeRabbit LLC",
+    "inputs": [
+      {
+        "name": "debug",
+        "description": "Enable debug mode",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "max_files",
+        "description": "Max files to summarize and review. Less than or equal to 0 means no limit.",
+        "required": false,
+        "default": "150"
+      },
+      {
+        "name": "review_simple_changes",
+        "description": "Review even when the changes are simple",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "review_comment_lgtm",
+        "description": "Leave comments even if the patch is LGTM",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "path_filters",
+        "description": "The path filters, e.g., \"src/**.py\", \"!dist/**\", each line will be considered as one pattern.\nSee also\n\n- https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore\n- https://github.com/isaacs/minimatch\n",
+        "required": false,
+        "default": "!dist/**\n!**/*.app\n!**/*.bin\n!**/*.bz2\n!**/*.class\n!**/*.db\n!**/*.csv\n!**/*.tsv\n!**/*.dat\n!**/*.dll\n!**/*.dylib\n!**/*.egg\n!**/*.glif\n!**/*.gz\n!**/*.xz\n!**/*.zip\n!**/*.7z\n!**/*.rar\n!**/*.zst\n!**/*.ico\n!**/*.jar\n!**/*.tar\n!**/*.war\n!**/*.lo\n!**/*.log\n!**/*.mp3\n!**/*.wav\n!**/*.wma\n!**/*.mp4\n!**/*.avi\n!**/*.mkv\n!**/*.wmv\n!**/*.m4a\n!**/*.m4v\n!**/*.3gp\n!**/*.3g2\n!**/*.rm\n!**/*.mov\n!**/*.flv\n!**/*.iso\n!**/*.swf\n!**/*.flac\n!**/*.nar\n!**/*.o\n!**/*.ogg\n!**/*.otf\n!**/*.p\n!**/*.pdf\n!**/*.doc\n!**/*.docx\n!**/*.xls\n!**/*.xlsx\n!**/*.ppt\n!**/*.pptx\n!**/*.pkl\n!**/*.pickle\n!**/*.pyc\n!**/*.pyd\n!**/*.pyo\n!**/*.pub\n!**/*.pem\n!**/*.rkt\n!**/*.so\n!**/*.ss\n!**/*.eot\n!**/*.exe\n!**/*.pb.go\n!**/*.lock\n!**/*.ttf\n!**/*.yaml\n!**/*.yml\n!**/*.cfg\n!**/*.toml\n!**/*.ini\n!**/*.mod\n!**/*.sum\n!**/*.work\n!**/*.json\n!**/*.mmd\n!**/*.svg\n!**/*.jpeg\n!**/*.jpg\n!**/*.png\n!**/*.gif\n!**/*.bmp\n!**/*.tiff\n!**/*.webm\n!**/*.woff\n!**/*.woff2\n!**/*.dot\n!**/*.md5sum\n!**/*.wasm\n!**/*.snap\n!**/*.parquet\n!**/gen/**\n!**/_gen/**\n!**/generated/**\n!**/@generated/**\n!**/vendor/**\n!**/*.min.js\n!**/*.min.js.map\n!**/*.min.js.css\n!**/*.tfstate\n!**/*.tfstate.backup\n"
+      },
+      {
+        "name": "disable_review",
+        "description": "Only provide the summary and skip the code review.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "disable_release_notes",
+        "description": "Disable release notes",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "openai_base_url",
+        "description": "The url of the openai api interface.",
+        "required": false,
+        "default": "https://api.openai.com/v1"
+      },
+      {
+        "name": "openai_light_model",
+        "description": "Model to use for simple tasks like summarizing diff on a file.",
+        "required": false,
+        "default": "gpt-3.5-turbo"
+      },
+      {
+        "name": "openai_heavy_model",
+        "description": "Model to use for complex tasks such as code reviews.",
+        "required": false,
+        "default": "gpt-4"
+      },
+      {
+        "name": "openai_model_temperature",
+        "description": "Temperature for GPT model",
+        "required": false,
+        "default": "0.05"
+      },
+      {
+        "name": "openai_retries",
+        "description": "How many times to retry OpenAI API in case of timeouts or errors?",
+        "required": false,
+        "default": "5"
+      },
+      {
+        "name": "openai_timeout_ms",
+        "description": "Timeout for OpenAI API call in millis",
+        "required": false,
+        "default": "360000"
+      },
+      {
+        "name": "openai_concurrency_limit",
+        "description": "How many concurrent API calls to make to OpenAI servers?",
+        "required": false,
+        "default": "6"
+      },
+      {
+        "name": "github_concurrency_limit",
+        "description": "How many concurrent API calls to make to GitHub?",
+        "required": false,
+        "default": "6"
+      },
+      {
+        "name": "system_message",
+        "description": "System message to be sent to OpenAI",
+        "required": false,
+        "default": "You are `@coderabbitai` (aka `github-actions[bot]`), a language model\ntrained by OpenAI. Your purpose is to act as a highly experienced\nsoftware engineer and provide a thorough review of the code hunks\nand suggest code snippets to improve key areas such as:\n  - Logic\n  - Security\n  - Performance\n  - Data races\n  - Consistency\n  - Error handling\n  - Maintainability\n  - Modularity\n  - Complexity\n  - Optimization\n  - Best practices: DRY, SOLID, KISS\n\nDo not comment on minor code style issues, missing\ncomments/documentation. Identify and resolve significant\nconcerns to improve overall code quality while deliberately\ndisregarding minor issues.\n"
+      },
+      {
+        "name": "summarize",
+        "description": "The prompt for final summarization response",
+        "required": false,
+        "default": "Provide your final response in markdown with the following content:\n\n- **Walkthrough**: A high-level summary of the overall change instead of\n  specific files within 80 words.\n- **Changes**: A markdown table of files and their summaries. Group files\n  with similar changes together into a single row to save space.\n- **Poem**: Below the changes, include a whimsical, short poem written by\n  a rabbit to celebrate the changes. Format the poem as a quote using\n  the \">\" symbol and feel free to use emojis where relevant.\n\nAvoid additional commentary as this summary will be added as a comment on the\nGitHub pull request. Use the titles \"Walkthrough\" and \"Changes\" and they must be H2.\n"
+      },
+      {
+        "name": "summarize_release_notes",
+        "description": "The prompt for generating release notes in the same chat as summarize stage",
+        "required": false,
+        "default": "Craft concise release notes for the pull request.\nFocus on the purpose and user impact, categorizing changes as \"New Feature\", \"Bug Fix\",\n\"Documentation\", \"Refactor\", \"Style\", \"Test\", \"Chore\", or \"Revert\". Provide a bullet-point list,\ne.g., \"- New Feature: Added search functionality to the UI\". Limit your response to 50-100 words\nand emphasize features visible to the end-user while omitting code-level details.\n"
+      },
+      {
+        "name": "language",
+        "description": "ISO code for the response language",
+        "required": false,
+        "default": "en-US"
+      },
+      {
+        "name": "bot_icon",
+        "description": "The icon for the bot",
+        "required": false,
+        "default": "<img src=\"https://avatars.githubusercontent.com/in/347564?s=41\" alt=\"Image description\" width=\"20\" height=\"20\">"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "coderabbitai",
+    "verified": false,
+    "origin": "github.com/coderabbitai/ai-pr-reviewer",
+    "latest_release": {
+      "tag_name": "1.16.2",
+      "name": "1.16.2",
+      "published_at": "2023-09-15T03:19:48Z",
+      "html_url": "https://github.com/coderabbitai/ai-pr-reviewer/releases/tag/1.16.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:49.079788Z"
+}

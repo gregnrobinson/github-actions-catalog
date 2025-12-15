@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-new-workspace/action.yml",
     "origin": "github.com/dflook/tofu-new-workspace",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:44Z",
+      "html_url": "https://github.com/dflook/tofu-new-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-new-workspace",
@@ -71,13 +79,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action creates a new OpenTofu workspace, which is primarily related to infrastructure management. It also involves setting variables that may relate to dependency management in the context of infrastructure as code.",
+        "reasoning": "The action creates a new OpenTofu workspace, which is related to infrastructure management. It also involves managing variables that can be seen as dependencies for the workspace setup.",
         "tags": [
           "OpenTofu",
           "workspace",
           "infrastructure",
-          "automation",
-          "Terraform"
+          "dependency management",
+          "automation"
         ]
       }
     ]
@@ -86,6 +94,6 @@
     "source_hash": "5e38cd791cbef5e935ac710508f62cb3808e32d5eee3eda5096e6569b53dd7eb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.396081Z"
+    "generated_at": "2025-12-15T02:18:59.630141Z"
   }
 }

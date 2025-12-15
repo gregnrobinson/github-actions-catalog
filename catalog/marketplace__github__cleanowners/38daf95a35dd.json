@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/cleanowners",
+  "version": "38daf95a35dd",
+  "definition": {
+    "name": "Cleanowners action",
+    "description": "A GitHub Action to suggest removal of non-organization members from CODEOWNERS files.",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/cleanowners",
+    "latest_release": {
+      "tag_name": "v1.2.12",
+      "name": "v1.2.12",
+      "published_at": "2025-12-01T13:56:03Z",
+      "html_url": "https://github.com/github/cleanowners/releases/tag/v1.2.12",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:26.783784Z"
+}

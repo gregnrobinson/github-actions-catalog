@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/cache/action.yml",
     "origin": "github.com/actions/cache",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.0.1",
+      "name": "v5.0.1",
+      "published_at": "2025-12-12T16:52:38Z",
+      "html_url": "https://github.com/actions/cache/releases/tag/v5.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Cache",
@@ -78,7 +86,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Caching"
+      "Build"
     ],
     "confidence": "high",
     "evidence": [
@@ -86,13 +94,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is designed to cache artifacts like dependencies and build outputs, which directly relates to managing dependencies and improving workflow execution time.",
+        "reasoning": "The action is designed to cache dependencies and build outputs, which directly relates to dependency management and improving build efficiency.",
         "tags": [
           "cache",
           "dependencies",
+          "build",
           "workflow",
-          "performance",
-          "GitHub Actions"
+          "performance"
         ]
       }
     ]
@@ -101,6 +109,6 @@
     "source_hash": "c04edf35104c16c8944076df01561748bac9cd10941417e467a236e508e52dda",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.221665Z"
+    "generated_at": "2025-12-15T02:19:00.620954Z"
   }
 }

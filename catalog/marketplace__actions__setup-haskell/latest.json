@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-haskell/action.yml",
     "origin": "github.com/actions/setup-haskell",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.4",
+      "name": "v1.1.4",
+      "published_at": "2020-11-18T20:18:58Z",
+      "html_url": "https://github.com/actions/setup-haskell/releases/tag/v1.1.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Haskell",
@@ -88,8 +96,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Build",
-      "Infrastructure"
+      "Build"
     ],
     "confidence": "high",
     "evidence": [
@@ -97,7 +104,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action sets up specific versions of GHC, Cabal, and Stack, which are essential for managing dependencies in Haskell projects. It also prepares the environment for building Haskell applications.",
+        "reasoning": "This action sets up specific versions of Haskell tools (GHC, Cabal, Stack) which are essential for managing dependencies in Haskell projects. It also facilitates the build process by ensuring the correct versions are available.",
         "tags": [
           "Haskell",
           "GHC",
@@ -112,6 +119,6 @@
     "source_hash": "4cea180c420c8a4738fb4217d999d2461be4d744abda74e9e7b417301134172a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.298994Z"
+    "generated_at": "2025-12-15T02:19:00.706085Z"
   }
 }

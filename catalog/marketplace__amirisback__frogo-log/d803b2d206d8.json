@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-log/action.yml",
     "origin": "github.com/amirisback/frogo-log",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.0.9",
+      "name": "Release v2.0.9",
+      "published_at": "2022-03-09T05:09:45Z",
+      "html_url": "https://github.com/amirisback/frogo-log/releases/tag/2.0.9",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-Log",
@@ -30,14 +38,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is an SDK aimed at simplifying log management for Android app development, which suggests it provides documentation and tools that enhance code quality. However, without specific details on its functionality, the categorization remains somewhat uncertain.",
+        "tags": [
+          "SDK",
+          "Android",
+          "Logging",
+          "Development",
+          "Code quality"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "d803b2d206d83c76d654716d0274b4aba01dfa0e5bac0f417b229545dc16719e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.609262Z"
+    "generated_at": "2025-12-15T02:19:00.792547Z"
   }
 }

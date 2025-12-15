@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/aml-deploy/action.yml",
     "origin": "github.com/azure/aml-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.31.0",
+      "name": "v1.31.0",
+      "published_at": "2021-09-24T15:59:20Z",
+      "html_url": "https://github.com/Azure/aml-deploy/releases/tag/v1.31.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Machine Learning Deploy Action",
@@ -74,14 +82,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying a model to Azure Machine Learning, which falls under the Deployment category. It also requires Azure credentials for authentication, linking it to the Authentication category.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Deployment",
+          "GitHub Actions",
+          "Model"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "5a60677269272e81fe8eeade97149fac72b13d966ff977ecb18ab9c37981bf44",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.706741Z"
+    "generated_at": "2025-12-15T02:18:59.989785Z"
   }
 }

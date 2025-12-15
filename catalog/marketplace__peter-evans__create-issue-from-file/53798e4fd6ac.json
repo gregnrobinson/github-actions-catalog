@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/create-issue-from-file/action.yml",
     "origin": "github.com/peter-evans/create-issue-from-file",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v6.0.0",
+      "name": "Create Issue From File v6.0.0",
+      "published_at": "2025-10-01T14:45:11Z",
+      "html_url": "https://github.com/peter-evans/create-issue-from-file/releases/tag/v6.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create Issue From File",
@@ -68,14 +76,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is primarily focused on creating issues, which is a form of communication within a project. It also relates to documentation as issues often serve as a way to document tasks or bugs.",
+        "tags": [
+          "GitHub",
+          "issues",
+          "automation",
+          "communication",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "53798e4fd6acef279ff2007ad416924791a2c8840ec863fada109f10eb55e264",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.505755Z"
+    "generated_at": "2025-12-15T02:19:01.063707Z"
   }
 }

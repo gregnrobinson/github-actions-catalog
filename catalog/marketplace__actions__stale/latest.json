@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/stale/action.yml",
     "origin": "github.com/actions/stale",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v10.1.1",
+      "name": "v10.1.1",
+      "published_at": "2025-12-03T03:26:23Z",
+      "html_url": "https://github.com/actions/stale/releases/tag/v10.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Close Stale Issues",
@@ -371,11 +379,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is primarily focused on managing stale issues and pull requests, which involves communication with users about the status of their contributions. It also contributes to code quality by keeping the repository clean.",
+        "reasoning": "This action is primarily focused on managing stale issues and pull requests, which involves communication with users about the status of their contributions. It also contributes to code quality by helping maintain an active and relevant issue tracker.",
         "tags": [
-          "stale issues",
+          "stale",
+          "issues",
           "pull requests",
-          "repository management",
           "automation",
           "GitHub"
         ]
@@ -386,6 +394,6 @@
     "source_hash": "42c2129639c5e66ee659a85f3ab6bc67a05f46f1691f9fc1d2575035e30d06f4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.246735Z"
+    "generated_at": "2025-12-15T02:19:00.646330Z"
   }
 }

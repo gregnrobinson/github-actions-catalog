@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/wlixcc/SFTP-Deploy-Action",
+  "version": "5a212055e076",
+  "definition": {
+    "name": "SFTP Deploy",
+    "description": "Deploy file to your server use sftp & ssh private key",
+    "author": "wlixcc",
+    "inputs": [
+      {
+        "name": "username",
+        "description": "username",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "server",
+        "description": "your sftp server",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "port",
+        "description": "your sftp server port, default to 22",
+        "required": true,
+        "default": "22"
+      },
+      {
+        "name": "ssh_private_key",
+        "description": "you can copy private_key from your *.pem file, keep format",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "local_path",
+        "description": "will put all file under this path",
+        "required": true,
+        "default": "./*"
+      },
+      {
+        "name": "remote_path",
+        "description": "files will copy to under remote_path",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "sftp_only",
+        "description": "connection via sftp protocol only",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "sftpArgs",
+        "description": "sftp args",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "delete_remote_files",
+        "description": "This operation will delete all files in the remote path before upload. Please be careful set this to true",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "password",
+        "description": "SSH passsword\uff0cIf a password is set, the secret key pair is ignored",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "rsyncArgs",
+        "description": "Additional arguments for the rsync command. You can use this parameter to customize the rsync behavior, such as excluding files or directories. Example: '--exclude=node_modules --exclude=.git --exclude=*.log'. If set, these arguments will be passed directly to the rsync command.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ssh_passphrase",
+        "description": "Passphrase for ssh encrypted private-key. If the private-key is not encrypted, this parameter is not required.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wlixcc",
+    "verified": false,
+    "origin": "github.com/wlixcc/SFTP-Deploy-Action",
+    "latest_release": {
+      "tag_name": "v1.2.6",
+      "name": "v1.2.6 \u2013 Support for Encrypted Private Keys",
+      "published_at": "2025-04-16T02:42:22Z",
+      "html_url": "https://github.com/wlixcc/SFTP-Deploy-Action/releases/tag/v1.2.6",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:17.908388Z"
+}

@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/azure/LAMPStack-Azure-VirtualMachine",
+  "version": "e0c16f695a48",
+  "definition": {
+    "name": "Deploy LAMP stack on Azure Virtual Machine",
+    "description": "This action helps create an Azure Virtual Machine and deploy LAMP stack on it",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "client-id",
+        "description": "Client id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "tenant-id",
+        "description": "Tenant id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "subscription-id",
+        "description": "Subscription id to be used with your az login",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "resource-group-name",
+        "description": "Resource group to deploy your resources to",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "admin-username",
+        "description": "Admin username to login to vm",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "admin-password",
+        "description": "Admin password to login to vm",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/LAMPStack-Azure-VirtualMachine",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:13:47Z",
+      "html_url": "https://github.com/Azure/LAMPStack-Azure-VirtualMachine/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:11.605803Z"
+}

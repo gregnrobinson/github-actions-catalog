@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/actions/add-to-project",
+  "version": "6a25f29f75bf",
+  "definition": {
+    "name": "Add To GitHub projects",
+    "description": "Automatically add issues and PRs to GitHub projects",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "project-url",
+        "description": "URL of the project to add issues to",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "A GitHub personal access token with write access to the project",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "labeled",
+        "description": "A comma-separated list of labels to use as a filter for issue to be added",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "label-operator",
+        "description": "The behavior of the labels filter, AND to match all labels, OR to match any label, NOT to exclude any listed label (default is OR)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "itemId",
+        "description": "The ID of the item that was added to the project"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/add-to-project",
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "v1.0.2",
+      "published_at": "2024-06-24T21:04:37Z",
+      "html_url": "https://github.com/actions/add-to-project/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:00.197937Z"
+}

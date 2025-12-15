@@ -1,0 +1,86 @@
+{
+  "action_id": "marketplace/pascalgn/npm-publish-action",
+  "version": "9ae604de2817",
+  "definition": {
+    "name": "Publish to npm",
+    "description": "Automatically publish new versions to npm",
+    "author": "pascalgn",
+    "inputs": [
+      {
+        "name": "commit_pattern",
+        "description": "The pattern that matches version update commits.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tag_name",
+        "description": "The name of the tag that you want to create for the version.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tag_message",
+        "description": "The message of the tag that you want to create for the version.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "create_tag",
+        "description": "Whether to create a git tag or not.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "workspace",
+        "description": "Custom workspace directory that contains the package.json file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "publish_command",
+        "description": "Custom publish command.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "publish_args",
+        "description": "Publish command arguments.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changed",
+        "description": "Whether the version has changed in the examined commits"
+      },
+      {
+        "name": "version",
+        "description": "The detected version number"
+      },
+      {
+        "name": "commit",
+        "description": "The SHA of the commit where the version change has been detected"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "pascalgn",
+    "verified": false,
+    "origin": "github.com/pascalgn/npm-publish-action",
+    "latest_release": {
+      "tag_name": "1.3.9",
+      "name": "1.3.9",
+      "published_at": "2022-04-21T20:00:28Z",
+      "html_url": "https://github.com/pascalgn/npm-publish-action/releases/tag/1.3.9",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:26.293901Z"
+}

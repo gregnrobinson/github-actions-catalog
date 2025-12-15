@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/JamesIves/f45-lionheart-strava-importer",
+  "version": "f3750ac6fcb8",
+  "definition": {
+    "name": "F45 Lionheart Strava Importer",
+    "description": "Fetches a workout from the F45 Lionheart API and pushes it to Strava. \ud83e\udd81",
+    "author": "James Ives <iam@jamesiv.es> (https://jives.dev)",
+    "inputs": [
+      {
+        "name": "STRAVA_CLIENT_ID",
+        "description": "Your Strava Client ID",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "STRAVA_CLIENT_SECRET",
+        "description": "Your Strava Client Secret",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "STRAVA_REFRESH_TOKEN",
+        "description": "Your Strava Refresh Token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "F45_CLASS_DATE",
+        "description": "The date that the F45 Class was taken, this should be in the format YYYY-MM-DD.",
+        "required": true,
+        "default": "2025-03-14"
+      },
+      {
+        "name": "F45_CLASS_TIME",
+        "description": "The time of the F45 Class, this should be in 24 hour format and mirror the time the class was scheduled to start.",
+        "required": true,
+        "default": "06:30"
+      },
+      {
+        "name": "F45_STUDIO_CODE",
+        "description": "The F45 Studio Code where the class was taken",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "F45_USER_ID",
+        "description": "Your F45 User ID",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "F45_LIONHEART_SERIAL_NUMBER",
+        "description": "Your F45 Lionheart Serial Number",
+        "required": true,
+        "default": "366418"
+      },
+      {
+        "name": "DRY_RUN",
+        "description": "If set to true the script will not push the workout to Strava.",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-status",
+        "description": "The status of the deployment that indicates if the run failed or passed. Possible outputs include: success|failed|skipped"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "JamesIves",
+    "verified": false,
+    "origin": "github.com/JamesIves/f45-lionheart-strava-importer",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2025-03-15T11:54:40Z",
+      "html_url": "https://github.com/JamesIves/f45-lionheart-strava-importer/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:09.688058Z"
+}

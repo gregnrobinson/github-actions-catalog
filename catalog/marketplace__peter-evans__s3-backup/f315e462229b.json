@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/peter-evans/s3-backup",
+  "version": "f315e462229b",
+  "definition": {
+    "name": "S3 Backup",
+    "description": "Mirror a repository to S3 compatible object storage",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/s3-backup",
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "S3 Backup v1.1.1",
+      "published_at": "2022-10-20T06:47:36Z",
+      "html_url": "https://github.com/peter-evans/s3-backup/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:27.722185Z"
+}

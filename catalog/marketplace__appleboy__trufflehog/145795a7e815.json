@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/appleboy/trufflehog",
+  "version": "145795a7e815",
+  "definition": {
+    "name": "TruffleHog OSS",
+    "description": "Scan Github Actions with TruffleHog.",
+    "author": "Truffle Security Co. <support@trufflesec.com>",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Repository path",
+        "required": false,
+        "default": "./"
+      },
+      {
+        "name": "base",
+        "description": "Start scanning from here (usually main branch).",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "head",
+        "description": "Scan commits until here (usually dev branch).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "extra_args",
+        "description": "Extra args to be passed to the trufflehog cli.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "version",
+        "description": "Scan with this trufflehog cli version.",
+        "required": false,
+        "default": "latest"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/trufflehog"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:52.444268Z"
+}

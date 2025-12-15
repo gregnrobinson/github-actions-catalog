@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/jamesgeorge007/github-activity-readme/action.yml",
     "origin": "github.com/jamesgeorge007/github-activity-readme",
     "publisher": "jamesgeorge007",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.4.5",
+      "name": "v0.4.5",
+      "published_at": "2025-02-22T15:02:04Z",
+      "html_url": "https://github.com/jamesgeorge007/github-activity-readme/releases/tag/v0.4.5",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub - Activity - Readme",
@@ -76,10 +84,10 @@
         "reasoning": "This action updates the README file with recent GitHub activity, which falls under documentation. It also serves a communication purpose by sharing user activity.",
         "tags": [
           "README",
-          "GitHub Activity",
-          "Documentation",
-          "Automation",
-          "GitHub"
+          "GitHub",
+          "activity",
+          "documentation",
+          "communication"
         ]
       }
     ]
@@ -88,6 +96,6 @@
     "source_hash": "27beb5495f7ddda79c3d82455bf52fd485bbcb3bba277e4101ee2a427ef95cb9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.840876Z"
+    "generated_at": "2025-12-15T02:19:00.185661Z"
   }
 }

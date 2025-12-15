@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/google-github-actions/send-google-chat-webhook",
+  "version": "cf56836fdcbe",
+  "definition": {
+    "name": "send-google-chat-webhhook",
+    "description": "Send message to your google chat workspace",
+    "author": "google-github-actions",
+    "inputs": [
+      {
+        "name": "webhook_url",
+        "description": "Chat space webhook url",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "mention",
+        "description": "Mention people or not, format <users/user_id>",
+        "required": false,
+        "default": "<users/all>"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/send-google-chat-webhook",
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2024-10-30T20:14:47Z",
+      "html_url": "https://github.com/google-github-actions/send-google-chat-webhook/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:50.222734Z"
+}

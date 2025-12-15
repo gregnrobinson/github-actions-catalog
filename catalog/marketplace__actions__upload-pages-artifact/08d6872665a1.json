@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/actions/upload-pages-artifact",
+  "version": "08d6872665a1",
+  "definition": {
+    "name": "Upload GitHub Pages artifact",
+    "description": "A composite action that prepares your static assets to be deployed to GitHub Pages",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "name",
+        "description": "Artifact name",
+        "required": false,
+        "default": "github-pages"
+      },
+      {
+        "name": "path",
+        "description": "Path of the directory containing the static assets.",
+        "required": true,
+        "default": "_site/"
+      },
+      {
+        "name": "retention-days",
+        "description": "Duration after which artifact will expire in days.",
+        "required": false,
+        "default": "1"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "artifact_id",
+        "description": "The ID of the artifact that was uploaded."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/upload-pages-artifact",
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "v4.0.0",
+      "published_at": "2025-08-14T19:21:06Z",
+      "html_url": "https://github.com/actions/upload-pages-artifact/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:21.629179Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/telegram-action/action.yml",
     "origin": "github.com/appleboy/telegram-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2024-11-15T17:41:33Z",
+      "html_url": "https://github.com/appleboy/telegram-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Telegram Message Notify",
@@ -133,7 +141,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is primarily focused on sending messages via Telegram, which falls under communication. Additionally, it serves the purpose of notifying users, thus fitting into the notification category as well.",
+        "reasoning": "The action is designed to send messages via Telegram, which falls under communication and notification categories.",
         "tags": [
           "telegram",
           "notification",
@@ -148,6 +156,6 @@
     "source_hash": "4f26af92c3e42d6c38f57d4377f3a535014ecf9d8a3fd7e452ef39ecba9b7397",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.179132Z"
+    "generated_at": "2025-12-15T02:19:00.576749Z"
   }
 }

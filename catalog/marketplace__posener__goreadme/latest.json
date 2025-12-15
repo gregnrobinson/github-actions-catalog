@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/posener/goreadme/action.yml",
     "origin": "github.com/posener/goreadme",
     "publisher": "posener",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.4.2",
+      "name": "",
+      "published_at": "2021-09-28T07:20:01Z",
+      "html_url": "https://github.com/posener/goreadme/releases/tag/v1.4.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "goreadme",
@@ -216,13 +224,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is designed to update the README file from Go documentation, which directly relates to documentation management.",
+        "reasoning": "The action's primary function is to update the README file from Go documentation, which directly relates to documentation management.",
         "tags": [
           "README",
           "Go",
           "documentation",
-          "automation",
-          "goreadme"
+          "goreadme",
+          "automation"
         ]
       }
     ]
@@ -231,6 +239,6 @@
     "source_hash": "46682aa56907ba6f8f84c9a49685a939e44ff67a59fe6963de5b4d35cf1debb7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.825751Z"
+    "generated_at": "2025-12-15T02:19:01.130035Z"
   }
 }

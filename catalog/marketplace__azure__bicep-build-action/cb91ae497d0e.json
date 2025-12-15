@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/azure/bicep-build-action",
+  "version": "cb91ae497d0e",
+  "definition": {
+    "name": "bicep-build-output",
+    "description": "Build an ARM template from Bicep main file",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "bicepFilePath",
+        "description": "Bicep main file path",
+        "required": true,
+        "default": "./main.bicep"
+      },
+      {
+        "name": "outputFilePath",
+        "description": "ARM template output path",
+        "required": false,
+        "default": "./azuredeploy.json"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/bicep-build-action",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Bicep Build Action v1.0.1",
+      "published_at": "2022-06-18T18:00:59Z",
+      "html_url": "https://github.com/Azure/bicep-build-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:06.693195Z"
+}

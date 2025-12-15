@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/actions/cache",
+  "version": "cad1f27a00db",
+  "definition": {
+    "name": "Cache",
+    "description": "Cache artifacts like dependencies and build outputs to improve workflow execution time",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "A list of files, directories, and wildcard patterns to cache and restore",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "key",
+        "description": "An explicit key for restoring and saving the cache",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "restore-keys",
+        "description": "An ordered multiline string listing the prefix-matched keys, that are used for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "upload-chunk-size",
+        "description": "The chunk size used to split up large files during upload, in bytes",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "enableCrossOsArchive",
+        "description": "An optional boolean when enabled, allows windows runners to save or restore caches that can be restored or saved respectively on other platforms",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "fail-on-cache-miss",
+        "description": "Fail the workflow if cache entry is not found",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "lookup-only",
+        "description": "Check if a cache entry exists for the given input(s) (key, restore-keys) without downloading the cache",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "save-always",
+        "description": "Run the post step to save the cache even if another step before fails",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate an exact match was found for the primary key"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/cache",
+    "latest_release": {
+      "tag_name": "v5.0.1",
+      "name": "v5.0.1",
+      "published_at": "2025-12-12T16:52:38Z",
+      "html_url": "https://github.com/actions/cache/releases/tag/v5.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:05.290666Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-set-context/action.yml",
     "origin": "github.com/azure/k8s-set-context",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.0.2",
+      "name": "v4.0.2",
+      "published_at": "2025-11-13T22:20:00Z",
+      "html_url": "https://github.com/Azure/k8s-set-context/releases/tag/v4.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Kubernetes Set Context",
@@ -81,14 +89,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets the context for a Kubernetes cluster, which is primarily an infrastructure-related task. It also involves authentication methods to access the cluster, hence the secondary category.",
+        "tags": [
+          "Kubernetes",
+          "context",
+          "infrastructure",
+          "kubeconfig",
+          "authentication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7ad3c023b0241d23261813579cd4872c9a599b0188a6c8d8dfc0da2cc70cba3d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.670765Z"
+    "generated_at": "2025-12-15T02:18:59.949991Z"
   }
 }

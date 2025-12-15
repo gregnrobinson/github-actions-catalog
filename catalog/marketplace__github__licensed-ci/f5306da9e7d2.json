@@ -1,0 +1,134 @@
+{
+  "action_id": "marketplace/github/licensed-ci",
+  "version": "f5306da9e7d2",
+  "definition": {
+    "name": "Licensed CI",
+    "description": "Ensure cached github/licensed license data is valid and up to date",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "command",
+        "description": "Licensed command to run",
+        "required": false,
+        "default": "licensed"
+      },
+      {
+        "name": "github_token",
+        "description": "Access token to push license updates to GitHub",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "config_file",
+        "description": "Path to licensed configuration file",
+        "required": false,
+        "default": ".licensed.yml"
+      },
+      {
+        "name": "user_name",
+        "description": "Name to use when pushing file changes",
+        "required": false,
+        "default": "licensed-ci"
+      },
+      {
+        "name": "user_email",
+        "description": "Email to use when pushing file changes",
+        "required": false,
+        "default": "licensed-ci@users.noreply.github.com"
+      },
+      {
+        "name": "commit_message",
+        "description": "Message to use when committing file changes",
+        "required": false,
+        "default": "Auto-update license files"
+      },
+      {
+        "name": "pr_comment",
+        "description": "(Deprecated) Comment to add to a pull request, if one exists for the branch",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "workflow",
+        "description": "Which workflow to run when metadata is updated.  See README for more details.",
+        "required": false,
+        "default": "push"
+      },
+      {
+        "name": "cleanup_on_success",
+        "description": "Whether to close open PRs and delete license branches on CI success in user branch. Only used by `branch` workflow",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "branch",
+        "description": "Branch to run the action on when using `workflow_dispatch` or `schedule` event triggers",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dependabot_skip",
+        "description": "Whether to add [dependabot skip] to license update commits resulting from Dependabot updates",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "sources",
+        "description": "Set to a string containing a comma-separated list of github/licensed source name to add `--sources` CLI arguments to cache and status commands.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "format",
+        "description": "Set to `yaml` or `json` to add the `--format` CLI argument to cache and status commands.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "licenses_branch",
+        "description": "The branch containing licensed-ci changes."
+      },
+      {
+        "name": "user_branch",
+        "description": "The branch containing user changes."
+      },
+      {
+        "name": "licenses_updated",
+        "description": "A boolean string indicating whether license files were updated."
+      },
+      {
+        "name": "pr_url",
+        "description": "The html url of the pull request containing license updates, if available."
+      },
+      {
+        "name": "pr_number",
+        "description": "The number of the pull request containing license updates, if available."
+      },
+      {
+        "name": "pr_created",
+        "description": "True if a pull request was created in a `branch` workflow, false otherwise."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/licensed-ci",
+    "latest_release": {
+      "tag_name": "v1.11.1",
+      "name": "1.11.1: Dependencies bump",
+      "published_at": "2024-12-02T21:37:52Z",
+      "html_url": "https://github.com/github/licensed-ci/releases/tag/v1.11.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:24.085312Z"
+}

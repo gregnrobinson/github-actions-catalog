@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-maven-publish",
+  "version": "d0925cb5a994",
+  "definition": {
+    "name": "action-maven-publish",
+    "description": "GitHub Action for automatically publishing Maven packages",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "gpg_private_key",
+        "description": "GPG private key for signing the published artifacts",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gpg_passphrase",
+        "description": "Passphrase for the GPG key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "nexus_username",
+        "description": "Username (not email!) for your Nexus repository manager account",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "nexus_password",
+        "description": "Password for your Nexus account",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "server_id",
+        "description": "Nexus server ID as specified in your project's `nexus-staging-maven-plugin` and `distributionManagement` configurations",
+        "required": false,
+        "default": "ossrh"
+      },
+      {
+        "name": "directory",
+        "description": "Directory of the Maven project which should be deployed",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "maven_goals_phases",
+        "description": "Maven goals and build phases to execute",
+        "required": false,
+        "default": "clean deploy"
+      },
+      {
+        "name": "maven_args",
+        "description": "Additional arguments to pass to the Maven command",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "maven_profiles",
+        "description": "Active Maven profiles",
+        "required": false,
+        "default": "deploy"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "samuelmeuli",
+    "verified": false,
+    "origin": "github.com/samuelmeuli/action-maven-publish",
+    "latest_release": {
+      "tag_name": "v1.4.0",
+      "name": "",
+      "published_at": "2020-04-04T08:20:52Z",
+      "html_url": "https://github.com/samuelmeuli/action-maven-publish/releases/tag/v1.4.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:14.135208Z"
+}

@@ -178,13 +178,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is designed to set up Miniconda, which is primarily used for managing dependencies and environments in Python projects. It also involves building and packaging software using Conda.",
+        "reasoning": "The action sets up Miniconda, which is primarily used for managing dependencies and environments for Python projects. It also plays a role in building and packaging applications that rely on Conda.",
         "tags": [
           "miniconda",
+          "conda",
           "dependency management",
           "environment setup",
-          "packaging",
-          "python"
+          "packaging"
         ]
       }
     ]
@@ -193,6 +193,6 @@
     "source_hash": "61a50eacf178bd4dcf5d08fe2b695fb8d5f0031d7f6f9645c2f998e661d699c1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.531546Z"
+    "generated_at": "2025-12-15T02:19:01.090893Z"
   }
 }

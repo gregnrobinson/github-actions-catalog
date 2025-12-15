@@ -1,0 +1,96 @@
+{
+  "action_id": "marketplace/peter-evans/find-comment",
+  "version": "ae0461fa5b12",
+  "definition": {
+    "name": "Find Comment",
+    "description": "Find an issue or pull request comment",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GITHUB_TOKEN or a repo scoped PAT.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The full name of the repository containing the issue or pull request.",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "issue-number",
+        "description": "The number of the issue or pull request in which to search.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "comment-author",
+        "description": "The GitHub user name of the comment author.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body-includes",
+        "description": "A string to search for in the body of comments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body-regex",
+        "description": "A regular expression to search for in the body of comments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "direction",
+        "description": "Search direction, specified as `first` or `last`",
+        "required": false,
+        "default": "first"
+      },
+      {
+        "name": "nth",
+        "description": "0-indexed number, specifying which comment to return if multiple are found",
+        "required": false,
+        "default": 0
+      }
+    ],
+    "outputs": [
+      {
+        "name": "comment-id",
+        "description": "The id of the matching comment found."
+      },
+      {
+        "name": "comment-node-id",
+        "description": "The GraphQL node id of the matching comment found."
+      },
+      {
+        "name": "comment-body",
+        "description": "The body of the matching comment found."
+      },
+      {
+        "name": "comment-author",
+        "description": "The author of the matching comment found."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/find-comment",
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Find Comment v4.0.0",
+      "published_at": "2025-10-01T16:37:36Z",
+      "html_url": "https://github.com/peter-evans/find-comment/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:35.546680Z"
+}

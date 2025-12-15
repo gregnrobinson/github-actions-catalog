@@ -41,13 +41,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action provides an SDK that aids in developing Android apps, which suggests it has a focus on documentation and dependency management. It may also assist in the build process of Android applications.",
+        "reasoning": "The action provides an SDK to facilitate Android app development, which suggests it helps with documentation and dependency management. It may also be involved in the build process.",
         "tags": [
-          "Android",
-          "SDK",
-          "Library",
-          "Development",
-          "Documentation"
+          "android",
+          "sdk",
+          "library",
+          "development",
+          "kickstart"
         ]
       }
     ]
@@ -56,6 +56,6 @@
     "source_hash": "1b5c6902f3ea3a013ac0c3ece09b427bd8e6fdd3b61a4cac6af98bd71517c960",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.613103Z"
+    "generated_at": "2025-12-15T02:19:00.797305Z"
   }
 }

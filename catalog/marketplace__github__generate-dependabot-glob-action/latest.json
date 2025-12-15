@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/generate-dependabot-glob-action/action.yml",
     "origin": "github.com/github/generate-dependabot-glob-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2024-05-03T18:49:20Z",
+      "html_url": "https://github.com/github/generate-dependabot-glob-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Generate Dependabot Glob",
@@ -49,13 +57,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action generates a configuration file for Dependabot, which is primarily focused on managing dependencies. It also provides documentation through the generated file's header.",
+        "reasoning": "The action generates a configuration file for Dependabot, which is primarily focused on managing dependencies. Additionally, it provides a template and header for documentation purposes.",
         "tags": [
           "dependabot",
-          "dependency",
+          "dependency management",
           "automation",
           "configuration",
-          "github-action"
+          "yaml"
         ]
       }
     ]
@@ -64,6 +72,6 @@
     "source_hash": "ef9ef07f3911ce4c8b4c02867b85c21911f10ea59f018cf8da6147419b6938e3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.983772Z"
+    "generated_at": "2025-12-15T02:19:00.380154Z"
   }
 }

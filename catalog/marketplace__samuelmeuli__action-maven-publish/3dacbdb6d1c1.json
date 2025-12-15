@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/samuelmeuli/action-maven-publish/action.yml",
     "origin": "github.com/samuelmeuli/action-maven-publish",
     "publisher": "samuelmeuli",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.4.0",
+      "name": "",
+      "published_at": "2020-04-04T08:20:52Z",
+      "html_url": "https://github.com/samuelmeuli/action-maven-publish/releases/tag/v1.4.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "action-maven-publish",
@@ -75,14 +83,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Publishing",
+      "Packaging",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on publishing Maven packages, which falls under the Publishing category. It also involves authentication through the Nexus repository manager credentials, making Authentication a relevant secondary category.",
+        "tags": [
+          "Maven",
+          "Publishing",
+          "GitHub Action",
+          "Nexus",
+          "Packaging"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "3dacbdb6d1c124958a707a448c02da514284ba858aebf811e39936d123af37ec",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.894157Z"
+    "generated_at": "2025-12-15T02:19:00.286368Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/setup-compose-action/action.yml",
     "origin": "github.com/docker/setup-compose-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v1.2.0",
+      "published_at": "2025-02-26T15:37:52Z",
+      "html_url": "https://github.com/docker/setup-compose-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Setup Compose",
@@ -44,13 +52,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action sets up Docker Compose, which is primarily an infrastructure tool for managing multi-container Docker applications. It also involves dependency management by caching the compose binary.",
+        "reasoning": "The action is focused on setting up Docker Compose, which is primarily related to infrastructure management, and it also involves caching the binary, linking it to dependency management.",
         "tags": [
-          "docker",
-          "compose",
-          "infrastructure",
-          "setup",
-          "dependency"
+          "Docker",
+          "Compose",
+          "Setup",
+          "Infrastructure",
+          "CI/CD"
         ]
       }
     ]
@@ -59,6 +67,6 @@
     "source_hash": "b527df2f2d1db826e1c7305711dc5f38c5f1c3edfdef22552e1bc9eed39bd897",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.450052Z"
+    "generated_at": "2025-12-15T02:18:59.697350Z"
   }
 }

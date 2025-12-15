@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/appleboy/gtalk-action",
+  "version": "c147118c6f48",
+  "definition": {
+    "name": "Gtalk Message Notify",
+    "description": "Sending a Gtalk message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "username",
+        "description": "gtalk user email",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "oauth_token",
+        "description": "AuthToken provides go-xmpp with the required OAuth2 token used to authenticate.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "message - optional.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to",
+        "description": "send message to user",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/gtalk-action",
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "",
+      "published_at": "2019-10-26T11:29:30Z",
+      "html_url": "https://github.com/appleboy/gtalk-action/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:51.500039Z"
+}

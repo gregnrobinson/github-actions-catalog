@@ -1,0 +1,370 @@
+{
+  "action_id": "marketplace/actions/stale",
+  "version": "55fbb3ac5162",
+  "definition": {
+    "name": "Close Stale Issues",
+    "description": "Close issues and pull requests with no recent activity",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "description": "Token for the repository. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "stale-issue-message",
+        "description": "The message to post on the issue when tagging it. If none provided, will not mark issues stale.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "stale-pr-message",
+        "description": "The message to post on the pull request when tagging it. If none provided, will not mark pull requests stale.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "close-issue-message",
+        "description": "The message to post on the issue when closing it. If none provided, will not comment when closing an issue.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "close-pr-message",
+        "description": "The message to post on the pull request when closing it. If none provided, will not comment when closing a pull requests.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "days-before-stale",
+        "description": "The number of days old an issue or a pull request can be before marking it stale. Set to -1 to never mark issues or pull requests as stale automatically.",
+        "required": false,
+        "default": "60"
+      },
+      {
+        "name": "days-before-issue-stale",
+        "description": "The number of days old an issue can be before marking it stale. Set to -1 to never mark issues as stale automatically. Override \"days-before-stale\" option regarding only the issues.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "days-before-pr-stale",
+        "description": "The number of days old a pull request can be before marking it stale. Set to -1 to never mark pull requests as stale automatically. Override \"days-before-stale\" option regarding only the pull requests.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "days-before-close",
+        "description": "The number of days to wait to close an issue or a pull request after it being marked stale. Set to -1 to never close stale issues or pull requests.",
+        "required": false,
+        "default": "7"
+      },
+      {
+        "name": "days-before-issue-close",
+        "description": "The number of days to wait to close an issue after it being marked stale. Set to -1 to never close stale issues. Override \"days-before-close\" option regarding only the issues.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "days-before-pr-close",
+        "description": "The number of days to wait to close a pull request after it being marked stale. Set to -1 to never close stale pull requests. Override \"days-before-close\" option regarding only the pull requests.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "stale-issue-label",
+        "description": "The label to apply when an issue is stale.",
+        "required": false,
+        "default": "Stale"
+      },
+      {
+        "name": "close-issue-label",
+        "description": "The label to apply when an issue is closed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exempt-issue-labels",
+        "description": "The labels that mean an issue is exempt from being marked stale. Separate multiple labels with commas (eg. \"label1,label2\").",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "close-issue-reason",
+        "description": "The reason to use when closing an issue.",
+        "required": false,
+        "default": "not_planned"
+      },
+      {
+        "name": "stale-pr-label",
+        "description": "The label to apply when a pull request is stale.",
+        "required": false,
+        "default": "Stale"
+      },
+      {
+        "name": "close-pr-label",
+        "description": "The label to apply when a pull request is closed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exempt-pr-labels",
+        "description": "The labels that mean a pull request is exempt from being marked as stale. Separate multiple labels with commas (eg. \"label1,label2\").",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-milestones",
+        "description": "The milestones that mean an issue or a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. \"milestone1,milestone2\").",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-issue-milestones",
+        "description": "The milestones that mean an issue is exempt from being marked as stale. Separate multiple milestones with commas (eg. \"milestone1,milestone2\"). Override \"exempt-milestones\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-pr-milestones",
+        "description": "The milestones that mean a pull request is exempt from being marked as stale. Separate multiple milestones with commas (eg. \"milestone1,milestone2\"). Override \"exempt-milestones\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-all-milestones",
+        "description": "Exempt all issues and pull requests with milestones from being marked as stale. Default to false.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "exempt-all-issue-milestones",
+        "description": "Exempt all issues with milestones from being marked as stale. Override \"exempt-all-milestones\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-all-pr-milestones",
+        "description": "Exempt all pull requests with milestones from being marked as stale. Override \"exempt-all-milestones\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "only-labels",
+        "description": "Only issues or pull requests with all of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "any-of-labels",
+        "description": "Only issues or pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "any-of-issue-labels",
+        "description": "Only issues with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override \"any-of-labels\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "any-of-pr-labels",
+        "description": "Only pull requests with at least one of these labels are checked if stale. Defaults to `` (disabled) and can be a comma-separated list of labels. Override \"any-of-labels\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "only-issue-labels",
+        "description": "Only issues with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels. Override \"only-labels\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "only-pr-labels",
+        "description": "Only pull requests with all of these labels are checked if stale. Defaults to `[]` (disabled) and can be a comma-separated list of labels. Override \"only-labels\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "operations-per-run",
+        "description": "The maximum number of operations per run, used to control rate limiting (GitHub API CRUD related).",
+        "required": false,
+        "default": "30"
+      },
+      {
+        "name": "remove-stale-when-updated",
+        "description": "Remove stale labels from issues and pull requests when they are updated or commented on.",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "remove-issue-stale-when-updated",
+        "description": "Remove stale labels from issues when they are updated or commented on. Override \"remove-stale-when-updated\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "remove-pr-stale-when-updated",
+        "description": "Remove stale labels from pull requests when they are updated or commented on. Override \"remove-stale-when-updated\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "debug-only",
+        "description": "Run the processor in debug mode without actually performing any operations on live issues.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "ascending",
+        "description": "The order to get issues or pull requests. Defaults to false, which is descending.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "sort-by",
+        "description": "What to sort results by. Valid options are `created`, `updated`, and `comments`. Defaults to `created`.",
+        "required": false,
+        "default": "created"
+      },
+      {
+        "name": "delete-branch",
+        "description": "Delete the git branch after closing a stale pull request.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "start-date",
+        "description": "The date used to skip the stale action on issue/pull request created before it (ISO 8601 or RFC 2822).",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-assignees",
+        "description": "The assignees which exempt an issue or a pull request from being marked as stale. Separate multiple assignees with commas (eg. \"user1,user2\").",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-issue-assignees",
+        "description": "The assignees which exempt an issue from being marked as stale. Separate multiple assignees with commas (eg. \"user1,user2\"). Override \"exempt-assignees\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-pr-assignees",
+        "description": "The assignees which exempt a pull request from being marked as stale. Separate multiple assignees with commas (eg. \"user1,user2\"). Override \"exempt-assignees\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-all-assignees",
+        "description": "Exempt all issues and pull requests with assignees from being marked as stale. Default to false.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "exempt-all-issue-assignees",
+        "description": "Exempt all issues with assignees from being marked as stale. Override \"exempt-all-assignees\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-all-pr-assignees",
+        "description": "Exempt all pull requests with assignees from being marked as stale. Override \"exempt-all-assignees\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exempt-draft-pr",
+        "description": "Exempt draft pull requests from being marked as stale. Default to false.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "enable-statistics",
+        "description": "Display some statistics at the end regarding the stale workflow (only when the logs are enabled).",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "labels-to-add-when-unstale",
+        "description": "A comma delimited list of labels to add when an issue or pull request becomes unstale.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "labels-to-remove-when-stale",
+        "description": "A comma delimited list of labels to remove when an issue or pull request becomes stale.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "labels-to-remove-when-unstale",
+        "description": "A comma delimited list of labels to remove when an issue or pull request becomes unstale.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ignore-updates",
+        "description": "Any update (update/comment) can reset the stale idle time on the issues and pull requests.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "ignore-issue-updates",
+        "description": "Any update (update/comment) can reset the stale idle time on the issues. Override \"ignore-updates\" option regarding only the issues.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ignore-pr-updates",
+        "description": "Any update (update/comment) can reset the stale idle time on the pull requests. Override \"ignore-updates\" option regarding only the pull requests.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "include-only-assigned",
+        "description": "Only the issues or the pull requests with an assignee will be marked as stale automatically.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "only-issue-types",
+        "description": "Only issues with a matching type are processed as stale/closed. Defaults to `[]` (disabled) and can be a comma-separated list of issue types.",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "closed-issues-prs",
+        "description": "List of all closed issues and pull requests."
+      },
+      {
+        "name": "staled-issues-prs",
+        "description": "List of all staled issues and pull requests."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/stale",
+    "latest_release": {
+      "tag_name": "v10.1.1",
+      "name": "v10.1.1",
+      "published_at": "2025-12-03T03:26:23Z",
+      "html_url": "https://github.com/actions/stale/releases/tag/v10.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:08.511576Z"
+}

@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/github/deploy-nodejs",
+  "version": "78f53f33dd83",
+  "definition": {
+    "name": "Deploy-NodeJS",
+    "description": "Install NodeJS on your GitHub Action runner.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/deploy-nodejs"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:28.061970Z"
+}

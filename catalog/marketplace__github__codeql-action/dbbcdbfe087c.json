@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/codeql-action",
+  "version": "dbbcdbfe087c",
+  "definition": {
+    "name": "CodeQL: Stub",
+    "description": "Stub: Don't use this action directly. Read [the documentation](https://docs.github.com/en/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) instead.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/codeql-action",
+    "latest_release": {
+      "tag_name": "codeql-bundle-v2.23.8",
+      "name": "CodeQL Bundle v2.23.8",
+      "published_at": "2025-12-11T15:44:31Z",
+      "html_url": "https://github.com/github/codeql-action/releases/tag/codeql-bundle-v2.23.8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:29.737913Z"
+}

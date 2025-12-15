@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/aks-set-context/action.yml",
     "origin": "github.com/azure/aks-set-context",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.0.3",
+      "name": "v4.0.3",
+      "published_at": "2025-04-21T18:11:41Z",
+      "html_url": "https://github.com/Azure/aks-set-context/releases/tag/v4.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Kubernetes set context",
@@ -73,13 +81,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action sets the kubeconfig to enable communication with an Azure Kubernetes cluster, primarily focusing on infrastructure management. It also involves authentication to access the cluster.",
+        "reasoning": "This action sets the kubeconfig to enable communication with an Azure Kubernetes cluster, which primarily falls under infrastructure management. It also involves authentication to access the cluster.",
         "tags": [
           "Azure",
           "Kubernetes",
           "Infrastructure",
-          "kubeconfig",
-          "AKS"
+          "Context",
+          "Kubeconfig"
         ]
       }
     ]
@@ -88,6 +96,6 @@
     "source_hash": "2e16e978ae12d27e22364820a99724b831a4aa6b7a829729316163573c005c55",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.584159Z"
+    "generated_at": "2025-12-15T02:18:59.860310Z"
   }
 }

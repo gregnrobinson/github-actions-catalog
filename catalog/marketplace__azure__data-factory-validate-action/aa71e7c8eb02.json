@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/azure/data-factory-validate-action",
+  "version": "aa71e7c8eb02",
+  "definition": {
+    "name": "data-factory-validate",
+    "description": "Validate all of the Azure Data Factory resources in the repository",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Directory that contains all Data Factory resources",
+        "required": false,
+        "default": "./"
+      },
+      {
+        "name": "id",
+        "description": "Data Factory resource ID",
+        "required": false,
+        "default": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DataFactory/factories/dataFactory"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/data-factory-validate-action",
+    "latest_release": {
+      "tag_name": "v1.1.6",
+      "name": "v1.1.6",
+      "published_at": "2024-06-12T19:45:33Z",
+      "html_url": "https://github.com/Azure/data-factory-validate-action/releases/tag/v1.1.6",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:40.624725Z"
+}

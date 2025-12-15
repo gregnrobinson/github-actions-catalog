@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/create-pull-request/action.yml",
     "origin": "github.com/peter-evans/create-pull-request",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v8.0.0",
+      "name": "Create Pull Request v8.0.0",
+      "published_at": "2025-12-09T20:24:51Z",
+      "html_url": "https://github.com/peter-evans/create-pull-request/releases/tag/v8.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create Pull Request",
@@ -186,14 +194,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on creating pull requests, which facilitates communication and collaboration in code development. It also relates to code quality by enabling code review processes and testing through integration of changes.",
+        "tags": [
+          "pull request",
+          "GitHub Actions",
+          "automation",
+          "repository",
+          "collaboration"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "497b8150b90e3771de7a8e6de08a370695b3a08b316b608609f9ea2ea28a1070",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.515186Z"
+    "generated_at": "2025-12-15T02:19:01.072522Z"
   }
 }

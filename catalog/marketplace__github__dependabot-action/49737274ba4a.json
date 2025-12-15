@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/dependabot-action/action.yml",
     "origin": "github.com/github/dependabot-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.30.0",
+      "name": "v2.30.0",
+      "published_at": "2025-12-05T17:52:15Z",
+      "html_url": "https://github.com/github/dependabot-action/releases/tag/v2.30.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Updater Action",
@@ -21,14 +29,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Automation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is specifically designed to run dependabot, which is a tool for managing dependencies in projects, making it primarily focused on dependency management.",
+        "tags": [
+          "dependabot",
+          "dependency",
+          "automation",
+          "updater",
+          "GitHub"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "49737274ba4ada17e93314206119387543ef039f6c25b3216301eb90bd479f67",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.980182Z"
+    "generated_at": "2025-12-15T02:19:00.375990Z"
   }
 }

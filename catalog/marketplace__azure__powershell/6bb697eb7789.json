@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/powershell/action.yml",
     "origin": "github.com/azure/powershell",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Azure PowerShell Action v2",
+      "published_at": "2024-03-27T07:23:45Z",
+      "html_url": "https://github.com/Azure/powershell/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure PowerShell Action",
@@ -51,14 +59,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Build",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The Azure PowerShell Action is primarily used to automate workflows related to Azure infrastructure, which places it in the Infrastructure category. Additionally, it can be used for building and deploying applications within Azure, justifying its inclusion in the Build and Deployment categories.",
+        "tags": [
+          "Azure",
+          "PowerShell",
+          "Automation",
+          "Infrastructure",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6bb697eb77897c9963371c8a686bb7576ddea08865e43c9f3ada84f7a679701e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.615875Z"
+    "generated_at": "2025-12-15T02:18:59.894741Z"
   }
 }

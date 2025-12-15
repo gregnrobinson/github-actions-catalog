@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/posener/learn",
+  "version": "65fdbb0a2f62",
+  "definition": {
+    "name": "main",
+    "description": "",
+    "author": "posener",
+    "inputs": [
+      {
+        "name": "addr",
+        "description": "Address to listen to",
+        "required": false,
+        "default": ":8080"
+      },
+      {
+        "name": "config",
+        "description": "Config file to load.",
+        "required": false,
+        "default": "config.json"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "posener",
+    "verified": false,
+    "origin": "github.com/posener/learn"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:46.292942Z"
+}

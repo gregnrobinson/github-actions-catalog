@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/evergreen",
+  "version": "83235e0702aa",
+  "definition": {
+    "name": "Evergreen action",
+    "description": "A GitHub Action to request dependabot enablement on eligible repositories in an organization.",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/evergreen",
+    "latest_release": {
+      "tag_name": "v1.24.9",
+      "name": "v1.24.9",
+      "published_at": "2025-12-01T23:37:06Z",
+      "html_url": "https://github.com/github/evergreen/releases/tag/v1.24.9",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:20.103154Z"
+}

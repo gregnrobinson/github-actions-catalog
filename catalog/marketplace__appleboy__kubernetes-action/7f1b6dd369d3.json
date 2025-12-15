@@ -1,0 +1,121 @@
+{
+  "action_id": "marketplace/appleboy/kubernetes-action",
+  "version": "7f1b6dd369d3",
+  "definition": {
+    "name": "Deploy K8S Tool",
+    "description": "Generate a Kubeconfig or creating & updating K8s Deployments.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "server",
+        "description": "Address of the Kubernetes cluster",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "skip_tls_verify",
+        "description": "Skip validity check for server certificate (default: false)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ca_cert",
+        "description": "PEM-encoded certificate authority certificates",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Kubernetes service account token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "namespace",
+        "description": "Kubernetes namespace",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_url",
+        "description": "URLs with http, https, and socks5",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "templates",
+        "description": "Templates to render, supports glob pattern",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cluster_name",
+        "description": "Cluster name (default: \"default\")",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "authinfo_name",
+        "description": "AuthInfo name (default: \"default\")",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "context_name",
+        "description": "Context name (default: \"default\")",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "deployment",
+        "description": "Name of the Kubernetes deployment to update",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container",
+        "description": "Name of the container within the deployment to update",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "image",
+        "description": "New image and tag for the container",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "output",
+        "description": "Output kubeconfig to file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug mode (default: false)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/kubernetes-action",
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "v0.0.1",
+      "published_at": "2023-06-03T11:48:09Z",
+      "html_url": "https://github.com/appleboy/kubernetes-action/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:59.065492Z"
+}

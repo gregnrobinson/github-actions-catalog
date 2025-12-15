@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/lukka/get-action-usage",
+  "version": "9fa07ffb8e18",
+  "definition": {
+    "name": "get-action-usage",
+    "description": "Search in public GitHub repositories for usage of get-cmake, run-cmake and run-vcpkg GitHub Actions and creates a D3.js based graph.'",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/get-action-usage"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:58.197541Z"
+}

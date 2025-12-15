@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/close-issue/action.yml",
     "origin": "github.com/peter-evans/close-issue",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "Close Issue v3.0.1",
+      "published_at": "2023-04-19T01:53:41Z",
+      "html_url": "https://github.com/peter-evans/close-issue/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Close Issue",
@@ -83,21 +91,21 @@
   "annotations": {
     "categories": [
       "Communication",
-      "Notification"
+      "Automation"
     ],
-    "confidence": "high",
+    "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is primarily focused on closing issues, which is a form of communication within the GitHub ecosystem. It also serves to notify users about the status of issues.",
+        "reasoning": "The action is primarily focused on closing issues, which is a form of communication within the GitHub ecosystem. It also automates the process of managing issues.",
         "tags": [
           "GitHub",
           "issue management",
-          "close issue",
           "automation",
-          "communication"
+          "close issue",
+          "workflow"
         ]
       }
     ]
@@ -106,6 +114,6 @@
     "source_hash": "de8e29a1b8244dd7777cfbb68bcb4bd4c582746d76c369e16a53f312adb65568",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.485842Z"
+    "generated_at": "2025-12-15T02:19:01.045331Z"
   }
 }

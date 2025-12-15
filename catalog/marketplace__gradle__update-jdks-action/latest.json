@@ -37,13 +37,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action updates JDK versions, which is a form of managing dependencies for a project. It also requires a GitHub authentication token, placing it in the Authentication category as well.",
+        "reasoning": "The action updates JDK versions, which falls under dependency management. It also requires a GitHub authentication token for access, categorizing it under authentication as well.",
         "tags": [
           "JDK",
-          "dependency",
           "Gradle",
-          "update",
-          "GitHub"
+          "Dependency Management",
+          "GitHub Action",
+          "Update"
         ]
       }
     ]
@@ -52,6 +52,6 @@
     "source_hash": "cde495911295bc0a0013abb3c9c513e5c07398676fea8f6dbe8d0bdbfb03c721",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.315314Z"
+    "generated_at": "2025-12-15T02:19:00.224647Z"
   }
 }

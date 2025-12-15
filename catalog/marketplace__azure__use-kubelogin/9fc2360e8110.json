@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/use-kubelogin/action.yml",
     "origin": "github.com/azure/use-kubelogin",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2",
+      "name": "v1.2",
+      "published_at": "2023-12-29T17:45:54Z",
+      "html_url": "https://github.com/Azure/use-kubelogin/releases/tag/v1.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup kubelogin",
@@ -39,14 +47,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is primarily focused on setting up kubelogin, which is used for authenticating with Kubernetes clusters, thus falling under Infrastructure and Authentication categories.",
+        "tags": [
+          "kubelogin",
+          "Kubernetes",
+          "GitHub Actions",
+          "authentication",
+          "setup"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "9fc2360e81108a672f916ca621c5771c73358c9dd4eba79c655c4cea7c3bbe9e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.700831Z"
+    "generated_at": "2025-12-15T02:18:59.984126Z"
   }
 }

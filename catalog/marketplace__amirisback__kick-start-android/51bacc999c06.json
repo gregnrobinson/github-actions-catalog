@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/kick-start-android",
+  "version": "51bacc999c06",
+  "definition": {
+    "name": "FrogoKickStartAndroid",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/kick-start-android"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:27.745031Z"
+}

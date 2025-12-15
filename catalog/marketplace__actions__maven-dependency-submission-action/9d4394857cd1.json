@@ -1,0 +1,89 @@
+{
+  "action_id": "marketplace/actions/maven-dependency-submission-action",
+  "version": "9d4394857cd1",
+  "definition": {
+    "name": "Maven Dependency Tree Dependency Submission",
+    "description": "A GitHub Action for Maven project to submit a complete dependency tree to populate the GitHub Dependency Graph",
+    "author": "actions",
+    "inputs": [
+      {
+        "name": "directory",
+        "description": "The directory that contains the maven project",
+        "required": false,
+        "default": "${{ github.workspace }}"
+      },
+      {
+        "name": "settings-file",
+        "description": "Optional path to a Maven settings.xml file for the dependencies to be resolved",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore-maven-wrapper",
+        "description": "Flag for optionally ignoring any maven wrapper files (mvnw) and instead rely on the PATH provided mvn",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "maven-args",
+        "description": "Additional maven arguments to add to the command line invocation of maven when it generates the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "token",
+        "description": "The GitHub token to use to submit the depedency snapshot to the repository",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "snapshot-sha",
+        "description": "The SHA that the results will be linked to in the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "snapshot-ref",
+        "description": "The ref that the results will be linked to in the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "detector-name",
+        "description": "The name of the detector that generated the dependency snapshot",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detector-version",
+        "description": "The version of the detector that generated the dependency snapshot",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detector-url",
+        "description": "The URL to the detector that generated the dependency snapshot",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "correlator",
+        "description": "An optional identifier to distinguish between multiple dependency snapshots of the same type",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/maven-dependency-submission-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:09.173699Z"
+}

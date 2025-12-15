@@ -1,0 +1,175 @@
+{
+  "action_id": "marketplace/azure/k8s-deploy",
+  "version": "06278e640d3d",
+  "definition": {
+    "name": "Deploy to Kubernetes cluster",
+    "description": "Deploy to a Kubernetes cluster including, but not limited to Azure Kubernetes Service (AKS) clusters",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "namespace",
+        "description": "Choose the target Kubernetes namespace. If the namespace is not provided, the commands will automatically use the namespace defined in the manifest files first or otherwise run in the default namespace.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "manifests",
+        "description": "Path to the manifest files which will be used for deployment.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "images",
+        "description": "Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "imagepullsecrets",
+        "description": "Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull-images",
+        "description": "Switch whether to pull the images from the registry before deployment to find out Dockerfile's path in order to add it to the annotations",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "strategy",
+        "description": "Deployment strategy to be used. Allowed values are basic, canary and blue-green",
+        "required": true,
+        "default": "basic"
+      },
+      {
+        "name": "route-method",
+        "description": "Route based on service, ingress or SMI for blue-green strategy",
+        "required": false,
+        "default": "service"
+      },
+      {
+        "name": "version-switch-buffer",
+        "description": "Indicates the buffer time in minutes before the switch is made to the green version (max is 300 min ie. 5hrs)",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "traffic-split-method",
+        "description": "Traffic split method to be used. Allowed values are pod and smi",
+        "required": false,
+        "default": "pod"
+      },
+      {
+        "name": "traffic-split-annotations",
+        "description": "Annotations in the form of key/value pair to be added to TrafficSplit. Relevant only if deployement strategy is blue-green or canary",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "baseline-and-canary-replicas",
+        "description": "Baseline and canary replicas count. Valid value between 0 to 100 (inclusive)",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "percentage",
+        "description": "Percentage of traffic redirect to canary deployment",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "action",
+        "description": "deploy, promote, or reject",
+        "required": true,
+        "default": "deploy"
+      },
+      {
+        "name": "force",
+        "description": "Deploy when a previous deployment already exists. If true then --force argument is added to the apply command",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "server-side",
+        "description": "The apply command runs in the server instead of the client. If true then --server-side argument is added to the apply command.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "timeout",
+        "description": "Timeout for the rollout status",
+        "required": false,
+        "default": "10m"
+      },
+      {
+        "name": "token",
+        "description": "Github token",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "annotate-resources",
+        "description": "Annotate the resources. If set to false all annotations are skipped completely.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "annotate-namespace",
+        "description": "Annotate the target namespace. Ignored when annotate-resources is set to false or no namespace is provided.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "private-cluster",
+        "description": "True if cluster is AKS private cluster",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "resource-group",
+        "description": "Name of resource group - Only required if using private cluster",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "description": "Name of the private cluster - Only required if using private cluster",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip-tls-verify",
+        "description": "True if the insecure-skip-tls-verify option should be used. Input should be 'true' or 'false'.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "resource-type",
+        "description": "Either Microsoft.ContainerService/managedClusters or Microsoft.ContainerService/fleets'.",
+        "required": false,
+        "default": "Microsoft.ContainerService/managedClusters"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/k8s-deploy",
+    "latest_release": {
+      "tag_name": "v5.0.4",
+      "name": "v5.0.4",
+      "published_at": "2025-08-06T17:20:54Z",
+      "html_url": "https://github.com/Azure/k8s-deploy/releases/tag/v5.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:35.014561Z"
+}

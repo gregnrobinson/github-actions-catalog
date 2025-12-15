@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/data-factory-export-action/action.yml",
     "origin": "github.com/azure/data-factory-export-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.1",
+      "name": "GitHub Action for Azure Data Factory Export",
+      "published_at": "2024-06-12T20:09:50Z",
+      "html_url": "https://github.com/Azure/data-factory-export-action/releases/tag/v1.2.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "data-factory-export",
@@ -44,8 +52,7 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Deployment",
-      "Packaging"
+      "Deployment"
     ],
     "confidence": "high",
     "evidence": [
@@ -53,7 +60,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on exporting Azure Data Factory resources to an ARM Template, which is primarily an infrastructure-related task. It also involves packaging the resources into a template format for deployment.",
+        "reasoning": "The action exports Azure Data Factory resources to an ARM Template, which is primarily related to infrastructure management and deployment of resources in Azure.",
         "tags": [
           "Azure",
           "Data Factory",
@@ -68,6 +75,6 @@
     "source_hash": "24e0647c5724c01f38e6e2722a10d2e8aab6476cf3ae76bb7d8664aef0bd6e8e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.638756Z"
+    "generated_at": "2025-12-15T02:18:59.917200Z"
   }
 }

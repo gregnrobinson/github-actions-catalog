@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/azure/acr-build",
+  "version": "d118aaeb9de2",
+  "definition": {
+    "name": "Azure Container Registry Build",
+    "description": "Use ACR to build a container image",
+    "author": "Alessandro Vozza",
+    "inputs": [
+      {
+        "name": "service_principal",
+        "description": "Service Principal with Contributor role on the ACR",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "service_principal_password",
+        "description": "Service Principal password",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "tenant",
+        "description": "Azure Container Registry tenant",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "registry",
+        "description": "The name of the ACR, minus the .azurecr.io",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repository",
+        "description": "Repository to use",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "git_access_token",
+        "description": "Github access token for private repositories",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "image",
+        "description": "Docker image name",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tag",
+        "description": "Docker image tag, default to the commit SHA",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "branch",
+        "description": "Branch to build from, defaults to master",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "folder",
+        "description": "The folder in the Github repo that holds the source",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "dockerfile",
+        "description": "The location of the Dockerfile; defaults to ./Dockerfile",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build_args",
+        "description": "JSON specifying key=value pairs as as Docker build arguments",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/acr-build",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2021-11-29T09:46:28Z",
+      "html_url": "https://github.com/Azure/acr-build/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:27.469644Z"
+}

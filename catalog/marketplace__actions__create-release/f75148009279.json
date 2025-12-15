@@ -1,0 +1,98 @@
+{
+  "action_id": "marketplace/actions/create-release",
+  "version": "f75148009279",
+  "definition": {
+    "name": "Create a Release",
+    "description": "Create a release for a tag in your repository",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "tag_name",
+        "description": "The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "release_name",
+        "description": "The name of the release. For example, `Release v1.0.1`",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "body",
+        "description": "Text describing the contents of the tag.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body_path",
+        "description": "Path to file with information about the tag.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "draft",
+        "description": "`true` to create a draft (unpublished) release, `false` to create a published one. Default: `false`",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "prerelease",
+        "description": "`true` to identify the release as a prerelease. `false` to identify the release as a full release. Default: `false`",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "commitish",
+        "description": "Any branch or commit SHA the Git tag is created from, unused if the Git tag already exists. Default: SHA of current commit",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "owner",
+        "description": "Owner of the repository if it is not the current one",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repo",
+        "description": "Repository on which to release.  Used only if you want to create the release on another repo",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "id",
+        "description": "The ID of the created Release"
+      },
+      {
+        "name": "html_url",
+        "description": "The URL users can navigate to in order to view the release"
+      },
+      {
+        "name": "upload_url",
+        "description": "The URL for uploading assets to the release"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/create-release",
+    "latest_release": {
+      "tag_name": "v1.1.4",
+      "name": "v1.1.4",
+      "published_at": "2020-09-14T13:55:07Z",
+      "html_url": "https://github.com/actions/create-release/releases/tag/v1.1.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:02.245138Z"
+}

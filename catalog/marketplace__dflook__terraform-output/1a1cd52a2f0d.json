@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/dflook/terraform-output",
+  "version": "1a1cd52a2f0d",
+  "definition": {
+    "name": "terraform-output",
+    "description": "Retrieve the root-level outputs from a Terraform configuration.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "Terraform workspace to get outputs from",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the Terraform config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nTerraform list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-output",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:38Z",
+      "html_url": "https://github.com/dflook/terraform-output/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:40.603787Z"
+}

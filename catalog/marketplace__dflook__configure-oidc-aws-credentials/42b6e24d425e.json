@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/configure-oidc-aws-credentials/action.yml",
     "origin": "github.com/dflook/configure-oidc-aws-credentials",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2023-01-23T09:48:46Z",
+      "html_url": "https://github.com/dflook/configure-oidc-aws-credentials/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "configure-oidc-aws-credentials",
@@ -74,14 +82,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action is primarily focused on fetching temporary AWS session credentials using OIDC, which falls under authentication. It also relates to infrastructure as it interacts with AWS services.",
+        "tags": [
+          "AWS",
+          "OIDC",
+          "credentials",
+          "authentication",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "42b6e24d425ebade66c2cfc7f0d478e613b3751b71be29d3534f2bfab2bd5edf",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.371378Z"
+    "generated_at": "2025-12-15T02:18:59.604560Z"
   }
 }

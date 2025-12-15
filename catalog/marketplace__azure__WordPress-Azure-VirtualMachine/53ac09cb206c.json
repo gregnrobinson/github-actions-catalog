@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/azure/WordPress-Azure-VirtualMachine",
+  "version": "53ac09cb206c",
+  "definition": {
+    "name": "Deploy WordPress on Azure Virtual Machine - Azure Quickstart Template",
+    "description": "This action helps create an Azure Virtual Machine and deploy Wordpress on it",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "client-id",
+        "description": "Client id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "tenant-id",
+        "description": "Tenant id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "subscription-id",
+        "description": "Subscription id to be used with your az login",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "resource-group-name",
+        "description": "Resource group to deploy your resources to",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "admin-username",
+        "description": "Admin username to login to app",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "admin-password",
+        "description": "Admin password to login to app and mySql",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/WordPress-Azure-VirtualMachine",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:21:07Z",
+      "html_url": "https://github.com/Azure/WordPress-Azure-VirtualMachine/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:16.902737Z"
+}

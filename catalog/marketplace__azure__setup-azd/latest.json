@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/setup-azd/action.yml",
     "origin": "github.com/azure/setup-azd",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "setup-azd_v2.2.1",
+      "published_at": "2025-11-20T01:13:44Z",
+      "html_url": "https://github.com/Azure/setup-azd/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "setup-azd",
@@ -37,13 +45,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is focused on downloading and installing a specific tool (azd), which is essential for managing dependencies in Azure development. It also relates to infrastructure as it sets up a tool used for deploying and managing Azure resources.",
+        "reasoning": "The action is focused on downloading and installing a specific tool (azd), which is a part of managing dependencies for Azure development. It also relates to infrastructure as it prepares the environment for Azure-related tasks.",
         "tags": [
-          "azd",
-          "Azure",
-          "setup",
+          "azure",
           "dependency",
-          "infrastructure"
+          "installation",
+          "infrastructure",
+          "azd"
         ]
       }
     ]
@@ -52,6 +60,6 @@
     "source_hash": "0bbdcaf1526b3e05fc81e8e261f598bd8de4ef7e765f9803fcb4a4c08f99cf3a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.526586Z"
+    "generated_at": "2025-12-15T02:18:59.801125Z"
   }
 }

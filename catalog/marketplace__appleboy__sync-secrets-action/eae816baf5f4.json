@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/appleboy/sync-secrets-action",
+  "version": "eae816baf5f4",
+  "definition": {
+    "name": "Gitea Sync Secrets",
+    "description": "Copies secrets from the action's environment to many other repos.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "gitea_token",
+        "description": "Token to use to get repos and write secrets",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "gitea_server",
+        "description": "The URL of the Gitea server to use.\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repos",
+        "description": "New line deliminated to select repositories to copy secrets to.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "orgs",
+        "description": "New line deliminated to select organizations to copy secrets to.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gitea_skip_verify",
+        "description": "When set to `true`, the action will skip SSL verification when making requests\nto the Gitea API. Defaults to `false`.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secrets",
+        "description": "New line deliminated regex expressions to select values from `process.env`.\nUse the action env to pass secrets from the repository in which this action\nruns with the `env` attribute of the step.\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "dry_run",
+        "description": "Run everything except for secret create and update functionality.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug mode to output detailed logging information for troubleshooting.\n",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "environment",
+        "description": "If this value is set, the action will set the secrets to the repositories environment with the name of this value.\nOnly works if `target` is set to `actions` (default).\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "description",
+        "description": "Optional description for the sync operation to help identify the purpose of this secrets synchronization.\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/sync-secrets-action",
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2025-01-22T02:37:25Z",
+      "html_url": "https://github.com/appleboy/sync-secrets-action/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:53.765399Z"
+}

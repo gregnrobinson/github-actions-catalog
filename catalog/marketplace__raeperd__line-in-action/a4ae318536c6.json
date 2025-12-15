@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/raeperd/line-in-action",
+  "version": "a4ae318536c6",
+  "definition": {
+    "name": "LINE-in-action",
+    "description": "Github action for pushing LINE message using LINE-Notify",
+    "author": "raeperd",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "An access token for authentication. Used for calling the notification API",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "1000 characters max",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "notificationDisabled",
+        "description": "If true, user doesn't receive a push notification when the message is sent. If false, The user receives a push notification when the message is sent. If omitted, the value defaults to false.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "stickerPackageId",
+        "description": "Package ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "stickerId",
+        "description": "Sticker ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "raeperd",
+    "verified": false,
+    "origin": "github.com/raeperd/line-in-action",
+    "latest_release": {
+      "tag_name": "v1.0",
+      "name": "First release v1.0",
+      "published_at": "2021-03-28T12:41:14Z",
+      "html_url": "https://github.com/raeperd/line-in-action/releases/tag/v1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:05.358313Z"
+}

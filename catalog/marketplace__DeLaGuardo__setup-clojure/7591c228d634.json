@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-clojure",
+  "version": "7591c228d634",
+  "definition": {
+    "name": "Setup Clojure",
+    "description": "Setup your runner with Clojure build tools",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "lein",
+        "description": "The Leiningen version to make available on the path.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "boot",
+        "description": "The boot-clj version to make available on the path.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tools-deps",
+        "description": "[DEPRECATED] The tools deps version to make available on the path.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cli",
+        "description": "Clojure CLI version to make available on the path.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cmd-exe-workaround",
+        "description": "[DEPRECATED] On Windows platform, it will replace official Clojure CLI with the `deps.clj` of its specific version, `latest` can be used.\nUseful for running `clojure` command from `cmd.exe`.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "bb",
+        "description": "Babashka version to install, `latest` can be used.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "clj-kondo",
+        "description": "Clj-kondo version to install, `latest` can be used.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cljfmt",
+        "description": "cljfmt version to install, `latest` can be used.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cljstyle",
+        "description": "cljstyle version to install, `latest` can be used.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "zprint",
+        "description": "zprint version to install, `latest` can be used.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "To fix rate limit errors, provide `secrets.GITHUB_TOKEN` value to this field. More info: https://docs.github.com/en/actions/security-guides/automatic-token-authentication\n",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "invalidate-cache",
+        "description": "Set to `true` to fix problems related to wrongly populated tool cache\n",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/setup-clojure",
+    "latest_release": {
+      "tag_name": "13.4",
+      "name": "13.4",
+      "published_at": "2025-06-04T10:37:02Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-clojure/releases/tag/13.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:01.952558Z"
+}

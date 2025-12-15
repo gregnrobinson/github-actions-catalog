@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tibdex/auto-update/action.yml",
     "origin": "github.com/tibdex/auto-update",
     "publisher": "tibdex",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2022-11-29T11:22:20Z",
+      "html_url": "https://github.com/tibdex/auto-update/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Auto-update",
@@ -27,14 +35,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Automation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on keeping pull requests updated, which falls under dependency management as it ensures that branches are synchronized. It also automates the process, hence the secondary category.",
+        "tags": [
+          "auto-update",
+          "pull requests",
+          "GitHub Actions",
+          "dependency management",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "8d6c8e341bc46b527aa1b0d7c3405066c571fef4a54f1830fc5c2c71dc81f2b8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.399122Z"
+    "generated_at": "2025-12-15T02:19:00.933450Z"
   }
 }

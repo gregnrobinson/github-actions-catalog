@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/azure/functions-action",
+  "version": "942838fd1096",
+  "definition": {
+    "name": "Azure Functions Action",
+    "description": "Deploy Function App to Azure Functions",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "app-name",
+        "description": "Name of the Azure Function App",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "package",
+        "description": "Path to package or folder. *.zip or a folder to deploy",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "slot-name",
+        "description": "Function app slot to be deploy to",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "publish-profile",
+        "description": "Publish profile (*.publishsettings) file contents with web deploy secrets",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "respect-pom-xml",
+        "description": "Automatically look up Java function app artifact from pom.xml (default: 'false'). When this is set to 'true', 'package' should point to the folder of host.json.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "respect-funcignore",
+        "description": "Remove unwanted files defined in .funcignore file (default: 'false'). When this is set to 'true', 'package' should point to the folder of host.json.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "scm-do-build-during-deployment",
+        "description": "Enable build action from Kudu when the package is deployed onto the function app. This will temporarily change the SCM_DO_BUILD_DURING_DEPLOYMENT setting for this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string ''. To enable remote build for your project, please set this and 'enable-oryx-build' both to 'true'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false').",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "enable-oryx-build",
+        "description": "Use Oryx Build from Kudu when the package is deployed onto the function app. (Linux functions only). This will temporarily change the ENABLE_ORYX_BUILD setting from this deployment. To bypass this and use the existing settings from your function app, please set this to an empty string ''. To enable remote build for your project, please set this and 'scm-do-build-during-deployment' both to 'true'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false').",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "sku",
+        "description": "For function app on Flex Consumption plan, set this to 'flexconsumption'. You can skip this parameter for function app on other plans. If using RBAC credentials, then by default, GitHub Action will resolve the value for this paramter. But if using 'publish-profile', then you must set this for function app on Flex Consumption plan.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "remote-build",
+        "description": "For function app on Flex Consumption plan, enable build action from Kudu when the package is deployed onto the function app by setting this to 'true'. For function app on Flex Consumption plan, do not set 'scm-do-build-during-deployment' and 'enable-oryx-build'. By default, GitHub Action respects the packages resolved in GitHub workflow, disabling the redundant build action from Kudu endpoint. (default: 'false').",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "URL to work with your function app"
+      },
+      {
+        "name": "package-url",
+        "description": "URL to the package zip file if using package deployment"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/functions-action",
+    "latest_release": {
+      "tag_name": "v1.5.3",
+      "name": "",
+      "published_at": "2025-04-30T19:24:57Z",
+      "html_url": "https://github.com/Azure/functions-action/releases/tag/v1.5.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:33.970448Z"
+}

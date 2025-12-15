@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/dependency-submission-toolkit/action.yml",
     "origin": "github.com/github/dependency-submission-toolkit",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.5",
+      "name": "v2.0.5",
+      "published_at": "2025-03-21T20:39:22Z",
+      "html_url": "https://github.com/github/dependency-submission-toolkit/releases/tag/v2.0.5",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Example Dependency Submission Action",
@@ -33,14 +41,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on managing dependencies through npm, which places it primarily in the Dependency management category. It also involves building the package and may include documentation aspects related to the npm package.",
+        "tags": [
+          "dependency",
+          "npm",
+          "GitHub Actions",
+          "build",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6a20c6cb52746f7c91d694555bce76045fad1d321d64597711ded56e2bd535cb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.970949Z"
+    "generated_at": "2025-12-15T02:19:00.365293Z"
   }
 }

@@ -1,0 +1,34 @@
+{
+  "action_id": "marketplace/actions/typescript-action",
+  "version": "313d9f21ed8c",
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "description": "Your input description here",
+        "required": true,
+        "default": "1000"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "Your output description here"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/typescript-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:01.727891Z"
+}

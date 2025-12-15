@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/ammaraskar/sphinx-action",
+  "version": "30ade5bb73fb",
+  "definition": {
+    "name": "Sphinx Build",
+    "description": "Builds documentation using Sphinx",
+    "author": "Ammar Askar",
+    "inputs": [
+      {
+        "name": "docs-folder",
+        "description": "The folder containing your sphinx docs.",
+        "required": true,
+        "default": "docs/"
+      },
+      {
+        "name": "build-command",
+        "description": "The command used to build your documentation.",
+        "required": false,
+        "default": "make html"
+      },
+      {
+        "name": "pre-build-command",
+        "description": "Run before the build command, you can use this to install system level dependencies, for example with \"apt-get update -y && apt-get install -y perl\"",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "ammaraskar",
+    "verified": false,
+    "origin": "github.com/ammaraskar/sphinx-action",
+    "latest_release": {
+      "tag_name": "0.4",
+      "name": "No more github token",
+      "published_at": "2020-02-16T00:51:39Z",
+      "html_url": "https://github.com/ammaraskar/sphinx-action/releases/tag/0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:57.957429Z"
+}

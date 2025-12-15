@@ -1,0 +1,74 @@
+{
+  "action_id": "marketplace/raeperd/setup-go",
+  "version": "1da0532aff58",
+  "definition": {
+    "name": "Setup Go environment",
+    "description": "Setup a Go environment and add it to the PATH",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "go-version",
+        "description": "The Go version to download (if necessary) and use. Supports semver spec and ranges. Be sure to enclose this option in single quotation marks.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "go-version-file",
+        "description": "Path to the go.mod or go.work file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "check-latest",
+        "description": "Set this option to true if you want the action to always check for the latest available version that satisfies the version spec",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "token",
+        "description": "Used to pull Go distributions from go-versions. Since there's a default, this is typically not supplied by the user. When running this action on github.com, the default value is sufficient. When running on GHES, you can pass a personal access token for github.com if you are experiencing rate limiting.",
+        "required": false,
+        "default": "${{ github.server_url == 'https://github.com' && github.token || '' }}"
+      },
+      {
+        "name": "cache",
+        "description": "Used to specify whether caching is needed. Set to true, if you'd like to enable caching.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "cache-dependency-path",
+        "description": "Used to specify the path to a dependency file - go.sum",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "architecture",
+        "description": "Target architecture for Go to use. Examples: x86, x64. Will use system architecture by default.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "go-version",
+        "description": "The installed Go version. Useful when given a version range as input."
+      },
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate if a cache was hit"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "raeperd",
+    "verified": false,
+    "origin": "github.com/raeperd/setup-go"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:05.652366Z"
+}

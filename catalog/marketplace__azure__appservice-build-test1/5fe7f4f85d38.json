@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/azure/appservice-build-test1",
+  "version": "5fe7f4f85d38",
+  "definition": {
+    "name": "App Service Web App Build Action",
+    "description": "Build an Azure Web App on Linux using the Oryx build system.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "source-directory",
+        "description": "Relative path (within the repository) to the source directory of the project you want to build; if no value is provided for this, the root of the repository (\"GITHUB_WORKSPACE\" environment variable) will be built.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platform",
+        "description": "Programming platform used to build the web app; if no value is provided, Oryx will determine the platform to build with. The supported values are \"dotnet\", \"nodejs\", \"php\" and \"python\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platform-version",
+        "description": "Version of the programming platform used to build the web app; if no value is provided, Oryx will determine the version needed to build the repository.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/appservice-build-test1",
+    "latest_release": {
+      "tag_name": "124379",
+      "name": "Official Microsoft Sample",
+      "published_at": "2020-02-26T21:12:58Z",
+      "html_url": "https://github.com/Azure/appservice-build-test1/releases/tag/124379",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:31.816983Z"
+}

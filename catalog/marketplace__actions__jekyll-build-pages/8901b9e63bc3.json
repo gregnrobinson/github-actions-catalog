@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/actions/jekyll-build-pages",
+  "version": "8901b9e63bc3",
+  "definition": {
+    "name": "Build Jekyll for GitHub Pages",
+    "description": "A simple GitHub Action for producing Jekyll build artifacts compatible with GitHub Pages",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "source",
+        "description": "Directory where the source files reside.",
+        "required": false,
+        "default": "./"
+      },
+      {
+        "name": "destination",
+        "description": "Output directory of the build. Although it can be nested inside the source, it cannot be the same as the source directory.",
+        "required": false,
+        "default": "./_site"
+      },
+      {
+        "name": "future",
+        "description": "Publishes posts with a future date. When set to true, the build is made with the --future option which overrides the future option that may be set in a Jekyll configuration file.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "build_revision",
+        "description": "The SHA-1 of the git commit for which the build is running. Default to GITHUB_SHA.",
+        "required": false,
+        "default": "${{ github.sha }}"
+      },
+      {
+        "name": "verbose",
+        "description": "Verbose output",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "token",
+        "description": "GitHub token",
+        "required": true,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/jekyll-build-pages",
+    "latest_release": {
+      "tag_name": "v1.0.13",
+      "name": "v1.0.13",
+      "published_at": "2024-08-06T23:48:04Z",
+      "html_url": "https://github.com/actions/jekyll-build-pages/releases/tag/v1.0.13",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:14.809629Z"
+}

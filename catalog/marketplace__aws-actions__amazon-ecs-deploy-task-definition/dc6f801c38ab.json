@@ -1,0 +1,218 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-ecs-deploy-task-definition",
+  "version": "dc6f801c38ab",
+  "definition": {
+    "name": "Amazon ECS \"Deploy Task Definition\" Action for GitHub Actions",
+    "description": "Registers an Amazon ECS task definition, and deploys it to an ECS service",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "task-definition",
+        "description": "The path to the ECS task definition file to register.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "desired-count",
+        "description": "The number of instantiations of the task to place and keep running in your service.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "service",
+        "description": "The name of the ECS service to deploy to. If no service is given, the action will not deploy the task, but only register the task definition.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cluster",
+        "description": "The name of the ECS service's cluster.  Will default to the 'default' cluster.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "wait-for-service-stability",
+        "description": "Whether to wait for the ECS service to reach stable state after deploying the new task definition. Valid value is \"true\". Will default to not waiting.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "wait-for-minutes",
+        "description": "How long to wait for the ECS service to reach stable state, in minutes (default: 30 minutes, max: 6 hours). For CodeDeploy deployments, any wait time configured in the CodeDeploy deployment group will be added to this value.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codedeploy-appspec",
+        "description": "The path to the AWS CodeDeploy AppSpec file, if the ECS service uses the CODE_DEPLOY deployment controller. Will default to 'appspec.yaml'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codedeploy-application",
+        "description": "The name of the AWS CodeDeploy application, if the ECS service uses the CODE_DEPLOY deployment controller. Will default to 'AppECS-{cluster}-{service}'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codedeploy-deployment-group",
+        "description": "The name of the AWS CodeDeploy deployment group, if the ECS service uses the CODE_DEPLOY deployment controller. Will default to 'DgpECS-{cluster}-{service}'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codedeploy-deployment-description",
+        "description": "A description of the deployment, if the ECS service uses the CODE_DEPLOY deployment controller. NOTE: This will be truncated to 512 characters if necessary.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codedeploy-deployment-config",
+        "description": "The name of the AWS CodeDeploy deployment configuration, if the ECS service uses the CODE_DEPLOY deployment controller. If not specified, the value configured in the deployment group or `CodeDeployDefault.OneAtATime` is used as the default.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "force-new-deployment",
+        "description": "Whether to force a new deployment of the service. Valid value is \"true\". Will default to not force a new deployment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "service-managed-ebs-volume-name",
+        "description": "The name of the volume, to be manage in the ECS service. This value must match the volume name from the Volume object in the task definition, that was configuredAtLaunch.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "service-managed-ebs-volume",
+        "description": "A JSON object defining the configuration settings for the EBS Service volume that was ConfiguredAtLaunch. You can configure size, volumeType, IOPS, throughput, snapshot and encryption in ServiceManagedEBSVolumeConfiguration. Currently, the only supported volume type is an Amazon EBS volume.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task",
+        "description": "A boolean indicating whether to run a stand-alone task in a ECS cluster. Task will run before the service is updated if both are provided. Default value is false .",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-container-overrides",
+        "description": "A JSON array of container override objects which should applied when running a task outside of a service. Warning: Do not expose this field to untrusted inputs. More details: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerOverride.html",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-security-groups",
+        "description": "A comma-separated list of security group IDs to assign to a task when run outside of a service. Will default to none.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-subnets",
+        "description": "A comma-separated list of subnet IDs to assign to a task when run outside of a service. Will default to none.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-assign-public-IP",
+        "description": "Whether the task's elastic network interface receives a public IP address. The default value is DISABLED but will only be applied if run-task-subnets or run-task-security-groups are also set.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-capacity-provider-strategy",
+        "description": "A JSON array of capacity provider strategy items which should applied when running a task outside of a service. Will default to none.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-launch-type",
+        "description": "ECS launch type for tasks run outside of a service. Valid values are 'FARGATE' or 'EC2'. Will default to 'FARGATE'. Will only be applied if run-task-capacity-provider-strategy is not set.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-started-by",
+        "description": "A name to use for the startedBy tag when running a task outside of a service. Will default to 'GitHub-Actions'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-tags",
+        "description": "A JSON array of tags.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-managed-ebs-volume-name",
+        "description": "The name of the volume. This value must match the volume name from the Volume object in the task definition, that was configuredAtLaunch.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run-task-managed-ebs-volume",
+        "description": "A JSON object defining the configuration settings for the Amazon EBS task volume that was configuredAtLaunch. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. The Amazon EBS volumes are visible in your account in the Amazon EC2 console once they are created.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "wait-for-task-stopped",
+        "description": "Whether to wait for the task to stop when running it outside of a service. Will default to not wait.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "enable-ecs-managed-tags",
+        "description": "Determines whether to turn on Amazon ECS managed tags 'aws:ecs:serviceName' and 'aws:ecs:clusterName' for the tasks in the service.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "propagate-tags",
+        "description": "Determines to propagate the tags from the 'SERVICE' to the task.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "keep-null-value-keys",
+        "description": "A comma-separated list of keys whose empty values (empty string, array, or object) should be preserved in the task definition. By default, empty values are removed.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "task-definition-arn",
+        "description": "The ARN of the registered ECS task definition."
+      },
+      {
+        "name": "codedeploy-deployment-id",
+        "description": "The deployment ID of the CodeDeploy deployment (if the ECS service uses the CODE_DEPLOY deployment controller)."
+      },
+      {
+        "name": "run-task-arn",
+        "description": "The ARN(s) of the task(s) that were started by the run-task option. Output is in an array JSON format."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/amazon-ecs-deploy-task-definition",
+    "latest_release": {
+      "tag_name": "v2.5.0",
+      "name": "v2.5.0",
+      "published_at": "2025-11-24T19:43:50Z",
+      "html_url": "https://github.com/aws-actions/amazon-ecs-deploy-task-definition/releases/tag/v2.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:41.238543Z"
+}

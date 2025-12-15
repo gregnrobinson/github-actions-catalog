@@ -54,13 +54,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is designed to handle GitHub events, which falls under communication, while it also requires a GitHub event token for authentication.",
+        "reasoning": "This action handles GitHub events, which falls under communication, and it requires a GitHub event token for authentication.",
         "tags": [
           "GitHub",
-          "Azure",
-          "Event Handling",
-          "Communication",
-          "Authentication"
+          "event handler",
+          "Azure SDK",
+          "communication",
+          "authentication"
         ]
       }
     ]
@@ -69,6 +69,6 @@
     "source_hash": "9d923c23202a083bf140692efd666860f4ab2846724b500fbfcb2988e7a13075",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.715917Z"
+    "generated_at": "2025-12-15T02:18:59.998336Z"
   }
 }

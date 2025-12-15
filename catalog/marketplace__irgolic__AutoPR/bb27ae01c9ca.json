@@ -1,0 +1,115 @@
+{
+  "action_id": "marketplace/irgolic/AutoPR",
+  "version": "bb27ae01c9ca",
+  "definition": {
+    "name": "Automatic Pull Request",
+    "description": "Fix issues with AI-generated pull requests, powered by ChatGPT GPT-4 (AutoPR)",
+    "author": "irgolic",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "GitHub token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "base_branch",
+        "description": "Base branch",
+        "required": false,
+        "default": "main"
+      },
+      {
+        "name": "loading_gif_url",
+        "description": "URL of the gif to display while the PR is being generated",
+        "required": false,
+        "default": "https://media0.giphy.com/media/l3nWhI38IWDofyDrW/giphy.gif"
+      },
+      {
+        "name": "model",
+        "description": "Name of the OpenAI chat model",
+        "required": false,
+        "default": "gpt-4"
+      },
+      {
+        "name": "context_limit",
+        "description": "Maximum size of the context window to use, varies depending on the model and preference",
+        "required": false,
+        "default": "8192"
+      },
+      {
+        "name": "min_tokens",
+        "description": "Minimum number of tokens to be made available for generation",
+        "required": false,
+        "default": "1000"
+      },
+      {
+        "name": "max_tokens",
+        "description": "Maximum number of tokens to generate",
+        "required": false,
+        "default": "2000"
+      },
+      {
+        "name": "num_reasks",
+        "description": "Number of times to re-ask the model in file exploration and commit generation",
+        "required": false,
+        "default": "2"
+      },
+      {
+        "name": "agent_id",
+        "description": "ID of the brain to use",
+        "required": false,
+        "default": "plan_and_code"
+      },
+      {
+        "name": "agent_config",
+        "description": "Configuration for the coordinating agent in yaml format",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "target_branch_name_template",
+        "description": "Template for the name of the target branch",
+        "required": false,
+        "default": "autopr/{issue_number}"
+      },
+      {
+        "name": "temperature",
+        "description": "Temperature for the model",
+        "required": false,
+        "default": "0.9"
+      },
+      {
+        "name": "rail_temperture",
+        "description": "Temperature for the guardrails calls",
+        "required": false,
+        "default": "0.9"
+      },
+      {
+        "name": "overwrite_existing",
+        "description": "Whether to overwrite existing branches and pull requests when creating from issues",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "irgolic",
+    "verified": false,
+    "origin": "github.com/irgolic/AutoPR",
+    "latest_release": {
+      "tag_name": "v0.2.0",
+      "name": "v0.2.0",
+      "published_at": "2023-11-05T15:03:37Z",
+      "html_url": "https://github.com/irgolic/AutoPR/releases/tag/v0.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:45.193765Z"
+}

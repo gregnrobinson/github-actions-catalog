@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/jira-action/action.yml",
     "origin": "github.com/appleboy/jira-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.4.3",
+      "name": "v0.4.3",
+      "published_at": "2025-11-12T10:44:52Z",
+      "html_url": "https://github.com/appleboy/jira-action/releases/tag/v0.4.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Issue Integration",
@@ -93,14 +101,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action involves authentication through username and allows insecure SSL connections, indicating a focus on secure access. Additionally, it integrates with Jira, which suggests a communication aspect for issue tracking.",
+        "tags": [
+          "Jira",
+          "integration",
+          "authentication",
+          "issue tracking",
+          "communication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ddf99d665775710187d38659a33f3330406c78428ffdcfb850143ce628bde4e1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.145600Z"
+    "generated_at": "2025-12-15T02:19:00.542287Z"
   }
 }

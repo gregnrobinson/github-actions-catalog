@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/data-factory-validate-action/action.yml",
     "origin": "github.com/azure/data-factory-validate-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.6",
+      "name": "v1.1.6",
+      "published_at": "2024-06-12T19:45:33Z",
+      "html_url": "https://github.com/Azure/data-factory-validate-action/releases/tag/v1.1.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "data-factory-validate",
@@ -47,7 +55,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action is focused on validating Azure Data Factory resources, which relates to ensuring code quality and proper infrastructure setup.",
+        "reasoning": "This action is focused on validating Azure Data Factory resources, which relates to ensuring code quality and proper infrastructure setup.",
         "tags": [
           "Azure",
           "Data Factory",
@@ -62,6 +70,6 @@
     "source_hash": "8b76eacaaac69e96e61a2c2cdeaf83d4efb6afd53c337bcc3560e1c6869d1610",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.709527Z"
+    "generated_at": "2025-12-15T02:18:59.992761Z"
   }
 }

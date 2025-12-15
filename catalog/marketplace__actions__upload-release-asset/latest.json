@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/upload-release-asset/action.yml",
     "origin": "github.com/actions/upload-release-asset",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "Automate sliding major version number",
+      "published_at": "2020-02-10T08:01:38Z",
+      "html_url": "https://github.com/actions/upload-release-asset/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Upload a Release Asset",
@@ -60,7 +68,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Publishing",
-        "reasoning": "This action is primarily focused on uploading assets to a release, which falls under the publishing category. It also relates to deployment as it involves making assets available for users.",
+        "reasoning": "This action is primarily focused on uploading assets to a release, which falls under the publishing category. It also involves deployment aspects as it deals with assets related to software releases.",
         "tags": [
           "release",
           "upload",
@@ -75,6 +83,6 @@
     "source_hash": "aebbbc5e56105ec2cbaa9339e410ee0e78e72acb4969a8331406b746d1de6f7f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.230827Z"
+    "generated_at": "2025-12-15T02:19:00.629663Z"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/automatic-contrib-prs",
+  "version": "70fabd151942",
+  "definition": {
+    "name": "Automatic Contrib PRs",
+    "description": "A GitHub Action that opens adds CONTRIBUTING.md file in repositories that dont have them.",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/automatic-contrib-prs",
+    "latest_release": {
+      "tag_name": "v2.1.8",
+      "name": "v2.1.8",
+      "published_at": "2025-02-17T17:08:06Z",
+      "html_url": "https://github.com/github/automatic-contrib-prs/releases/tag/v2.1.8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:28.305515Z"
+}

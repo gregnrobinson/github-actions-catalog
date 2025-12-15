@@ -1,0 +1,118 @@
+{
+  "action_id": "marketplace/JS-DevTools/npm-publish",
+  "version": "734e85c2a7c7",
+  "definition": {
+    "name": "NPM Publish",
+    "description": "Fast, easy publishing to NPM",
+    "author": "James Messinger",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "The NPM access token to use when publishing",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry",
+        "description": "The NPM registry URL to use",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "package",
+        "description": "The path to your package or its package.json file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tag",
+        "description": "The distribution tag to publish",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "access",
+        "description": "Determines whether the published package should be publicly visible, or restricted to members of your NPM organization.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "provenance",
+        "description": "Attach provenance statements when publishing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "strategy",
+        "description": "Version check and release strategy. If \"all\" (default), package will be published if its version is simply not yet published. If \"upgrade\", package will be published if its version is higher than the existing tag, according to semantic versioning.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore-scripts",
+        "description": "Run npm with the --ignore-scripts flag as a security precaution. Enabled by default.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dry-run",
+        "description": "Run npm with the --dry-run flag to avoid actually publishing anything.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "id",
+        "description": "The identifier of the published package. If a release was published, format is `${name}@${version}. If no release occurred, will be an empty string.\n"
+      },
+      {
+        "name": "type",
+        "description": "The type of version change that occurred on the published tag. If release was an upgrade, will be a semver release type (\"major\", \"minor\", ...). If the published tag had no previous version, will be \"initial\". If version was change was not an upgrade, will be \"different\". If no release occurred, will be an empty string.\n"
+      },
+      {
+        "name": "name",
+        "description": "Name of the package."
+      },
+      {
+        "name": "version",
+        "description": "Version of the package."
+      },
+      {
+        "name": "old-version",
+        "description": "The previous version on the distribution tag. If there was no previous version on the tag, will be an empty string.\n"
+      },
+      {
+        "name": "registry",
+        "description": "The registry used for version checking and publishing."
+      },
+      {
+        "name": "tag",
+        "description": "The distribution tag used for version checking and publishing."
+      },
+      {
+        "name": "access",
+        "description": "The package access setting used. If configured by the action or package.json, will be \"public\" or \"protected\". If not configured for a non-scoped package, will be \"public\". If not configured for a scoped package, will be \"default\".\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "JS-DevTools",
+    "verified": false,
+    "origin": "github.com/JS-DevTools/npm-publish",
+    "latest_release": {
+      "tag_name": "v4.1.1",
+      "name": "v4.1.1",
+      "published_at": "2025-09-26T04:13:03Z",
+      "html_url": "https://github.com/JS-DevTools/npm-publish/releases/tag/v4.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:03.458304Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/wei/pull-request/action.yml",
     "origin": "github.com/wei/pull-request",
     "publisher": "wei",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.12.1",
+      "name": "Release v2.12.1",
+      "published_at": "2023-01-21T16:38:00Z",
+      "html_url": "https://github.com/repo-sync/pull-request/releases/tag/v2.12.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Pull Request Action",
@@ -131,14 +139,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action facilitates the creation of pull requests, which is primarily a communication mechanism in collaborative development. It also relates to code quality by enabling code reviews and integration processes.",
+        "tags": [
+          "pull request",
+          "GitHub",
+          "collaboration",
+          "automation",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ca3c8be0d7311173808bd3442dc609d112a5c1049fbd2c942c395e96a9021b52",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.717057Z"
+    "generated_at": "2025-12-15T02:19:00.943277Z"
   }
 }

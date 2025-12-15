@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/ammaraskar/msvc-problem-matcher/action.yml",
     "origin": "github.com/ammaraskar/msvc-problem-matcher",
     "publisher": "ammaraskar",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.3.0",
+      "name": "",
+      "published_at": "2024-01-25T20:46:58Z",
+      "html_url": "https://github.com/ammaraskar/msvc-problem-matcher/releases/tag/0.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "MSVC Problem Matcher",
@@ -30,7 +38,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The MSVC Problem Matcher is designed to identify errors during builds, which is a key aspect of testing and ensuring code quality.",
+        "reasoning": "The action is designed to identify errors during MSVC builds, which is a key aspect of testing and ensuring code quality.",
         "tags": [
           "MSVC",
           "problem matcher",
@@ -45,6 +53,6 @@
     "source_hash": "4f16fcc54ffe5a6849277d88bab13cad9692c4257a1362ec11c05a0cbb140eed",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.076875Z"
+    "generated_at": "2025-12-15T02:18:59.758908Z"
   }
 }

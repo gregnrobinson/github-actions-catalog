@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/codeguru-reviewer/action.yml",
     "origin": "github.com/aws-actions/codeguru-reviewer",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1",
+      "name": "CodeGuru Reviewer",
+      "published_at": "2021-06-24T02:51:57Z",
+      "html_url": "https://github.com/aws-actions/codeguru-reviewer/releases/tag/v1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "CodeGuru Reviewer",
@@ -159,14 +167,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The CodeGuru Reviewer action is primarily focused on analyzing code quality through reviews, which falls under the Code quality category. Additionally, it may involve testing and managing dependencies in the provided Java source code.",
+        "tags": [
+          "AWS",
+          "Code quality",
+          "Code review",
+          "Java",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "f12f2befe8127be6055dbf966c18fb7bffe3192b34d22b8fc22ecdd60bd3e3e0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.057321Z"
+    "generated_at": "2025-12-15T02:19:00.469844Z"
   }
 }

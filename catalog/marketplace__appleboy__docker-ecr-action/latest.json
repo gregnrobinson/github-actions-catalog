@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/docker-ecr-action/action.yml",
     "origin": "github.com/appleboy/docker-ecr-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.3",
+      "name": "",
+      "published_at": "2021-03-02T04:13:11Z",
+      "html_url": "https://github.com/appleboy/docker-ecr-action/releases/tag/v0.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker ECR",
@@ -152,13 +160,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying Docker images to Amazon ECR, which falls under the Deployment category. It also requires authentication credentials, placing it in the Authentication category, and it deals with Docker images, which relates to Packaging.",
+        "reasoning": "This action is primarily focused on deploying Docker images to Amazon ECR, which falls under deployment. It also requires authentication credentials to access the ECR, placing it in the authentication category as well.",
         "tags": [
           "Docker",
           "ECR",
           "Deployment",
           "Amazon",
-          "CI/CD"
+          "Container Registry"
         ]
       }
     ]
@@ -167,6 +175,6 @@
     "source_hash": "c7d5f48ff0784c05978d2e58b57abf9c2c555d4bcd3ad57e0e4321644df38eb0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.117033Z"
+    "generated_at": "2025-12-15T02:19:00.518498Z"
   }
 }

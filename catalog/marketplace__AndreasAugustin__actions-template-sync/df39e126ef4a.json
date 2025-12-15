@@ -1,0 +1,220 @@
+{
+  "action_id": "marketplace/AndreasAugustin/actions-template-sync",
+  "version": "df39e126ef4a",
+  "definition": {
+    "name": "actions-template-sync",
+    "description": "Synchronises changes of the template repository",
+    "author": "AndreasAugustin",
+    "inputs": [
+      {
+        "name": "source_gh_token",
+        "description": "GitHub Token for the repo to be synced from. Can be passed in using $\\{{ secrets.GITHUB_TOKEN }}",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "target_gh_token",
+        "description": "GitHub Token for the repo to be synced to. Can be passed in using $\\{{ secrets.GITHUB_TOKEN }}",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub Token for the repo to be synced from. Can be passed in using $\\{{ secrets.GITHUB_TOKEN }}",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source_repo_path",
+        "description": "Repository path of the template",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "upstream_branch",
+        "description": "The target branch",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source_repo_ssh_private_key",
+        "description": "[optional] private ssh key for the source repository. E.q. useful if using a private template repository.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_branch_name_prefix",
+        "description": "[optional] the prefix of branches created by this action",
+        "required": false,
+        "default": "chore/template_sync"
+      },
+      {
+        "name": "pr_title",
+        "description": "[optional] the title of PRs opened by this action",
+        "required": false,
+        "default": "upstream merge template repository"
+      },
+      {
+        "name": "pr_body",
+        "description": "[optional] the body of PRs opened by this action",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_labels",
+        "description": "[optional] comma separated list of pull request labels",
+        "required": false,
+        "default": "template_sync"
+      },
+      {
+        "name": "pr_reviewers",
+        "description": "[optional] comma separated list of pull request reviewers",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pr_commit_msg",
+        "description": "[optional] the commit message of the template merge",
+        "required": false,
+        "default": "chore(template): merge template changes :up:"
+      },
+      {
+        "name": "hostname",
+        "description": "[optional] the hostname of the GitHub repository",
+        "required": false,
+        "default": "github.com"
+      },
+      {
+        "name": "is_dry_run",
+        "description": "[optional] set to true if you do not want to push the changes and not want to create a PR",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "is_allow_hooks",
+        "description": "[optional] set to true if you want to allow hooks. Use this functionality with caution!",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "hooks",
+        "description": "[optional] define the hooks as yaml string input",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "is_force_push_pr",
+        "description": "[optional] set to true if you want to force push and pr update",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "is_pr_cleanup",
+        "description": "[optional] set to true if you want to cleanup older PRs targeting the same branch.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "is_keep_branch_on_pr_cleanup",
+        "description": "[optional] set to true if you want to keep the branch when pr is cleanup",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "is_not_source_github",
+        "description": "[optional] set to true if the source repository is not a github related repository. Useful e.q. if the source is GitLab",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "is_force_deletion",
+        "description": "[optional] set to true if you want to force delete files which are deleted within the source repository even if they contain changes",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "is_git_lfs",
+        "description": "[optional] set to true if you want to enable git lfs",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "git_user_name",
+        "description": "[optional] set the committer git user.name for the merge commit",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "git_user_email",
+        "description": "[optional] set the committer git user.email for the merge commit",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "git_remote_pull_params",
+        "description": "[optional] set the pull parameters for the remote repository",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gpg_private_key",
+        "description": "[optional] set the gpg private key if you want to sign your commits",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gpg_passphrase",
+        "description": "[optional] set if your private gpg key has a password",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "steps",
+        "description": "[optional] set the steps to execute within the action",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "template_sync_ignore_file_path",
+        "description": "[optional] set the path to the ignore file",
+        "required": false,
+        "default": ".templatesyncignore"
+      },
+      {
+        "name": "is_with_tags",
+        "description": "[optional] set to true if tags should be synced",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_branch",
+        "description": "The name of the PR branch"
+      },
+      {
+        "name": "template_git_hash",
+        "description": "The git hash of the template source repository"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "AndreasAugustin",
+    "verified": false,
+    "origin": "github.com/AndreasAugustin/actions-template-sync",
+    "latest_release": {
+      "tag_name": "v2.5.2",
+      "name": "v2.5.2",
+      "published_at": "2025-07-16T19:52:05Z",
+      "html_url": "https://github.com/AndreasAugustin/actions-template-sync/releases/tag/v2.5.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:00.158704Z"
+}

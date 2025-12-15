@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/upload-pages-artifact/action.yml",
     "origin": "github.com/actions/upload-pages-artifact",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "v4.0.0",
+      "published_at": "2025-08-14T19:21:06Z",
+      "html_url": "https://github.com/actions/upload-pages-artifact/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Upload GitHub Pages artifact",
@@ -83,14 +91,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is focused on preparing and uploading static assets for deployment to GitHub Pages, which aligns it primarily with the Deployment category. Additionally, it involves packaging the assets as artifacts.",
+        "tags": [
+          "GitHub Pages",
+          "artifact",
+          "deployment",
+          "static assets",
+          "upload"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "4524ed61c2fb61b4d7e88de2d779fe937461b6926aeb716b56f047ae3abcd046",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.320289Z"
+    "generated_at": "2025-12-15T02:19:00.727210Z"
   }
 }

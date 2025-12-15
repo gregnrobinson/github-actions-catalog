@@ -1,0 +1,97 @@
+{
+  "action_id": "marketplace/appleboy/line-action",
+  "version": "e000e452d289",
+  "definition": {
+    "name": "LINE Message Notify",
+    "description": "Sending a Line message",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "secret",
+        "description": "line channel secret",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "line channel access token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "room",
+        "description": "line room ID",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "group",
+        "description": "line group ID",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "the message contents",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "images",
+        "description": "line images",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "videos",
+        "description": "line videos",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "audios",
+        "description": "line audios",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "stickers",
+        "description": "line stickers",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "locations",
+        "description": "line locations",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "delimiter",
+        "description": "line delimiter, default is ::",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/line-action",
+    "latest_release": {
+      "tag_name": "v0.0.2",
+      "name": "",
+      "published_at": "2019-11-16T22:49:27Z",
+      "html_url": "https://github.com/appleboy/line-action/releases/tag/v0.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:57.473644Z"
+}

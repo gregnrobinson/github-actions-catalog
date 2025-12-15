@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dkamm/pr-quiz/action.yml",
     "origin": "github.com/dkamm/pr-quiz",
     "publisher": "dkamm",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2025-07-28T19:25:56Z",
+      "html_url": "https://github.com/dkamm/pr-quiz/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "PR Quiz",
@@ -117,7 +125,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action generates a quiz based on a pull request, which facilitates communication and understanding of code changes. It also serves as a testing tool for knowledge assessment related to the pull request.",
+        "reasoning": "The action generates a quiz based on a pull request, which facilitates communication about code changes and can serve as a form of documentation for understanding the changes. It also has a testing aspect as it assesses knowledge related to the pull request.",
         "tags": [
           "quiz",
           "pull request",
@@ -132,6 +140,6 @@
     "source_hash": "cf2e07cbd770bf680977bc7991862963a5ae8a9ac992db5cd48a025bd78e95f8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.269233Z"
+    "generated_at": "2025-12-15T02:19:00.155673Z"
   }
 }

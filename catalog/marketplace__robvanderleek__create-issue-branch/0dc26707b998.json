@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/robvanderleek/create-issue-branch/action.yml",
     "origin": "github.com/robvanderleek/create-issue-branch",
     "publisher": "robvanderleek",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.9.0",
+      "name": "v1.9.0",
+      "published_at": "2025-03-18T21:22:30Z",
+      "html_url": "https://github.com/robvanderleek/create-issue-branch/releases/tag/v1.9.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create Issue Branch",
@@ -25,14 +33,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action creates a new branch in response to an issue, which relates to infrastructure management in a repository. It also contributes to code quality by organizing work related to issues.",
+        "tags": [
+          "branch",
+          "issue",
+          "GitHub",
+          "automation",
+          "workflow"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "0dc26707b998cee5391fc222e454bbca1a7c2f9c75a355ddb272a5404ce3b043",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.456627Z"
+    "generated_at": "2025-12-15T02:19:00.510377Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/actions-oidc-debugger/action.yml",
     "origin": "github.com/github/actions-oidc-debugger",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-07-08T20:03:22Z",
+      "html_url": "https://github.com/github/actions-oidc-debugger/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "OIDC Debugger",
@@ -30,14 +38,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The OIDC Debugger is focused on printing OIDC claims, which are directly related to authentication processes, and it also has implications for security by ensuring proper audience verification.",
+        "tags": [
+          "OIDC",
+          "authentication",
+          "security",
+          "GitHub Actions",
+          "debugging"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "e3c118433c572092d001cb3c4abb1e9d789a0562cbace6e162ad940ae03b0fcd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.982279Z"
+    "generated_at": "2025-12-15T02:19:00.378473Z"
   }
 }

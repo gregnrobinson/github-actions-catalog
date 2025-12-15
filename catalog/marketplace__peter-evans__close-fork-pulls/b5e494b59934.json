@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/peter-evans/close-fork-pulls",
+  "version": "b5e494b59934",
+  "definition": {
+    "name": "Close Fork Pulls",
+    "description": "A GitHub action to close pull requests from forks",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GitHub auth token",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The GitHub repository containing the pull request",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "comment",
+        "description": "A comment to make on the pull requests before closing",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/close-fork-pulls",
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Close Fork Pulls v4.0.0",
+      "published_at": "2025-10-01T16:20:57Z",
+      "html_url": "https://github.com/peter-evans/close-fork-pulls/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:28.894523Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/AndreasAugustin/actions-template-sync/action.yml",
     "origin": "github.com/AndreasAugustin/actions-template-sync",
     "publisher": "AndreasAugustin",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.5.2",
+      "name": "v2.5.2",
+      "published_at": "2025-07-16T19:52:05Z",
+      "html_url": "https://github.com/AndreasAugustin/actions-template-sync/releases/tag/v2.5.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "actions-template-sync",
@@ -249,14 +257,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action synchronizes changes from a template repository, which is a form of managing dependencies on templates. It also involves documentation aspects as it deals with repository synchronization.",
+        "tags": [
+          "template",
+          "synchronization",
+          "GitHub",
+          "repository",
+          "actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "8065f7650a83f03a055d623ea9e4aa6690ed9c9a14f094f706c5c0b3a660eeab",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.085201Z"
+    "generated_at": "2025-12-15T02:18:59.769934Z"
   }
 }

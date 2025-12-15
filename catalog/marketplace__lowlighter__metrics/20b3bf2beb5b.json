@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/lowlighter/metrics/action.yml",
     "origin": "github.com/lowlighter/metrics",
     "publisher": "lowlighter",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.34",
+      "name": "Version 3.34",
+      "published_at": "2023-09-13T02:39:37Z",
+      "html_url": "https://github.com/lowlighter/metrics/releases/tag/v3.34",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Metrics embed",
@@ -2043,14 +2051,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Documentation",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action generates infographics to display statistics about a GitHub account, which is primarily useful for documentation and communication purposes regarding project metrics.",
+        "tags": [
+          "infographics",
+          "GitHub",
+          "metrics",
+          "documentation",
+          "communication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "20b3bf2beb5bfbea51e0cd81bfba0bda0f531424a9b526126c16bb6a82f9eac1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.379473Z"
+    "generated_at": "2025-12-15T02:19:00.874734Z"
   }
 }

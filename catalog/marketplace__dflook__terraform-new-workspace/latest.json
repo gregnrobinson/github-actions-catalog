@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-new-workspace/action.yml",
     "origin": "github.com/dflook/terraform-new-workspace",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:05Z",
+      "html_url": "https://github.com/dflook/terraform-new-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-new-workspace",
@@ -48,7 +56,7 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Deployment"
+      "Dependency management"
     ],
     "confidence": "high",
     "evidence": [
@@ -56,13 +64,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is focused on creating and managing Terraform workspaces, which is a key aspect of infrastructure management and deployment in cloud environments.",
+        "reasoning": "This action is focused on creating and managing Terraform workspaces, which is a key aspect of infrastructure as code. It also involves managing dependencies related to the Terraform configurations.",
         "tags": [
           "Terraform",
           "Infrastructure",
           "Workspace",
-          "Deployment",
-          "Automation"
+          "Automation",
+          "DevOps"
         ]
       }
     ]
@@ -71,6 +79,6 @@
     "source_hash": "96c79b99df89022dcfa33fb38f4e0a367bc45100cf989e237c45ddafc6c3f200",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.366295Z"
+    "generated_at": "2025-12-15T02:18:59.599907Z"
   }
 }

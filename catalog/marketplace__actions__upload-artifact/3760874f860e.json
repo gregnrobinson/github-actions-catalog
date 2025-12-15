@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/upload-artifact/action.yml",
     "origin": "github.com/actions/upload-artifact",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.0.0",
+      "name": "v6.0.0",
+      "published_at": "2025-12-12T18:51:31Z",
+      "html_url": "https://github.com/actions/upload-artifact/releases/tag/v6.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Upload a Build Artifact",
@@ -76,14 +84,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Packaging",
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action is primarily focused on uploading build artifacts, which falls under the Packaging category. It also relates to Build as it is used in the context of build processes and can be associated with Dependency management for managing artifacts.",
+        "tags": [
+          "artifact",
+          "upload",
+          "build",
+          "GitHub Actions",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "3760874f860e631be3d785d0589ade7cecb541eeac6f581989a814a2c99fc94f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.259446Z"
+    "generated_at": "2025-12-15T02:19:00.658360Z"
   }
 }

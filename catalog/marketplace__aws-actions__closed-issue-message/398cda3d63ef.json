@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/aws-actions/closed-issue-message",
+  "version": "398cda3d63ef",
+  "definition": {
+    "name": "Closed Issue Message",
+    "description": "Add a default comment on all issues that get closed",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "description": "Token for the repository. Can be passed in using {{ secrets.GITHUB_TOKEN }}",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "message",
+        "description": "The message you want to be commented whenever an issue is closed",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/closed-issue-message",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2",
+      "published_at": "2025-01-30T23:00:19Z",
+      "html_url": "https://github.com/aws-actions/closed-issue-message/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:36.306024Z"
+}

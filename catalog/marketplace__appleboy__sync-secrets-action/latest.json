@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/sync-secrets-action/action.yml",
     "origin": "github.com/appleboy/sync-secrets-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2025-01-22T02:37:25Z",
+      "html_url": "https://github.com/appleboy/sync-secrets-action/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Gitea Sync Secrets",
@@ -83,6 +91,7 @@
   "annotations": {
     "categories": [
       "Security",
+      "Infrastructure",
       "Dependency management"
     ],
     "confidence": "high",
@@ -91,13 +100,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "This action is focused on copying secrets, which is a security-related task, and it also involves managing dependencies across multiple repositories by syncing secrets to them.",
+        "reasoning": "This action is primarily focused on managing secrets, which falls under security. It also interacts with multiple repositories, indicating infrastructure and dependency management aspects.",
         "tags": [
           "secrets",
           "gitea",
           "sync",
           "security",
-          "dependencies"
+          "infrastructure"
         ]
       }
     ]
@@ -106,6 +115,6 @@
     "source_hash": "0a7ac6a77cb212762b997a8f4120b3f8b7a55670cc02deb3cd6c66d5969957c0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.172845Z"
+    "generated_at": "2025-12-15T02:19:00.569712Z"
   }
 }

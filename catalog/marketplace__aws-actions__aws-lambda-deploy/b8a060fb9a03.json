@@ -1,0 +1,220 @@
+{
+  "action_id": "marketplace/aws-actions/aws-lambda-deploy",
+  "version": "b8a060fb9a03",
+  "definition": {
+    "name": "AWS Lambda Deploy Action",
+    "description": "Updates the code and configuration of AWS Lambda functions. If the function does not exist, a new one will be created.",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "function-name",
+        "description": "Name of the Lambda function.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "package-type",
+        "description": "The package type of the Lambda function. Set to \"Image\" for container image functions, defaults to \"Zip\" for .zip file functions.",
+        "required": false,
+        "default": "Zip"
+      },
+      {
+        "name": "image-uri",
+        "description": "The URI of the container image in Amazon ECR. Required when package-type is \"Image\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "code-artifacts-dir",
+        "description": "The path to a directory of code artifacts to zip and deploy to Lambda. Required when package-type is \"Zip\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "handler",
+        "description": "The name of the method within your code that Lambda calls to run your function. Required when package-type is \"Zip\".",
+        "required": false,
+        "default": "index.handler"
+      },
+      {
+        "name": "runtime",
+        "description": "The identifier of the runtime. Required when package-type is \"Zip\".",
+        "required": false,
+        "default": "nodejs20.x"
+      },
+      {
+        "name": "s3-bucket",
+        "description": "S3 bucket name to use for Lambda deployment package. If provided, S3 deployment method will be used instead of direct upload.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "s3-key",
+        "description": "S3 key for the Lambda deployment package in the bucket. If not provided, a key will be auto-generated using the format: lambda-deployments/{function-name}/{timestamp}-{commit-hash}.zip.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "publish",
+        "description": "Set to true to publish a new version of the function after updating the code.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dry-run",
+        "description": "Set true to validate the request parameters and access permissions without modifying the function code. Applicable for updating function code only. Creating and updating function configuration will be skipped since they do not support dry run.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "revision-id",
+        "description": "Update the function only if the revision ID matches the ID that is specified.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "architectures",
+        "description": "The instruction set architecture that the function supports.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source-kms-key-arn",
+        "description": "The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your functions .zip deployment package.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "role",
+        "description": "The Amazon Resource Name (ARN) of the functions execution role. Required when creating a new function.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "function-description",
+        "description": "A description of the function.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "memory-size",
+        "description": "The amount of memory available to the function at runtime.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "timeout",
+        "description": "The amount of time (in seconds) that Lambda allows a function to run before stopping it.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "vpc-config",
+        "description": "For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "environment",
+        "description": "Environment variables as a JSON string",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dead-letter-config",
+        "description": "Specifies the queue or topic where Lambda sends asynchronous events when they fail processing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kms-key-arn",
+        "description": "The ARN of the Key Management Service (KMS) customer managed key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tracing-config",
+        "description": "Set Mode to Active to sample and trace a subset of incoming requests with X-Ray.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "layers",
+        "description": "A list of function layers to add to the functions execution environment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file-system-configs",
+        "description": "Connection settings for an Amazon EFS file system.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "image-config",
+        "description": "Configuration for the Lambda functions container image.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ephemeral-storage",
+        "description": "The size of the functions /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10,240 MB.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "snap-start",
+        "description": "The functions SnapStart setting.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "logging-config",
+        "description": "The Amazon CloudWatch Logs configuration settings for the function.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "code-signing-config-arn",
+        "description": "The ARN of a code-signing configuration to use on this function.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tags",
+        "description": "Tags to apply to the function as a JSON string (e.g. {\"Environment\":\"Production\",\"Team\":\"DevOps\"})",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "function-arn",
+        "description": "The ARN of the updated Lambda function."
+      },
+      {
+        "name": "version",
+        "description": "The function version if a new version was published."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/aws-lambda-deploy",
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2025-08-20T21:34:21Z",
+      "html_url": "https://github.com/aws-actions/aws-lambda-deploy/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:35.774197Z"
+}

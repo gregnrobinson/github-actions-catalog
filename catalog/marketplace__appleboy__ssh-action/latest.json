@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/ssh-action/action.yml",
     "origin": "github.com/appleboy/ssh-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.4",
+      "name": "v1.2.4",
+      "published_at": "2025-11-28T15:10:36Z",
+      "html_url": "https://github.com/appleboy/ssh-action/releases/tag/v1.2.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "SSH Remote Commands",
@@ -305,7 +313,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is primarily used to execute commands on remote servers via SSH, which falls under Infrastructure. It also involves communication with those servers.",
+        "reasoning": "The action is primarily used for executing commands on remote servers via SSH, which falls under Infrastructure. It also involves communication with the remote server, hence the secondary category.",
         "tags": [
           "SSH",
           "remote commands",
@@ -320,6 +328,6 @@
     "source_hash": "08fbefa38c818b5c7894eb055d88ac637f3e2c8967c820286c8e31a3e2f77c85",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.132261Z"
+    "generated_at": "2025-12-15T02:19:00.529264Z"
   }
 }

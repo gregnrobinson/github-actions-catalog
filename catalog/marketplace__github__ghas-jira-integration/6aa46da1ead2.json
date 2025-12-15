@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/github/ghas-jira-integration",
+  "version": "6aa46da1ead2",
+  "definition": {
+    "name": "Sync GitHub Advanced Security and Jira",
+    "description": "This helps sync GHAS alerts to JIRA by creating an issue for each alert.",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "jira_url",
+        "description": "URL of the JIRA instance",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "jira_user",
+        "description": "JIRA account with the required permissions",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "jira_token",
+        "description": "JIRA password or token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "jira_project",
+        "description": "JIRA project key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "jira_labels",
+        "description": "JIRA bug label(s). (e.g. valid format can be \"red-team,blue-team,green-team\", or \"red-team\") This tool will split the values entered by commas. Spaces in the double quotes will be respected and saved.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github_token",
+        "description": "GitHub API token with the required permissions",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "sync_direction",
+        "description": "Which direction to synchronize in (\"gh2jira\", \"jira2gh\" or \"both\")",
+        "required": false,
+        "default": "both"
+      },
+      {
+        "name": "issue_end_state",
+        "description": "Custom end state",
+        "required": false,
+        "default": "Done"
+      },
+      {
+        "name": "issue_reopen_state",
+        "description": "Custom reopen state",
+        "required": false,
+        "default": "To Do"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/ghas-jira-integration",
+    "latest_release": {
+      "tag_name": "v1.2.4",
+      "name": "v1.2.4",
+      "published_at": "2023-12-01T19:46:26Z",
+      "html_url": "https://github.com/github/ghas-jira-integration/releases/tag/v1.2.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:29.333802Z"
+}

@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/azure/data-factory-export-action",
+  "version": "208bd8015555",
+  "definition": {
+    "name": "data-factory-export",
+    "description": "Export Azure Data Factory resources to an ARM Template",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Directory that contains the Data Factory resources",
+        "required": false,
+        "default": "./"
+      },
+      {
+        "name": "id",
+        "description": "Data Factory resource ID",
+        "required": false,
+        "default": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup/providers/Microsoft.DataFactory/factories/dataFactory"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "arm-template-directory",
+        "description": "Directory where the ARM template will be saved"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/data-factory-export-action",
+    "latest_release": {
+      "tag_name": "v1.2.1",
+      "name": "GitHub Action for Azure Data Factory Export",
+      "published_at": "2024-06-12T20:09:50Z",
+      "html_url": "https://github.com/Azure/data-factory-export-action/releases/tag/v1.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:29.086555Z"
+}

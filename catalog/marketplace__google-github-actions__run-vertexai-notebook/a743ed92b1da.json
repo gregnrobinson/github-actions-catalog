@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/google-github-actions/run-vertexai-notebook",
+  "version": "a743ed92b1da",
+  "definition": {
+    "name": "Vertex AI Notebook Review Action",
+    "description": "Execute notebooks and create links to their output files",
+    "author": "google-github-actions",
+    "inputs": [
+      {
+        "name": "gcs_source_bucket",
+        "description": "Google Cloud Storage bucket to store notebooks to be run by Vertex AI. e.g. <project-id>/nbr/source",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "gcs_output_bucket",
+        "description": "Google Cloud Storage bucket to store the results of the notebooks executed by Vertex AI. e.g. <project-id>/nbr/output",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "allowlist",
+        "description": "Comma separated list of files to run on Vertex AI. e.g. mynotebook.ipynb, somedir/**.pynb. It is expected that this is the output from an action like ```dorny/paths-filter```",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "vertex_machine_type",
+        "description": "Type of Vertex AI machine to run notebooks on e.g. n1-standard-4",
+        "required": false,
+        "default": "n1-standard-4"
+      },
+      {
+        "name": "region",
+        "description": "Google Cloud region e.g. us-central1, us-east4",
+        "required": false,
+        "default": "us-central1"
+      },
+      {
+        "name": "add_comment",
+        "description": "Add a comment to an open PR as the final step - defaults to \"true\"",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "kernel_name",
+        "description": "Notebook kernel to use for the execution environment - defaults to python3",
+        "required": false,
+        "default": "python3"
+      },
+      {
+        "name": "vertex_container_name",
+        "description": "The base container image to use. Defaults to the basic Python container.",
+        "required": false,
+        "default": "gcr.io/deeplearning-platform-release/base-cu110:latest"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/run-vertexai-notebook",
+    "latest_release": {
+      "tag_name": "v1.1.3",
+      "name": "v1.1.3",
+      "published_at": "2025-09-03T02:18:54Z",
+      "html_url": "https://github.com/google-github-actions/run-vertexai-notebook/releases/tag/v1.1.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:52.868257Z"
+}

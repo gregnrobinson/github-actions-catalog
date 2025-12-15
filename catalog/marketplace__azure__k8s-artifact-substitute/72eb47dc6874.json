@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/azure/k8s-artifact-substitute",
+  "version": "72eb47dc6874",
+  "definition": {
+    "name": "Kubernetes Artifact Substitue",
+    "description": "Swap images/digests in Kubernetes manifest files",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "manifests",
+        "description": "Path to the manifest files which will be used for deployment.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "images",
+        "description": "Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "manifests",
+        "description": "Paths to the new manifests as a multiline string. Each manifest path is on a new line."
+      },
+      {
+        "name": "directory",
+        "description": "Path to the new manifests directory. All new manifests are in the root-level."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/k8s-artifact-substitute",
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2024-06-28T15:59:59Z",
+      "html_url": "https://github.com/Azure/k8s-artifact-substitute/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:24.073628Z"
+}

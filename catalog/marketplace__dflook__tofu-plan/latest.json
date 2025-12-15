@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-plan/action.yml",
     "origin": "github.com/dflook/tofu-plan",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:59Z",
+      "html_url": "https://github.com/dflook/tofu-plan/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-plan",
@@ -152,8 +160,8 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Build",
-      "Dependency management"
+      "Deployment",
+      "Code quality"
     ],
     "confidence": "high",
     "evidence": [
@@ -161,13 +169,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on creating an OpenTofu plan, which is related to infrastructure management and provisioning. It also involves building the plan and managing dependencies within the infrastructure setup.",
+        "reasoning": "The action is focused on creating an OpenTofu plan, which is primarily related to infrastructure management and deployment processes. Additionally, it contributes to code quality by ensuring that infrastructure changes are planned and reviewed before application.",
         "tags": [
           "OpenTofu",
-          "infrastructure",
-          "plan",
           "Terraform",
-          "automation"
+          "Infrastructure",
+          "Deployment",
+          "Plan Generation"
         ]
       }
     ]
@@ -176,6 +184,6 @@
     "source_hash": "7023043d3926b648992e39c4061142a04d41f39c925e1a7edde88b4db0a3042e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.353841Z"
+    "generated_at": "2025-12-15T02:18:59.588554Z"
   }
 }

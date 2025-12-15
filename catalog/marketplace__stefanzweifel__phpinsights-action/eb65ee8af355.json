@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/stefanzweifel/phpinsights-action",
+  "version": "eb65ee8af355",
+  "definition": {
+    "name": "PHP Insights Action",
+    "description": "Run PHP Insights",
+    "author": "Stefan Zweifel <hello@stefanzweifel.io>",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "stefanzweifel",
+    "verified": false,
+    "origin": "github.com/stefanzweifel/phpinsights-action",
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2020-02-11T18:40:57Z",
+      "html_url": "https://github.com/stefanzweifel/phpinsights-action/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:19.156993Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-lint/action.yml",
     "origin": "github.com/azure/k8s-lint",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-08-12T19:24:11Z",
+      "html_url": "https://github.com/Azure/k8s-lint/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Lint k8s manifest files",
@@ -55,12 +63,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action is designed to lint Kubernetes manifest files, which directly relates to ensuring code quality. It also serves a testing purpose by validating the manifests before deployment.",
+        "reasoning": "This action is focused on linting Kubernetes manifest files, which falls under code quality as it helps ensure the correctness of the code. Additionally, it can be considered a testing action as it checks for potential issues in the manifests.",
         "tags": [
           "k8s",
           "lint",
           "manifest",
-          "validation",
+          "code quality",
           "testing"
         ]
       }
@@ -70,6 +78,6 @@
     "source_hash": "223341048de7e790bf12ebe2e1f5fdbaa4fe4fb02a191c1caa678d0980c39074",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.725139Z"
+    "generated_at": "2025-12-15T02:19:00.007665Z"
   }
 }

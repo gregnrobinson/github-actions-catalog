@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/mszostok/codeowners-validator/action.yml",
     "origin": "github.com/mszostok/codeowners-validator",
     "publisher": "mszostok",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.7.4",
+      "name": "v0.7.4",
+      "published_at": "2022-04-16T14:06:09Z",
+      "html_url": "https://github.com/mszostok/codeowners-validator/releases/tag/v0.7.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub CODEOWNERS Validator",
@@ -136,7 +144,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action validates the correctness of the CODEOWNERS file, which directly relates to code quality. It also requires authentication inputs, indicating an authentication aspect.",
+        "reasoning": "The action validates the correctness of the CODEOWNERS file, which falls under code quality. It also requires authentication tokens for proper functionality, placing it in the authentication category.",
         "tags": [
           "CODEOWNERS",
           "validation",
@@ -151,6 +159,6 @@
     "source_hash": "4b5c0c5d041e9d8148879382eb3f702590f82e1c9e2c8a5619dac033e0d86f3e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.702362Z"
+    "generated_at": "2025-12-15T02:19:00.921057Z"
   }
 }

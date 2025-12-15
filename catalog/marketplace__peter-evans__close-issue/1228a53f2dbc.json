@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/peter-evans/close-issue",
+  "version": "1228a53f2dbc",
+  "definition": {
+    "name": "Close Issue",
+    "description": "A GitHub action to close an issue",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GitHub auth token",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The GitHub repository containing the issue",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "issue-number",
+        "description": "The number of the issue to close",
+        "required": false,
+        "default": "${{ github.event.issue.number }}"
+      },
+      {
+        "name": "close-reason",
+        "description": "Reason for closing the issue, \"completed\" or \"not_planned\"",
+        "required": false,
+        "default": "completed"
+      },
+      {
+        "name": "comment",
+        "description": "A comment to make on the issue before closing",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "labels",
+        "description": "A comma or newline separated list of labels.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/close-issue",
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "Close Issue v3.0.1",
+      "published_at": "2023-04-19T01:53:41Z",
+      "html_url": "https://github.com/peter-evans/close-issue/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:32.340847Z"
+}

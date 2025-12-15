@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-remote-state/action.yml",
     "origin": "github.com/dflook/terraform-remote-state",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:17Z",
+      "html_url": "https://github.com/dflook/terraform-remote-state/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-remote-state",
@@ -51,14 +59,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is focused on retrieving outputs from a Terraform remote state, which is primarily related to infrastructure management. It also involves dependency management as it interacts with Terraform's backend configurations.",
+        "tags": [
+          "Terraform",
+          "remote state",
+          "infrastructure",
+          "outputs",
+          "backend"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "88872b383a479eb383ebd236e5322bb6dcfbe85097cc135f11b63e4277edc088",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.348272Z"
+    "generated_at": "2025-12-15T02:18:59.583152Z"
   }
 }

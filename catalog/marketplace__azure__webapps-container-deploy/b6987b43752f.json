@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/azure/webapps-container-deploy",
+  "version": "b6987b43752f",
+  "definition": {
+    "name": "Azure WebApp Container",
+    "description": "Deploy Container Web Apps to Azure. github.com/Azure/Actions",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "app-name",
+        "description": "Name of the Azure Web App",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "slot-name",
+        "description": "Enter an existing Slot other than the Production slot",
+        "required": false,
+        "default": "production"
+      },
+      {
+        "name": "images",
+        "description": "Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated)",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "configuration-file",
+        "description": "Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container scenario",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container-command",
+        "description": "Enter the start up command. For ex. dotnet run or dotnet filename.dll",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "webapp-url",
+        "description": "URL to work with your webapp"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/webapps-container-deploy",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "GitHub Action for Azure Web App for Containers",
+      "published_at": "2019-09-20T15:16:02Z",
+      "html_url": "https://github.com/Azure/webapps-container-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:13.309567Z"
+}

@@ -1,0 +1,114 @@
+{
+  "action_id": "marketplace/azure/k8s-bake",
+  "version": "fbab0651e2dc",
+  "definition": {
+    "name": "Kubernetes bake",
+    "description": "Use this action to bake manifest file to be used for deployments using helm, kustomize or kompose",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "renderEngine",
+        "description": "Acceptable values: helm or kompose or kustomize",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "helmChart",
+        "description": "Required if renderEngine == helm. Helm chart to bake.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "namespace",
+        "description": "Relevant if renderEngine == helm. Namespace to be used for Helm option.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "arguments",
+        "description": "Acceptable values: helm or kustomize. Arguments to be passed to the Helm or kustomize template command",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "overrideFiles",
+        "description": "Relevant if renderEngine == helm. Array of path to override files. Each path should be mentioned on a newline",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "overrides",
+        "description": "Relevant if renderEngine == helm. Override values to set.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "releaseName",
+        "description": "Relevant if renderEngine == helm. Release name to be used for Helm option.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kustomizationPath",
+        "description": "Required if renderEngine == kustomize. Path to directory or the Git repository containing kustomization.yaml file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dockerComposeFile",
+        "description": "Required if renderEngine == kompose. Path(s) to Docker compose files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "helm-version",
+        "description": "Version of helm. Installs a specific version of helm binary. Supports semver ranges like ^3.0.0",
+        "required": false,
+        "default": "^3.0.0"
+      },
+      {
+        "name": "kubectl-version",
+        "description": "Version of kubectl. Installs a specific version of kubectl binary",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kompose-version",
+        "description": "Version of kompose. Installs a specific version of kompose binary",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "silent",
+        "description": "When set to true, the output of the bake command would not be shown.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "manifestsBundle",
+        "description": "The location of the manifest bundles created by bake action"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/k8s-bake",
+    "latest_release": {
+      "tag_name": "v3.0.3",
+      "name": "v3.0.3",
+      "published_at": "2025-12-08T21:27:39Z",
+      "html_url": "https://github.com/Azure/k8s-bake/releases/tag/v3.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:09.426932Z"
+}

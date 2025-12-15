@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/apim-policy-update/action.yml",
     "origin": "github.com/azure/apim-policy-update",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.3",
+      "name": "Azure APIM Policy Upate Action v1.1.3",
+      "published_at": "2025-08-16T08:12:53Z",
+      "html_url": "https://github.com/Azure/apim-policy-update/releases/tag/v1.1.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure API Management Policy Update",
@@ -50,14 +58,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action updates Azure API Management policies, which is primarily an infrastructure-related task, and it involves deploying changes to the API management service.",
+        "tags": [
+          "Azure",
+          "API Management",
+          "Infrastructure",
+          "Deployment",
+          "REST API"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "6ea35fe187095e13bccc3367e96c6db13d8bb93db22eb394575c4c908fe4c3b9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.557967Z"
+    "generated_at": "2025-12-15T02:18:59.832533Z"
   }
 }

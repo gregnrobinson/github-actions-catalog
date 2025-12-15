@@ -1,0 +1,101 @@
+{
+  "action_id": "marketplace/actions/component-detection-dependency-submission-action",
+  "version": "acf9d5320253",
+  "definition": {
+    "name": "Component Detection dependency submission action",
+    "description": "Upload information about your dependencies to the GitHub dependency graph using dependency submission API. ",
+    "author": "actions",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GitHub Personal Access Token (PAT). Defaults to PAT provided by Actions runner.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "filePath",
+        "description": "The path to the directory containing the environment files to upload. Defaults to Actions working directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "directoryExclusionList",
+        "description": "Filters out specific directories following a minimatch pattern.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detectorArgs",
+        "description": "Comma separated list of properties that can affect the detectors execution, like EnableIfDefaultOff that allows a specific detector that is in beta to run, the format for this property is DetectorId=EnableIfDefaultOff, for example Pip=EnableIfDefaultOff.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dockerImagesToScan",
+        "description": "Comma separated list of docker image names or hashes to execute container scanning on, ex: ubuntu:16.04,56bab49eef2ef07505f6a1b0d5bd3a601dfc3c76ad4460f24c91d6fa298369ab",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detectorsFilter",
+        "description": "A comma separated list with the identifiers of the specific detectors to be used. This is meant to be used for testing purposes only.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detectorsCategories",
+        "description": "A comma separated list with the categories of components that are going to be scanned. The detectors that are going to run are the ones that belongs to the categories. The possible values are: Npm, NuGet, Maven, RubyGems, Cargo, Pip, GoMod, CocoaPods, Linux.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "correlator",
+        "description": "An optional identifier to distinguish between multiple dependency snapshots of the same type.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detector-name",
+        "description": "The name of the detector. If provided, detector-version and detector-url must also be provided.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detector-version",
+        "description": "The version of the detector. If provided, detector-name and detector-url must also be provided.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "detector-url",
+        "description": "The URL of the detector. If provided, detector-name and detector-version must also be provided.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "snapshot-sha",
+        "description": "The SHA of the commit to associate with the snapshot. If provided, snapshot-ref must also be provided.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "snapshot-ref",
+        "description": "The Git reference to associate with the snapshot. If provided, snapshot-sha must also be provided.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/component-detection-dependency-submission-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:05.759764Z"
+}

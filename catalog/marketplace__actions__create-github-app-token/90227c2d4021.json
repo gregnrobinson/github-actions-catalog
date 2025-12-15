@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/create-github-app-token/action.yml",
     "origin": "github.com/actions/create-github-app-token",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2025-12-05T22:53:06Z",
+      "html_url": "https://github.com/actions/create-github-app-token/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create GitHub App Token",
@@ -371,14 +379,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action is primarily focused on creating a GitHub App installation access token, which falls under authentication. It also relates to infrastructure as it interacts with the GitHub App ecosystem.",
+        "tags": [
+          "GitHub",
+          "App Token",
+          "Authentication",
+          "Infrastructure",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "90227c2d40214751bdfc9f17171a79f541db5783d7de1784c55ee82470a22878",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.280825Z"
+    "generated_at": "2025-12-15T02:19:00.679857Z"
   }
 }

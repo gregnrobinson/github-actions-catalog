@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/aml-registermodel/action.yml",
     "origin": "github.com/azure/aml-registermodel",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.31.0",
+      "name": "v1.31.0",
+      "published_at": "2021-09-24T15:59:16Z",
+      "html_url": "https://github.com/Azure/aml-registermodel/releases/tag/v1.31.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Machine Learning Register Model Action",
@@ -58,14 +66,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying a model to Azure Machine Learning, which falls under Deployment. It also requires authentication credentials to access Azure resources, placing it in the Authentication category.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Model Registration",
+          "GitHub Action",
+          "Deployment"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "25a2ffe2bba4c0a521220c944fdc3c386ed949313bb103897ccda2ad457d3cd4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.621856Z"
+    "generated_at": "2025-12-15T02:18:59.900726Z"
   }
 }

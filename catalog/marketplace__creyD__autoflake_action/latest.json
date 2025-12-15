@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/creyD/autoflake_action/action.yml",
     "origin": "github.com/creyD/autoflake_action",
     "publisher": "creyD",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1",
+      "name": "v1.1: Added support for a default GITHUB_TOKEN",
+      "published_at": "2023-05-23T12:08:04Z",
+      "html_url": "https://github.com/creyD/autoflake_action/releases/tag/v1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Autoflake Action",
@@ -79,13 +87,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The Autoflake Action is designed to run autoflake, which is a tool for removing unused imports and variables from Python code, thereby improving code quality. It also indirectly supports testing by ensuring cleaner code.",
+        "reasoning": "The Autoflake Action is designed to improve code quality by removing unused imports and variables, which directly relates to code quality practices. Additionally, it can be seen as a testing tool to ensure code cleanliness.",
         "tags": [
           "autoflake",
           "code quality",
-          "python",
           "linting",
-          "github action"
+          "python",
+          "automation"
         ]
       }
     ]
@@ -94,6 +102,6 @@
     "source_hash": "db6ad853887f00421038c8cbdce1a6150d18d466b53fb972e41edd07d9ee4918",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.813043Z"
+    "generated_at": "2025-12-15T02:19:01.116804Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/release-please-action/action.yml",
     "origin": "github.com/google-github-actions/release-please-action",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.1.1",
+      "name": "v4.1.1",
+      "published_at": "2024-05-13T23:54:41Z",
+      "html_url": "https://github.com/google-github-actions/release-please-action/releases/tag/v4.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "release-please-action",
@@ -113,8 +121,8 @@
   "annotations": {
     "categories": [
       "Deployment",
-      "Code quality",
-      "Publishing"
+      "Packaging",
+      "Documentation"
     ],
     "confidence": "high",
     "evidence": [
@@ -122,7 +130,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action automates the release process based on conventional commits, which falls under Deployment and also contributes to Code quality and Publishing by ensuring consistent release practices.",
+        "reasoning": "The action automates the release process based on conventional commits, which directly relates to deployment. It also involves packaging the release and can generate documentation for the release notes.",
         "tags": [
           "release",
           "automation",
@@ -137,6 +145,6 @@
     "source_hash": "0876dae9b39a0557ce93b74da8e896fba340a22fbd625ee757e9f9578dc2229c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.746769Z"
+    "generated_at": "2025-12-15T02:19:00.032335Z"
   }
 }

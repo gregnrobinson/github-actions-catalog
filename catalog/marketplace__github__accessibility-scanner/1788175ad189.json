@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/accessibility-scanner/action.yml",
     "origin": "github.com/github/accessibility-scanner",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.7.0",
+      "name": "v2.7.0",
+      "published_at": "2025-12-11T18:25:07Z",
+      "html_url": "https://github.com/github/accessibility-scanner/releases/tag/v2.7.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "accessibility-scanner",
@@ -169,14 +177,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Communication",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action focuses on identifying accessibility issues, which falls under code quality. It also files issues in a repository, indicating a communication aspect, and requires a personal access token, linking it to security.",
+        "tags": [
+          "accessibility",
+          "code quality",
+          "GitHub issues",
+          "scanner",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1788175ad189c405c33c8b7b6d4339393351a9ee30362a85bb2b6c3753ef0eed",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.925487Z"
+    "generated_at": "2025-12-15T02:19:00.322041Z"
   }
 }

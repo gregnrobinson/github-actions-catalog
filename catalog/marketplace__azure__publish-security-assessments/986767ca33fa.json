@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/publish-security-assessments",
+  "version": "986767ca33fa",
+  "definition": {
+    "name": "Publish security assessments to Azure",
+    "description": "Publish security assessments to Azure",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "artifact-type",
+        "description": "The artifact that was scanned. Supported values - \u201ccontainerImage\u201d",
+        "required": true,
+        "default": "containerImage"
+      },
+      {
+        "name": "artifact-id",
+        "description": "Unique identifier for the artifact. For artifact-type \u201ccontainerImage\u201d, the action will take the image digest by default by using docker cli",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "subscription-token",
+        "description": "ASC subscription token which can be found on the ASC portal",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "instrumentation-key",
+        "description": "Instrumentation key of the application insights instance",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "connection-string",
+        "description": "Connection string of the application insights instance",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "scan-provider",
+        "description": "The tool used to scan the artifact. Supported values - \"trivy\"",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "scan-results-path",
+        "description": "Path to the file containing scan results",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/publish-security-assessments",
+    "latest_release": {
+      "tag_name": "v0",
+      "name": "v0 release",
+      "published_at": "2020-12-23T04:27:55Z",
+      "html_url": "https://github.com/Azure/publish-security-assessments/releases/tag/v0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:05.938500Z"
+}

@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/google-github-actions/setup-gcloud",
+  "version": "3ac901203682",
+  "definition": {
+    "name": "Set up gcloud Cloud SDK environment",
+    "description": "Downloads, installs, and configures a Google Cloud SDK environment.\nAdds the `gcloud` CLI command to the $PATH.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "A string representing the version or version constraint of the Cloud SDK\n(`gcloud`) to install (e.g. `\"290.0.1\"` or `\">= 197.0.1\"`). The default\nvalue is `\"latest\"`, which will always download and install the latest\navailable Cloud SDK version.\n\n    - uses: 'google-github-actions/setup-gcloud@v3'\n      with:\n        version: '>= 416.0.0'\n\nIf there is no installed `gcloud` version that matches the given\nconstraint, this GitHub Action will download and install the latest\navailable version that still matches the constraint.\n\nAuthenticating via Workload Identity Federation requires version\n[363.0.0](https://cloud.google.com/sdk/docs/release-notes#36300_2021-11-02)\nor newer. If you need support for Workload Identity Federation, specify\nyour version constraint as such:\n\n    - uses: 'google-github-actions/setup-gcloud@v3'\n      with:\n        version: '>= 363.0.0'\n\nYou are responsible for ensuring the `gcloud` version matches the features\nand components required.",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "project_id",
+        "description": "ID of the Google Cloud project. If provided, this will configure gcloud to\nuse this project ID by default for commands. Individual commands can still\noverride the project using the `--project` flag which takes precedence. If\nunspecified, the action attempts to find the \"best\" project ID by looking\nat other inputs and environment variables.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "install_components",
+        "description": "List of additional [gcloud\ncomponents](https://cloud.google.com/sdk/docs/components) to install,\nspecified as a comma-separated list of strings:\n\n    install_components: 'alpha,cloud-datastore-emulator'",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip_install",
+        "description": "Skip installation of gcloud and use the [system-supplied\nversion](https://github.com/actions/runner-images) instead. If specified,\nthe `version` input is ignored.\n\n\u26a0\ufe0f You will not be able to install additional gcloud components, because the\nsystem installation is locked.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "cache",
+        "description": "Transfer the downloaded artifacts into the runner's tool cache. On\nGitHub-managed runners, this have very little impact since runneres are\nephemeral. On self-hosted runners, this could improve future runs by\nskipping future gcloud installations.",
+        "required": false,
+        "default": false
+      }
+    ],
+    "outputs": [
+      {
+        "name": "version",
+        "description": "Version of gcloud that was installed."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/setup-gcloud",
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-08-28T13:37:55Z",
+      "html_url": "https://github.com/google-github-actions/setup-gcloud/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:50.863260Z"
+}

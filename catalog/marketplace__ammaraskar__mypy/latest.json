@@ -67,11 +67,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "Mypy is a static type checker for Python, which primarily focuses on improving code quality by identifying type errors. It is also used in testing to ensure type correctness in the codebase.",
+        "reasoning": "Mypy is a tool for static type checking in Python, which directly relates to code quality. It can also be used in testing to ensure type correctness in the codebase.",
         "tags": [
           "mypy",
           "static typing",
-          "Python",
+          "python",
           "code quality",
           "testing"
         ]
@@ -82,6 +82,6 @@
     "source_hash": "17d4db06aebd80ed9570d62bc78cd2284c8d938476c3942b541f78030009f8ef",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.076002Z"
+    "generated_at": "2025-12-15T02:18:59.757893Z"
   }
 }

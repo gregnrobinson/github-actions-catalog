@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-output/action.yml",
     "origin": "github.com/dflook/tofu-output",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:15Z",
+      "html_url": "https://github.com/dflook/tofu-output/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-output",
@@ -76,7 +84,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action retrieves outputs from an OpenTofu configuration, which is primarily related to infrastructure management. It also involves managing variables and configurations, aligning with dependency management.",
+        "reasoning": "The action retrieves outputs from an OpenTofu configuration, which is primarily related to infrastructure management. It also involves managing dependencies through variable definitions.",
         "tags": [
           "OpenTofu",
           "infrastructure",
@@ -91,6 +99,6 @@
     "source_hash": "17719a21f92e604e6cfb540b261b47d55c3f56709c7eccbb45ac8cc8a79c00cf",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.340709Z"
+    "generated_at": "2025-12-15T02:18:59.575718Z"
   }
 }

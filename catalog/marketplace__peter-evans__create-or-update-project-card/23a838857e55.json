@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/create-or-update-project-card/action.yml",
     "origin": "github.com/peter-evans/create-or-update-project-card",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "Create or Update Project Card v3.0.0",
+      "published_at": "2024-01-25T12:13:59Z",
+      "html_url": "https://github.com/peter-evans/create-or-update-project-card/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create or Update Project Card",
@@ -68,14 +76,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action facilitates the creation and management of project cards, which is primarily a communication tool within project management. It also interacts with GitHub's infrastructure to manage project resources.",
+        "tags": [
+          "GitHub",
+          "project management",
+          "automation",
+          "communication",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "23a838857e55427ab3fe568a2487703b5228f097336dad951836fb42c5c9a328",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.488073Z"
+    "generated_at": "2025-12-15T02:19:01.047389Z"
   }
 }

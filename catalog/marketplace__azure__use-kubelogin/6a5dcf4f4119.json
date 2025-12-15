@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/azure/use-kubelogin",
+  "version": "6a5dcf4f4119",
+  "definition": {
+    "name": "Setup kubelogin",
+    "description": "Setup kubelogin in GitHub Actions",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "kubelogin-version",
+        "description": "The version of kubelogin to use. Defaults to the latest version.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip-cache",
+        "description": "Skip cache check? When set to \"true\", the action will always download the latest version of kubelogin.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "github-api-base-url",
+        "description": "The base URL of GitHub API. Defaults to https://api.github.com.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/use-kubelogin",
+    "latest_release": {
+      "tag_name": "v1.2",
+      "name": "v1.2",
+      "published_at": "2023-12-29T17:45:54Z",
+      "html_url": "https://github.com/Azure/use-kubelogin/releases/tag/v1.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:37.031620Z"
+}

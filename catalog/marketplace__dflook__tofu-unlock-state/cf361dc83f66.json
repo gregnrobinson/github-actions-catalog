@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/dflook/tofu-unlock-state",
+  "version": "cf361dc83f66",
+  "definition": {
+    "name": "tofu-unlock-state",
+    "description": "Force unlocks an OpenTofu remote state.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Path to the OpenTofu root module that defines the remote state to unlock",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "OpenTofu workspace to unlock the remote state for",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "lock_id",
+        "description": "The ID of the state lock to release.",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-unlock-state",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:22Z",
+      "html_url": "https://github.com/dflook/tofu-unlock-state/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:36.175026Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-login/action.yml",
     "origin": "github.com/atlassian/gajira-login",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update node & dependencies",
+      "published_at": "2022-11-18T21:27:43Z",
+      "html_url": "https://github.com/atlassian/gajira-login/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Login",
@@ -21,7 +29,8 @@
   },
   "annotations": {
     "categories": [
-      "Authentication"
+      "Authentication",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -29,13 +38,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "This action is specifically designed to log in to a Jira Cloud instance, which falls squarely under the Authentication category.",
+        "reasoning": "This action is primarily focused on logging in to a Jira Cloud instance, which falls under authentication. It also involves connecting to an infrastructure service (Jira).",
         "tags": [
           "Jira",
           "Authentication",
           "Login",
-          "Atlassian",
-          "Cloud"
+          "Cloud",
+          "Infrastructure"
         ]
       }
     ]
@@ -44,6 +53,6 @@
     "source_hash": "1b1df44d6d9cf35fe30a79be9ec7b31f93f660f42fdd4e83de626b51435eb2b7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.404928Z"
+    "generated_at": "2025-12-15T02:19:00.397512Z"
   }
 }

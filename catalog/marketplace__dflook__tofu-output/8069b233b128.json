@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/dflook/tofu-output",
+  "version": "8069b233b128",
+  "definition": {
+    "name": "tofu-output",
+    "description": "Retrieve the root-level outputs from an OpenTofu configuration.",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the OpenTofu root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "OpenTofu workspace to get outputs from",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set when initializing OpenTofu. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "json_output_path",
+        "description": "This is the path to all the root module outputs in a JSON file.\nThe path is relative to the Actions workspace.\n\nFor example, with the OpenTofu config:\n\n```hcl\noutput \"service_hostname\" {\n  value = \"example.com\"\n}\n```\n\nThe file pointed to by this output will contain:\n\n```json\n{\n  \"service_hostname\": \"example.com\"\n}\n```\n\nOpenTofu list, set and tuple types are cast to a JSON array, map and object types are cast to a JSON object.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-output",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:15Z",
+      "html_url": "https://github.com/dflook/tofu-output/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:37.265578Z"
+}

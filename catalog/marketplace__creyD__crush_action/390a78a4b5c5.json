@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/creyD/crush_action",
+  "version": "390a78a4b5c5",
+  "definition": {
+    "name": "Crush Action",
+    "description": "Losslessly reduces file size for PNG and JPG",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "description": "Commit message",
+        "required": false,
+        "default": "Optimised your images!"
+      },
+      {
+        "name": "commit_options",
+        "description": "Commit options",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file_pattern",
+        "description": "File pattern used for `git add`",
+        "required": false,
+        "default": "*"
+      },
+      {
+        "name": "branch",
+        "description": "Target branch for the changes",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "folder",
+        "description": "Starting folder for recursive search",
+        "required": false,
+        "default": "."
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "creyD",
+    "verified": false,
+    "origin": "github.com/creyD/crush_action",
+    "latest_release": {
+      "tag_name": "v1.0",
+      "name": "Initial Release",
+      "published_at": "2020-03-18T13:46:24Z",
+      "html_url": "https://github.com/creyD/crush_action/releases/tag/v1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:43.502123Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-fmt-check/action.yml",
     "origin": "github.com/dflook/tofu-fmt-check",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:32:27Z",
+      "html_url": "https://github.com/dflook/tofu-fmt-check/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-fmt-check",
@@ -66,14 +74,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action checks the formatting of OpenTofu configuration files, which directly relates to maintaining code quality. Additionally, it serves as a testing mechanism to ensure that files adhere to the expected format.",
+        "tags": [
+          "OpenTofu",
+          "formatting",
+          "code quality",
+          "linting",
+          "testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "db988bba9dab0ce016622cbfd55e6a80421e379bb40ac079738862ef60a47975",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.400572Z"
+    "generated_at": "2025-12-15T02:18:59.634478Z"
   }
 }

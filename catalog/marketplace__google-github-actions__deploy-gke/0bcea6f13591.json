@@ -1,0 +1,79 @@
+{
+  "action_id": "marketplace/google-github-actions/deploy-gke",
+  "version": "0bcea6f13591",
+  "definition": {
+    "name": "Deploy GKE",
+    "description": "Use gke-deploy cli to deploy an image",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "image",
+        "description": "Image to be deployed",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "app_name",
+        "description": "Application name of the Kubernetes deployment",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "region",
+        "description": "Region/zone of GKE cluster to deploy to.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "cluster_name",
+        "description": "Name of GKE cluster to deploy to.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "project_id",
+        "description": "Project of GKE cluster to deploy to.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "namespace",
+        "description": "Namespace of GKE cluster to deploy to.\nIf not provided, it will not be passed to the binary.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "expose",
+        "description": "The port provided will be used to expose the deployed workload object (i.e., port and targetPort will be set to the value provided in this flag).\nIf not provided, it will not be passed to the binary.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "k8s_manifests",
+        "description": "Local or GCS path to configuration file or directory of configuration files to use to create Kubernetes objects (file or files in directory must end in \".yml\" or \".yaml\").\nPrefix this value with \"gs://\" to indicate a GCS path.\nIf not provided, it will not be passed to the binary.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/deploy-gke",
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2025-07-18T22:06:20Z",
+      "html_url": "https://github.com/google-github-actions/deploy-gke/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:47.643832Z"
+}

@@ -49,13 +49,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is primarily focused on approving pull requests, which facilitates communication and collaboration within a team. It also indirectly contributes to code quality by ensuring that code reviews are completed.",
+        "reasoning": "This action is primarily focused on the communication aspect of the pull request process by automating the approval of pull requests, which is a key part of code review and collaboration.",
         "tags": [
           "pull request",
           "approve",
           "GitHub Action",
-          "collaboration",
-          "code review"
+          "automation",
+          "collaboration"
         ]
       }
     ]
@@ -64,6 +64,6 @@
     "source_hash": "b47a93def0c299ef81082dd9b1e32676e71912d0829379cf9b1173f78519daaa",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.503832Z"
+    "generated_at": "2025-12-15T02:19:01.061986Z"
   }
 }

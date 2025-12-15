@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/dflook/tofu-destroy",
+  "version": "a0316c1b4aa2",
+  "definition": {
+    "name": "tofu-destroy",
+    "description": "Destroys all resources in an OpenTofu workspace",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the OpenTofu root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "The name of the OpenTofu workspace to destroy.",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the tofu destroy. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "parallelism",
+        "description": "Limit the number of concurrent operations",
+        "required": false,
+        "default": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `destroy-failed` - The OpenTofu destroy operation failed.\n- `state-locked` - The OpenTofu state lock could not be obtained because it was already locked.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a steps.\n"
+      },
+      {
+        "name": "lock-info",
+        "description": "When the job outcome is `failure` and the failure-reason is `state-locked`, this output will be set.\n\nIt is a json object containing any available state lock information and typically has the form:\n\n```json\n{\n  \"ID\": \"838fbfde-c5cd-297f-84a4-d7578b4a4880\",\n  \"Path\": \"terraform-github-actions/test-unlock-state\",\n  \"Operation\": \"OperationTypeApply\",\n  \"Who\": \"root@e9d43b0c6478\",\n  \"Version\": \"1.3.7\",\n  \"Created\": \"2023-01-28 00:16:41.560904373 +0000 UTC\",\n  \"Info\": \"\"\n}\n```\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-destroy",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:09Z",
+      "html_url": "https://github.com/dflook/tofu-destroy/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:40.219576Z"
+}

@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/azure/powershell",
+  "version": "c3a5ac9870fe",
+  "definition": {
+    "name": "Azure PowerShell Action",
+    "description": "Automate your GitHub workflows using Azure PowerShell scripts.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "inlineScript",
+        "description": "Specify the Az PowerShell script here.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "azPSVersion",
+        "description": "Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify \"latest\".",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "errorActionPreference",
+        "description": "Select the value of the ErrorActionPreference variable for executing the script. Options: stop, continue, silentlyContinue. Default is Stop.",
+        "required": false,
+        "default": "Stop"
+      },
+      {
+        "name": "failOnStandardError",
+        "description": "If this is true, this task will fail if any errors are written to the error pipeline, or if any data is written to the Standard Error stream.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "githubToken",
+        "description": "Used to pull Az module from Azure/az-ps-module-versions.  Since there's a default, this is typically not supplied by the user.",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/powershell",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Azure PowerShell Action v2",
+      "published_at": "2024-03-27T07:23:45Z",
+      "html_url": "https://github.com/Azure/powershell/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:24.710783Z"
+}

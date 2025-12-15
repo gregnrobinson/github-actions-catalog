@@ -1,0 +1,114 @@
+{
+  "action_id": "marketplace/peter-evans/slash-command-dispatch",
+  "version": "1efd3f5d86a8",
+  "definition": {
+    "name": "Slash Command Dispatch",
+    "description": "Facilitates \"ChatOps\" by creating dispatch events for slash commands",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "A repo scoped GitHub Personal Access Token.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "reaction-token",
+        "description": "An optional GitHub token to use for reactions.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "reactions",
+        "description": "Add reactions to comments containing commands.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "commands",
+        "description": "A comma or newline separated list of commands.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "permission",
+        "description": "The repository permission level required by the user to dispatch commands.",
+        "required": false,
+        "default": "write"
+      },
+      {
+        "name": "issue-type",
+        "description": "The issue type required for commands.",
+        "required": false,
+        "default": "both"
+      },
+      {
+        "name": "allow-edits",
+        "description": "Allow edited comments to trigger command dispatches.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "repository",
+        "description": "The full name of the repository to send the dispatch events.",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "event-type-suffix",
+        "description": "The repository dispatch event type suffix for the commands.",
+        "required": false,
+        "default": "-command"
+      },
+      {
+        "name": "static-args",
+        "description": "A comma or newline separated list of arguments that will be dispatched with every command.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dispatch-type",
+        "description": "The dispatch type; `repository` or `workflow`.",
+        "required": false,
+        "default": "repository"
+      },
+      {
+        "name": "config",
+        "description": "JSON configuration for commands.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "config-from-file",
+        "description": "JSON configuration from a file for commands.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "error-message",
+        "description": "Validation errors when using `workflow` dispatch."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/slash-command-dispatch",
+    "latest_release": {
+      "tag_name": "v5.0.1",
+      "name": "Slash Command Dispatch v5.0.1",
+      "published_at": "2025-12-04T23:16:57Z",
+      "html_url": "https://github.com/peter-evans/slash-command-dispatch/releases/tag/v5.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:35.047280Z"
+}

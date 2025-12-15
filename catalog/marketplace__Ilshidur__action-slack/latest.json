@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/Ilshidur/action-slack/action.yml",
     "origin": "github.com/Ilshidur/action-slack",
     "publisher": "Ilshidur",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.1.0",
+      "name": "2.1.0",
+      "published_at": "2020-09-08T16:17:02Z",
+      "html_url": "https://github.com/Ilshidur/action-slack/releases/tag/2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Action for Slack",
@@ -37,11 +45,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is specifically designed to send messages to Slack, which falls under the communication category, and it also serves the purpose of sending notifications.",
+        "reasoning": "The action is specifically designed to send messages to Slack, which falls under communication and notification categories.",
         "tags": [
           "Slack",
-          "Notification",
-          "Communication",
+          "notification",
+          "communication",
           "GitHub Action"
         ]
       }
@@ -51,6 +59,6 @@
     "source_hash": "2ae2fe98093bd3fd17f0b7657ff9a32afc7abcba1f1db871fc19dfb99084581d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.089926Z"
+    "generated_at": "2025-12-15T02:18:59.775276Z"
   }
 }

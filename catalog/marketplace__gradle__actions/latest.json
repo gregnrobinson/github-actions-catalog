@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/gradle/actions/action.yml",
     "origin": "github.com/gradle/actions",
     "publisher": "gradle",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "v5.0.0",
+      "published_at": "2025-10-01T10:09:40Z",
+      "html_url": "https://github.com/gradle/actions/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Build with Gradle",
@@ -35,11 +43,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is specifically designed for building Gradle projects, which falls under the Build category. Additionally, it mentions generating a dependency graph, linking it to Dependency management.",
+        "reasoning": "This action is primarily focused on building Gradle projects, which falls under the Build category, while also generating a dependency graph, linking it to Dependency management.",
         "tags": [
           "Gradle",
           "Build",
-          "Dependency Management",
+          "Dependency",
           "CI/CD",
           "Automation"
         ]
@@ -50,6 +58,6 @@
     "source_hash": "888c5fea260597a1f380d4b2ce7c9d08466b12bc79af5145baec3d9ad6851998",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.330986Z"
+    "generated_at": "2025-12-15T02:19:00.242402Z"
   }
 }

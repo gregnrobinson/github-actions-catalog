@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/desktop-news-app",
+  "version": "c4647607e9bb",
+  "definition": {
+    "name": "Desktop News App",
+    "description": "Desktop News App",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/desktop-news-app",
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Release v1.0.0",
+      "published_at": "2023-03-13T00:56:31Z",
+      "html_url": "https://github.com/amirisback/desktop-news-app/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:42.337131Z"
+}

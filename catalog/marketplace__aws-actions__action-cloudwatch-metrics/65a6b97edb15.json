@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/aws-actions/action-cloudwatch-metrics",
+  "version": "65a6b97edb15",
+  "definition": {
+    "name": "Post Amazon Cloudwatch Metrics",
+    "description": "Publishes a metric to Amazon CloudWatch.",
+    "author": "ROS Tooling Working Group",
+    "inputs": [
+      {
+        "name": "metric-name",
+        "description": "Name of the metric to be published",
+        "required": false,
+        "default": "Builds"
+      },
+      {
+        "name": "metric-value",
+        "description": "Value of the metric to be published\ntrue, and false are respectfully converted to 1.0, and 0.0 automatically",
+        "required": false,
+        "default": "${{ job.status == 'success' }}"
+      },
+      {
+        "name": "metric-dimensions",
+        "description": "Dimension of the metric to be published, as a JSON object",
+        "required": false,
+        "default": "[\n  { \"Name\": \"github.event_name\", \"Value\": \"${{ github.event_name }}\" },\n  { \"Name\": \"github.ref\", \"Value\": \"${{ github.ref }}\" },\n  { \"Name\": \"github.repository\", \"Value\": \"${{ github.repository }}\" }\n]"
+      },
+      {
+        "name": "metric-data",
+        "description": "Path to a JSON file containing CloudWatch-compatible metrics, according to https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudwatch/put-metric-data.html If this input is specified, the action will ignore the single-value inputs \"metric-name\", \"metric-value\", \"metric-dimensions\" and only publish the data from this file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "namespace",
+        "description": "The namespace for the metric data.",
+        "required": false,
+        "default": "ActionCloudWatchMetrics"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/action-cloudwatch-metrics"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:35.340790Z"
+}

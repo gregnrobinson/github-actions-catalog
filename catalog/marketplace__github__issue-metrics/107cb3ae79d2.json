@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/issue-metrics",
+  "version": "107cb3ae79d2",
+  "definition": {
+    "name": "issue-metrics",
+    "description": "A GitHub Action to report out issue metrics",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/issue-metrics",
+    "latest_release": {
+      "tag_name": "v3.25.4",
+      "name": "v3.25.4",
+      "published_at": "2025-12-01T19:22:44Z",
+      "html_url": "https://github.com/github/issue-metrics/releases/tag/v3.25.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:23.523957Z"
+}

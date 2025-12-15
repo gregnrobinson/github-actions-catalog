@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/samuelmeuli/action-electron-builder/action.yml",
     "origin": "github.com/samuelmeuli/action-electron-builder",
     "publisher": "samuelmeuli",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.6.0",
+      "name": "v1.6.0",
+      "published_at": "2020-06-18T11:21:21Z",
+      "html_url": "https://github.com/samuelmeuli/action-electron-builder/releases/tag/v1.6.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Electron Builder Action",
@@ -99,14 +107,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Build",
+      "Packaging",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is specifically designed for building Electron apps, which falls under the Build category. Additionally, it involves packaging the application for release, thus also fitting into Packaging and Deployment categories.",
+        "tags": [
+          "electron",
+          "build",
+          "github action",
+          "packaging",
+          "deployment"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b2bcad2759db06f99fa63fb0d53be3be21e7663a9bef7d1340af920333c01902",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.891523Z"
+    "generated_at": "2025-12-15T02:19:00.283793Z"
   }
 }

@@ -60,13 +60,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Monitoring",
-        "reasoning": "This action retrieves statistics related to a GitHub App, which falls under monitoring the app's performance and usage. Additionally, it provides documentation-like outputs that describe the app's installations and repositories.",
+        "reasoning": "This action retrieves statistics related to a GitHub App, which falls under monitoring its usage and performance. Additionally, it provides documentation-like outputs that describe the app's installations and repositories.",
         "tags": [
           "GitHub",
           "App Statistics",
           "Monitoring",
-          "Usage",
-          "Analytics"
+          "Analytics",
+          "Usage"
         ]
       }
     ]
@@ -75,6 +75,6 @@
     "source_hash": "077525e742052efd8868c831c2c757c95f35c5914e099403f0181d24a61896fc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.724256Z"
+    "generated_at": "2025-12-15T02:19:00.950870Z"
   }
 }

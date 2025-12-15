@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/build-push-action/action.yml",
     "origin": "github.com/docker/build-push-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.18.0",
+      "name": "v6.18.0",
+      "published_at": "2025-05-27T16:39:16Z",
+      "html_url": "https://github.com/docker/build-push-action/releases/tag/v6.18.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Build and push Docker images",
@@ -233,14 +241,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Build",
+      "Packaging",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is primarily focused on building Docker images, which falls under the Build category. Additionally, it involves packaging those images and preparing them for deployment, thus also fitting into the Packaging and Deployment categories.",
+        "tags": [
+          "docker",
+          "build",
+          "push",
+          "images",
+          "container"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "fd0c4465c0d8241bb56e7b88e5653e9431ee4f50d941bf28a6e897823636688b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.459901Z"
+    "generated_at": "2025-12-15T02:18:59.707552Z"
   }
 }

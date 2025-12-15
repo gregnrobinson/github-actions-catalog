@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/wlixcc/pod-lib-update-action",
+  "version": "7f928249e76b",
+  "definition": {
+    "name": "pod lib update",
+    "description": "use this action auto generate new version of pod library",
+    "author": "wlixcc",
+    "inputs": [
+      {
+        "name": "spec_repo_url",
+        "description": "Url of your spec repo",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "spec_file_path",
+        "description": "YouSpecFileName.podspec file path in your lib repo, relative path",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "lint_args",
+        "description": "Spec lint args, such as --allow-warnings",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "push_args",
+        "description": "Repo push args, such as --allow-warnings",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wlixcc",
+    "verified": false,
+    "origin": "github.com/wlixcc/pod-lib-update-action",
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Update you pod lib with tag",
+      "published_at": "2020-02-24T07:52:58Z",
+      "html_url": "https://github.com/wlixcc/pod-lib-update-action/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:17.392253Z"
+}

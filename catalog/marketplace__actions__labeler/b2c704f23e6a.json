@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/actions/labeler",
+  "version": "b2c704f23e6a",
+  "definition": {
+    "name": "Labeler",
+    "description": "Automatically label new pull requests based on the paths of files being changed",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "repo-token",
+        "description": "The GitHub token used to manage labels",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "configuration-path",
+        "description": "The path for the label configurations",
+        "required": false,
+        "default": ".github/labeler.yml"
+      },
+      {
+        "name": "sync-labels",
+        "description": "Whether or not to remove labels when matching files are reverted",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "dot",
+        "description": "Whether or not to auto-include paths starting with dot (e.g. `.github`)",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "pr-number",
+        "description": "The pull request number(s)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "new-labels",
+        "description": "A comma-separated list of all new labels"
+      },
+      {
+        "name": "all-labels",
+        "description": "A comma-separated list of all labels that the PR contains"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/labeler",
+    "latest_release": {
+      "tag_name": "v6.0.1",
+      "name": "v6.0.1",
+      "published_at": "2025-09-04T17:56:16Z",
+      "html_url": "https://github.com/actions/labeler/releases/tag/v6.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:23.217343Z"
+}

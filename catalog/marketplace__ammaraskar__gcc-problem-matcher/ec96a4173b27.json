@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/ammaraskar/gcc-problem-matcher",
+  "version": "ec96a4173b27",
+  "definition": {
+    "name": "GCC Problem Matcher",
+    "description": "Attaches a problem matcher that looks for errors during gcc builds",
+    "author": "Ammar Askar",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "ammaraskar",
+    "verified": false,
+    "origin": "github.com/ammaraskar/gcc-problem-matcher",
+    "latest_release": {
+      "tag_name": "0.3.0",
+      "name": "Update for node16 deprecation",
+      "published_at": "2024-01-25T20:48:53Z",
+      "html_url": "https://github.com/ammaraskar/gcc-problem-matcher/releases/tag/0.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:59.622015Z"
+}

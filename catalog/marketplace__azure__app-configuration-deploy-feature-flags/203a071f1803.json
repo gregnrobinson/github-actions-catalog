@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/azure/app-configuration-deploy-feature-flags",
+  "version": "203a071f1803",
+  "definition": {
+    "name": "Azure App Configuration Deploy Feature Flags",
+    "description": "Deploy feature flags from a GitHub repository to Azure App Configuration",
+    "author": "Microsoft",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Source file(s) containing feature flags. Multiple files can be specified in list or glob format. Example: **/*.json or FeatureFlags/*.json. Use ! to exclude files.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "app-configuration-endpoint",
+        "description": "Destination endpoint for the Azure App Configuration store.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "label",
+        "description": "Azure App Configuration label to apply to the feature flags. If not specficed, the default is no label.",
+        "required": false,
+        "default": "None"
+      },
+      {
+        "name": "operation",
+        "description": "Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: deploys the feature flags to Azure App Configuration.",
+        "required": false,
+        "default": "deploy"
+      },
+      {
+        "name": "strict",
+        "description": "If strict, the sync operation deletes feature flags not found in the config file. Choices: true, false.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/app-configuration-deploy-feature-flags"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:26.750631Z"
+}

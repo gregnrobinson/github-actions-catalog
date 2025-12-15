@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/postgresql/action.yml",
     "origin": "github.com/azure/postgresql",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v1.2.0",
+      "published_at": "2022-08-05T20:10:47Z",
+      "html_url": "https://github.com/Azure/postgresql/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure PostgreSQL Action",
@@ -56,13 +64,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy PL/SQL scripts to an Azure PostgreSQL database, which falls under deployment and infrastructure categories. It also involves database management due to its focus on database operations.",
+        "reasoning": "The action is specifically designed to deploy PL/SQL scripts to an Azure PostgreSQL database, which falls under deployment and infrastructure management. It also relates to database management due to its focus on database operations.",
         "tags": [
           "Azure",
           "PostgreSQL",
           "Deployment",
-          "PLSQL",
-          "Database"
+          "Database",
+          "PLSQL"
         ]
       }
     ]
@@ -71,6 +79,6 @@
     "source_hash": "5d5d32f4933a7cb84296d834a4e8d02cd03e2df8418bc9c3af1d798264002816",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.516272Z"
+    "generated_at": "2025-12-15T02:18:59.790812Z"
   }
 }

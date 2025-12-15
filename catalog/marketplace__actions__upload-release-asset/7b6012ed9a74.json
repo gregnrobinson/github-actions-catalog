@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/actions/upload-release-asset",
+  "version": "7b6012ed9a74",
+  "definition": {
+    "name": "Upload a Release Asset",
+    "description": "Upload a release asset to an existing release in your repository",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "upload_url",
+        "description": "The URL for uploading assets to the release",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "asset_path",
+        "description": "The path to the asset you want to upload",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "asset_name",
+        "description": "The name of the asset you want to upload",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "asset_content_type",
+        "description": "The content-type of the asset you want to upload. See the supported Media Types here: https://www.iana.org/assignments/media-types/media-types.xhtml for more information",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "browser_download_url",
+        "description": "The URL users can navigate to in order to download the uploaded asset"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/upload-release-asset",
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "Automate sliding major version number",
+      "published_at": "2020-02-10T08:01:38Z",
+      "html_url": "https://github.com/actions/upload-release-asset/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:07.472686Z"
+}

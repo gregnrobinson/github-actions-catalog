@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/azure/ARO-HCP",
+  "version": "c8eb33fd21e8",
+  "definition": {
+    "name": "Install Azure CLI",
+    "description": "installs the azure-cli at a given version",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "Azure CLI Version to install",
+        "required": false,
+        "default": "latest"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/ARO-HCP"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:07.274639Z"
+}

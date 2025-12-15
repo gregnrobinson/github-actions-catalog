@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/azure/setup-azd",
+  "version": "33be0ed40777",
+  "definition": {
+    "name": "setup-azd",
+    "description": "This action downloads and installs azd",
+    "author": "Azure Developer CLI Team",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "The version of azd to install (default: latest)",
+        "required": false,
+        "default": "latest"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/setup-azd",
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "setup-azd_v2.2.1",
+      "published_at": "2025-11-20T01:13:44Z",
+      "html_url": "https://github.com/Azure/setup-azd/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:07.629846Z"
+}

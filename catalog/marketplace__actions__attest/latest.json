@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/attest/action.yml",
     "origin": "github.com/actions/attest",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-08-26T23:16:28Z",
+      "html_url": "https://github.com/actions/attest/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Generate Generic Attestations",
@@ -105,12 +113,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action generates attestations for build artifacts, which is primarily a security measure to verify the integrity and authenticity of the artifacts. It also involves build processes and requires documentation for proper usage.",
+        "reasoning": "The action generates attestations for build artifacts, which is primarily related to security by ensuring the integrity and authenticity of the artifacts. It also involves build processes and includes documentation for the inputs and outputs.",
         "tags": [
           "attestation",
           "security",
           "build",
-          "verification",
+          "artifacts",
           "GitHub Actions"
         ]
       }
@@ -120,6 +128,6 @@
     "source_hash": "f83833dbde4404cb0c2589219a683be4913ad2251ccf17132f706689da9b6190",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.256703Z"
+    "generated_at": "2025-12-15T02:19:00.655541Z"
   }
 }

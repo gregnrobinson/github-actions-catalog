@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/gtalk-action/action.yml",
     "origin": "github.com/appleboy/gtalk-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "",
+      "published_at": "2019-10-26T11:29:30Z",
+      "html_url": "https://github.com/appleboy/gtalk-action/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Gtalk Message Notify",
@@ -45,14 +53,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on sending messages, which falls under Communication and Notification. It also requires an OAuth token for authentication, linking it to the Authentication category.",
+        "tags": [
+          "gtalk",
+          "notification",
+          "communication",
+          "oauth",
+          "message"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "fc6df474c664759f59d85f81cd20042b1918dd29f9dc314a2abacd9ca448e690",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.155748Z"
+    "generated_at": "2025-12-15T02:19:00.552633Z"
   }
 }

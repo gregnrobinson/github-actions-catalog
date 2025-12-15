@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/scp-action/action.yml",
     "origin": "github.com/appleboy/scp-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-04-27T04:42:28Z",
+      "html_url": "https://github.com/appleboy/scp-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "SCP Command to Transfer Files",
@@ -286,7 +294,8 @@
   "annotations": {
     "categories": [
       "Deployment",
-      "Infrastructure"
+      "Infrastructure",
+      "Communication"
     ],
     "confidence": "high",
     "evidence": [
@@ -294,7 +303,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is designed to transfer files using the SCP command, which is primarily used for deployment purposes. It also involves infrastructure as it connects to remote hosts.",
+        "reasoning": "The action is primarily focused on transferring files, which is a deployment task, and it involves communication with a remote server using SCP. It also relates to infrastructure as it interacts with remote hosts.",
         "tags": [
           "SCP",
           "file transfer",
@@ -309,6 +318,6 @@
     "source_hash": "bfd5c3374d9f2157228927a803d227926acae6874d62b30c104b97c368293324",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.168608Z"
+    "generated_at": "2025-12-15T02:19:00.565901Z"
   }
 }

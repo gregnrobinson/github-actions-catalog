@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/azure/kwok",
+  "version": "140e882588a3",
+  "definition": {
+    "name": "Setup kwok",
+    "description": "This action sets up kwok/kwokctl for use in your workflow",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "command",
+        "description": "Command to install",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "kwok-version",
+        "description": "Specific version of command to install, defaults to latest release",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repository",
+        "description": "Repository is kwok's repository, will use release from this repository, defaults same as uses in this step",
+        "required": false,
+        "default": "kubernetes-sigs/kwok"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/kwok",
+    "latest_release": {
+      "tag_name": "v0.8.0-alpha",
+      "name": "v0.8.0-alpha",
+      "published_at": "2025-05-19T11:38:43Z",
+      "html_url": "https://github.com/Azure/kwok/releases/tag/v0.8.0-alpha",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:11.083684Z"
+}

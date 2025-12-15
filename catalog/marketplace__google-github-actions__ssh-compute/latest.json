@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/ssh-compute/action.yml",
     "origin": "github.com/google-github-actions/ssh-compute",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2025-09-03T02:32:12Z",
+      "html_url": "https://github.com/google-github-actions/ssh-compute/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "SSH to Google Cloud Platform compute instances",
@@ -119,13 +127,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is primarily used for connecting to Google Cloud Platform compute instances, which falls under Infrastructure. It also involves authentication to establish the SSH connection.",
+        "reasoning": "This action is primarily focused on connecting to Google Cloud Platform compute instances, which falls under Infrastructure. It also involves authentication to establish an SSH connection.",
         "tags": [
-          "Google Cloud",
+          "GCP",
           "SSH",
-          "Compute",
-          "Infrastructure",
-          "Authentication"
+          "compute",
+          "infrastructure",
+          "authentication"
         ]
       }
     ]
@@ -134,6 +142,6 @@
     "source_hash": "62cc00dcb6624862a6eb32729f0afab40297e09091d5a607595df1084227a857",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.790924Z"
+    "generated_at": "2025-12-15T02:19:00.080852Z"
   }
 }

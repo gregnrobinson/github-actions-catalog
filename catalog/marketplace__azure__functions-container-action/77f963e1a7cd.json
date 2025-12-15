@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/azure/functions-container-action",
+  "version": "77f963e1a7cd",
+  "definition": {
+    "name": "Azure Functions Container Action",
+    "description": "Deploy Functions Container to Azure",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "app-name",
+        "description": "Name of the Azure Function App",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "image",
+        "description": "Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "container-command",
+        "description": "Enter the start up command. For ex. 'dotnet run' or '/azure-functions-host/Microsoft.Azure.WebJobs.Script.WebHost'",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "slot-name",
+        "description": "Function app slot to be deploy to",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "app-url",
+        "description": "URL to work with your function app"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/functions-container-action",
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "Release v1.2.2",
+      "published_at": "2024-05-30T15:01:12Z",
+      "html_url": "https://github.com/Azure/functions-container-action/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:19.399477Z"
+}

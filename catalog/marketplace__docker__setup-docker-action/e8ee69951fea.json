@@ -1,0 +1,94 @@
+{
+  "action_id": "marketplace/docker/setup-docker-action",
+  "version": "e8ee69951fea",
+  "definition": {
+    "name": "Docker Setup Docker",
+    "description": "Set up Docker for use in GitHub Actions by downloading and installing a version of Docker CE",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "version",
+        "description": "Docker CE version. (e.g, v24.0.9)",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "channel",
+        "description": "Docker CE channel. (e.g, stable, edge or test)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "daemon-config",
+        "description": "Docker daemon JSON configuration",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tcp-port",
+        "description": "TCP port to expose the Docker API locally",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "context",
+        "description": "Docker context name. (default setup-docker-action)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "set-host",
+        "description": "Set DOCKER_HOST environment variable to docker socket path",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "rootless",
+        "description": "Enable Docker rootless mode",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "runtime-basedir",
+        "description": "Docker runtime base directory",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "GitHub Token used to get releases and download assets",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "sock",
+        "description": "Docker socket path"
+      },
+      {
+        "name": "tcp",
+        "description": "Docker TCP address if tcp-port is set"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/setup-docker-action",
+    "latest_release": {
+      "tag_name": "v4.6.0",
+      "name": "v4.6.0",
+      "published_at": "2025-11-27T12:24:18Z",
+      "html_url": "https://github.com/docker/setup-docker-action/releases/tag/v4.6.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:56.023935Z"
+}

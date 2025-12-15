@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tibdex/backport/action.yml",
     "origin": "github.com/tibdex/backport",
     "publisher": "tibdex",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.4",
+      "name": "v2.0.4",
+      "published_at": "2023-08-01T21:23:23Z",
+      "html_url": "https://github.com/tibdex/backport/releases/tag/v2.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Backporting",
@@ -62,14 +70,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action automates the process of backporting pull requests to other branches, which is a deployment-related task. It also involves communication through the creation of pull requests and maintaining code quality by ensuring that changes are consistently applied across branches.",
+        "tags": [
+          "backport",
+          "pull request",
+          "automation",
+          "GitHub Actions",
+          "branch management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "8110a1b5ff55581e263039d7fb6d96958f599c5798569d157f02c870d810d8b0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.404266Z"
+    "generated_at": "2025-12-15T02:19:00.938390Z"
   }
 }

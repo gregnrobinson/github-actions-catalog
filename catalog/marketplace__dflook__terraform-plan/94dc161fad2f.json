@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-plan/action.yml",
     "origin": "github.com/dflook/terraform-plan",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:43Z",
+      "html_url": "https://github.com/dflook/terraform-plan/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-plan",
@@ -141,14 +149,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Build",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action generates a Terraform plan, which is primarily related to infrastructure management. It also involves building the plan and can be used for testing changes before applying them.",
+        "tags": [
+          "Terraform",
+          "Infrastructure",
+          "Plan",
+          "GitHub Actions",
+          "Automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "94dc161fad2fdafedd5b059aaf70c8e40c17264e55382d6e3d0209ac70a971bf",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.376496Z"
+    "generated_at": "2025-12-15T02:18:59.610103Z"
   }
 }

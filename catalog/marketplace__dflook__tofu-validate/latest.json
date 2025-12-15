@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-validate/action.yml",
     "origin": "github.com/dflook/tofu-validate",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:48Z",
+      "html_url": "https://github.com/dflook/tofu-validate/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-validate",
@@ -56,8 +64,7 @@
   "annotations": {
     "categories": [
       "Code quality",
-      "Testing",
-      "Infrastructure"
+      "Testing"
     ],
     "confidence": "high",
     "evidence": [
@@ -65,13 +72,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action validates an OpenTofu configuration directory, which directly relates to ensuring code quality. Additionally, it involves aspects of infrastructure as it deals with configuration management.",
+        "reasoning": "The action is designed to validate an OpenTofu configuration directory, which directly relates to ensuring code quality and correctness. Additionally, it involves testing the configuration for potential issues.",
         "tags": [
           "OpenTofu",
           "validation",
-          "infrastructure",
-          "code quality",
-          "terraform"
+          "configuration",
+          "testing",
+          "code quality"
         ]
       }
     ]
@@ -80,6 +87,6 @@
     "source_hash": "ea90ba46905980fce62310c2db41ce362c05713d1f9038f97d795faa90d45cda",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.390392Z"
+    "generated_at": "2025-12-15T02:18:59.624310Z"
   }
 }

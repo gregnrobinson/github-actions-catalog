@@ -1,0 +1,98 @@
+{
+  "action_id": "marketplace/dflook/tofu-refresh",
+  "version": "2de91a036991",
+  "definition": {
+    "name": "tofu-refresh",
+    "description": "Refresh OpenTofu state",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Path to the OpenTofu root module to refresh state for",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "OpenTofu workspace to run the refresh state in",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the tofu plan. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "target",
+        "description": "List of resources to target, one per line.\nThe refresh will be limited to these resources and their dependencies.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "exclude",
+        "description": "List of resources to exclude from the refresh operation, one per line.\nThe refresh will include all resources except the specified ones and their dependencies.\n\nRequires OpenTofu 1.9+.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "parallelism",
+        "description": "Limit the number of concurrent operations",
+        "required": false,
+        "default": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure`, this output may be set. The value may be one of:\n\n- `refresh-failed` - The OpenTofu apply operation failed.\n- `state-locked` - The Terraform state lock could not be obtained because it was already locked.\n\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run steps.\n"
+      },
+      {
+        "name": "lock-info",
+        "description": "When the job outcome is `failure` and the failure-reason is `state-locked`, this output will be set.\n\nIt is a json object containing any available state lock information and typically has the form:\n\n```json\n{\n  \"ID\": \"838fbfde-c5cd-297f-84a4-d7578b4a4880\",\n  \"Path\": \"terraform-github-actions/test-unlock-state\",\n  \"Operation\": \"OperationTypeApply\",\n  \"Who\": \"root@e9d43b0c6478\",\n  \"Version\": \"1.3.7\",\n  \"Created\": \"2023-01-28 00:16:41.560904373 +0000 UTC\",\n  \"Info\": \"\"\n}\n```\n"
+      },
+      {
+        "name": "run_id",
+        "description": "If the root module uses the `remote` or `cloud` backend in remote execution mode, this output will be set to the remote run id."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-refresh",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:58Z",
+      "html_url": "https://github.com/dflook/tofu-refresh/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:44.143740Z"
+}

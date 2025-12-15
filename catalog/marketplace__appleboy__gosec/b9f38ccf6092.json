@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/appleboy/gosec",
+  "version": "b9f38ccf6092",
+  "definition": {
+    "name": "Gosec Security Checker",
+    "description": "Runs the gosec security checker",
+    "author": "@ccojocar",
+    "inputs": [
+      {
+        "name": "args",
+        "description": "Arguments for gosec",
+        "required": true,
+        "default": "-h"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/gosec"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:53.353210Z"
+}

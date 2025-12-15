@@ -1,0 +1,71 @@
+{
+  "action_id": "marketplace/azure/run-sqlpackage-action",
+  "version": "c9d0c709351c",
+  "definition": {
+    "name": "run-sqlpackage",
+    "description": "Runs SqlPackage command on a target database",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "action",
+        "description": "Action parameter to run with SqlPackage. Supported values are: Publish, DeployReport, DriftReport, Script",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "sourcepath",
+        "description": "The path where to look for the DACPAC file. If multiple files exists, all of them are processed",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "profile",
+        "description": "The profile path to use during the execution. It has to be an xml file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "database-server",
+        "description": "Database server URL (without protocol). If not indicated in the publishing profile, it has to be indicated here.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "database-name",
+        "description": "Database name. If not indicated in the publishing profile, it has to be indicated here.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "authtoken",
+        "description": "The authentication token used to connect to the database, if credentials not indicated in the connection string",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "outputpath",
+        "description": "The output folder where assets will be generated if any",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "outputfile",
+        "description": "The output file name. The final name of the file will be [dacpac_name].[outputfile]",
+        "required": false,
+        "default": "deployreport.xml"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/run-sqlpackage-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:44.665267Z"
+}

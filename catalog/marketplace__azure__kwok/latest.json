@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/kwok/action.yml",
     "origin": "github.com/azure/kwok",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.8.0-alpha",
+      "name": "v0.8.0-alpha",
+      "published_at": "2025-05-19T11:38:43Z",
+      "html_url": "https://github.com/Azure/kwok/releases/tag/v0.8.0-alpha",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup kwok",
@@ -59,13 +67,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action sets up a specific tool (kwok/kwokctl) for use in workflows, which involves managing dependencies necessary for the workflow's execution. It also relates to infrastructure as it prepares a tool that interacts with Kubernetes.",
+        "reasoning": "This action is focused on setting up a tool (kwok/kwokctl) which is typically used for managing dependencies in a Kubernetes environment, indicating its primary role in dependency management. Additionally, it relates to infrastructure as it prepares a tool used for cloud-native applications.",
         "tags": [
           "kwok",
+          "kubernetes",
           "setup",
           "dependency",
-          "infrastructure",
-          "kubernetes"
+          "infrastructure"
         ]
       }
     ]
@@ -74,6 +82,6 @@
     "source_hash": "5babdd0436bbab4c3d0697f928cd8ebb4f1608eea7bb2caf7784b59f45de313a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.545311Z"
+    "generated_at": "2025-12-15T02:18:59.819551Z"
   }
 }

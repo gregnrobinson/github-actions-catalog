@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/codecov/basic-test-results",
+  "version": "fecf3c7dc29b",
+  "definition": {
+    "name": "Basic Test Results",
+    "description": "Aggregates and processes tests files in CI. Outputs the failed tests as a comment on the PR.",
+    "author": "codecov",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "'The secrets.GITHUB_TOKEN to be able to interact with the current PR and comment on it.'\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "directory",
+        "description": "Directory to search for test result reports. Will run test processing on all files in the directory.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "disable-search",
+        "description": "Disable search for test result files. This is helpful when specifying what files you want to run test report processing with the --file option.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude",
+        "description": "Directories to exclude from search.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file",
+        "description": "Path to the junit file to run test result processing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "version",
+        "description": "Specify which version of the Codecov CLI should be used. Defaults to `latest`.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "codecov",
+    "verified": false,
+    "origin": "github.com/codecov/basic-test-results",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "Initial Release",
+      "published_at": "2024-10-28T15:42:43Z",
+      "html_url": "https://github.com/codecov/basic-test-results/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:22.545158Z"
+}

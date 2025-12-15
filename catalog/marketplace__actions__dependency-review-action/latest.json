@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/dependency-review-action/action.yml",
     "origin": "github.com/actions/dependency-review-action",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.8.2",
+      "name": "v4.8.2",
+      "published_at": "2025-11-10T22:54:07Z",
+      "html_url": "https://github.com/actions/dependency-review-action/releases/tag/v4.8.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Dependency Review",
@@ -178,7 +186,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "This action focuses on identifying and preventing the introduction of dependencies with known vulnerabilities, which directly relates to security. It also involves managing dependencies by reviewing their statuses.",
+        "reasoning": "The action focuses on preventing the introduction of dependencies with known vulnerabilities, which is a key aspect of security, while also managing dependencies effectively.",
         "tags": [
           "dependency",
           "security",
@@ -193,6 +201,6 @@
     "source_hash": "93fa1d22954d42978c59d6564860e27ae4bb690c2113718a9a3da4e34fceee1b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.309010Z"
+    "generated_at": "2025-12-15T02:19:00.716070Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/MansaGroup/gcs-cache-action/action.yml",
     "origin": "github.com/MansaGroup/gcs-cache-action",
     "publisher": "MansaGroup",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.3",
+      "name": "v1",
+      "published_at": "2022-11-09T15:37:33Z",
+      "html_url": "https://github.com/MansaGroup/gcs-cache-action/releases/tag/v1.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Google Cloud Storage Cache",
@@ -52,14 +60,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Caching"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is designed to cache workloads in Google Cloud Storage, which directly relates to managing dependencies and improving build efficiency through caching.",
+        "tags": [
+          "Google Cloud",
+          "Caching",
+          "Dependency Management",
+          "GCS",
+          "Workflow Optimization"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1fd802e54d19cfc240283ce713b966d128d51976f39367474912b8d828a3593b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.762916Z"
+    "generated_at": "2025-12-15T02:19:01.024840Z"
   }
 }

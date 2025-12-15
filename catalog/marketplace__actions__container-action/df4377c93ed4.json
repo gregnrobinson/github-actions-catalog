@@ -1,0 +1,34 @@
+{
+  "action_id": "marketplace/actions/container-action",
+  "version": "df4377c93ed4",
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "description": "Your input description here",
+        "required": true,
+        "default": "World"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "greeting",
+        "description": "Your output description here"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/container-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:18.768694Z"
+}

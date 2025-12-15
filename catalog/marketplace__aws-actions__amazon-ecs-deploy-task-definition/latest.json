@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecs-deploy-task-definition/action.yml",
     "origin": "github.com/aws-actions/amazon-ecs-deploy-task-definition",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.5.0",
+      "name": "v2.5.0",
+      "published_at": "2025-11-24T19:43:50Z",
+      "html_url": "https://github.com/aws-actions/amazon-ecs-deploy-task-definition/releases/tag/v2.5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Amazon ECS \"Deploy Task Definition\" Action for GitHub Actions",
@@ -218,7 +226,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying an ECS task definition, which falls under the Deployment category, while also involving infrastructure management within AWS.",
+        "reasoning": "This action is focused on deploying an ECS task definition, which is a core aspect of deployment in cloud infrastructure. It also involves registering the task definition, linking it to infrastructure management.",
         "tags": [
           "ECS",
           "AWS",
@@ -233,6 +241,6 @@
     "source_hash": "69592efe496f8926ba46097910238495007e6bc24c1277922dfe7857cfa7af11",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.068999Z"
+    "generated_at": "2025-12-15T02:19:00.484986Z"
   }
 }

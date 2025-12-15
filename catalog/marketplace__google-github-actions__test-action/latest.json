@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/test-action/action.yml",
     "origin": "github.com/google-github-actions/test-action",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.1",
+      "name": "v2.0.1",
+      "published_at": "2024-09-09T15:42:39Z",
+      "html_url": "https://github.com/google-github-actions/test-action/releases/tag/v2.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Google Actions Testing",
@@ -29,11 +37,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is specifically designed for testing purposes, which makes Testing the primary category.",
+        "reasoning": "The action is explicitly described as being for testing purposes, making it clear that its primary function is related to testing.",
         "tags": [
-          "Google",
-          "Testing",
-          "GitHub Actions"
+          "testing",
+          "google",
+          "github-actions"
         ]
       }
     ]
@@ -42,6 +50,6 @@
     "source_hash": "15bf8d909eef2e0cd8b83e2ee63c7e29370676120bb80b8d2abdf0c7b881ebda",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.760709Z"
+    "generated_at": "2025-12-15T02:19:00.047417Z"
   }
 }

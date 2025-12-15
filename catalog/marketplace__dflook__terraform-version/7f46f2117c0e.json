@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/dflook/terraform-version",
+  "version": "7f46f2117c0e",
+  "definition": {
+    "name": "terraform-version",
+    "description": "Prints Terraform and providers versions",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform root module directory.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "The workspace to determine the Terraform version for.",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line.\n\nThis will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.\nFor other backend types, this is used to fetch the version that most recently wrote to the Terraform state.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n\nThis will be used to fetch the Terraform version set in the cloud workspace if using the `remote` backend.\nFor other backend types, this is used to fetch the version that most recently wrote to the Terraform state.\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "terraform",
+        "description": "The Hashicorp Terraform or OpenTofu version that is used by the configuration."
+      },
+      {
+        "name": "tofu",
+        "description": "If the action chose a version of OpenTofu, this will be set to the version that is used by the configuration."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-version",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:04Z",
+      "html_url": "https://github.com/dflook/terraform-version/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:45.902469Z"
+}

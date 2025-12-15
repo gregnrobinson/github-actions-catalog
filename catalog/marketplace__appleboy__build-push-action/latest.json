@@ -232,7 +232,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is primarily focused on building Docker images, which falls under the Build category. Additionally, it involves pushing those images to a registry, linking it to Packaging and Deployment.",
+        "reasoning": "This action is primarily focused on building Docker images, which falls under the Build category, while also packaging those images for deployment. It facilitates the process of creating and pushing images to registries.",
         "tags": [
           "Docker",
           "Buildx",
@@ -247,6 +247,6 @@
     "source_hash": "df6a2274e7b12148550787855a983bd4e25318b505618cc2aadc6b478833fcc6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.151565Z"
+    "generated_at": "2025-12-15T02:19:00.548740Z"
   }
 }

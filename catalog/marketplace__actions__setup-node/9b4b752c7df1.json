@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-node/action.yml",
     "origin": "github.com/actions/setup-node",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.1.0",
+      "name": "v6.1.0",
+      "published_at": "2025-12-03T03:19:20Z",
+      "html_url": "https://github.com/actions/setup-node/releases/tag/v6.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Node.js environment",
@@ -104,14 +112,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up a Node.js environment, which is primarily about managing dependencies related to Node.js versions. It also plays a role in building applications that rely on Node.js.",
+        "tags": [
+          "Node.js",
+          "setup",
+          "environment",
+          "dependencies",
+          "build"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "9b4b752c7df1071ddb7d1ba132503d86239da9e86e9f505809112a3af9079659",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.264147Z"
+    "generated_at": "2025-12-15T02:19:00.662771Z"
   }
 }

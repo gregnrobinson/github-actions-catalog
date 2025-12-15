@@ -1,0 +1,71 @@
+{
+  "action_id": "marketplace/wlixcc/up2qn-plus",
+  "version": "6d9241e86fd4",
+  "definition": {
+    "name": "up2qn-plus",
+    "description": "\u4e0a\u4f20\u6587\u4ef6\u5230\u4e03\u725b",
+    "author": "beimengyeyu <me@beimengyeyu.com>",
+    "inputs": [
+      {
+        "name": "bucket",
+        "description": "\u4e03\u725b\u4e91\u7a7a\u95f4\u540d\u79f0",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "zone",
+        "description": "\u4e03\u725b\u4e91\u5b58\u50a8\u533a\u57df \u5982: \u534e\u5357 \u534e\u4e1c \u534e\u5317 \u5317\u7f8e \u4e1c\u5357\u4e9a",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "access_key",
+        "description": "\u5230\u4e03\u725b\u4e91 \u4e2a\u4eba\u4e2d\u5fc3 -> \u5bc6\u94a5\u7ba1\u7406 \u83b7\u53d6 AccessKey\uff0c\u4e3a\u786e\u4fdd\u60a8\u7684\u7a7a\u95f4\u5b89\u5168\uff0c\u8bf7\u4f7f\u7528 github \u4ed3\u5e93 secrets \u53d8\u91cf",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "secret_key",
+        "description": "\u5230\u4e03\u725b\u4e91 \u4e2a\u4eba\u4e2d\u5fc3 -> \u5bc6\u94a5\u7ba1\u7406 \u83b7\u53d6  SecretKey\uff0c\u4e3a\u786e\u4fdd\u60a8\u7684\u7a7a\u95f4\u5b89\u5168\uff0c\u8bf7\u4f7f\u7528 github \u4ed3\u5e93 secrets \u53d8\u91cf",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "local_dir",
+        "description": "\u672c\u5730\u8981\u4e0a\u4f20\u7684\u6587\u4ef6\u5939",
+        "required": true,
+        "default": "dist"
+      },
+      {
+        "name": "local_exclude",
+        "description": "\u672c\u5730\u8981\u6392\u9664\u7684\u6587\u4ef6",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "target_dir",
+        "description": "\u4e03\u725b\u4e91\u7a7a\u95f4\u91cc\u7684\u6587\u4ef6\u5939",
+        "required": false,
+        "default": "/"
+      },
+      {
+        "name": "rpc_timeout",
+        "description": "\u8d85\u65f6\u65f6\u95f4",
+        "required": false,
+        "default": "120000"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wlixcc",
+    "verified": false,
+    "origin": "github.com/wlixcc/up2qn-plus"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:16.821310Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-apply/action.yml",
     "origin": "github.com/dflook/tofu-apply",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:43Z",
+      "html_url": "https://github.com/dflook/tofu-apply/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-apply",
@@ -140,14 +148,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action 'tofu-apply' is designed to apply an OpenTofu plan, which is primarily a deployment task in infrastructure management. It interacts with infrastructure as code, making it relevant to the Infrastructure category as well.",
+        "tags": [
+          "OpenTofu",
+          "Terraform",
+          "Deployment",
+          "Infrastructure",
+          "GitHub Actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "77f2c45db087e84aafb6ade6cb9c0dbb52f29f56f802d7bfeb34a30412a06ae1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.422184Z"
+    "generated_at": "2025-12-15T02:18:59.660165Z"
   }
 }

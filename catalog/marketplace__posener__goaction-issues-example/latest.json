@@ -32,21 +32,21 @@
   "annotations": {
     "categories": [
       "Documentation",
-      "Communication"
+      "Code quality"
     ],
-    "confidence": "high",
+    "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action serves as an example of using GitHub APIs, which is primarily for documentation purposes. It also facilitates communication with GitHub APIs, hence the secondary category.",
+        "reasoning": "The action serves as an example for using GitHub APIs, which primarily falls under documentation. It also relates to code quality by demonstrating best practices in using GitHub's functionalities.",
         "tags": [
           "GitHub API",
           "example",
           "documentation",
           "goaction",
-          "communication"
+          "code quality"
         ]
       }
     ]
@@ -55,6 +55,6 @@
     "source_hash": "7017318f5462f51d821caaf288aae0e66c80d0687a87084d9a0a1f4149f9b336",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.815356Z"
+    "generated_at": "2025-12-15T02:19:01.119095Z"
   }
 }

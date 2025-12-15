@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-unlock-state/action.yml",
     "origin": "github.com/dflook/terraform-unlock-state",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:53Z",
+      "html_url": "https://github.com/dflook/terraform-unlock-state/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-unlock-state",
@@ -52,14 +60,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is specifically designed to interact with Terraform, which is a tool for building, changing, and versioning infrastructure safely and efficiently. Unlocking a Terraform remote state is a key part of managing infrastructure deployments.",
+        "tags": [
+          "Terraform",
+          "Infrastructure",
+          "Unlock",
+          "State Management",
+          "Deployment"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "4a8af4caad8dc8eea35e69b4d5f3789eb001917b1fd465e65faa13ffd2fd8eb3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.342837Z"
+    "generated_at": "2025-12-15T02:18:59.577687Z"
   }
 }

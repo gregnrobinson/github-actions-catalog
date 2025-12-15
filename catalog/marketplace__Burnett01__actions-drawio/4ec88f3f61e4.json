@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/Burnett01/actions-drawio",
+  "version": "4ec88f3f61e4",
+  "definition": {
+    "name": "actions-drawio",
+    "description": "Convert draw.io documents to jpeg|png|svg|pdf.",
+    "author": "Burnett01",
+    "inputs": [
+      {
+        "name": "quality",
+        "description": "Image quality for png|jpeg",
+        "required": false,
+        "default": "100"
+      },
+      {
+        "name": "scale",
+        "description": "Scales the output file size for pixel-based output formats",
+        "required": false,
+        "default": "1.0"
+      },
+      {
+        "name": "src",
+        "description": "Input file",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "dest",
+        "description": "Output file",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "Burnett01",
+    "verified": false,
+    "origin": "github.com/Burnett01/actions-drawio",
+    "latest_release": {
+      "tag_name": "1.2",
+      "name": "1.2",
+      "published_at": "2022-01-16T16:48:37Z",
+      "html_url": "https://github.com/Burnett01/actions-drawio/releases/tag/1.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:22.020036Z"
+}

@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/azure/WordPress-Azure-App-Service",
+  "version": "f8c25141b995",
+  "definition": {
+    "name": "Deploy a Wordpress on Azure App service",
+    "description": "This action helps create an Azure App service and deploy Wordpress on it",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "client-id",
+        "description": "Client id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "tenant-id",
+        "description": "Tenant id to login to azure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "subscription-id",
+        "description": "Subscription id to be used with your az login",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "resource-group-name",
+        "description": "Resource group to deploy your resources to",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/WordPress-Azure-App-Service",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:19:29Z",
+      "html_url": "https://github.com/Azure/WordPress-Azure-App-Service/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:01.668019Z"
+}

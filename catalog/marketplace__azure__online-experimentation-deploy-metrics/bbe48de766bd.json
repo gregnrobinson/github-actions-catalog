@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/azure/online-experimentation-deploy-metrics",
+  "version": "bbe48de766bd",
+  "definition": {
+    "name": "Online Experimentation Deploy Metrics",
+    "description": "Deploy metric definitions from a configuration file to the Online Experimentation workspace",
+    "author": "Microsoft",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Source file(s) containing metrics. Multiple files can be specified in list or glob format. Example: **/*.json or metrics/*.json. Use ! to exclude files.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "online-experimentation-workspace-endpoint",
+        "description": "Online Experimentation workspace endpoint",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "operation",
+        "description": "Possible values: validate or deploy - deploy by default. validate: only validates the configuration file. deploy: syncs the configuration file with Online Experimentation workspace",
+        "required": false,
+        "default": "deploy"
+      },
+      {
+        "name": "strict",
+        "description": "If strict, the deploy operation deletes metrics not found in the config file. Choices: true, false (default: true).",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "add-commit-hash-to-metric-description",
+        "description": "Indicates whether to add the git commit hash to the metric description. This is helpful to track the metric version used by experiment analysis. Choices: true, false (default: false)",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/online-experimentation-deploy-metrics"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:14.294329Z"
+}

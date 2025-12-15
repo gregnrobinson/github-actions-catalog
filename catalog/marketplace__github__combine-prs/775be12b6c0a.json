@@ -1,0 +1,136 @@
+{
+  "action_id": "marketplace/github/combine-prs",
+  "version": "775be12b6c0a",
+  "definition": {
+    "name": "combine-prs",
+    "description": "Combine multiple PRs into a single PR",
+    "author": "Grant Birkinbine",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "The GitHub token used to create an authenticated client - Provided for you by default!",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "branch_prefix",
+        "description": "The prefix of the branches to combine",
+        "required": true,
+        "default": "dependabot"
+      },
+      {
+        "name": "pr_title",
+        "description": "The title of the pull request to create",
+        "required": true,
+        "default": "Combined PRs"
+      },
+      {
+        "name": "pr_body_header",
+        "description": "The header of the pull request body",
+        "required": true,
+        "default": "# Combined PRs \u27a1\ufe0f\ud83d\udce6\u2b05\ufe0f"
+      },
+      {
+        "name": "min_combine_number",
+        "description": "The minimum number of PRs that have to match criteria in order to create a combined PR",
+        "required": true,
+        "default": "2"
+      },
+      {
+        "name": "branch_regex",
+        "description": "The regex to match the branches to combine - more control than branch_prefix",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ci_required",
+        "description": "Whether or not CI should be passing to combine the PR",
+        "required": true,
+        "default": "true"
+      },
+      {
+        "name": "review_required",
+        "description": "Whether or not a review should be required to combine the PR",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "combine_branch_name",
+        "description": "The name of the branch to combine the PRs into",
+        "required": true,
+        "default": "combined-prs-branch"
+      },
+      {
+        "name": "ignore_label",
+        "description": "The label to ignore when combining PRs",
+        "required": true,
+        "default": "nocombine"
+      },
+      {
+        "name": "select_label",
+        "description": "The label marking PRs that should be combined",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "labels",
+        "description": "A comma seperated list of labels to add to the combined PR",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "assignees",
+        "description": "A comma seperated list of assignees to add to the combined PR",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "autoclose",
+        "description": "Whether or not to close combined PRs if the combined PR is merged",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "update_branch",
+        "description": "Whether or not to update the combined branch with the latest changes from the base branch after creating the combined pull request",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "create_from_scratch",
+        "description": "Whether or not to start from a clean base branch when (re)creating the combined PR",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_url",
+        "description": "The pull request URL if a PR was created"
+      },
+      {
+        "name": "pr_number",
+        "description": "The pull request number if a PR was created"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/combine-prs",
+    "latest_release": {
+      "tag_name": "v5.2.0",
+      "name": "v5.2.0",
+      "published_at": "2024-10-10T19:13:03Z",
+      "html_url": "https://github.com/github/combine-prs/releases/tag/v5.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:19.140053Z"
+}

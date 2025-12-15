@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/publish-immutable-action/action.yml",
     "origin": "github.com/actions/publish-immutable-action",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2024-10-22T14:11:43Z",
+      "html_url": "https://github.com/actions/publish-immutable-action/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Package and Publish",
@@ -51,7 +59,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Publishing",
-        "reasoning": "The action is primarily focused on publishing actions as OCI artifacts, which falls under the Publishing category. It also involves authentication with GitHub APIs, making Authentication a relevant secondary category.",
+        "reasoning": "The action focuses on publishing actions as OCI artifacts, which falls under the Publishing category, while also requiring authentication with GitHub APIs, placing it in the Authentication category as well.",
         "tags": [
           "GitHub Actions",
           "OCI",
@@ -66,6 +74,6 @@
     "source_hash": "9ba2877d3389f7ba4bda9c65811a5f0fb5dbdfb89f7c71931f59f13538906820",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.252174Z"
+    "generated_at": "2025-12-15T02:19:00.651241Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-find-issue-key/action.yml",
     "origin": "github.com/atlassian/gajira-find-issue-key",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update dependencies and node version",
+      "published_at": "2022-11-20T23:58:01Z",
+      "html_url": "https://github.com/atlassian/gajira-find-issue-key/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Find issue key",
@@ -48,13 +56,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action helps in extracting issue keys from commits or branches, which can facilitate communication about issues in a project. It also relates to code quality by ensuring that issue tracking is integrated with code changes.",
+        "reasoning": "This action is primarily focused on finding issue keys from events, which facilitates communication with Jira. It also relates to code quality by ensuring that issue tracking is integrated into the development process.",
         "tags": [
           "Jira",
           "issue tracking",
-          "GitHub Action",
-          "communication",
-          "code quality"
+          "automation",
+          "GitHub Actions",
+          "communication"
         ]
       }
     ]
@@ -63,6 +71,6 @@
     "source_hash": "6ea2fe341ce9a63ee390eee72d9b80fd055e17474d822fbbf05128c6c470a0ae",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.404190Z"
+    "generated_at": "2025-12-15T02:19:00.396420Z"
   }
 }

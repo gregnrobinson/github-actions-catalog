@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/creyD/prettier_action/action.yml",
     "origin": "github.com/creyD/prettier_action",
     "publisher": "creyD",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.6",
+      "name": "v4.6",
+      "published_at": "2025-06-09T21:55:13Z",
+      "html_url": "https://github.com/creyD/prettier_action/releases/tag/v4.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Prettier Action",
@@ -165,7 +173,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The Prettier Action is focused on formatting code to ensure consistent style, which directly relates to code quality. It may also be used in testing workflows to ensure code adheres to style guidelines.",
+        "reasoning": "The Prettier Action is focused on formatting code to improve its quality, which falls under the Code quality category. Additionally, it can be seen as a part of the testing process to ensure code style consistency.",
         "tags": [
           "prettier",
           "code quality",
@@ -180,6 +188,6 @@
     "source_hash": "085d56bff7983c543ba2bd3132f7ed061faf4423f443a84e56ff3312b0be0a51",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.808105Z"
+    "generated_at": "2025-12-15T02:19:01.111877Z"
   }
 }

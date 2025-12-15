@@ -1,0 +1,126 @@
+{
+  "action_id": "marketplace/graalvm/setup-graalvm",
+  "version": "fe57f0018a42",
+  "definition": {
+    "name": "GitHub Action for GraalVM",
+    "description": "Set up a specific version of the GraalVM JDK and add the command-line tools to the PATH",
+    "author": "GraalVM Community",
+    "inputs": [
+      {
+        "name": "java-version",
+        "description": "Java version. See examples of supported syntax in the README file.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "java-package",
+        "description": "The package type (jdk or jdk+fx). Currently applies to Liberica only.",
+        "required": false,
+        "default": "jdk"
+      },
+      {
+        "name": "distribution",
+        "description": "GraalVM distribution. See the list of available distributions in the README file.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "components",
+        "description": "Comma-separated list of GraalVM components to be installed.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "github-token",
+        "description": "Set it to secrets.GITHUB_TOKEN to increase rate limits when accessing the GitHub API. Defaults to github.token.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "set-java-home",
+        "description": "Set $JAVA_HOME to the GraalVM installation. Default: true.",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "cache",
+        "description": "Name of the build platform to cache dependencies. It can be \"maven\", \"gradle\", or \"sbt\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "check-for-updates",
+        "description": "Annotate jobs with update notifications, for example, when a new GraalVM release is available",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "native-image-musl",
+        "description": "Set up musl for static image building with GraalVM Native Image.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "native-image-job-reports",
+        "description": "Post a job summary containing a Native Image build report.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "native-image-pr-reports",
+        "description": "Post a comment containing a Native Image build report on pull requests.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "native-image-pr-reports-update-existing",
+        "description": "Instead of posting another comment, update an existing PR comment with the latest Native Image build report.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "native-image-enable-sbom",
+        "description": "Automatically generate an SBOM and submit it to the GitHub dependency submission API for vulnerability and dependency tracking.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "version",
+        "description": "GraalVM version (release, latest, dev).",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "gds-token",
+        "description": "Download token for the GraalVM Download Service. If provided, the action will set up GraalVM Enterprise Edition.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate an exact match was found for the primary key"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "graalvm",
+    "verified": false,
+    "origin": "github.com/graalvm/setup-graalvm",
+    "latest_release": {
+      "tag_name": "v1.4.4",
+      "name": "v1.4.4",
+      "published_at": "2025-12-02T08:48:00Z",
+      "html_url": "https://github.com/graalvm/setup-graalvm/releases/tag/v1.4.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:03.749584Z"
+}

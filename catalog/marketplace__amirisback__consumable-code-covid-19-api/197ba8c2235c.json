@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-covid-19-api",
+  "version": "197ba8c2235c",
+  "definition": {
+    "name": "consumable-code-covid-19-api",
+    "description": "consumable-code-covid-19-api for your android apps",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/consumable-code-covid-19-api",
+    "latest_release": {
+      "tag_name": "1.0.1",
+      "name": "Adding get all route",
+      "published_at": "2020-03-18T06:42:50Z",
+      "html_url": "https://github.com/caravancodes/consumable-code-covid-19-api/releases/tag/1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:39.537541Z"
+}

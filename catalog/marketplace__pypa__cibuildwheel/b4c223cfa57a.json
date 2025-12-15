@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/pypa/cibuildwheel",
+  "version": "b4c223cfa57a",
+  "definition": {
+    "name": "cibuildwheel",
+    "description": "Installs and runs cibuildwheel on the current runner",
+    "author": "pypa",
+    "inputs": [
+      {
+        "name": "package-dir",
+        "description": "Input directory, defaults to \".\"",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "output-dir",
+        "description": "Folder to place the outputs in, defaults to \"wheelhouse\"",
+        "required": false,
+        "default": "wheelhouse"
+      },
+      {
+        "name": "config-file",
+        "description": "File containing the config, defaults to {package}/pyproject.toml",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "only",
+        "description": "Build a specific wheel only. No need for arch/platform if this is set",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "extras",
+        "description": "Comma-separated list of extras to install",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "pypa",
+    "verified": false,
+    "origin": "github.com/pypa/cibuildwheel",
+    "latest_release": {
+      "tag_name": "v3.3.0",
+      "name": "",
+      "published_at": "2025-11-12T19:28:16Z",
+      "html_url": "https://github.com/pypa/cibuildwheel/releases/tag/v3.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:50.692945Z"
+}

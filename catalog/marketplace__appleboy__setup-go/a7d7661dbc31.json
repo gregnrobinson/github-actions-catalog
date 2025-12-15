@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/appleboy/setup-go",
+  "version": "a7d7661dbc31",
+  "definition": {
+    "name": "Setup Go environment",
+    "description": "Setup a Go environment and add it to the PATH, additionally providing proxy support",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "go-version",
+        "description": "The Go version to download (if necessary) and use. Example: 1.9.3",
+        "required": false,
+        "default": "1.10"
+      },
+      {
+        "name": "version",
+        "description": "Deprecated. Use go-version instead. Will not be supported after October 1, 2019",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/setup-go"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:58.372532Z"
+}

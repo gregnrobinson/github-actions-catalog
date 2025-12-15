@@ -1,0 +1,78 @@
+{
+  "action_id": "marketplace/peter-evans/create-issue-from-file",
+  "version": "f89650e9d2a8",
+  "definition": {
+    "name": "Create Issue From File",
+    "description": "An action to create an issue using content from a file",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "The GitHub authentication token",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The target GitHub repository",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "issue-number",
+        "description": "The issue number of an existing issue to update",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "title",
+        "description": "The title of the issue",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "content-filepath",
+        "description": "The file path to the issue content",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "labels",
+        "description": "A comma or newline-separated list of labels",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "assignees",
+        "description": "A comma or newline-separated list of assignees (GitHub usernames)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue-number",
+        "description": "The number of the created issue"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/create-issue-from-file",
+    "latest_release": {
+      "tag_name": "v6.0.0",
+      "name": "Create Issue From File v6.0.0",
+      "published_at": "2025-10-01T14:45:11Z",
+      "html_url": "https://github.com/peter-evans/create-issue-from-file/releases/tag/v6.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:36.617944Z"
+}

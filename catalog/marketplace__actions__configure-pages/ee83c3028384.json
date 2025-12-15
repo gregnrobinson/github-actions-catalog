@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/configure-pages/action.yml",
     "origin": "github.com/actions/configure-pages",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "v5.0.0",
+      "published_at": "2024-03-30T00:49:12Z",
+      "html_url": "https://github.com/actions/configure-pages/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Configure GitHub Pages",
@@ -62,14 +70,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Documentation",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is primarily focused on deploying static sites to GitHub Pages, which falls under the Deployment category. It also involves configuring metadata and supporting static site generators, linking it to Documentation and Infrastructure.",
+        "tags": [
+          "GitHub Pages",
+          "Deployment",
+          "Static Site Generator",
+          "Configuration",
+          "Infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ee83c302838439770e9c45fe62f6abfd58341f57ac21ebaf848fb5e3a9fbcb67",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.294274Z"
+    "generated_at": "2025-12-15T02:19:00.701228Z"
   }
 }

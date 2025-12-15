@@ -24,19 +24,19 @@
       "Documentation",
       "Code quality"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is focused on searching for usage of specific GitHub Actions and visualizing that information, which relates to documentation and understanding code quality through usage patterns.",
+        "reasoning": "This action focuses on searching for usage of specific GitHub Actions and visualizing that data, which contributes to documentation and understanding of code quality in repositories.",
         "tags": [
           "GitHub Actions",
           "usage",
-          "documentation",
           "visualization",
-          "D3.js"
+          "D3.js",
+          "documentation"
         ]
       }
     ]
@@ -45,6 +45,6 @@
     "source_hash": "be62f0e9e035a00bbd11307f780ecf39672b83004cff15b93e2865228b241184",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.262105Z"
+    "generated_at": "2025-12-15T02:19:00.143770Z"
   }
 }

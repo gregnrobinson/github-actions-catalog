@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/yoshi389111/github-profile-3d-contrib/action.yml",
     "origin": "github.com/yoshi389111/github-profile-3d-contrib",
     "publisher": "yoshi389111",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.9.1",
+      "name": "v0.9.1 release",
+      "published_at": "2025-09-13T00:45:39Z",
+      "html_url": "https://github.com/yoshi389111/github-profile-3d-contrib/releases/tag/v0.9.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub-Profile-3D-Contrib",
@@ -22,7 +30,7 @@
   "annotations": {
     "categories": [
       "Documentation",
-      "Code quality"
+      "Communication"
     ],
     "confidence": "medium",
     "evidence": [
@@ -30,13 +38,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action generates a visual representation of GitHub contributions, which can enhance a user's profile documentation and showcase their coding activity, thus relating it to both documentation and code quality.",
+        "reasoning": "This action generates a visual representation of GitHub contributions, which can enhance a user's profile documentation and serve as a communication tool for showcasing activity.",
         "tags": [
           "GitHub",
           "profile",
-          "contributions",
-          "3D",
-          "visualization"
+          "3D contributions",
+          "visualization",
+          "documentation"
         ]
       }
     ]
@@ -45,6 +53,6 @@
     "source_hash": "cb27f2850b99c2ef451cd59b6827b723d2cbbed13f7ec0c4bc056c41ce25cf51",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.895160Z"
+    "generated_at": "2025-12-15T02:19:00.290279Z"
   }
 }

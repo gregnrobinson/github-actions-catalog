@@ -1,0 +1,114 @@
+{
+  "action_id": "marketplace/ArtiomTr/jest-coverage-report-action",
+  "version": "1e5c4041b8d1",
+  "definition": {
+    "name": "Jest coverage report",
+    "description": "Track your code coverage in each pull request.",
+    "author": "Artiom Tretjakovas <artiom.tretjakovas2@gmail.com>",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "A github access token",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "test-script",
+        "description": "A custom npm script to get coverage",
+        "required": false,
+        "default": "npx jest"
+      },
+      {
+        "name": "threshold",
+        "description": "Coverage threshold. If total coverage is less than threshold, PR will be rejected",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "working-directory",
+        "description": "Custom working directory",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "icons",
+        "description": "Which icons to use. Available choices: emoji, ascii",
+        "required": false,
+        "default": "emoji"
+      },
+      {
+        "name": "annotations",
+        "description": "What type of annotations show. Options: none, coverage, failed-tests, all",
+        "required": false,
+        "default": "all"
+      },
+      {
+        "name": "package-manager",
+        "description": "Which package manager to use; can be `npm`, `yarn`, `pnpm`, or `bun`",
+        "required": false,
+        "default": "npm"
+      },
+      {
+        "name": "skip-step",
+        "description": "`none` for running all steps, `install` to skip installing dependencies or `all` to skip installing dependencies and running the test script",
+        "required": false,
+        "default": "none"
+      },
+      {
+        "name": "custom-title",
+        "description": "Sets the title of the coverage report comment in Github.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "coverage-file",
+        "description": "Path to file the a previously generated report.json file. (bypasses running the test again)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "base-coverage-file",
+        "description": "Path to the report.json file to compare against. This should be from the branch the PR is merging into.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "prnumber",
+        "description": "Pull Request number for this commit. Use if your action is running in a PR, but non on the pull_request event, so that you do not get multiple comments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "output",
+        "description": "What output should action produce? `comment` - add comment to PR, `report-markdown` - report markdown text in \"outputs.report\".",
+        "required": false,
+        "default": "comment"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "report",
+        "description": "Generated markdown report. Exists only if input option \"output\" is set to \"report-markdown\"."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "ArtiomTr",
+    "verified": false,
+    "origin": "github.com/ArtiomTr/jest-coverage-report-action",
+    "latest_release": {
+      "tag_name": "v2.3.1",
+      "name": "v2.3.1",
+      "published_at": "2024-09-09T19:14:48Z",
+      "html_url": "https://github.com/ArtiomTr/jest-coverage-report-action/releases/tag/v2.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:57.089575Z"
+}

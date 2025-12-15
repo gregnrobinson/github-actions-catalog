@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/lowlighter/setup-velociraptor",
+  "version": "ae447a91926d",
+  "definition": {
+    "name": "Setup Velociraptor",
+    "description": "Install Velociraptor scripts manager",
+    "author": "JurassiScripts",
+    "inputs": [
+      {
+        "name": "checkout",
+        "description": "Whether to checkout repository first",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "deno-version",
+        "description": "Deno version to use",
+        "required": false,
+        "default": "1.x"
+      },
+      {
+        "name": "velociraptor-version",
+        "description": "Velociraptor version to use",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "velociraptor-alias",
+        "description": "Velociraptor alias name",
+        "required": false,
+        "default": "vr"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deno-is-canary",
+        "description": "Whether installed Deno version is a canary version"
+      },
+      {
+        "name": "deno-version",
+        "description": "Deno version that was installed"
+      },
+      {
+        "name": "velociraptor-version",
+        "description": "Velociraptor version that was installed"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lowlighter",
+    "verified": false,
+    "origin": "github.com/lowlighter/setup-velociraptor",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2.0",
+      "published_at": "2021-11-30T02:35:06Z",
+      "html_url": "https://github.com/jurassiscripts/setup-velociraptor/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:03.589657Z"
+}

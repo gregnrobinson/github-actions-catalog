@@ -30,7 +30,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is focused on releasing a new version of Ghost, which falls under deployment and publishing categories.",
+        "reasoning": "The action is focused on releasing a new version of Ghost, which falls under deployment and publishing categories as it involves making a new version available to users.",
         "tags": [
           "Ghost",
           "release",
@@ -45,6 +45,6 @@
     "source_hash": "814b57e4b3e6a7b1f7daea87f9375efd1e957c37d1c3c86d632f9988ccc799f1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.307159Z"
+    "generated_at": "2025-12-15T02:19:00.206970Z"
   }
 }

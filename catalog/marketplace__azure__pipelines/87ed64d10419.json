@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/azure/pipelines",
+  "version": "87ed64d10419",
+  "definition": {
+    "name": "Azure Pipelines Action",
+    "description": "Trigger a run in Azure pipelines",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "azure-devops-project-url",
+        "description": "Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "azure-pipeline-name",
+        "description": "Name of the Azure Pipline to be triggered",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "azure-pipeline-variables",
+        "description": "Set/Overwrite pipeline variables",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "azure-devops-token",
+        "description": "Paste personal access token of the user as value of secret variable:AZURE_DEVOPS_TOKEN",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/pipelines",
+    "latest_release": {
+      "tag_name": "v1.2",
+      "name": "GitHub Action for Azure Pipelines",
+      "published_at": "2019-11-12T04:50:22Z",
+      "html_url": "https://github.com/Azure/pipelines/releases/tag/v1.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:21.030972Z"
+}

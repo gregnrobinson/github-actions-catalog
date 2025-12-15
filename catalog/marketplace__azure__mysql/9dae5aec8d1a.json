@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/azure/mysql",
+  "version": "9dae5aec8d1a",
+  "definition": {
+    "name": "Azure MYSQL Deploy",
+    "description": "Deploy\u202fto\u202fAzure\u202fMySQL\u202fdatabase\u202fusing\u202fSQL\u202fscript\u202ffiles",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "server-name",
+        "description": "Server\u202fname\u202fof\u202fAzure\u202fDB\u202ffor\u202fMysql.\u202fExample:\u202ffabrikam.mysql.database.azure.com.\u202fWhen\u202fyou\u202fconnect\u202fusing\u202fMysql\u202fWorkbench,\u202fthis\u202fis\u202fthe\u202fsame\u202fvalue\u202fthat\u202fis\u202fused\u202ffor\u202fHostname\u202fin\u202fParameters",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "connection-string",
+        "description": "The\u202fconnection\u202fstring,\u202fincluding\u202fauthentication\u202finformation,\u202ffor\u202fthe\u202fAzure\u202fMySQL\u202fServer. (deprecated)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "username",
+        "description": "Azure MySQL Server username for login",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "Azure MySQL Server password for login",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "database",
+        "description": "Azure MySQL Server database (optional) to connect to. No database will be used automatically.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "sql-file",
+        "description": "Path\u202fto\u202fSQL\u202fscript\u202ffile to\u202fdeploy",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "arguments",
+        "description": "Additional\u202foptions\u202fsupported\u202fby\u202fmysql\u202fsimple\u202fSQL\u202fshell.\u202fThese\u202foptions\u202fwill\u202fbe\u202fapplied\u202fwhen\u202fexecuting\u202fthe\u202fgiven\u202ffile\u202fon\u202fthe\u202fAzure\u202fDB\u202ffor\u202fMysql.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/mysql",
+    "latest_release": {
+      "tag_name": "v1.3.0",
+      "name": "v1.3.0",
+      "published_at": "2022-08-05T19:00:59Z",
+      "html_url": "https://github.com/Azure/mysql/releases/tag/v1.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:30.862634Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/analyze-code-security-scc/action.yml",
     "origin": "github.com/google-github-actions/analyze-code-security-scc",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-09-02T23:32:02Z",
+      "html_url": "https://github.com/google-github-actions/analyze-code-security-scc/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Analyze Code Security",
@@ -83,7 +91,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action focuses on scanning code for security risks, which directly relates to the Security category. Additionally, it involves analyzing Infrastructure as Code (IaC) files, linking it to both Code quality and Infrastructure categories.",
+        "reasoning": "The action focuses on scanning code for security risks, which directly relates to the Security category. Additionally, it analyzes Infrastructure as Code (IaC) files, linking it to Infrastructure and Code quality.",
         "tags": [
           "security",
           "code analysis",
@@ -98,6 +106,6 @@
     "source_hash": "8f21599e474c6f8fe625c015669b869bca6e846265deee5e4445f5eb2e6aec39",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.767979Z"
+    "generated_at": "2025-12-15T02:19:00.055177Z"
   }
 }

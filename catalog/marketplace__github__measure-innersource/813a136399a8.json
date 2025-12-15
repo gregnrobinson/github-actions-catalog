@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/measure-innersource",
+  "version": "813a136399a8",
+  "definition": {
+    "name": "measure-innersource",
+    "description": "A GitHub Action to measure and report how much innersource collaboration in a repo",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/measure-innersource",
+    "latest_release": {
+      "tag_name": "v1.3.4",
+      "name": "v1.3.4",
+      "published_at": "2025-12-01T13:48:29Z",
+      "html_url": "https://github.com/github/measure-innersource/releases/tag/v1.3.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:22.700497Z"
+}

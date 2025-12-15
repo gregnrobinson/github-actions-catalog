@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-admob",
+  "version": "6bff076592d3",
+  "definition": {
+    "name": "FrogoAdmob",
+    "description": "Admob Helper for your android apps",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-admob",
+    "latest_release": {
+      "tag_name": "5.3.8",
+      "name": "Release v5.3.8",
+      "published_at": "2024-09-09T02:59:12Z",
+      "html_url": "https://github.com/amirisback/frogo-admob/releases/tag/5.3.8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:48.959120Z"
+}

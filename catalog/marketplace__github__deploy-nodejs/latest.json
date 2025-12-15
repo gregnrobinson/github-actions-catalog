@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/github/deploy-nodejs",
-  "version_id": "e6821f53c310",
+  "version_id": "f329edc18b53",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/github/deploy-nodejs/action.yml",
@@ -30,7 +30,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on installing NodeJS, which is essential for setting up the infrastructure needed to run NodeJS applications. It also relates to deployment as it prepares the environment for deploying NodeJS applications.",
+        "reasoning": "The action is focused on installing NodeJS, which is a foundational requirement for running NodeJS applications in a CI/CD pipeline, thus falling under Infrastructure and Deployment.",
         "tags": [
           "NodeJS",
           "Deployment",
@@ -41,9 +41,9 @@
     ]
   },
   "cache": {
-    "source_hash": "e6821f53c3102063d2a2dfe38ae002c0ebdefd755a6fea2bac55382172cf4558",
+    "source_hash": "f329edc18b53f96faa37822e1e2edfb9b882a1b603e907e0c90722a0a5283a7a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.984632Z"
+    "generated_at": "2025-12-15T02:19:00.381252Z"
   }
 }

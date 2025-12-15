@@ -121,13 +121,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action is focused on importing a GPG key, which is primarily related to security and authentication processes.",
+        "reasoning": "This action is focused on importing a GPG key, which is primarily related to security and authentication processes. It ensures that cryptographic keys are handled securely.",
         "tags": [
           "GPG",
           "security",
           "authentication",
-          "key management",
-          "encryption"
+          "encryption",
+          "key management"
         ]
       }
     ]
@@ -136,6 +136,6 @@
     "source_hash": "392987fd26ad0cc034ffa83e00231f249d7f136fec5d35f1fb31a9a445563397",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.510224Z"
+    "generated_at": "2025-12-15T02:19:01.067744Z"
   }
 }

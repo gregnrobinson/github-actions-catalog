@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/stale-issue-cleanup/action.yml",
     "origin": "github.com/aws-actions/stale-issue-cleanup",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v7.1.0",
+      "name": "v7.1.0",
+      "published_at": "2025-03-13T17:51:59Z",
+      "html_url": "https://github.com/aws-actions/stale-issue-cleanup/releases/tag/v7.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "'Stale Issue Cleanup' Action for GitHub Actions",
@@ -135,14 +143,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Maintenance",
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Maintenance",
+        "reasoning": "The action is designed to manage stale issues and pull requests, which falls under maintenance. It also communicates with users by posting messages on issues, thus fitting into communication and notification categories.",
+        "tags": [
+          "stale issues",
+          "cleanup",
+          "GitHub Actions",
+          "automation",
+          "repository management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7e436dae7975f855bb753a13cb075cf2393241db5e0a04b35806f61073377b14",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.076478Z"
+    "generated_at": "2025-12-15T02:19:00.494464Z"
   }
 }

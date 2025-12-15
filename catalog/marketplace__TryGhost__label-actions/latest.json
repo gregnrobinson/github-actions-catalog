@@ -37,11 +37,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action performs triaging actions related to issues, which involves communication and notification aspects when issues are opened or labeled.",
+        "reasoning": "The action performs triaging actions related to issues, which involves communication and notifications based on issue labeling.",
         "tags": [
-          "GitHub Actions",
-          "issue triage",
+          "GitHub",
+          "issues",
           "labeling",
+          "triage",
           "automation"
         ]
       }
@@ -51,6 +52,6 @@
     "source_hash": "f5a21d3ed74f192240d3c3b1a8748bf557644b443426558abc5b3b1cf0a94be9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.306588Z"
+    "generated_at": "2025-12-15T02:19:00.205537Z"
   }
 }

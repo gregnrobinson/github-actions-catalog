@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/close-pull/action.yml",
     "origin": "github.com/peter-evans/close-pull",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "Close Pull v3.0.1",
+      "published_at": "2023-04-19T02:11:45Z",
+      "html_url": "https://github.com/peter-evans/close-pull/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Close Pull",
@@ -66,14 +74,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality",
+      "Deployment"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is primarily focused on managing pull requests, which falls under communication within the context of collaboration and code review. It also relates to code quality and deployment as closing pull requests can be part of the workflow to maintain the integrity of the codebase.",
+        "tags": [
+          "pull request",
+          "GitHub",
+          "automation",
+          "close",
+          "branch"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7b880ce100257260eb841a1f27e0c41b0a746fa0c413fe7ffe881b5362809064",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.502418Z"
+    "generated_at": "2025-12-15T02:19:01.060742Z"
   }
 }

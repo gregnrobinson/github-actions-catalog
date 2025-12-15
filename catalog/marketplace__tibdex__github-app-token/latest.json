@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tibdex/github-app-token/action.yml",
     "origin": "github.com/tibdex/github-app-token",
     "publisher": "tibdex",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0",
+      "published_at": "2023-09-19T16:12:16Z",
+      "html_url": "https://github.com/tibdex/github-app-token/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub App token",
@@ -85,13 +93,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "This action is primarily focused on generating an authentication token for a GitHub App, which falls under the Authentication category. It also relates to Infrastructure as it deals with the operational aspects of GitHub Apps.",
+        "reasoning": "This action is primarily focused on generating a token for authentication as a GitHub App, which falls under the Authentication category. It also involves aspects of Infrastructure as it interacts with the GitHub API for app installations.",
         "tags": [
-          "GitHub",
-          "App",
-          "Token",
-          "Authentication",
-          "Infrastructure"
+          "GitHub App",
+          "token",
+          "authentication",
+          "API",
+          "infrastructure"
         ]
       }
     ]
@@ -100,6 +108,6 @@
     "source_hash": "0985ae0fd3629f825c0f2d8d4322a009ff22c54779892313769b499d0c85698c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.401859Z"
+    "generated_at": "2025-12-15T02:19:00.935954Z"
   }
 }

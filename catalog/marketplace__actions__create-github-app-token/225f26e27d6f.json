@@ -1,0 +1,380 @@
+{
+  "action_id": "marketplace/actions/create-github-app-token",
+  "version": "225f26e27d6f",
+  "definition": {
+    "name": "Create GitHub App Token",
+    "description": "GitHub Action for creating a GitHub App installation access token",
+    "author": "Gregor Martynus and Parker Brown",
+    "inputs": [
+      {
+        "name": "app-id",
+        "description": "GitHub App ID",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "private-key",
+        "description": "GitHub App private key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "owner",
+        "description": "The owner of the GitHub App installation (defaults to current repository owner)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repositories",
+        "description": "Comma or newline-separated list of repositories to install the GitHub App on (defaults to current repository if owner is unset)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip-token-revoke",
+        "description": "If true, the token will not be revoked when the current job is complete",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "github-api-url",
+        "description": "The URL of the GitHub REST API.",
+        "required": false,
+        "default": "${{ github.api_url }}"
+      },
+      {
+        "name": "permission-actions",
+        "description": "The level of permission to grant the access token for GitHub Actions workflows, workflow runs, and artifacts. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-administration",
+        "description": "The level of permission to grant the access token for repository creation, deletion, settings, teams, and collaborators creation. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-checks",
+        "description": "The level of permission to grant the access token for checks on code. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-codespaces",
+        "description": "The level of permission to grant the access token to create, edit, delete, and list Codespaces. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-contents",
+        "description": "The level of permission to grant the access token for repository contents, commits, branches, downloads, releases, and merges. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-custom-properties-for-organizations",
+        "description": "The level of permission to grant the access token to view and edit custom properties for an organization, when allowed by the property. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-dependabot-secrets",
+        "description": "The level of permission to grant the access token to manage Dependabot secrets. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-deployments",
+        "description": "The level of permission to grant the access token for deployments and deployment statuses. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-email-addresses",
+        "description": "The level of permission to grant the access token to manage the email addresses belonging to a user. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-enterprise-custom-properties-for-organizations",
+        "description": "The level of permission to grant the access token for organization custom properties management at the enterprise level. Can be set to 'read', 'write', or 'admin'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-environments",
+        "description": "The level of permission to grant the access token for managing repository environments. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-followers",
+        "description": "The level of permission to grant the access token to manage the followers belonging to a user. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-git-ssh-keys",
+        "description": "The level of permission to grant the access token to manage git SSH keys. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-gpg-keys",
+        "description": "The level of permission to grant the access token to view and manage GPG keys belonging to a user. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-interaction-limits",
+        "description": "The level of permission to grant the access token to view and manage interaction limits on a repository. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-issues",
+        "description": "The level of permission to grant the access token for issues and related comments, assignees, labels, and milestones. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-members",
+        "description": "The level of permission to grant the access token for organization teams and members. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-metadata",
+        "description": "The level of permission to grant the access token to search repositories, list collaborators, and access repository metadata. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-administration",
+        "description": "The level of permission to grant the access token to manage access to an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-announcement-banners",
+        "description": "The level of permission to grant the access token to view and manage announcement banners for an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-copilot-seat-management",
+        "description": "The level of permission to grant the access token for managing access to GitHub Copilot for members of an organization with a Copilot Business subscription. This property is in public preview and is subject to change. Can be set to 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-custom-org-roles",
+        "description": "The level of permission to grant the access token for custom organization roles management. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-custom-properties",
+        "description": "The level of permission to grant the access token for repository custom properties management at the organization level. Can be set to 'read', 'write', or 'admin'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-custom-roles",
+        "description": "The level of permission to grant the access token for custom repository roles management. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-events",
+        "description": "The level of permission to grant the access token to view events triggered by an activity in an organization. Can be set to 'read'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-hooks",
+        "description": "The level of permission to grant the access token to manage the post-receive hooks for an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-packages",
+        "description": "The level of permission to grant the access token for organization packages published to GitHub Packages. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-personal-access-token-requests",
+        "description": "The level of permission to grant the access token for viewing and managing fine-grained personal access tokens that have been approved by an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-personal-access-tokens",
+        "description": "The level of permission to grant the access token for viewing and managing fine-grained personal access token requests to an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-plan",
+        "description": "The level of permission to grant the access token for viewing an organization's plan. Can be set to 'read'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-projects",
+        "description": "The level of permission to grant the access token to manage organization projects and projects public preview (where available). Can be set to 'read', 'write', or 'admin'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-secrets",
+        "description": "The level of permission to grant the access token to manage organization secrets. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-self-hosted-runners",
+        "description": "The level of permission to grant the access token to view and manage GitHub Actions self-hosted runners available to an organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-organization-user-blocking",
+        "description": "The level of permission to grant the access token to view and manage users blocked by the organization. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-packages",
+        "description": "The level of permission to grant the access token for packages published to GitHub Packages. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-pages",
+        "description": "The level of permission to grant the access token to retrieve Pages statuses, configuration, and builds, as well as create new builds. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-profile",
+        "description": "The level of permission to grant the access token to manage the profile settings belonging to a user. Can be set to 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-pull-requests",
+        "description": "The level of permission to grant the access token for pull requests and related comments, assignees, labels, milestones, and merges. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-repository-custom-properties",
+        "description": "The level of permission to grant the access token to view and edit custom properties for a repository, when allowed by the property. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-repository-hooks",
+        "description": "The level of permission to grant the access token to manage the post-receive hooks for a repository. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-repository-projects",
+        "description": "The level of permission to grant the access token to manage repository projects, columns, and cards. Can be set to 'read', 'write', or 'admin'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-secret-scanning-alerts",
+        "description": "The level of permission to grant the access token to view and manage secret scanning alerts. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-secrets",
+        "description": "The level of permission to grant the access token to manage repository secrets. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-security-events",
+        "description": "The level of permission to grant the access token to view and manage security events like code scanning alerts. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-single-file",
+        "description": "The level of permission to grant the access token to manage just a single file. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-starring",
+        "description": "The level of permission to grant the access token to list and manage repositories a user is starring. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-statuses",
+        "description": "The level of permission to grant the access token for commit statuses. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-team-discussions",
+        "description": "The level of permission to grant the access token to manage team discussions and related comments. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-vulnerability-alerts",
+        "description": "The level of permission to grant the access token to manage Dependabot alerts. Can be set to 'read' or 'write'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "permission-workflows",
+        "description": "The level of permission to grant the access token to update GitHub Actions workflow files. Can be set to 'write'.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "token",
+        "description": "GitHub installation access token"
+      },
+      {
+        "name": "installation-id",
+        "description": "GitHub App installation ID"
+      },
+      {
+        "name": "app-slug",
+        "description": "GitHub App slug"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/create-github-app-token",
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2025-12-05T22:53:06Z",
+      "html_url": "https://github.com/actions/create-github-app-token/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:14.220535Z"
+}

@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/dflook/run-in-container",
+  "version": "e1e302af9579",
+  "definition": {
+    "name": "Run in container",
+    "description": "Run a command in a container",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "image",
+        "description": "The image to run the command in",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "run",
+        "description": "The command to run",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "volumes",
+        "description": "Volumes to mount, one per line. Each line of the form 'source:target'",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/run-in-container"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:46.799113Z"
+}

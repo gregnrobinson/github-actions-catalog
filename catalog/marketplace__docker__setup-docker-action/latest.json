@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/setup-docker-action/action.yml",
     "origin": "github.com/docker/setup-docker-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.6.0",
+      "name": "v4.6.0",
+      "published_at": "2025-11-27T12:24:18Z",
+      "html_url": "https://github.com/docker/setup-docker-action/releases/tag/v4.6.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Setup Docker",
@@ -96,13 +104,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action sets up Docker, which is essential for building and managing containerized applications, thus falling under Infrastructure. It also supports the build process by providing the necessary environment for running Docker commands.",
+        "reasoning": "This action sets up Docker, which is primarily related to infrastructure management and is essential for building applications. It also involves dependency management as it handles the installation of Docker CE.",
         "tags": [
           "docker",
           "setup",
           "infrastructure",
           "build",
-          "dependency"
+          "dependency-management"
         ]
       }
     ]
@@ -111,6 +119,6 @@
     "source_hash": "1d76b6ff6ccef736d0928a7ebd6cb12dc3fe633bb4e5ed36b32d7b6d18584c72",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.490804Z"
+    "generated_at": "2025-12-15T02:18:59.740671Z"
   }
 }

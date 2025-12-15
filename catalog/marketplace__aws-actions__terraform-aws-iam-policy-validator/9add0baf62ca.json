@@ -1,0 +1,114 @@
+{
+  "action_id": "marketplace/aws-actions/terraform-aws-iam-policy-validator",
+  "version": "9add0baf62ca",
+  "definition": {
+    "name": "Policy checks to validate AWS IAM policies in Terraform templates\" Action For GitHub Actions",
+    "description": "Validate IAM Policies in TF templates using ValidatePolicy, CheckAccessNotGranted & CheckNoNewAccess API in Access Analyzer",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "policy-check-type",
+        "description": "Type of the policy check. Valid values: VALIDATE_POLICY, CHECK_NO_NEW_ACCESS, CHECK_ACCESS_NOT_GRANTED",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "template-path",
+        "description": "The path to the Terraform plan file (JSON).",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "region",
+        "description": "The destination region the resources will be deployed to.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "ignore-finding",
+        "description": "Allow validation failures to be ignored. Specify as a comma separated list of findings to be ignored. Can be individual finding codes (e.g. \"PASS_ROLE_WITH_STAR_IN_RESOURCE\"), a specific resource name (e.g. \"MyResource\"), or a combination of both separated by a period.(e.g. \"MyResource.PASS_ROLE_WITH_STAR_IN_RESOURCE\"). Names of finding codes may change in IAM Access Analyzer over time. Valid options: FINDING_CODE,RESOURCE_NAME,RESOURCE_NAME.FINDING_CODE",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "actions",
+        "description": "List of comma-separated actions. Example format - ACTION,ACTION,ACTION. This attribute is considered when policy-check-type is \"CHECK_ACCESS_NOT_GRANTED\". At least one of \"actions\" or \"resources\" must be specified.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resources",
+        "description": "List of comma-separated resource ARNs. Example format - RESOURCE,RESOURCE,RESOURCE. This attribute is considered when policy-check-type is \"CHECK_ACCESS_NOT_GRANTED\" At least one of \"actions\" or \"resources\" must be specified.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "reference-policy",
+        "description": "A JSON formatted file that specifies the path to the reference policy that is used for a permissions comparison. This attribute is considered and required when policy-check-type is \"CHECK_NO_NEW_ACCESS\"",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "reference-policy-type",
+        "description": "The policy type associated with the IAM policy under analysis and the reference policy. Valid values: IDENTITY, RESOURCE. This attribute is considered and required when policy-check-type is \"CHECK_NO_NEW_ACCESS\"",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "treat-finding-type-as-blocking",
+        "description": "Specify which finding types should be treated as blocking. Other finding types are treated as non blocking. If the tool detects any blocking finding types, it will exit with a non-zero exit code. If all findings are non blocking or there are no findings, the tool exits with an exit code of 0. Defaults to \"ERROR\" and \"SECURITY_WARNING\". Specify as a comma separated list of finding types that should be blocking. Pass \"NONE\" to ignore all findings. This attribute is considered only when policy-check-type is \"VALIDATE_POLICY\"",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "treat-findings-as-non-blocking",
+        "description": "When not specified, the tool detects any findings, it will exit with a non-zero exit code. When specified, the tool exits with an exit code of 0. This attribute is considered only when policy-check-type is \"CHECK_NO_NEW_ACCESS\" or \"CHECK_ACCESS_NOT_GRANTED\"",
+        "required": false,
+        "default": "False"
+      },
+      {
+        "name": "allow-external-principals",
+        "description": "A comma separated list of external principals that should be ignored. Specify as a comma separated list of a 12 digit AWS account ID, a federated web identity user, a federated SAML user, or an ARN. Specify \\\"*\\\" to allow anonymous access. (e.g. 123456789123,arn:aws:iam::111111111111:role/MyOtherRole,graph.facebook.com). Valid options: ACCOUNT,ARN\". This attribute is considered only when policy-check-type is \"VALIDATE_POLICY\"",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "allow-dynamic-ref-without-version",
+        "description": "Override the default behavior and allow dynamic SSM references without version numbers. The version number ensures that the SSM parameter value that was validated is the one that is deployed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude-resource-types",
+        "description": "List of comma-separated resource types. Resource types should be the same as Cloudformation template resource names such as AWS::IAM::Role, AWS::S3::Bucket. Valid option syntax: AWS::SERVICE::RESOURCE",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "Result of the policy checks"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/terraform-aws-iam-policy-validator",
+    "latest_release": {
+      "tag_name": "v1.0.3",
+      "name": "v1.0.3",
+      "published_at": "2025-06-10T17:35:21Z",
+      "html_url": "https://github.com/aws-actions/terraform-aws-iam-policy-validator/releases/tag/v1.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:40.833976Z"
+}

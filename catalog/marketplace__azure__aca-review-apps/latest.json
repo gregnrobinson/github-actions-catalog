@@ -66,13 +66,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is focused on creating a new revision of a Container App, which is a deployment task within Azure's infrastructure.",
+        "reasoning": "This action is focused on creating a new revision of a Container App, which is a deployment task within Azure's infrastructure. It directly relates to deploying applications in a cloud environment.",
         "tags": [
           "Azure",
           "Container App",
           "Deployment",
-          "Infrastructure",
-          "GitHub Action"
+          "GitHub Action",
+          "Infrastructure"
         ]
       }
     ]
@@ -81,6 +81,6 @@
     "source_hash": "68144457f47eee863342e81cfb3eb8444eb9cdd44117c0856757643c1e31abbb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.582063Z"
+    "generated_at": "2025-12-15T02:18:59.857350Z"
   }
 }

@@ -1,0 +1,92 @@
+{
+  "action_id": "marketplace/stefanzweifel/changelog-updater-action",
+  "version": "6ad37ad4803d",
+  "definition": {
+    "name": "Changelog Updater",
+    "description": "Automatically update a CHANGELOG with the latest release notes.",
+    "author": "Stefan Zweifel <stefan@stefanzweifel.dev>",
+    "inputs": [
+      {
+        "name": "release-notes",
+        "description": "The release notes you want to add to your CHANGELOG. Should be markdown. If not provided, the content between the Unreleased heading and the previous release heading is taken as release notes.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "latest-version",
+        "description": "Semantic version number of the latest release. The value will be used as a heading text.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "release-date",
+        "description": "The date the latest version has been released. Defaults to the current date.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "path-to-changelog",
+        "description": "Defaults to `CHANGELOG.md`. Path to CHANGELOG.md file.",
+        "required": false,
+        "default": "CHANGELOG.md"
+      },
+      {
+        "name": "compare-url-target-revision",
+        "description": "Target revision used in compare URL inside a possible \"Unreleased\" heading.",
+        "required": false,
+        "default": "HEAD"
+      },
+      {
+        "name": "heading-text",
+        "description": "Text used in the new release heading. Defaults to the value from latest-version.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "hide-release-date",
+        "description": "Hide release date in the new release heading.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "parse-github-usernames",
+        "description": "Experimental: Find GitHub usernames in release notes and link to their profile.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "release_compare_url",
+        "description": "The generated compare URL for the just created relase. For example https://github.com/org/repo/compare/v1.0.0...v1.1.0"
+      },
+      {
+        "name": "release_url_fragment",
+        "description": "The URL fragment for the just created release. For example '#v100---2021-02-01'. You can use this to generate URLs that point to the newly created release in your CHANGELOG."
+      },
+      {
+        "name": "unreleased_compare_url",
+        "description": "The generated compare URL between the latest version and the target revision. For example https://github.com/org/repo/compare/v1.0.0...HEAD"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "stefanzweifel",
+    "verified": false,
+    "origin": "github.com/stefanzweifel/changelog-updater-action",
+    "latest_release": {
+      "tag_name": "v1.12.0",
+      "name": "v1.12.0",
+      "published_at": "2024-11-16T09:20:36Z",
+      "html_url": "https://github.com/stefanzweifel/changelog-updater-action/releases/tag/v1.12.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:20.721192Z"
+}

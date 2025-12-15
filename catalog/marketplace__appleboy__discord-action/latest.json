@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/discord-action/action.yml",
     "origin": "github.com/appleboy/discord-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v1.2.0",
+      "published_at": "2025-03-08T14:55:17Z",
+      "html_url": "https://github.com/appleboy/discord-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Discord Message Notify",
@@ -97,13 +105,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is designed to send messages to a Discord channel, which clearly falls under communication and notification categories.",
+        "reasoning": "The action is designed to send messages to a Discord channel, which falls under communication and notification categories.",
         "tags": [
           "Discord",
           "notification",
           "webhook",
-          "message",
-          "communication"
+          "communication",
+          "message"
         ]
       }
     ]
@@ -112,6 +120,6 @@
     "source_hash": "7dcfc9c014fe81a35efd6721d7a3d75c843b62e2e0d380435b5f70145bbd4f39",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.154286Z"
+    "generated_at": "2025-12-15T02:19:00.551289Z"
   }
 }

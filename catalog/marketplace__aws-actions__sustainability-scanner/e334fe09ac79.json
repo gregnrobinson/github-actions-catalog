@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/aws-actions/sustainability-scanner",
+  "version": "e334fe09ac79",
+  "definition": {
+    "name": "AWS Sustainability Scanner GitHub Action",
+    "description": "Run AWS Sustainability Scanner against infrastructure as code as a pre-packaged GitHub Action",
+    "author": "AWS Sustainability",
+    "inputs": [
+      {
+        "name": "file",
+        "description": "File path of the CloudFormation template to be scanned",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "directory",
+        "description": "Directory path with CloudFormation files to be scanned",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "stack_name",
+        "description": "CDK stack name to be scanned",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "rules_file",
+        "description": "File path to extend set of rules",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "results",
+        "description": "Results from the sustainability scan"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/sustainability-scanner",
+    "latest_release": {
+      "tag_name": "v1.3.1",
+      "name": "",
+      "published_at": "2025-06-12T12:14:11Z",
+      "html_url": "https://github.com/aws-actions/sustainability-scanner/releases/tag/v1.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:38.057493Z"
+}

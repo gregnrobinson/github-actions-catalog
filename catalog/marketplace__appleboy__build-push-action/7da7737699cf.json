@@ -1,0 +1,222 @@
+{
+  "action_id": "marketplace/appleboy/build-push-action",
+  "version": "7da7737699cf",
+  "definition": {
+    "name": "Build and push Docker images",
+    "description": "Build and push Docker images with Buildx",
+    "author": "docker",
+    "inputs": [
+      {
+        "name": "add-hosts",
+        "description": "List of a customs host-to-IP mapping (e.g., docker:10.180.0.1)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "allow",
+        "description": "List of extra privileged entitlement (e.g., network.host,security.insecure)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "attests",
+        "description": "List of attestation parameters (e.g., type=sbom,generator=image)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build-args",
+        "description": "List of build-time variables",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "build-contexts",
+        "description": "List of additional build contexts (e.g., name=path)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "builder",
+        "description": "Builder instance",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cache-from",
+        "description": "List of external cache sources for buildx (e.g., user/app:cache, type=local,src=path/to/dir)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cache-to",
+        "description": "List of cache export destinations for buildx (e.g., user/app:cache, type=local,dest=path/to/dir)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cgroup-parent",
+        "description": "Optional parent cgroup for the container used in the build",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "context",
+        "description": "Build's context is the set of files located in the specified PATH or URL",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file",
+        "description": "Path to the Dockerfile",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "labels",
+        "description": "List of metadata for an image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "load",
+        "description": "Load is a shorthand for --output=type=docker",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "network",
+        "description": "Set the networking mode for the RUN instructions during build",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "no-cache",
+        "description": "Do not use cache when building the image",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "no-cache-filters",
+        "description": "Do not cache specified stages",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "outputs",
+        "description": "List of output destinations (format: type=local,dest=path)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platforms",
+        "description": "List of target platforms for build",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "provenance",
+        "description": "Generate provenance attestation for the build (shorthand for --attest=type=provenance)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "pull",
+        "description": "Always attempt to pull all referenced images",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "push",
+        "description": "Push is a shorthand for --output=type=registry",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "insecure",
+        "description": "insecure",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "sbom",
+        "description": "Generate SBOM attestation for the build (shorthand for --attest=type=sbom)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secrets",
+        "description": "List of secrets to expose to the build (e.g., key=string, GIT_AUTH_TOKEN=mytoken)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secret-files",
+        "description": "List of secret files to expose to the build (e.g., key=filename, MY_SECRET=./secret.txt)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "shm-size",
+        "description": "Size of /dev/shm (e.g., 2g)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ssh",
+        "description": "List of SSH agent socket or keys to expose to the build",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tags",
+        "description": "List of tags",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "target",
+        "description": "Sets the target stage to build",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ulimit",
+        "description": "Ulimit options (e.g., nofile=1024:1024)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "GitHub Token used to authenticate against a repository for Git context",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "imageid",
+        "description": "Image ID"
+      },
+      {
+        "name": "digest",
+        "description": "Image digest"
+      },
+      {
+        "name": "metadata",
+        "description": "Build result metadata"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/build-push-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:50.622454Z"
+}

@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/Ilshidur/action-discord",
+  "version": "43e508375340",
+  "definition": {
+    "name": "Actions for Discord",
+    "description": "Outputs a message to Discord.",
+    "author": "Ilshidur",
+    "inputs": [
+      {
+        "name": "args",
+        "description": "The message to display in the Discord message.",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "Ilshidur",
+    "verified": false,
+    "origin": "github.com/Ilshidur/action-discord",
+    "latest_release": {
+      "tag_name": "0.4.0",
+      "name": "0.4.0",
+      "published_at": "2025-07-30T12:01:57Z",
+      "html_url": "https://github.com/Ilshidur/action-discord/releases/tag/0.4.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:00.885949Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/DeLaGuardo/clojure-lint-action/action.yml",
     "origin": "github.com/DeLaGuardo/clojure-lint-action",
     "publisher": "DeLaGuardo",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "clj-kondo suggestions and errors + github",
+      "published_at": "2019-11-07T12:48:36Z",
+      "html_url": "https://github.com/DeLaGuardo/clojure-lint-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "clj-kondo checks",
@@ -43,14 +51,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is designed to lint Clojure code, which directly relates to code quality, and it runs checks that can be considered part of the testing process.",
+        "tags": [
+          "clojure",
+          "lint",
+          "clj-kondo",
+          "code quality",
+          "github actions"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ad4234df43c60f4c72490b63001969b393a737d9ebb047e6f4730cef25ff4c92",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.279792Z"
+    "generated_at": "2025-12-15T02:19:00.168607Z"
   }
 }

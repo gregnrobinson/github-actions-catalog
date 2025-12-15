@@ -40,11 +40,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action focuses on automating the build process for an Android app, which primarily falls under the Build category. It may also involve Deployment as it creates app bundles and APKs ready for distribution.",
+        "reasoning": "The action is focused on automating the build process for an Android app, which falls under the Build category. It also involves creating deployable artifacts (app bundle and apk), linking it to Deployment.",
         "tags": [
           "android",
           "build",
-          "github-action",
+          "github-actions",
           "automation",
           "apk"
         ]
@@ -55,6 +55,6 @@
     "source_hash": "47b56f0fc6b3f66dc370addfc34a3f43c003c89259995735ac2a9bdf53f5d810",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.591545Z"
+    "generated_at": "2025-12-15T02:19:00.770142Z"
   }
 }

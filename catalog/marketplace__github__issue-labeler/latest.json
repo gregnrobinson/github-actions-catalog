@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/issue-labeler/action.yml",
     "origin": "github.com/github/issue-labeler",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.4",
+      "name": "v3.4",
+      "published_at": "2024-01-31T16:17:03Z",
+      "html_url": "https://github.com/github/issue-labeler/releases/tag/v3.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "RegEx Issue Labeler",
@@ -93,7 +101,7 @@
     "categories": [
       "Communication",
       "Code quality",
-      "Automation"
+      "Notification"
     ],
     "confidence": "high",
     "evidence": [
@@ -101,7 +109,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action automatically labels issues based on their content, facilitating communication within the team and improving code quality by organizing issues effectively.",
+        "reasoning": "The action automatically labels issues based on their content, which facilitates communication and categorization within the repository. It also contributes to code quality by ensuring issues are properly categorized.",
         "tags": [
           "issue labeling",
           "automation",
@@ -116,6 +124,6 @@
     "source_hash": "0e5d5df9ee632de2e9ff33d9692620246676d26ef637fb2776eac5ec8ae1f0f5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.907905Z"
+    "generated_at": "2025-12-15T02:19:00.303761Z"
   }
 }

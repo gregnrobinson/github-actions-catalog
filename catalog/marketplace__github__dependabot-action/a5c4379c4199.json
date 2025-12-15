@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/dependabot-action",
+  "version": "a5c4379c4199",
+  "definition": {
+    "name": "Updater Action",
+    "description": "Runs dependabot-updater in Actions",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/dependabot-action",
+    "latest_release": {
+      "tag_name": "v2.30.0",
+      "name": "v2.30.0",
+      "published_at": "2025-12-05T17:52:15Z",
+      "html_url": "https://github.com/github/dependabot-action/releases/tag/v2.30.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:26.319196Z"
+}

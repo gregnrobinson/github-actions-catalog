@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/JamesIves/fetch-api-data-action/action.yml",
     "origin": "github.com/JamesIves/fetch-api-data-action",
     "publisher": "JamesIves",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.4.2",
+      "name": "v2.4.2",
+      "published_at": "2024-11-09T19:50:18Z",
+      "html_url": "https://github.com/JamesIves/fetch-api-data-action/releases/tag/v2.4.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Fetch API Data",
@@ -109,13 +117,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "The action handles authenticated API requests, which places it primarily in the Authentication category. It also involves fetching data from an API, linking it to Communication and Dependency management as it may depend on external services.",
+        "reasoning": "This action handles authenticated API requests, which places it primarily in the Authentication category. It also involves fetching data, which relates to Communication and Dependency management as it may depend on external APIs.",
         "tags": [
           "API",
           "fetch",
-          "authentication",
           "data",
-          "GitHub Actions"
+          "authentication",
+          "GitHub Action"
         ]
       }
     ]
@@ -124,6 +132,6 @@
     "source_hash": "594a0661e2437a367954283dc3eeb3a69d5df583033f91a3d6e7fe10c1d59cd9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.844563Z"
+    "generated_at": "2025-12-15T02:19:00.211212Z"
   }
 }

@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/naughty-compose",
+  "version": "cbc368cb757a",
+  "definition": {
+    "name": "naughty-compose",
+    "description": "Learning Jetpack Compose",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/naughty-compose"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:33.416607Z"
+}

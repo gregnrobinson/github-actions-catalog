@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-java/action.yml",
     "origin": "github.com/actions/setup-java",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.1.0",
+      "name": "v5.1.0",
+      "published_at": "2025-12-04T02:55:06Z",
+      "html_url": "https://github.com/actions/setup-java/releases/tag/v5.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Java JDK",
@@ -170,10 +178,10 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action sets up a specific version of the Java JDK, which is essential for managing dependencies in Java projects. It also facilitates the build process by ensuring the correct environment is available.",
+        "reasoning": "This action is primarily focused on setting up a specific version of the Java JDK, which is essential for managing dependencies in Java projects. It also supports build processes by ensuring the correct Java environment is available.",
         "tags": [
-          "Java",
-          "JDK",
+          "java",
+          "jdk",
           "setup",
           "dependency",
           "build"
@@ -185,6 +193,6 @@
     "source_hash": "c0f91a3110f24715c76bb01aa28663fb35f6ea954144724783636b2ae782b38d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.316744Z"
+    "generated_at": "2025-12-15T02:19:00.723836Z"
   }
 }

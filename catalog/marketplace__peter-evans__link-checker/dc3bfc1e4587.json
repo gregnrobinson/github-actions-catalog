@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/peter-evans/link-checker",
+  "version": "dc3bfc1e4587",
+  "definition": {
+    "name": "Link Checker",
+    "description": "An action for link checking repository Markdown and HTML files",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "args",
+        "description": "Liche arguments",
+        "required": false,
+        "default": "-v -r *"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/link-checker",
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "Link Checker v1.2.2",
+      "published_at": "2020-05-17T05:18:34Z",
+      "html_url": "https://github.com/peter-evans/link-checker/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:30.948846Z"
+}

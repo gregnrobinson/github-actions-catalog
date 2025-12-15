@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/appleboy/github-action-sample",
+  "version": "44679ea41ed7",
+  "definition": {
+    "name": "GitHub Action Sample",
+    "description": "GitHub Action Sample",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "github token",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/github-action-sample"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:48.259584Z"
+}

@@ -1,0 +1,151 @@
+{
+  "action_id": "marketplace/appleboy/docker-ecr-action",
+  "version": "a50a7e8e53a1",
+  "definition": {
+    "name": "Docker ECR",
+    "description": "Upload Docker Image to Amazon Elastic Container Registry (ECR)",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "access_key",
+        "description": "amazon access key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secret_key",
+        "description": "amazon secret access key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry",
+        "description": "docker registry",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "region",
+        "description": "amazon region, defaults to us-east-1",
+        "required": false,
+        "default": "us-east-1"
+      },
+      {
+        "name": "repo",
+        "description": "repository name for the image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "lifecycle_policy",
+        "description": "filename of ecr lifecycle json policy",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "repository_policy",
+        "description": "filename of ecr repository json policy",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tags",
+        "description": "repository tag for the image, defaults to latest",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "dockerfile",
+        "description": "dockerfile to be used, defaults to Dockerfile",
+        "required": false,
+        "default": "Dockerfile"
+      },
+      {
+        "name": "auth",
+        "description": "auth token for the registry",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "context",
+        "description": "the context path to use, defaults to root of the git repo",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "force_tag",
+        "description": "replace existing matched image tags",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "insecure",
+        "description": "enable insecure communication to this registry",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "mirror",
+        "description": "use a mirror registry instead of pulling images directly from the central Hub",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "bip",
+        "description": "use for pass bridge ip",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "custom_dns",
+        "description": "set custom dns servers for the container",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "storage_driver",
+        "description": "supports aufs, overlay or vfs drivers",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "cache_from",
+        "description": "images to consider as cache sources",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "auto_tag",
+        "description": "default build tags",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "daemon_off",
+        "description": "do not start the docker daemon",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/docker-ecr-action",
+    "latest_release": {
+      "tag_name": "v0.0.3",
+      "name": "",
+      "published_at": "2021-03-02T04:13:11Z",
+      "html_url": "https://github.com/appleboy/docker-ecr-action/releases/tag/v0.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:46.599982Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/ai-moderator/action.yml",
     "origin": "github.com/github/ai-moderator",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.4",
+      "name": "v1.1.4",
+      "published_at": "2025-10-26T22:22:36Z",
+      "html_url": "https://github.com/github/ai-moderator/releases/tag/v1.1.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AI Issue and Comment Moderator",
@@ -92,7 +100,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action moderates issues and comments, improving code quality by filtering spam and potentially harmful content. It also involves communication by interacting with user-generated content and enhances security by managing spam.",
+        "reasoning": "The action moderates issues and comments, improving code quality by filtering spam and labeling AI-generated content. It also involves communication aspects by interacting with issues and comments on GitHub.",
         "tags": [
           "AI",
           "moderation",
@@ -107,6 +115,6 @@
     "source_hash": "d4909b13eb463f6c2bf5a4bfc2e815fe4b62ecb2859caa1302973f777c25b084",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.994428Z"
+    "generated_at": "2025-12-15T02:19:00.393357Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/privileged-requester/action.yml",
     "origin": "github.com/github/privileged-requester",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.3.4",
+      "name": "v2.3.4",
+      "published_at": "2025-02-10T19:41:43Z",
+      "html_url": "https://github.com/github/privileged-requester/releases/tag/v2.3.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Privileged Requester",
@@ -90,14 +98,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing",
+      "Security"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action checks pull requests against criteria for automatic approval, which relates to maintaining code quality and security by ensuring commits are verified. It also involves testing the conditions under which a PR can be approved.",
+        "tags": [
+          "PR approval",
+          "code quality",
+          "GitHub Actions",
+          "security",
+          "testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1a42d57955bc5adc44f2d8fa52a0d125a57a67f3c04e216b72955600589fb56d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.964574Z"
+    "generated_at": "2025-12-15T02:19:00.358969Z"
   }
 }

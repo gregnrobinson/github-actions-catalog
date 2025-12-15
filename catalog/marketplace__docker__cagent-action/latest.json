@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/cagent-action/action.yml",
     "origin": "github.com/docker/cagent-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "v1.0.2",
+      "published_at": "2025-11-13T15:09:56Z",
+      "html_url": "https://github.com/docker/cagent-action/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "CAgent Runner",
@@ -260,7 +268,7 @@
     "categories": [
       "Testing",
       "Security",
-      "Code quality"
+      "Monitoring"
     ],
     "confidence": "high",
     "evidence": [
@@ -268,7 +276,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action runs an AI agent that likely analyzes code or prompts for quality and security issues, making it primarily a testing tool with a focus on security and code quality.",
+        "reasoning": "The action runs an AI agent that likely analyzes code or input for issues, which falls under testing. It also outputs security-related information, indicating a focus on security and monitoring.",
         "tags": [
           "CAgent",
           "AI",
@@ -283,6 +291,6 @@
     "source_hash": "709ad72e2f281ad08f88bab1f96d695b3479f2fed3a8c660d9d868c58c1d5f53",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.473782Z"
+    "generated_at": "2025-12-15T02:18:59.723613Z"
   }
 }

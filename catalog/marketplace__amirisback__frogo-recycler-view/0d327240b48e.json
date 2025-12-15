@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-recycler-view",
+  "version": "0d327240b48e",
+  "definition": {
+    "name": "Frogo-Recycler-View",
+    "description": "Library Easy FrogoRecyclerView Based on RecyclerView, Full and Clear Documentation, Have Empty View :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-recycler-view",
+    "latest_release": {
+      "tag_name": "4.4.2",
+      "name": "Release v4.4.2",
+      "published_at": "2024-09-08T15:05:45Z",
+      "html_url": "https://github.com/amirisback/frogo-recycler-view/releases/tag/4.4.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:44.527456Z"
+}

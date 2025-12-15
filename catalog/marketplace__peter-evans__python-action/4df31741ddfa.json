@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/peter-evans/python-action",
+  "version_id": "4df31741ddfa",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/peter-evans/python-action/action.yml",
+    "origin": "github.com/peter-evans/python-action",
+    "publisher": "peter-evans",
+    "verified": false
+  },
+  "definition": {
+    "name": "Python Action",
+    "description": "A template to bootstrap the creation of a multi-platform Python GitHub action",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "message",
+        "required": true,
+        "default": "Hello World!",
+        "description": "A message to the world"
+      },
+      {
+        "name": "sender",
+        "required": true,
+        "default": "Peter",
+        "description": "The sender of the message"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "reply",
+        "description": "A reply from the world"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4df31741ddfa05c8cb8b425e6868a89a0666528590d173c4e04e7c0cb4c4ef35",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:01.035803Z"
+  }
+}

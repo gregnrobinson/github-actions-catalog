@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/dkamm/pr-quiz",
+  "version": "ba4f835b8dec",
+  "definition": {
+    "name": "PR Quiz",
+    "description": "A GitHub Action that uses AI to generate a quiz based on a pull request",
+    "author": "dkamm",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "GitHub token for API access",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "openai-api-key",
+        "description": "OpenAI API key for API access",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "ngrok-authtoken",
+        "description": "The ngrok authtoken to use for the server hosting the quiz.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "model",
+        "description": "The model to use for generating the quiz.  It must be a model that supports structured outputs. Defaults to 'o4-mini'.",
+        "required": false,
+        "default": "o4-mini"
+      },
+      {
+        "name": "lines-changed-threshold",
+        "description": "The minimum number of lines changed required to create a quiz. This is to prevent quizzes from being created for small pull requests.",
+        "required": false,
+        "default": "100"
+      },
+      {
+        "name": "time-limit-minutes",
+        "description": "The time limit to complete the quiz in minutes. This prevents the action from running indefinitely.",
+        "required": false,
+        "default": "10"
+      },
+      {
+        "name": "max-attempts",
+        "description": "The maximum number of attempts to pass the quiz. A value of 0 means unlimited attempts.",
+        "required": false,
+        "default": "3"
+      },
+      {
+        "name": "exclude-file-patterns",
+        "description": "A list of file patterns to exclude from the quiz as a JSON-ified string.",
+        "required": false,
+        "default": "[\"**/*-lock.json\", \"**/*-lock.yaml\", \"**/*.lock\", \"**/*.map\", \"**/*.pb.*\", \"**/*_pb2.py\", \"**/*.generated.*\", \"**/*.auto.*\"]"
+      },
+      {
+        "name": "system-prompt",
+        "description": "Optional override for the system prompt. Be sure the specify that multiple choice questions must be returned.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dkamm",
+    "verified": false,
+    "origin": "github.com/dkamm/pr-quiz",
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2025-07-28T19:25:56Z",
+      "html_url": "https://github.com/dkamm/pr-quiz/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:59.270129Z"
+}

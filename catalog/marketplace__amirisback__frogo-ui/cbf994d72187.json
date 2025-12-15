@@ -1,0 +1,37 @@
+{
+  "action_id": "marketplace/amirisback/frogo-ui",
+  "version": "cbf994d72187",
+  "definition": {
+    "name": "Frogo-UI",
+    "description": "Library Easy UI Kit Based on Design Guideline, Full and Clear Documentation, :books:",
+    "author": "Muhammad Faisal Amir - Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/frogo-ui",
+    "latest_release": {
+      "tag_name": "2.0.5",
+      "name": "Release v2.0.5",
+      "published_at": "2024-09-04T09:15:56Z",
+      "html_url": "https://github.com/frogobox/frogo-ui/releases/tag/2.0.5",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:53.482389Z"
+}

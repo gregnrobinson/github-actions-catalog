@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/appleboy/gitlab-ci-action",
+  "version": "3c4e38215967",
+  "definition": {
+    "name": "Trigger GitLab CI Pipeline",
+    "description": "Triggering GitLab CI Pipeline through the API",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "host",
+        "description": "gitlab-ci base url",
+        "required": false,
+        "default": "https://gitlab.com"
+      },
+      {
+        "name": "token",
+        "description": "gitlab-ci token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "ref",
+        "description": "gitlab-ci valid refs are only the branches and tags",
+        "required": false,
+        "default": "main"
+      },
+      {
+        "name": "project_id",
+        "description": "gitlab project id",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "insecure",
+        "description": "insecure mode",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "variables",
+        "description": "pass CI/CD variables",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "debug mode",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "timeout",
+        "description": "timeout waiting for pipeline to complete",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "interval",
+        "description": "interval waiting for pipeline to complete",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "wait",
+        "description": "wait for pipeline to complete",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/gitlab-ci-action",
+    "latest_release": {
+      "tag_name": "v1.3.0",
+      "name": "v1.3.0",
+      "published_at": "2024-10-21T15:13:07Z",
+      "html_url": "https://github.com/appleboy/gitlab-ci-action/releases/tag/v1.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:51.907333Z"
+}

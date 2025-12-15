@@ -61,12 +61,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is focused on deploying feature flags to Azure App Configuration, which falls under the deployment category. It also involves infrastructure as it interacts with Azure services.",
+        "reasoning": "This action is focused on deploying feature flags to Azure App Configuration, which falls under the deployment category. It also involves infrastructure management as it interacts with Azure services.",
         "tags": [
           "Azure",
           "Deployment",
           "Feature Flags",
-          "Configuration",
+          "App Configuration",
           "Infrastructure"
         ]
       }
@@ -76,6 +76,6 @@
     "source_hash": "6d3e7caea47d33b70b813468a643fd520eb132a419372fd800fef05f4683ca6d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.624777Z"
+    "generated_at": "2025-12-15T02:18:59.902690Z"
   }
 }

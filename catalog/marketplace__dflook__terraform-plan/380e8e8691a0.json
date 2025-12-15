@@ -1,0 +1,150 @@
+{
+  "action_id": "marketplace/dflook/terraform-plan",
+  "version": "380e8e8691a0",
+  "definition": {
+    "name": "terraform-plan",
+    "description": "Create a Terraform plan",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path to the Terraform root module to generate a plan for.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "Terraform workspace to run the plan for.",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "label",
+        "description": "A friendly name for the environment the Terraform configuration is for.\nThis will be used in the PR comment for easy identification.\n\nIf this is set, it must be the same as the `label` used in any corresponding [`dflook/terraform-apply`](https://github.com/dflook/terraform-github-actions/tree/main/terraform-apply) action.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the terraform plan. This should be valid Terraform syntax - like a [variable definition file](https://developer.hashicorp.com/terraform/language/values/variables#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "replace",
+        "description": "List of resources to replace, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "target",
+        "description": "List of resources to target, one per line.\nThe plan will be limited to these resources and their dependencies.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "destroy",
+        "description": "Set to `true` to generate a plan to destroy all resources.\n\nThis generates a plan in [destroy mode](https://developer.hashicorp.com/terraform/cli/commands/plan#planning-modes).\n",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "refresh",
+        "description": "Set to `false` to skip synchronisation of the Terraform state with actual resources.\n\nThis will make the plan faster but may be out of date with the actual resources, which can lead to incorrect plans.\n",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "add_github_comment",
+        "description": "Controls whether a comment is added to the PR with the generated plan.\n\nThe default is `true`, which adds a comment to the PR with the results of the plan.\nSet to `changes-only` to add a comment only when the plan indicates there are changes to apply.\nSet to `always-new` to always create a new comment for each plan, instead of updating the previous comment.\nSet to `false` to disable the comment - the plan will still appear in the workflow log.\n",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "parallelism",
+        "description": "Limit the number of concurrent operations",
+        "required": false,
+        "default": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changes",
+        "description": "Set to 'true' if the plan would apply any changes, 'false' if it wouldn't."
+      },
+      {
+        "name": "plan_path",
+        "description": "This is the path to the generated plan in an opaque binary format.\nThe path is relative to the Actions workspace.\n\nThe plan can be used as the `plan_file` input to the [dflook/terraform-apply](https://github.com/dflook/terraform-github-actions/tree/main/terraform-apply) action.\n\nTerraform plans often contain sensitive information, so this output should be treated with care.\n"
+      },
+      {
+        "name": "json_plan_path",
+        "description": "This is the path to the generated plan in [JSON Output Format](https://www.terraform.io/docs/internals/json-format.html).\nThe path is relative to the Actions workspace.\n\nTerraform plans often contain sensitive information, so this output should be treated with care.\n"
+      },
+      {
+        "name": "text_plan_path",
+        "description": "This is the path to the generated plan in a human-readable format.\nThe path is relative to the Actions workspace.\n"
+      },
+      {
+        "name": "to_add",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_change",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_destroy",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_move",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "to_import",
+        "description": "The number of resources that would be affected by this operation."
+      },
+      {
+        "name": "run_id",
+        "description": "If the root module uses the `remote` or `cloud` backend in remote execution mode, this output will be set to the remote run id."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-plan",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:43Z",
+      "html_url": "https://github.com/dflook/terraform-plan/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:42.317329Z"
+}

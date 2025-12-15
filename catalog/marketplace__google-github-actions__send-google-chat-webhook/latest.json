@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/send-google-chat-webhook/action.yml",
     "origin": "github.com/google-github-actions/send-google-chat-webhook",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2024-10-30T20:14:47Z",
+      "html_url": "https://github.com/google-github-actions/send-google-chat-webhook/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "send-google-chat-webhhook",
@@ -67,7 +75,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is designed to send messages to a Google Chat workspace, which falls under communication and notification functionalities.",
+        "reasoning": "The action is designed to send messages to a Google Chat workspace, which primarily falls under communication and notification functionalities.",
         "tags": [
           "google-chat",
           "notification",
@@ -82,6 +90,6 @@
     "source_hash": "9a2f0064dea844d28e7614378ee8816f42f06e1c769c9c63a55f9a560d498aa1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.784229Z"
+    "generated_at": "2025-12-15T02:19:00.074306Z"
   }
 }

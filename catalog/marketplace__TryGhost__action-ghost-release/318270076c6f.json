@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/TryGhost/action-ghost-release",
+  "version": "318270076c6f",
+  "definition": {
+    "name": "Ghost Release",
+    "description": "Release a new version of Ghost",
+    "author": "TryGhost",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "TryGhost",
+    "verified": false,
+    "origin": "github.com/TryGhost/action-ghost-release"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:08.353102Z"
+}

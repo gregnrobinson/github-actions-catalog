@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/labeler/action.yml",
     "origin": "github.com/actions/labeler",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.0.1",
+      "name": "v6.0.1",
+      "published_at": "2025-09-04T17:56:16Z",
+      "html_url": "https://github.com/actions/labeler/releases/tag/v6.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Labeler",
@@ -60,14 +68,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The Labeler action automatically labels pull requests, which facilitates communication about the changes made. It also indirectly contributes to code quality by organizing and categorizing changes based on file paths.",
+        "tags": [
+          "labeling",
+          "pull requests",
+          "automation",
+          "GitHub Actions",
+          "code organization"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "0b101d5cbc415779d2a4494945d3c62198c5c3782b429826314af900099b690c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.328558Z"
+    "generated_at": "2025-12-15T02:19:00.736091Z"
   }
 }

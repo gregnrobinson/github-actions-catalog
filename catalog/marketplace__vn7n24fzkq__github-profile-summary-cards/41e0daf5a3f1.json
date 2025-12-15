@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/vn7n24fzkq/github-profile-summary-cards",
+  "version": "41e0daf5a3f1",
+  "definition": {
+    "name": "GitHub-Profile-Summary-Cards",
+    "description": "Generate profile summary cards and commit to default branch",
+    "author": "vn7n24fzkq",
+    "inputs": [
+      {
+        "name": "USERNAME",
+        "description": "GitHub username",
+        "required": true,
+        "default": "${{ github.repository_owner }}"
+      },
+      {
+        "name": "BRANCH_NAME",
+        "description": "The branch to push cards",
+        "required": false,
+        "default": "main"
+      },
+      {
+        "name": "UTC_OFFSET",
+        "description": "The UTC offset used in the Productive Time Card.(e.g., 8, -3)",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "EXCLUDE",
+        "description": "A comma separated list of languages to exclude",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "AUTO_PUSH",
+        "description": "Whether automatically push generated files to desired branch",
+        "required": false,
+        "default": true
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "vn7n24fzkq",
+    "verified": false,
+    "origin": "github.com/vn7n24fzkq/github-profile-summary-cards",
+    "latest_release": {
+      "tag_name": "v0.7.0",
+      "name": "v0.7.0",
+      "published_at": "2024-05-12T15:45:52Z",
+      "html_url": "https://github.com/vn7n24fzkq/github-profile-summary-cards/releases/tag/v0.7.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:06.537550Z"
+}

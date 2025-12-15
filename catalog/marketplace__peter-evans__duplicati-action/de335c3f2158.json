@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/peter-evans/duplicati-action",
+  "version": "de335c3f2158",
+  "definition": {
+    "name": "Duplicati Action",
+    "description": "A GitHub action for Duplicati - Store securely encrypted backups in the cloud!",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/duplicati-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "Duplicati Action v1.0.0",
+      "published_at": "2019-11-01T09:38:05Z",
+      "html_url": "https://github.com/peter-evans/duplicati-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:27.301884Z"
+}

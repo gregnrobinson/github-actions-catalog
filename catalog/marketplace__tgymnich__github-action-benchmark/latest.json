@@ -143,8 +143,7 @@
   "annotations": {
     "categories": [
       "Testing",
-      "Monitoring",
-      "Documentation"
+      "Monitoring"
     ],
     "confidence": "high",
     "evidence": [
@@ -152,13 +151,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is focused on continuous benchmarking, which falls under testing as it evaluates performance. Additionally, it uses GitHub Pages for documentation purposes, making it relevant for monitoring and documentation categories.",
+        "reasoning": "The action is focused on continuous benchmarking, which falls under testing as it evaluates performance. Additionally, it involves monitoring performance metrics over time.",
         "tags": [
           "benchmark",
           "performance",
           "testing",
-          "GitHub Pages",
-          "continuous integration"
+          "monitoring",
+          "GitHub Pages"
         ]
       }
     ]
@@ -167,6 +166,6 @@
     "source_hash": "a6e895cd7a123f809c64bea8dff29caac071bb213fe53c249757d86fae86f87f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.689812Z"
+    "generated_at": "2025-12-15T02:19:00.912077Z"
   }
 }

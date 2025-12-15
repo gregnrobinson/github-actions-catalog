@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/LLM-action/action.yml",
     "origin": "github.com/appleboy/LLM-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.3.0",
+      "name": "v1.3.0",
+      "published_at": "2025-12-11T05:46:10Z",
+      "html_url": "https://github.com/appleboy/LLM-action/releases/tag/v1.3.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "LLM Action",
@@ -103,7 +111,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action interacts with OpenAI Compatible LLM services, primarily facilitating communication with the model, while also requiring an API key for authentication. It can be used to test the responses from the LLM, hence the inclusion in the Testing category.",
+        "reasoning": "The action interacts with OpenAI compatible LLM services, primarily facilitating communication with the API. It also requires an API key for authentication, placing it in the Authentication category, and can be used for testing LLM responses.",
         "tags": [
           "OpenAI",
           "LLM",
@@ -118,6 +126,6 @@
     "source_hash": "7da797d72667c5b0627432a565ca4d1dc6605dac6d6b93aee35b437f50440f35",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.191940Z"
+    "generated_at": "2025-12-15T02:19:00.592381Z"
   }
 }

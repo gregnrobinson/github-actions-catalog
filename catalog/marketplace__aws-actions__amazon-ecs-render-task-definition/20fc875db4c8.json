@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecs-render-task-definition/action.yml",
     "origin": "github.com/aws-actions/amazon-ecs-render-task-definition",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.8.1",
+      "name": "v1.8.1",
+      "published_at": "2025-10-16T14:55:43Z",
+      "html_url": "https://github.com/aws-actions/amazon-ecs-render-task-definition/releases/tag/v1.8.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Amazon ECS \"Render Task Definition\" Action for GitHub Actions",
@@ -104,14 +112,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is focused on modifying an Amazon ECS task definition, which is a key part of infrastructure management and deployment in cloud environments.",
+        "tags": [
+          "ECS",
+          "AWS",
+          "Infrastructure",
+          "Deployment",
+          "Task Definition"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "20fc875db4c865fc2ed97f9a6e9ecd36c5c0f5bf8bb26ae288c826f4f52a7df2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.039071Z"
+    "generated_at": "2025-12-15T02:19:00.449722Z"
   }
 }

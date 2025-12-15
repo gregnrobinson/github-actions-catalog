@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/samuelmeuli/action-snapcraft",
+  "version": "af778c2d8105",
+  "definition": {
+    "name": "Snapcraft Action",
+    "description": "GitHub Action for setting up Snapcraft",
+    "author": "Samuel Meuli",
+    "inputs": [
+      {
+        "name": "channel",
+        "description": "The channel to install Snapcraft from",
+        "required": false,
+        "default": "stable"
+      },
+      {
+        "name": "skip_install",
+        "description": "Skip installation (login only)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_lxd",
+        "description": "Whether to install and configure lxd",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "samuelmeuli",
+    "verified": false,
+    "origin": "github.com/samuelmeuli/action-snapcraft",
+    "latest_release": {
+      "tag_name": "v2.1.1",
+      "name": "v2.1.1",
+      "published_at": "2023-03-06T10:23:29Z",
+      "html_url": "https://github.com/samuelmeuli/action-snapcraft/releases/tag/v2.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:13.206316Z"
+}

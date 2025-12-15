@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-check/action.yml",
     "origin": "github.com/dflook/terraform-check",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:32Z",
+      "html_url": "https://github.com/dflook/terraform-check/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-check",
@@ -72,7 +80,7 @@
     "categories": [
       "Testing",
       "Infrastructure",
-      "Code quality"
+      "Deployment"
     ],
     "confidence": "high",
     "evidence": [
@@ -80,12 +88,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action checks for changes in Terraform configurations, which is a form of testing the infrastructure as code. It also relates to code quality by ensuring that changes are validated before being applied.",
+        "reasoning": "The action checks for Terraform changes, which is a testing function to ensure that infrastructure as code is up to date before deployment. It also relates to infrastructure management as it deals with Terraform configurations.",
         "tags": [
           "terraform",
           "infrastructure",
           "testing",
-          "code quality",
+          "deployment",
           "automation"
         ]
       }
@@ -95,6 +103,6 @@
     "source_hash": "8a8c602855508e968d7668e1b52fe7cb6575acb4a71fa7ec0ed4d6d959a4a1d1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.413685Z"
+    "generated_at": "2025-12-15T02:18:59.647791Z"
   }
 }

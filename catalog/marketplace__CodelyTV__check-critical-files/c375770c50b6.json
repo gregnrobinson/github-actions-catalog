@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/CodelyTV/check-critical-files",
+  "version": "c375770c50b6",
+  "definition": {
+    "name": "Check Critical Files",
+    "description": "Check for critical files in your commits and warns you",
+    "author": "CodelyTV",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "description": "GitHub token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "critical_files",
+        "description": "A newline separated list of critical files",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "critical_message",
+        "description": "Message to show when listing all commited critical files",
+        "required": false,
+        "default": "Caution! you have commited some critical files"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "CodelyTV",
+    "verified": false,
+    "origin": "github.com/CodelyTV/check-critical-files",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version",
+      "published_at": "2020-03-23T12:55:53Z",
+      "html_url": "https://github.com/CodelyTV/check-critical-files/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:25.210387Z"
+}

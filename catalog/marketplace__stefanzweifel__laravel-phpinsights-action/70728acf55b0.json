@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/stefanzweifel/laravel-phpinsights-action/action.yml",
     "origin": "github.com/stefanzweifel/laravel-phpinsights-action",
     "publisher": "stefanzweifel",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2020-02-11T18:41:13Z",
+      "html_url": "https://github.com/stefanzweifel/laravel-phpinsights-action/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Laravel PHP Insights Action",
@@ -20,14 +28,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is designed to run PHP Insights, which is primarily focused on analyzing code quality in Laravel applications. It also fits into the testing category as it assesses the code's adherence to best practices.",
+        "tags": [
+          "PHP",
+          "Laravel",
+          "Code Quality",
+          "Insights",
+          "Testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "70728acf55b01748852b9eb15fe4bf37678be827ff834026520bc40a779b5fb7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.410644Z"
+    "generated_at": "2025-12-15T02:19:00.962543Z"
   }
 }

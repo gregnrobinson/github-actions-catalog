@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/Synapse-workspace-deployment/action.yml",
     "origin": "github.com/azure/Synapse-workspace-deployment",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "V1.9.1",
+      "name": "",
+      "published_at": "2024-11-25T11:54:58Z",
+      "html_url": "https://github.com/Azure/Synapse-workspace-deployment/releases/tag/V1.9.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Synapse workspace deployment",
@@ -133,7 +141,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed for deploying a Synapse workspace, which falls under the Deployment category, and it also involves infrastructure management.",
+        "reasoning": "The action is specifically designed to deploy a Synapse workspace, which clearly falls under the Deployment category, and it also involves infrastructure management.",
         "tags": [
           "Azure",
           "Synapse",
@@ -148,6 +156,6 @@
     "source_hash": "08ee81378691d2a47bb81d4c59800a3aaefb800d978348161684a63df0e98534",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.609689Z"
+    "generated_at": "2025-12-15T02:18:59.886632Z"
   }
 }

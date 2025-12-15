@@ -121,12 +121,12 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Monitoring",
-        "reasoning": "The action focuses on downloading analysis results for online experiments, which falls under monitoring activities. Additionally, it outputs a summary in Markdown format, contributing to documentation.",
+        "reasoning": "The action is focused on downloading analysis results for monitoring the performance of an Azure App Configuration feature flag, which falls under monitoring. Additionally, it provides a summary in Markdown format, which relates to documentation.",
         "tags": [
           "Azure",
-          "Experimentation",
-          "Analysis",
           "Monitoring",
+          "Analysis",
+          "Feature Flag",
           "Log Analytics"
         ]
       }
@@ -136,6 +136,6 @@
     "source_hash": "737d109186cee3cbd794756d63aa327e2f3363179fdc927b143f4ab156ca5dc6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.606315Z"
+    "generated_at": "2025-12-15T02:18:59.882916Z"
   }
 }

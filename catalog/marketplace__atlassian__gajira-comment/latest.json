@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-comment/action.yml",
     "origin": "github.com/atlassian/gajira-comment",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Ownership transfer and update dependencies",
+      "published_at": "2022-11-20T23:47:18Z",
+      "html_url": "https://github.com/atlassian/gajira-comment/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Add Comment",
@@ -43,11 +51,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is designed to add comments to Jira issues, which is primarily a communication task. It can also be seen as a form of notification for updates on issues.",
+        "reasoning": "The action is designed to add comments to Jira issues, which falls under communication with team members and stakeholders. It also serves as a notification mechanism for updates on issues.",
         "tags": [
           "Jira",
           "comment",
-          "issue",
+          "issue tracking",
           "communication",
           "notification"
         ]
@@ -58,6 +66,6 @@
     "source_hash": "958ee0e61fe10cc6362ccc8eb2931e3e433e43a6aefc97e4bfde63ade27818da",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.408992Z"
+    "generated_at": "2025-12-15T02:19:00.401582Z"
   }
 }

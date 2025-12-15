@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/azure/microsoft-365-certification-quick-evaluation",
+  "version": "00a88229babd",
+  "definition": {
+    "name": "Microsoft 365 certification quick evaluation",
+    "description": "Microsoft 365 certiquick assessments action helps you get immediately compliance result by report or by deployments.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "report-name",
+        "description": "name of the compliance report",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "deployment-ids",
+        "description": "deployment ids, array of string in json format",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/microsoft-365-certification-quick-evaluation",
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Release v1.0.1  for microsoft-365-certification-quick-evaluation",
+      "published_at": "2023-03-15T05:06:53Z",
+      "html_url": "https://github.com/Azure/microsoft-365-certification-quick-evaluation/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:15.911565Z"
+}

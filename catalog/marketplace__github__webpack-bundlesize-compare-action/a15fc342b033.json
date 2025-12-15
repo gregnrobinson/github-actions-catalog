@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/webpack-bundlesize-compare-action/action.yml",
     "origin": "github.com/github/webpack-bundlesize-compare-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0",
+      "published_at": "2024-06-03T15:10:09Z",
+      "html_url": "https://github.com/github/webpack-bundlesize-compare-action/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Bundle comparison",
@@ -51,14 +59,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action focuses on comparing bundle sizes to ensure code quality and performance, which falls under code quality and testing categories.",
+        "tags": [
+          "bundle size",
+          "webpack",
+          "code quality",
+          "comparison",
+          "testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "a15fc342b033427f1f61f8f351e639ceb69726338b819eea2df22808bb5b37b6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.987458Z"
+    "generated_at": "2025-12-15T02:19:00.383893Z"
   }
 }

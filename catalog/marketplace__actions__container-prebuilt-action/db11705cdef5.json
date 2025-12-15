@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/container-prebuilt-action/action.yml",
     "origin": "github.com/actions/container-prebuilt-action",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.2.0",
+      "name": "v0.2.0",
+      "published_at": "2025-06-06T19:59:25Z",
+      "html_url": "https://github.com/actions/container-prebuilt-action/releases/tag/v0.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "The name of your action here",
@@ -35,14 +43,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Build",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action appears to be related to building or preparing a container, which falls under the Build category. It may also be used in testing scenarios, hence the secondary category.",
+        "tags": [
+          "container",
+          "build",
+          "action",
+          "greeting"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "db11705cdef5f4996e3e0bdff0757087fcf9d25bb2361b1e12e437f84adf01b3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.310482Z"
+    "generated_at": "2025-12-15T02:19:00.717577Z"
   }
 }

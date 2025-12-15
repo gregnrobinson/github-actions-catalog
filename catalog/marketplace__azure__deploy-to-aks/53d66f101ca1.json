@@ -1,0 +1,166 @@
+{
+  "action_id": "marketplace/azure/deploy-to-aks",
+  "version": "53d66f101ca1",
+  "definition": {
+    "name": "Deploy to AKS",
+    "description": "Deploy to an Azure Kubernetes Service cluster",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "method",
+        "description": "Acceptable values: kubeconfig or service-account",
+        "required": true,
+        "default": "kubeconfig"
+      },
+      {
+        "name": "kubeconfig",
+        "description": "Contents of kubeconfig file",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "context",
+        "description": "If your kubeconfig has multiple contexts, use this field to use a specific context, otherwise the default one would be chosen",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "k8s-url",
+        "description": "Cluster Url",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "k8s-secret",
+        "description": "Service account secret. Run kubectl get serviceaccounts <service-account-name> -o yaml and copy the service-account-secret-name. Copy the ouptut of kubectl get secret <service-account-secret-name> -o yaml",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "container-registry-url",
+        "description": "Container registry url",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container-registry-username",
+        "description": "Container registry username",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container-registry-password",
+        "description": "Container registry password",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "container-registry-email",
+        "description": "Container registry email",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secret-type",
+        "description": "Type of Kubernetes secret. For example, docker-registry or generic",
+        "required": true,
+        "default": "docker-registry"
+      },
+      {
+        "name": "secret-name",
+        "description": "Name of the secret. You can use this secret name in the Kubernetes YAML configuration file.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "arguments",
+        "description": "Specify keys and literal values to insert in generic type secret. For example, --from-literal=key1=value1 --from-literal=key2=\"top secret\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "manifests",
+        "description": "Path to the manifest files which will be used for deployment.",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "images",
+        "description": "Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files Example: contosodemo.azurecr.io/helloworld:test",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "imagepullsecrets",
+        "description": "Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "kubectl-version",
+        "description": "Version of kubectl. Installs a specific version of kubectl binary",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "strategy",
+        "description": "Deployment strategy to be used. Allowed values are none, canary",
+        "required": false,
+        "default": "none"
+      },
+      {
+        "name": "traffic-split-method",
+        "description": "Traffic split method to be used. Allowed values are pod, smi",
+        "required": false,
+        "default": "pod"
+      },
+      {
+        "name": "baseline-and-canary-replicas",
+        "description": "Baseline and canary replicas count; valid value i.e between 0 to 100.",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "percentage",
+        "description": "Percentage of traffic redirect to canary deployment",
+        "required": false,
+        "default": 0
+      },
+      {
+        "name": "args",
+        "description": "Arguments",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "action",
+        "description": "deploy/promote/reject",
+        "required": true,
+        "default": "deploy"
+      },
+      {
+        "name": "namespace",
+        "description": "Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "secret-name",
+        "description": "Secret name"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/deploy-to-aks"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:10.471812Z"
+}

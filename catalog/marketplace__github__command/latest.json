@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/command/action.yml",
     "origin": "github.com/github/command",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.3",
+      "name": "v2.0.3",
+      "published_at": "2025-11-26T22:19:38Z",
+      "html_url": "https://github.com/github/command/releases/tag/v2.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "command-action",
@@ -191,7 +199,6 @@
   "annotations": {
     "categories": [
       "Communication",
-      "Code quality",
       "Testing"
     ],
     "confidence": "high",
@@ -200,13 +207,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action facilitates communication through IssueOps commands in GitHub Actions, which can be related to code quality checks and testing workflows based on comments. It also uses a GitHub token for authentication, but its primary function revolves around communication and command execution.",
+        "reasoning": "The action facilitates communication through IssueOps commands in GitHub Actions, allowing users to trigger workflows based on comments. It also includes outputs that can be used to control workflow execution, which aligns with testing functionalities.",
         "tags": [
           "IssueOps",
           "GitHub Actions",
           "commands",
-          "automation",
-          "workflow"
+          "workflow control",
+          "communication"
         ]
       }
     ]
@@ -215,6 +222,6 @@
     "source_hash": "daee99c6bf9ca8b6b7dad485c5ad6c025470fa9b0e938e7b7ad891910cf1c65d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.979217Z"
+    "generated_at": "2025-12-15T02:19:00.374657Z"
   }
 }

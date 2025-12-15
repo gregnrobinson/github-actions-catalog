@@ -1,0 +1,325 @@
+{
+  "action_id": "marketplace/codecov/codecov-action",
+  "version": "141d3b6e8c98",
+  "definition": {
+    "name": "Codecov",
+    "description": "GitHub Action that uploads coverage reports for your repository to codecov.io",
+    "author": "Thomas Hu <@thomasrockhu-codecov> | Codecov",
+    "inputs": [
+      {
+        "name": "base_sha",
+        "description": "The base SHA to select. This is only used in the \"pr-base-picking\" run command",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "binary",
+        "description": "The file location of a pre-downloaded version of the CLI. If specified, integrity checking will be bypassed.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codecov_yml_path",
+        "description": "The location of the codecov.yml file. This is crrently ONLY used for automated test selection (https://docs.codecov.com/docs/getting-started-with-ats). Note that for all other cases, the Codecov yaml will need to be located as described here: https://docs.codecov.com/docs/codecov-yaml#can-i-name-the-file-codecovyml",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "commit_parent",
+        "description": "SHA (with 40 chars) of what should be the parent of this commit.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "directory",
+        "description": "Folder to search for coverage files. Default to the current working directory",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "disable_file_fixes",
+        "description": "Disable file fixes to ignore common lines from coverage (e.g. blank lines or empty brackets). Read more here https://docs.codecov.com/docs/fixing-reports",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "disable_search",
+        "description": "Disable search for coverage files. This is helpful when specifying what files you want to upload with the files option.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "disable_safe_directory",
+        "description": "Disable setting safe directory. Set to true to disable.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "disable_telem",
+        "description": "Disable sending telemetry data to Codecov. Set to true to disable.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "dry_run",
+        "description": "Don't upload files to Codecov",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "env_vars",
+        "description": "Environment variables to tag the upload with (e.g. PYTHON | OS,PYTHON)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude",
+        "description": "Comma-separated list of folders to exclude from search.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fail_ci_if_error",
+        "description": "On error, exit with non-zero code",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "files",
+        "description": "Comma-separated list of explicit files to upload. These will be added to the coverage files found for upload. If you wish to only upload the specified files, please consider using disable_search to disable uploading other files.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "flags",
+        "description": "Comma-separated list of flags to upload to group coverage metrics.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "force",
+        "description": "Only used for empty-upload run command",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "git_service",
+        "description": "Override the git_service (e.g. github_enterprise)",
+        "required": false,
+        "default": "github"
+      },
+      {
+        "name": "gcov_args",
+        "description": "Extra arguments to pass to gcov",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcov_executable",
+        "description": "gcov executable to run. Defaults to 'gcov'",
+        "required": false,
+        "default": "gcov"
+      },
+      {
+        "name": "gcov_ignore",
+        "description": "Paths to ignore during gcov gathering",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "gcov_include",
+        "description": "Paths to include during gcov gathering",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "handle_no_reports_found",
+        "description": "If no coverage reports are found, do not raise an exception.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "job_code",
+        "description": "",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "name",
+        "description": "Custom defined name of the upload. Visible in the Codecov UI",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "network_filter",
+        "description": "Specify a filter on the files listed in the network section of the Codecov report. This will only add files whose path begin with the specified filter. Useful for upload-specific path fixing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "network_prefix",
+        "description": "Specify a prefix on files listed in the network section of the Codecov report. Useful to help resolve path fixing.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "os",
+        "description": "Override the assumed OS. Options available at cli.codecov.io",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_branch",
+        "description": "Specify the branch to be displayed with this commit on Codecov",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_build",
+        "description": "Specify the build number manually",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_build_url",
+        "description": "The URL of the build where this is running",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_commit",
+        "description": "Commit SHA (with 40 chars)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "override_pr",
+        "description": "Specify the pull request number manually. Used to override pre-existing CI environment variables.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "plugins",
+        "description": "Comma-separated list of plugins to run. Specify `noop` to turn off all plugins",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "recurse_submodules",
+        "description": "Whether to enumerate files inside of submodules for path-fixing purposes. Off by default.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "report_code",
+        "description": "The code of the report if using local upload. If unsure, leave default. Read more here https://docs.codecov.com/docs/the-codecov-cli#how-to-use-local-upload",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "report_type",
+        "description": "The type of file to upload, coverage by default. Possible values are \"test_results\", \"coverage\".",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "root_dir",
+        "description": "Root folder from which to consider paths on the network section. Defaults to current working directory.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "run_command",
+        "description": "Choose which CLI command to run. Options are \"upload-coverage\", \"empty-upload\", \"pr-base-picking\", \"send-notifications\". \"upload-coverage\" is run by default.",
+        "required": false,
+        "default": "upload-coverage"
+      },
+      {
+        "name": "skip_validation",
+        "description": "Skip integrity checking of the CLI. This is NOT recommended.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "slug",
+        "description": "[Required when using the org token] Set to the owner/repo slug used instead of the private repo token. Only applicable to some Enterprise users.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "swift_project",
+        "description": "Specify the swift project name. Useful for optimization.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "token",
+        "description": "Repository Codecov token. Used to authorize report uploads",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "url",
+        "description": "Set to the Codecov instance URl. Used by Dedicated Enterprise Cloud customers.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_legacy_upload_endpoint",
+        "description": "Use the legacy upload endpoint.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_oidc",
+        "description": "Use OIDC instead of token. This will ignore any token supplied",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "use_pypi",
+        "description": "Use the pypi version of the CLI instead of from cli.codecov.io",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "verbose",
+        "description": "Enable verbose logging",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "version",
+        "description": "Which version of the Codecov CLI to use (defaults to 'latest')",
+        "required": false,
+        "default": "latest"
+      },
+      {
+        "name": "working-directory",
+        "description": "Directory in which to execute codecov.sh",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "codecov",
+    "verified": false,
+    "origin": "github.com/codecov/codecov-action",
+    "latest_release": {
+      "tag_name": "v5.5.2",
+      "name": "v5.5.2",
+      "published_at": "2025-12-09T19:21:50Z",
+      "html_url": "https://github.com/codecov/codecov-action/releases/tag/v5.5.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:23.038231Z"
+}

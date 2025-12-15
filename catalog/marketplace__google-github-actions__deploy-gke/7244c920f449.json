@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/deploy-gke/action.yml",
     "origin": "github.com/google-github-actions/deploy-gke",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.0.4",
+      "name": "v0.0.4",
+      "published_at": "2025-07-18T22:06:20Z",
+      "html_url": "https://github.com/google-github-actions/deploy-gke/releases/tag/v0.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy GKE",
@@ -78,14 +86,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy an image to Google Kubernetes Engine (GKE), which falls under the Deployment category. It also involves infrastructure management as it interacts with GKE clusters.",
+        "tags": [
+          "GKE",
+          "deployment",
+          "Kubernetes",
+          "Google",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "7244c920f449fbc48747246f2fc564a3ae1dbd406c074705eee83b09620b2b19",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.755637Z"
+    "generated_at": "2025-12-15T02:19:00.041276Z"
   }
 }

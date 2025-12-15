@@ -1,0 +1,133 @@
+{
+  "action_id": "marketplace/aws-actions/codeguru-reviewer",
+  "version": "70136a3d4830",
+  "definition": {
+    "name": "CodeGuru Reviewer",
+    "description": "AWS CodeGuru Reviewer Action",
+    "author": "aws-actions",
+    "inputs": [
+      {
+        "name": "name",
+        "description": "Repository name",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "source_path",
+        "description": "Path to Java source repository",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "build_path",
+        "description": "Path to build artifact(s) - jar or class files in this directory will be uploaded for review",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "destination_commit",
+        "description": "SHA of next commit to be committed to source code repository after an event",
+        "required": false,
+        "default": "${{ github.event.before || github.event.pull_request.base.sha }}"
+      },
+      {
+        "name": "source_commit",
+        "description": "SHA of previous commit in the source code repository existed before an event",
+        "required": false,
+        "default": "${{ github.event.after || github.event.pull_request.head.sha }}"
+      },
+      {
+        "name": "merge_base_commit",
+        "description": "SHA of a commit thats the merge base for before and after commits in a pull or merge request",
+        "required": false,
+        "default": "${{ github.event.pull_request.merge_commit_sha }}"
+      },
+      {
+        "name": "source_branch",
+        "description": "Source branch of the event",
+        "required": false,
+        "default": "${{ github.head_ref || github.ref}}"
+      },
+      {
+        "name": "destination_branch",
+        "description": "Destination branch of the event",
+        "required": false,
+        "default": "${{ github.base_ref || github.ref }}"
+      },
+      {
+        "name": "kms_key_id",
+        "description": "AWS KMS Key ID to use for encrypting source code/build artifacts. By default, Amazon-owned encryption key is used. Supplying this value overrides it to use Customer-owned encryption key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "author",
+        "description": "Author/Actor who triggered an event in the source code repository",
+        "required": false,
+        "default": "${{ github.event.actor }}"
+      },
+      {
+        "name": "event_id",
+        "description": "An identifier for the event that triggered CodeGuru Reviewer Analysis, e.g. Pull or Merge request id",
+        "required": false,
+        "default": "${{ github.event.number || github.run_number }}"
+      },
+      {
+        "name": "event_name",
+        "description": "Name of the event that triggered the CI/CD workflow [supported Events: push, pull, merge_request_event, schedule, workflow_dispatch]",
+        "required": false,
+        "default": "${{ github.event_name }}"
+      },
+      {
+        "name": "event_state",
+        "description": "State of the event that triggered the CI/CD workflow [example: pull_request: \"opened\"]",
+        "required": false,
+        "default": "${{ github.event.action }}"
+      },
+      {
+        "name": "client_id",
+        "description": "Unique identifier referring to a specific client version",
+        "required": false,
+        "default": "GithubActions@v1"
+      },
+      {
+        "name": "s3_bucket",
+        "description": "S3 Bucket which will be used for code reviews",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "vendor_name",
+        "description": "Vendor Name(e.g. GITHUB, GITLAB) for CI/CD.",
+        "required": false,
+        "default": "GITHUB"
+      },
+      {
+        "name": "output_format",
+        "description": "Expected format for the results (e.g SARIF, SAST, JENKINS)",
+        "required": false,
+        "default": "SARIF"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/codeguru-reviewer",
+    "latest_release": {
+      "tag_name": "v1.1",
+      "name": "CodeGuru Reviewer",
+      "published_at": "2021-06-24T02:51:57Z",
+      "html_url": "https://github.com/aws-actions/codeguru-reviewer/releases/tag/v1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:40.426560Z"
+}

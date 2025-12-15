@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/deploy-pages/action.yml",
     "origin": "github.com/actions/deploy-pages",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.0.5",
+      "name": "v4.0.5",
+      "published_at": "2024-03-18T15:43:13Z",
+      "html_url": "https://github.com/actions/deploy-pages/releases/tag/v4.0.5",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy GitHub Pages site",
@@ -72,11 +80,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy an artifact as a GitHub Pages site, which falls under the Deployment category. It also involves publishing the site, making Publishing a relevant secondary category.",
+        "reasoning": "The action is specifically designed to deploy a site to GitHub Pages, which falls under the Deployment category, while also involving the Publishing aspect of making the site publicly available.",
         "tags": [
           "GitHub Pages",
-          "Deployment",
-          "Publishing",
+          "deployment",
+          "publishing",
           "CI/CD",
           "GitHub Actions"
         ]
@@ -87,6 +95,6 @@
     "source_hash": "0ff88ca222c067f34d29b7078bd0c387b7efedcd14d17ad794aef1c4224f900f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.296372Z"
+    "generated_at": "2025-12-15T02:19:00.703394Z"
   }
 }

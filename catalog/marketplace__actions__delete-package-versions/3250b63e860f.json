@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/actions/delete-package-versions",
+  "version": "3250b63e860f",
+  "definition": {
+    "name": "Delete Package Versions",
+    "description": "Deletes package versions",
+    "author": "actions",
+    "inputs": [
+      {
+        "name": "package-version-ids",
+        "description": "Comma separated string of package version ids to delete.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "owner",
+        "description": "Owner of the repo containing the package version to delete. Defaults to the owner of the repo running the action.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "package-name",
+        "description": "Name of the package containing the version to delete.\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "package-type",
+        "description": "Type of package. Can be one of container, maven, npm, nuget, or rubygems.\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "num-old-versions-to-delete",
+        "description": "Number of versions to delete starting with the oldest version. Defaults to 1.\n",
+        "required": false,
+        "default": "1"
+      },
+      {
+        "name": "min-versions-to-keep",
+        "description": "Number of versions to keep starting with the latest version By default keeps no version. To delete all versions set this as 0.\n",
+        "required": false,
+        "default": "-1"
+      },
+      {
+        "name": "ignore-versions",
+        "description": "Regex pattern for package versions to ignore. Defaults to delete all versions.\n",
+        "required": false,
+        "default": "^$"
+      },
+      {
+        "name": "delete-only-pre-release-versions",
+        "description": "Deletes only pre-release versions. The number of pre-release versions to keep can be specified by min-versions-to-keep. When this is set num-old-versions-to-delete and ignore-versions will not be taken into account. By default this is set to false\n",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "delete-only-untagged-versions",
+        "description": "Deletes only untagged versions in case of a container package. Does not work for other package types. The number of untagged versions to keep can be specified by min-versions-to-keep. When this is set num-old-versions-to-delete will not be taken into account. By default this is set to false\n",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "token",
+        "description": "Token with the necessary scopes to delete package versions. If num-old-versions-to-delete is used the token also needs the read packages scope. Defaults to github.token scoped to the repo running the action. To delete package versions of a package outside the repo the action is running in use a Personal Access Token stored as a secret.\n",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/delete-package-versions",
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "v5.0.0",
+      "published_at": "2024-01-16T13:50:21Z",
+      "html_url": "https://github.com/actions/delete-package-versions/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:15.483681Z"
+}

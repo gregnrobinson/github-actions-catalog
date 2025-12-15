@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/DeLaGuardo/clojure-lint-action",
+  "version": "fe2954599272",
+  "definition": {
+    "name": "clj-kondo checks",
+    "description": "Lint your clojure code with clj-kondo in parallel to your builds",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "clj-kondo-args",
+        "description": "Arguments to be passed to clj-kondo",
+        "required": true,
+        "default": "--lint src"
+      },
+      {
+        "name": "check-name",
+        "description": "Check name will be visible in Github Checks list",
+        "required": false,
+        "default": "clj-kondo check"
+      },
+      {
+        "name": "github_token",
+        "description": "Github token to report linter results back to check",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "DeLaGuardo",
+    "verified": false,
+    "origin": "github.com/DeLaGuardo/clojure-lint-action",
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "clj-kondo suggestions and errors + github",
+      "published_at": "2019-11-07T12:48:36Z",
+      "html_url": "https://github.com/DeLaGuardo/clojure-lint-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:02.470478Z"
+}

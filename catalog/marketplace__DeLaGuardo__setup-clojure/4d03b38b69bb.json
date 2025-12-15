@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-clojure/action.yml",
     "origin": "github.com/DeLaGuardo/setup-clojure",
     "publisher": "DeLaGuardo",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "13.4",
+      "name": "13.4",
+      "published_at": "2025-06-04T10:37:02Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-clojure/releases/tag/13.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Clojure",
@@ -93,14 +101,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is focused on setting up the Clojure build tools, which falls under dependency management and build processes for Clojure projects.",
+        "tags": [
+          "Clojure",
+          "setup",
+          "build tools",
+          "dependency management",
+          "CI"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "4d03b38b69bb42d8e6d8653b4aee394eadc0342c402fb4a22965218eedcfea28",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.277994Z"
+    "generated_at": "2025-12-15T02:19:00.166958Z"
   }
 }

@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/azure/arm-deploy",
+  "version": "68d33ae1c36a",
+  "definition": {
+    "name": "Deploy Azure Resource Manager (ARM) Template",
+    "description": "Use this GitHub Action task to deploy Azure Resource Manager (ARM) template",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "scope",
+        "description": "Provide the scope of the deployment. Valid values are: 'resourcegroup', 'tenant', 'managementgroup', 'subscription'",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "subscriptionId",
+        "description": "Override the Subscription Id set by Azure Login.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "managementGroupId",
+        "description": "Specify the Id for the Management Group, only required for Management Group Deployments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "region",
+        "description": "Provide the target region, only required for tenant, management Group or Subscription deployments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "resourceGroupName",
+        "description": "Provide the name of a resource group, only required for resource Group deployments.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "template",
+        "description": "Specify the path or URL to the Azure Resource Manager template.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "deploymentMode",
+        "description": "Incremental (only add resources to resource group) or Complete (remove extra resources from resource group) or Validate (only validates the template).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "deploymentName",
+        "description": "Specifies the name of the resource group deployment to create.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "parameters",
+        "description": "Supply deployment parameter values.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "failOnStdErr",
+        "description": "Specify whether to fail the action if some data is written to stderr stream of az cli. Valid values are: true, false",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "additionalArguments",
+        "description": "Specify any additional arguments for the deployment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "maskedOutputs",
+        "description": "Specify list of output keys that its value need to be register to github action as secret. (checkout https://github.com/actions/toolkit/issues/184#issuecomment-1198653452 for valid multiline string)",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/arm-deploy",
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2",
+      "published_at": "2024-02-13T01:52:27Z",
+      "html_url": "https://github.com/Azure/arm-deploy/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:13.744845Z"
+}

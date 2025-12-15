@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/lukka/github-script",
+  "version": "cb7c821f26f4",
+  "definition": {
+    "name": "GitHub Script",
+    "description": "Run simple scripts using the GitHub client",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "script",
+        "description": "The path to the file containing the script to run",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "The GitHub token used to create an authenticated client",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "debug",
+        "description": "Whether to tell the GitHub client to log details of its requests",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "user-agent",
+        "description": "An optional user-agent string",
+        "required": false,
+        "default": "actions/github-script"
+      },
+      {
+        "name": "previews",
+        "description": "A comma-separated list of API previews to accept",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "result-encoding",
+        "description": "Either \"string\" or \"json\" (default \"json\")\u2014how the result will be encoded",
+        "required": false,
+        "default": "json"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The return value of the script, stringified with `JSON.stringify`"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/github-script"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:56.053043Z"
+}

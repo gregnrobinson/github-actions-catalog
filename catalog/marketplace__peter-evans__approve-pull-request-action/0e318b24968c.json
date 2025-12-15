@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/peter-evans/approve-pull-request-action",
+  "version": "0e318b24968c",
+  "definition": {
+    "name": "Approve Pull Request",
+    "description": "A GitHub Action for approving pull requests",
+    "author": "juliangruber",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "GitHub Token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "number",
+        "description": "Pull Request number",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repo",
+        "description": "Pull Request repo in owner/repo format",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/approve-pull-request-action"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:36.346611Z"
+}

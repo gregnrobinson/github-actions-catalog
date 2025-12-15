@@ -1,0 +1,122 @@
+{
+  "action_id": "marketplace/codecov/codecov-ats-docker",
+  "version": "430299728d40",
+  "definition": {
+    "name": "ATS",
+    "description": "RUN ATS",
+    "author": "codecov",
+    "inputs": [
+      {
+        "name": "container",
+        "description": "container to run in",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "static_token",
+        "description": "Codecov static token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "codecov_token",
+        "description": "Codecov upload token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "output_path",
+        "description": "output path for test file in container, must be a fully qualified path",
+        "required": false,
+        "default": "/tmp"
+      },
+      {
+        "name": "local_output_path",
+        "description": "where to copy the files out of the container",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "install_cli",
+        "description": "Whether to install the Codecov CLI. Set to false if you have previously installed the CLI.",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "main_branch",
+        "description": "The main branch to compare against",
+        "required": false,
+        "default": "origin/main"
+      },
+      {
+        "name": "run_tests",
+        "description": "Whether to run the tests with the given command in the container. If set to true, this will run the test command and upload to Codecov",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "test_command",
+        "description": "Command to run in container to execute tests. Required when run_tests is true. This should be `pytest` with the desired args at this point.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "codecov_url",
+        "description": "URL of Codecov",
+        "required": false,
+        "default": "https://api.codecov.io"
+      },
+      {
+        "name": "codecov_cli_version",
+        "description": "Version of CLI to use",
+        "required": false,
+        "default": "0.3.8"
+      },
+      {
+        "name": "codecov_cli_upload_args",
+        "description": "List of args to pass to cli on upload. This is kind of a hack pending a more robust solution",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "codecov_cli_yml_path",
+        "description": "Path to codecov cli yml. Currently expected to include flag as well --codecov-yml-path=codecov_cli.yml for ex.",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": [
+      {
+        "name": "test_skip_list",
+        "description": "the tests to skip"
+      },
+      {
+        "name": "runner_options",
+        "description": "the runner options"
+      },
+      {
+        "name": "test_list",
+        "description": "the tests to run"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "codecov",
+    "verified": false,
+    "origin": "github.com/codecov/codecov-ats-docker",
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "v0.0.1",
+      "published_at": "2023-10-18T22:41:16Z",
+      "html_url": "https://github.com/codecov/codecov-ats-docker/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:24.709310Z"
+}

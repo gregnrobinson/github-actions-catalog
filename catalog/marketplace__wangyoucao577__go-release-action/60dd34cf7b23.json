@@ -1,0 +1,198 @@
+{
+  "action_id": "marketplace/wangyoucao577/go-release-action",
+  "version": "60dd34cf7b23",
+  "definition": {
+    "name": "Go Release Binaries",
+    "description": "Build and Release Go Binaries to GitHub Release Assets",
+    "author": "Jay Zhang <wangyoucao577@gmail.com>",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "GITHUB_TOKEN for uploading releases to Github asserts.",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "goos",
+        "description": "GOOS is the running programs operating system target: one of darwin, freebsd, linux, and so on.",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "goarch",
+        "description": "GOARCH is the running programs architecture target: one of 386, amd64, arm, s390x, loong64 and so on.",
+        "required": true,
+        "default": ""
+      },
+      {
+        "name": "goamd64",
+        "description": "GOAMD64 is the running programs amd64 microarchitecture level: one of v1, v2, v3, v4.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "goarm",
+        "description": "GOARM is the running programs arm microarchitecture level: ARMv5,ARMv6,ARMv7",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "gomips",
+        "description": "GOMIPS is the running programs mips microarchitecture level: hardfloat,softfloat",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "goversion",
+        "description": "The `Go` compiler version.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "build_flags",
+        "description": "Additional arguments to pass the go build command.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "ldflags",
+        "description": "Values to provide to the -ldflags argument",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "project_path",
+        "description": "Where to run `go build .`",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "binary_name",
+        "description": "Specify another binary name if do not want to use repository basename",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "pre_command",
+        "description": "Extra command that will be executed before `go build`, may for solving dependency",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "build_command",
+        "description": "The actual command to build binary, typically `go build`.",
+        "required": false,
+        "default": "go build"
+      },
+      {
+        "name": "executable_compression",
+        "description": "Compression executable binary by some third-party tools. Only `upx` is supported at the moment.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "extra_files",
+        "description": "Extra files that will be packaged into artifacts either.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "md5sum",
+        "description": "Publish `.md5` along with artifacts.",
+        "required": false,
+        "default": "TRUE"
+      },
+      {
+        "name": "sha256sum",
+        "description": "Publish `.sha256` along with artifacts.",
+        "required": false,
+        "default": "FALSE"
+      },
+      {
+        "name": "release_tag",
+        "description": "Upload binaries to specified release page that indicated by Git tag.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "release_name",
+        "description": "Upload binaries to specified release page that indicated by release name.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "release_repo",
+        "description": "Repository to upload the binaries",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "overwrite",
+        "description": "Overwrite asset if it's already exist.",
+        "required": false,
+        "default": "FALSE"
+      },
+      {
+        "name": "asset_name",
+        "description": "Customize asset name if do not want to use the default format.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "retry",
+        "description": "How many times retrying if upload fails.",
+        "required": false,
+        "default": "3"
+      },
+      {
+        "name": "post_command",
+        "description": "Extra command that will be executed for teardown work",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "compress_assets",
+        "description": "Compress assets before uploading",
+        "required": false,
+        "default": "TRUE"
+      },
+      {
+        "name": "upload",
+        "description": "Upload release assets or not",
+        "required": false,
+        "default": "TRUE"
+      },
+      {
+        "name": "multi_binaries",
+        "description": "Build and package multiple binaries together",
+        "required": false,
+        "default": "FALSE"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "release_asset_dir",
+        "description": "Release file directory provided for use by other workflows"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "wangyoucao577",
+    "verified": false,
+    "origin": "github.com/wangyoucao577/go-release-action",
+    "latest_release": {
+      "tag_name": "v1.55",
+      "name": "v1.55",
+      "published_at": "2025-12-11T07:41:58Z",
+      "html_url": "https://github.com/wangyoucao577/go-release-action/releases/tag/v1.55",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:53.189443Z"
+}

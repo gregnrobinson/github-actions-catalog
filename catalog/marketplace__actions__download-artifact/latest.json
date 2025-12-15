@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/download-artifact/action.yml",
     "origin": "github.com/actions/download-artifact",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v7.0.0",
+      "name": "v7.0.0",
+      "published_at": "2025-12-12T18:49:01Z",
+      "html_url": "https://github.com/actions/download-artifact/releases/tag/v7.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Download a Build Artifact",
@@ -85,10 +93,10 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is primarily used to manage dependencies by downloading build artifacts that are necessary for further steps in a workflow. It also relates to the build process as it deals with artifacts generated during builds.",
+        "reasoning": "The action is primarily used to manage dependencies by downloading artifacts that are required for subsequent steps in a workflow. It also relates to build processes and packaging as it deals with build artifacts.",
         "tags": [
-          "artifact",
           "download",
+          "artifact",
           "build",
           "dependency",
           "workflow"
@@ -100,6 +108,6 @@
     "source_hash": "834f2e0884ebc4b61150ecb61b3538786ee2f9e9910740a74463246268db3bd2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.227922Z"
+    "generated_at": "2025-12-15T02:19:00.626979Z"
   }
 }

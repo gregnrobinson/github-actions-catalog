@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/appleboy/jenkins-action/action.yml",
     "origin": "github.com/appleboy/jenkins-action",
     "publisher": "appleboy",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.4.0",
+      "name": "v1.4.0",
+      "published_at": "2025-12-06T05:48:20Z",
+      "html_url": "https://github.com/appleboy/jenkins-action/releases/tag/v1.4.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Trigger Jenkins Multiple Jobs",
@@ -93,14 +101,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Deployment",
+      "Authentication",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily used to trigger deployments by invoking Jenkins jobs, which falls under Deployment. It also involves authentication through a username and API token, making Authentication a relevant secondary category.",
+        "tags": [
+          "Jenkins",
+          "API",
+          "Deployment",
+          "Automation",
+          "CI/CD"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b3f95b17db9725158c9b730323ced85fd5ffc97bfa70df94b227ebf14ffabafd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.186670Z"
+    "generated_at": "2025-12-15T02:19:00.585796Z"
   }
 }

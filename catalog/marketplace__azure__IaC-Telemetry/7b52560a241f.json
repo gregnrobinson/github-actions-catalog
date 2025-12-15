@@ -1,0 +1,35 @@
+{
+  "action_id": "marketplace/azure/IaC-Telemetry",
+  "version": "7b52560a241f",
+  "definition": {
+    "name": "IaC Telemetry",
+    "description": "Send IaC Telemetry",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "event-name",
+        "description": "Name of the event: plan-success, plan-failure, apply-success, apply-failure",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "directory",
+        "description": "Directory to run Terraform commands",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/IaC-Telemetry"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:39.807459Z"
+}

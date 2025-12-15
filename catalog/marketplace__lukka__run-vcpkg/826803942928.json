@@ -1,0 +1,109 @@
+{
+  "action_id": "marketplace/lukka/run-vcpkg",
+  "version": "826803942928",
+  "definition": {
+    "name": "run-vcpkg",
+    "description": "Setup (and optionally run) vcpkg to build C/C++ dependencies and cache them automatically.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "vcpkgDirectory",
+        "description": "",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg"
+      },
+      {
+        "name": "runVcpkgInstall",
+        "description": "Run the installation of packages by running `vcpkg install` on the directory of the discovered 'vcpkg.json' file. Default is false.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "vcpkgGitCommitId",
+        "description": "Specify the full SHA-1 hash of a Git commit (not a branch name, nor a tag!) that establishes which version of vcpkg needs to be used. When using vcpkg as a Git submodule, this input is *not* needed as implicitly specified by the submodule. When not specified and a submodule is not used for vcpkg, the commit id is being searched in vcpkg.json or vcpkg-configure.json, see vcpkgConfigurationJsonGlob input.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "vcpkgGitURL",
+        "description": "Specify the URL Git repository to download vcpkg from. Defaults to https://github.com/microsoft/vcpkg.git",
+        "required": false,
+        "default": "https://github.com/microsoft/vcpkg.git"
+      },
+      {
+        "name": "doNotUpdateVcpkg",
+        "description": "Avoid to update vcpkg (launching git) in the specified 'vcpkgDirectory'. This is useful when vcpkg is being checkout independently of the run-vcpkg action. Default is false.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "doNotCache",
+        "description": "Enable the caching of the vcpkg executable and its data files (e.g. ports) by setting it to false. Default is true. Set this input to false when the vcpkg's executable is not delivered as a prebuilt file upon bootstrapping vcpkg. This does not disable vcpkg's binary cache which is always on and can be controlled by the user with the env var VCPKG_BINARY_SOURCES.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "vcpkgJsonGlob",
+        "description": "Specify the glob expression used to discover the vcpkg.json whose content's hash is added to the cache key. On Windows runners using `github.workspace` context to form the expression would not work as expected since it contains backslashes. Use instead `**/path/to/vcpkg.json` to match the desired `vcpkg.json` file.",
+        "required": false,
+        "default": "**/vcpkg.json"
+      },
+      {
+        "name": "vcpkgJsonIgnores",
+        "description": "Specify an array of string containing the pattenrs to be ignored when searching for the vcpkg.json file. The default value ignores the pattern '**/vcpkg/**'",
+        "required": false,
+        "default": "['**/vcpkg/**']"
+      },
+      {
+        "name": "vcpkgConfigurationJsonGlob",
+        "description": "When the vcpkgGitCommitId input is not provided by the user, this glob expression is used to locate the vcpkg-configuration.json file which contains the commit id of the builtin baseline. On Windows GitHub runners do not use `github.workspace` context expression to form the value of this input, since it contains backslashes and it will eventually fail. Use instead `**/path/to/vcpkg-configuration.json` to match the desired `vcpkg-configuration.json` file.",
+        "required": false,
+        "default": "**/vcpkg-configuration.json"
+      },
+      {
+        "name": "binaryCachePath",
+        "description": "Specify a path to store the built packages to be cached with the GitHub cache service. Default is '<runnerWorkspace>/b/vcpkg_cache'.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "runVcpkgFormatString",
+        "description": "Specify the command line to run vcpkg with. This is only useful when the input 'runVcpkgInstall' is set to true.",
+        "required": false,
+        "default": "[`install`, `--recurse`, `--clean-after-build`, `--x-install-root`, `$[env.VCPKG_INSTALLED_DIR]`, `--triplet`, `$[env.VCPKG_DEFAULT_TRIPLET]`]"
+      },
+      {
+        "name": "useShell",
+        "description": "Specify which shell to be used when launching commands. 'true' means the default shell is used. 'false' means no shell is used. It also can be an absolute path and arguments of the shell to spawn commands with.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "logCollectionRegExps",
+        "description": "Specifies a semicolon separated list of regular expressions that are used to identify log file paths in the workflow output. A regular expression must have a single capturing group, that is a single pair of parenthesis such as 'See also (.+.log)'. When a match occurs, the content of the file is written into the workflow output for disclosing its content to the user. The default regular expressions are for CMake's and vcpkg's log files.",
+        "required": false,
+        "default": "\\s*\"(.+CMakeOutput\\.log)\"\\.\\s*;\\s*\"(.+CMakeError\\.log)\"\\.\\s*;\\s*(.+out\\.log)\\s*;\\s+(.+err\\.log)\\s*;\\s*(.+vcpkg.+\\.log)\\s*"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/run-vcpkg",
+    "latest_release": {
+      "tag_name": "v11.5",
+      "name": "run-vcpkg@v11.5",
+      "published_at": "2024-02-11T16:20:06Z",
+      "html_url": "https://github.com/lukka/run-vcpkg/releases/tag/v11.5",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:56.253727Z"
+}

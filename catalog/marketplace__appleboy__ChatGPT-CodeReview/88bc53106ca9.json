@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/appleboy/ChatGPT-CodeReview",
+  "version": "88bc53106ca9",
+  "definition": {
+    "name": "ChatGPT CodeReviewer",
+    "description": "A Code Review Action Powered By ChatGPT",
+    "author": "appleboy",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/ChatGPT-CodeReview"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:58.688660Z"
+}

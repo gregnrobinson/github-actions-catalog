@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/issue-metrics/action.yml",
     "origin": "github.com/github/issue-metrics",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.25.4",
+      "name": "v3.25.4",
+      "published_at": "2025-12-01T19:22:44Z",
+      "html_url": "https://github.com/github/issue-metrics/releases/tag/v3.25.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "issue-metrics",
@@ -24,19 +32,19 @@
       "Monitoring",
       "Documentation"
     ],
-    "confidence": "high",
+    "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Monitoring",
-        "reasoning": "The action reports on issue metrics, which falls under monitoring the health and activity of issues in a repository. It also provides documentation on those metrics.",
+        "reasoning": "The action reports on issue metrics, which falls under monitoring the project's issues, while also providing documentation on those metrics.",
         "tags": [
           "issue metrics",
           "monitoring",
           "GitHub Action",
           "reporting",
-          "analytics"
+          "documentation"
         ]
       }
     ]
@@ -45,6 +53,6 @@
     "source_hash": "98cc8a04d648c5cadf9c8087152baa1b6fc2503b6b366097573e3c775206fa7a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.965542Z"
+    "generated_at": "2025-12-15T02:19:00.359894Z"
   }
 }

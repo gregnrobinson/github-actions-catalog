@@ -1,0 +1,86 @@
+{
+  "action_id": "marketplace/actions/attest-build-provenance",
+  "version": "0135dc8b3df4",
+  "definition": {
+    "name": "Attest Build Provenance",
+    "description": "Generate provenance attestations for build artifacts",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "subject-path",
+        "description": "Path to the artifact serving as the subject of the attestation. Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\". May contain a glob pattern or list of paths (total subject count cannot exceed 1024).\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "subject-digest",
+        "description": "Digest of the subject for which provenance will be generated. Must be in the form \"algorithm:hex_digest\" (e.g. \"sha256:abc123...\"). Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\".\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "subject-name",
+        "description": "Subject name as it should appear in the attestation. Required when identifying the subject with the \"subject-digest\" input.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "subject-checksums",
+        "description": "Path to checksums file containing digest and name of subjects for attestation. Must specify exactly one of \"subject-path\", \"subject-digest\", or \"subject-checksums\".\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "push-to-registry",
+        "description": "Whether to push the provenance statement to the image registry. Requires that the \"subject-name\" parameter specify the fully-qualified image name and that the \"subject-digest\" parameter be specified. Defaults to false.\n",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "show-summary",
+        "description": "Whether to attach a list of generated attestations to the workflow run summary page. Defaults to true.\n",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "github-token",
+        "description": "The GitHub token used to make authenticated API requests.\n",
+        "required": false,
+        "default": "${{ github.token }}"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "bundle-path",
+        "description": "The path to the file containing the attestation bundle."
+      },
+      {
+        "name": "attestation-id",
+        "description": "The ID of the attestation."
+      },
+      {
+        "name": "attestation-url",
+        "description": "The URL for the attestation summary."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/attest-build-provenance",
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-08-28T21:14:25Z",
+      "html_url": "https://github.com/actions/attest-build-provenance/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:03.326211Z"
+}

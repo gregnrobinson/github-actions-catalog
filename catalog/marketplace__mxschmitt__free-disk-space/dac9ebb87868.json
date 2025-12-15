@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/mxschmitt/free-disk-space",
+  "version": "dac9ebb87868",
+  "definition": {
+    "name": "Free Disk Space (Ubuntu)",
+    "description": "A configurable GitHub Action to free up disk space on an Ubuntu GitHub Actions runner.",
+    "author": "mxschmitt",
+    "inputs": [
+      {
+        "name": "android",
+        "description": "Remove Android runtime",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "dotnet",
+        "description": "Remove .NET runtime",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "haskell",
+        "description": "Remove Haskell runtime",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "large-packages",
+        "description": "Remove large packages",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "docker-images",
+        "description": "Remove Docker images",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "tool-cache",
+        "description": "Remove image tool cache",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "swap-storage",
+        "description": "Remove swap storage",
+        "required": false,
+        "default": "true"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "mxschmitt",
+    "verified": false,
+    "origin": "github.com/mxschmitt/free-disk-space"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:40.980451Z"
+}

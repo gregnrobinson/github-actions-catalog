@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/mxschmitt/action-tmate/action.yml",
     "origin": "github.com/mxschmitt/action-tmate",
     "publisher": "mxschmitt",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.23",
+      "name": "v3.23",
+      "published_at": "2025-10-23T08:43:13Z",
+      "html_url": "https://github.com/mxschmitt/action-tmate/releases/tag/v3.23",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Debugging with tmate",
@@ -102,14 +110,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Debugging",
+      "Communication",
+      "Infrastructure"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Debugging",
+        "reasoning": "This action facilitates interactive debugging of GitHub Actions environments, which falls under debugging. It also involves communication via SSH and web shell, and it interacts with the infrastructure of the GitHub Actions environment.",
+        "tags": [
+          "debugging",
+          "tmate",
+          "ssh",
+          "github-actions",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "1d080b7d7aae2585fdaed6cc97281f77258d3b6f5deebcb22f60851fae3f1740",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.541654Z"
+    "generated_at": "2025-12-15T02:19:01.101973Z"
   }
 }

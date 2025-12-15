@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-graalvm/action.yml",
     "origin": "github.com/DeLaGuardo/setup-graalvm",
     "publisher": "DeLaGuardo",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "5.0",
+      "name": "Nightly Builds!",
+      "published_at": "2021-09-24T13:04:34Z",
+      "html_url": "https://github.com/DeLaGuardo/setup-graalvm/releases/tag/5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup GraalVM environment",
@@ -51,14 +59,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets up the GraalVM environment, which is essential for infrastructure configuration and managing dependencies related to Java applications.",
+        "tags": [
+          "GraalVM",
+          "Java",
+          "setup",
+          "infrastructure",
+          "dependency management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "455c8d0544327feacfc09100ce3e6a27188958e54bb0ca9f0fe878c4fd51594c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.275307Z"
+    "generated_at": "2025-12-15T02:19:00.163772Z"
   }
 }

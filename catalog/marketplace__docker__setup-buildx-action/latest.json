@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/docker/setup-buildx-action/action.yml",
     "origin": "github.com/docker/setup-buildx-action",
     "publisher": "docker",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.11.1",
+      "name": "v3.11.1",
+      "published_at": "2025-06-18T08:40:20Z",
+      "html_url": "https://github.com/docker/setup-buildx-action/releases/tag/v3.11.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Docker Setup Buildx",
@@ -164,13 +172,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is primarily focused on setting up Docker Buildx, which is essential for building Docker images, thus categorizing it under Build. It also involves infrastructure setup for building processes and managing dependencies related to Docker builds.",
+        "reasoning": "The action is primarily focused on setting up Docker Buildx, which is essential for building Docker images, thus categorizing it under Build. It also involves infrastructure setup and managing dependencies related to the build process.",
         "tags": [
-          "Docker",
-          "Buildx",
-          "CI/CD",
-          "Container",
-          "Infrastructure"
+          "docker",
+          "buildx",
+          "setup",
+          "infrastructure",
+          "dependency"
         ]
       }
     ]
@@ -179,6 +187,6 @@
     "source_hash": "8d7de2af3246355550b735addbac23aa20d69a4d78da4a7fb53cd3dcc5e7fd49",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.448601Z"
+    "generated_at": "2025-12-15T02:18:59.695263Z"
   }
 }

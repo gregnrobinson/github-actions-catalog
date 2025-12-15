@@ -119,8 +119,7 @@
   },
   "annotations": {
     "categories": [
-      "Infrastructure",
-      "Deployment"
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -128,13 +127,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is focused on creating a Kubernetes cluster using kind, which falls under infrastructure management and deployment of containerized applications.",
+        "reasoning": "The action creates a Kubernetes cluster using kind, which is primarily an infrastructure-related task.",
         "tags": [
           "Kubernetes",
-          "Docker",
           "kind",
           "infrastructure",
-          "deployment"
+          "Docker",
+          "cluster"
         ]
       }
     ]
@@ -143,6 +142,6 @@
     "source_hash": "083d844b5af8372c8fdde4c59cf3b84dce8bd3eb4da4b47b95457dfea79ce4fa",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.706172Z"
+    "generated_at": "2025-12-15T02:19:00.925177Z"
   }
 }

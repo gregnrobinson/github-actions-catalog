@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/android-widget-with-api",
+  "version_id": "e85b92190505",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/android-widget-with-api/action.yml",
+    "origin": "github.com/amirisback/android-widget-with-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "FrogoKickStartAndroid",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e85b921905053075ed0432c71f59d295e6ded2365f64ff68dc1deedd2f64482b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:00.806376Z"
+  }
+}

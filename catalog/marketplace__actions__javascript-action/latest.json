@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/javascript-action/action.yml",
     "origin": "github.com/actions/javascript-action",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2020-07-17T13:05:35Z",
+      "html_url": "https://github.com/actions/javascript-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "The name of your action here",
@@ -33,8 +41,7 @@
   },
   "annotations": {
     "categories": [
-      "Build",
-      "Testing"
+      "Build"
     ],
     "confidence": "medium",
     "evidence": [
@@ -42,12 +49,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action appears to be a JavaScript action, which is typically used in the build process, and it may also involve testing based on the input and output descriptions.",
+        "reasoning": "The action appears to be a JavaScript action that likely performs some build-related tasks based on the provided input and output, but without specific details, the categorization is less certain.",
         "tags": [
           "javascript",
           "action",
           "build",
-          "testing"
+          "automation",
+          "github"
         ]
       }
     ]
@@ -56,6 +64,6 @@
     "source_hash": "00ff2612fae77e2f9c51b6f634935ed80309f17f69f4cd0ad68b0890a1d6b0a2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.210678Z"
+    "generated_at": "2025-12-15T02:19:00.610288Z"
   }
 }

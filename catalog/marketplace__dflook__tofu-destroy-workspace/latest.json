@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-destroy-workspace/action.yml",
     "origin": "github.com/dflook/tofu-destroy-workspace",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:21Z",
+      "html_url": "https://github.com/dflook/tofu-destroy-workspace/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-destroy-workspace",
@@ -86,7 +94,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is designed to delete an OpenTofu workspace, which involves managing infrastructure resources. This aligns it primarily with the Infrastructure category, while also relating to Deployment as it deals with the lifecycle of deployed resources.",
+        "reasoning": "The action is designed to delete an OpenTofu workspace, which is a part of infrastructure management and deployment of resources. It directly interacts with the infrastructure by destroying resources associated with the specified workspace.",
         "tags": [
           "OpenTofu",
           "infrastructure",
@@ -101,6 +109,6 @@
     "source_hash": "2dfb65ffb2532c0f9a93fb5adb89cfe7a3ee5868678240a838e0be06d94da565",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.338129Z"
+    "generated_at": "2025-12-15T02:18:59.573102Z"
   }
 }

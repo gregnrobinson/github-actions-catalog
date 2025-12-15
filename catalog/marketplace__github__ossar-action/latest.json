@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/ossar-action/action.yml",
     "origin": "github.com/github/ossar-action",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2024-04-18T09:05:08Z",
+      "html_url": "https://github.com/github/ossar-action/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "ossar-action",
@@ -49,7 +57,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action focuses on running static analysis tools for open source security, which primarily falls under the Security category. It also contributes to Code quality and Testing by analyzing code for vulnerabilities.",
+        "reasoning": "The action focuses on running static analysis tools for open source security, which directly relates to security and code quality. Additionally, it involves testing the code against defined policies.",
         "tags": [
           "static analysis",
           "security",
@@ -64,6 +72,6 @@
     "source_hash": "17061e3007594d9d4d417d92fb53297740e3da7c04df27fe2486a30419a46384",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.972281Z"
+    "generated_at": "2025-12-15T02:19:00.366696Z"
   }
 }

@@ -1,0 +1,307 @@
+{
+  "action_id": "marketplace/docker/scout-action",
+  "version": "34c164ec437a",
+  "definition": {
+    "name": "Docker Scout",
+    "description": "List vulnerabilities in images; find better base images and upload an image SBOM to Docker Scout",
+    "author": "Docker",
+    "inputs": [
+      {
+        "name": "command",
+        "description": "Command(s) to run.\nUse a comma separated list to run several commands on the same set of parameters, for instance quickview,compare\n",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "Debug",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "verbose-debug",
+        "description": "Print more verbose debug messages",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "summary",
+        "description": "Publish the output as GitHub Action summary",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "organization",
+        "description": "Namespace of the Docker organization",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "image",
+        "description": "Image to analyze",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platform",
+        "description": "Platform of the image to analyze",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ref",
+        "description": "Ref if needed",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to",
+        "description": "Image to compare to",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to-ref",
+        "description": "Ref of image to compare",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to-stream",
+        "description": "Compare to image in stream",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to-env",
+        "description": "Compare to image in environment",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "to-latest",
+        "description": "Compare to latest pushed image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "stream",
+        "description": "Name of the stream to record the image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "environment",
+        "description": "Name of the environment to record the image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "hide-policies",
+        "description": "Hide policies from the output altogether",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore-base",
+        "description": "Ignore vulnerabilities from base image",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ignore-unchanged",
+        "description": "Filter out unchanged packages",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-vex-affected",
+        "description": "Filter out CVEs that are marked not affected by a VEX statement",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "vex-author",
+        "description": "List of VEX statement authors to accept",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "vex-location",
+        "description": "File location of directory or file containing VEX statement",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-fixed",
+        "description": "Filter to fixable CVEs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-unfixed",
+        "description": "Filter to unfixed CVEs",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-severities",
+        "description": "Comma separated list of severities (critical, high, medium, low, unspecified) to filter CVEs by",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-package-types",
+        "description": "Comma separated list of package types (like apk, deb, rpm, npm, pypi, golang, etc)",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "only-cisa-kev",
+        "description": "Filter to CVEs listed in the CISA Known Exploited Vulnerabilities catalog",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exit-code",
+        "description": "Fail the action step if vulnerability changes are detected",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exit-on",
+        "description": "(compare only) Comma separated list of conditions to fail the action step if worsened, options are: vulnerability, policy",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "sarif-file",
+        "description": "Write output to a SARIF file for further processing or upload into GitHub code scanning",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "format",
+        "description": "Format of the SBOM to generate (json, list, spdx, cyclonedx)",
+        "required": false,
+        "default": "json"
+      },
+      {
+        "name": "output",
+        "description": "Output file for the SBOM",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "secrets",
+        "description": "Enable secret scanning as part of SBOM indexing",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tags",
+        "description": "List of tags to add to the attestation",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "file",
+        "description": "File path to the attestation file",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "predicate-type",
+        "description": "Predicate type of the attestation",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "referrer",
+        "description": "Use OCI referrer API for pushing attestation",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "referrer-repository",
+        "description": "Repository to push referrer to",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry-write-user",
+        "description": "Registry user to push attestations",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry-write-password",
+        "description": "Registry password to push attestations",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dockerhub-user",
+        "description": "Docker Hub User",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "dockerhub-password",
+        "description": "Docker Hub PAT",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry-user",
+        "description": "Registry user to pull images",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "registry-password",
+        "description": "Registry password to pull images",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "github-token",
+        "description": "GitHub Token to write comments",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "write-comment",
+        "description": "Write the output as a Pull Request comment",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "keep-previous-comments",
+        "description": "If set, keep but hide previous comment. If not set, keep and update one single comment per job",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "docker",
+    "verified": false,
+    "origin": "github.com/docker/scout-action",
+    "latest_release": {
+      "tag_name": "v1.18.2",
+      "name": "v1.18.2",
+      "published_at": "2025-07-21T14:32:34Z",
+      "html_url": "https://github.com/docker/scout-action/releases/tag/v1.18.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:54.708987Z"
+}

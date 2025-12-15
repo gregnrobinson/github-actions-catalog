@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/hello-world-docker-action/action.yml",
     "origin": "github.com/actions/hello-world-docker-action",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Version v2",
+      "published_at": "2022-10-17T00:59:55Z",
+      "html_url": "https://github.com/actions/hello-world-docker-action/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Hello, World!",
@@ -35,14 +43,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is primarily focused on greeting someone, which falls under communication. However, it does not fit into other categories due to its simple functionality.",
+        "tags": [
+          "greeting",
+          "hello",
+          "docker",
+          "action",
+          "example"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "dfb86c975ed38054a47adfb712f8a26c0bbcd9b0234e879072d6f2176958e510",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.270561Z"
+    "generated_at": "2025-12-15T02:19:00.668716Z"
   }
 }

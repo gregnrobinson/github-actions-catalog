@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/setup-helm/action.yml",
     "origin": "github.com/azure/setup-helm",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v4.3.1",
+      "name": "v4.3.1",
+      "published_at": "2025-08-19T20:52:43Z",
+      "html_url": "https://github.com/Azure/setup-helm/releases/tag/v4.3.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Helm tool installer",
@@ -44,14 +52,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action installs the Helm tool, which is primarily used for managing Kubernetes applications, thus falling under dependency management and infrastructure categories.",
+        "tags": [
+          "helm",
+          "kubernetes",
+          "dependency",
+          "installer",
+          "infrastructure"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "10de0b290d182ef312355f2f3472f57730f700d26aa839e0ab4bbd4eaebf8bd8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.574180Z"
+    "generated_at": "2025-12-15T02:18:59.849243Z"
   }
 }

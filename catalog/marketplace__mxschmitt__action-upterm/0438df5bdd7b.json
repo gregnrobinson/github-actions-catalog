@@ -1,0 +1,53 @@
+{
+  "action_id": "marketplace/mxschmitt/action-upterm",
+  "version": "0438df5bdd7b",
+  "definition": {
+    "name": "Debug with ssh",
+    "description": "This GitHub Action enables direct interaction with the host system running your GitHub Actions via SSH",
+    "author": "Owen Ou",
+    "inputs": [
+      {
+        "name": "limit-access-to-actor",
+        "description": "If only the public SSH keys of the user triggering the workflow should be authorized",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "limit-access-to-users",
+        "description": "If only the public SSH keys of the listed GitHub users should be authorized",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "upterm-server",
+        "description": "upterm server address (required), supported protocols are ssh, ws, or wss.",
+        "required": true,
+        "default": "ssh://uptermd.upterm.dev:22"
+      },
+      {
+        "name": "ssh-known-hosts",
+        "description": "Content for ~/.ssh/known_hosts file on the server",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "wait-timeout-minutes",
+        "description": "Integer number of minutes to wait for user to connect before shutting down server. Once a user connects, the server will stay up.",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "mxschmitt",
+    "verified": false,
+    "origin": "github.com/mxschmitt/action-upterm"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:42.078735Z"
+}

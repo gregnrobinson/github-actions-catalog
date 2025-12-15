@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/mszostok/github-action-for-cli",
-  "version_id": "15defd94552b",
+  "version_id": "07e8a35c8a54",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/mszostok/github-action-for-cli/action.yml",
@@ -90,21 +90,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action is primarily focused on generating documentation from AsyncAPI documents, which falls under Documentation. It also validates and converts documents, which relates to Code quality and Testing.",
+        "reasoning": "The action is primarily focused on generating documentation and code from AsyncAPI documents, which falls under Documentation. It also includes validation and optimization commands, linking it to Code quality and Testing.",
         "tags": [
           "AsyncAPI",
           "documentation",
           "code generation",
           "validation",
-          "converter"
+          "CLI"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "15defd94552b545568bf23e009550321eb28e9f75041cf7a5350660b3674edf5",
+    "source_hash": "07e8a35c8a540fa7bad1d1649f7849198216b26c85691cd86c7f6b12ffa2c329",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.709362Z"
+    "generated_at": "2025-12-15T02:19:00.930088Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/ArtiomTr/jest-coverage-report-action/action.yml",
     "origin": "github.com/ArtiomTr/jest-coverage-report-action",
     "publisher": "ArtiomTr",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.3.1",
+      "name": "v2.3.1",
+      "published_at": "2024-09-09T19:14:48Z",
+      "html_url": "https://github.com/ArtiomTr/jest-coverage-report-action/releases/tag/v2.3.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jest coverage report",
@@ -125,14 +133,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action generates a coverage report which is primarily used for testing purposes, while also contributing to code quality by enforcing coverage thresholds and notifying users about coverage status in pull requests.",
+        "tags": [
+          "jest",
+          "coverage",
+          "report",
+          "pull request",
+          "testing"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b12148dfb4ebe4051c6b9696c95799c84635b7ea3364ff944b9b5ebc576cf2e2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.501109Z"
+    "generated_at": "2025-12-15T02:18:59.751365Z"
   }
 }

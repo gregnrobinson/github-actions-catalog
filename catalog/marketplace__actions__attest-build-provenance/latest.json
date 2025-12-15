@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/attest-build-provenance/action.yml",
     "origin": "github.com/actions/attest-build-provenance",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-08-28T21:14:25Z",
+      "html_url": "https://github.com/actions/attest-build-provenance/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Attest Build Provenance",
@@ -101,7 +109,7 @@
   "annotations": {
     "categories": [
       "Security",
-      "Documentation"
+      "Code quality"
     ],
     "confidence": "high",
     "evidence": [
@@ -109,7 +117,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action is focused on generating provenance attestations for build artifacts, which is a security measure to ensure the integrity and authenticity of the builds. Additionally, it involves documentation aspects as it generates outputs that describe the attestation.",
+        "reasoning": "The action generates provenance attestations for build artifacts, which is primarily a security measure to ensure the integrity and authenticity of the builds. It also relates to code quality by verifying the provenance of the artifacts.",
         "tags": [
           "provenance",
           "attestation",
@@ -124,6 +132,6 @@
     "source_hash": "70468c90d247618b7ffad979b5b9db08caabb8f0566e6443b29c502c96af15bf",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.214268Z"
+    "generated_at": "2025-12-15T02:19:00.613978Z"
   }
 }

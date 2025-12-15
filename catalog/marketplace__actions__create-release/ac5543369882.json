@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/create-release/action.yml",
     "origin": "github.com/actions/create-release",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.4",
+      "name": "v1.1.4",
+      "published_at": "2020-09-14T13:55:07Z",
+      "html_url": "https://github.com/actions/create-release/releases/tag/v1.1.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Create a Release",
@@ -88,14 +96,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Publishing",
+      "Communication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on creating a release, which falls under the Publishing category. It also involves communication aspects by providing a release name and body, and serves as documentation for the changes made in that release.",
+        "tags": [
+          "release",
+          "GitHub",
+          "versioning",
+          "publishing",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ac5543369882344c8d06c82ba08bdfdbd6a0e9654fd8e9acf4d02cd9afa08075",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.209273Z"
+    "generated_at": "2025-12-15T02:19:00.608978Z"
   }
 }

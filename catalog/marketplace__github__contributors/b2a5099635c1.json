@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/github/contributors",
+  "version": "b2a5099635c1",
+  "definition": {
+    "name": "Contributors Action",
+    "description": "A GitHub Action to report out contributors and contributions to a repository or organization",
+    "author": "github",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/contributors",
+    "latest_release": {
+      "tag_name": "v1.7.7",
+      "name": "v1.7.7",
+      "published_at": "2025-12-01T13:57:25Z",
+      "html_url": "https://github.com/github/contributors/releases/tag/v1.7.7",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:22.350914Z"
+}

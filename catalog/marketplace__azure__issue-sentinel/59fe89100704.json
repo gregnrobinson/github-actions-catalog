@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/azure/issue-sentinel",
+  "version": "59fe89100704",
+  "definition": {
+    "name": "Issue Sentinel",
+    "description": "Get similar issues by Issue Sentinel",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "github-token",
+        "description": "The GitHub token used to create an authenticated client",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "enable-similar-issues-scanning",
+        "description": "Enable similar issues scanning",
+        "required": false,
+        "default": "true"
+      },
+      {
+        "name": "enable-security-issues-scanning",
+        "description": "Enable security issues scanning",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "enable-ux-tag",
+        "description": "Enable UX tag",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/issue-sentinel",
+    "latest_release": {
+      "tag_name": "v1.5.0",
+      "name": "Azure/issue-sentinel@v1.5.0",
+      "published_at": "2025-12-11T06:42:46Z",
+      "html_url": "https://github.com/Azure/issue-sentinel/releases/tag/v1.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:42.886316Z"
+}

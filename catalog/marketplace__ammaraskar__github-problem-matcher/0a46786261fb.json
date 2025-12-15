@@ -1,0 +1,22 @@
+{
+  "action_id": "marketplace/ammaraskar/github-problem-matcher",
+  "version": "0a46786261fb",
+  "definition": {
+    "name": "Sphinx Problem Matcher",
+    "description": "Attaches a problem matcher that looks for errors during Sphinx builds",
+    "author": "Ammar Askar",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "ammaraskar",
+    "verified": false,
+    "origin": "github.com/ammaraskar/github-problem-matcher"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:57.302204Z"
+}

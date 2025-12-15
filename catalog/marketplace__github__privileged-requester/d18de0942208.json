@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/github/privileged-requester",
+  "version": "d18de0942208",
+  "definition": {
+    "name": "Privileged Requester",
+    "description": "Checks a PR against configurable criteria to determine whether or not the PR should be automatically approved",
+    "author": "github",
+    "inputs": [
+      {
+        "name": "github_token",
+        "description": "'The GitHub token used to create an authenticated client - Provided for you by default! - Repository scoped token'\n\nYou can use the default provided token or you can provide a PAT as an alternative robot user token\n",
+        "required": true,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "handle",
+        "description": "When using the default github.token (from above), the \"handle\" is fetched from this input since the token is repository scoped and it cannot even read its own handle. You should not need to change this input.",
+        "required": true,
+        "default": "github-actions[bot]"
+      },
+      {
+        "name": "path",
+        "description": "Path where the privileged requester configuration can be found",
+        "required": true,
+        "default": "config/privileged-requester.yaml"
+      },
+      {
+        "name": "prCreator",
+        "description": "The creator of the PR for this pull request event",
+        "required": true,
+        "default": "${{ github.event.pull_request.user.login }}"
+      },
+      {
+        "name": "prNumber",
+        "description": "The number of the PR for this pull request event",
+        "required": true,
+        "default": "${{ github.event.pull_request.number }}"
+      },
+      {
+        "name": "checkCommits",
+        "description": "An option to check that every commit in the PR is made from the privileged requester",
+        "required": true,
+        "default": "true"
+      },
+      {
+        "name": "checkDiff",
+        "description": "An option to check that the PR diff only has a removal diff, with no additions",
+        "required": true,
+        "default": "true"
+      },
+      {
+        "name": "checkLabels",
+        "description": "An option to check that the labels on the PR match those defined in the privileged requester config",
+        "required": true,
+        "default": "true"
+      },
+      {
+        "name": "commitVerification",
+        "description": "Whether or not to validate all commits have proper verification via GPG signed commits",
+        "required": true,
+        "default": "false"
+      },
+      {
+        "name": "fallback_to_commit_author",
+        "description": "Whether or not to fallback to the commit author value if the commit login value is missing",
+        "required": true,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "approved",
+        "description": "Whether or not the PR was approved - 'true' or 'false'"
+      },
+      {
+        "name": "commits_verified",
+        "description": "The string \"true\" if all commits in the PR are signed/verified"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "github",
+    "verified": false,
+    "origin": "github.com/github/privileged-requester",
+    "latest_release": {
+      "tag_name": "v2.3.4",
+      "name": "v2.3.4",
+      "published_at": "2025-02-10T19:41:43Z",
+      "html_url": "https://github.com/github/privileged-requester/releases/tag/v2.3.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:23.039240Z"
+}

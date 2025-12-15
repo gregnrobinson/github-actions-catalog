@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/google-github-actions/analyze-code-security-scc",
+  "version": "3d50d7635924",
+  "definition": {
+    "name": "Analyze Code Security",
+    "description": "Scan and analyze code for security risks using Google Cloud.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "organization_id",
+        "description": "Google Cloud organization ID for the organization which includes the\nresources that you want to modify. For example, '1234'.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "scan_file_ref",
+        "description": "Path to a file, relative to the local workspace, for the IaC file to scan.\nFor example:\n\n    ./tf_plan.json\n\nor\n\n    ./artifacts/tf_plan.json",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "iac_type",
+        "description": "The IaC template type. Currently only Terraform is supported.",
+        "required": true,
+        "default": "terraform"
+      },
+      {
+        "name": "scan_timeout",
+        "description": "The maximum time before the scanning stops. The value must be between \"1m\"\nand `10m`.",
+        "required": false,
+        "default": "3m"
+      },
+      {
+        "name": "ignore_violations",
+        "description": "Whether violations found in IaC file should be ignored when determining\nthe build status. This input doesn't apply to violations that are related\nto generating SARIF reports and determining the `iac_scan_result`.",
+        "required": false,
+        "default": false
+      },
+      {
+        "name": "failure_criteria",
+        "description": "The failure criteria that determines the workflow build status. You can\nset a threshold for the number of critical, high, medium, and low severity\nissues and use an aggregator (either `and` or `or`) to evaluate the\ncriteria.\n\nTo determine whether a build has failed, the threshold for each severity\nis evaluated against the count of issues with that severity in the IaC\nscan results and then severity level evaluations are aggregated using\n`AND` or `OR` to arrive at `failure_criteria` value. You must include an\naggregator in the string. The aggregator value is case-sensitive.\n\nFor example, if you set the failure criteria to `HIGH:1,LOW:1,OPERATOR:OR`,\nthe workflow fails if there is 1 or more HIGH severity findings or 1 or\nmore LOW severity findings. If you set the failure criteria to\n`HIGH:1,LOW:1,OPERATOR:AND`, the workflow fails if there is 1 or more HIGH\nseverity findings and 1 or more LOW severity findings.\n\nIf the `failure_criteria` evaluates to `true`, the workflow is marked as\n`FAILED`. Otherwise, the workflow is marked as `SUCCESS`.",
+        "required": false,
+        "default": "Critical:1, High:1, Medium:1, Low:1, Operator:OR"
+      },
+      {
+        "name": "fail_silently",
+        "description": "If set to true, the workflow will not fail in case of any internal error\nincluding invalid credentials and plugin dependency failure.\n\nNote: This GitHub Action will always fail in case of any input validation\nerrors.",
+        "required": false,
+        "default": false
+      }
+    ],
+    "outputs": [
+      {
+        "name": "iac_scan_result",
+        "description": "The result of the security scan. One of:\n\n- `passed`: No violations were found or the `failure_criteria` was not\nsatisfied.\n\n- `failed`: The `failure_criteria` was satisfied.\n\n- `error`: The action ran into an execution error, generally due to a\nmisconfiguration or invalid credentials."
+      },
+      {
+        "name": "iac_scan_result_sarif_path",
+        "description": "Path for the SARIF report file. This file is only available when\nviolations are found in the scan file."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "google-github-actions",
+    "verified": false,
+    "origin": "github.com/google-github-actions/analyze-code-security-scc",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-09-02T23:32:02Z",
+      "html_url": "https://github.com/google-github-actions/analyze-code-security-scc/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:49.456236Z"
+}

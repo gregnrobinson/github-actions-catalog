@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-test/action.yml",
     "origin": "github.com/dflook/terraform-test",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:38Z",
+      "html_url": "https://github.com/dflook/terraform-test/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-test",
@@ -71,9 +79,9 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action is designed to execute automated tests specifically for Terraform modules, which falls under the Testing category. It also relates to Infrastructure as it deals with infrastructure as code.",
+        "reasoning": "The action is focused on executing automated tests for a Terraform module, which directly relates to the Testing category. It also involves Terraform, which is a tool for managing infrastructure, hence the secondary category of Infrastructure.",
         "tags": [
-          "terraform",
+          "Terraform",
           "testing",
           "automation",
           "infrastructure",
@@ -86,6 +94,6 @@
     "source_hash": "e20f8d86770ae031f66d64790597942dfd23bd8761aa15dc0c00f0bd2d17b92f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.357321Z"
+    "generated_at": "2025-12-15T02:18:59.591117Z"
   }
 }

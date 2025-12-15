@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/appleboy/setup-go",
+  "version_id": "d6e027bc2327",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/appleboy/setup-go/action.yml",
+    "origin": "github.com/appleboy/setup-go",
+    "publisher": "appleboy",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup Go environment",
+    "description": "Setup a Go environment and add it to the PATH, additionally providing proxy support",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "go-version",
+        "required": false,
+        "default": "1.10",
+        "description": "The Go version to download (if necessary) and use. Example: 1.9.3"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Deprecated. Use go-version instead. Will not be supported after October 1, 2019"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/setup-go.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d6e027bc23270606910c2f6214b978aec081df59ad79f6f3375c016ee2ae2829",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:00.593787Z"
+  }
+}

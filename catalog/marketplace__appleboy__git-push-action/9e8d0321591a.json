@@ -1,0 +1,151 @@
+{
+  "action_id": "marketplace/appleboy/git-push-action",
+  "version": "9e8d0321591a",
+  "definition": {
+    "name": "Git Push Changes",
+    "description": "push changes to a remote git repository.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "author_name",
+        "description": "git author name",
+        "required": false,
+        "default": "GitHub Actions"
+      },
+      {
+        "name": "author_email",
+        "description": "git author email",
+        "required": false,
+        "default": "41898282+github-actions[bot]@users.noreply.github.com"
+      },
+      {
+        "name": "netrc_machine",
+        "description": "netrc machine",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "netrc_username",
+        "description": "netrc username",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "netrc_password",
+        "description": "netrc password",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "ssh_key",
+        "description": "private ssh key",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "remote",
+        "description": "url of the remote repo",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "remote_name",
+        "description": "name of the remote repo",
+        "required": false,
+        "default": "deploy"
+      },
+      {
+        "name": "branch",
+        "description": "name of remote branch",
+        "required": false,
+        "default": "master"
+      },
+      {
+        "name": "local_branch",
+        "description": "name of local branch",
+        "required": false,
+        "default": "HEAD"
+      },
+      {
+        "name": "path",
+        "description": "path to git repo",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "force",
+        "description": "force push to remote",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "followtags",
+        "description": "push to remote with tags",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "skip_verify",
+        "description": "skip ssl verification",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "commit",
+        "description": "commit dirty changes",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "commit_message",
+        "description": "commit message",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tag",
+        "description": "tag to add to the commit",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "empty_commit",
+        "description": "allow empty commit",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "no_verify",
+        "description": "bypasses the pre-commit and commit-msg hooks",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "rebase",
+        "description": "rebase local branch on top of remote branch",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/git-push-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2024-11-17T06:03:56Z",
+      "html_url": "https://github.com/appleboy/git-push-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:49.354288Z"
+}

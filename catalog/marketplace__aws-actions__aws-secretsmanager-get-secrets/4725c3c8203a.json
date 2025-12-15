@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-secretsmanager-get-secrets/action.yml",
     "origin": "github.com/aws-actions/aws-secretsmanager-get-secrets",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.0.10",
+      "name": "v2.0.10",
+      "published_at": "2025-06-30T22:29:08Z",
+      "html_url": "https://github.com/aws-actions/aws-secretsmanager-get-secrets/releases/tag/v2.0.10",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS Secrets Manager GitHub Action",
@@ -46,14 +54,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action retrieves secrets, which is a form of authentication for accessing sensitive information. It also manages dependencies by providing necessary secrets for other actions or processes.",
+        "tags": [
+          "AWS",
+          "Secrets Manager",
+          "Authentication",
+          "GitHub Action",
+          "Dependency Management"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "4725c3c8203a57c74c9a4564519b32504f4c6c25af376044fa6d14fc3f4f2c28",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.073085Z"
+    "generated_at": "2025-12-15T02:19:00.490720Z"
   }
 }

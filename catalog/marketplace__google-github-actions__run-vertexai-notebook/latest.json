@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/google-github-actions/run-vertexai-notebook/action.yml",
     "origin": "github.com/google-github-actions/run-vertexai-notebook",
     "publisher": "google-github-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.3",
+      "name": "v1.1.3",
+      "published_at": "2025-09-03T02:18:54Z",
+      "html_url": "https://github.com/google-github-actions/run-vertexai-notebook/releases/tag/v1.1.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Vertex AI Notebook Review Action",
@@ -132,7 +140,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "This action executes notebooks, which is often part of a testing or validation process in data science workflows. It also involves managing outputs and documentation related to the execution of these notebooks.",
+        "reasoning": "The action executes notebooks which is typically part of a testing or validation process, while also involving infrastructure components like Google Cloud Storage. Additionally, it creates links to output files which can be considered documentation of the results.",
         "tags": [
           "Vertex AI",
           "notebook",
@@ -147,6 +155,6 @@
     "source_hash": "5a5df85c9f9aeed5651fe5a2f989d2ccbc1d82603893d57f872fb1828d8165e2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.810201Z"
+    "generated_at": "2025-12-15T02:19:00.102558Z"
   }
 }

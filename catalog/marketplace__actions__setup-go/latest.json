@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/setup-go/action.yml",
     "origin": "github.com/actions/setup-go",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6.1.0",
+      "name": "v6.1.0",
+      "published_at": "2025-11-20T03:02:17Z",
+      "html_url": "https://github.com/actions/setup-go/releases/tag/v6.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Go environment",
@@ -84,7 +92,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action is focused on setting up a Go environment, which involves managing the Go version and dependencies, making it primarily a Dependency management action. It also facilitates the build process by ensuring the correct environment is set up.",
+        "reasoning": "This action sets up a Go environment, which is primarily related to managing dependencies and ensuring the correct version of Go is available for building applications. It also plays a role in the build process by preparing the environment.",
         "tags": [
           "Go",
           "setup",
@@ -99,6 +107,6 @@
     "source_hash": "14172a7c2e9b9dd5d5b233137e78eaab8db8d2ef5efdeddfa5debea67bbd6320",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.322653Z"
+    "generated_at": "2025-12-15T02:19:00.729659Z"
   }
 }

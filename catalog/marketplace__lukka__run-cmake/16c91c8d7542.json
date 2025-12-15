@@ -1,0 +1,139 @@
+{
+  "action_id": "marketplace/lukka/run-cmake",
+  "version": "16c91c8d7542",
+  "definition": {
+    "name": "run-cmake",
+    "description": "Run CMake with CMakePreset.json to configure, build, package and test C/C++ source code.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "cmakeListsTxtPath",
+        "description": "Path to CMakeLists.txt.",
+        "required": false,
+        "default": "${{ github.workspace }}/CMakeLists.txt"
+      },
+      {
+        "name": "workflowPreset",
+        "description": "The name of the workflow preset. Optional, it cannot be used with any other preset input. This value is stored in the WORKFLOW_PRESET_NAME environment variable, and used by the default value of 'workflowPresetCmdString' input.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "configurePreset",
+        "description": "The name of the configure preset. Optional, but at least one of the preset input must be provided. This value is stored in the CONFIGURE_PRESET_NAME environment variable, and used by the default value of 'configurePresetCmdString' input.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "buildPreset",
+        "description": "The name of the build preset. Optional, but at least one of the preset input must be provided. This value is stored in the BUILD_PRESET_NAME environment variable, and used by the default value of 'buildPresetCmdString' input.'",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "testPreset",
+        "description": "The name of the test preset (ctest). Optional, but at least one of the preset input must be provided. This value is stored in the TEST_PRESET_NAME environment variable, and used by the default value of 'testPresetCmdString' input.'",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "packagePreset",
+        "description": "The name of the package preset (cpack). Optional, but at least one of the preset input must be provided. This value is stored in the PACKAGE_PRESET_NAME environment variable, and used by the default value of 'packagePresetCmdString' input.'",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "configurePresetAdditionalArgs",
+        "description": "A string representing list of additional arguments for configuring. Optional. Useful when specifing additional variables such as, e.g., ['-DVARIABLE=NAME', '-DANOTHERVARIABLE=ANOTHERNAME']",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "buildPresetAdditionalArgs",
+        "description": "A string representing list of additional arguments for building. Optional. Useful when specifing the config to build with a multi configuration generator, e.g., ['--config DEBUG']",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "testPresetAdditionalArgs",
+        "description": "A string representing list of additional arguments for testing. Optional. Useful when specifing the config to test with a multi configuration generator, e.g., ['--config DEBUG']",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "packagePresetAdditionalArgs",
+        "description": "A string representing list of additional arguments for cpack. Optional.",
+        "required": false,
+        "default": "[]"
+      },
+      {
+        "name": "useShell",
+        "description": "Specify which shell to be used when launching commands. 'true' means the default shell is used. 'false' means no shell is used. It also can be an absolute with arguments of the shell to spawn commands with.",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "logCollectionRegExps",
+        "description": "Specifies a semicolon separated list of regular expressions that are used to identify log file paths in the workflow output. A regular expression must have a single capturing group, that is a single pair of parenthesis such as 'See also (.+.log)'. When a match occurs, the content of the file is written into the workflow output for disclosing its content to the user. The default regular expressions are for CMake's and vcpkg's log files.",
+        "required": false,
+        "default": "\\s*\"(.+CMakeOutput\\.log)\"\\.\\s*;\\s*\"(.+CMakeError\\.log)\"\\.\\s*;\\s*(.+out\\.log)\\s*;\\s+(.+err\\.log)\\s*;\\s*(.+vcpkg.+\\.log)\\s*"
+      },
+      {
+        "name": "workflowPresetCmdString",
+        "description": "The CMake command format string to run the workflow steps.",
+        "required": false,
+        "default": "[`--workflow`, `--preset`, `$[env.WORKFLOW_PRESET_NAME]`, `--fresh`]"
+      },
+      {
+        "name": "configurePresetCmdString",
+        "description": "The CMake command format string to configure and generate project files.",
+        "required": false,
+        "default": "[`--preset`, `$[env.CONFIGURE_PRESET_NAME]`]"
+      },
+      {
+        "name": "buildPresetCmdString",
+        "description": "The CMake command format string to run the build.",
+        "required": false,
+        "default": "[`--build`, `--preset`, `$[env.BUILD_PRESET_NAME]`]"
+      },
+      {
+        "name": "testPresetCmdString",
+        "description": "The CTest command format string to run test.",
+        "required": false,
+        "default": "[`--preset`, `$[env.TEST_PRESET_NAME]`]"
+      },
+      {
+        "name": "packagePresetCmdString",
+        "description": "The CPack command format string to package the project.",
+        "required": false,
+        "default": "[`--preset`, `$[env.PACKAGE_PRESET_NAME]`]"
+      },
+      {
+        "name": "runVcpkgEnvFormatString",
+        "description": "Specify the command line to dump the environment variables with the 'vcpkg env' command. This command is only used when setting up the environment for MSVC on Windows.",
+        "required": false,
+        "default": "[`env`, `--bin`, `--include`, `--tools`, `--python`, `--triplet`, `$[env.VCPKG_DEFAULT_TRIPLET]`, `set`]"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lukka",
+    "verified": false,
+    "origin": "github.com/lukka/run-cmake",
+    "latest_release": {
+      "tag_name": "v10.8",
+      "name": "run-cmake@v10.8",
+      "published_at": "2024-09-10T12:03:05Z",
+      "html_url": "https://github.com/lukka/run-cmake/releases/tag/v10.8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:57.412989Z"
+}

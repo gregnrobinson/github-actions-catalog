@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/irgolic/pull-request-comment-trigger",
+  "version": "2cf2b0926c93",
+  "definition": {
+    "name": "Pull Request Comment Trigger fork",
+    "description": "Look for a \"trigger word\" in a pull-request description or comment, so that later steps can know whether or not to run.",
+    "author": "irgolic",
+    "inputs": [
+      {
+        "name": "reaction",
+        "description": "If set, the specified emoji \"reaction\" is put on the comment to indicate that the trigger was detected. For example, \"rocket\".",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "trigger",
+        "description": "The string to look for in pull-request descriptions and comments. For example \"#build/android\"",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "prefix_only",
+        "description": "If 'true', the trigger must match the start of the comment.",
+        "required": false,
+        "default": "false"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "triggered",
+        "description": "the string 'true' if the trigger was found, otherwise the string 'false'"
+      },
+      {
+        "name": "comment_body",
+        "description": "The comment body."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "irgolic",
+    "verified": false,
+    "origin": "github.com/irgolic/pull-request-comment-trigger"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:44.776626Z"
+}

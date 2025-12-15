@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/appleboy/gh-pages-action",
+  "version": "ed317d25a779",
+  "definition": {
+    "name": "GitHub Pages Deploy",
+    "description": "Deploy the static file to GitHub Page",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "username",
+        "description": "username",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "password",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "upstream_name",
+        "description": "git upstream to target",
+        "required": false,
+        "default": "origin"
+      },
+      {
+        "name": "target_branch",
+        "description": "git branch to target",
+        "required": false,
+        "default": "gh-pages"
+      },
+      {
+        "name": "temporary_base",
+        "description": "temporary directory for pages pull",
+        "required": false,
+        "default": ".tmp"
+      },
+      {
+        "name": "pages_directory",
+        "description": "directory of content to publish",
+        "required": false,
+        "default": "docs"
+      },
+      {
+        "name": "target_directory",
+        "description": "directory of content to sync",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "exclude",
+        "description": "exclude files matching PATTERN",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "commit_author",
+        "description": "git author name",
+        "required": false,
+        "default": "GitHub Action"
+      },
+      {
+        "name": "commit_author_email",
+        "description": "git author email",
+        "required": false,
+        "default": "github-action@users.noreply.github.com"
+      },
+      {
+        "name": "remote_url",
+        "description": "git remote url",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "workspace",
+        "description": "git clone path",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/gh-pages-action",
+    "latest_release": {
+      "tag_name": "v0.0.2",
+      "name": "",
+      "published_at": "2020-03-08T14:54:47Z",
+      "html_url": "https://github.com/appleboy/gh-pages-action/releases/tag/v0.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:47.147323Z"
+}

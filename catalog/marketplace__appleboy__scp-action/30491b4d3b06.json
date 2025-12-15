@@ -1,0 +1,240 @@
+{
+  "action_id": "marketplace/appleboy/scp-action",
+  "version": "30491b4d3b06",
+  "definition": {
+    "name": "SCP Command to Transfer Files",
+    "description": "Easily transfer files and folders using the SCP command in Linux.",
+    "author": "Bo-Yi Wu",
+    "inputs": [
+      {
+        "name": "host",
+        "description": "Remote host address for SCP (e.g., example.com or 192.168.1.1).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "port",
+        "description": "Remote SSH port for SCP. Default: 22.",
+        "required": false,
+        "default": "22"
+      },
+      {
+        "name": "username",
+        "description": "Username for SSH authentication.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "Password for SSH authentication (not recommended; use SSH keys if possible).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "protocol",
+        "description": "IP protocol to use. Valid values: 'tcp', 'tcp4', or 'tcp6'. Default: tcp.",
+        "required": false,
+        "default": "tcp"
+      },
+      {
+        "name": "timeout",
+        "description": "Timeout for establishing SSH connection to the remote host. Default: 30s.",
+        "required": false,
+        "default": "30s"
+      },
+      {
+        "name": "command_timeout",
+        "description": "Timeout for the SCP command execution. Default: 10m.",
+        "required": false,
+        "default": "10m"
+      },
+      {
+        "name": "key",
+        "description": "Content of the SSH private key (e.g., the raw content of ~/.ssh/id_rsa).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "key_path",
+        "description": "Path to the SSH private key file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "passphrase",
+        "description": "Passphrase for the SSH private key, if required.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "fingerprint",
+        "description": "SHA256 fingerprint of the host's public key. If not set, host key verification is skipped (not recommended for production).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "use_insecure_cipher",
+        "description": "Enable additional, less secure ciphers for compatibility. Not recommended unless required.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "target",
+        "description": "Target directory path on the remote server. Must be a directory.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "source",
+        "description": "List of files or directories to transfer (local paths).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "rm",
+        "description": "Remove the target directory on the server before uploading new data.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "debug",
+        "description": "Enable debug messages for troubleshooting.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "strip_components",
+        "description": "Remove the specified number of leading path elements when extracting files.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "overwrite",
+        "description": "Use the --overwrite flag with tar to overwrite existing files.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tar_dereference",
+        "description": "Use the --dereference flag with tar to follow symlinks.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tar_tmp_path",
+        "description": "Temporary path for the tar file on the destination host.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "tar_exec",
+        "description": "Path to the tar executable on the destination host. Default: tar.",
+        "required": false,
+        "default": "tar"
+      },
+      {
+        "name": "proxy_host",
+        "description": "Remote host address for SSH proxy.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_port",
+        "description": "SSH proxy port. Default: 22.",
+        "required": false,
+        "default": "22"
+      },
+      {
+        "name": "proxy_username",
+        "description": "Username for SSH proxy authentication.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_password",
+        "description": "Password for SSH proxy authentication.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_passphrase",
+        "description": "Passphrase for the SSH proxy private key, if required.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_timeout",
+        "description": "Timeout for establishing SSH connection to the proxy host. Default: 30s.",
+        "required": false,
+        "default": "30s"
+      },
+      {
+        "name": "proxy_key",
+        "description": "Content of the SSH proxy private key (e.g., the raw content of ~/.ssh/id_rsa).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_key_path",
+        "description": "Path to the SSH proxy private key file.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_fingerprint",
+        "description": "SHA256 fingerprint of the proxy host's public key. If not set, host key verification is skipped (not recommended for production).",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "proxy_use_insecure_cipher",
+        "description": "Enable additional, less secure ciphers for the proxy connection. Not recommended unless required.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "curl_insecure",
+        "description": "When true, uses the --insecure option with curl for insecure downloads.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "capture_stdout",
+        "description": "When true, captures and returns standard output from the commands as action output.",
+        "required": false,
+        "default": "false"
+      },
+      {
+        "name": "version",
+        "description": "The version of drone-scp to use.\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": [
+      {
+        "name": "stdout",
+        "description": "Standard output of the executed commands when capture_stdout is enabled."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "appleboy",
+    "verified": false,
+    "origin": "github.com/appleboy/scp-action",
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2025-04-27T04:42:28Z",
+      "html_url": "https://github.com/appleboy/scp-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:52.858382Z"
+}

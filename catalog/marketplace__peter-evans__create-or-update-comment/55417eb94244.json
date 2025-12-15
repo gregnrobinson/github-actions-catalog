@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/peter-evans/create-or-update-comment",
+  "version": "55417eb94244",
+  "definition": {
+    "name": "Create or Update Comment",
+    "description": "Create or update an issue or pull request comment",
+    "author": "peter-evans",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GITHUB_TOKEN or a repo scoped PAT.",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "repository",
+        "description": "The full name of the repository in which to create or update a comment.",
+        "required": false,
+        "default": "${{ github.repository }}"
+      },
+      {
+        "name": "issue-number",
+        "description": "The number of the issue or pull request in which to create a comment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "comment-id",
+        "description": "The id of the comment to update.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body",
+        "description": "The comment body. Cannot be used in conjunction with `body-path`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body-path",
+        "description": "The path to a file containing the comment body. Cannot be used in conjunction with `body`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "body-file",
+        "description": "Deprecated in favour of `body-path`.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "edit-mode",
+        "description": "The mode when updating a comment, \"replace\" or \"append\".",
+        "required": false,
+        "default": "append"
+      },
+      {
+        "name": "append-separator",
+        "description": "The separator to use when appending to an existing comment. (`newline`, `space`, `none`)",
+        "required": false,
+        "default": "newline"
+      },
+      {
+        "name": "reactions",
+        "description": "A comma or newline separated list of reactions to add to the comment.",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "reactions-edit-mode",
+        "description": "The mode when updating comment reactions, \"replace\" or \"append\".",
+        "required": false,
+        "default": "append"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "comment-id",
+        "description": "The id of the created comment"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/create-or-update-comment",
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "Create or Update Comment v5.0.0",
+      "published_at": "2025-10-02T15:40:17Z",
+      "html_url": "https://github.com/peter-evans/create-or-update-comment/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:39.941262Z"
+}

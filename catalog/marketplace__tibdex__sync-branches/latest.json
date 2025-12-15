@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/tibdex/sync-branches/action.yml",
     "origin": "github.com/tibdex/sync-branches",
     "publisher": "tibdex",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2022-10-20T15:43:17Z",
+      "html_url": "https://github.com/tibdex/sync-branches/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Sync branches",
@@ -63,23 +71,21 @@
   },
   "annotations": {
     "categories": [
+      "Code quality",
       "Dependency management",
-      "Communication",
-      "Code quality"
+      "Communication"
     ],
     "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "The action is designed to keep branches in sync, which falls under dependency management, as it ensures that different branches maintain consistent code. Additionally, it involves creating pull requests, which relates to communication and code quality.",
+        "primary_category": "Code quality",
+        "reasoning": "The action is designed to keep branches in sync, which relates to maintaining code quality and ensuring that dependencies between branches are managed effectively. It also involves communication through pull requests.",
         "tags": [
-          "sync",
-          "branches",
-          "GitHub",
-          "automation",
-          "pull requests"
+          "branch synchronization",
+          "pull requests",
+          "GitHub Actions"
         ]
       }
     ]
@@ -88,6 +94,6 @@
     "source_hash": "05e4d02f530d80065a66afab167519fd9fae791860628d2b14881ac256a2b88c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.397910Z"
+    "generated_at": "2025-12-15T02:19:00.932499Z"
   }
 }

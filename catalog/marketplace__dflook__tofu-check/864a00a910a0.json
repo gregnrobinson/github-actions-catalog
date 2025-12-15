@@ -1,0 +1,78 @@
+{
+  "action_id": "marketplace/dflook/tofu-check",
+  "version": "864a00a910a0",
+  "definition": {
+    "name": "tofu-check",
+    "description": "Check if there are OpenTofu changes to apply",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "Path to the OpenTofu root module to check",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "OpenTofu workspace to run the plan in",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "variables",
+        "description": "Variables to set for the tofu plan. This should be valid OpenTofu syntax - like a [variable definition file](https://opentofu.org/docs/language/values/variables/#variable-definitions-tfvars-files).\n\nVariables set here override any given in `var_file`s.\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "var_file",
+        "description": "List of tfvars files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "backend_config",
+        "description": "List of OpenTofu backend config values, one per line.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of OpenTofu backend config files to use, one per line.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "parallelism",
+        "description": "Limit the number of concurrent operations",
+        "required": false,
+        "default": "0"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failure-reason",
+        "description": "When the job outcome is `failure` because the there are outstanding changes to apply, this will be set to 'changes-to-apply'.\nIf the job fails for any other reason this will not be set.\nThis can be used with the Actions expression syntax to conditionally run a step when there are changes to apply.\n"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/tofu-check",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:26Z",
+      "html_url": "https://github.com/dflook/tofu-check/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:34.807644Z"
+}

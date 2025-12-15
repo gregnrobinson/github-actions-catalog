@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/aws-lambda-deploy/action.yml",
     "origin": "github.com/aws-actions/aws-lambda-deploy",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2025-08-20T21:34:21Z",
+      "html_url": "https://github.com/aws-actions/aws-lambda-deploy/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AWS Lambda Deploy Action",
@@ -220,7 +228,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying AWS Lambda functions, which falls under the Deployment category. It also involves managing AWS infrastructure, hence the secondary category of Infrastructure.",
+        "reasoning": "The action is specifically designed to deploy AWS Lambda functions, which falls under the deployment category, while also managing infrastructure as it interacts with AWS services.",
         "tags": [
           "AWS",
           "Lambda",
@@ -235,6 +243,6 @@
     "source_hash": "98f5e434883206dd3b990ad82cc2d3c3eb101df7793972356df93edfeaf09679",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.019299Z"
+    "generated_at": "2025-12-15T02:19:00.428515Z"
   }
 }

@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/azure/aml-deploy",
+  "version": "574e5b793f25",
+  "definition": {
+    "name": "Azure Machine Learning Deploy Action",
+    "description": "Deploy a registered model in your Azure Machine Learning Workspace with this GitHub Action",
+    "author": "azure/gh-aml",
+    "inputs": [
+      {
+        "name": "azure_credentials",
+        "description": "Paste output of `az ad sp create-for-rbac --name <your-sp-name> --role contributor --scopes /subscriptions/<your-subscriptionId>/resourceGroups/<your-rg> --sdk-auth` as value of secret variable: AZURE_CREDENTIALS",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "model_name",
+        "description": "Name of the model that will be deployed",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "model_version",
+        "description": "Version of the model that will be deployed",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "parameters_file",
+        "description": "JSON file including the parameters for deployment. This looks in the .ml/.azure/ directory",
+        "required": true,
+        "default": "deploy.json"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "service_scoring_uri",
+        "description": "Scoring URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)"
+      },
+      {
+        "name": "service_swagger_uri",
+        "description": "Swagger URI of the webservice that was created (only provided if delete_service_after_deployment is set to False)"
+      },
+      {
+        "name": "acr_address",
+        "description": "The DNS name or IP address (e.g. myacr.azurecr.io) of the Azure Container Registry (ACR) (only provided if create_image is not None)"
+      },
+      {
+        "name": "acr_username",
+        "description": "The username for ACR (only provided if create_image is not None)"
+      },
+      {
+        "name": "acr_password",
+        "description": "The password for ACR (only provided if create_image is not None)"
+      },
+      {
+        "name": "package_location",
+        "description": "Full URI of the docker image (e.g. myacr.azurecr.io/azureml/azureml_*) (only provided if create_image is not None)"
+      },
+      {
+        "name": "profiling_details",
+        "description": "Dictionary of details of the model profiling result. This will only be provided, if the model profiling method is used and successfully executed."
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/aml-deploy",
+    "latest_release": {
+      "tag_name": "v1.31.0",
+      "name": "v1.31.0",
+      "published_at": "2021-09-24T15:59:20Z",
+      "html_url": "https://github.com/Azure/aml-deploy/releases/tag/v1.31.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:38.884586Z"
+}

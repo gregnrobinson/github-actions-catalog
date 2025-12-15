@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/azure/appservice-build",
+  "version": "edf5fe8d2f62",
+  "definition": {
+    "name": "App Service Web App Build Action",
+    "description": "Build an Azure Web App on Linux using the Oryx build system.",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "source-directory",
+        "description": "'Relative path (within the repository) to the source directory of the project you want to build; if no value is\nprovided for this, the root of the repository (\"GITHUB_WORKSPACE\" environment variable) will be built.'\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platform",
+        "description": "'Programming platform used to build the web app; if no value is provided, Oryx will determine the platform to\nbuild with. Supported values: dotnet, golang, java, nodejs, php, python, ruby'\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "platform-version",
+        "description": "'Version of the programming platform used to build the web app; if no value is provided, Oryx will determine the\nversion needed to build the repository.'\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "output-directory",
+        "description": "The directory where the build output will be copied to.",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/appservice-build",
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "GitHub Action for building Azure Web Apps",
+      "published_at": "2023-01-13T14:54:07Z",
+      "html_url": "https://github.com/Azure/appservice-build/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:38.145401Z"
+}

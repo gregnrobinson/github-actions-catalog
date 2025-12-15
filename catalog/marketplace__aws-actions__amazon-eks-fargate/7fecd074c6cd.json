@@ -1,0 +1,30 @@
+{
+  "action_id": "marketplace/aws-actions/amazon-eks-fargate",
+  "version": "7fecd074c6cd",
+  "definition": {
+    "name": "EKS on Fargate",
+    "description": "Creates and EKS on Fargate cluster",
+    "author": "Michael Hausenblas, hausenb@amazon.com",
+    "inputs": [],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/amazon-eks-fargate",
+    "latest_release": {
+      "tag_name": "v0.1.1",
+      "name": "",
+      "published_at": "2020-06-15T10:20:32Z",
+      "html_url": "https://github.com/aws-actions/amazon-eks-fargate/releases/tag/v0.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:44.335830Z"
+}

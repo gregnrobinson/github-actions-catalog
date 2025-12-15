@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-cli/action.yml",
     "origin": "github.com/atlassian/gajira-cli",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Node and dependency updates",
+      "published_at": "2022-11-18T21:15:20Z",
+      "html_url": "https://github.com/atlassian/gajira-cli/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Jira",
@@ -37,7 +45,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action sets up the Jira CLI, which is primarily an infrastructure-related task, but it also involves managing the version of the CLI, linking it to dependency management.",
+        "reasoning": "The action sets up a CLI tool for Jira, which is primarily related to infrastructure setup, but it also involves managing the version of the CLI, linking it to dependency management.",
         "tags": [
           "Jira",
           "CLI",
@@ -52,6 +60,6 @@
     "source_hash": "abf12f943281001af959997d12905b743baa41f4c4ffcd66b6b6ec7ef16bfc5e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.409907Z"
+    "generated_at": "2025-12-15T02:19:00.402625Z"
   }
 }

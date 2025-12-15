@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/nutrition-framework-desktop",
+  "version": "a6094ee55905",
+  "definition": {
+    "name": "Nutrition Framework",
+    "description": "Final Project for Bachelor Degree, Full and Clear Documentation, Have Empty View :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/nutrition-framework-desktop"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:34.590910Z"
+}

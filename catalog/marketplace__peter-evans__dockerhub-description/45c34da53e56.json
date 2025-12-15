@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/peter-evans/dockerhub-description",
+  "version": "45c34da53e56",
+  "definition": {
+    "name": "Docker Hub Description",
+    "description": "An action to update a Docker Hub repository description from README.md",
+    "author": "Peter Evans",
+    "inputs": [
+      {
+        "name": "username",
+        "description": "Docker Hub username",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "password",
+        "description": "Docker Hub password or Personal Access Token with read/write/delete scope",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "repository",
+        "description": "Docker Hub repository in the format `<namespace>/<name>` Default: `github.repository`\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "short-description",
+        "description": "Docker Hub repository short description",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "readme-filepath",
+        "description": "Path to the repository readme Default: `./README.md`\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "enable-url-completion",
+        "description": "Enables completion of relative URLs to absolute ones Default: `false`\n",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "image-extensions",
+        "description": "File extensions that will be treated as images Default: `bmp,gif,jpg,jpeg,png,svg,webp`\n",
+        "required": false,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "peter-evans",
+    "verified": false,
+    "origin": "github.com/peter-evans/dockerhub-description",
+    "latest_release": {
+      "tag_name": "v5.0.0",
+      "name": "Docker Hub Description v5.0.0",
+      "published_at": "2025-10-01T13:44:42Z",
+      "html_url": "https://github.com/peter-evans/dockerhub-description/releases/tag/v5.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:28.632283Z"
+}

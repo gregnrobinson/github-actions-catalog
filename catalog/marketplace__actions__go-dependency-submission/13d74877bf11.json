@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/actions/go-dependency-submission",
+  "version": "13d74877bf11",
+  "definition": {
+    "name": "Go Dependency Submission",
+    "description": "Calculates dependencies for a Go build-target and submits the list to the Dependency Submission API",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "token",
+        "description": "GitHub Personal Access Token (PAT). Defaults to PAT provided by Action runner",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "metadata",
+        "description": "User provided map of max key/value pairs of metadata to include with the snapshot e.g. {\"lastModified\": \"12-31-2022\"}",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "go-mod-path",
+        "description": "Repo path to the go.mod file used to detect dependencies for the Go build target. Defaults to go.mod in the root of the repository.",
+        "required": true,
+        "default": "go.mod"
+      },
+      {
+        "name": "go-build-target",
+        "description": "Build target to detect build dependencies. If unspecified, will use \"all\", with will detect all dependencies used in all build targets (including tests and tools).",
+        "required": true,
+        "default": "all"
+      },
+      {
+        "name": "snapshot-sha",
+        "description": "The SHA that the results will be linked to in the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "snapshot-ref",
+        "description": "The ref that the results will be linked to in the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "detector-name",
+        "description": "The name of the detector that generated the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "detector-version",
+        "description": "The version of the detector that generated the dependency snapshot",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "detector-url",
+        "description": "The URL to the detector that generated the dependency snapshot",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/go-dependency-submission",
+    "latest_release": {
+      "tag_name": "v2.0.3",
+      "name": "v2.0.3",
+      "published_at": "2025-03-26T15:34:14Z",
+      "html_url": "https://github.com/actions/go-dependency-submission/releases/tag/v2.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:18.217152Z"
+}

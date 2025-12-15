@@ -1,0 +1,78 @@
+{
+  "action_id": "marketplace/aws-actions/aws-devicefarm-browser-testing",
+  "version": "937ce11eb50c",
+  "definition": {
+    "name": "AWS Device Farm Browser Testing GitHub Action",
+    "description": "GitHub action for automated browser testing on AWS Device Farm",
+    "author": "AWS Device Farm",
+    "inputs": [
+      {
+        "name": "mode",
+        "description": "The mode to run the action in. Ther are 2 values supported: Specify `project` mode when you require creation or looking up of an AWS Device Farm Project ARN. Specify `gridurl` mode when you require a Test Grid URL. Specify `artifact` mode when you require retrieval of artifacts from an existing AWS Device Farm Project ARN.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "project-arn",
+        "description": "The ARN of the AWS Device Farm Browser Testing Project. Alternatively supply a name and a project will be created on your behalf",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "url-expires-seconds",
+        "description": "Lifetime, in seconds, of the Test Grid URL.",
+        "required": false,
+        "default": 900
+      },
+      {
+        "name": "artifact-types",
+        "description": "(Optional) A comma delimited list of Device Farm Artifacts that should be downloaded after the jobs completes. https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-device-farm/Variable/TestGridSessionArtifactCategory/ Note: To download all artifact types set the value to ALL. To download none skip this input. They will be downloaded to a folder. The name of the folder can be found by referencing the output with name artifact-folder. Please use the GitHub Action [upload-artifact](https://github.com/actions/upload-artifact) to store them.",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "artifact-folder",
+        "description": "(optional) The name of the folder that the test artifacts are downloaded into.",
+        "required": false,
+        "default": "artifacts"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "console-url",
+        "description": "The AWS Console URL for the Test Grid Project"
+      },
+      {
+        "name": "project-arn",
+        "description": "The ARN of the AWS Device Farm Browser Testing Project"
+      },
+      {
+        "name": "grid-url",
+        "description": "The AWS Device Farm Test Grid URL (only available in gridurl mode)"
+      },
+      {
+        "name": "grid-url-expires",
+        "description": "The Datetime that the supplied grid-url will expire formatted as YYYY-MM-DDThh:mm:ss.fffZ"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "aws-actions",
+    "verified": false,
+    "origin": "github.com/aws-actions/aws-devicefarm-browser-testing",
+    "latest_release": {
+      "tag_name": "v2.2",
+      "name": "v2.2",
+      "published_at": "2024-08-14T04:31:57Z",
+      "html_url": "https://github.com/aws-actions/aws-devicefarm-browser-testing/releases/tag/v2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:36.992402Z"
+}

@@ -1,0 +1,59 @@
+{
+  "action_id": "marketplace/TryGhost/action-update-posts",
+  "version": "13b1bae0709f",
+  "definition": {
+    "name": "Update Ghost Posts",
+    "description": "Schedule updates to your Ghost posts",
+    "author": "TryGhost",
+    "inputs": [
+      {
+        "name": "api-url",
+        "description": "Ghost Admin API Url",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "api-key",
+        "description": "Ghost Admin API Key",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "tag",
+        "description": "The tag to lookup to find posts to update e.g. `hash-early-access`",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "field",
+        "description": "The post field that you want to update e.g. `visibility` or `featured`",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "value",
+        "description": "The new value for the field e.g. `public` or `false`",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "days",
+        "description": "Number of days after the post was published to update the post",
+        "required": true,
+        "default": null
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "TryGhost",
+    "verified": false,
+    "origin": "github.com/TryGhost/action-update-posts"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:15:06.876483Z"
+}

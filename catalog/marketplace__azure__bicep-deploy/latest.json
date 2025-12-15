@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/bicep-deploy/action.yml",
     "origin": "github.com/azure/bicep-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2.0",
+      "name": "v2.2.0",
+      "published_at": "2025-05-15T13:16:51Z",
+      "html_url": "https://github.com/Azure/bicep-deploy/releases/tag/v2.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Bicep Deploy",
@@ -193,11 +201,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed for deploying resources to Azure, which falls under the Deployment category, and it also involves managing infrastructure as part of the deployment process.",
+        "reasoning": "The action is specifically designed for deploying resources to Azure, which falls under the Deployment category, and it also relates to Infrastructure as it manages cloud resources.",
         "tags": [
           "Azure",
-          "Bicep",
           "Deployment",
+          "Bicep",
           "Infrastructure",
           "GitHub Action"
         ]
@@ -208,6 +216,6 @@
     "source_hash": "02e382587b5fa905b66609169e7b8018c96b9563ff8c35c9ad8ae47957b62ed1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.644033Z"
+    "generated_at": "2025-12-15T02:18:59.922765Z"
   }
 }

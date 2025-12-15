@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/terraform-validate/action.yml",
     "origin": "github.com/dflook/terraform-validate",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:30:04Z",
+      "html_url": "https://github.com/dflook/terraform-validate/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "terraform-validate",
@@ -51,14 +59,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Testing",
+      "Infrastructure",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action validates Terraform configurations, which is primarily a testing function to ensure code quality and infrastructure correctness.",
+        "tags": [
+          "terraform",
+          "validation",
+          "infrastructure",
+          "testing",
+          "code quality"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "a3ccef9f68ea75bd3e07e44199dd69d91b90bab5749f93bafc47c3f0a6c932bc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.368674Z"
+    "generated_at": "2025-12-15T02:18:59.602050Z"
   }
 }

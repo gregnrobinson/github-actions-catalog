@@ -116,11 +116,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action is designed to run govulncheck, which is a tool for checking vulnerabilities in Go code, thus primarily falling under Security. It also involves testing the code for vulnerabilities, placing it in the Testing category as well.",
+        "reasoning": "The action runs 'govulncheck', which is a tool designed to identify vulnerabilities in Go dependencies, categorizing it primarily under Security. Additionally, it involves testing the code for vulnerabilities, placing it in the Testing category as well.",
         "tags": [
           "govulncheck",
-          "Go",
           "security",
+          "go",
           "vulnerability",
           "testing"
         ]
@@ -131,6 +131,6 @@
     "source_hash": "eebd1a6e7baaaeabdc2d5c8a02ccd053164594d6ae8295407a927a2e70da68f0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.392383Z"
+    "generated_at": "2025-12-15T02:19:00.902571Z"
   }
 }

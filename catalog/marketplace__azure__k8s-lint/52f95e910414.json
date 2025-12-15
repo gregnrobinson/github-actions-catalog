@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/azure/k8s-lint",
+  "version": "52f95e910414",
+  "definition": {
+    "name": "Lint k8s manifest files",
+    "description": "Lint k8s manifest files",
+    "author": "azure",
+    "inputs": [
+      {
+        "name": "manifests",
+        "description": "Path to the manifest files which will be used for deployment.",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "lintType",
+        "description": "Acceptable values: kubeconform, dryrun",
+        "required": true,
+        "default": "kubeconform"
+      },
+      {
+        "name": "kubeconformOpts",
+        "description": "Options that are passed to kubeconform e.g. -schema-location",
+        "required": false,
+        "default": "-summary"
+      },
+      {
+        "name": "namespace",
+        "description": "Target Kubernetes namespace. If the namespace is not provided, commands will run in the default namespace.",
+        "required": false,
+        "default": "default"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "azure",
+    "verified": false,
+    "origin": "github.com/azure/k8s-lint",
+    "latest_release": {
+      "tag_name": "v3.0.1",
+      "name": "v3.0.1",
+      "published_at": "2025-08-12T19:24:11Z",
+      "html_url": "https://github.com/Azure/k8s-lint/releases/tag/v3.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:14:44.002208Z"
+}

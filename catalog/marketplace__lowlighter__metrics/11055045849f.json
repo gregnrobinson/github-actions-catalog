@@ -1,0 +1,2041 @@
+{
+  "action_id": "marketplace/lowlighter/metrics",
+  "version": "11055045849f",
+  "definition": {
+    "name": "Metrics embed",
+    "description": "An infographics generator with 40+ plugins and 300+ options to display stats about your GitHub account!",
+    "author": "lowlighter",
+    "inputs": [
+      {
+        "name": "base",
+        "description": "Base content",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "base_indepth",
+        "description": "Indepth mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "base_hireable",
+        "description": "Show `Available for hire!` in header section",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "base_skip",
+        "description": "Skip base content",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repositories",
+        "description": "Fetched repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repositories_batch",
+        "description": "Fetched repositories per query",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repositories_forks",
+        "description": "Include forks",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repositories_affiliations",
+        "description": "Repositories affiliations",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repositories_skipped",
+        "description": "Default skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "users_ignored",
+        "description": "Default ignored users",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "commits_authoring",
+        "description": "Identifiers that has been used for authoring commits",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "token",
+        "description": "GitHub Personal Access Token",
+        "required": true,
+        "default": null
+      },
+      {
+        "name": "user",
+        "description": "GitHub username",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "repo",
+        "description": "GitHub repository",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "committer_token",
+        "description": "GitHub Token used to commit metrics",
+        "required": false,
+        "default": "${{ github.token }}"
+      },
+      {
+        "name": "committer_branch",
+        "description": "Target branch",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "committer_message",
+        "description": "Commit message",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "committer_gist",
+        "description": "Gist id",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "filename",
+        "description": "Output path",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "markdown",
+        "description": "Markdown template path",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "markdown_cache",
+        "description": "Markdown file cache",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "output_action",
+        "description": "Output action",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "output_condition",
+        "description": "Output condition",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "optimize",
+        "description": "Optimization features",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "setup_community_templates",
+        "description": "Community templates to setup",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "template",
+        "description": "Template",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "query",
+        "description": "Query parameters",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "extras_css",
+        "description": "Extra CSS",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "extras_js",
+        "description": "Extra JavaScript",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "github_api_rest",
+        "description": "GitHub REST API endpoint",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "github_api_graphql",
+        "description": "GitHub GraphQL API endpoint",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_timezone",
+        "description": "Timezone for dates",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "config_order",
+        "description": "Plugin order",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_twemoji",
+        "description": "Use twemojis",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_gemoji",
+        "description": "Use GitHub custom emojis",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_octicon",
+        "description": "Use GitHub octicons",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_display",
+        "description": "Display width (for image output formats)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_animations",
+        "description": "Use CSS animations",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_base64",
+        "description": "Base64-encoded images",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_padding",
+        "description": "Output padding",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_output",
+        "description": "Output format",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "config_presets",
+        "description": "Configuration presets",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "retries",
+        "description": "Retries in case of failures (for rendering)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "retries_delay",
+        "description": "Delay between each retry (in seconds, for rendering)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "retries_output_action",
+        "description": "Retries in case of failures (for output action)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "retries_delay_output_action",
+        "description": "Delay between each retry (in seconds, for output action)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "clean_workflows",
+        "description": "Clean previous workflows jobs",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "delay",
+        "description": "Job delay",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "quota_required_rest",
+        "description": "Minimum GitHub REST API requests quota required to run",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "quota_required_graphql",
+        "description": "Minimum GitHub GraphQL API requests quota required to run",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "quota_required_search",
+        "description": "Minimum GitHub Search API requests quota required to run",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "notice_releases",
+        "description": "Notice about new releases of metrics",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "use_prebuilt_image",
+        "description": "Use pre-built docker image from [GitHub container registry](https://github.com/lowlighter/metrics/pkgs/container/metrics)",
+        "required": false,
+        "default": true
+      },
+      {
+        "name": "plugins_errors_fatal",
+        "description": "Fatal plugin errors",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "debug",
+        "description": "Debug mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "verify",
+        "description": "SVG validity check",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "debug_flags",
+        "description": "Debug flags",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "debug_print",
+        "description": "Print output in console",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "dryrun",
+        "description": "Dry-run",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "experimental_features",
+        "description": "Experimental features",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "use_mocked_data",
+        "description": "Use mocked data instead of live APIs",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_isocalendar",
+        "description": "Enable isocalendar plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_isocalendar_duration",
+        "description": "Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages",
+        "description": "Enable languages plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_ignored",
+        "description": "Ignored languages",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_threshold",
+        "description": "Display threshold (percentage)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_other",
+        "description": "Group unknown, ignored and over-limit languages into \"Other\" category",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_colors",
+        "description": "Custom languages colors",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_aliases",
+        "description": "Custom languages names",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_details",
+        "description": "Additional details",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_indepth",
+        "description": "Indepth mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_indepth_custom",
+        "description": "Indepth mode - Custom repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_analysis_timeout",
+        "description": "Indepth mode - Analysis timeout",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_analysis_timeout_repositories",
+        "description": "Indepth mode - Analysis timeout (repositories)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_categories",
+        "description": "Indepth mode - Displayed categories (most-used section)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_recent_categories",
+        "description": "Indepth mode - Displayed categories (recently-used section)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_recent_load",
+        "description": "Indepth mode - Events to load (recently-used section)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_languages_recent_days",
+        "description": "Indepth mode - Events maximum age (day, recently-used section)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers",
+        "description": "Enable stargazers plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_days",
+        "description": "Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_charts",
+        "description": "Charts",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_charts_type",
+        "description": "Charts display type",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_worldmap",
+        "description": "Stargazers worldmap",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_worldmap_token",
+        "description": "Stargazers worldmap token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stargazers_worldmap_sample",
+        "description": "Stargazers worldmap sample",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines",
+        "description": "Enable lines plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines_repositories_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines_history_limit",
+        "description": "Years to display",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_lines_delay",
+        "description": "Delay before performing a second query",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_topics",
+        "description": "Enable topics plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_topics_mode",
+        "description": "Display mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_topics_sort",
+        "description": "Sorting method",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_topics_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stars",
+        "description": "Enable stars plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stars_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_licenses",
+        "description": "Enable licenses plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_licenses_setup",
+        "description": "Setup command",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_licenses_ratio",
+        "description": "Used licenses ratio",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_licenses_legal",
+        "description": "Permissions, limitations and conditions about used licenses",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits",
+        "description": "Enable habits plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_from",
+        "description": "Events to use",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_days",
+        "description": "Event maximum age",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_facts",
+        "description": "Mildly interesting facts",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_charts",
+        "description": "Charts",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_charts_type",
+        "description": "Charts display type",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_trim",
+        "description": "Trim unused hours on charts",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_languages_limit",
+        "description": "Display limit (languages)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_habits_languages_threshold",
+        "description": "Display threshold (percentage)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors",
+        "description": "Enable contributors plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_base",
+        "description": "Base reference",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_head",
+        "description": "Head reference",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_ignored",
+        "description": "Ignored users",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_contributions",
+        "description": "Contributions count",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_contributors_categories",
+        "description": "Contribution categories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_followup",
+        "description": "Enable followup plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_followup_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_followup_indepth",
+        "description": "Indepth analysis",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_followup_archived",
+        "description": "Include archived repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions",
+        "description": "Enable reactions plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_limit",
+        "description": "Display limit (issues and pull requests comments)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_limit_issues",
+        "description": "Display limit (issues and pull requests, first comment)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_limit_discussions",
+        "description": "Display limit (discussions, first comment)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_limit_discussions_comments",
+        "description": "Display limit (discussions comments)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_days",
+        "description": "Comments maximum age",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_display",
+        "description": "Display mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_details",
+        "description": "Additional details",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_reactions_ignored",
+        "description": "Ignored users",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people",
+        "description": "Enable people plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_identicons",
+        "description": "Force identicons pictures",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_identicons_hide",
+        "description": "Hide identicons pictures",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_size",
+        "description": "Profile picture display size",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_types",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_thanks",
+        "description": "Special thanks",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_sponsors_custom",
+        "description": "Custom sponsors",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_people_shuffle",
+        "description": "Shuffle data",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsorships",
+        "description": "Enable sponsorships plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsorships_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsorships_size",
+        "description": "Profile picture display size",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsors",
+        "description": "Enable sponsors plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsors_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsors_past",
+        "description": "Past sponsorships",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsors_size",
+        "description": "Profile picture display size",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_sponsors_title",
+        "description": "Title caption",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories",
+        "description": "Enable repositories plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_featured",
+        "description": "Featured repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_pinned",
+        "description": "Pinned repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_starred",
+        "description": "Featured most starred repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_random",
+        "description": "Featured random repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_order",
+        "description": "Featured repositories display order",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_forks",
+        "description": "Include repositories forks",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_repositories_affiliations",
+        "description": "Repositories affiliations",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_discussions",
+        "description": "Enable discussions plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_discussions_categories",
+        "description": "Discussion categories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_discussions_categories_limit",
+        "description": "Display limit (categories)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists",
+        "description": "Enable starlists plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_limit",
+        "description": "Display limit (star lists)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_limit_repositories",
+        "description": "Display limit (repositories per star list)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_languages",
+        "description": "Star lists languages statistics",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_limit_languages",
+        "description": "Display limit (languages per star list)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_languages_ignored",
+        "description": "Ignored languages in star lists",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_languages_aliases",
+        "description": "Custom languages names in star lists",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_shuffle_repositories",
+        "description": "Shuffle data",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_ignored",
+        "description": "Skipped star lists",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_starlists_only",
+        "description": "Showcased star lists",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_calendar",
+        "description": "Enable calendar plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_calendar_limit",
+        "description": "Years to display",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements",
+        "description": "Enable achievements plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_threshold",
+        "description": "Rank threshold filter",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_secrets",
+        "description": "Secrets achievements",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_display",
+        "description": "Display style",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_ignored",
+        "description": "Ignored achievements",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_achievements_only",
+        "description": "Showcased achievements",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable",
+        "description": "Enable notable plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_filter",
+        "description": "Query filter",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_from",
+        "description": "Repository owner account type filter",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_repositories",
+        "description": "Repository name",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_indepth",
+        "description": "Indepth mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_types",
+        "description": "Contribution types filter",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_notable_self",
+        "description": "Include own repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity",
+        "description": "Enable activity plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_load",
+        "description": "Events to load",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_days",
+        "description": "Events maximum age",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_visibility",
+        "description": "Events visibility",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_timestamps",
+        "description": "Events timestamps",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_ignored",
+        "description": "Ignored users",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_activity_filter",
+        "description": "Events types",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_traffic",
+        "description": "Enable traffic plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_traffic_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code",
+        "description": "Enable code plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_lines",
+        "description": "Display limit (lines per code snippets)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_load",
+        "description": "Events to load",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_days",
+        "description": "Events maximum age",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_visibility",
+        "description": "Events visibility",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_skipped",
+        "description": "Skipped repositories",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_code_languages",
+        "description": "Showcased languages",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_gists",
+        "description": "Enable gists plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_projects",
+        "description": "Enable projects plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_projects_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_projects_repositories",
+        "description": "Featured repositories projects",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_projects_descriptions",
+        "description": "Projects descriptions",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_introduction",
+        "description": "Enable introduction plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_introduction_title",
+        "description": "Section title",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline",
+        "description": "Enable skyline plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline_year",
+        "description": "Displayed year",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline_frames",
+        "description": "Frames count",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline_quality",
+        "description": "Image quality",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline_compatibility",
+        "description": "Compatibility mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_skyline_settings",
+        "description": "Advanced settings",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_support",
+        "description": "Enable support plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed",
+        "description": "Enable pagespeed plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed_token",
+        "description": "PageSpeed token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed_url",
+        "description": "Audited website",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed_detailed",
+        "description": "Detailed results",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed_screenshot",
+        "description": "Website screenshot",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_pagespeed_pwa",
+        "description": "PWA Status",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_tweets",
+        "description": "Enable tweets plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_tweets_token",
+        "description": "Twitter API token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_tweets_user",
+        "description": "Twitter username",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_tweets_attachments",
+        "description": "Tweets attachments",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_tweets_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow",
+        "description": "Enable stackoverflow plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow_user",
+        "description": "Stackoverflow user id",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow_limit",
+        "description": "Display limit (entries per section)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow_lines",
+        "description": "Display limit (lines per questions and answers)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stackoverflow_lines_snippet",
+        "description": "Display limit (lines per code snippets)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist",
+        "description": "Enable aniList plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_user",
+        "description": "AniList login",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_medias",
+        "description": "Medias types",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_limit",
+        "description": "Display limit (medias)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_limit_characters",
+        "description": "Display limit (characters)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_anilist_shuffle",
+        "description": "Shuffle data",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music",
+        "description": "Enable music plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_provider",
+        "description": "Music provider",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_token",
+        "description": "Music provider token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_user",
+        "description": "Music provider username",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_mode",
+        "description": "Display mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_playlist",
+        "description": "Playlist URL",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_played_at",
+        "description": "Recently played - Last played timestamp",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_time_range",
+        "description": "Top tracks - Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_music_top_type",
+        "description": "Top tracks - Display type",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts",
+        "description": "Enable posts plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts_source",
+        "description": "External source",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts_user",
+        "description": "External source username",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts_descriptions",
+        "description": "Posts descriptions",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts_covers",
+        "description": "Posts cover images",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_posts_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_rss",
+        "description": "Enable rss plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_rss_source",
+        "description": "RSS feed source",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_rss_limit",
+        "description": "Display limit",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime",
+        "description": "Enable wakatime plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_token",
+        "description": "WakaTime API token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_url",
+        "description": "WakaTime URL",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_user",
+        "description": "WakaTime username",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_days",
+        "description": "Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_limit",
+        "description": "Display limit (entries per graph)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_languages_other",
+        "description": "Other languages",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_languages_ignored",
+        "description": "Ignored languages",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_wakatime_repositories_visibility",
+        "description": "Repositories visibility",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode",
+        "description": "Enable leetcode plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode_user",
+        "description": "LeetCode login",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode_limit_skills",
+        "description": "Display limit (skills)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode_ignored_skills",
+        "description": "Ignored skills",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_leetcode_limit_recent",
+        "description": "Display limit (recent)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam",
+        "description": "Enable steam plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_token",
+        "description": "Steam token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_user",
+        "description": "Steam user id",
+        "required": false,
+        "default": null
+      },
+      {
+        "name": "plugin_steam_games_ignored",
+        "description": "Ignored games",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_games_limit",
+        "description": "Display limit (Most played games)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_recent_games_limit",
+        "description": "Display limit (Recently played games)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_achievements_limit",
+        "description": "Display limit (Games achievements)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_steam_playtime_threshold",
+        "description": "Display threshold (Game playtime in hours)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_16personalities",
+        "description": "Enable 16personalities plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_16personalities_url",
+        "description": "Profile URL",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_16personalities_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_16personalities_scores",
+        "description": "Display traits scores",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_chess",
+        "description": "Enable chess plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_chess_token",
+        "description": "Chess platform token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_chess_user",
+        "description": "Chess platform login",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_chess_platform",
+        "description": "Chess platform",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_chess_animation",
+        "description": "Animation settings",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_crypto",
+        "description": "Enable crypto plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_crypto_id",
+        "description": "Crypto id",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_crypto_vs_currency",
+        "description": "The target currency of market data (usd, eur, jpy, etc.)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_crypto_days",
+        "description": "Data up to number of days ago (eg. 1,14,30,max)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_crypto_precision",
+        "description": "The number of decimal places to use",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_fortune",
+        "description": "Enable fortune plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout",
+        "description": "Enable nightscout plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_url",
+        "description": "Nightscout URL",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_datapoints",
+        "description": "Number of datapoints shown the graph",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_lowalert",
+        "description": "Threshold for low blood sugar",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_highalert",
+        "description": "Threshold for high blood sugar",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_urgentlowalert",
+        "description": "Threshold for urgently low blood sugar",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_nightscout_urgenthighalert",
+        "description": "Threshold for urgently high blood sugar",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_poopmap",
+        "description": "Enable poopmap plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_poopmap_token",
+        "description": "PoopMap API token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_poopmap_days",
+        "description": "Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot",
+        "description": "Enable screenshot plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_title",
+        "description": "Title caption",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_url",
+        "description": "Website URL",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_selector",
+        "description": "CSS Selector",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_mode",
+        "description": "Output mode",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_viewport",
+        "description": "Viewport options",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_wait",
+        "description": "Wait time before taking screenshot (ms)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_screenshot_background",
+        "description": "Background",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon",
+        "description": "Enable splatoon plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_token",
+        "description": "Splatnet token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_sections",
+        "description": "Displayed sections",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_versus_limit",
+        "description": "Display limit (Versus)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_salmon_limit",
+        "description": "Display limit (Salmon run)",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_statink",
+        "description": "stat.ink integration",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_statink_token",
+        "description": "stat.ink token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_splatoon_source",
+        "description": "Source",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stock",
+        "description": "Enable stock plugin",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stock_token",
+        "description": "Yahoo Finance token",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stock_symbol",
+        "description": "Company stock symbol",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stock_duration",
+        "description": "Time range",
+        "required": false,
+        "default": "<default-value>"
+      },
+      {
+        "name": "plugin_stock_interval",
+        "description": "Time interval between points",
+        "required": false,
+        "default": "<default-value>"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "lowlighter",
+    "verified": false,
+    "origin": "github.com/lowlighter/metrics",
+    "latest_release": {
+      "tag_name": "v3.34",
+      "name": "Version 3.34",
+      "published_at": "2023-09-13T02:39:37Z",
+      "html_url": "https://github.com/lowlighter/metrics/releases/tag/v3.34",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:17:02.027599Z"
+}

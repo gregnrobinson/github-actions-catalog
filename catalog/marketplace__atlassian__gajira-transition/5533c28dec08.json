@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/atlassian/gajira-transition/action.yml",
     "origin": "github.com/atlassian/gajira-transition",
     "publisher": "atlassian",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "v3: Update dependencies and node version",
+      "published_at": "2022-11-21T00:03:49Z",
+      "html_url": "https://github.com/atlassian/gajira-transition/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Jira Issue Transition",
@@ -39,14 +47,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is primarily focused on changing the status of a Jira issue, which is a form of communication regarding project management and task status. It also relates to notifications as it may trigger updates to team members about the issue's status.",
+        "tags": [
+          "Jira",
+          "issue transition",
+          "project management",
+          "automation",
+          "workflow"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "5533c28dec089802f6516d7edaea1a8362dcd3e3eeea77ea76687420933cdee0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.407955Z"
+    "generated_at": "2025-12-15T02:19:00.400441Z"
   }
 }

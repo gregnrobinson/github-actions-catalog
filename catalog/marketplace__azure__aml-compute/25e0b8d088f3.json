@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/aml-compute/action.yml",
     "origin": "github.com/azure/aml-compute",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.31.0",
+      "name": "v1.31.0",
+      "published_at": "2021-09-24T15:59:03Z",
+      "html_url": "https://github.com/Azure/aml-compute/releases/tag/v1.31.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Machine Learning Compute Action",
@@ -33,14 +41,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action primarily focuses on connecting to or creating compute resources in Azure Machine Learning, which falls under Infrastructure. It also requires Azure credentials for authentication, making Authentication a relevant secondary category.",
+        "tags": [
+          "Azure",
+          "Machine Learning",
+          "Compute",
+          "Infrastructure",
+          "Authentication"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "25e0b8d088f36ba6cb0b9a456ad40759e4d0c60f927785110ab31dd8c721198d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.531730Z"
+    "generated_at": "2025-12-15T02:18:59.805889Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/actions/attest-sbom/action.yml",
     "origin": "github.com/actions/attest-sbom",
     "publisher": "actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2025-08-28T23:21:21Z",
+      "html_url": "https://github.com/actions/attest-sbom/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Attest SBOM",
@@ -108,14 +116,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Security",
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "The action generates Software Bill of Materials (SBOM) attestations, which are crucial for security and compliance. It also involves documentation of the artifacts and their integrity, contributing to code quality.",
+        "tags": [
+          "SBOM",
+          "attestation",
+          "security",
+          "compliance",
+          "documentation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "064da35bcfb4514aba18b46134f7c6a436be2858423445167895594e2e317c02",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.326551Z"
+    "generated_at": "2025-12-15T02:19:00.733759Z"
   }
 }

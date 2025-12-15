@@ -1,0 +1,42 @@
+{
+  "action_id": "marketplace/actions/container-prebuilt-action",
+  "version": "df4377c93ed4",
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "description": "Your input description here",
+        "required": true,
+        "default": "World"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "greeting",
+        "description": "Your output description here"
+      }
+    ]
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "actions",
+    "verified": false,
+    "origin": "github.com/actions/container-prebuilt-action",
+    "latest_release": {
+      "tag_name": "v0.2.0",
+      "name": "v0.2.0",
+      "published_at": "2025-06-06T19:59:25Z",
+      "html_url": "https://github.com/actions/container-prebuilt-action/releases/tag/v0.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:19.871378Z"
+}

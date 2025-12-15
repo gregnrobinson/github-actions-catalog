@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/dflook/terraform-fmt",
+  "version": "edb8fbd5148e",
+  "definition": {
+    "name": "terraform-fmt",
+    "description": "Rewrite Terraform files into canonical format",
+    "author": "Daniel Flook",
+    "inputs": [
+      {
+        "name": "path",
+        "description": "The path containing Terraform files to format.",
+        "required": false,
+        "default": "."
+      },
+      {
+        "name": "workspace",
+        "description": "Terraform workspace to inspect when discovering the Terraform version to use, if the version is not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\n",
+        "required": false,
+        "default": "default"
+      },
+      {
+        "name": "backend_config",
+        "description": "List of Terraform backend config values, one per line. This is used for discovering the Terraform version to use, if the version is not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\n",
+        "required": false,
+        "default": ""
+      },
+      {
+        "name": "backend_config_file",
+        "description": "List of Terraform backend config files to use, one per line. This is used for discovering the Terraform version to use, if the version is not otherwise specified.\nSee [dflook/terraform-version](https://github.com/dflook/terraform-github-actions/tree/main/terraform-version#terraform-version-action) for details.\nPaths should be relative to the GitHub Actions workspace\n",
+        "required": false,
+        "default": ""
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "dflook",
+    "verified": false,
+    "origin": "github.com/dflook/terraform-fmt",
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:54Z",
+      "html_url": "https://github.com/dflook/terraform-fmt/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:13:40.003540Z"
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/dflook/tofu-destroy/action.yml",
     "origin": "github.com/dflook/tofu-destroy",
     "publisher": "dflook",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.2",
+      "name": "v2.2.2",
+      "published_at": "2025-08-08T13:31:09Z",
+      "html_url": "https://github.com/dflook/tofu-destroy/releases/tag/v2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "tofu-destroy",
@@ -76,14 +84,31 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is designed to destroy resources in an OpenTofu workspace, which is primarily an infrastructure management task. It also involves deployment aspects as it manages the lifecycle of infrastructure resources.",
+        "tags": [
+          "OpenTofu",
+          "infrastructure",
+          "deployment",
+          "resource management",
+          "destroy"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "b3c03e5e78165850df72663e153eb2c67b21cefe198a0f984b739710c6ec926f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.362256Z"
+    "generated_at": "2025-12-15T02:18:59.595942Z"
   }
 }

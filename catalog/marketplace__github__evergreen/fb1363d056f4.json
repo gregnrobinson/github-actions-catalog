@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/evergreen/action.yml",
     "origin": "github.com/github/evergreen",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.24.9",
+      "name": "v1.24.9",
+      "published_at": "2025-12-01T23:37:06Z",
+      "html_url": "https://github.com/github/evergreen/releases/tag/v1.24.9",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Evergreen action",
@@ -20,14 +28,30 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Dependency management",
+      "Automation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The Evergreen action is focused on requesting dependabot enablement, which directly relates to managing dependencies in repositories. It automates the process of enabling dependabot, making it a clear fit for the dependency management category.",
+        "tags": [
+          "dependabot",
+          "dependency management",
+          "automation",
+          "GitHub Action"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "fb1363d056f415f316747e613972901add01be4209a3d469e10ddee52ae773c5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.926555Z"
+    "generated_at": "2025-12-15T02:19:00.323120Z"
   }
 }

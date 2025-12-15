@@ -99,13 +99,13 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "The action is designed to create a GitHub App installation access token, which is primarily an authentication mechanism. It also relates to infrastructure as it deals with app installations within GitHub's ecosystem.",
+        "reasoning": "This action is primarily focused on creating a GitHub App installation access token, which falls under authentication. It also relates to infrastructure as it deals with GitHub App management.",
         "tags": [
           "GitHub",
           "App Token",
           "Authentication",
           "Infrastructure",
-          "GitHub Actions"
+          "Access Token"
         ]
       }
     ]
@@ -114,6 +114,6 @@
     "source_hash": "7754d3e2c820f5038da6bc1fb6d7d7b1abf35c61dcbc3521e1e7fdb9c9b2b59a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.494563Z"
+    "generated_at": "2025-12-15T02:19:01.053442Z"
   }
 }

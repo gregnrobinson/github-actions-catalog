@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/frogo-android-sdk",
+  "version_id": "25c8a3a6e397",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/frogo-android-sdk/action.yml",
+    "origin": "github.com/amirisback/frogo-android-sdk",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-Android-SDK",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "25c8a3a6e3972c48ecf64bf58a81fc87b3c0cddfe3da36d30f43204960848a89",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T02:19:00.780071Z"
+  }
+}

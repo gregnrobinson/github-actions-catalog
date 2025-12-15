@@ -1,0 +1,29 @@
+{
+  "action_id": "marketplace/amirisback/lucky-spin-wheel",
+  "version": "d84024919d48",
+  "definition": {
+    "name": "Frogo-Kick-Start-Library",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "description": "Input to use",
+        "required": false,
+        "default": "world"
+      }
+    ],
+    "outputs": []
+  },
+  "source": {
+    "type": "marketplace",
+    "publisher": "amirisback",
+    "verified": false,
+    "origin": "github.com/amirisback/lucky-spin-wheel"
+  },
+  "annotations": {
+    "categories": [],
+    "tags": []
+  },
+  "updated_at": "2025-12-15T02:16:30.541146Z"
+}

@@ -7,178 +7,70 @@ Outputs to docs/ directory for GitHub Pages deployment.
 import json
 from pathlib import Path
 from datetime import datetime
+import html
 
+# Use current working directory
 CATALOG_DIR = Path.cwd() / "catalog"
 DOCS_DIR = Path.cwd() / "docs"
 
+def escape_html(text):
+    """Escape HTML special characters."""
+    if text is None:
+        return ""
+    return html.escape(str(text))
+
 def load_catalog():
-    """Load all catalog entries."""
+    """Load all action catalog entries."""
     actions = []
 
-    for entry_dir in sorted(CATALOG_DIR.iterdir()):
+    if not CATALOG_DIR.exists():
+        print(f"⚠️  {CATALOG_DIR} not found")
+        return actions
+
+    for entry_dir in CATALOG_DIR.iterdir():
         if not entry_dir.is_dir():
             continue
 
         latest_file = entry_dir / "latest.json"
-        if latest_file.exists():
+        if not latest_file.exists():
+            continue
+
+        try:
             with open(latest_file, "r") as f:
                 action = json.load(f)
-            actions.append(action)
+                actions.append(action)
+        except Exception as e:
+            print(f"⚠️  Failed to load {latest_file}: {e}")
 
     return actions
 
-def get_all_categories(actions):
-    """Get unique categories from all actions."""
-    categories = set()
-    for action in actions:
-        for cat in action.get("annotations", {}).get("categories", []):
-            categories.add(cat)
-    return sorted(list(categories))
-
-def get_action_type(action):
-    """Determine if action is marketplace or internal."""
-    source = action.get("source", {})
-
-    if source.get("type") == "marketplace":
-        return "marketplace"
-    elif source.get("type") == "internal":
-        return "internal"
-
-    action_id = action.get("action_id", "").lower()
-    if action_id.startswith("marketplace/"):
-        return "marketplace"
-
-    return "internal"
-
-def escape_html(text):
-    """Escape HTML special characters."""
-    if not text:
-        return ""
-    return (str(text)
-            .replace("&", "&amp;")
-            .replace("<", "&lt;")
-            .replace(">", "&gt;")
-            .replace('"', "&quot;")
-            .replace("'", "&#39;"))
-
 def load_action_yml(action):
-    """Load action.yml for an action."""
-    action_id = action.get("action_id", "")
+    """Load the raw action.yml content for display."""
+    source = action.get("source", {})
+    action_yml_path = source.get("action_yml_path")
 
-    # Parse action_id: marketplace/publisher/action_name or internal/action_name
-    parts = action_id.split("/")
+    if not action_yml_path:
+        return None
 
-    blueprints_dir = Path.cwd() / "blueprints"
+    yml_path = Path.cwd() / action_yml_path
+    if not yml_path.exists():
+        return None
 
-    if len(parts) >= 3 and parts[0] == "marketplace":
-        # marketplace/publisher/action_name
-        publisher = parts[1]
-        action_name = "/".join(parts[2:])  # Handle action names with slashes
-        action_yml_path = blueprints_dir / "marketplace" / publisher / action_name / "action.yml"
+    try:
+        with open(yml_path, "r") as f:
+            return f.read()
+    except Exception:
+        return None
 
-        if action_yml_path.exists():
-            with open(action_yml_path, "r") as f:
-                return f.read()
-
-    elif len(parts) >= 2 and parts[0] == "internal":
-        # internal/action_name
-        action_name = "/".join(parts[1:])
-        action_yml_path = blueprints_dir / "internal" / action_name / "action.yml"
-
-        if action_yml_path.exists():
-            with open(action_yml_path, "r") as f:
-                return f.read()
-
-    return None
-
-def get_catalog_stats(actions):
-    """Get catalog statistics."""
-    internal_count = 0
-    marketplace_count = 0
-    verified_count = 0
-
-    for action in actions:
-        action_type = get_action_type(action)
-
-        if action_type == "marketplace":
-            marketplace_count += 1
-        else:
-            internal_count += 1
-
-        if action.get("source", {}).get("verified"):
-            verified_count += 1
-
-    return {
-        "total": len(actions),
-        "internal": internal_count,
-        "marketplace": marketplace_count,
-        "verified": verified_count
-    }
-
-def format_action_uses(action_id):
-    """Format action ID for uses field in YAML.
-
-    Converts:
-    - marketplace/owner/repo -> owner/repo@main
-    - internal/action -> internal/action@main
-    """
-    parts = action_id.split("/")
-
-    if len(parts) >= 3 and parts[0] == "marketplace":
-        # Remove 'marketplace/' prefix
-        return f"{parts[1]}/{'/'.join(parts[2:])}@main"
-    elif len(parts) >= 2 and parts[0] == "internal":
-        # Keep internal/ prefix
-        return f"{action_id}@main"
-
-    return f"{action_id}@main"
-
-def generate_action_card(action):
-    """Generate HTML card for an action."""
-    action_id = action.get("action_id", "")
-    sanitized_id = action_id.replace("/", "__")
-    name = action.get("definition", {}).get("name", "")
-    description = action.get("definition", {}).get("description", "")
-    categories = action.get("annotations", {}).get("categories", [])
-    verified = action.get("source", {}).get("verified", False)
-    publisher = action.get("source", {}).get("publisher", "")
-    action_type = get_action_type(action)
-
-    # Truncate description
-    if len(description) > 120:
-        description = description[:120] + "..."
-
-    # Get primary category
-    primary_category = categories[0] if categories else ""
-    more_count = len(categories) - 1 if len(categories) > 1 else 0
-
-    primary_badge = f'<span class="badge badge-category-primary">{escape_html(primary_category)}</span>' if primary_category else ""
-    more_badge = f'<span class="badge badge-more">+{more_count}</span>' if more_count > 0 else ""
-
-    verified_badge = ""
-    if verified:
-        verified_badge = '<span class="badge badge-verified">✓ Verified</span>'
-
-    type_badge = f'<span class="badge badge-{action_type}">{action_type.capitalize()}</span>'
-
-    return f'''
-    <div class="action-card" data-action="{escape_html(action_id)}" data-categories="{','.join(categories)}">
-        <div class="card-header">
-            <h3>{escape_html(name or action_id)}</h3>
-            {verified_badge}
-        </div>
-        <p class="card-description">{escape_html(description)}</p>
-        <div class="card-meta">
-            <small>Publisher: <strong>{escape_html(publisher or "internal")}</strong></small>
-        </div>
-        <div class="card-badges">
-            {type_badge}
-            {primary_badge}
-            {more_badge}
-        </div>
-        <a href="#" class="card-link" data-action-id="{escape_html(sanitized_id)}">View Details →</a>
-    </div>
-'''
+def format_date(iso_date):
+    """Format ISO date to readable format."""
+    if not iso_date:
+        return ""
+    try:
+        dt = datetime.fromisoformat(iso_date.replace('Z', '+00:00'))
+        return dt.strftime("%B %d, %Y")
+    except:
+        return iso_date
 
 def generate_action_modal(action):
     """Generate modal HTML for action details."""
@@ -197,21 +89,61 @@ def generate_action_modal(action):
     verified = source.get("verified", False)
     publisher = source.get("publisher", "")
     origin = source.get("origin", "")
+    latest_release = source.get("latest_release")
 
     # Load action.yml
     action_yml = load_action_yml(action)
+
+    # Build latest release section
+    release_html = ""
+    if latest_release:
+        tag_name = latest_release.get("tag_name", "")
+        release_name = latest_release.get("name", tag_name)
+        published_at = latest_release.get("published_at", "")
+        html_url = latest_release.get("html_url", "")
+        prerelease = latest_release.get("prerelease", False)
+        draft = latest_release.get("draft", False)
+
+        formatted_date = format_date(published_at)
+
+        # Release badge
+        release_badge = ""
+        if prerelease:
+            release_badge = '<span class="badge badge-prerelease">Pre-release</span>'
+        elif draft:
+            release_badge = '<span class="badge badge-draft">Draft</span>'
+        else:
+            release_badge = '<span class="badge badge-release">Latest Release</span>'
+
+        release_html = f'''<div class="modal-section release-section">
+            <h3>📦 Latest Release</h3>
+            <div class="release-info">
+                <div class="release-header">
+                    <a href="{escape_html(html_url)}" target="_blank" class="release-title">
+                        <strong>{escape_html(release_name)}</strong>
+                    </a>
+                    {release_badge}
+                </div>
+                <div class="release-meta">
+                    <span class="release-tag">🏷️ {escape_html(tag_name)}</span>
+                    <span class="release-date">📅 {escape_html(formatted_date)}</span>
+                </div>
+                <a href="{escape_html(html_url)}" target="_blank" class="release-link">View Release Notes →</a>
+            </div>
+        </div>'''
 
     # Build inputs section
     inputs_html = ""
     if inputs:
         inputs_html = '<div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody>'
         for inp in inputs:
-            required = "Yes" if inp.get("required") else "No"
             required_badge = '<span class="badge-required">Required</span>' if inp.get("required") else '<span class="badge-optional">Optional</span>'
+            default_value = inp.get("default")
+            default_html = f'<div class="input-default">Default: <code>{escape_html(default_value)}</code></div>' if default_value else ''
             inputs_html += f'''<tr>
                 <td><code>{escape_html(inp.get("name", ""))}</code></td>
                 <td>{required_badge}</td>
-                <td>{escape_html(inp.get("description", ""))}</td>
+                <td>{escape_html(inp.get("description", ""))}{default_html}</td>
             </tr>'''
         inputs_html += '</tbody></table></div>'
 
@@ -240,7 +172,6 @@ def generate_action_modal(action):
         action_yml_escaped = escape_html(action_yml)
         action_yml_html = f'''<div class="section">
             <h3>action.yml</h3>
-            <!-- pragma: allowlist secret -->
             <pre><code>{action_yml_escaped}</code></pre>
         </div>'''
 
@@ -248,6 +179,11 @@ def generate_action_modal(action):
     verified_badge = ""
     if verified:
         verified_badge = '<span class="badge badge-verified">✓ Official Publisher</span>'
+
+    # Build origin link
+    origin_html = ""
+    if origin:
+        origin_html = f'<p><strong>Repository:</strong> <a href="https://{escape_html(origin)}" target="_blank">{escape_html(origin)}</a></p>'
 
     return f'''
     <div id="modal-{escape_html(sanitized_id)}" class="modal" data-action="{escape_html(action_id)}">
@@ -261,8 +197,10 @@ def generate_action_modal(action):
                 <p><strong>Action ID:</strong> <code>{escape_html(action_id)}</code></p>
                 <p><strong>Author:</strong> {escape_html(author or "Unknown")}</p>
                 <p><strong>Publisher:</strong> {escape_html(publisher or "internal")}</p>
-                <p><strong>Repository:</strong> <a href="https://{escape_html(origin)}" target="_blank">{escape_html(origin)}</a></p>
+                {origin_html}
             </div>
+
+            {release_html}
 
             <div class="modal-section">
                 <h2>Description</h2>
@@ -276,6 +214,261 @@ def generate_action_modal(action):
         </div>
     </div>
 '''
+
+def generate_index(actions):
+    """Generate the main index.html page."""
+    # Calculate statistics
+    total_actions = len(actions)
+    marketplace_count = sum(1 for a in actions if a.get("source", {}).get("type") == "marketplace")
+    internal_count = sum(1 for a in actions if a.get("source", {}).get("type") == "internal")
+    verified_count = sum(1 for a in actions if a.get("source", {}).get("verified"))
+
+    # Get all unique categories
+    all_categories = set()
+    for action in actions:
+        categories = action.get("annotations", {}).get("categories", [])
+        all_categories.update(categories)
+    all_categories = sorted(all_categories)
+
+    # Generate category options
+    category_options = '<option value="">All Categories</option>'
+    for cat in all_categories:
+        category_options += f'<option value="{escape_html(cat)}">{escape_html(cat)}</option>'
+
+    # Create JSON data for all actions
+    actions_data = []
+    for action in actions:
+        action_id = action.get("action_id", "")
+        definition = action.get("definition", {})
+        source = action.get("source", {})
+        annotations = action.get("annotations", {})
+
+        actions_data.append({
+            "id": action_id,
+            "name": definition.get("name", ""),
+            "description": definition.get("description", ""),
+            "author": definition.get("author", ""),
+            "publisher": source.get("publisher", ""),
+            "verified": source.get("verified", False),
+            "type": source.get("type", ""),
+            "categories": annotations.get("categories", []),
+            "sanitized_id": action_id.replace("/", "__")
+        })
+
+    actions_json = json.dumps(actions_data)
+
+    # Generate modals for all actions
+    modals_html = ""
+    for action in actions:
+        modals_html += generate_action_modal(action)
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-left">
+                <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
+                <p class="navbar-subtitle">Discover and explore GitHub Actions</p>
+            </div>
+            <a href="workflow-builder.html" class="navbar-btn">🔨 Workflow Builder</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">{total_actions}</div>
+                <div class="stat-label">Total Actions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{marketplace_count}</div>
+                <div class="stat-label">Marketplace</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{internal_count}</div>
+                <div class="stat-label">Internal</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">{verified_count}</div>
+                <div class="stat-label">Verified</div>
+            </div>
+        </div>
+
+        <div class="search-section">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search actions by name, description, or author...">
+            <div class="filter-group">
+                <select id="categoryFilter" class="category-filter">
+                    {category_options}
+                </select>
+                <select id="typeFilter" class="category-filter">
+                    <option value="">All Types</option>
+                    <option value="marketplace">Marketplace</option>
+                    <option value="internal">Internal</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="results-info" id="resultsInfo">
+            Showing {total_actions} actions
+        </div>
+
+        <div class="actions-grid" id="actionsGrid"></div>
+    </main>
+
+    {modals_html}
+
+    <footer>
+        <p>Generated on {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
+    </footer>
+
+    <script>
+        const allActions = {actions_json};
+        let filteredActions = [...allActions];
+
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const typeFilter = document.getElementById('typeFilter');
+        const actionsGrid = document.getElementById('actionsGrid');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+
+        function renderActions() {{
+            actionsGrid.innerHTML = '';
+
+            if (filteredActions.length === 0) {{
+                actionsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--dark-text-secondary);">No actions found</div>';
+                resultsInfo.textContent = 'No actions found';
+                return;
+            }}
+
+            resultsInfo.textContent = `Showing ${{filteredActions.length}} action${{filteredActions.length !== 1 ? 's' : ''}}`;
+
+            filteredActions.forEach(action => {{
+                const card = document.createElement('div');
+                card.className = 'action-card';
+
+                const verifiedBadge = action.verified ? '<span class="badge badge-verified">✓ Verified</span>' : '';
+                const typeBadge = action.type === 'marketplace'
+                    ? '<span class="badge badge-marketplace">Marketplace</span>'
+                    : '<span class="badge badge-internal">Internal</span>';
+
+                const categoryBadges = action.categories.slice(0, 2).map(cat =>
+                    `<span class="badge badge-category-primary">${{cat}}</span>`
+                ).join('');
+
+                const moreBadge = action.categories.length > 2
+                    ? `<span class="badge badge-more">+${{action.categories.length - 2}} more</span>`
+                    : '';
+
+                card.innerHTML = `
+                    <div class="card-header">
+                        <h3>${{action.name || action.id}}</h3>
+                    </div>
+                    <p class="card-description">${{action.description || 'No description available'}}</p>
+                    <div class="card-meta">
+                        <strong>Author:</strong> ${{action.author || 'Unknown'}}
+                    </div>
+                    <div class="card-badges">
+                        ${{verifiedBadge}}
+                        ${{typeBadge}}
+                        ${{categoryBadges}}
+                        ${{moreBadge}}
+                    </div>
+                    <a href="#" class="card-link">View Details →</a>
+                `;
+
+                card.addEventListener('click', (e) => {{
+                    e.preventDefault();
+                    openModal(action.sanitized_id);
+                }});
+
+                actionsGrid.appendChild(card);
+            }});
+        }}
+
+        function filterActions() {{
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+            const selectedType = typeFilter.value;
+
+            filteredActions = allActions.filter(action => {{
+                const matchesSearch = !searchTerm ||
+                    action.name.toLowerCase().includes(searchTerm) ||
+                    action.description.toLowerCase().includes(searchTerm) ||
+                    action.author.toLowerCase().includes(searchTerm) ||
+                    action.id.toLowerCase().includes(searchTerm);
+
+                const matchesCategory = !selectedCategory ||
+                    action.categories.includes(selectedCategory);
+
+                const matchesType = !selectedType ||
+                    action.type === selectedType;
+
+                return matchesSearch && matchesCategory && matchesType;
+            }});
+
+            renderActions();
+        }}
+
+        function openModal(sanitizedId) {{
+            const modal = document.getElementById(`modal-${{sanitizedId}}`);
+            if (modal) {{
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }}
+        }}
+
+        function closeModal(modal) {{
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }}
+
+        // Event listeners
+        searchInput.addEventListener('input', filterActions);
+        categoryFilter.addEventListener('change', filterActions);
+        typeFilter.addEventListener('change', filterActions);
+
+        closeButtons.forEach(btn => {{
+            btn.addEventListener('click', (e) => {{
+                const modal = e.target.closest('.modal');
+                if (modal) {{
+                    closeModal(modal);
+                }}
+            }});
+        }});
+
+        modals.forEach(modal => {{
+            modal.addEventListener('click', (e) => {{
+                if (e.target === modal) {{
+                    closeModal(modal);
+                }}
+            }});
+        }});
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {{
+            if (e.key === 'Escape') {{
+                modals.forEach(modal => {{
+                    if (modal.style.display === 'block') {{
+                        closeModal(modal);
+                    }}
+                }});
+            }}
+        }});
+
+        // Initial render
+        renderActions();
+    </script>
+</body>
+</html>'''
 
 def generate_workflow_builder():
     """Generate workflow builder page."""
@@ -378,8 +571,53 @@ def generate_workflow_builder():
             color: var(--dark-text-secondary);
         }}
 
+        .workflow-code {{
+            padding: 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }}
+
+        .workflow-code h3 {{
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }}
+
+        .workflow-yaml {{
+            background: var(--dark-bg-secondary);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--code-blue);
+            font-family: 'Courier New', monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid var(--dark-border);
+            white-space: pre;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }}
+
+        .copy-btn {{
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }}
+
+        .copy-btn:hover {{
+            background: var(--primary-dark);
+        }}
+
         .workflow-steps {{
-            margin-bottom: 1.5rem;
+            margin-top: 1rem;
         }}
 
         .workflow-step {{
@@ -489,51 +727,6 @@ def generate_workflow_builder():
             font-size: 0.85rem;
         }}
 
-        .workflow-code {{
-            margin-top: 2rem;
-            padding: 1rem;
-            background: var(--dark-bg);
-            border: 1px solid var(--dark-border);
-            border-radius: 6px;
-        }}
-
-        .workflow-code h3 {{
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }}
-
-        .workflow-yaml {{
-            background: var(--dark-bg-secondary);
-            padding: 1rem;
-            border-radius: 4px;
-            overflow-x: auto;
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: var(--code-blue);
-            font-family: 'Courier New', monospace;
-            max-height: 400px;
-            overflow-y: auto;
-            border: 1px solid var(--dark-border);
-            white-space: pre;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }}
-
-        .copy-btn {{
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 0.75rem;
-            font-weight: 500;
-        }}
-
-        .copy-btn:hover {{
-            background: var(--primary-dark);
-        }}
-
         .empty-state {{
             text-align: center;
             padding: 3rem 1rem;
@@ -589,13 +782,6 @@ def generate_workflow_builder():
             </div>
 
             <div class="builder-main">
-                <h3>Workflow Steps</h3>
-                <div class="workflow-steps" id="workflowSteps">
-                    <div class="empty-state">
-                        <p>Select actions from the left to build your workflow</p>
-                    </div>
-                </div>
-
                 <div class="workflow-code">
                     <h3>Generated YAML</h3>
                     <div class="workflow-yaml" id="workflowYaml">name: Generated Workflow
@@ -607,6 +793,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4</div>
                     <button class="copy-btn" onclick="copyWorkflow()">📋 Copy to Clipboard</button>
+                </div>
+
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Workflow Steps</h3>
+                <div class="workflow-steps" id="workflowSteps">
+                    <div class="empty-state">
+                        <p>Select actions from the left to build your workflow</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -811,181 +1004,6 @@ jobs:
 
         // Initial render
         renderAvailableActions();
-    </script>
-</body>
-</html>'''
-
-def generate_index():
-    """Generate main index page."""
-    actions = load_catalog()
-    categories = get_all_categories(actions)
-    stats = get_catalog_stats(actions)
-
-    # Generate action cards
-    cards_html = ""
-    for action in actions:
-        cards_html += generate_action_card(action)
-
-    # Generate modals
-    modals_html = ""
-    for action in actions:
-        modals_html += generate_action_modal(action)
-
-    # Generate category filters
-    category_options = ""
-    for cat in categories:
-        category_options += f'<option value="{escape_html(cat)}">{escape_html(cat)}</option>'
-
-    return f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Actions Catalog</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="container navbar-content">
-            <div class="navbar-left">
-                <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
-                <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
-            </div>
-            <a href="workflow-generator.html" class="navbar-btn">⚙️ Build Workflow</a>
-        </div>
-    </nav>
-
-    <main class="container">
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number">{stats['total']}</div>
-                <div class="stat-label">Total Actions</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">{stats['internal']}</div>
-                <div class="stat-label">Internal Actions</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">{stats['marketplace']}</div>
-                <div class="stat-label">Marketplace Actions</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">{stats['verified']}</div>
-                <div class="stat-label">Verified Publishers</div>
-            </div>
-        </div>
-
-        <div class="search-section">
-            <input type="text" id="searchInput" class="search-input" placeholder="Search actions by name or description...">
-
-            <div class="filter-group">
-                <select id="categoryFilter" class="category-filter">
-                    <option value="">All Categories</option>
-                    {category_options}
-                </select>
-
-                <select id="typeFilter" class="category-filter">
-                    <option value="">All Types</option>
-                    <option value="internal">Internal Only</option>
-                    <option value="marketplace">Marketplace Only</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="results-info">
-            <p id="resultCount">Showing {stats['total']} actions</p>
-        </div>
-
-        <div class="actions-grid">
-            {cards_html}
-        </div>
-    </main>
-
-    {modals_html}
-
-    <footer>
-        <p>Generated on {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
-    </footer>
-
-    <script>
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const typeFilter = document.getElementById('typeFilter');
-        const cards = document.querySelectorAll('.action-card');
-        const resultCount = document.getElementById('resultCount');
-        const modals = document.querySelectorAll('.modal');
-        const closeButtons = document.querySelectorAll('.close');
-
-        // Open modal when card is clicked
-        cards.forEach(card => {{
-            card.addEventListener('click', (e) => {{
-                if (e.target.closest('.card-link')) {{
-                    e.preventDefault();
-                }}
-                const actionId = card.querySelector('.card-link').getAttribute('data-action-id');
-                const modal = document.getElementById(`modal-${{actionId}}`);
-                if (modal) {{
-                    modal.style.display = 'block';
-                }}
-            }});
-        }});
-
-        // Close modal
-        closeButtons.forEach(btn => {{
-            btn.addEventListener('click', (e) => {{
-                const modal = e.target.closest('.modal');
-                if (modal) {{
-                    modal.style.display = 'none';
-                }}
-            }});
-        }});
-
-        // Close modal when clicking outside
-        modals.forEach(modal => {{
-            modal.addEventListener('click', (e) => {{
-                if (e.target === modal) {{
-                    modal.style.display = 'none';
-                }}
-            }});
-        }});
-
-        function filterActions() {{
-            const searchTerm = searchInput.value.toLowerCase();
-            const selectedCategory = categoryFilter.value;
-            const selectedType = typeFilter.value;
-            let visibleCount = 0;
-
-            cards.forEach(card => {{
-                const action = card.getAttribute('data-action').toLowerCase();
-                const categories = card.getAttribute('data-categories').split(',').filter(c => c);
-                const name = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('.card-description').textContent.toLowerCase();
-                const typeElement = card.querySelector('.badge');
-                const actionType = typeElement.textContent.toLowerCase();
-
-                const matchesSearch = !searchTerm ||
-                    action.includes(searchTerm) ||
-                    name.includes(searchTerm) ||
-                    description.includes(searchTerm);
-
-                const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
-
-                const matchesType = !selectedType || actionType.includes(selectedType);
-
-                if (matchesSearch && matchesCategory && matchesType) {{
-                    card.style.display = 'block';
-                    visibleCount++;
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            resultCount.textContent = `Showing ${{visibleCount}} action${{visibleCount !== 1 ? 's' : ''}}`;
-        }}
-
-        searchInput.addEventListener('input', filterActions);
-        categoryFilter.addEventListener('change', filterActions);
-        typeFilter.addEventListener('change', filterActions);
     </script>
 </body>
 </html>'''
@@ -1285,6 +1303,21 @@ body {
     color: #c9d1d9;
 }
 
+.badge-release {
+    background: var(--success);
+    color: white;
+}
+
+.badge-prerelease {
+    background: #ffa657;
+    color: #0d1117;
+}
+
+.badge-draft {
+    background: var(--dark-border);
+    color: var(--dark-text);
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -1369,6 +1402,63 @@ body {
     text-decoration: underline;
 }
 
+.release-section {
+    background: var(--dark-bg-tertiary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--dark-border);
+}
+
+.release-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.release-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.release-title {
+    font-size: 1.1rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.release-title:hover {
+    text-decoration: underline;
+}
+
+.release-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--dark-text-secondary);
+    font-size: 0.9rem;
+}
+
+.release-tag,
+.release-date {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.release-link {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.release-link:hover {
+    text-decoration: underline;
+}
+
 .section {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
@@ -1382,6 +1472,12 @@ body {
 .section h3 {
     margin: 0 0 1rem 0;
     color: var(--primary);
+}
+
+.input-default {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--dark-text-secondary);
 }
 
 table {
@@ -1467,47 +1563,52 @@ footer {
         width: 100%;
         text-align: center;
     }
+
+    .release-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .release-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
 '''
 
 def main():
-    """Generate website."""
-    print("🌐 Generating static HTML website for GitHub Pages\n")
+    """Generate static website."""
+    print("🌐 Generating static website\n")
 
     # Create docs directory
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     # Load catalog
     actions = load_catalog()
-    print(f"📚 Loaded {len(actions)} actions\n")
+    print(f"Loaded {len(actions)} actions\n")
 
-    # Generate index.html
-    print("📄 Generating index.html...")
-    index_html = generate_index()
+    # Generate pages
+    print("Generating index.html...")
+    index_html = generate_index(actions)
     with open(DOCS_DIR / "index.html", "w") as f:
         f.write(index_html)
-    print("   ✅ index.html")
 
-    # Generate workflow builder
-    print("📄 Generating workflow-generator.html...")
-    workflow_html = generate_workflow_builder()
-    with open(DOCS_DIR / "workflow-generator.html", "w") as f:
-        f.write(workflow_html)
-    print("   ✅ workflow-generator.html")
+    print("Generating workflow-builder.html...")
+    workflow_builder_html = generate_workflow_builder()
+    with open(DOCS_DIR / "workflow-builder.html", "w") as f:
+        f.write(workflow_builder_html)
 
-    # Generate styles.css
-    print("📄 Generating styles.css...")
-    styles = generate_styles()
+    print("Generating styles.css...")
+    styles_css = generate_styles()
     with open(DOCS_DIR / "styles.css", "w") as f:
-        f.write(styles)
-    print("   ✅ styles.css")
+        f.write(styles_css)
 
     print(f"\n✅ Website generated successfully!")
     print(f"📁 Output: {DOCS_DIR.relative_to(Path.cwd())}/")
-    print(f"   - index.html (main catalog)")
-    print(f"   - workflow-generator.html (build workflows)")
-    print(f"   - styles.css (styles)")
-    print(f"🚀 Ready for GitHub Pages deployment")
+    print(f"\nFiles created:")
+    print(f"  - index.html")
+    print(f"  - workflow-builder.html")
+    print(f"  - styles.css")
 
 if __name__ == "__main__":
     main()

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/combine-prs/action.yml",
     "origin": "github.com/github/combine-prs",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v5.2.0",
+      "name": "v5.2.0",
+      "published_at": "2024-10-10T19:13:03Z",
+      "html_url": "https://github.com/github/combine-prs/releases/tag/v5.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "combine-prs",
@@ -126,14 +134,32 @@
     }
   },
   "annotations": {
-    "categories": [],
-    "confidence": null,
-    "evidence": []
+    "categories": [
+      "Code quality",
+      "Communication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action combines multiple pull requests into a single one, which enhances code quality and streamlines the review process. It also involves managing dependencies by consolidating updates from various branches.",
+        "tags": [
+          "pull request",
+          "combine",
+          "dependencies",
+          "GitHub",
+          "automation"
+        ]
+      }
+    ]
   },
   "cache": {
     "source_hash": "ed0a1fad564db30b38c094080b2e7d913fba5994b4bf3af3986a04fa469f5f5f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.919175Z"
+    "generated_at": "2025-12-15T02:19:00.315409Z"
   }
 }

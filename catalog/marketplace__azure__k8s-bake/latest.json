@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/k8s-bake/action.yml",
     "origin": "github.com/azure/k8s-bake",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3.0.3",
+      "name": "v3.0.3",
+      "published_at": "2025-12-08T21:27:39Z",
+      "html_url": "https://github.com/Azure/k8s-bake/releases/tag/v3.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Kubernetes bake",
@@ -115,7 +123,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is primarily focused on preparing Kubernetes manifest files for deployment, which falls under the Deployment category. It also involves packaging the manifests, making it relevant for the Packaging category.",
+        "reasoning": "The action is primarily focused on preparing Kubernetes manifest files for deployment, which falls under the Deployment category. It also involves packaging these manifests, making Packaging a relevant secondary category.",
         "tags": [
           "Kubernetes",
           "Helm",
@@ -130,6 +138,6 @@
     "source_hash": "85d4a211af9ed078ee3860ff7c9b350d295436da06d6d9ac699ec572f0069adb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.534891Z"
+    "generated_at": "2025-12-15T02:18:59.809050Z"
   }
 }
