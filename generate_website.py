@@ -271,7 +271,10 @@ def generate_index(actions):
                 <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
                 <p class="navbar-subtitle">Discover and explore GitHub Actions</p>
             </div>
-            <a href="workflow-builder.html" class="navbar-btn">🔨 Workflow Builder</a>
+            <div style="display: flex; gap: 1rem;">
+                <a href="workflow-builder.html" class="navbar-btn">🔨 Workflow Builder</a>
+                <a href="dependency-visualizer.html" class="navbar-btn">🔗 Workflow Visualizer</a>
+            </div>
         </div>
     </nav>
 
@@ -1609,18 +1612,776 @@ footer {
 }
 '''
 
+def generate_dependency_visualizer():
+    """Generate dependency graph visualizer page."""
+    actions = load_catalog()
+
+    # Generate modals for all actions
+    modals_html = ""
+    for action in actions:
+        modals_html += generate_action_modal(action)
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dependency Visualizer - GitHub Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        .dependency-visualizer {{
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            height: calc(100vh - 200px);
+        }}
+
+        .visualizer-sidebar {{
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--dark-border);
+            overflow-y: auto;
+        }}
+
+        .visualizer-main {{
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--dark-border);
+            position: relative;
+            overflow: hidden;
+        }}
+
+        .graph-container {{
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }}
+
+        #graph {{
+            width: 100%;
+            height: 100%;
+        }}
+
+        .controls {{
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }}
+
+        .control-btn {{
+            background: var(--dark-bg-tertiary);
+            border: 1px solid var(--dark-border);
+            color: var(--dark-text);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }}
+
+        .control-btn:hover {{
+            background: var(--dark-bg);
+            border-color: var(--primary);
+        }}
+
+        .control-btn.active {{
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }}
+
+        .node {{
+            cursor: pointer;
+            transition: all 0.3s;
+        }}
+
+        .node circle {{
+            fill: var(--dark-bg-tertiary);
+            stroke: var(--primary);
+            stroke-width: 2px;
+        }}
+
+        .node.selected circle {{
+            fill: var(--primary);
+            stroke: var(--primary-dark);
+            stroke-width: 3px;
+        }}
+
+        .node.dependency circle {{
+            fill: #ffa657;
+            stroke: #ff8c00;
+        }}
+
+        .node.dependent circle {{
+            fill: var(--success);
+            stroke: #2eb886;
+        }}
+
+        .node text {{
+            fill: var(--dark-text);
+            font-size: 12px;
+            pointer-events: none;
+            text-anchor: middle;
+        }}
+
+        .link {{
+            fill: none;
+            stroke: var(--dark-border);
+            stroke-width: 2px;
+            marker-end: url(#arrowhead);
+        }}
+
+        .link.selected {{
+            stroke: var(--primary);
+            stroke-width: 3px;
+        }}
+
+        .link.circular {{
+            stroke: #da3633;
+            stroke-width: 3px;
+            stroke-dasharray: 5,5;
+            animation: dash 1s linear infinite;
+        }}
+
+        @keyframes dash {{
+            to {{
+                stroke-dashoffset: -10;
+            }}
+        }}
+
+        .legend {{
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            background: var(--dark-bg-tertiary);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--dark-border);
+        }}
+
+        .legend-item {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }}
+
+        .legend-item:last-child {{
+            margin-bottom: 0;
+        }}
+
+        .legend-circle {{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid;
+        }}
+
+        .workflow-list {{
+            max-height: calc(100vh - 400px);
+            overflow-y: auto;
+        }}
+
+        .workflow-item {{
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+
+        .workflow-item:hover {{
+            border-color: var(--primary);
+            background: var(--dark-bg-tertiary);
+        }}
+
+        .workflow-item.active {{
+            border-color: var(--primary);
+            background: var(--dark-bg-tertiary);
+        }}
+
+        .workflow-name {{
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }}
+
+        .workflow-steps {{
+            font-size: 0.85rem;
+            color: var(--dark-text-secondary);
+        }}
+
+        .stats {{
+            background: var(--dark-bg);
+            padding: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--dark-border);
+            margin-bottom: 1rem;
+        }}
+
+        .stat-item {{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }}
+
+        .stat-item:last-child {{
+            margin-bottom: 0;
+        }}
+
+        .stat-label {{
+            color: var(--dark-text-secondary);
+        }}
+
+        .stat-value {{
+            color: var(--primary);
+            font-weight: 600;
+        }}
+
+        .warning {{
+            background: rgba(218, 54, 51, 0.1);
+            border: 1px solid #da3633;
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            color: #da3633;
+            font-size: 0.85rem;
+        }}
+
+        @media (max-width: 1024px) {{
+            .dependency-visualizer {{
+                grid-template-columns: 1fr;
+            }}
+
+            .visualizer-sidebar {{
+                max-height: 300px;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-left">
+                <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
+                <p class="navbar-subtitle">Dependency Visualizer</p>
+            </div>
+            <a href="index.html" class="navbar-btn">← Back to Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Workflow Dependency Visualizer</h1>
+        <p style="color: var(--dark-text-secondary); margin-bottom: 2rem;">
+            Visualize action dependencies and identify potential circular references in your workflows
+        </p>
+
+        <div class="dependency-visualizer">
+            <div class="visualizer-sidebar">
+                <h3>Workflows</h3>
+
+                <div class="stats" id="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Steps:</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Workflow Visualizer:</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Max Depth:</span>
+                        <span class="stat-value">0</span>
+                    </div>
+                </div>
+
+                <div id="warnings"></div>
+
+                <div class="workflow-list" id="workflowList">
+                    <div class="workflow-item active" data-workflow="sample">
+                        <div class="workflow-name">Sample CI/CD Workflow</div>
+                        <div class="workflow-steps">7 steps</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visualizer-main">
+                <div class="controls">
+                    <button class="control-btn" onclick="resetZoom()">🔍 Reset View</button>
+                    <button class="control-btn" onclick="centerGraph()">🎯 Center</button>
+                    <button class="control-btn" onclick="exportSVG()">💾 Export SVG</button>
+                    <button class="control-btn" onclick="exportPNG()">📷 Export PNG</button>
+                    <button class="control-btn" id="layoutBtn" onclick="toggleLayout()">📊 Tree Layout</button>
+                </div>
+
+                <div class="graph-container">
+                    <svg id="graph"></svg>
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: var(--dark-bg-tertiary); border-color: var(--primary);"></div>
+                        <span>Normal Step</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: var(--primary); border-color: var(--primary-dark);"></div>
+                        <span>Selected Step</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: #ffa657; border-color: #ff8c00;"></div>
+                        <span>Dependency</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-circle" style="background: var(--success); border-color: #2eb886;"></div>
+                        <span>Dependent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {modals_html}
+
+    <footer>
+        <p>Generated on {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
+    </footer>
+
+    <script>
+        const workflows = {{
+            sample: {{
+                name: "Sample CI/CD Workflow",
+                nodes: [
+                    {{ id: "checkout", label: "Checkout", type: "action" }},
+                    {{ id: "setup-node", label: "Setup Node", type: "action" }},
+                    {{ id: "install", label: "Install Dependencies", type: "action" }},
+                    {{ id: "lint", label: "Lint", type: "action" }},
+                    {{ id: "test", label: "Test", type: "action" }},
+                    {{ id: "build", label: "Build", type: "action" }},
+                    {{ id: "deploy", label: "Deploy", type: "action" }}
+                ],
+                links: [
+                    {{ source: "checkout", target: "setup-node" }},
+                    {{ source: "setup-node", target: "install" }},
+                    {{ source: "install", target: "lint" }},
+                    {{ source: "install", target: "test" }},
+                    {{ source: "lint", target: "build" }},
+                    {{ source: "test", target: "build" }},
+                    {{ source: "build", target: "deploy" }}
+                ]
+            }}
+        }};
+
+        let currentWorkflow = "sample";
+        let currentLayout = "force";
+        let svg, g, simulation, zoom;
+        let selectedNode = null;
+
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+
+        closeButtons.forEach(btn => {{
+            btn.addEventListener('click', (e) => {{
+                const modal = e.target.closest('.modal');
+                if (modal) {{
+                    modal.style.display = 'none';
+                }}
+            }});
+        }});
+
+        modals.forEach(modal => {{
+            modal.addEventListener('click', (e) => {{
+                if (e.target === modal) {{
+                    modal.style.display = 'none';
+                }}
+            }});
+        }});
+
+        function initGraph() {{
+            const container = d3.select("#graph");
+            const width = container.node().getBoundingClientRect().width;
+            const height = container.node().getBoundingClientRect().height;
+
+            svg = container
+                .attr("width", width)
+                .attr("height", height);
+
+            svg.append("defs").append("marker")
+                .attr("id", "arrowhead")
+                .attr("viewBox", "0 -5 10 10")
+                .attr("refX", 25)
+                .attr("refY", 0)
+                .attr("markerWidth", 6)
+                .attr("markerHeight", 6)
+                .attr("orient", "auto")
+                .append("path")
+                .attr("d", "M0,-5L10,0L0,5")
+                .attr("fill", "var(--dark-border)");
+
+            zoom = d3.zoom()
+                .scaleExtent([0.1, 4])
+                .on("zoom", (event) => {{
+                    g.attr("transform", event.transform);
+                }});
+
+            svg.call(zoom);
+            g = svg.append("g");
+
+            renderGraph();
+        }}
+
+        function renderGraph() {{
+            const workflow = workflows[currentWorkflow];
+            const nodes = JSON.parse(JSON.stringify(workflow.nodes));
+            const links = JSON.parse(JSON.stringify(workflow.links));
+
+            g.selectAll("*").remove();
+
+            const circular = detectCircularDependencies(nodes, links);
+            if (circular.length > 0) {{
+                showWarning(`⚠️ Circular dependencies detected: ${{circular.join(", ")}}`);
+            }} else {{
+                hideWarning();
+            }}
+
+            updateStats(nodes.length, links.length, calculateMaxDepth(nodes, links));
+
+            if (currentLayout === "force") {{
+                renderForceLayout(nodes, links);
+            }} else {{
+                renderTreeLayout(nodes, links);
+            }}
+        }}
+
+        function renderForceLayout(nodes, links) {{
+            const width = svg.node().getBoundingClientRect().width;
+            const height = svg.node().getBoundingClientRect().height;
+
+            simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(150))
+                .force("charge", d3.forceManyBody().strength(-500))
+                .force("center", d3.forceCenter(width / 2, height / 2))
+                .force("collision", d3.forceCollide().radius(50));
+
+            const link = g.append("g")
+                .selectAll("path")
+                .data(links)
+                .join("path")
+                .attr("class", "link");
+
+            const node = g.append("g")
+                .selectAll("g")
+                .data(nodes)
+                .join("g")
+                .attr("class", "node")
+                .call(drag(simulation))
+                .on("click", (event, d) => handleNodeClick(d));
+
+            node.append("circle")
+                .attr("r", 20);
+
+            node.append("text")
+                .attr("dy", 30)
+                .text(d => d.label);
+
+            simulation.on("tick", () => {{
+                link.attr("d", d => {{
+                    return `M${{d.source.x}},${{d.source.y}}L${{d.target.x}},${{d.target.y}}`;
+                }});
+
+                node.attr("transform", d => `translate(${{d.x}},${{d.y}})`);
+            }});
+        }}
+
+        function renderTreeLayout(nodes, links) {{
+            const width = svg.node().getBoundingClientRect().width;
+            const height = svg.node().getBoundingClientRect().height;
+
+            const root = d3.stratify()
+                .id(d => d.id)
+                .parentId(d => {{
+                    const parent = links.find(l => l.target === d.id);
+                    return parent ? parent.source : null;
+                }})(nodes);
+
+            const treeLayout = d3.tree().size([width - 100, height - 100]);
+            treeLayout(root);
+
+            const link = g.append("g")
+                .selectAll("path")
+                .data(root.links())
+                .join("path")
+                .attr("class", "link")
+                .attr("d", d3.linkVertical()
+                    .x(d => d.x)
+                    .y(d => d.y));
+
+            const node = g.append("g")
+                .selectAll("g")
+                .data(root.descendants())
+                .join("g")
+                .attr("class", "node")
+                .attr("transform", d => `translate(${{d.x}},${{d.y}})`)
+                .on("click", (event, d) => handleNodeClick(d.data));
+
+            node.append("circle")
+                .attr("r", 20);
+
+            node.append("text")
+                .attr("dy", 30)
+                .text(d => d.data.label);
+
+            const bounds = g.node().getBBox();
+            const translateX = (width - bounds.width) / 2 - bounds.x;
+            const translateY = 50 - bounds.y;
+            g.attr("transform", `translate(${{translateX}},${{translateY}})`);
+        }}
+
+        function handleNodeClick(node) {{
+            selectedNode = node.id;
+
+            d3.selectAll(".node")
+                .classed("selected", false)
+                .classed("dependency", false)
+                .classed("dependent", false);
+
+            d3.selectAll(".link")
+                .classed("selected", false);
+
+            d3.selectAll(".node")
+                .filter(d => d.id === node.id || (d.data && d.data.id === node.id))
+                .classed("selected", true);
+
+            const workflow = workflows[currentWorkflow];
+            const dependencies = workflow.links
+                .filter(l => l.target === node.id)
+                .map(l => l.source);
+
+            const dependents = workflow.links
+                .filter(l => l.source === node.id)
+                .map(l => l.target);
+
+            d3.selectAll(".node")
+                .filter(d => {{
+                    const id = d.id || d.data.id;
+                    return dependencies.includes(id);
+                }})
+                .classed("dependency", true);
+
+            d3.selectAll(".node")
+                .filter(d => {{
+                    const id = d.id || d.data.id;
+                    return dependents.includes(id);
+                }})
+                .classed("dependent", true);
+
+            d3.selectAll(".link")
+                .filter(function() {{
+                    const link = d3.select(this).datum();
+                    return link.source.id === node.id || link.target.id === node.id ||
+                           link.source === node.id || link.target === node.id;
+                }})
+                .classed("selected", true);
+        }}
+
+        function detectCircularDependencies(nodes, links) {{
+            const circular = [];
+            const visited = new Set();
+            const recStack = new Set();
+
+            function dfs(nodeId) {{
+                visited.add(nodeId);
+                recStack.add(nodeId);
+
+                const neighbors = links
+                    .filter(l => l.source === nodeId)
+                    .map(l => l.target);
+
+                for (const neighbor of neighbors) {{
+                    if (!visited.has(neighbor)) {{
+                        if (dfs(neighbor)) {{
+                            circular.push(`${{nodeId}} → ${{neighbor}}`);
+                            return true;
+                        }}
+                    }} else if (recStack.has(neighbor)) {{
+                        circular.push(`${{nodeId}} → ${{neighbor}}`);
+                        return true;
+                    }}
+                }}
+
+                recStack.delete(nodeId);
+                return false;
+            }}
+
+            nodes.forEach(node => {{
+                if (!visited.has(node.id)) {{
+                    dfs(node.id);
+                }}
+            }});
+
+            return circular;
+        }}
+
+        function calculateMaxDepth(nodes, links) {{
+            const depths = {{}};
+            nodes.forEach(n => depths[n.id] = 0);
+
+            let changed = true;
+            while (changed) {{
+                changed = false;
+                links.forEach(link => {{
+                    const newDepth = depths[link.source] + 1;
+                    if (newDepth > depths[link.target]) {{
+                        depths[link.target] = newDepth;
+                        changed = true;
+                    }}
+                }});
+            }}
+
+            return Math.max(...Object.values(depths));
+        }}
+
+        function updateStats(nodes, links, depth) {{
+            const stats = document.getElementById("stats");
+            stats.innerHTML = `
+                <div class="stat-item">
+                    <span class="stat-label">Total Steps:</span>
+                    <span class="stat-value">${{nodes}}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Dependencies:</span>
+                    <span class="stat-value">${{links}}</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Max Depth:</span>
+                    <span class="stat-value">${{depth}}</span>
+                </div>
+            `;
+        }}
+
+        function showWarning(message) {{
+            document.getElementById("warnings").innerHTML = `<div class="warning">${{message}}</div>`;
+        }}
+
+        function hideWarning() {{
+            document.getElementById("warnings").innerHTML = "";
+        }}
+
+        function drag(simulation) {{
+            function dragstarted(event) {{
+                if (!event.active) simulation.alphaTarget(0.3).restart();
+                event.subject.fx = event.subject.x;
+                event.subject.fy = event.subject.y;
+            }}
+
+            function dragged(event) {{
+                event.subject.fx = event.x;
+                event.subject.fy = event.y;
+            }}
+
+            function dragended(event) {{
+                if (!event.active) simulation.alphaTarget(0);
+                event.subject.fx = null;
+                event.subject.fy = null;
+            }}
+
+            return d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended);
+        }}
+
+        function resetZoom() {{
+            svg.transition().duration(750).call(zoom.transform, d3.zoomIdentity);
+        }}
+
+        function centerGraph() {{
+            const bounds = g.node().getBBox();
+            const width = svg.node().getBoundingClientRect().width;
+            const height = svg.node().getBoundingClientRect().height;
+            const scale = 0.9 / Math.max(bounds.width / width, bounds.height / height);
+            const translate = [
+                width / 2 - scale * (bounds.x + bounds.width / 2),
+                height / 2 - scale * (bounds.y + bounds.height / 2)
+            ];
+
+            svg.transition().duration(750).call(
+                zoom.transform,
+                d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale)
+            );
+        }}
+
+        function toggleLayout() {{
+            currentLayout = currentLayout === "force" ? "tree" : "force";
+            document.getElementById("layoutBtn").textContent =
+                currentLayout === "force" ? "📊 Tree Layout" : "🌐 Force Layout";
+            renderGraph();
+        }}
+
+        function exportSVG() {{
+            const svgData = svg.node().outerHTML;
+            const blob = new Blob([svgData], {{ type: "image/svg+xml" }});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "workflow-dependency-graph.svg";
+            a.click();
+            URL.revokeObjectURL(url);
+        }}
+
+        function exportPNG() {{
+            const svgElement = svg.node();
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            const svgData = new XMLSerializer().serializeToString(svgElement);
+            const img = new Image();
+
+            canvas.width = svgElement.getBoundingClientRect().width;
+            canvas.height = svgElement.getBoundingClientRect().height;
+
+            img.onload = function() {{
+                ctx.fillStyle = "#0d1117";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.drawImage(img, 0, 0);
+
+                canvas.toBlob(function(blob) {{
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "workflow-dependency-graph.png";
+                    a.click();
+                    URL.revokeObjectURL(url);
+                }});
+            }};
+
+            img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData)));
+        }}
+
+        window.addEventListener("load", initGraph);
+        window.addEventListener("resize", renderGraph);
+    </script>
+</body>
+</html>'''
+
 def main():
     """Generate static website."""
     print("🌐 Generating static website\n")
 
-    # Create docs directory
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Load catalog
     actions = load_catalog()
     print(f"Loaded {len(actions)} actions\n")
 
-    # Generate pages
     print("Generating index.html...")
     index_html = generate_index(actions)
     with open(DOCS_DIR / "index.html", "w") as f:
@@ -1630,6 +2391,11 @@ def main():
     workflow_builder_html = generate_workflow_builder()
     with open(DOCS_DIR / "workflow-builder.html", "w") as f:
         f.write(workflow_builder_html)
+
+    print("Generating dependency-visualizer.html...")
+    dependency_visualizer_html = generate_dependency_visualizer()
+    with open(DOCS_DIR / "dependency-visualizer.html", "w") as f:
+        f.write(dependency_visualizer_html)
 
     print("Generating styles.css...")
     styles_css = generate_styles()
@@ -1641,6 +2407,7 @@ def main():
     print(f"\nFiles created:")
     print(f"  - index.html")
     print(f"  - workflow-builder.html")
+    print(f"  - dependency-visualizer.html")
     print(f"  - styles.css")
 
 if __name__ == "__main__":
