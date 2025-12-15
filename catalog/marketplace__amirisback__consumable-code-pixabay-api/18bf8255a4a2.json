@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-pixabay-api",
+  "version_id": "18bf8255a4a2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-pixabay-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-pixabay-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Consumable Code Pixabay API",
+    "description": "Retrofit has been Handled, Consumable code for request Public API (Pixabay API)",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "18bf8255a4a2458181606750530df45dcb54ccea2576cb41c146bf74f927d536",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.608181Z"
+  }
+}

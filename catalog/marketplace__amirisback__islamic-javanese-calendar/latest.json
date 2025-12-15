@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/islamic-javanese-calendar",
+  "version_id": "9562fd5cef65",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/islamic-javanese-calendar/action.yml",
+    "origin": "github.com/amirisback/islamic-javanese-calendar",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "FrogoKickStartAndroid",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action provides an SDK aimed at simplifying Android app development, which suggests a focus on documentation and potentially managing dependencies for developers. However, the lack of specific details on its functionality limits confidence in categorization.",
+        "tags": [
+          "SDK",
+          "Android",
+          "Development",
+          "Documentation",
+          "Dependency"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "9562fd5cef6529e6c05b3a0e8d5bca962ea21c56e3565dabe2504777b4e50e96",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.616338Z"
+  }
+}

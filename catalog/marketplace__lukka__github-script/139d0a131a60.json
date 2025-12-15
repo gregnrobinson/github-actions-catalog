@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/lukka/github-script",
+  "version_id": "139d0a131a60",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/github-script/action.yml",
+    "origin": "github.com/lukka/github-script",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Script",
+    "description": "Run simple scripts using the GitHub client",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "script",
+        "required": true,
+        "default": null,
+        "description": "The path to the file containing the script to run"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": false,
+        "description": "Whether to tell the GitHub client to log details of its requests"
+      },
+      {
+        "name": "user-agent",
+        "required": false,
+        "default": "actions/github-script",
+        "description": "An optional user-agent string"
+      },
+      {
+        "name": "previews",
+        "required": false,
+        "default": null,
+        "description": "A comma-separated list of API previews to accept"
+      },
+      {
+        "name": "result-encoding",
+        "required": false,
+        "default": "json",
+        "description": "Either \"string\" or \"json\" (default \"json\")\u2014how the result will be encoded"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "result",
+        "description": "The return value of the script, stringified with `JSON.stringify`"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "139d0a131a60ef1d01b26c3387b66b53efe4e03094186b8d5361e4800ea32bb3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.246770Z"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-the-meal-db-api",
+  "version_id": "f6eb2cc08186",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-the-meal-db-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-the-meal-db-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Consumable Code The Meal DB API",
+    "description": "Retrofit has been Handled, Consumable code for request Public API (The Meal DB API)",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action provides consumable code for interacting with a public API, which suggests it helps manage dependencies related to API calls. Additionally, it includes documentation for input usage.",
+        "tags": [
+          "API",
+          "consumable code",
+          "The Meal DB",
+          "dependency management",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f6eb2cc08186eea9613bd8d574368d2f40f686c938d10862a2cbabe0126bdf54",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.577464Z"
+  }
+}

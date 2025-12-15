@@ -1,0 +1,104 @@
+{
+  "action_id": "marketplace/wei/git-sync",
+  "version_id": "5df66a6c471d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wei/git-sync/action.yml",
+    "origin": "github.com/wei/git-sync",
+    "publisher": "wei",
+    "verified": false
+  },
+  "definition": {
+    "name": "Git Sync Action",
+    "description": "\ud83d\udd03  Sync between two independent repositories",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "source_repo",
+        "required": true,
+        "default": null,
+        "description": "GitHub repo slug or full url"
+      },
+      {
+        "name": "source_branch",
+        "required": true,
+        "default": null,
+        "description": "Branch name to sync from"
+      },
+      {
+        "name": "destination_repo",
+        "required": true,
+        "default": null,
+        "description": "GitHub repo slug or full url"
+      },
+      {
+        "name": "destination_branch",
+        "required": true,
+        "default": null,
+        "description": "Branch name to sync to"
+      },
+      {
+        "name": "ssh_private_key",
+        "required": false,
+        "default": null,
+        "description": "SSH key used to authenticate with source and destination ssh urls provided (optional if public or https url with authentication)"
+      },
+      {
+        "name": "source_ssh_private_key",
+        "required": false,
+        "default": null,
+        "description": "SSH key used to authenticate with source ssh url provided (optional if public or https url with authentication)"
+      },
+      {
+        "name": "destination_ssh_private_key",
+        "required": false,
+        "default": null,
+        "description": "SSH key used to authenticate with destination ssh url provided (optional if public or https url with authentication)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "SSH_PRIVATE_KEY": "${{ inputs.ssh_private_key }}",
+        "SOURCE_SSH_PRIVATE_KEY": "${{ inputs.source_ssh_private_key }}",
+        "DESTINATION_SSH_PRIVATE_KEY": "${{ inputs.destination_ssh_private_key }}"
+      },
+      "args": [
+        "${{ inputs.source_repo }}",
+        "${{ inputs.source_branch }}",
+        "${{ inputs.destination_repo }}",
+        "${{ inputs.destination_branch }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Communication"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is primarily focused on syncing code between repositories, which relates to dependency management. It also facilitates communication between different repositories.",
+        "tags": [
+          "git",
+          "sync",
+          "repository",
+          "dependency",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5df66a6c471dde94d0a9d83b7674301c797095c0521948cde4e09d45925a73a3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.722725Z"
+  }
+}

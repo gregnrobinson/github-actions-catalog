@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/nutrition-framework",
+  "version_id": "02fcd30ec582",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/nutrition-framework/action.yml",
+    "origin": "github.com/amirisback/nutrition-framework",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Nutrition Framework",
+    "description": "Final Project for Bachelor Degree, Full and Clear Documentation, Have Empty View :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "02fcd30ec582e90a31cce0a2f6469e3c7033633524399f19058316aff0170f5a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.635572Z"
+  }
+}

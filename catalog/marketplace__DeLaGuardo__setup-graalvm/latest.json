@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-graalvm",
+  "version_id": "455c8d054432",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-graalvm/action.yml",
+    "origin": "github.com/DeLaGuardo/setup-graalvm",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup GraalVM environment",
+    "description": "Setup your runner with GraalVM",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "graalvm-version",
+        "required": false,
+        "default": null,
+        "description": "(deparecated) The GraalVM version to make available on the path."
+      },
+      {
+        "name": "graalvm",
+        "required": false,
+        "default": "21.0.0.2",
+        "description": "The GraalVM version, defaults to 21.0.0.2"
+      },
+      {
+        "name": "java",
+        "required": false,
+        "default": "java8",
+        "description": "The Java version GraalVM is based on, defaults to java8"
+      },
+      {
+        "name": "arch",
+        "required": false,
+        "default": "amd64",
+        "description": "The desired architecture. Options are - \"amd64\" (default), and \"aarch64\" (for linux only)"
+      },
+      {
+        "name": "personal-token",
+        "required": false,
+        "default": null,
+        "description": "https://docs.github.com/en/actions/security-guides/automatic-token-authentication"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action sets up the GraalVM environment, which is essential for infrastructure setup and managing dependencies related to Java applications.",
+        "tags": [
+          "GraalVM",
+          "Java",
+          "setup",
+          "infrastructure",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "455c8d0544327feacfc09100ce3e6a27188958e54bb0ca9f0fe878c4fd51594c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.275307Z"
+  }
+}

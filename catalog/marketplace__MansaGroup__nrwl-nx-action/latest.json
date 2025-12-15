@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/MansaGroup/nrwl-nx-action",
+  "version_id": "eb22f893c988",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MansaGroup/nrwl-nx-action/action.yml",
+    "origin": "github.com/MansaGroup/nrwl-nx-action",
+    "publisher": "MansaGroup",
+    "verified": false
+  },
+  "definition": {
+    "name": "Nrwl Nx",
+    "description": "Wrap the Nx monorepo tool and execute tasks depending on the action context",
+    "author": "Mansa Group",
+    "inputs": [
+      {
+        "name": "targets",
+        "required": true,
+        "default": null,
+        "description": "Comma-separated list of targets to execute"
+      },
+      {
+        "name": "projects",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of projects to use"
+      },
+      {
+        "name": "all",
+        "required": false,
+        "default": "false",
+        "description": "Run the targets on all projects"
+      },
+      {
+        "name": "affected",
+        "required": false,
+        "default": "true",
+        "description": "Use the Nx' affected subcommand to only process affected projects"
+      },
+      {
+        "name": "parallel",
+        "required": false,
+        "default": "3",
+        "description": "Number of tasks to execute in parallel (can be expensive)"
+      },
+      {
+        "name": "args",
+        "required": false,
+        "default": "",
+        "description": "Optional arguments to append to the Nx command"
+      },
+      {
+        "name": "nxCloud",
+        "required": false,
+        "default": "false",
+        "description": "Enable support for Nx Cloud"
+      },
+      {
+        "name": "workingDirectory",
+        "required": false,
+        "default": null,
+        "description": "Path to the Nx workspace, needed if not the repository root"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Testing",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action wraps the Nx monorepo tool, which is primarily used for building and managing projects, indicating a focus on build processes. It may also involve testing and dependency management as it handles multiple projects and targets.",
+        "tags": [
+          "Nx",
+          "monorepo",
+          "build",
+          "automation",
+          "tasks"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "eb22f893c98828c9774ab384107da5c7394f2565d716a4a8b78dbf3ed31fd271",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.761307Z"
+  }
+}

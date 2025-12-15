@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-pixabay-api",
+  "version_id": "18bf8255a4a2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-pixabay-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-pixabay-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Consumable Code Pixabay API",
+    "description": "Retrofit has been Handled, Consumable code for request Public API (Pixabay API)",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action provides consumable code for interacting with the Pixabay API, which can be seen as a form of dependency management for API requests. Additionally, it includes documentation through its description and input parameters.",
+        "tags": [
+          "Pixabay",
+          "API",
+          "consumable code",
+          "dependency management",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "18bf8255a4a2458181606750530df45dcb54ccea2576cb41c146bf74f927d536",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.608181Z"
+  }
+}

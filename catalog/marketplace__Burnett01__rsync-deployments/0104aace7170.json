@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/Burnett01/rsync-deployments",
+  "version_id": "0104aace7170",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Burnett01/rsync-deployments/action.yml",
+    "origin": "github.com/Burnett01/rsync-deployments",
+    "publisher": "Burnett01",
+    "verified": false
+  },
+  "definition": {
+    "name": "Rsync Deployments Action",
+    "description": "GitHub Action for deploying code via rsync over ssh",
+    "author": "Burnett01",
+    "inputs": [
+      {
+        "name": "switches",
+        "required": true,
+        "default": null,
+        "description": "The switches"
+      },
+      {
+        "name": "rsh",
+        "required": false,
+        "default": "",
+        "description": "The remote shell argument"
+      },
+      {
+        "name": "legacy_allow_rsa_hostkeys",
+        "required": false,
+        "default": "false",
+        "description": "Enables support for legacy RSA host keys on OpenSSH 8.8+"
+      },
+      {
+        "name": "strict_hostkeys_checking",
+        "required": false,
+        "default": "false",
+        "description": "Controls strict host keys checking"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": "",
+        "description": "The local path"
+      },
+      {
+        "name": "remote_path",
+        "required": true,
+        "default": null,
+        "description": "The remote path"
+      },
+      {
+        "name": "remote_host",
+        "required": true,
+        "default": null,
+        "description": "The remote host"
+      },
+      {
+        "name": "remote_port",
+        "required": false,
+        "default": 22,
+        "description": "The remote port"
+      },
+      {
+        "name": "remote_user",
+        "required": true,
+        "default": null,
+        "description": "The remote user"
+      },
+      {
+        "name": "remote_key",
+        "required": true,
+        "default": null,
+        "description": "The remote key"
+      },
+      {
+        "name": "remote_key_pass",
+        "required": false,
+        "default": "",
+        "description": "The remote key passphrase"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "false",
+        "description": "Debug the action"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0104aace71701b95286c8b8e8985f73f4e3db9b00b9c24660899a64f3cd6ea0d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.740660Z"
+  }
+}

@@ -62,7 +62,7 @@ def graphql_query(query, variables=None):
 
     return data.get("data")
 
-def search_github_actions(query, min_stars=1000):
+def search_github_actions(query, min_stars=200):
     """Search for GitHub Actions using GraphQL."""
 
     graphql_query_str = """
@@ -159,7 +159,7 @@ def main():
         print(f"  ✓ {org}")
 
     # Search for popular community actions
-    print("\n🔎 Searching for popular community action publishers (1000+ stars)...\n")
+    print("\n🔎 Searching for popular community action publishers (200+ stars)...\n")
 
     search_queries = [
         "github-action",
@@ -174,7 +174,7 @@ def main():
     all_repos = []
     for query in search_queries:
         print(f"  Searching: {query}...")
-        repos = search_github_actions(query, min_stars=1000)
+        repos = search_github_actions(query, min_stars=200)
         all_repos.extend(repos)
         print(f"    Total found: {len(repos)} repositories\n")
 
@@ -219,7 +219,7 @@ def main():
     for i, publisher in enumerate(verified, 1):
         print(f"  {i:2d}. ✓ {publisher['name']}")
 
-    print(f"\n📊 Community Publishers (Sample - 1000+ stars):")
+    print(f"\n📊 Community Publishers (Sample - 200+ stars):")
     community = [p for p in publishers_list if not p.get("verified")]
     for i, publisher in enumerate(community[:20], 1):
         stars = publisher.get("stars", 0)

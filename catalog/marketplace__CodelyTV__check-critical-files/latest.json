@@ -1,0 +1,74 @@
+{
+  "action_id": "marketplace/CodelyTV/check-critical-files",
+  "version_id": "9c020d2e3b1e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/CodelyTV/check-critical-files/action.yml",
+    "origin": "github.com/CodelyTV/check-critical-files",
+    "publisher": "CodelyTV",
+    "verified": false
+  },
+  "definition": {
+    "name": "Check Critical Files",
+    "description": "Check for critical files in your commits and warns you",
+    "author": "",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "critical_files",
+        "required": true,
+        "default": null,
+        "description": "A newline separated list of critical files"
+      },
+      {
+        "name": "critical_message",
+        "required": false,
+        "default": "Caution! you have commited some critical files",
+        "description": "Message to show when listing all commited critical files"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.GITHUB_TOKEN }}",
+        "${{ inputs.critical_files }}",
+        "${{ inputs.critical_message }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action checks for critical files in commits, which directly relates to maintaining code quality. It also provides warnings, which fits into the notification category.",
+        "tags": [
+          "code quality",
+          "file check",
+          "commit",
+          "notification",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "9c020d2e3b1eca309ab1c7274b39da368395f78f75a0d744853e74d9549716be",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.564942Z"
+  }
+}

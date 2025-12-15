@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/doolan-website",
+  "version_id": "2cead3770121",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/doolan-website/action.yml",
+    "origin": "github.com/amirisback/doolan-website",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "DoolanWebsite",
+    "description": "EASY SIMPLE BOOTSTRAP WEBSTIE, Full and Clear Documentation, Have Empty View :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2cead3770121a05f6666c6ba6d9230d87b39555ea2620fc7864720d93d215ccf",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.628239Z"
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "action_id": "marketplace/creyD/autoflake_action",
+  "version_id": "db6ad853887f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/creyD/autoflake_action/action.yml",
+    "origin": "github.com/creyD/autoflake_action",
+    "publisher": "creyD",
+    "verified": false
+  },
+  "definition": {
+    "name": "Autoflake Action",
+    "description": "Automatically runs autoflake on all your changes.",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Removed unused imports and variables",
+        "description": "Commit message"
+      },
+      {
+        "name": "commit_options",
+        "required": false,
+        "default": null,
+        "description": "Commit options"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": "*",
+        "description": "File pattern used for `git add`"
+      },
+      {
+        "name": "checkpath",
+        "required": false,
+        "default": ".",
+        "description": "Path autoflake checks"
+      },
+      {
+        "name": "options",
+        "required": false,
+        "default": "",
+        "description": "Parameters for autoflake"
+      },
+      {
+        "name": "dry",
+        "required": false,
+        "default": false,
+        "description": "Should this script apply autoflake directly or just warn?"
+      },
+      {
+        "name": "no_commit",
+        "required": false,
+        "default": false,
+        "description": "Can be used to avoid committing the changes"
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Token or PAT token used to authenticate against a repository"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Autoflake Action is designed to run autoflake, which is a tool for removing unused imports and variables from Python code, thereby improving code quality. It also indirectly supports testing by ensuring cleaner code.",
+        "tags": [
+          "autoflake",
+          "code quality",
+          "python",
+          "linting",
+          "github action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "db6ad853887f00421038c8cbdce1a6150d18d466b53fb972e41edd07d9ee4918",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.813043Z"
+  }
+}

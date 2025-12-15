@@ -1,0 +1,45 @@
+{
+  "action_id": "marketplace/dkamm/ts-action",
+  "version_id": "4339acdc41c5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dkamm/ts-action/action.yml",
+    "origin": "github.com/dkamm/ts-action",
+    "publisher": "dkamm",
+    "verified": false
+  },
+  "definition": {
+    "name": "The name of your action here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "milliseconds",
+        "required": true,
+        "default": "1000",
+        "description": "Your input description here"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "Your output description here"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4339acdc41c5a20883da636db6e9d62d64287804cbd3342fc3edf3869f7abab1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.265601Z"
+  }
+}

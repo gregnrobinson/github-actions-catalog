@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/Ilshidur/action-discord",
+  "version_id": "2a39c7259e23",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Ilshidur/action-discord/action.yml",
+    "origin": "github.com/Ilshidur/action-discord",
+    "publisher": "Ilshidur",
+    "verified": false
+  },
+  "definition": {
+    "name": "Actions for Discord",
+    "description": "Outputs a message to Discord.",
+    "author": "Ilshidur",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": null,
+        "description": "The message to display in the Discord message."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2a39c7259e2383a08013c8b4d78769b440e12aeb81342eba6a2278003a521f10",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.088952Z"
+  }
+}

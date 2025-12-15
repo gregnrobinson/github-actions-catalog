@@ -1,0 +1,45 @@
+name: Autopep8 Action
+description: Automatically runs the autopep8 command on all your changes.
+
+author: Conrad Großer <grosserconrad@gmail.com>
+
+inputs:
+  commit_message:
+    description: Commit message
+    required: false
+    default: 'Adjusted files for PEP-8 compliance'
+  commit_options:
+    description: Commit options
+    required: false
+  file_pattern:
+    description: File pattern used for `git add`
+    required: false
+    default: '*'
+  checkpath:
+    description: Path autopep8 checks
+    required: false
+    default: '.'
+  options:
+    description: Parameters for autopep8
+    required: false
+    default: ''
+  dry:
+    description: Should this script apply autopep8 directly or just warn?
+    required: false
+    default: false
+  no_commit:
+    description: Can be used to avoid committing the changes
+    required: false
+    default: false
+  github_token:
+    description: GitHub Token or PAT token used to authenticate against a repository
+    required: false
+    default: ${{ github.token }}
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'fast-forward'
+  color: 'green'

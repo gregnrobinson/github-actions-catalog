@@ -1,4 +1,4 @@
-name: 'Checkout Test'
+name: 'Checkout'
 description: 'Checkout a Git repository at a particular version'
 inputs:
   repository:

@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/wlixcc/pod-lib-update-action",
+  "version_id": "66ed4ebb3c77",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wlixcc/pod-lib-update-action/action.yml",
+    "origin": "github.com/wlixcc/pod-lib-update-action",
+    "publisher": "wlixcc",
+    "verified": false
+  },
+  "definition": {
+    "name": "pod lib update",
+    "description": "use this action auto generate new version of pod library",
+    "author": "",
+    "inputs": [
+      {
+        "name": "spec_repo_url",
+        "required": true,
+        "default": null,
+        "description": "Url of your spec repo"
+      },
+      {
+        "name": "spec_file_path",
+        "required": true,
+        "default": null,
+        "description": "YouSpecFileName.podspec file path in your lib repo, relative path"
+      },
+      {
+        "name": "lint_args",
+        "required": false,
+        "default": null,
+        "description": "Spec lint args, such as --allow-warnings"
+      },
+      {
+        "name": "push_args",
+        "required": false,
+        "default": null,
+        "description": "Repo push args, such as --allow-warnings"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "66ed4ebb3c77c724a7c10b9b287fbd705fc3702c75952ebfd13e0ed42620df06",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.729148Z"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/creyD/changelog_action",
+  "version_id": "e3a5e5601845",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/creyD/changelog_action/action.yml",
+    "origin": "github.com/creyD/changelog_action",
+    "publisher": "creyD",
+    "verified": false
+  },
+  "definition": {
+    "name": "Changelog Action",
+    "description": "Automatically creates a changelog for Pull Requests",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Prettify code!",
+          "shell": "bash",
+          "run": "${{ github.action_path }}/entrypoint.sh",
+          "env": {
+            "INPUT_HEAD_REF": "${{ github.head_ref }}",
+            "INPUT_BASE_REF": "${{ github.base_ref }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The Changelog Action is focused on generating a changelog, which is a form of documentation that communicates changes made in the project, especially through pull requests.",
+        "tags": [
+          "changelog",
+          "documentation",
+          "automation",
+          "pull requests",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e3a5e560184514e71cce17968baa1db9f00aa9177c6f78cb5fe55882e7a7181b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.810881Z"
+  }
+}

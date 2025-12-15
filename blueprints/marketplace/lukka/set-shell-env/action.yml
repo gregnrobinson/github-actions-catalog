@@ -1,0 +1,29 @@
+# Copyright (c) 2020 Luca Cappa
+# Released under the term specified in file LICENSE.txt
+# SPDX short identifier: MIT
+
+name: 'set-shell-env'
+description: "Exports as workflow variables a subset of the shell environment variables, accessible in any step using 'env.VAR-NAME'"
+author: 'Luca Cappa https://github.com/lukka'
+inputs:
+
+  shell:
+    required: false
+    description: <
+      The command to execute to start the shell.
+  args:
+    required: false
+    description: <
+      Arguments to be provided to the shell to list the environment variables in form "name=value", as the 'env' Un*x command does.
+  filter:
+    required: false
+    description: <
+      A regular expression that selects which environment variables (defined in the specified shell) to be set in the workflow.
+
+runs:
+  using: 'node16'
+  main: './dist/index.js'
+
+branding:
+  icon: 'terminal'
+  color: 'green'

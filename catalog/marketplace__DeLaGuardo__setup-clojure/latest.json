@@ -1,0 +1,123 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-clojure",
+  "version_id": "4d03b38b69bb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-clojure/action.yml",
+    "origin": "github.com/DeLaGuardo/setup-clojure",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup Clojure",
+    "description": "Setup your runner with Clojure build tools",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "lein",
+        "required": false,
+        "default": null,
+        "description": "The Leiningen version to make available on the path."
+      },
+      {
+        "name": "boot",
+        "required": false,
+        "default": null,
+        "description": "The boot-clj version to make available on the path."
+      },
+      {
+        "name": "tools-deps",
+        "required": false,
+        "default": null,
+        "description": "[DEPRECATED] The tools deps version to make available on the path."
+      },
+      {
+        "name": "cli",
+        "required": false,
+        "default": null,
+        "description": "Clojure CLI version to make available on the path."
+      },
+      {
+        "name": "cmd-exe-workaround",
+        "required": false,
+        "default": null,
+        "description": "[DEPRECATED] On Windows platform, it will replace official Clojure CLI with the `deps.clj` of its specific version, `latest` can be used.\nUseful for running `clojure` command from `cmd.exe`.\n"
+      },
+      {
+        "name": "bb",
+        "required": false,
+        "default": null,
+        "description": "Babashka version to install, `latest` can be used."
+      },
+      {
+        "name": "clj-kondo",
+        "required": false,
+        "default": null,
+        "description": "Clj-kondo version to install, `latest` can be used."
+      },
+      {
+        "name": "cljfmt",
+        "required": false,
+        "default": null,
+        "description": "cljfmt version to install, `latest` can be used."
+      },
+      {
+        "name": "cljstyle",
+        "required": false,
+        "default": null,
+        "description": "cljstyle version to install, `latest` can be used."
+      },
+      {
+        "name": "zprint",
+        "required": false,
+        "default": null,
+        "description": "zprint version to install, `latest` can be used."
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "To fix rate limit errors, provide `secrets.GITHUB_TOKEN` value to this field. More info: https://docs.github.com/en/actions/security-guides/automatic-token-authentication\n"
+      },
+      {
+        "name": "invalidate-cache",
+        "required": false,
+        "default": "false",
+        "description": "Set to `true` to fix problems related to wrongly populated tool cache\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is focused on setting up the environment with Clojure build tools, which is primarily related to the build process. It also involves managing dependencies for Clojure projects.",
+        "tags": [
+          "Clojure",
+          "build tools",
+          "setup",
+          "dependency management",
+          "CI"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4d03b38b69bb42d8e6d8653b4aee394eadc0342c402fb4a22965218eedcfea28",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.277994Z"
+  }
+}

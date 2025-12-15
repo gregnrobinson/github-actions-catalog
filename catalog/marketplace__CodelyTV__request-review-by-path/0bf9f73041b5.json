@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/CodelyTV/request-review-by-path",
+  "version_id": "0bf9f73041b5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/CodelyTV/request-review-by-path/action.yml",
+    "origin": "github.com/CodelyTV/request-review-by-path",
+    "publisher": "CodelyTV",
+    "verified": false
+  },
+  "definition": {
+    "name": "Assign by path",
+    "description": "Assign pull requests by the modified path",
+    "author": "CodelyTV",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "mapping",
+        "required": true,
+        "default": null,
+        "description": "Mapping for assigning the pull request"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0bf9f73041b58607eaad1dd92cebf1a7d174d4ea562e7b564b88c6dbd13dcf7b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.567004Z"
+  }
+}

@@ -1,0 +1,29 @@
+name: 'LINE-in-action'
+description: 'Github action for pushing LINE message using LINE-Notify'
+author: 'raeperd'
+branding:
+  icon: 'message-square'
+  color: 'green'
+inputs:
+  token:
+    required: true
+    description: An access token for authentication. Used for calling the notification API
+  message:
+    required: true
+    description: 1000 characters max
+  notificationDisabled:
+    required: false
+    description: If true, user doesn't receive a push notification when the message is sent.
+                 If false, The user receives a push notification when the message is sent.
+                 If omitted, the value defaults to false.
+    default: 'false'
+  stickerPackageId:
+    required: false
+    description: Package ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf
+  stickerId:
+    required: false
+    description: Sticker ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

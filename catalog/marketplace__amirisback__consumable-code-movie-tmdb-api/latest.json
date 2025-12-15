@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-movie-tmdb-api",
+  "version_id": "e9e60de76b25",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-movie-tmdb-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-movie-tmdb-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Consumable Code Movie TMDB API",
+    "description": "Retrofit has been Handled, Consumable code for request Public API (TMDb API)",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action provides consumable code for interacting with the TMDb API, which suggests it is primarily focused on managing dependencies related to API requests. Additionally, the description indicates a focus on providing documentation for usage.",
+        "tags": [
+          "TMDb",
+          "API",
+          "consumable code",
+          "dependency management",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e9e60de76b25a7024e1b2f9618f6201aa0f4497d0de87258ee3efd4a65b00fa4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.614276Z"
+  }
+}

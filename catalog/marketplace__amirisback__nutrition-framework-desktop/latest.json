@@ -1,0 +1,59 @@
+{
+  "action_id": "marketplace/amirisback/nutrition-framework-desktop",
+  "version_id": "02fcd30ec582",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/nutrition-framework-desktop/action.yml",
+    "origin": "github.com/amirisback/nutrition-framework-desktop",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Nutrition Framework",
+    "description": "Final Project for Bachelor Degree, Full and Clear Documentation, Have Empty View :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is described as having full and clear documentation, which indicates its primary focus on providing documentation resources.",
+        "tags": [
+          "documentation",
+          "project",
+          "education",
+          "bachelor",
+          "framework"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "02fcd30ec582e90a31cce0a2f6469e3c7033633524399f19058316aff0170f5a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.586483Z"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/posener/goaction-issues-example",
+  "version_id": "7017318f5462",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/posener/goaction-issues-example/action.yml",
+    "origin": "github.com/posener/goaction-issues-example",
+    "publisher": "posener",
+    "verified": false
+  },
+  "definition": {
+    "name": "goaction-issues-example",
+    "description": "An example of using goaction with Github APIs.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "A token for Github APIs."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "GITHUB_TOKEN": "${{ inputs.GITHUB_TOKEN }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7017318f5462f51d821caaf288aae0e66c80d0687a87084d9a0a1f4149f9b336",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.815356Z"
+  }
+}

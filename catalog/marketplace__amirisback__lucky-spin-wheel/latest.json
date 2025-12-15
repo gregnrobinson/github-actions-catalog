@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/lucky-spin-wheel",
+  "version_id": "1b5c6902f3ea",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/lucky-spin-wheel/action.yml",
+    "origin": "github.com/amirisback/lucky-spin-wheel",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-Kick-Start-Library",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is described as an SDK for developing Android apps, which suggests it provides documentation and support for developers. It may also assist in managing dependencies related to the SDK.",
+        "tags": [
+          "SDK",
+          "Android",
+          "development",
+          "library",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1b5c6902f3ea3a013ac0c3ece09b427bd8e6fdd3b61a4cac6af98bd71517c960",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.578557Z"
+  }
+}

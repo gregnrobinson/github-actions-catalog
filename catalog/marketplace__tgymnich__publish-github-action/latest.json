@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/tgymnich/publish-github-action",
+  "version_id": "f827df17edaf",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tgymnich/publish-github-action/action.yml",
+    "origin": "github.com/tgymnich/publish-github-action",
+    "publisher": "tgymnich",
+    "verified": false
+  },
+  "definition": {
+    "name": "Publish GitHub Action",
+    "description": "Publish your GitHub Action",
+    "author": "tgymnich",
+    "inputs": [
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "Token for the github API"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Authentication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on publishing GitHub Actions, which falls under the Publishing category. It also requires a GitHub token for authentication, and documentation is relevant as it likely involves publishing the action's details.",
+        "tags": [
+          "GitHub Action",
+          "Publish",
+          "Automation",
+          "CI/CD",
+          "GitHub"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f827df17edaf1b895ae05fe77aa8187273d5708676bb606f35e74982bd59f14e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.684203Z"
+  }
+}

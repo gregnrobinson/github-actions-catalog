@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/lukka/run-vcpkg",
+  "version_id": "4a7461c89ae0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/run-vcpkg/action.yml",
+    "origin": "github.com/lukka/run-vcpkg",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "run-vcpkg",
+    "description": "Setup (and optionally run) vcpkg to build C/C++ dependencies and cache them automatically.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "vcpkgDirectory",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg",
+        "description": ""
+      },
+      {
+        "name": "runVcpkgInstall",
+        "required": false,
+        "default": false,
+        "description": "Run the installation of packages by running `vcpkg install` on the directory of the discovered 'vcpkg.json' file. Default is false."
+      },
+      {
+        "name": "vcpkgGitCommitId",
+        "required": false,
+        "default": null,
+        "description": "Specify the full SHA-1 hash of a Git commit (not a branch name, nor a tag!) that establishes which version of vcpkg needs to be used. When using vcpkg as a Git submodule, this input is *not* needed as implicitly specified by the submodule. When not specified and a submodule is not used for vcpkg, the commit id is being searched in vcpkg.json or vcpkg-configure.json, see vcpkgConfigurationJsonGlob input."
+      },
+      {
+        "name": "vcpkgGitURL",
+        "required": false,
+        "default": "https://github.com/microsoft/vcpkg.git",
+        "description": "Specify the URL Git repository to download vcpkg from. Defaults to https://github.com/microsoft/vcpkg.git"
+      },
+      {
+        "name": "doNotUpdateVcpkg",
+        "required": false,
+        "default": false,
+        "description": "Avoid to update vcpkg (launching git) in the specified 'vcpkgDirectory'. This is useful when vcpkg is being checkout independently of the run-vcpkg action. Default is false."
+      },
+      {
+        "name": "doNotCache",
+        "required": false,
+        "default": true,
+        "description": "Enable the caching of the vcpkg executable and its data files (e.g. ports) by setting it to false. Default is true. Set this input to false when the vcpkg's executable is not delivered as a prebuilt file upon bootstrapping vcpkg. This does not disable vcpkg's binary cache which is always on and can be controlled by the user with the env var VCPKG_BINARY_SOURCES."
+      },
+      {
+        "name": "vcpkgJsonGlob",
+        "required": false,
+        "default": "**/vcpkg.json",
+        "description": "Specify the glob expression used to discover the vcpkg.json whose content's hash is added to the cache key. On Windows runners using `github.workspace` context to form the expression would not work as expected since it contains backslashes. Use instead `**/path/to/vcpkg.json` to match the desired `vcpkg.json` file."
+      },
+      {
+        "name": "vcpkgJsonIgnores",
+        "required": false,
+        "default": "['**/vcpkg/**']",
+        "description": "Specify an array of string containing the pattenrs to be ignored when searching for the vcpkg.json file. The default value ignores the pattern '**/vcpkg/**'"
+      },
+      {
+        "name": "vcpkgConfigurationJsonGlob",
+        "required": false,
+        "default": "**/vcpkg-configuration.json",
+        "description": "When the vcpkgGitCommitId input is not provided by the user, this glob expression is used to locate the vcpkg-configuration.json file which contains the commit id of the builtin baseline. On Windows GitHub runners do not use `github.workspace` context expression to form the value of this input, since it contains backslashes and it will eventually fail. Use instead `**/path/to/vcpkg-configuration.json` to match the desired `vcpkg-configuration.json` file."
+      },
+      {
+        "name": "binaryCachePath",
+        "required": false,
+        "default": null,
+        "description": "Specify a path to store the built packages to be cached with the GitHub cache service. Default is '<runnerWorkspace>/b/vcpkg_cache'."
+      },
+      {
+        "name": "runVcpkgFormatString",
+        "required": false,
+        "default": "[`install`, `--recurse`, `--clean-after-build`, `--x-install-root`, `$[env.VCPKG_INSTALLED_DIR]`, `--triplet`, `$[env.VCPKG_DEFAULT_TRIPLET]`]",
+        "description": "Specify the command line to run vcpkg with. This is only useful when the input 'runVcpkgInstall' is set to true."
+      },
+      {
+        "name": "useShell",
+        "required": false,
+        "default": true,
+        "description": "Specify which shell to be used when launching commands. 'true' means the default shell is used. 'false' means no shell is used. It also can be an absolute path and arguments of the shell to spawn commands with."
+      },
+      {
+        "name": "logCollectionRegExps",
+        "required": false,
+        "default": "\\s*\"(.+CMakeOutput\\.log)\"\\.\\s*;\\s*\"(.+CMakeError\\.log)\"\\.\\s*;\\s*(.+out\\.log)\\s*;\\s+(.+err\\.log)\\s*;\\s*(.+vcpkg.+\\.log)\\s*",
+        "description": "Specifies a semicolon separated list of regular expressions that are used to identify log file paths in the workflow output. A regular expression must have a single capturing group, that is a single pair of parenthesis such as 'See also (.+.log)'. When a match occurs, the content of the file is written into the workflow output for disclosing its content to the user. The default regular expressions are for CMake's and vcpkg's log files."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4a7461c89ae0bebdda75176c657052468ead822a5e9d86ddb47d963cdc417e06",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.251421Z"
+  }
+}

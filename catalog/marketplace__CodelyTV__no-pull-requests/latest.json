@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/CodelyTV/no-pull-requests",
+  "version_id": "981f30b6d115",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/CodelyTV/no-pull-requests/action.yml",
+    "origin": "github.com/CodelyTV/no-pull-requests",
+    "publisher": "CodelyTV",
+    "verified": false
+  },
+  "definition": {
+    "name": "No Pull Requests",
+    "description": "Automatically closes any open pull request",
+    "author": "",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": "\ud83d\ude45 We do not accept Pull Requests!",
+        "description": "Message to show when the pull request is closed"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.GITHUB_TOKEN }}",
+        "${{ inputs.message }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action automatically closes open pull requests, which involves communication with users about the status of their contributions, and it can send a message when doing so.",
+        "tags": [
+          "pull requests",
+          "automation",
+          "GitHub",
+          "communication",
+          "notifications"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "981f30b6d1151b06623b1c1a4c5f9224ad88a6739b0393f675f4b86b1cd3db17",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.573012Z"
+  }
+}

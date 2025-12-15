@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/actions/checkout",
-  "version_id": "5d923625d06c",
+  "version_id": "8295fcc7299d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/actions/checkout/action.yml",
@@ -9,7 +9,7 @@
     "verified": true
   },
   "definition": {
-    "name": "Checkout Test",
+    "name": "Checkout",
     "description": "Checkout a Git repository at a particular version",
     "author": "",
     "inputs": [
@@ -153,7 +153,8 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Authentication"
+      "Authentication",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -161,21 +162,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is primarily focused on checking out a Git repository, which is a key part of managing dependencies in a project. It also involves authentication through the use of a personal access token to fetch the repository.",
+        "reasoning": "The action is primarily used to manage dependencies by checking out a specific version of a repository, but it also involves authentication through the use of a personal access token and operates within the infrastructure of the GitHub Actions environment.",
         "tags": [
           "checkout",
           "git",
           "repository",
           "actions",
-          "dependency management"
+          "versioning"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "5d923625d06c3d17dbf5e308f0cfb591bd53791aaca591ec1dd024ab0df6b149",
+    "source_hash": "8295fcc7299d02005f7c3a7f8a6b59a0c4e0577697b471c0e90aa5d4c6212130",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.268581Z"
+    "generated_at": "2025-12-15T00:47:39.527617Z"
   }
 }

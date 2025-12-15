@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/posener/learn",
+  "version_id": "4a722b905861",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/posener/learn/action.yml",
+    "origin": "github.com/posener/learn",
+    "publisher": "posener",
+    "verified": false
+  },
+  "definition": {
+    "name": "main",
+    "description": "",
+    "author": "",
+    "inputs": [
+      {
+        "name": "addr",
+        "required": false,
+        "default": ":8080",
+        "description": "Address to listen to"
+      },
+      {
+        "name": "config",
+        "required": false,
+        "default": "config.json",
+        "description": "Config file to load."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "-addr=${{ inputs.addr }}",
+        "-config=${{ inputs.config }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Configuration"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action appears to be related to setting up an environment with specified configuration files and listening addresses, which falls under infrastructure management. However, the lack of detailed functionality makes the confidence medium.",
+        "tags": [
+          "infrastructure",
+          "configuration",
+          "server"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4a722b905861cdae7099e63facbb6d865e57ec2241b2ed66ab838014598287ff",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.816340Z"
+  }
+}

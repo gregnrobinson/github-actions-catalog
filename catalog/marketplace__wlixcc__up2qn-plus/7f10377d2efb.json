@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/wlixcc/up2qn-plus",
+  "version_id": "7f10377d2efb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wlixcc/up2qn-plus/action.yml",
+    "origin": "github.com/wlixcc/up2qn-plus",
+    "publisher": "wlixcc",
+    "verified": false
+  },
+  "definition": {
+    "name": "up2qn-plus",
+    "description": "\u4e0a\u4f20\u6587\u4ef6\u5230\u4e03\u725b",
+    "author": "beimengyeyu <me@beimengyeyu.com>",
+    "inputs": [
+      {
+        "name": "bucket",
+        "required": true,
+        "default": null,
+        "description": "\u4e03\u725b\u4e91\u7a7a\u95f4\u540d\u79f0"
+      },
+      {
+        "name": "zone",
+        "required": true,
+        "default": null,
+        "description": "\u4e03\u725b\u4e91\u5b58\u50a8\u533a\u57df \u5982: \u534e\u5357 \u534e\u4e1c \u534e\u5317 \u5317\u7f8e \u4e1c\u5357\u4e9a"
+      },
+      {
+        "name": "access_key",
+        "required": true,
+        "default": null,
+        "description": "\u5230\u4e03\u725b\u4e91 \u4e2a\u4eba\u4e2d\u5fc3 -> \u5bc6\u94a5\u7ba1\u7406 \u83b7\u53d6 AccessKey\uff0c\u4e3a\u786e\u4fdd\u60a8\u7684\u7a7a\u95f4\u5b89\u5168\uff0c\u8bf7\u4f7f\u7528 github \u4ed3\u5e93 secrets \u53d8\u91cf"
+      },
+      {
+        "name": "secret_key",
+        "required": true,
+        "default": null,
+        "description": "\u5230\u4e03\u725b\u4e91 \u4e2a\u4eba\u4e2d\u5fc3 -> \u5bc6\u94a5\u7ba1\u7406 \u83b7\u53d6  SecretKey\uff0c\u4e3a\u786e\u4fdd\u60a8\u7684\u7a7a\u95f4\u5b89\u5168\uff0c\u8bf7\u4f7f\u7528 github \u4ed3\u5e93 secrets \u53d8\u91cf"
+      },
+      {
+        "name": "local_dir",
+        "required": true,
+        "default": "dist",
+        "description": "\u672c\u5730\u8981\u4e0a\u4f20\u7684\u6587\u4ef6\u5939"
+      },
+      {
+        "name": "local_exclude",
+        "required": false,
+        "default": null,
+        "description": "\u672c\u5730\u8981\u6392\u9664\u7684\u6587\u4ef6"
+      },
+      {
+        "name": "target_dir",
+        "required": false,
+        "default": "/",
+        "description": "\u4e03\u725b\u4e91\u7a7a\u95f4\u91cc\u7684\u6587\u4ef6\u5939"
+      },
+      {
+        "name": "rpc_timeout",
+        "required": false,
+        "default": "120000",
+        "description": "\u8d85\u65f6\u65f6\u95f4"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7f10377d2efb212862e76fe1ae2c0d0c4e2d501819b04c8f9e6a320c8f79477a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.727851Z"
+  }
+}

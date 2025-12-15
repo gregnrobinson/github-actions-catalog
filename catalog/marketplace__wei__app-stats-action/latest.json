@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/wei/app-stats-action",
+  "version_id": "077525e74205",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wei/app-stats-action/action.yml",
+    "origin": "github.com/wei/app-stats-action",
+    "publisher": "wei",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub App Statistics",
+    "description": "Retrieve statistics for a GitHub App",
+    "author": "",
+    "inputs": [
+      {
+        "name": "id",
+        "required": true,
+        "default": null,
+        "description": "App ID"
+      },
+      {
+        "name": "private_key",
+        "required": true,
+        "default": null,
+        "description": "contents of the app's *.pem private key file."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "installations",
+        "description": "Number of installations"
+      },
+      {
+        "name": "repositories",
+        "description": "Number of repositories"
+      },
+      {
+        "name": "suspended_installations",
+        "description": "Number of suspended installations"
+      },
+      {
+        "name": "popular_repositories",
+        "description": "JSON string for user/organization login and total number of stars of public repositories the app is installed on"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "This action retrieves statistics related to a GitHub App, which falls under monitoring the app's performance and usage. Additionally, it provides documentation-like outputs that describe the app's installations and repositories.",
+        "tags": [
+          "GitHub",
+          "App Statistics",
+          "Monitoring",
+          "Usage",
+          "Analytics"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "077525e742052efd8868c831c2c757c95f35c5914e099403f0181d24a61896fc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.724256Z"
+  }
+}

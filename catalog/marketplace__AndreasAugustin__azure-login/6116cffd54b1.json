@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/AndreasAugustin/azure-login",
+  "version_id": "6116cffd54b1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/AndreasAugustin/azure-login/action.yml",
+    "origin": "github.com/AndreasAugustin/azure-login",
+    "publisher": "AndreasAugustin",
+    "verified": false
+  },
+  "definition": {
+    "name": "Azure Login",
+    "description": "Authenticate to Azure and run your Azure CLI or Azure PowerShell based actions or scripts.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "creds",
+        "required": false,
+        "default": null,
+        "description": "Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS"
+      },
+      {
+        "name": "client-id",
+        "required": false,
+        "default": null,
+        "description": "ClientId of the Azure Service principal created."
+      },
+      {
+        "name": "tenant-id",
+        "required": false,
+        "default": null,
+        "description": "TenantId of the Azure Service principal created."
+      },
+      {
+        "name": "subscription-id",
+        "required": false,
+        "default": null,
+        "description": "Azure subscriptionId"
+      },
+      {
+        "name": "enable-AzPSSession",
+        "required": false,
+        "default": false,
+        "description": "Set this value to true to enable Azure PowerShell Login in addition to Azure CLI login"
+      },
+      {
+        "name": "environment",
+        "required": false,
+        "default": "azurecloud",
+        "description": "Name of the environment. Supported values are azurecloud, azurestack, azureusgovernment, azurechinacloud, azuregermancloud. Default being azurecloud"
+      },
+      {
+        "name": "allow-no-subscriptions",
+        "required": false,
+        "default": false,
+        "description": "Set this value to true to enable support for accessing tenants without subscriptions"
+      },
+      {
+        "name": "audience",
+        "required": false,
+        "default": "api://AzureADTokenExchange",
+        "description": "Provide audience field for access-token. Default value is api://AzureADTokenExchange"
+      },
+      {
+        "name": "auth-type",
+        "required": false,
+        "default": "SERVICE_PRINCIPAL",
+        "description": "The type of authentication. Supported values are SERVICE_PRINCIPAL, IDENTITY. Default value is SERVICE_PRINCIPAL"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "pre": "lib/cleanup.js",
+      "main": "lib/main.js",
+      "post": "lib/cleanup.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6116cffd54b1f8e54cad0af6b9eeaf3c0beedef56eb80f4458ffc6fae04f3702",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.087769Z"
+  }
+}

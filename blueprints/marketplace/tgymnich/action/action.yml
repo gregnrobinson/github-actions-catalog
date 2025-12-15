@@ -1,0 +1,17 @@
+name: 'valar-action'
+description: 'GitHub Action for Valar'
+author: 'Valar'
+branding:
+  icon: 'upload-cloud'
+  color: 'red'
+inputs:
+  token:
+    description: 'Valar token'
+    required: true
+  workdir:
+    description: 'Path where valar push will be run'
+    required: false
+
+runs:
+  using: 'node16'
+  main: 'lib/main.js'

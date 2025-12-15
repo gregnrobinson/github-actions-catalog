@@ -1,0 +1,27 @@
+name: 'Deploy Ghost Theme'
+description: 'Build & deploy a theme to your Ghost site'
+branding:
+  icon: 'cloud-lightning'
+  color: 'gray-dark'
+inputs:
+  api-url:
+    description: 'Ghost Admin API Url'
+    required: true
+  api-key:
+    description: 'Ghost Admin API Key'
+    required: true
+  exclude:
+    description: 'Files or folders to exclude (space-separated list)'
+    required: false
+  theme-name:
+    description: 'A custom theme name that overrides the default name in package.json'
+    required: false
+  file:
+    description: 'Path to a built zip file. If this is included, the `exclude` and `theme-name` options are ignored'
+    required: false
+  working-directory:
+    description: 'A custom directory to zip when a theme is in a subdirectory'
+    required: false
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

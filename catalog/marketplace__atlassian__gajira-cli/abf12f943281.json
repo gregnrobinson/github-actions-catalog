@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/atlassian/gajira-cli",
+  "version_id": "abf12f943281",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-cli/action.yml",
+    "origin": "github.com/atlassian/gajira-cli",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup Jira",
+    "description": "Set up Jira CLI",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "1.0.27",
+        "description": "Version of the CLI to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "abf12f943281001af959997d12905b743baa41f4c4ffcd66b6b6ec7ef16bfc5e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.409907Z"
+  }
+}

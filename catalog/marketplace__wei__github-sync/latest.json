@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/wei/github-sync",
+  "version_id": "072cef27448c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wei/github-sync/action.yml",
+    "origin": "github.com/wei/github-sync",
+    "publisher": "wei",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Repo Sync",
+    "description": "\u2935\ufe0f Sync current repository with remote",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "source_repo",
+        "required": true,
+        "default": null,
+        "description": "GitHub public repo slug or full https clone url (with access_token if needed)"
+      },
+      {
+        "name": "source_branch",
+        "required": true,
+        "default": null,
+        "description": "Branch name to sync from"
+      },
+      {
+        "name": "destination_branch",
+        "required": true,
+        "default": null,
+        "description": "Branch name to sync to in this repo"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "GitHub token secret"
+      },
+      {
+        "name": "sync_tags",
+        "required": false,
+        "default": null,
+        "description": "Should tags also be synced"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/repo-sync/github-sync:v2.3.0",
+      "env": {
+        "GITHUB_TOKEN": "${{ inputs.github_token }}",
+        "SYNC_TAGS": "${{ inputs.sync_tags }}"
+      },
+      "args": [
+        "${{ inputs.source_repo }}",
+        "${{ inputs.source_branch }}:${{ inputs.destination_branch }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Code quality",
+      "Infrastructure"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is primarily focused on syncing repositories, which relates to managing dependencies between codebases. It also touches on infrastructure as it deals with repository management.",
+        "tags": [
+          "repository",
+          "sync",
+          "GitHub",
+          "dependency",
+          "infrastructure"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "072cef27448cab145703251edd5db3b5e24882b2aeeb2280aa5865bc9b5ca949",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.718795Z"
+  }
+}

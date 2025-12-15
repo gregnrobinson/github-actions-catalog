@@ -1,0 +1,142 @@
+{
+  "action_id": "marketplace/lukka/run-cmake",
+  "version_id": "e07b1a11abc1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/run-cmake/action.yml",
+    "origin": "github.com/lukka/run-cmake",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "run-cmake",
+    "description": "Run CMake with CMakePreset.json to configure, build, package and test C/C++ source code.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "cmakeListsTxtPath",
+        "required": false,
+        "default": "${{ github.workspace }}/CMakeLists.txt",
+        "description": "Path to CMakeLists.txt."
+      },
+      {
+        "name": "workflowPreset",
+        "required": false,
+        "default": "",
+        "description": "The name of the workflow preset. Optional, it cannot be used with any other preset input. This value is stored in the WORKFLOW_PRESET_NAME environment variable, and used by the default value of 'workflowPresetCmdString' input."
+      },
+      {
+        "name": "configurePreset",
+        "required": false,
+        "default": "",
+        "description": "The name of the configure preset. Optional, but at least one of the preset input must be provided. This value is stored in the CONFIGURE_PRESET_NAME environment variable, and used by the default value of 'configurePresetCmdString' input."
+      },
+      {
+        "name": "buildPreset",
+        "required": false,
+        "default": "",
+        "description": "The name of the build preset. Optional, but at least one of the preset input must be provided. This value is stored in the BUILD_PRESET_NAME environment variable, and used by the default value of 'buildPresetCmdString' input.'"
+      },
+      {
+        "name": "testPreset",
+        "required": false,
+        "default": "",
+        "description": "The name of the test preset (ctest). Optional, but at least one of the preset input must be provided. This value is stored in the TEST_PRESET_NAME environment variable, and used by the default value of 'testPresetCmdString' input.'"
+      },
+      {
+        "name": "packagePreset",
+        "required": false,
+        "default": "",
+        "description": "The name of the package preset (cpack). Optional, but at least one of the preset input must be provided. This value is stored in the PACKAGE_PRESET_NAME environment variable, and used by the default value of 'packagePresetCmdString' input.'"
+      },
+      {
+        "name": "configurePresetAdditionalArgs",
+        "required": false,
+        "default": "[]",
+        "description": "A string representing list of additional arguments for configuring. Optional. Useful when specifing additional variables such as, e.g., ['-DVARIABLE=NAME', '-DANOTHERVARIABLE=ANOTHERNAME']"
+      },
+      {
+        "name": "buildPresetAdditionalArgs",
+        "required": false,
+        "default": "[]",
+        "description": "A string representing list of additional arguments for building. Optional. Useful when specifing the config to build with a multi configuration generator, e.g., ['--config DEBUG']"
+      },
+      {
+        "name": "testPresetAdditionalArgs",
+        "required": false,
+        "default": "[]",
+        "description": "A string representing list of additional arguments for testing. Optional. Useful when specifing the config to test with a multi configuration generator, e.g., ['--config DEBUG']"
+      },
+      {
+        "name": "packagePresetAdditionalArgs",
+        "required": false,
+        "default": "[]",
+        "description": "A string representing list of additional arguments for cpack. Optional."
+      },
+      {
+        "name": "useShell",
+        "required": false,
+        "default": true,
+        "description": "Specify which shell to be used when launching commands. 'true' means the default shell is used. 'false' means no shell is used. It also can be an absolute with arguments of the shell to spawn commands with."
+      },
+      {
+        "name": "logCollectionRegExps",
+        "required": false,
+        "default": "\\s*\"(.+CMakeOutput\\.log)\"\\.\\s*;\\s*\"(.+CMakeError\\.log)\"\\.\\s*;\\s*(.+out\\.log)\\s*;\\s+(.+err\\.log)\\s*;\\s*(.+vcpkg.+\\.log)\\s*",
+        "description": "Specifies a semicolon separated list of regular expressions that are used to identify log file paths in the workflow output. A regular expression must have a single capturing group, that is a single pair of parenthesis such as 'See also (.+.log)'. When a match occurs, the content of the file is written into the workflow output for disclosing its content to the user. The default regular expressions are for CMake's and vcpkg's log files."
+      },
+      {
+        "name": "workflowPresetCmdString",
+        "required": false,
+        "default": "[`--workflow`, `--preset`, `$[env.WORKFLOW_PRESET_NAME]`, `--fresh`]",
+        "description": "The CMake command format string to run the workflow steps."
+      },
+      {
+        "name": "configurePresetCmdString",
+        "required": false,
+        "default": "[`--preset`, `$[env.CONFIGURE_PRESET_NAME]`]",
+        "description": "The CMake command format string to configure and generate project files."
+      },
+      {
+        "name": "buildPresetCmdString",
+        "required": false,
+        "default": "[`--build`, `--preset`, `$[env.BUILD_PRESET_NAME]`]",
+        "description": "The CMake command format string to run the build."
+      },
+      {
+        "name": "testPresetCmdString",
+        "required": false,
+        "default": "[`--preset`, `$[env.TEST_PRESET_NAME]`]",
+        "description": "The CTest command format string to run test."
+      },
+      {
+        "name": "packagePresetCmdString",
+        "required": false,
+        "default": "[`--preset`, `$[env.PACKAGE_PRESET_NAME]`]",
+        "description": "The CPack command format string to package the project."
+      },
+      {
+        "name": "runVcpkgEnvFormatString",
+        "required": false,
+        "default": "[`env`, `--bin`, `--include`, `--tools`, `--python`, `--triplet`, `$[env.VCPKG_DEFAULT_TRIPLET]`, `set`]",
+        "description": "Specify the command line to dump the environment variables with the 'vcpkg env' command. This command is only used when setting up the environment for MSVC on Windows."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e07b1a11abc1d3426dbab111fc65bf022a81fef1312ceda0043ac89198c978ca",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.259129Z"
+  }
+}

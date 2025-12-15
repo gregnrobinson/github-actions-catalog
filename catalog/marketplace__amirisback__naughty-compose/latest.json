@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/naughty-compose",
+  "version_id": "a38017ff4a72",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/naughty-compose/action.yml",
+    "origin": "github.com/amirisback/naughty-compose",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "naughty-compose",
+    "description": "Learning Jetpack Compose",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on learning Jetpack Compose, which suggests an emphasis on documentation and educational content. It may also relate to code quality by promoting best practices in UI development.",
+        "tags": [
+          "Jetpack Compose",
+          "learning",
+          "documentation",
+          "UI development",
+          "Android"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a38017ff4a72ab204eb4492f0ef4a9f83997389e21f110ce7be204b98c3ed845",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.584359Z"
+  }
+}

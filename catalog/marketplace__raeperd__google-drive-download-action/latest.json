@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/raeperd/google-drive-download-action",
+  "version_id": "db4ad92c2424",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/raeperd/google-drive-download-action/action.yml",
+    "origin": "github.com/raeperd/google-drive-download-action",
+    "publisher": "raeperd",
+    "verified": false
+  },
+  "definition": {
+    "name": "google-drive-download-action",
+    "description": "Github action for downlaoding google drive files or folder using Drives: list API",
+    "author": "raeperd",
+    "inputs": [
+      {
+        "name": "clientId",
+        "required": true,
+        "default": null,
+        "description": "Client id of oauth2 client application"
+      },
+      {
+        "name": "clientSecret",
+        "required": true,
+        "default": null,
+        "description": "Client secret of oauth2 client application"
+      },
+      {
+        "name": "redirectUri",
+        "required": true,
+        "default": null,
+        "description": "Redirect uri of oauth2 client application"
+      },
+      {
+        "name": "credential_json",
+        "required": true,
+        "default": null,
+        "description": "credential.json with refresh_token and scope https://www.googleapis.com/auth/drive.readonly"
+      },
+      {
+        "name": "q",
+        "required": true,
+        "default": null,
+        "description": "Query string to search for files and folders"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": "./",
+        "description": "Path to download files default to working directory"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action requires OAuth2 client credentials, indicating it primarily focuses on authentication. Additionally, it manages dependencies by downloading files from Google Drive.",
+        "tags": [
+          "google-drive",
+          "oauth2",
+          "download",
+          "action",
+          "github"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "db4ad92c242482b4e53a8e03f896358caece73a9a301471880b885df00709dba",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.299330Z"
+  }
+}

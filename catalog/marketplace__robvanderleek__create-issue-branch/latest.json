@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/robvanderleek/create-issue-branch",
+  "version_id": "0dc26707b998",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/robvanderleek/create-issue-branch/action.yml",
+    "origin": "github.com/robvanderleek/create-issue-branch",
+    "publisher": "robvanderleek",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create Issue Branch",
+    "description": "GitHub action that creates a new branch after assigning an issue.",
+    "author": "",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "branchName",
+        "description": "Name of the branch that was created"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "action-dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Communication",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action helps in managing code quality by creating branches for issues, which is essential for organized development. It also facilitates communication within the team by linking issues to branches.",
+        "tags": [
+          "branch",
+          "issue",
+          "GitHub",
+          "automation",
+          "workflow"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0dc26707b998cee5391fc222e454bbca1a7c2f9c75a355ddb272a5404ce3b043",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.456627Z"
+  }
+}

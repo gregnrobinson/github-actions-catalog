@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/tgymnich/setup-swift",
+  "version_id": "c75690dad8d8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tgymnich/setup-swift/action.yml",
+    "origin": "github.com/tgymnich/setup-swift",
+    "publisher": "tgymnich",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup Swift Action",
+    "description": "Setup a Swift environment",
+    "author": "TG908",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": "5.1.3",
+        "description": "Swift version to use."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action sets up a Swift environment, which falls under infrastructure as it prepares the necessary environment for building and running Swift applications. It also involves managing the version of Swift, linking it to dependency management.",
+        "tags": [
+          "Swift",
+          "setup",
+          "environment",
+          "infrastructure",
+          "dependency"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c75690dad8d8ef1b5710fe5df6e8ac79477bfb5ea31708a49584bee94f5156f8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.683231Z"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/TryGhost/action-ghost-release",
+  "version_id": "814b57e4b3e6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/TryGhost/action-ghost-release/action.yml",
+    "origin": "github.com/TryGhost/action-ghost-release",
+    "publisher": "TryGhost",
+    "verified": false
+  },
+  "definition": {
+    "name": "Ghost Release",
+    "description": "Release a new version of Ghost",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "814b57e4b3e6a7b1f7daea87f9375efd1e957c37d1c3c86d632f9988ccc799f1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.307159Z"
+  }
+}

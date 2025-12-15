@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/atlassian/gajira-todo",
+  "version_id": "4ab1ee1d7b23",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-todo/action.yml",
+    "origin": "github.com/atlassian/gajira-todo",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira issue from TODO",
+    "description": "Create Jira issue for TODO comments",
+    "author": "",
+    "inputs": [
+      {
+        "name": "project",
+        "required": true,
+        "default": null,
+        "description": "Key of the project"
+      },
+      {
+        "name": "issuetype",
+        "required": true,
+        "default": null,
+        "description": "Type of the issue to be created. Example: 'Incident'"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Issue description"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issues",
+        "description": "Well-formed JSON array containing keys of all newly created issues"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4ab1ee1d7b237abd339a055438d670c86ec0dcae5a995bcd52cbc141dbc1db02",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.402971Z"
+  }
+}

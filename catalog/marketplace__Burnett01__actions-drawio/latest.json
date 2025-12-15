@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/Burnett01/actions-drawio",
+  "version_id": "d086b48d2d51",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Burnett01/actions-drawio/action.yml",
+    "origin": "github.com/Burnett01/actions-drawio",
+    "publisher": "Burnett01",
+    "verified": false
+  },
+  "definition": {
+    "name": "actions-drawio",
+    "description": "Convert draw.io documents to jpeg|png|svg|pdf.",
+    "author": "Burnett01",
+    "inputs": [
+      {
+        "name": "quality",
+        "required": false,
+        "default": "100",
+        "description": "Image quality for png|jpeg"
+      },
+      {
+        "name": "scale",
+        "required": false,
+        "default": "1.0",
+        "description": "Scales the output file size for pixel-based output formats"
+      },
+      {
+        "name": "src",
+        "required": true,
+        "default": null,
+        "description": "Input file"
+      },
+      {
+        "name": "dest",
+        "required": true,
+        "default": null,
+        "description": "Output file"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action converts draw.io documents into various image formats, which falls under packaging as it prepares files for distribution. Additionally, it can be considered documentation as it helps in visual representation of documents.",
+        "tags": [
+          "drawio",
+          "image conversion",
+          "packaging",
+          "documentation",
+          "svg"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d086b48d2d518e73db93233ae1dae1c95f0d0606ebb349311cb44ae6104be1b2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.742003Z"
+  }
+}

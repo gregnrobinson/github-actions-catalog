@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/atlassian/gajira-transition",
+  "version_id": "5533c28dec08",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-transition/action.yml",
+    "origin": "github.com/atlassian/gajira-transition",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Issue Transition",
+    "description": "Change status of specific Jira issue",
+    "author": "",
+    "inputs": [
+      {
+        "name": "issue",
+        "required": true,
+        "default": null,
+        "description": "Key of the issue to be transitioned"
+      },
+      {
+        "name": "transition",
+        "required": false,
+        "default": null,
+        "description": "The transition to apply to the issue, e.g. 'In Progress'"
+      },
+      {
+        "name": "transitionId",
+        "required": false,
+        "default": null,
+        "description": "The id of a transition to apply to the issue"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5533c28dec089802f6516d7edaea1a8362dcd3e3eeea77ea76687420933cdee0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.407955Z"
+  }
+}

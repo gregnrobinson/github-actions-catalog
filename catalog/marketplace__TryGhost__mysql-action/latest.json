@@ -1,0 +1,123 @@
+{
+  "action_id": "marketplace/TryGhost/mysql-action",
+  "version_id": "aa968bd90c19",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/TryGhost/mysql-action/action.yml",
+    "origin": "github.com/TryGhost/mysql-action",
+    "publisher": "TryGhost",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup MySQL",
+    "description": "Setup a MySQL database",
+    "author": "Mirro Mutth",
+    "inputs": [
+      {
+        "name": "host port",
+        "required": false,
+        "default": 3306,
+        "description": "The port of host"
+      },
+      {
+        "name": "container port",
+        "required": false,
+        "default": 3306,
+        "description": "The port of container"
+      },
+      {
+        "name": "character set server",
+        "required": false,
+        "default": "utf8mb4",
+        "description": "--character-set-server - The character set of MySQL server"
+      },
+      {
+        "name": "collation server",
+        "required": false,
+        "default": "utf8mb4_0900_ai_ci",
+        "description": "--collation-server - The character collation of MySQL server"
+      },
+      {
+        "name": "mysql version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of MySQL to use"
+      },
+      {
+        "name": "mysql root password",
+        "required": false,
+        "default": "",
+        "description": "MYSQL_ROOT_PASSWORD - root superuser password"
+      },
+      {
+        "name": "mysql database",
+        "required": false,
+        "default": "",
+        "description": "MYSQL_DATABASE - name for the default database that is created"
+      },
+      {
+        "name": "mysql user",
+        "required": false,
+        "default": "",
+        "description": "MYSQL_USER - create the specified user with superuser power for created database"
+      },
+      {
+        "name": "mysql password",
+        "required": false,
+        "default": "",
+        "description": "MYSQL_PASSWORD - specified superuser password which user is power for created database"
+      },
+      {
+        "name": "authentication plugin",
+        "required": false,
+        "default": "mysql_native_password",
+        "description": "Set authentication plugin. Login/password is used as default. Changes default behaviour of MySQL 8.0+, where `caching_sha2_password` is a default value."
+      },
+      {
+        "name": "use tmpfs",
+        "required": false,
+        "default": true,
+        "description": "Whether or not to use Docker's tmpfs feature for MySQL's storage"
+      },
+      {
+        "name": "tmpfs size",
+        "required": false,
+        "default": "3072M",
+        "description": "Desired size of tmpfs volume"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Database Management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action is focused on setting up a MySQL database, which falls under infrastructure management. It specifically deals with database configuration.",
+        "tags": [
+          "MySQL",
+          "database",
+          "setup",
+          "infrastructure",
+          "action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "aa968bd90c19fc8ccdbdcf78c89daa842356484f00b7806b14e7f10a06c83df9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.302366Z"
+  }
+}

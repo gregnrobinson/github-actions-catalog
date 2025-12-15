@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/impl-automated-build",
+  "version_id": "47b56f0fc6b3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/impl-automated-build/action.yml",
+    "origin": "github.com/amirisback/impl-automated-build",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "automated-build-android-app-with-github-action",
+    "description": "Automated build android app bundle and apk with github action",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "47b56f0fc6b3f66dc370addfc34a3f43c003c89259995735ac2a9bdf53f5d810",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.591545Z"
+  }
+}

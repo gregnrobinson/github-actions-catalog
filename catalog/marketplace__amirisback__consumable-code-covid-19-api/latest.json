@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-covid-19-api",
+  "version_id": "d7461bde42d9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-covid-19-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-covid-19-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "consumable-code-covid-19-api",
+    "description": "consumable-code-covid-19-api for your android apps",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action appears to provide a consumable API for Android apps, which suggests it helps manage dependencies related to COVID-19 data. Additionally, it includes an input description, indicating some level of documentation.",
+        "tags": [
+          "API",
+          "Android",
+          "COVID-19",
+          "Dependency",
+          "Documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d7461bde42d9841c5dff0bc3f065a5fba56512609b5bcf8b8a2c61f64ad0039b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.596640Z"
+  }
+}

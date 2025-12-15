@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/TryGhost/action-update-posts",
+  "version_id": "8ceb58d6c977",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/TryGhost/action-update-posts/action.yml",
+    "origin": "github.com/TryGhost/action-update-posts",
+    "publisher": "TryGhost",
+    "verified": false
+  },
+  "definition": {
+    "name": "Update Ghost Posts",
+    "description": "Schedule updates to your Ghost posts",
+    "author": "",
+    "inputs": [
+      {
+        "name": "api-url",
+        "required": true,
+        "default": null,
+        "description": "Ghost Admin API Url"
+      },
+      {
+        "name": "api-key",
+        "required": true,
+        "default": null,
+        "description": "Ghost Admin API Key"
+      },
+      {
+        "name": "tag",
+        "required": true,
+        "default": null,
+        "description": "The tag to lookup to find posts to update e.g. `hash-early-access`"
+      },
+      {
+        "name": "field",
+        "required": true,
+        "default": null,
+        "description": "The post field that you want to update e.g. `visibility` or `featured`"
+      },
+      {
+        "name": "value",
+        "required": true,
+        "default": null,
+        "description": "The new value for the field e.g. `public` or `false`"
+      },
+      {
+        "name": "days",
+        "required": true,
+        "default": null,
+        "description": "Number of days after the post was published to update the post"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is designed to update posts on Ghost, which falls under the publishing category. It also involves communication with the Ghost Admin API, making it relevant to communication.",
+        "tags": [
+          "Ghost",
+          "posts",
+          "update",
+          "API",
+          "scheduling"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8ceb58d6c97717ebd26fb83e41de61275adc3d461d09a8abce2e620a416daa60",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.303937Z"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/kamranahmedse/github-pages-blog-action",
+  "version_id": "62f682110270",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/kamranahmedse/github-pages-blog-action/action.yml",
+    "origin": "github.com/kamranahmedse/github-pages-blog-action",
+    "publisher": "kamranahmedse",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create Blog from Markdown Files",
+    "description": "This action allows you to create a blog from your markdown files and deploy to GitHub pages",
+    "author": "Kamran Ahmed <kamranahmed.se@gmail.com>",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "This option defaults to the repository scoped GitHub Token.\nHowever if you need more permissions for things such as deploying to another repository, you can add a Personal Access Token (PAT) here. This should be stored in the `secrets / with` menu **as a secret**.\n"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "gh-pages",
+        "description": "This is the branch you wish to deploy to, for example gh-pages or docs."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-status",
+        "description": "The status of the deployment that indicates if the run failed or passed. Possible outputs include: success|failed|skipped"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "62f682110270c92ca0709a1bc0b4b09e97bc11d0afa2bd2139ebeab780889dc4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.814528Z"
+  }
+}

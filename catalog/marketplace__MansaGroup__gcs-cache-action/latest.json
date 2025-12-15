@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/MansaGroup/gcs-cache-action",
+  "version_id": "1fd802e54d19",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MansaGroup/gcs-cache-action/action.yml",
+    "origin": "github.com/MansaGroup/gcs-cache-action",
+    "publisher": "MansaGroup",
+    "verified": false
+  },
+  "definition": {
+    "name": "Google Cloud Storage Cache",
+    "description": "Cache your workload to a Google Cloud Storage bucket",
+    "author": "MansaGroup",
+    "inputs": [
+      {
+        "name": "bucket",
+        "required": true,
+        "default": null,
+        "description": "Name of the bucket to store the cache into"
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "Paths to store"
+      },
+      {
+        "name": "key",
+        "required": true,
+        "default": null,
+        "description": "Key to use as cache identifier"
+      },
+      {
+        "name": "restore-keys",
+        "required": false,
+        "default": "",
+        "description": "Substitution keys to use when cache miss"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "Whether the cache was successfuly restored"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "dist/main/index.js",
+      "post": "dist/post/index.js",
+      "post-if": "success()"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Caching"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is designed to cache workloads in Google Cloud Storage, which falls under dependency management as it helps manage and optimize dependencies in workflows.",
+        "tags": [
+          "Google Cloud",
+          "Caching",
+          "Dependency Management",
+          "GCS",
+          "Workflow Optimization"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1fd802e54d19cfc240283ce713b966d128d51976f39367474912b8d828a3593b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.762916Z"
+  }
+}

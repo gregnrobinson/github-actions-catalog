@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/TryGhost/action-deploy-theme",
+  "version_id": "6bc993fb12f3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/TryGhost/action-deploy-theme/action.yml",
+    "origin": "github.com/TryGhost/action-deploy-theme",
+    "publisher": "TryGhost",
+    "verified": false
+  },
+  "definition": {
+    "name": "Deploy Ghost Theme",
+    "description": "Build & deploy a theme to your Ghost site",
+    "author": "",
+    "inputs": [
+      {
+        "name": "api-url",
+        "required": true,
+        "default": null,
+        "description": "Ghost Admin API Url"
+      },
+      {
+        "name": "api-key",
+        "required": true,
+        "default": null,
+        "description": "Ghost Admin API Key"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "Files or folders to exclude (space-separated list)"
+      },
+      {
+        "name": "theme-name",
+        "required": false,
+        "default": null,
+        "description": "A custom theme name that overrides the default name in package.json"
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to a built zip file. If this is included, the `exclude` and `theme-name` options are ignored"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "A custom directory to zip when a theme is in a subdirectory"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy a theme to a Ghost site, which falls under the Deployment category. Additionally, it involves building the theme as part of the deployment process.",
+        "tags": [
+          "Ghost",
+          "Deployment",
+          "Theme",
+          "Build",
+          "API"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6bc993fb12f3f3858d6c63acaaa16cc635ac016c7d554619a3bde255245dfc69",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.305678Z"
+  }
+}

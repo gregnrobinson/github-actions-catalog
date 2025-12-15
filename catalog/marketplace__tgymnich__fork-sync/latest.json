@@ -1,0 +1,129 @@
+{
+  "action_id": "marketplace/tgymnich/fork-sync",
+  "version_id": "c71f931eabb6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tgymnich/fork-sync/action.yml",
+    "origin": "github.com/tgymnich/fork-sync",
+    "publisher": "tgymnich",
+    "verified": false
+  },
+  "definition": {
+    "name": "Fork Sync",
+    "description": "Keep your fork up to date",
+    "author": "tgymnich",
+    "inputs": [
+      {
+        "name": "owner",
+        "required": false,
+        "default": null,
+        "description": "Owner of the forked repository"
+      },
+      {
+        "name": "repo",
+        "required": false,
+        "default": null,
+        "description": "Name of the forked repository"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Token for the github API"
+      },
+      {
+        "name": "head",
+        "required": false,
+        "default": "master",
+        "description": "Branch to track"
+      },
+      {
+        "name": "base",
+        "required": false,
+        "default": "master",
+        "description": "Branch to keep updated"
+      },
+      {
+        "name": "merge_method",
+        "required": false,
+        "default": "merge",
+        "description": "Merge method to use"
+      },
+      {
+        "name": "pr_title",
+        "required": false,
+        "default": "Fork Sync: Update from parent repository",
+        "description": "The title of the pull request"
+      },
+      {
+        "name": "pr_message",
+        "required": false,
+        "default": null,
+        "description": "The message in the pull request"
+      },
+      {
+        "name": "ignore_fail",
+        "required": false,
+        "default": false,
+        "description": "Ignore Exceptions"
+      },
+      {
+        "name": "auto_approve",
+        "required": false,
+        "default": false,
+        "description": "Automatically approve pull request before merge"
+      },
+      {
+        "name": "auto_merge",
+        "required": false,
+        "default": true,
+        "description": "Automatically merge the pull request"
+      },
+      {
+        "name": "retries",
+        "required": false,
+        "default": 4,
+        "description": "Retry count"
+      },
+      {
+        "name": "retry_after",
+        "required": false,
+        "default": 60,
+        "description": "Delay amount between retries"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is designed to keep a forked repository up to date, which falls under dependency management. It may also involve communication with the GitHub API to sync changes.",
+        "tags": [
+          "fork",
+          "sync",
+          "repository",
+          "GitHub",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c71f931eabb61b473f94e6a9c35581bd5cf44d928c91c96931d231af4d510a6e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.694069Z"
+  }
+}

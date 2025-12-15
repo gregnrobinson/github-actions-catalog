@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/DeLaGuardo/clj-kondo-lint-action",
+  "version_id": "7af43332cd16",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/clj-kondo-lint-action/action.yml",
+    "origin": "github.com/DeLaGuardo/clj-kondo-lint-action",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "Your name here",
+    "description": "Provide a description here",
+    "author": "Your name or organization here",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "default value if applicable",
+        "description": "input description here"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7af43332cd16b5484523276b6c01a08b1d178eaf7691b441515b66cbdee2ae4b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.272972Z"
+  }
+}

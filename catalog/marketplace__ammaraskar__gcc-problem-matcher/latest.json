@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/ammaraskar/gcc-problem-matcher",
+  "version_id": "a0d97927a6c2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/ammaraskar/gcc-problem-matcher/action.yml",
+    "origin": "github.com/ammaraskar/gcc-problem-matcher",
+    "publisher": "ammaraskar",
+    "verified": false
+  },
+  "definition": {
+    "name": "GCC Problem Matcher",
+    "description": "Attaches a problem matcher that looks for errors during gcc builds",
+    "author": "Ammar Askar",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The GCC Problem Matcher is designed to identify errors during GCC builds, which directly relates to testing the code quality and correctness of the build process.",
+        "tags": [
+          "GCC",
+          "problem matcher",
+          "testing",
+          "code quality",
+          "build errors"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a0d97927a6c207e061cce82c2e47640feb6d312ddc6852dbbdb6e16564a4a6f9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.077804Z"
+  }
+}

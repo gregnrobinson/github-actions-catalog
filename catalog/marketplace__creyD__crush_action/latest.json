@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/creyD/crush_action",
+  "version_id": "264f564f50f3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/creyD/crush_action/action.yml",
+    "origin": "github.com/creyD/crush_action",
+    "publisher": "creyD",
+    "verified": false
+  },
+  "definition": {
+    "name": "Crush Action",
+    "description": "Losslessly reduces file size for PNG and JPG",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Optimised your images!",
+        "description": "Commit message"
+      },
+      {
+        "name": "commit_options",
+        "required": false,
+        "default": null,
+        "description": "Commit options"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": "*",
+        "description": "File pattern used for `git add`"
+      },
+      {
+        "name": "branch",
+        "required": true,
+        "default": null,
+        "description": "Target branch for the changes"
+      },
+      {
+        "name": "folder",
+        "required": false,
+        "default": ".",
+        "description": "Starting folder for recursive search"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Code quality",
+      "Optimization"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The Crush Action focuses on reducing file sizes for images, which is a part of the build process and contributes to code quality by optimizing assets.",
+        "tags": [
+          "image optimization",
+          "file size reduction",
+          "PNG",
+          "JPG",
+          "build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "264f564f50f30deda3fb1686fd803d00743c64ec0903e0f340789171af7aa970",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.809839Z"
+  }
+}

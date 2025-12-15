@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/gradle/update-jdks-action",
+  "version_id": "cde495911295",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/gradle/update-jdks-action/action.yml",
+    "origin": "github.com/gradle/update-jdks-action",
+    "publisher": "gradle",
+    "verified": false
+  },
+  "definition": {
+    "name": "Update JDKs",
+    "description": "Update .teamcity/jdks.yaml with the latest JDK versions",
+    "author": "Gradle Inc.",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "The GitHub authentication token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "cde495911295bc0a0013abb3c9c513e5c07398676fea8f6dbe8d0bdbfb03c721",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.315314Z"
+  }
+}

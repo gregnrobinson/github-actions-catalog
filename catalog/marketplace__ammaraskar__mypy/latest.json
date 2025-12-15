@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/ammaraskar/mypy",
+  "version_id": "17d4db06aebd",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/ammaraskar/mypy/action.yml",
+    "origin": "github.com/ammaraskar/mypy",
+    "publisher": "ammaraskar",
+    "verified": false
+  },
+  "definition": {
+    "name": "Mypy",
+    "description": "Optional Static Typing for Python.",
+    "author": "Jukka Lehtosalo and contributors",
+    "inputs": [
+      {
+        "name": "options",
+        "required": false,
+        "default": null,
+        "description": "Options passed to mypy. Use `mypy --help` to see available options.\n"
+      },
+      {
+        "name": "paths",
+        "required": false,
+        "default": ".",
+        "description": "Explicit paths to run mypy on. Defaults to the current directory.\n"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": "",
+        "description": "Mypy version to use (PEP440) - e.g. \"0.910\"\n"
+      },
+      {
+        "name": "install_types",
+        "required": false,
+        "default": "yes",
+        "description": "Whether to automatically install missing library stub packages. ('yes'|'no', default: 'yes')\n"
+      },
+      {
+        "name": "install_project_dependencies",
+        "required": false,
+        "default": "yes",
+        "description": "Whether to attempt to install project dependencies into mypy environment. ('yes'|'no', default: 'yes')\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "mypy setup",
+          "shell": "bash",
+          "run": "echo ::group::Installing mypy...\nexport PIP_DISABLE_PIP_VERSION_CHECK=1\n\nif [ \"$RUNNER_OS\" == \"Windows\" ]; then\n  HOST_PYTHON=python\nelse\n  HOST_PYTHON=python3\nfi\n\nvenv_script=\"import os.path; import venv; import sys;\npath = os.path.join(r'${{ github.action_path }}', '.mypy-venv');\nvenv.main([path]);\nbin_subdir = 'Scripts' if sys.platform == 'win32' else 'bin';\nprint(os.path.join(path, bin_subdir, 'python'));\n\"\n\nVENV_PYTHON=$(echo $venv_script | \"$HOST_PYTHON\")\nmypy_spec=\"mypy\"\n\nif [ -n \"${{ inputs.version }}\" ]; then\n  mypy_spec+=\"==${{ inputs.version }}\"\nfi\n\nif ! \"$VENV_PYTHON\" -m pip install \"$mypy_spec\"; then\n  echo \"::error::Could not install mypy.\"\n  exit 1\nfi\necho ::endgroup::\n\nif [ \"${{ inputs.install_project_dependencies }}\" == \"yes\" ]; then\n  VENV=$(\"$VENV_PYTHON\" -c 'import sys;print(sys.prefix)')\n  echo ::group::Installing project dependencies...\n  \"$VENV_PYTHON\" -m pip download --dest=\"$VENV\"/deps .\n  \"$VENV_PYTHON\" -m pip install -U --find-links=\"$VENV\"/deps \"$VENV\"/deps/*\n  echo ::endgroup::\nfi\n\necho ::group::Running mypy...\nmypy_opts=\"\"\nif [ \"${{ inputs.install_types }}\" == \"yes\" ]; then\n  mypy_opts+=\"--install-types --non-interactive\"\nfi\n\necho \"mypy $mypy_opts ${{ inputs.options }} ${{ inputs.paths }}\"\n\"$VENV_PYTHON\" -m mypy $mypy_opts ${{ inputs.options }} ${{ inputs.paths }}\necho ::endgroup::\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "Mypy is a static type checker for Python, which primarily focuses on improving code quality by identifying type errors. It is also used in testing to ensure type correctness in the codebase.",
+        "tags": [
+          "mypy",
+          "static typing",
+          "Python",
+          "code quality",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "17d4db06aebd80ed9570d62bc78cd2284c8d938476c3942b541f78030009f8ef",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.076002Z"
+  }
+}

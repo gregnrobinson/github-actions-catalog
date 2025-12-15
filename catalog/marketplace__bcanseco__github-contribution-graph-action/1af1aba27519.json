@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/bcanseco/github-contribution-graph-action",
+  "version_id": "1af1aba27519",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/bcanseco/github-contribution-graph-action/action.yml",
+    "origin": "github.com/bcanseco/github-contribution-graph-action",
+    "publisher": "bcanseco",
+    "verified": false
+  },
+  "definition": {
+    "name": "Autopopulate your contribution graph",
+    "description": "This action will automatically push empty commits to one of your GitHub repos.",
+    "author": "Borja Canseco <borj@cans.eco>",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1af1aba275190f0aabc0f5cb037d2a18cd7ead84181c4b6591b197e7adf252b0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.193012Z"
+  }
+}

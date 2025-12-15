@@ -1,0 +1,73 @@
+{
+  "action_id": "marketplace/DeLaGuardo/clojure-lint-action",
+  "version_id": "ad4234df43c6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/clojure-lint-action/action.yml",
+    "origin": "github.com/DeLaGuardo/clojure-lint-action",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "clj-kondo checks",
+    "description": "Lint your clojure code with clj-kondo in parallel to your builds",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "clj-kondo-args",
+        "required": true,
+        "default": "--lint src",
+        "description": "Arguments to be passed to clj-kondo"
+      },
+      {
+        "name": "check-name",
+        "required": false,
+        "default": "clj-kondo check",
+        "description": "Check name will be visible in Github Checks list"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": null,
+        "description": "Github token to report linter results back to check"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "CHECK_NAME": "${{ inputs.check-name }}",
+        "LINT_ARGS": "${{ inputs.clj-kondo-args }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is focused on linting Clojure code, which directly relates to code quality. It also involves checking code correctness, aligning it with testing practices.",
+        "tags": [
+          "clojure",
+          "lint",
+          "clj-kondo",
+          "code quality",
+          "github actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ad4234df43c60f4c72490b63001969b393a737d9ebb047e6f4730cef25ff4c92",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.279792Z"
+  }
+}

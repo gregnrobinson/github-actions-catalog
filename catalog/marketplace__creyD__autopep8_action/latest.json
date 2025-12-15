@@ -1,0 +1,99 @@
+{
+  "action_id": "marketplace/creyD/autopep8_action",
+  "version_id": "9bc7091eb1b9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/creyD/autopep8_action/action.yml",
+    "origin": "github.com/creyD/autopep8_action",
+    "publisher": "creyD",
+    "verified": false
+  },
+  "definition": {
+    "name": "Autopep8 Action",
+    "description": "Automatically runs the autopep8 command on all your changes.",
+    "author": "Conrad Gro\u00dfer <grosserconrad@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Adjusted files for PEP-8 compliance",
+        "description": "Commit message"
+      },
+      {
+        "name": "commit_options",
+        "required": false,
+        "default": null,
+        "description": "Commit options"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": "*",
+        "description": "File pattern used for `git add`"
+      },
+      {
+        "name": "checkpath",
+        "required": false,
+        "default": ".",
+        "description": "Path autopep8 checks"
+      },
+      {
+        "name": "options",
+        "required": false,
+        "default": "",
+        "description": "Parameters for autopep8"
+      },
+      {
+        "name": "dry",
+        "required": false,
+        "default": false,
+        "description": "Should this script apply autopep8 directly or just warn?"
+      },
+      {
+        "name": "no_commit",
+        "required": false,
+        "default": false,
+        "description": "Can be used to avoid committing the changes"
+      },
+      {
+        "name": "github_token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Token or PAT token used to authenticate against a repository"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Autopep8 Action is primarily focused on improving code quality by automatically formatting Python code to comply with PEP-8 standards. It can also be seen as a testing tool since it ensures that the code adheres to style guidelines.",
+        "tags": [
+          "autopep8",
+          "code quality",
+          "python",
+          "formatting",
+          "github action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "9bc7091eb1b99953f7572f53b9c48fcc75d18f47ec6025ec9105ea30e52e4eb8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.802314Z"
+  }
+}

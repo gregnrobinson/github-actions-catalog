@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/DeLaGuardo/setup-clj-kondo",
+  "version_id": "5259dc271943",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/setup-clj-kondo/action.yml",
+    "origin": "github.com/DeLaGuardo/setup-clj-kondo",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup clj-kondo",
+    "description": "Provision hosted runner with clj-kondo",
+    "author": "DeLaGuardo",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "desired version of clj-kondo to install"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5259dc2719432ebc91c382c6aa86eb6f788a07bf26e87b75fedcbbf754219ffe",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.280704Z"
+  }
+}

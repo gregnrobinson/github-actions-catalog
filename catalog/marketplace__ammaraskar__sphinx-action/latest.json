@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/ammaraskar/sphinx-action",
+  "version_id": "48f53b21f3e3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/ammaraskar/sphinx-action/action.yml",
+    "origin": "github.com/ammaraskar/sphinx-action",
+    "publisher": "ammaraskar",
+    "verified": false
+  },
+  "definition": {
+    "name": "Sphinx Build",
+    "description": "Builds documentation using Sphinx",
+    "author": "Ammar Askar",
+    "inputs": [
+      {
+        "name": "docs-folder",
+        "required": true,
+        "default": "docs/",
+        "description": "The folder containing your sphinx docs."
+      },
+      {
+        "name": "build-command",
+        "required": false,
+        "default": "make html",
+        "description": "The command used to build your documentation."
+      },
+      {
+        "name": "pre-build-command",
+        "required": false,
+        "default": null,
+        "description": "Run before the build command, you can use this to install system level dependencies, for example with \"apt-get update -y && apt-get install -y perl\""
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is specifically designed to build documentation using Sphinx, making Documentation the primary category, while Build is also relevant due to its function of compiling the documentation.",
+        "tags": [
+          "sphinx",
+          "documentation",
+          "build",
+          "automation",
+          "CI"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "48f53b21f3e35cc4923466243edad802d5ab4ab28326c94c7c05cfe67c4651be",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.073176Z"
+  }
+}

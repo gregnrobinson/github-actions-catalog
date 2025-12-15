@@ -1,0 +1,71 @@
+{
+  "action_id": "marketplace/gradle/wrapper-validation-action",
+  "version_id": "bcb05b373e0c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/gradle/wrapper-validation-action/action.yml",
+    "origin": "github.com/gradle/wrapper-validation-action",
+    "publisher": "gradle",
+    "verified": false
+  },
+  "definition": {
+    "name": "Gradle Wrapper Validation",
+    "description": "Validates Gradle Wrapper JAR Files",
+    "author": "Gradle",
+    "inputs": [
+      {
+        "name": "min-wrapper-count",
+        "required": false,
+        "default": "1",
+        "description": "Minimum number expected gradle-wrapper.jar files found in the repository. Non-negative number. Higher number is useful in monorepos where each project might have their own wrapper."
+      },
+      {
+        "name": "allow-snapshots",
+        "required": false,
+        "default": "false",
+        "description": "Allow Gradle snapshot versions during checksum verification. Boolean, true or false."
+      },
+      {
+        "name": "allow-checksums",
+        "required": false,
+        "default": "",
+        "description": "Accept arbitrary user-defined checksums as valid. Comma separated list of SHA256 checksums (lowercase hex)."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "failed-wrapper",
+        "description": "The path of the Gradle Wrapper(s) JAR that failed validation. Path is a platform-dependent relative path to git repository root. Multiple paths are separated by a | character."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Wrapper Validation",
+          "id": "wrapper-validation",
+          "uses": "gradle/actions/wrapper-validation@v3.5.0",
+          "with": {
+            "min-wrapper-count": "${{ inputs.min-wrapper-count }}",
+            "allow-snapshots": "${{ inputs.allow-snapshots }}",
+            "allow-checksums": "${{ inputs.allow-checksums }}"
+          },
+          "env": {
+            "GRADLE_ACTION_ID": "gradle/wrapper-validation-action"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "bcb05b373e0c8ddc05ed5cda92fce843128461ff2b2ffa67e5ee069274ea2cd9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.330092Z"
+  }
+}

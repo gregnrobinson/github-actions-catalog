@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2025-12-14T22:31:00.033313Z",
-    "total_publishers": 23,
+    "generated_at": "2025-12-15T00:38:35.075330Z",
+    "total_publishers": 66,
     "verified_count": 7,
-    "community_count": 16,
+    "community_count": 59,
     "source": "GitHub Marketplace API",
     "version": "2.0"
   },
@@ -44,10 +44,64 @@
       "type": "official"
     },
     {
+      "name": "AndreasAugustin",
+      "verified": false,
+      "type": "community",
+      "stars": 290
+    },
+    {
+      "name": "ArtiomTr",
+      "verified": false,
+      "type": "community",
+      "stars": 539
+    },
+    {
+      "name": "Azure",
+      "verified": false,
+      "type": "community",
+      "stars": 287
+    },
+    {
+      "name": "Burnett01",
+      "verified": false,
+      "type": "community",
+      "stars": 424
+    },
+    {
+      "name": "CodelyTV",
+      "verified": false,
+      "type": "community",
+      "stars": 373
+    },
+    {
+      "name": "DeLaGuardo",
+      "verified": false,
+      "type": "community",
+      "stars": 217
+    },
+    {
+      "name": "Ilshidur",
+      "verified": false,
+      "type": "community",
+      "stars": 455
+    },
+    {
+      "name": "JS-DevTools",
+      "verified": false,
+      "type": "community",
+      "stars": 661
+    },
+    {
       "name": "JamesIves",
       "verified": false,
       "type": "community",
       "stars": 4522
+    },
+    {
+      "name": "MansaGroup",
+      "verified": false,
+      "type": "community",
+      "stars": 227
     },
     {
       "name": "TideDra",
@@ -56,16 +110,46 @@
       "stars": 4218
     },
     {
+      "name": "TryGhost",
+      "verified": false,
+      "type": "community",
+      "stars": 384
+    },
+    {
       "name": "amannn",
       "verified": false,
       "type": "community",
       "stars": 1223
     },
     {
+      "name": "amirisback",
+      "verified": false,
+      "type": "community",
+      "stars": 290
+    },
+    {
+      "name": "ammaraskar",
+      "verified": false,
+      "type": "community",
+      "stars": 207
+    },
+    {
       "name": "appleboy",
       "verified": false,
       "type": "community",
       "stars": 1509
+    },
+    {
+      "name": "atlassian",
+      "verified": false,
+      "type": "community",
+      "stars": 201
+    },
+    {
+      "name": "bcanseco",
+      "verified": false,
+      "type": "community",
+      "stars": 223
     },
     {
       "name": "benchmark-action",
@@ -80,10 +164,46 @@
       "stars": 1528
     },
     {
+      "name": "chinthakagodawita",
+      "verified": false,
+      "type": "community",
+      "stars": 207
+    },
+    {
       "name": "coderabbitai",
       "verified": false,
       "type": "community",
-      "stars": 1983
+      "stars": 1984
+    },
+    {
+      "name": "creyD",
+      "verified": false,
+      "type": "community",
+      "stars": 308
+    },
+    {
+      "name": "crowdin",
+      "verified": false,
+      "type": "community",
+      "stars": 218
+    },
+    {
+      "name": "cybersecsi",
+      "verified": false,
+      "type": "community",
+      "stars": 559
+    },
+    {
+      "name": "dflook",
+      "verified": false,
+      "type": "community",
+      "stars": 933
+    },
+    {
+      "name": "dkamm",
+      "verified": false,
+      "type": "community",
+      "stars": 201
     },
     {
       "name": "filipdutescu",
@@ -92,10 +212,34 @@
       "stars": 1867
     },
     {
+      "name": "graalvm",
+      "verified": false,
+      "type": "community",
+      "stars": 211
+    },
+    {
+      "name": "gradle",
+      "verified": false,
+      "type": "community",
+      "stars": 276
+    },
+    {
       "name": "irgolic",
       "verified": false,
       "type": "community",
       "stars": 1359
+    },
+    {
+      "name": "jamesgeorge007",
+      "verified": false,
+      "type": "community",
+      "stars": 909
+    },
+    {
+      "name": "kamranahmedse",
+      "verified": false,
+      "type": "community",
+      "stars": 466
     },
     {
       "name": "lowlighter",
@@ -104,10 +248,34 @@
       "stars": 15784
     },
     {
+      "name": "lukka",
+      "verified": false,
+      "type": "community",
+      "stars": 224
+    },
+    {
+      "name": "maehr",
+      "verified": false,
+      "type": "community",
+      "stars": 268
+    },
+    {
+      "name": "mszostok",
+      "verified": false,
+      "type": "community",
+      "stars": 242
+    },
+    {
       "name": "mxschmitt",
       "verified": false,
       "type": "community",
       "stars": 3379
+    },
+    {
+      "name": "pascalgn",
+      "verified": false,
+      "type": "community",
+      "stars": 913
     },
     {
       "name": "peter-evans",
@@ -116,10 +284,52 @@
       "stars": 2616
     },
     {
+      "name": "pompelmi",
+      "verified": false,
+      "type": "community",
+      "stars": 411
+    },
+    {
+      "name": "posener",
+      "verified": false,
+      "type": "community",
+      "stars": 215
+    },
+    {
       "name": "pypa",
       "verified": false,
       "type": "community",
       "stars": 1118
+    },
+    {
+      "name": "raeperd",
+      "verified": false,
+      "type": "community",
+      "stars": 221
+    },
+    {
+      "name": "renovatebot",
+      "verified": false,
+      "type": "community",
+      "stars": 439
+    },
+    {
+      "name": "repo-sync",
+      "verified": false,
+      "type": "community",
+      "stars": 435
+    },
+    {
+      "name": "robvanderleek",
+      "verified": false,
+      "type": "community",
+      "stars": 343
+    },
+    {
+      "name": "samuelmeuli",
+      "verified": false,
+      "type": "community",
+      "stars": 711
     },
     {
       "name": "stefanzweifel",
@@ -128,16 +338,64 @@
       "stars": 2430
     },
     {
+      "name": "techpivot",
+      "verified": false,
+      "type": "community",
+      "stars": 201
+    },
+    {
+      "name": "tgymnich",
+      "verified": false,
+      "type": "community",
+      "stars": 448
+    },
+    {
+      "name": "tibdex",
+      "verified": false,
+      "type": "community",
+      "stars": 554
+    },
+    {
       "name": "vn7n24fzkq",
       "verified": false,
       "type": "community",
       "stars": 3211
     },
     {
+      "name": "wangyoucao577",
+      "verified": false,
+      "type": "community",
+      "stars": 539
+    },
+    {
+      "name": "wei",
+      "verified": false,
+      "type": "community",
+      "stars": 265
+    },
+    {
+      "name": "wlixcc",
+      "verified": false,
+      "type": "community",
+      "stars": 275
+    },
+    {
+      "name": "xandemon",
+      "verified": false,
+      "type": "community",
+      "stars": 383
+    },
+    {
       "name": "yoshi389111",
       "verified": false,
       "type": "community",
       "stars": 1466
+    },
+    {
+      "name": "zhongfly",
+      "verified": false,
+      "type": "community",
+      "stars": 592
     }
   ]
 }

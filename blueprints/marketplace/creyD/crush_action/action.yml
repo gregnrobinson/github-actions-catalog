@@ -1,0 +1,32 @@
+name: Crush Action
+description: Losslessly reduces file size for PNG and JPG
+
+author: Conrad Großer <grosserconrad@gmail.com>
+
+inputs:
+  commit_message:
+    description: Commit message
+    required: false
+    default: 'Optimised your images!'
+  commit_options:
+    description: Commit options
+    required: false
+  file_pattern:
+    description: File pattern used for `git add`
+    required: false
+    default: '*'
+  branch:
+    description: Target branch for the changes
+    required: true
+  folder:
+    description: Starting folder for recursive search
+    required: false
+    default: '.'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'aperture'
+  color: 'green'

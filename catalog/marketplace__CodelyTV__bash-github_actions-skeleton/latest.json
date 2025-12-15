@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/CodelyTV/bash-github_actions-skeleton",
+  "version_id": "71aa3205170e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/CodelyTV/bash-github_actions-skeleton/action.yml",
+    "origin": "github.com/CodelyTV/bash-github_actions-skeleton",
+    "publisher": "CodelyTV",
+    "verified": false
+  },
+  "definition": {
+    "name": "The name of your action",
+    "description": "The description of the action",
+    "author": "",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": true,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "another_input",
+        "required": true,
+        "default": null,
+        "description": "A demo argument"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.GITHUB_TOKEN }}",
+        "${{ inputs.another_input }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Build"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action appears to be a skeleton for creating GitHub Actions, which primarily serves as documentation and a template for building new actions. It may also assist in the build process by providing a structured starting point.",
+        "tags": [
+          "GitHub Actions",
+          "template",
+          "skeleton",
+          "documentation",
+          "build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "71aa3205170e2ce134e13e24de8be6e26b0ee13ecabeb05ab7afc876f34c83a3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.566008Z"
+  }
+}

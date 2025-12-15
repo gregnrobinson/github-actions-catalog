@@ -1,0 +1,137 @@
+{
+  "action_id": "marketplace/dkamm/pr-quiz",
+  "version_id": "cf2e07cbd770",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dkamm/pr-quiz/action.yml",
+    "origin": "github.com/dkamm/pr-quiz",
+    "publisher": "dkamm",
+    "verified": false
+  },
+  "definition": {
+    "name": "PR Quiz",
+    "description": "A GitHub Action that uses AI to generate a quiz based on a pull request",
+    "author": "dkamm",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "GitHub token for API access"
+      },
+      {
+        "name": "openai-api-key",
+        "required": true,
+        "default": null,
+        "description": "OpenAI API key for API access"
+      },
+      {
+        "name": "ngrok-authtoken",
+        "required": true,
+        "default": null,
+        "description": "The ngrok authtoken to use for the server hosting the quiz."
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": "o4-mini",
+        "description": "The model to use for generating the quiz.  It must be a model that supports structured outputs. Defaults to 'o4-mini'."
+      },
+      {
+        "name": "lines-changed-threshold",
+        "required": false,
+        "default": "100",
+        "description": "The minimum number of lines changed required to create a quiz. This is to prevent quizzes from being created for small pull requests."
+      },
+      {
+        "name": "time-limit-minutes",
+        "required": false,
+        "default": "10",
+        "description": "The time limit to complete the quiz in minutes. This prevents the action from running indefinitely."
+      },
+      {
+        "name": "max-attempts",
+        "required": false,
+        "default": "3",
+        "description": "The maximum number of attempts to pass the quiz. A value of 0 means unlimited attempts."
+      },
+      {
+        "name": "exclude-file-patterns",
+        "required": false,
+        "default": "[\"**/*-lock.json\", \"**/*-lock.yaml\", \"**/*.lock\", \"**/*.map\", \"**/*.pb.*\", \"**/*_pb2.py\", \"**/*.generated.*\", \"**/*.auto.*\"]",
+        "description": "A list of file patterns to exclude from the quiz as a JSON-ified string."
+      },
+      {
+        "name": "system-prompt",
+        "required": false,
+        "default": null,
+        "description": "Optional override for the system prompt. Be sure the specify that multiple choice questions must be returned."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Setup Node.js",
+          "uses": "actions/setup-node@v4",
+          "with": {
+            "node-version": "20"
+          }
+        },
+        {
+          "name": "Install external dependencies",
+          "run": "npm install @ngrok/ngrok ejs express",
+          "shell": "bash",
+          "working-directory": "${{ github.action_path }}"
+        },
+        {
+          "name": "Run action",
+          "run": "npx node dist/index.cjs",
+          "shell": "bash",
+          "working-directory": "${{ github.action_path }}",
+          "env": {
+            "INPUT_GITHUB_TOKEN": "${{ inputs.github-token }}",
+            "INPUT_OPENAI_API_KEY": "${{ inputs.openai-api-key }}",
+            "INPUT_NGROK_AUTHTOKEN": "${{ inputs.ngrok-authtoken }}",
+            "INPUT_LINES_CHANGED_THRESHOLD": "${{ inputs.lines-changed-threshold }}",
+            "INPUT_TIME_LIMIT_MINUTES": "${{ inputs.time-limit-minutes }}",
+            "INPUT_MAX_ATTEMPTS": "${{ inputs.max-attempts }}",
+            "INPUT_EXCLUDE_FILE_PATTERNS": "${{ inputs.exclude-file-patterns }}",
+            "INPUT_MODEL": "${{ inputs.model }}",
+            "INPUT_SYSTEM_PROMPT": "${{ inputs.system-prompt }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Documentation",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action generates a quiz based on a pull request, which facilitates communication and understanding of code changes. It also serves as a testing tool for knowledge assessment related to the pull request.",
+        "tags": [
+          "quiz",
+          "pull request",
+          "AI",
+          "communication",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "cf2e07cbd770bf680977bc7991862963a5ae8a9ac992db5cd48a025bd78e95f8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.269233Z"
+  }
+}

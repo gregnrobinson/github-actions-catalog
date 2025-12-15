@@ -1,0 +1,67 @@
+{
+  "action_id": "marketplace/lukka/get-cmake",
+  "version_id": "5a4988947c0c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/get-cmake/action.yml",
+    "origin": "github.com/lukka/get-cmake",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "get-cmake",
+    "description": "Installs CMake and Ninja, and caches them on cloud based GitHub cache, and/or on the local GitHub runner cache.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "cmakeVersion",
+        "required": false,
+        "default": null,
+        "description": "Optional CMake version, expressed with the semantic version syntax, e.g. '~3.25.0' for the most recent 3.25.x, `\u02c63.25.0` for the most recent 3.x version, or a specific version `3.25.2'. Or `latest` or `latestrc` for the latest stable or release candidate version. If not specified the `latest` is installed."
+      },
+      {
+        "name": "ninjaVersion",
+        "required": false,
+        "default": null,
+        "description": "Optional Ninja version, same syntax as `cmakeVersion` input. If not specified, `latest` is installed"
+      },
+      {
+        "name": "useCloudCache",
+        "required": false,
+        "default": true,
+        "description": "Optional argument indicating whether to use the cloud based storage of the GitHub cache. Suited for the GitHub-hosted runners."
+      },
+      {
+        "name": "useLocalCache",
+        "required": false,
+        "default": false,
+        "description": "Optional argument indicating whether to use the local cache on the GitHub runner file system. Suited for the self-hosted GitHub runners."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cmake-path",
+        "description": "The path to the installed CMake executable"
+      },
+      {
+        "name": "ninja-path",
+        "description": "The path to the installed Ninja executable"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5a4988947c0c59e2b642a72a57b69231441ce4cea81f8ffcafd5c18fb4bcac11",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.261241Z"
+  }
+}

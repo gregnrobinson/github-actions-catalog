@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/Ilshidur/action-slack",
+  "version_id": "2ae2fe98093b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Ilshidur/action-slack/action.yml",
+    "origin": "github.com/Ilshidur/action-slack",
+    "publisher": "Ilshidur",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Action for Slack",
+    "description": "Outputs a message to Slack.",
+    "author": "Ilshidur",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": null,
+        "description": "The message to display in the Slack notification."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2ae2fe98093bd3fd17f0b7657ff9a32afc7abcba1f1db871fc19dfb99084581d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.089926Z"
+  }
+}

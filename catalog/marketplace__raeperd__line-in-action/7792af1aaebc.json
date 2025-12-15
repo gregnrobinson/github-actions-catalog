@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/raeperd/line-in-action",
+  "version_id": "7792af1aaebc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/raeperd/line-in-action/action.yml",
+    "origin": "github.com/raeperd/line-in-action",
+    "publisher": "raeperd",
+    "verified": false
+  },
+  "definition": {
+    "name": "LINE-in-action",
+    "description": "Github action for pushing LINE message using LINE-Notify",
+    "author": "raeperd",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "An access token for authentication. Used for calling the notification API"
+      },
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "description": "1000 characters max"
+      },
+      {
+        "name": "notificationDisabled",
+        "required": false,
+        "default": "false",
+        "description": "If true, user doesn't receive a push notification when the message is sent. If false, The user receives a push notification when the message is sent. If omitted, the value defaults to false."
+      },
+      {
+        "name": "stickerPackageId",
+        "required": false,
+        "default": null,
+        "description": "Package ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf"
+      },
+      {
+        "name": "stickerId",
+        "required": false,
+        "default": null,
+        "description": "Sticker ID. Details in https://developers.line.biz/media/messaging-api/sticker_list.pdf"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7792af1aaebc3cc54edf1b2fc524623a72db7d62f6fddc30cd71d97110af04e7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.295640Z"
+  }
+}

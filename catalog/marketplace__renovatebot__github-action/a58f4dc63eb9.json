@@ -1,0 +1,100 @@
+{
+  "action_id": "marketplace/renovatebot/github-action",
+  "version_id": "a58f4dc63eb9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/renovatebot/github-action/action.yml",
+    "origin": "github.com/renovatebot/github-action",
+    "publisher": "renovatebot",
+    "verified": false
+  },
+  "definition": {
+    "name": "Renovate Bot GitHub Action",
+    "description": "GitHub Action to run self-hosted Renovate.",
+    "author": "Jeroen de Bruijn",
+    "inputs": [
+      {
+        "name": "configurationFile",
+        "required": false,
+        "default": null,
+        "description": "Configuration file to configure Renovate. Either use this input or the\n'RENOVATE_CONFIG_FILE' environment variable.\n"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "GitHub personal access token that Renovate should use. This should be\nconfigured using a Secret. Either use this input or the 'RENOVATE_TOKEN'\nenvironment variable.\n"
+      },
+      {
+        "name": "env-regex",
+        "required": false,
+        "default": null,
+        "description": "Override the environment variables which will be passsed into the renovate container.\nDefaults to `^(?:RENOVATE_\\\\w+|LOG_LEVEL|GITHUB_COM_TOKEN|NODE_OPTIONS|(?:HTTPS?|NO)_PROXY|(?:https?|no)_proxy)$`\n"
+      },
+      {
+        "name": "renovate-version",
+        "required": false,
+        "default": "42",
+        "description": "Renovate version to use.\n"
+      },
+      {
+        "name": "renovate-image",
+        "required": false,
+        "default": "ghcr.io/renovatebot/renovate",
+        "description": "Renovate docker image name.\n"
+      },
+      {
+        "name": "mount-docker-socket",
+        "required": false,
+        "default": null,
+        "description": "Mount the Docker socket inside the renovate container so that the commands\ncan use Docker. Also add the user inside the renovate container to the\ndocker group for socket permissions.\n"
+      },
+      {
+        "name": "docker-socket-host-path",
+        "required": false,
+        "default": "/var/run/docker.sock",
+        "description": "Allows the overriding of the host path for the Docker socket that is mounted into the container.\nUseful on systems where the host Docker socket is located somewhere other than '/var/run/docker.sock' (the default).\nOnly applicable when 'mount-docker-socket' is true.\n"
+      },
+      {
+        "name": "docker-cmd-file",
+        "required": false,
+        "default": null,
+        "description": "Override docker command. Default command is `renovate`\n"
+      },
+      {
+        "name": "docker-network",
+        "required": false,
+        "default": null,
+        "description": "Docker network.\n"
+      },
+      {
+        "name": "docker-user",
+        "required": false,
+        "default": null,
+        "description": "Docker user. Default to an unprivileged user\n"
+      },
+      {
+        "name": "docker-volumes",
+        "required": false,
+        "default": "/tmp:/tmp",
+        "description": "Docker volume mounts. Default to /tmp:/tmp\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a58f4dc63eb93ac735c6423d0131f2222d81e096f8f90a5c7ba4f7659a583e5c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.356245Z"
+  }
+}

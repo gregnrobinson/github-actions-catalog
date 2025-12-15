@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/atlassian/gajira-login",
+  "version_id": "1b1df44d6d9c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-login/action.yml",
+    "origin": "github.com/atlassian/gajira-login",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Login",
+    "description": "Log in to Jira Cloud instance",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1b1df44d6d9cf35fe30a79be9ec7b31f93f660f42fdd4e83de626b51435eb2b7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.404928Z"
+  }
+}

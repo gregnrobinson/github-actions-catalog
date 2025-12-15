@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/android-studio-game-dev",
+  "version_id": "3b55294a9a7a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/android-studio-game-dev/action.yml",
+    "origin": "github.com/amirisback/android-studio-game-dev",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Game Dev",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "3b55294a9a7ad8452beb4131f11ceefa1ea809449464aa2b66e070b0fbd0a566",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.624932Z"
+  }
+}

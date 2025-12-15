@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/consumable-code-news-api",
+  "version_id": "678cbc878964",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-news-api/action.yml",
+    "origin": "github.com/amirisback/consumable-code-news-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "consumable-code-news-api",
+    "description": "Retrofit has been Handled !! || Consumable code for request API (News API)",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "678cbc8789640f1ff14f14e7e629e3fe63765023c4fb1155ef512a2fe5e4e219",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.582052Z"
+  }
+}

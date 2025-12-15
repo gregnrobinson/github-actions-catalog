@@ -1,0 +1,29 @@
+name: 'google-drive-download-action'
+description: 'Github action for downlaoding google drive files or folder using Drives: list API'
+author: 'raeperd'
+branding:
+  icon: download
+  color: white
+inputs:
+  clientId:
+    required: true
+    description: 'Client id of oauth2 client application'
+  clientSecret:
+    required: true
+    description: 'Client secret of oauth2 client application'
+  redirectUri:
+    required: true
+    description: 'Redirect uri of oauth2 client application'
+  credential_json:
+    required: true
+    description: 'credential.json with refresh_token and scope https://www.googleapis.com/auth/drive.readonly'
+  q:
+    required: true
+    description: 'Query string to search for files and folders'
+  path:
+    required: false
+    default: "./"
+    description: 'Path to download files default to working directory'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/atlassian/gajira-create",
+  "version_id": "21694f42c87f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-create/action.yml",
+    "origin": "github.com/atlassian/gajira-create",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Create issue",
+    "description": "Create a new Jira issue",
+    "author": "",
+    "inputs": [
+      {
+        "name": "project",
+        "required": true,
+        "default": null,
+        "description": "Key of the project"
+      },
+      {
+        "name": "issuetype",
+        "required": true,
+        "default": null,
+        "description": "Type of the issue to be created. Example: 'Incident'"
+      },
+      {
+        "name": "summary",
+        "required": true,
+        "default": null,
+        "description": "Issue summary"
+      },
+      {
+        "name": "description",
+        "required": false,
+        "default": null,
+        "description": "Issue description"
+      },
+      {
+        "name": "fields",
+        "required": false,
+        "default": null,
+        "description": "Additional fields in JSON format"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue",
+        "description": "Key of the newly created issue"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "21694f42c87f53384cfa6eb3ba91a80a62dfbead2d5294b18211603aee625a38",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.406725Z"
+  }
+}

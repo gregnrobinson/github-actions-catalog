@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/TryGhost/label-actions",
+  "version_id": "f5a21d3ed74f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/TryGhost/label-actions/action.yml",
+    "origin": "github.com/TryGhost/label-actions",
+    "publisher": "TryGhost",
+    "verified": false
+  },
+  "definition": {
+    "name": "Label Actions",
+    "description": "Performs triaging actions when issues are opened, labeled or unlabeled",
+    "author": "Ghost Foundation",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub access token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f5a21d3ed74f192240d3c3b1a8748bf557644b443426558abc5b3b1cf0a94be9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.306588Z"
+  }
+}

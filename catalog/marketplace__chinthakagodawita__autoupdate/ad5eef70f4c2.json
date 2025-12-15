@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/chinthakagodawita/autoupdate",
+  "version_id": "ad5eef70f4c2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/chinthakagodawita/autoupdate/action.yml",
+    "origin": "github.com/chinthakagodawita/autoupdate",
+    "publisher": "chinthakagodawita",
+    "verified": false
+  },
+  "definition": {
+    "name": "Auto Update",
+    "description": "A GitHub Action that auto-updates PRs with changes from their destination branch",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ad5eef70f4c2ded06a76de56cb3317e0ad64e2230105f7f1027e4a40923e880c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.192216Z"
+  }
+}

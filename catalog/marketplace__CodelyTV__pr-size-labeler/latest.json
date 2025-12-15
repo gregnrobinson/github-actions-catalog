@@ -1,0 +1,166 @@
+{
+  "action_id": "marketplace/CodelyTV/pr-size-labeler",
+  "version_id": "3090932e08e7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/CodelyTV/pr-size-labeler/action.yml",
+    "origin": "github.com/CodelyTV/pr-size-labeler",
+    "publisher": "CodelyTV",
+    "verified": false
+  },
+  "definition": {
+    "name": "Pull Request size labeler",
+    "description": "Label a PR based on the amount of changes",
+    "author": "",
+    "inputs": [
+      {
+        "name": "GITHUB_TOKEN",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub token needed to interact with the repository"
+      },
+      {
+        "name": "xs_label",
+        "required": false,
+        "default": "size/xs",
+        "description": "Label for xs PR"
+      },
+      {
+        "name": "xs_max_size",
+        "required": false,
+        "default": "10",
+        "description": "Max size for a PR to be considered xs"
+      },
+      {
+        "name": "s_label",
+        "required": false,
+        "default": "size/s",
+        "description": "Label for s PR"
+      },
+      {
+        "name": "s_max_size",
+        "required": false,
+        "default": "100",
+        "description": "Max size for a PR to be considered s"
+      },
+      {
+        "name": "m_label",
+        "required": false,
+        "default": "size/m",
+        "description": "Label for m PR"
+      },
+      {
+        "name": "m_max_size",
+        "required": false,
+        "default": "500",
+        "description": "Max size for a PR to be considered m"
+      },
+      {
+        "name": "l_label",
+        "required": false,
+        "default": "size/l",
+        "description": "Label for l PR"
+      },
+      {
+        "name": "l_max_size",
+        "required": false,
+        "default": "1000",
+        "description": "Max size for a PR to be considered l"
+      },
+      {
+        "name": "xl_label",
+        "required": false,
+        "default": "size/xl",
+        "description": "Label for xl PR"
+      },
+      {
+        "name": "fail_if_xl",
+        "required": false,
+        "default": "false",
+        "description": "Report GitHub Workflow failure if the PR size is xl allowing to forbid PR merge"
+      },
+      {
+        "name": "message_if_xl",
+        "required": false,
+        "default": "This PR exceeds the recommended size of 1000 lines. Please make sure you are NOT addressing multiple issues with one PR. Note this PR might be rejected due to its size.\n",
+        "description": "Message to show if the PR size is xl"
+      },
+      {
+        "name": "github_api_url",
+        "required": false,
+        "default": "${{ github.api_url }}",
+        "description": "URL to the API of your Github Server, only necessary for Github Enterprise customers"
+      },
+      {
+        "name": "files_to_ignore",
+        "required": false,
+        "default": "",
+        "description": "Whitespace separated list of files to ignore when calculating the PR size (sum of changes)"
+      },
+      {
+        "name": "ignore_line_deletions",
+        "required": false,
+        "default": "false",
+        "description": "Whether to ignore lines which are deleted when calculating the PR size. If set to \"true\", deleted lines will be ignored."
+      },
+      {
+        "name": "ignore_file_deletions",
+        "required": false,
+        "default": "false",
+        "description": "Whether to ignore files which are deleted when calculating the PR size. If set to \"true\", deleted files will be ignored."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "--github_token=${{ inputs.GITHUB_TOKEN }}",
+        "--github_api_url=${{ inputs.github_api_url }}",
+        "--xs_label=${{ inputs.xs_label }}",
+        "--xs_max_size=${{ inputs.xs_max_size }}",
+        "--s_label=${{ inputs.s_label }}",
+        "--s_max_size=${{ inputs.s_max_size }}",
+        "--m_label=${{ inputs.m_label }}",
+        "--m_max_size=${{ inputs.m_max_size }}",
+        "--l_label=${{ inputs.l_label }}",
+        "--l_max_size=${{ inputs.l_max_size }}",
+        "--xl_label=${{ inputs.xl_label }}",
+        "--fail_if_xl=${{ inputs.fail_if_xl }}",
+        "--message_if_xl=\"${{ inputs.message_if_xl }}\"",
+        "--files_to_ignore=${{ inputs.files_to_ignore }}",
+        "--ignore_line_deletions=${{ inputs.ignore_line_deletions }}",
+        "--ignore_file_deletions=${{ inputs.ignore_file_deletions }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action labels pull requests based on the size of changes, which helps in assessing code quality and facilitates communication among team members regarding the nature of the changes. It also serves as a notification mechanism for reviewers.",
+        "tags": [
+          "pull request",
+          "labeling",
+          "code quality",
+          "GitHub Actions",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3090932e08e762b3a1b18af72da3c2f2ffd168654ca3f936fd974b3c158b0911",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.571312Z"
+  }
+}

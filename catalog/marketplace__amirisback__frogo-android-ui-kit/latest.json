@@ -1,0 +1,61 @@
+{
+  "action_id": "marketplace/amirisback/frogo-android-ui-kit",
+  "version_id": "565bfa33cc1f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/frogo-android-ui-kit/action.yml",
+    "origin": "github.com/amirisback/frogo-android-ui-kit",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-Android-UI-Kit",
+    "description": "Library Easy UI Kit Based on Design Guideline, Full and Clear Documentation, :books:",
+    "author": "Muhammad Faisal Amir - Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is a UI kit library that emphasizes clear documentation and follows design guidelines, making documentation its primary focus. It also relates to code quality and packaging as it provides a structured library for UI development.",
+        "tags": [
+          "UI Kit",
+          "Documentation",
+          "Android",
+          "Library",
+          "Design"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "565bfa33cc1f1c1a7bd7624897042e0dfb2e7d9d850550367d155e69b78930eb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.576261Z"
+  }
+}

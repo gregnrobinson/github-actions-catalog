@@ -1,0 +1,112 @@
+# Copyright (c) 2021 Luca Cappa
+# Released under the term specified in file LICENSE.txt
+# SPDX short identifier: MIT
+
+name: 'get-vcpkg'
+description: 'Run vcpkg to build C/C++ dependencies and cache them automatically.'
+author: 'Luca Cappa https://github.com/lukka'
+inputs:
+  # vcpkg must be already checked out. Two options:
+  # 1. Highly suggested: use vcpkg as submodule of your repository, for example under <repo-root>/vcpkg/.
+  #   - uses: lukka/get-vcpkg
+  #     # This is useless as it is the default, but shown here anyway:
+  #     with:
+  #       ${{ github.workspace }}/vcpkg
+  # 2. Another option is to checkout it prior this action, e.g.,:
+  #   - uses: actions/checkout@v2
+  #     with:
+  #       repository: myname/myvcpkg
+  #       path: vcpkg
+  vpkg_root_path:
+    required: false
+    description: "Specify a directory where vcpkg is already installed."
+    default: ${{ github.workspace }}/vcpkg
+  vcpkgjson_path:
+    required: false
+    description: "Specify the full path to vcpkg.json."
+    default: ${{ github.workspace }}/vcpkg.json
+  appended_cache_key:
+    required: false
+    description: "This value is added to the precomputed key used to restore/save the cached artifacts produced by vcpkg."
+  build_command:
+    required: true
+    description: "The full command to build, e.g. cmake -S ./src -B ./build && cmake --build ./build"
+outputs:
+  cache_key:
+    description: "The key of the newly created cache entry."
+  vcpkg_root:
+    description: "The path to vcpkg."
+runs:
+  using: "composite"
+  steps:
+    - name: Set VCPKG_DEFAULT_BINARY_CACHE and VCPKG_ROOT
+      shell: bash
+      run: |
+        echo "VCPKG_DEFAULT_BINARY_CACHE=${{ inputs.vpkg_root_path }}/cache" >> $GITHUB_ENV
+        echo "VCPKG_ROOT=${{ inputs.vpkg_root_path }}" >> $GITHUB_ENV
+    - name: Set VCPKG_COMMITID
+      shell: bash
+      run: |
+        echo "VCPKG_COMMITID=$(git -C $VCPKG_ROOT rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Set VCPKG_CACHE_KEY
+      shell: bash
+      run: |
+        echo "VCPKG_CACHE_KEY=${{ hashFiles( inputs.vcpkgjson_path ) }}-$VCPKG_COMMITID-$ImageVersion-$ImageOS" >> $GITHUB_ENV
+    - id: set-output
+      name: Dump variables
+      shell: bash
+      run: |
+        echo "VCPKG_ROOT=$VCPKG_ROOT"
+        echo "VCPKG_DEFAULT_BINARY_CACHE=$VCPKG_DEFAULT_BINARY_CACHE"
+        mkdir -p $VCPKG_DEFAULT_BINARY_CACHE
+        echo "VCPKG_COMMITID=$VCPKG_COMMITID"
+        echo "VCPKG_CACHE_KEY=$VCPKG_CACHE_KEY"
+        echo "::set-output name=cache_key::$CACHE_KEY"
+        echo "::set-output name=vcpkg_root::$VCPKG_ROOT"
+    # Restore both vcpkg and its artifacts from the GitHub cache service.
+    # simulating: uses: actions/cache@v2
+    #    with:
+    #      # The first path is the location of vcpkg (it contains the vcpkg executable and data files).
+    #      # The second path is where vcpkg generates artifacts while consuming the vcpkg.json manifest file.
+    #      # The other paths starting with '!' are exclusions: they contain termporary files generated during the build of the installed packages.
+    #      path: |
+    #        ${{ env.VCPKG_ROOT }}
+    #        !${{ env.VCPKG_ROOT }}/buildtrees
+    #        !${{ env.VCPKG_ROOT }}/packages
+    #        !${{ env.VCPKG_ROOT }}/downloads
+    #        !${{ env.VCPKG_ROOT }}/installed
+    #      # The key is composed in a way that it gets properly invalidated: this must happen whenever vcpkg's Git commit id changes, or the list of packages changes. In this case a cache miss must happen and a new entry with a new key with be pushed to GitHub the cache service.
+    #      # The key includes: hash of the vcpkg.json file, the hash of the vcpkg Git commit id, and the used vcpkg's triplet. The vcpkg's commit id would suffice, but computing an hash out it does not harm.
+    #      # Note: given a key, the cache content is immutable. If a cache entry has been created improperly, in order the recreate the right content the key must be changed as well, and it must be brand new (i.e. not existing already).
+    #      key: ${{ env.VCPKG_CACHE_KEY }}
+    - name: Restore vcpkg and its artifacts.
+      shell: bash
+      run: |
+        echo "::group::Restoring cache ..."
+        npm install
+        which node
+        node --version
+        node ${{ github.workspace }}/restore.js
+        echo "::endgroup::"
+
+    #- name: Show content of workspace after cache has been restored
+    #  run: find $RUNNER_WORKSPACE
+    #  shell: bash
+
+    - name: Build.
+      shell: bash
+      run: |
+        echo "::group::Building ..."
+        echo "Executing the build command: '${{ inputs.build_command }}'"
+        eval "${{ inputs.build_command}}"
+        echo "::endgroup::"
+
+    - name: Save vcpkg and its artifacts.
+      shell: bash
+      run: |
+        echo "::group::Saving cache ..."
+        npm install
+        which node
+        node --version
+        node ${{ github.workspace }}/save.js
+        echo "::endgroup::"

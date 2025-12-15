@@ -1,0 +1,94 @@
+{
+  "action_id": "marketplace/crowdin/translate-readme",
+  "version_id": "b196291d17c7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/crowdin/translate-readme/action.yml",
+    "origin": "github.com/crowdin/translate-readme",
+    "publisher": "crowdin",
+    "verified": false
+  },
+  "definition": {
+    "name": "Translate Readme",
+    "description": "Automate translation of your README.md files via Crowdin",
+    "author": "Andrii Bodnar",
+    "inputs": [
+      {
+        "name": "file",
+        "required": false,
+        "default": "README.md",
+        "description": "The Readme file name"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": null,
+        "description": "Specify branch name to create in Crowdin"
+      },
+      {
+        "name": "destination",
+        "required": false,
+        "default": "./",
+        "description": "A directory where the localized readmes will be placed"
+      },
+      {
+        "name": "languages",
+        "required": false,
+        "default": null,
+        "description": "A list of languages to translate the Readme"
+      },
+      {
+        "name": "language_switcher",
+        "required": false,
+        "default": "false",
+        "description": "Defines whether to add a language switcher to the Readme"
+      },
+      {
+        "name": "upload_sources",
+        "required": false,
+        "default": "true",
+        "description": "Defines whether to upload the source file to Crowdin"
+      },
+      {
+        "name": "download_translations",
+        "required": false,
+        "default": "true",
+        "description": "Defines whether to download translations from Crowdin"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Localization",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action focuses on automating the translation of README files, which falls under documentation. It also involves communication as it translates content for broader accessibility.",
+        "tags": [
+          "translation",
+          "README",
+          "Crowdin",
+          "localization",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b196291d17c7593daf0bc2d2e0c0193c79b3277f2343fc3555c2397654695e1d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.669076Z"
+  }
+}

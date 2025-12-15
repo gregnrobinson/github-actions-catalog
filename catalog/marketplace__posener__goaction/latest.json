@@ -1,0 +1,119 @@
+{
+  "action_id": "marketplace/posener/goaction",
+  "version_id": "f5eb1da76864",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/posener/goaction/action.yml",
+    "origin": "github.com/posener/goaction",
+    "publisher": "posener",
+    "verified": false
+  },
+  "definition": {
+    "name": "posener/goaction",
+    "description": "Creates action files for Go code",
+    "author": "",
+    "inputs": [
+      {
+        "name": "path",
+        "required": true,
+        "default": ".",
+        "description": "Path to main Go main package."
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "Override action name, the default name is the package name."
+      },
+      {
+        "name": "desc",
+        "required": false,
+        "default": null,
+        "description": "Override action description, the default description is the package synopsis."
+      },
+      {
+        "name": "image",
+        "required": false,
+        "default": "golang:1.14.2-alpine3.11",
+        "description": "Override Docker image to run the action with (See https://hub.docker.com/_/golang?tab=tags)."
+      },
+      {
+        "name": "install",
+        "required": false,
+        "default": null,
+        "description": "Comma separated list of requirements to 'apk add'."
+      },
+      {
+        "name": "icon",
+        "required": false,
+        "default": null,
+        "description": "Set branding icon. (See options at https://feathericons.com)."
+      },
+      {
+        "name": "color",
+        "required": false,
+        "default": null,
+        "description": "Set branding color. (white, yellow, blue, green, orange, red, purple or gray-dark)."
+      },
+      {
+        "name": "email",
+        "required": false,
+        "default": "posener@gmail.com",
+        "description": "Email for commit message."
+      },
+      {
+        "name": "GITHUB_TOKEN",
+        "required": false,
+        "default": null,
+        "description": "Github token for PR comments. Optional."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "email": "${{ inputs.email }}",
+        "GITHUB_TOKEN": "${{ inputs.GITHUB_TOKEN }}"
+      },
+      "args": [
+        "-path=${{ inputs.path }}",
+        "-name=${{ inputs.name }}",
+        "-desc=${{ inputs.desc }}",
+        "-image=${{ inputs.image }}",
+        "-install=${{ inputs.install }}",
+        "-icon=${{ inputs.icon }}",
+        "-color=${{ inputs.color }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Build",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on creating action files for Go code, which relates primarily to documentation and packaging of the code. It also supports build processes by generating necessary files.",
+        "tags": [
+          "Go",
+          "GitHub Actions",
+          "Documentation",
+          "Packaging",
+          "Build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f5eb1da768644af66d92fbe6705b0b12eb17e72cf064c3a9bdc2a665709467a4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.818814Z"
+  }
+}

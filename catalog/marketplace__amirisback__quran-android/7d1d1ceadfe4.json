@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/quran-android",
+  "version_id": "7d1d1ceadfe4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/quran-android/action.yml",
+    "origin": "github.com/amirisback/quran-android",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Quran Android",
+    "description": "SDK for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7d1d1ceadfe41d8bbf5e683f430dd988c72f7d4c746b286ff346d524148b78e4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.592591Z"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "action_id": "marketplace/lukka/get-vcpkg",
+  "version_id": "19d4d2f07c25",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/get-vcpkg/action.yml",
+    "origin": "github.com/lukka/get-vcpkg",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "get-vcpkg",
+    "description": "Run vcpkg to build C/C++ dependencies and cache them automatically.",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [
+      {
+        "name": "vpkg_root_path",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg",
+        "description": "Specify a directory where vcpkg is already installed."
+      },
+      {
+        "name": "vcpkgjson_path",
+        "required": false,
+        "default": "${{ github.workspace }}/vcpkg.json",
+        "description": "Specify the full path to vcpkg.json."
+      },
+      {
+        "name": "appended_cache_key",
+        "required": false,
+        "default": null,
+        "description": "This value is added to the precomputed key used to restore/save the cached artifacts produced by vcpkg."
+      },
+      {
+        "name": "build_command",
+        "required": true,
+        "default": null,
+        "description": "The full command to build, e.g. cmake -S ./src -B ./build && cmake --build ./build"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache_key",
+        "description": "The key of the newly created cache entry."
+      },
+      {
+        "name": "vcpkg_root",
+        "description": "The path to vcpkg."
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set VCPKG_DEFAULT_BINARY_CACHE and VCPKG_ROOT",
+          "shell": "bash",
+          "run": "echo \"VCPKG_DEFAULT_BINARY_CACHE=${{ inputs.vpkg_root_path }}/cache\" >> $GITHUB_ENV\necho \"VCPKG_ROOT=${{ inputs.vpkg_root_path }}\" >> $GITHUB_ENV\n"
+        },
+        {
+          "name": "Set VCPKG_COMMITID",
+          "shell": "bash",
+          "run": "echo \"VCPKG_COMMITID=$(git -C $VCPKG_ROOT rev-parse --short HEAD)\" >> $GITHUB_ENV\n"
+        },
+        {
+          "name": "Set VCPKG_CACHE_KEY",
+          "shell": "bash",
+          "run": "echo \"VCPKG_CACHE_KEY=${{ hashFiles( inputs.vcpkgjson_path ) }}-$VCPKG_COMMITID-$ImageVersion-$ImageOS\" >> $GITHUB_ENV\n"
+        },
+        {
+          "id": "set-output",
+          "name": "Dump variables",
+          "shell": "bash",
+          "run": "echo \"VCPKG_ROOT=$VCPKG_ROOT\"\necho \"VCPKG_DEFAULT_BINARY_CACHE=$VCPKG_DEFAULT_BINARY_CACHE\"\nmkdir -p $VCPKG_DEFAULT_BINARY_CACHE\necho \"VCPKG_COMMITID=$VCPKG_COMMITID\"\necho \"VCPKG_CACHE_KEY=$VCPKG_CACHE_KEY\"\necho \"::set-output name=cache_key::$CACHE_KEY\"\necho \"::set-output name=vcpkg_root::$VCPKG_ROOT\"\n"
+        },
+        {
+          "name": "Restore vcpkg and its artifacts.",
+          "shell": "bash",
+          "run": "echo \"::group::Restoring cache ...\"\nnpm install\nwhich node\nnode --version\nnode ${{ github.workspace }}/restore.js\necho \"::endgroup::\"\n"
+        },
+        {
+          "name": "Build.",
+          "shell": "bash",
+          "run": "echo \"::group::Building ...\"\necho \"Executing the build command: '${{ inputs.build_command }}'\"\neval \"${{ inputs.build_command}}\"\necho \"::endgroup::\"\n"
+        },
+        {
+          "name": "Save vcpkg and its artifacts.",
+          "shell": "bash",
+          "run": "echo \"::group::Saving cache ...\"\nnpm install\nwhich node\nnode --version\nnode ${{ github.workspace }}/save.js\necho \"::endgroup::\"\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Caching"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is primarily focused on managing C/C++ dependencies using vcpkg, which falls under Dependency management. Additionally, it builds these dependencies, making Build a relevant secondary category.",
+        "tags": [
+          "vcpkg",
+          "C++",
+          "dependencies",
+          "build",
+          "caching"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "19d4d2f07c259ab400422bb7abeb50d1c064d46bf49d019d98e5df95fa11c172",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.243490Z"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "action_id": "marketplace/repo-sync/pull-request",
+  "version_id": "ca3c8be0d731",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/repo-sync/pull-request/action.yml",
+    "origin": "github.com/repo-sync/pull-request",
+    "publisher": "repo-sync",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Pull Request Action",
+    "description": "\u2935\ufe0f Create pull request",
+    "author": "Wei He <github@weispot.com>",
+    "inputs": [
+      {
+        "name": "destination_repository",
+        "required": false,
+        "default": null,
+        "description": "Repository (user/repo) to create the pull request in, falls back to checkout repository or triggered repository"
+      },
+      {
+        "name": "source_branch",
+        "required": false,
+        "default": null,
+        "description": "Branch name to pull from, default is triggered branch"
+      },
+      {
+        "name": "destination_branch",
+        "required": false,
+        "default": "master",
+        "description": "Branch name to sync to in this repo, default is master"
+      },
+      {
+        "name": "pr_title",
+        "required": false,
+        "default": null,
+        "description": "Pull request title"
+      },
+      {
+        "name": "pr_body",
+        "required": false,
+        "default": null,
+        "description": "Pull request body"
+      },
+      {
+        "name": "pr_template",
+        "required": false,
+        "default": null,
+        "description": "Pull request template"
+      },
+      {
+        "name": "pr_reviewer",
+        "required": false,
+        "default": null,
+        "description": "Pull request reviewers, comma-separated list (no spaces)"
+      },
+      {
+        "name": "pr_assignee",
+        "required": false,
+        "default": null,
+        "description": "Pull request assignees, comma-separated list (no spaces)"
+      },
+      {
+        "name": "pr_label",
+        "required": false,
+        "default": null,
+        "description": "Pull request labels, comma-separated list (no spaces)"
+      },
+      {
+        "name": "pr_milestone",
+        "required": false,
+        "default": null,
+        "description": "Pull request milestone"
+      },
+      {
+        "name": "pr_draft",
+        "required": false,
+        "default": null,
+        "description": "Draft pull request"
+      },
+      {
+        "name": "pr_allow_empty",
+        "required": false,
+        "default": null,
+        "description": "Create PR even if no changes"
+      },
+      {
+        "name": "working_directory",
+        "required": false,
+        "default": null,
+        "description": "Change working directory"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub token secret"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Bash set -x debugging mode"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_url",
+        "description": "Pull request URL"
+      },
+      {
+        "name": "pr_number",
+        "description": "Pull request number"
+      },
+      {
+        "name": "pr_created",
+        "description": "Boolean string indicating if a pull request was created from the action run"
+      },
+      {
+        "name": "has_changed_files",
+        "description": "Boolean string indicating whether any file has been changed"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "GITHUB_TOKEN": "${{ inputs.github_token }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ca3c8be0d7311173808bd3442dc609d112a5c1049fbd2c942c395e96a9021b52",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.032951Z"
+  }
+}

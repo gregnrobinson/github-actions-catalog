@@ -1,0 +1,12 @@
+name: Sphinx Problem Matcher
+description: Attaches a problem matcher that looks for errors during Sphinx builds
+author: Ammar Askar
+branding:
+  icon: book
+  color: yellow
+runs:
+  using: composite
+  steps:
+  - name: Activate the problem matcher
+    run: echo '::add-matcher::${{ github.action_path }}/sphinx_matcher.json'
+    shell: sh

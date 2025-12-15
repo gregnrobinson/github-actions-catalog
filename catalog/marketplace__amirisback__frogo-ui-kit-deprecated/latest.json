@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/frogo-ui-kit-deprecated",
+  "version_id": "a3e4a847047a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/frogo-ui-kit-deprecated/action.yml",
+    "origin": "github.com/amirisback/frogo-ui-kit-deprecated",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-UI-Kit",
+    "description": "Library Easy UI Kit Based on Design Guideline, Full and Clear Documentation, :books:",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is a library for a UI kit that emphasizes documentation and design guidelines, making documentation its primary focus. It also relates to code quality as it provides a structured approach to UI development.",
+        "tags": [
+          "UI Kit",
+          "Documentation",
+          "Design",
+          "Library",
+          "Code Quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a3e4a847047ae13f4532a12de13f36d60c621a56caa7b68d724fee383886ea9e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.587553Z"
+  }
+}

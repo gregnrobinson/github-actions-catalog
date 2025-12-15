@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/amirisback/easy-kotlin-lib-jar",
+  "version_id": "c93f345e5c19",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/easy-kotlin-lib-jar/action.yml",
+    "origin": "github.com/amirisback/easy-kotlin-lib-jar",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Easy Kotlin Lib Jar",
+    "description": "Easy Sample Kotlin Library",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action is focused on creating a Kotlin library, which falls under the packaging category, while also involving the build process to compile the library.",
+        "tags": [
+          "Kotlin",
+          "library",
+          "packaging",
+          "build",
+          "easy"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c93f345e5c19675f07d0f92799d4c225ac8e4b10ddce095ffc1bd790c6ffb918",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.637646Z"
+  }
+}

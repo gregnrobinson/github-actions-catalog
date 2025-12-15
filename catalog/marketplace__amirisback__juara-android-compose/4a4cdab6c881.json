@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/juara-android-compose",
+  "version_id": "4a4cdab6c881",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/juara-android-compose/action.yml",
+    "origin": "github.com/amirisback/juara-android-compose",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Android-Research-Tech",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4a4cdab6c881836ea1504412f277c3131d77719f2d7e7e1133aba8bc9d4cbd13",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.618312Z"
+  }
+}

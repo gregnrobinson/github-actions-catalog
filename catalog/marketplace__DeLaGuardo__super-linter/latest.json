@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/DeLaGuardo/super-linter",
+  "version_id": "e9e513ba3d06",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/DeLaGuardo/super-linter/action.yml",
+    "origin": "github.com/DeLaGuardo/super-linter",
+    "publisher": "DeLaGuardo",
+    "verified": false
+  },
+  "definition": {
+    "name": "Super-Linter",
+    "description": "It is a simple combination of various linters, written in bash, to help validate your source code.",
+    "author": "GitHub",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "Super-Linter is designed to validate source code using various linters, which directly relates to code quality. Additionally, it can be used in the testing phase of the development process to ensure code adheres to specified standards.",
+        "tags": [
+          "linter",
+          "code quality",
+          "validation",
+          "GitHub Actions",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e9e513ba3d0671a59ea3d6f6dbf7d5c860491bce05747ad3c9d7446e4cd47426",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.273787Z"
+  }
+}

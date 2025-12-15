@@ -1,0 +1,148 @@
+{
+  "action_id": "marketplace/mszostok/kind-action",
+  "version_id": "083d844b5af8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mszostok/kind-action/action.yml",
+    "origin": "github.com/mszostok/kind-action",
+    "publisher": "mszostok",
+    "verified": false
+  },
+  "definition": {
+    "name": "Kind Cluster",
+    "description": "Create a kind (Kubernetes IN Docker) cluster",
+    "author": "The Helm authors",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "v0.29.0",
+        "description": "The kind version to use (default: v0.29.0)"
+      },
+      {
+        "name": "config",
+        "required": false,
+        "default": null,
+        "description": "The path to the kind config file"
+      },
+      {
+        "name": "kubeconfig",
+        "required": false,
+        "default": null,
+        "description": "The path to the kubeconfig config file"
+      },
+      {
+        "name": "node_image",
+        "required": false,
+        "default": null,
+        "description": "The Docker image for the cluster nodes"
+      },
+      {
+        "name": "cluster_name",
+        "required": false,
+        "default": "chart-testing",
+        "description": "The name of the cluster to create (default: chart-testing)"
+      },
+      {
+        "name": "wait",
+        "required": false,
+        "default": "60s",
+        "description": "The duration to wait for the control plane to become ready (default: 60s)"
+      },
+      {
+        "name": "verbosity",
+        "required": false,
+        "default": "0",
+        "description": "The verbosity level for kind (default: 0)"
+      },
+      {
+        "name": "kubectl_version",
+        "required": false,
+        "default": "v1.31.11",
+        "description": "The kubectl version to use (default: v1.31.11)"
+      },
+      {
+        "name": "registry",
+        "required": false,
+        "default": "false",
+        "description": "Whether to configure an insecure local registry (default: false)"
+      },
+      {
+        "name": "registry_image",
+        "required": false,
+        "default": "registry:2",
+        "description": "The registry image to use (default: registry:2)"
+      },
+      {
+        "name": "registry_name",
+        "required": false,
+        "default": "kind-registry",
+        "description": "The registry name to use (default: kind-registry)"
+      },
+      {
+        "name": "registry_port",
+        "required": false,
+        "default": "5000",
+        "description": "The local port used to bind the registry (default: 5000)"
+      },
+      {
+        "name": "registry_enable_delete",
+        "required": false,
+        "default": "false",
+        "description": "Enable delete operations on the registry (default: false)"
+      },
+      {
+        "name": "install_only",
+        "required": false,
+        "default": null,
+        "description": "Skips cluster creation, only install kind (default: false)"
+      },
+      {
+        "name": "ignore_failed_clean",
+        "required": false,
+        "default": "false",
+        "description": "Whether to ignore the post-delete the cluster (default: false)"
+      },
+      {
+        "name": "cloud_provider",
+        "required": false,
+        "default": "false",
+        "description": "Whether to use cloud provider loadbalancer (default: false)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "main.js",
+      "post": "cleanup.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "This action is focused on creating a Kubernetes cluster using kind, which falls under infrastructure management and deployment of containerized applications.",
+        "tags": [
+          "Kubernetes",
+          "Docker",
+          "kind",
+          "infrastructure",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "083d844b5af8372c8fdde4c59cf3b84dce8bd3eb4da4b47b95457dfea79ce4fa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.706172Z"
+  }
+}

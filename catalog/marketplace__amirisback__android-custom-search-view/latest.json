@@ -1,0 +1,59 @@
+{
+  "action_id": "marketplace/amirisback/android-custom-search-view",
+  "version_id": "4a4cdab6c881",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/android-custom-search-view/action.yml",
+    "origin": "github.com/amirisback/android-custom-search-view",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Android-Research-Tech",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on providing full and clear documentation, which directly aligns it with the Documentation category.",
+        "tags": [
+          "documentation",
+          "android",
+          "search",
+          "custom",
+          "tech"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4a4cdab6c881836ea1504412f277c3131d77719f2d7e7e1133aba8bc9d4cbd13",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.593565Z"
+  }
+}

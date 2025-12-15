@@ -1,0 +1,149 @@
+{
+  "action_id": "marketplace/graalvm/setup-graalvm",
+  "version_id": "fe0771bc8437",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/graalvm/setup-graalvm/action.yml",
+    "origin": "github.com/graalvm/setup-graalvm",
+    "publisher": "graalvm",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Action for GraalVM",
+    "description": "Set up a specific version of the GraalVM JDK and add the command-line tools to the PATH",
+    "author": "GraalVM Community",
+    "inputs": [
+      {
+        "name": "java-version",
+        "required": true,
+        "default": null,
+        "description": "Java version. See examples of supported syntax in the README file."
+      },
+      {
+        "name": "java-package",
+        "required": false,
+        "default": "jdk",
+        "description": "The package type (jdk or jdk+fx). Currently applies to Liberica only."
+      },
+      {
+        "name": "distribution",
+        "required": false,
+        "default": "",
+        "description": "GraalVM distribution. See the list of available distributions in the README file."
+      },
+      {
+        "name": "components",
+        "required": false,
+        "default": "",
+        "description": "Comma-separated list of GraalVM components to be installed."
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Set it to secrets.GITHUB_TOKEN to increase rate limits when accessing the GitHub API. Defaults to github.token."
+      },
+      {
+        "name": "set-java-home",
+        "required": false,
+        "default": "true",
+        "description": "Set $JAVA_HOME to the GraalVM installation. Default: true."
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": null,
+        "description": "Name of the build platform to cache dependencies. It can be \"maven\", \"gradle\", or \"sbt\"."
+      },
+      {
+        "name": "check-for-updates",
+        "required": false,
+        "default": "true",
+        "description": "Annotate jobs with update notifications, for example, when a new GraalVM release is available"
+      },
+      {
+        "name": "native-image-musl",
+        "required": false,
+        "default": "false",
+        "description": "Set up musl for static image building with GraalVM Native Image."
+      },
+      {
+        "name": "native-image-job-reports",
+        "required": false,
+        "default": "false",
+        "description": "Post a job summary containing a Native Image build report."
+      },
+      {
+        "name": "native-image-pr-reports",
+        "required": false,
+        "default": "false",
+        "description": "Post a comment containing a Native Image build report on pull requests."
+      },
+      {
+        "name": "native-image-pr-reports-update-existing",
+        "required": false,
+        "default": "false",
+        "description": "Instead of posting another comment, update an existing PR comment with the latest Native Image build report."
+      },
+      {
+        "name": "native-image-enable-sbom",
+        "required": false,
+        "default": "false",
+        "description": "Automatically generate an SBOM and submit it to the GitHub dependency submission API for vulnerability and dependency tracking."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": "",
+        "description": "GraalVM version (release, latest, dev)."
+      },
+      {
+        "name": "gds-token",
+        "required": false,
+        "default": null,
+        "description": "Download token for the GraalVM Download Service. If provided, the action will set up GraalVM Enterprise Edition."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate an exact match was found for the primary key"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/main.js",
+      "post": "dist/cleanup.js",
+      "post-if": "success()"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action sets up a specific version of the GraalVM JDK, which is essential for managing dependencies in Java projects and is also relevant for building applications. Additionally, it modifies the environment to include command-line tools, which relates to infrastructure setup.",
+        "tags": [
+          "GraalVM",
+          "Java",
+          "JDK",
+          "setup",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "fe0771bc8437f0923653e955df8c665cabe44e21a902fa4223bc66047379175e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.287957Z"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/atlassian/gajira-comment",
+  "version_id": "958ee0e61fe1",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-comment/action.yml",
+    "origin": "github.com/atlassian/gajira-comment",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Add Comment",
+    "description": "Add a comment to an issue",
+    "author": "",
+    "inputs": [
+      {
+        "name": "issue",
+        "required": true,
+        "default": null,
+        "description": "Key of the issue to be commented on"
+      },
+      {
+        "name": "comment",
+        "required": true,
+        "default": null,
+        "description": "Comment"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "958ee0e61fe10cc6362ccc8eb2931e3e433e43a6aefc97e4bfde63ade27818da",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.408992Z"
+  }
+}

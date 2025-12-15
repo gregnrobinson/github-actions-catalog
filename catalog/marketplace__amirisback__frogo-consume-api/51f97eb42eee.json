@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/frogo-consume-api",
+  "version_id": "51f97eb42eee",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/frogo-consume-api/action.yml",
+    "origin": "github.com/amirisback/frogo-consume-api",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-Consume-Api",
+    "description": "Consume API for anything your problem to make easier developing android apps",
+    "author": "Frogobox",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "51f97eb42eee5973eee94f4f6ff06f094fa4aae95d9b4cf38d30a61195bb7688",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.630329Z"
+  }
+}

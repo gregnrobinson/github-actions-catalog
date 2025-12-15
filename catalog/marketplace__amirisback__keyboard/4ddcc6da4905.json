@@ -1,0 +1,43 @@
+{
+  "action_id": "marketplace/amirisback/keyboard",
+  "version_id": "4ddcc6da4905",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/keyboard/action.yml",
+    "origin": "github.com/amirisback/keyboard",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "Frogo-Keyboard-Open-Source",
+    "description": "Full and Clear Documentation",
+    "author": "Muhammad Faisal Amir",
+    "inputs": [
+      {
+        "name": "myInput",
+        "required": false,
+        "default": "world",
+        "description": "Input to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.myInput }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4ddcc6da4905c799c6ae6e4c7974abfb51d4676adc7cf7c0dec7ee487798cee3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.636612Z"
+  }
+}

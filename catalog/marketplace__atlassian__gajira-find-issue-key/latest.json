@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/atlassian/gajira-find-issue-key",
+  "version_id": "6ea2fe341ce9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/atlassian/gajira-find-issue-key/action.yml",
+    "origin": "github.com/atlassian/gajira-find-issue-key",
+    "publisher": "atlassian",
+    "verified": false
+  },
+  "definition": {
+    "name": "Jira Find issue key",
+    "description": "Find an issue inside event",
+    "author": "",
+    "inputs": [
+      {
+        "name": "string",
+        "required": false,
+        "default": null,
+        "description": "Provide a string to extract issue key from"
+      },
+      {
+        "name": "from",
+        "required": false,
+        "default": "commits",
+        "description": "Find from predefined place (should be either 'branch', or 'commits')"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "issue",
+        "description": "Key of the found issue"
+      }
+    ],
+    "runs": {
+      "using": "node16",
+      "main": "./dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action helps in extracting issue keys from commits or branches, which can facilitate communication about issues in a project. It also relates to code quality by ensuring that issue tracking is integrated with code changes.",
+        "tags": [
+          "Jira",
+          "issue tracking",
+          "GitHub Action",
+          "communication",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6ea2fe341ce9a63ee390eee72d9b80fd055e17474d822fbbf05128c6c470a0ae",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.404190Z"
+  }
+}

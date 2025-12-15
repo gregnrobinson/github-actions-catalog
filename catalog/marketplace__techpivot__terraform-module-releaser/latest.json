@@ -1,0 +1,186 @@
+{
+  "action_id": "marketplace/techpivot/terraform-module-releaser",
+  "version_id": "8cccaa299492",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/techpivot/terraform-module-releaser/action.yml",
+    "origin": "github.com/techpivot/terraform-module-releaser",
+    "publisher": "techpivot",
+    "verified": false
+  },
+  "definition": {
+    "name": "Terraform Module Releaser",
+    "description": "Automate versioning, releases, and documentation for Terraform modules in GitHub monorepos.",
+    "author": "TechPivot",
+    "inputs": [
+      {
+        "name": "major-keywords",
+        "required": true,
+        "default": "major change,breaking change",
+        "description": "Keywords in commit messages that indicate a major release."
+      },
+      {
+        "name": "minor-keywords",
+        "required": true,
+        "default": "feat,feature",
+        "description": "Keywords in commit messages that indicate a minor release."
+      },
+      {
+        "name": "patch-keywords",
+        "required": true,
+        "default": "fix,chore,docs",
+        "description": "Keywords in commit messages that indicate a patch release. By default, everything will be a patch release if major or minor keywords are not found.\n"
+      },
+      {
+        "name": "default-first-tag",
+        "required": true,
+        "default": "v1.0.0",
+        "description": "Specifies the default tag version. (Should be in format v#.#.#)"
+      },
+      {
+        "name": "terraform-docs-version",
+        "required": true,
+        "default": "v0.20.0",
+        "description": "Specifies the terraform-docs version used to generate documentation for the wiki.\nSee: https://github.com/terraform-docs/terraform-docs/releases\n"
+      },
+      {
+        "name": "delete-legacy-tags",
+        "required": true,
+        "default": "true",
+        "description": "Specifies a boolean that determines whether tags from Terraform modules that have been deleted should be automatically removed. By default this is true as the purpose of the repository is to keep releases/tags clean. When removing a module, this will ensure the tags/releases are automatically cleaned.\n"
+      },
+      {
+        "name": "disable-wiki",
+        "required": true,
+        "default": "false",
+        "description": "Whether to disable wiki generation for Terraform modules. By default, this is set to false. Set to true to prevent wiki documentation from being generated.\n"
+      },
+      {
+        "name": "wiki-sidebar-changelog-max",
+        "required": true,
+        "default": "5",
+        "description": "An integer that specifies how many changelog entries are displayed in the sidebar per module. Adjust this value to control the visibility of changelog entries in the module sidebar.\n"
+      },
+      {
+        "name": "wiki-usage-template",
+        "required": false,
+        "default": "To use this module in your Terraform, refer to the below module example:\n\n```hcl\nmodule \"{{module_name_terraform}}\" {\n  source = \"{{module_source}}?ref={{ref}}\"{{ref_comment}}\n\n  # See inputs below for additional required parameters\n}\n```\n",
+        "description": "A raw, multi-line string to override the default 'Usage' section in the generated wiki. If not provided, a default usage block will be generated."
+      },
+      {
+        "name": "disable-branding",
+        "required": true,
+        "default": "false",
+        "description": "Flag to control whether the small branding link should be disabled or not in the pull request (PR) comments. When branding is enabled, a link to the action's repository is added at the bottom of comments. Setting this flag to \"true\" will remove that link. Useful for cleaner PR comments in enterprise environments or where third-party branding is undesirable.\n"
+      },
+      {
+        "name": "module-path-ignore",
+        "required": false,
+        "default": "",
+        "description": "A comma-separated list of module paths to completely ignore during processing. Paths matching these patterns will not be considered for versioning, releases, or documentation generation. These patterns follow glob syntax and are  relative to the repository root. Use this to exclude example modules, test modules, or other paths that should not  be treated as releasable modules.\nThis is a top-level filter: if a module matches any of these patterns, it is completely excluded from all release, versioning, and documentation logic. No releases will ever happen for a module that matches this filter.\nThe minimatch syntax is used for pattern matching. Patterns are relative to the workspace directory (no leading slash).\nNOTE: To match both a directory and its contents, use separate patterns (e.g., \"dir,dir/**\").\n"
+      },
+      {
+        "name": "module-change-exclude-patterns",
+        "required": true,
+        "default": ".gitignore,*.md,*.tftest.hcl,tests/**",
+        "description": "A comma-separated list of file patterns to exclude from triggering version changes in Terraform modules. These patterns follow glob syntax and are relative to each Terraform module directory, not the repository root. Files matching these patterns will be tracked in the module but changes to them won't trigger a new version. Uses matchBase: true for pattern matching, so patterns like \"*.md\" will match files in any subdirectory.\nThis option allows you to release a module but control which files inside a matched Terraform module should not force a bump of the module version. For example, you may want to exclude documentation or test files from triggering a release, but still include them in the module asset bundle.\nWARNING: Avoid excluding '*.tf' files, as they are essential for module functionality and versioning.\n"
+      },
+      {
+        "name": "module-asset-exclude-patterns",
+        "required": true,
+        "default": ".gitignore,*.md,*.tftest.hcl,tests/**",
+        "description": "A comma-separated list of file patterns to exclude when bundling a Terraform module for release assets. These patterns follow glob syntax and are relative to each Terraform module directory, not the repository root. Files matching these patterns will be excluded from the bundled release archives. Uses matchBase: true for  pattern matching, similar to module-change-exclude-patterns.\nThese patterns only affect what's included in release assets and do not impact versioning decisions.\n"
+      },
+      {
+        "name": "use-ssh-source-format",
+        "required": true,
+        "default": "false",
+        "description": "If enabled, all links to source code in generated Wiki documentation will use SSH format instead of HTTPS format.\n"
+      },
+      {
+        "name": "github_token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "Required for retrieving pull request metadata, tags, releases, updating PR comments, wiki, and creating  tags/releases. Automatically injected for convenience; no need to provide a custom token unless you have  specific requirements.\n"
+      },
+      {
+        "name": "tag-directory-separator",
+        "required": true,
+        "default": "/",
+        "description": "Character used to separate directory path components in Git tags. This separator is used to convert  module directory paths into tag names (e.g., 'modules/aws/s3-bucket' becomes 'modules-aws-s3-bucket-v1.0.0'  when using '-'). Must be a single character from: /, -, _, or .\nExamples with different separators: - \"/\" (default): modules/aws/s3-bucket/v1.0.0 - \"-\": modules-aws-s3-bucket-v1.0.0   - \"_\": modules_aws_s3_bucket_v1.0.0 - \".\": modules.aws.s3.bucket.v1.0.0\n"
+      },
+      {
+        "name": "use-version-prefix",
+        "required": true,
+        "default": "true",
+        "description": "Whether to include the 'v' prefix on version tags (e.g., v1.2.3 vs 1.2.3). When enabled, all new version  tags will include the 'v' prefix. For initial releases, this setting takes precedence over any 'v' prefix  specified in the default-first-tag - if use-version-prefix is false and default-first-tag contains 'v',  the 'v' will be automatically removed to ensure consistency.\n"
+      },
+      {
+        "name": "module-ref-mode",
+        "required": true,
+        "default": "tag",
+        "description": "Controls how Terraform module usage examples reference versions in generated documentation. Valid values: \"tag\" or \"sha\". When \"tag\" (default), examples use the tag name in the ref parameter (e.g., ?ref=aws/vpc-endpoint/v1.1.3). When \"sha\", examples use the commit SHA with the tag as a  comment (e.g., ?ref=abc123def456 # aws/vpc-endpoint/v1.1.3). This allows pinning to immutable  commit SHAs that cannot be deleted, useful with Renovate for handling module removal scenarios. Note: This only affects generated documentation; tag and release creation remains unchanged.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changed-module-names",
+        "description": "JSON array of module names that were changed in the current pull request"
+      },
+      {
+        "name": "changed-module-paths",
+        "description": "JSON array of file system paths to the modules that were changed"
+      },
+      {
+        "name": "changed-modules-map",
+        "description": "JSON object mapping module names to their change details including current tag, next tag, and release type"
+      },
+      {
+        "name": "all-module-names",
+        "description": "JSON array of all module names found in the repository"
+      },
+      {
+        "name": "all-module-paths",
+        "description": "JSON array of file system paths to all modules in the repository"
+      },
+      {
+        "name": "all-modules-map",
+        "description": "JSON object mapping all module names to their details including path, latest tag, and latest tag version"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Documentation",
+      "Versioning",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action automates the versioning and release process for Terraform modules, which is primarily related to deployment. It also generates documentation and handles packaging aspects of the modules.",
+        "tags": [
+          "terraform",
+          "release",
+          "automation",
+          "versioning",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8cccaa299492ae75193e3de399dd3eaf18dd06d7d9f4e0da0679aa4e16a5e9e8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.562509Z"
+  }
+}

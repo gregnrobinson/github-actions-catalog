@@ -1,0 +1,19 @@
+name: 'GitHub Action for Slack'
+description: 'Outputs a message to Slack.'
+author: Ilshidur
+inputs:
+  args:
+    description: 'The message to display in the Slack notification.'
+    required: true
+  # TODO: Handle configuration through Action inputs.
+  # slack_webhook:
+  # slack_avatar:
+  # slack_custom_payload:
+  # slack_username:
+  # slack_channel:
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: hash
+  color: red

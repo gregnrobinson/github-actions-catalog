@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/amirisback/bundletool-action-apk",
+  "version_id": "cb1f613356e3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/amirisback/bundletool-action-apk/action.yml",
+    "origin": "github.com/amirisback/bundletool-action-apk",
+    "publisher": "amirisback",
+    "verified": false
+  },
+  "definition": {
+    "name": "BundleTool Action APK",
+    "description": "This action will help you convert your aab to apks file.",
+    "author": "Faisal Amir",
+    "inputs": [
+      {
+        "name": "aabFile",
+        "required": true,
+        "default": null,
+        "description": "Path to your aab file"
+      },
+      {
+        "name": "base64Keystore",
+        "required": true,
+        "default": null,
+        "description": "The key used to sign the apk encoded in base 64"
+      },
+      {
+        "name": "keystorePassword",
+        "required": true,
+        "default": null,
+        "description": "The keystore password"
+      },
+      {
+        "name": "keystoreAlias",
+        "required": true,
+        "default": null,
+        "description": "The keystore alias"
+      },
+      {
+        "name": "keyPassword",
+        "required": true,
+        "default": null,
+        "description": "The password to the key"
+      },
+      {
+        "name": "bundletoolVersion",
+        "required": false,
+        "default": "latest",
+        "description": "The version of bundletool to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action is focused on converting AAB files to APKs, which is a packaging process for Android applications. It also involves some build-related inputs like signing the APK.",
+        "tags": [
+          "APK",
+          "AAB",
+          "Android",
+          "Packaging",
+          "Build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "cb1f613356e310d00389960235d50edfcbf7ecea43cdb482fe144d291af42594",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.612021Z"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "action_id": "marketplace/gradle/actions",
+  "version_id": "888c5fea2605",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/gradle/actions/action.yml",
+    "origin": "github.com/gradle/actions",
+    "publisher": "gradle",
+    "verified": false
+  },
+  "definition": {
+    "name": "Build with Gradle",
+    "description": "A collection of actions for building Gradle projects, as well as generating a dependency graph via Dependency Submission.",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "echo \"::error::The path 'gradle/actions' is not a valid action. Please use 'gradle/actions/setup-gradle' or 'gradle/actions/dependency-submission'.\"\nexit 1\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is specifically designed for building Gradle projects, which falls under the Build category. Additionally, it mentions generating a dependency graph, linking it to Dependency management.",
+        "tags": [
+          "Gradle",
+          "Build",
+          "Dependency Management",
+          "CI/CD",
+          "Automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "888c5fea260597a1f380d4b2ce7c9d08466b12bc79af5145baec3d9ad6851998",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.330986Z"
+  }
+}

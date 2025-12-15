@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/lukka/get-action-usage",
+  "version_id": "be62f0e9e035",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lukka/get-action-usage/action.yml",
+    "origin": "github.com/lukka/get-action-usage",
+    "publisher": "lukka",
+    "verified": false
+  },
+  "definition": {
+    "name": "get-action-usage",
+    "description": "Search in public GitHub repositories for usage of get-cmake, run-cmake and run-vcpkg GitHub Actions and creates a D3.js based graph.'",
+    "author": "Luca Cappa https://github.com/lukka",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on searching for usage of specific GitHub Actions and visualizing that information, which relates to documentation and understanding code quality through usage patterns.",
+        "tags": [
+          "GitHub Actions",
+          "usage",
+          "documentation",
+          "visualization",
+          "D3.js"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "be62f0e9e035a00bbd11307f780ecf39672b83004cff15b93e2865228b241184",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.262105Z"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/tgymnich/action",
+  "version_id": "f18a3ce3ad0b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/tgymnich/action/action.yml",
+    "origin": "github.com/tgymnich/action",
+    "publisher": "tgymnich",
+    "verified": false
+  },
+  "definition": {
+    "name": "valar-action",
+    "description": "GitHub Action for Valar",
+    "author": "Valar",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "Valar token"
+      },
+      {
+        "name": "workdir",
+        "required": false,
+        "default": null,
+        "description": "Path where valar push will be run"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Deployment"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action requires a token for authentication, indicating it handles secure access, while also suggesting deployment capabilities through its functionality.",
+        "tags": [
+          "Valar",
+          "GitHub Action",
+          "Authentication",
+          "Deployment",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f18a3ce3ad0b8cee8ca9d6f55f071cbceccc51aff01a58814744f502833a3354",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.691202Z"
+  }
+}

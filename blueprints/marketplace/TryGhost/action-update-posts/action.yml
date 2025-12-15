@@ -1,0 +1,27 @@
+name: 'Update Ghost Posts'
+description: 'Schedule updates to your Ghost posts'
+branding:
+  icon: 'cloud-lightning'
+  color: 'gray-dark'
+inputs:
+  api-url:
+    description: 'Ghost Admin API Url'
+    required: true
+  api-key:
+    description: 'Ghost Admin API Key'
+    required: true
+  tag:
+    description: 'The tag to lookup to find posts to update e.g. `hash-early-access`'
+    required: true
+  field:
+    description: 'The post field that you want to update e.g. `visibility` or `featured`'
+    required: true
+  value:
+    description: 'The new value for the field e.g. `public` or `false`'
+    required: true
+  days:
+    description: 'Number of days after the post was published to update the post'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

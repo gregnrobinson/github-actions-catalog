@@ -1,0 +1,236 @@
+{
+  "action_id": "marketplace/posener/goreadme",
+  "version_id": "46682aa56907",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/posener/goreadme/action.yml",
+    "origin": "github.com/posener/goreadme",
+    "publisher": "posener",
+    "verified": false
+  },
+  "definition": {
+    "name": "goreadme",
+    "description": "Updates readme from Go doc",
+    "author": "",
+    "inputs": [
+      {
+        "name": "readme-file",
+        "required": false,
+        "default": "README.md",
+        "description": "Name of readme file."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Print Goreadme debug output. Set to any non empty value for true."
+      },
+      {
+        "name": "email",
+        "required": false,
+        "default": "posener@gmail.com",
+        "description": "Email for commit message."
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": null,
+        "description": "Github token for PR comments. Optional."
+      },
+      {
+        "name": "README_FILE",
+        "required": false,
+        "default": null,
+        "description": "An optional alias which can be used instead of 'readme-file'."
+      },
+      {
+        "name": "GITHUB_TOKEN",
+        "required": false,
+        "default": null,
+        "description": "An optional alias which can be used instead of 'github-token'."
+      },
+      {
+        "name": "import-path",
+        "required": false,
+        "default": null,
+        "description": "Override package import path."
+      },
+      {
+        "name": "title",
+        "required": false,
+        "default": null,
+        "description": "Override readme title. Default is package name."
+      },
+      {
+        "name": "godoc-url",
+        "required": false,
+        "default": "https://pkg.go.dev",
+        "description": "Go Doc URL for GoDoc badge."
+      },
+      {
+        "name": "recursive",
+        "required": false,
+        "default": false,
+        "description": "Load docs recursively."
+      },
+      {
+        "name": "render-type-content",
+        "required": false,
+        "default": false,
+        "description": "If 'types' is specified, render full type content."
+      },
+      {
+        "name": "constants",
+        "required": false,
+        "default": false,
+        "description": "Write package constants section, and if 'types' is specified, also write per-type constants section."
+      },
+      {
+        "name": "variables",
+        "required": false,
+        "default": false,
+        "description": "Write package variables section, and if 'types' is specified, also write per-type variables section."
+      },
+      {
+        "name": "functions",
+        "required": false,
+        "default": false,
+        "description": "Write functions section."
+      },
+      {
+        "name": "types",
+        "required": false,
+        "default": false,
+        "description": "Write types section."
+      },
+      {
+        "name": "factories",
+        "required": false,
+        "default": false,
+        "description": "If 'types' is specified, write section for functions returning each type."
+      },
+      {
+        "name": "methods",
+        "required": false,
+        "default": false,
+        "description": "If 'types' is specified, write section for methods for each type."
+      },
+      {
+        "name": "skip-examples",
+        "required": false,
+        "default": false,
+        "description": "Skip the examples section."
+      },
+      {
+        "name": "skip-sub-packages",
+        "required": false,
+        "default": false,
+        "description": "Skip the sub packages section."
+      },
+      {
+        "name": "badge-travisci",
+        "required": false,
+        "default": false,
+        "description": "Show TravisCI badge."
+      },
+      {
+        "name": "badge-codecov",
+        "required": false,
+        "default": false,
+        "description": "Show CodeCov badge."
+      },
+      {
+        "name": "badge-golangci",
+        "required": false,
+        "default": false,
+        "description": "Show GolangCI badge."
+      },
+      {
+        "name": "badge-godoc",
+        "required": false,
+        "default": false,
+        "description": "Show GoDoc badge."
+      },
+      {
+        "name": "badge-goreportcard",
+        "required": false,
+        "default": false,
+        "description": "Show GoReportCard badge."
+      },
+      {
+        "name": "generated-notice",
+        "required": false,
+        "default": false,
+        "description": "Add generated file notice (visible only in Markdown code)."
+      },
+      {
+        "name": "credit",
+        "required": false,
+        "default": true,
+        "description": "Add credit line."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "readme-file": "${{ inputs.readme-file }}",
+        "debug": "${{ inputs.debug }}",
+        "email": "${{ inputs.email }}",
+        "github-token": "${{ inputs.github-token }}",
+        "README_FILE": "${{ inputs.README_FILE }}",
+        "GITHUB_TOKEN": "${{ inputs.GITHUB_TOKEN }}"
+      },
+      "args": [
+        "-import-path=${{ inputs.import-path }}",
+        "-title=${{ inputs.title }}",
+        "-godoc-url=${{ inputs.godoc-url }}",
+        "-recursive=${{ inputs.recursive }}",
+        "-render-type-content=${{ inputs.render-type-content }}",
+        "-constants=${{ inputs.constants }}",
+        "-variables=${{ inputs.variables }}",
+        "-functions=${{ inputs.functions }}",
+        "-types=${{ inputs.types }}",
+        "-factories=${{ inputs.factories }}",
+        "-methods=${{ inputs.methods }}",
+        "-skip-examples=${{ inputs.skip-examples }}",
+        "-skip-sub-packages=${{ inputs.skip-sub-packages }}",
+        "-badge-travisci=${{ inputs.badge-travisci }}",
+        "-badge-codecov=${{ inputs.badge-codecov }}",
+        "-badge-golangci=${{ inputs.badge-golangci }}",
+        "-badge-godoc=${{ inputs.badge-godoc }}",
+        "-badge-goreportcard=${{ inputs.badge-goreportcard }}",
+        "-generated-notice=${{ inputs.generated-notice }}",
+        "-credit=${{ inputs.credit }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is designed to update the README file from Go documentation, which directly relates to documentation management.",
+        "tags": [
+          "README",
+          "Go",
+          "documentation",
+          "automation",
+          "goreadme"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "46682aa56907ba6f8f84c9a49685a939e44ff67a59fe6963de5b4d35cf1debb7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T00:47:39.825751Z"
+  }
+}

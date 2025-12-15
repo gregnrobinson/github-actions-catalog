@@ -64,16 +64,30 @@ def escape_html(text):
 def load_action_yml(action):
     """Load action.yml for an action."""
     action_id = action.get("action_id", "")
-    sanitized_id = action_id.replace("/", "__")
 
-    entry_dir = CATALOG_DIR / sanitized_id
-    if not entry_dir.exists():
-        return None
+    # Parse action_id: marketplace/publisher/action_name or internal/action_name
+    parts = action_id.split("/")
 
-    action_yml_path = entry_dir / "action.yml"
-    if action_yml_path.exists():
-        with open(action_yml_path, "r") as f:
-            return f.read()
+    blueprints_dir = Path.cwd() / "blueprints"
+
+    if len(parts) >= 3 and parts[0] == "marketplace":
+        # marketplace/publisher/action_name
+        publisher = parts[1]
+        action_name = "/".join(parts[2:])  # Handle action names with slashes
+        action_yml_path = blueprints_dir / "marketplace" / publisher / action_name / "action.yml"
+
+        if action_yml_path.exists():
+            with open(action_yml_path, "r") as f:
+                return f.read()
+
+    elif len(parts) >= 2 and parts[0] == "internal":
+        # internal/action_name
+        action_name = "/".join(parts[1:])
+        action_yml_path = blueprints_dir / "internal" / action_name / "action.yml"
+
+        if action_yml_path.exists():
+            with open(action_yml_path, "r") as f:
+                return f.read()
 
     return None
 
@@ -276,7 +290,7 @@ def generate_index():
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
+            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
             <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
         </div>
     </nav>
@@ -821,7 +835,7 @@ footer {
 
 def main():
     """Generate website."""
-    print("🌐 Generating static website for GitHub Pages\n")
+    print("🌐 Generating static HTML website for GitHub Pages\n")
 
     # Create docs directory
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
@@ -829,6 +843,35 @@ def main():
     # Load catalog
     actions = load_catalog()
     print(f"📚 Loaded {len(actions)} actions\n")
+
+    # Debug: Check action.yml loading
+    print("🔍 Checking for action.yml files:\n")
+    actions_with_yml = 0
+    blueprints_dir = Path.cwd() / "blueprints"
+
+    for action in actions[:10]:  # Check first 10
+        action_id = action.get("action_id", "")
+        parts = action_id.split("/")
+
+        if len(parts) >= 3 and parts[0] == "marketplace":
+            publisher = parts[1]
+            action_name = "/".join(parts[2:])
+            action_yml_path = blueprints_dir / "marketplace" / publisher / action_name / "action.yml"
+        elif len(parts) >= 2 and parts[0] == "internal":
+            action_name = "/".join(parts[1:])
+            action_yml_path = blueprints_dir / "internal" / action_name / "action.yml"
+        else:
+            action_yml_path = None
+
+        if action_yml_path and action_yml_path.exists():
+            actions_with_yml += 1
+            print(f"  ✅ {action_id}")
+        else:
+            print(f"  ❌ {action_id}")
+            if action_yml_path:
+                print(f"     Expected: {action_yml_path}")
+
+    print(f"\n📊 Found action.yml for {actions_with_yml}/10 checked\n")
 
     # Generate index.html
     print("📄 Generating index.html...")
