@@ -1231,9 +1231,11 @@ body {
 
 .card-badges {
     display: flex;
-    gap: 0.5rem;
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
     flex-wrap: wrap;
     margin-bottom: 1rem;
+    align-items: center;
 }
 
 .card-link {
@@ -1254,6 +1256,7 @@ body {
     font-size: 0.85rem;
     font-weight: 500;
     white-space: nowrap;
+    margin: 0;
 }
 
 .badge-category-primary {
@@ -1291,6 +1294,7 @@ body {
     font-weight: 600;
     background: #da3633;
     color: white;
+    margin: 0;
 }
 
 .badge-optional {
@@ -1301,6 +1305,7 @@ body {
     font-weight: 600;
     background: #3b2667;
     color: #c9d1d9;
+    margin: 0;
 }
 
 .badge-release {
@@ -1373,17 +1378,6 @@ body {
     margin-top: 0;
 }
 
-.badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    white-space: nowrap;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-
 .modal-section:last-child {
     border-bottom: none;
 }
@@ -1400,6 +1394,11 @@ body {
 
 .modal-section a:hover {
     text-decoration: underline;
+}
+
+.modal-section .badge {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .release-section {
