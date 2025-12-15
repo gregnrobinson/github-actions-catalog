@@ -115,6 +115,24 @@ def get_catalog_stats(actions):
         "verified": verified_count
     }
 
+def format_action_uses(action_id):
+    """Format action ID for uses field in YAML.
+
+    Converts:
+    - marketplace/owner/repo -> owner/repo@main
+    - internal/action -> internal/action@main
+    """
+    parts = action_id.split("/")
+
+    if len(parts) >= 3 and parts[0] == "marketplace":
+        # Remove 'marketplace/' prefix
+        return f"{parts[1]}/{'/'.join(parts[2:])}@main"
+    elif len(parts) >= 2 and parts[0] == "internal":
+        # Keep internal/ prefix
+        return f"{action_id}@main"
+
+    return f"{action_id}@main"
+
 def generate_action_card(action):
     """Generate HTML card for an action."""
     action_id = action.get("action_id", "")
@@ -189,9 +207,10 @@ def generate_action_modal(action):
         inputs_html = '<div class="section"><h3>Inputs</h3><table class="inputs-table"><thead><tr><th>Name</th><th>Required</th><th>Description</th></tr></thead><tbody>'
         for inp in inputs:
             required = "Yes" if inp.get("required") else "No"
+            required_badge = '<span class="badge-required">Required</span>' if inp.get("required") else '<span class="badge-optional">Optional</span>'
             inputs_html += f'''<tr>
                 <td><code>{escape_html(inp.get("name", ""))}</code></td>
-                <td>{required}</td>
+                <td>{required_badge}</td>
                 <td>{escape_html(inp.get("description", ""))}</td>
             </tr>'''
         inputs_html += '</tbody></table></div>'
@@ -258,6 +277,544 @@ def generate_action_modal(action):
     </div>
 '''
 
+def generate_workflow_builder():
+    """Generate workflow builder page."""
+    actions = load_catalog()
+
+    # Create JSON data for all actions
+    actions_data = []
+    for action in actions:
+        inputs = action.get("definition", {}).get("inputs", [])
+        actions_data.append({
+            "id": action.get("action_id", ""),
+            "name": action.get("definition", {}).get("name", ""),
+            "inputs": [{"name": inp.get("name", ""), "description": inp.get("description", ""), "required": inp.get("required", False)} for inp in inputs],
+        })
+
+    actions_json = json.dumps(actions_data)
+
+    # Generate modals for all actions
+    modals_html = ""
+    for action in actions:
+        modals_html += generate_action_modal(action)
+
+    return f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Generator - GitHub Actions Catalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .workflow-builder {{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }}
+
+        .builder-sidebar {{
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--dark-border);
+            height: fit-content;
+            max-height: 600px;
+            display: flex;
+            flex-direction: column;
+        }}
+
+        .builder-main {{
+            background: var(--dark-bg-secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--dark-border);
+            min-height: 500px;
+        }}
+
+        .action-search {{
+            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+        }}
+
+        .action-search input {{
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+            background: var(--dark-bg);
+            color: var(--dark-text);
+        }}
+
+        .available-actions {{
+            flex: 1;
+            overflow-y: auto;
+            min-height: 300px;
+        }}
+
+        .available-action {{
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }}
+
+        .available-action:hover {{
+            border-color: var(--primary);
+            background: var(--dark-bg-tertiary);
+        }}
+
+        .available-action-name {{
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }}
+
+        .available-action-id {{
+            font-size: 0.85rem;
+            color: var(--dark-text-secondary);
+        }}
+
+        .workflow-steps {{
+            margin-bottom: 1.5rem;
+        }}
+
+        .workflow-step {{
+            padding: 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            position: relative;
+        }}
+
+        .step-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }}
+
+        .step-name {{
+            font-weight: 600;
+            color: var(--primary);
+            flex: 1;
+            min-width: 150px;
+        }}
+
+        .step-buttons {{
+            display: flex;
+            gap: 0.5rem;
+        }}
+
+        .step-btn {{
+            border: none;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }}
+
+        .step-remove {{
+            background: #da3633;
+            color: white;
+        }}
+
+        .step-remove:hover {{
+            background: #b91c1c;
+        }}
+
+        .step-details {{
+            background: var(--primary);
+            color: white;
+        }}
+
+        .step-details:hover {{
+            background: var(--primary-dark);
+        }}
+
+        .step-inputs {{
+            margin-top: 0.75rem;
+        }}
+
+        .step-input {{
+            margin-bottom: 0.75rem;
+        }}
+
+        .step-input-header {{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }}
+
+        .step-input label {{
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--dark-text);
+        }}
+
+        .step-input-badge {{
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+        }}
+
+        .step-input-badge.required {{
+            background: #da3633;
+            color: white;
+        }}
+
+        .step-input-badge.optional {{
+            background: #3b2667;
+            color: #c9d1d9;
+        }}
+
+        .step-input input {{
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--dark-border);
+            border-radius: 4px;
+            background: var(--dark-bg-secondary);
+            color: var(--dark-text);
+            font-size: 0.85rem;
+        }}
+
+        .workflow-code {{
+            margin-top: 2rem;
+            padding: 1rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 6px;
+        }}
+
+        .workflow-code h3 {{
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }}
+
+        .workflow-yaml {{
+            background: var(--dark-bg-secondary);
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--code-blue);
+            font-family: 'Courier New', monospace;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid var(--dark-border);
+            white-space: pre;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }}
+
+        .copy-btn {{
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }}
+
+        .copy-btn:hover {{
+            background: var(--primary-dark);
+        }}
+
+        .empty-state {{
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--dark-text-secondary);
+        }}
+
+        @media (max-width: 1024px) {{
+            .workflow-builder {{
+                grid-template-columns: 1fr;
+            }}
+
+            .builder-sidebar {{
+                max-height: none;
+            }}
+
+            .step-header {{
+                flex-direction: column;
+                align-items: flex-start;
+            }}
+
+            .step-buttons {{
+                width: 100%;
+            }}
+
+            .step-btn {{
+                flex: 1;
+            }}
+        }}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <div class="navbar-left">
+                <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
+                <p class="navbar-subtitle">Workflow Generator</p>
+            </div>
+            <a href="index.html" class="navbar-btn">← Back to Catalog</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Workflow Generator</h1>
+        <p style="color: var(--dark-text-secondary); margin-bottom: 2rem;">Build GitHub Actions workflows by selecting and configuring actions</p>
+
+        <div class="workflow-builder">
+            <div class="builder-sidebar">
+                <h3>Available Actions</h3>
+                <div class="action-search">
+                    <input type="text" id="actionSearch" placeholder="Search actions...">
+                </div>
+                <div class="available-actions" id="availableActions"></div>
+            </div>
+
+            <div class="builder-main">
+                <h3>Workflow Steps</h3>
+                <div class="workflow-steps" id="workflowSteps">
+                    <div class="empty-state">
+                        <p>Select actions from the left to build your workflow</p>
+                    </div>
+                </div>
+
+                <div class="workflow-code">
+                    <h3>Generated YAML</h3>
+                    <div class="workflow-yaml" id="workflowYaml">name: Generated Workflow
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4</div>
+                    <button class="copy-btn" onclick="copyWorkflow()">📋 Copy to Clipboard</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {modals_html}
+
+    <footer>
+        <p>Generated on {datetime.now().strftime("%Y-%m-%d %H:%M UTC")}</p>
+    </footer>
+
+    <script>
+        const allActions = {actions_json};
+        let workflowSteps = [];
+
+        const actionSearchInput = document.getElementById('actionSearch');
+        const availableActionsDiv = document.getElementById('availableActions');
+        const workflowStepsDiv = document.getElementById('workflowSteps');
+        const workflowYamlDiv = document.getElementById('workflowYaml');
+        const modals = document.querySelectorAll('.modal');
+        const closeButtons = document.querySelectorAll('.close');
+
+        // Close modal functionality
+        closeButtons.forEach(btn => {{
+            btn.addEventListener('click', (e) => {{
+                const modal = e.target.closest('.modal');
+                if (modal) {{
+                    modal.style.display = 'none';
+                }}
+            }});
+        }});
+
+        // Close modal when clicking outside
+        modals.forEach(modal => {{
+            modal.addEventListener('click', (e) => {{
+                if (e.target === modal) {{
+                    modal.style.display = 'none';
+                }}
+            }});
+        }});
+
+        function formatActionUses(actionId) {{
+            const parts = actionId.split('/');
+
+            if (parts.length >= 3 && parts[0] === 'marketplace') {{
+                // Remove 'marketplace/' prefix
+                return `${{parts[1]}}/${{parts.slice(2).join('/')}}@main`;
+            }} else if (parts.length >= 2 && parts[0] === 'internal') {{
+                // Keep internal/ prefix
+                return `${{actionId}}@main`;
+            }}
+
+            return `${{actionId}}@main`;
+        }}
+
+        function renderAvailableActions(searchTerm = '') {{
+            availableActionsDiv.innerHTML = '';
+
+            const filtered = allActions.filter(action =>
+                action.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                action.id.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+
+            if (filtered.length === 0) {{
+                availableActionsDiv.innerHTML = '<div style="padding: 1rem; text-align: center; color: var(--dark-text-secondary);">No actions found</div>';
+                return;
+            }}
+
+            filtered.forEach(action => {{
+                const div = document.createElement('div');
+                div.className = 'available-action';
+                div.innerHTML = `
+                    <div class="available-action-name">${{action.name || action.id}}</div>
+                    <div class="available-action-id">${{action.id}}</div>
+                `;
+                div.addEventListener('click', () => addStep(action));
+                availableActionsDiv.appendChild(div);
+            }});
+        }}
+
+        function addStep(action) {{
+            const step = {{
+                id: action.id,
+                name: action.name || action.id,
+                inputs: {{}},
+                inputs_schema: action.inputs || [],
+                sanitized_id: action.id.replace(/\\//g, '__')
+            }};
+
+            workflowSteps.push(step);
+            renderWorkflow();
+        }}
+
+        function removeStep(index) {{
+            workflowSteps.splice(index, 1);
+            renderWorkflow();
+        }}
+
+        function viewDetails(stepIndex) {{
+            const step = workflowSteps[stepIndex];
+            const modal = document.getElementById(`modal-${{step.sanitized_id}}`);
+            if (modal) {{
+                modal.style.display = 'block';
+            }}
+        }}
+
+        function updateStepInput(stepIndex, inputName, value) {{
+            workflowSteps[stepIndex].inputs[inputName] = value;
+            renderWorkflow();
+        }}
+
+        function renderWorkflow() {{
+            const isEmpty = workflowSteps.length === 0;
+
+            if (isEmpty) {{
+                workflowStepsDiv.innerHTML = '<div class="empty-state"><p>Select actions from the left to build your workflow</p></div>';
+            }} else {{
+                workflowStepsDiv.innerHTML = '';
+                workflowSteps.forEach((step, index) => {{
+                    const stepDiv = document.createElement('div');
+                    stepDiv.className = 'workflow-step';
+
+                    let inputsHtml = '';
+                    if (step.inputs_schema && step.inputs_schema.length > 0) {{
+                        inputsHtml = '<div class="step-inputs">';
+                        step.inputs_schema.forEach(input => {{
+                            const value = step.inputs[input.name] || '';
+                            const isRequired = input.required ? 'required' : 'optional';
+                            const badgeText = input.required ? 'Required' : 'Optional';
+                            inputsHtml += `
+                                <div class="step-input">
+                                    <div class="step-input-header">
+                                        <label>${{input.name}}</label>
+                                        <span class="step-input-badge ${{isRequired}}">${{badgeText}}</span>
+                                    </div>
+                                    <input type="text" value="${{value}}" placeholder="${{input.description || ''}}"
+                                        onchange="updateStepInput(${{index}}, '${{input.name}}', this.value)">
+                                </div>
+                            `;
+                        }});
+                        inputsHtml += '</div>';
+                    }}
+
+                    stepDiv.innerHTML = `
+                        <div class="step-header">
+                            <div class="step-name">Step ${{index + 1}}: ${{step.name}}</div>
+                            <div class="step-buttons">
+                                <button class="step-btn step-details" onclick="viewDetails(${{index}})">ℹ️ Details</button>
+                                <button class="step-btn step-remove" onclick="removeStep(${{index}})">Remove</button>
+                            </div>
+                        </div>
+                        ${{inputsHtml}}
+                    `;
+                    workflowStepsDiv.appendChild(stepDiv);
+                }});
+            }}
+
+            generateYaml();
+        }}
+
+        function generateYaml() {{
+            let lines = [];
+            lines.push('name: Generated Workflow');
+            lines.push('on: [push, pull_request]');
+            lines.push('');
+            lines.push('jobs:');
+            lines.push('  build:');
+            lines.push('    runs-on: ubuntu-latest');
+            lines.push('    steps:');
+            lines.push('      - uses: actions/checkout@v4');
+
+            workflowSteps.forEach((step, index) => {{
+                lines.push(`      - name: ${{step.name}}`);
+                lines.push(`        uses: ${{formatActionUses(step.id)}}`);
+
+                if (Object.keys(step.inputs).length > 0) {{
+                    lines.push('        with:');
+                    Object.entries(step.inputs).forEach(([key, value]) => {{
+                        if (value) {{
+                            lines.push(`          ${{key}}: ${{value}}`);
+                        }}
+                    }});
+                }}
+            }});
+
+            const yaml = lines.join('\\n');
+            workflowYamlDiv.textContent = yaml;
+        }}
+
+        function copyWorkflow() {{
+            const yaml = workflowYamlDiv.textContent;
+            navigator.clipboard.writeText(yaml).then(() => {{
+                alert('✅ Workflow copied to clipboard!');
+            }}).catch(() => {{
+                alert('❌ Failed to copy');
+            }});
+        }}
+
+        actionSearchInput.addEventListener('input', (e) => {{
+            renderAvailableActions(e.target.value);
+        }});
+
+        // Initial render
+        renderAvailableActions();
+    </script>
+</body>
+</html>'''
+
 def generate_index():
     """Generate main index page."""
     actions = load_catalog()
@@ -289,9 +846,12 @@ def generate_index():
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
-            <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
+        <div class="container navbar-content">
+            <div class="navbar-left">
+                <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
+                <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
+            </div>
+            <a href="workflow-generator.html" class="navbar-btn">⚙️ Build Workflow</a>
         </div>
     </nav>
 
@@ -468,6 +1028,16 @@ body {
     border-bottom: 1px solid var(--dark-border);
 }
 
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 600;
@@ -480,6 +1050,23 @@ body {
     opacity: 0.8;
     margin-top: 0.5rem;
     color: var(--dark-text-secondary);
+}
+
+.navbar-btn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.navbar-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
 }
 
 .container {
@@ -678,6 +1265,26 @@ body {
     border: 1px solid var(--dark-border);
 }
 
+.badge-required {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #da3633;
+    color: white;
+}
+
+.badge-optional {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #3b2667;
+    color: #c9d1d9;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -830,6 +1437,17 @@ footer {
         margin: 1rem;
         padding: 1rem;
     }
+
+    .navbar-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .navbar-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
 '''
 
@@ -844,41 +1462,19 @@ def main():
     actions = load_catalog()
     print(f"📚 Loaded {len(actions)} actions\n")
 
-    # Debug: Check action.yml loading
-    print("🔍 Checking for action.yml files:\n")
-    actions_with_yml = 0
-    blueprints_dir = Path.cwd() / "blueprints"
-
-    for action in actions[:10]:  # Check first 10
-        action_id = action.get("action_id", "")
-        parts = action_id.split("/")
-
-        if len(parts) >= 3 and parts[0] == "marketplace":
-            publisher = parts[1]
-            action_name = "/".join(parts[2:])
-            action_yml_path = blueprints_dir / "marketplace" / publisher / action_name / "action.yml"
-        elif len(parts) >= 2 and parts[0] == "internal":
-            action_name = "/".join(parts[1:])
-            action_yml_path = blueprints_dir / "internal" / action_name / "action.yml"
-        else:
-            action_yml_path = None
-
-        if action_yml_path and action_yml_path.exists():
-            actions_with_yml += 1
-            print(f"  ✅ {action_id}")
-        else:
-            print(f"  ❌ {action_id}")
-            if action_yml_path:
-                print(f"     Expected: {action_yml_path}")
-
-    print(f"\n📊 Found action.yml for {actions_with_yml}/10 checked\n")
-
     # Generate index.html
     print("📄 Generating index.html...")
     index_html = generate_index()
     with open(DOCS_DIR / "index.html", "w") as f:
         f.write(index_html)
     print("   ✅ index.html")
+
+    # Generate workflow builder
+    print("📄 Generating workflow-generator.html...")
+    workflow_html = generate_workflow_builder()
+    with open(DOCS_DIR / "workflow-generator.html", "w") as f:
+        f.write(workflow_html)
+    print("   ✅ workflow-generator.html")
 
     # Generate styles.css
     print("📄 Generating styles.css...")
@@ -889,6 +1485,9 @@ def main():
 
     print(f"\n✅ Website generated successfully!")
     print(f"📁 Output: {DOCS_DIR.relative_to(Path.cwd())}/")
+    print(f"   - index.html (main catalog)")
+    print(f"   - workflow-generator.html (build workflows)")
+    print(f"   - styles.css (styles)")
     print(f"🚀 Ready for GitHub Pages deployment")
 
 if __name__ == "__main__":

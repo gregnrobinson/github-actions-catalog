@@ -34,6 +34,16 @@ body {
     border-bottom: 1px solid var(--dark-border);
 }
 
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-left {
+    flex: 1;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 600;
@@ -46,6 +56,23 @@ body {
     opacity: 0.8;
     margin-top: 0.5rem;
     color: var(--dark-text-secondary);
+}
+
+.navbar-btn {
+    background: var(--primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.navbar-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(88, 166, 255, 0.3);
 }
 
 .container {
@@ -244,6 +271,26 @@ body {
     border: 1px solid var(--dark-border);
 }
 
+.badge-required {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #da3633;
+    color: white;
+}
+
+.badge-optional {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: #3b2667;
+    color: #c9d1d9;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -395,5 +442,16 @@ footer {
     .modal-content {
         margin: 1rem;
         padding: 1rem;
+    }
+
+    .navbar-content {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .navbar-btn {
+        width: 100%;
+        text-align: center;
     }
 }
