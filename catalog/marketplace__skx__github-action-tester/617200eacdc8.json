@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/skx/github-action-tester",
+  "version_id": "617200eacdc8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/skx/github-action-tester/action.yml",
+    "origin": "github.com/skx/github-action-tester",
+    "publisher": "skx",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "release-0.10",
+      "name": "release-0.10",
+      "published_at": "2019-10-28T15:59:49Z",
+      "html_url": "https://github.com/skx/github-action-tester/releases/tag/release-0.10",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "github-action-tester",
+    "description": "Run tests when pull-requests are opened, or commits pushed.",
+    "author": "Steve Kemp",
+    "inputs": [
+      {
+        "name": "script",
+        "required": false,
+        "default": ".github/run-tests.sh",
+        "description": "The path to the test-script to run, within the repository."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.script }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "617200eacdc83e1ddc0cf17052822a8d70eb963e5a49888b8e6f24dffe28468b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:38.240459Z"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/goto-bus-stop/setup-zig",
+  "version_id": "c4153642bf10",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/goto-bus-stop/setup-zig/action.yml",
+    "origin": "github.com/goto-bus-stop/setup-zig",
+    "publisher": "goto-bus-stop",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2024-09-28T07:29:19Z",
+      "html_url": "https://github.com/goto-bus-stop/setup-zig/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Setup Zig (legacy)",
+    "description": "Please use mlugg/setup-zig instead",
+    "author": "goto-bus-stop",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": "master",
+        "description": "Version of the zig compiler to use (must be 0.3.0 or up)"
+      },
+      {
+        "name": "cache",
+        "required": false,
+        "default": "true",
+        "description": "Cache downloaded compilers for faster action runs. Strongly recommended."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c4153642bf1090ba0c101db71692b816fc64377bec0136faf4a043152b58b1d3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:37.402803Z"
+  }
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-ui/action.yml",
     "origin": "github.com/amirisback/frogo-ui",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.0.5",
+      "name": "Release v2.0.5",
+      "published_at": "2024-09-04T09:15:56Z",
+      "html_url": "https://github.com/frogobox/frogo-ui/releases/tag/2.0.5",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-UI",
@@ -38,6 +46,6 @@
     "source_hash": "5c032ddcd976c7fbcc037719e57e6e9b21e93fcb58ae3a30b70e40edf52eb732",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.623917Z"
+    "generated_at": "2025-12-15T05:23:03.788064Z"
   }
 }

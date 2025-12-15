@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/get-keyvault-secrets/action.yml",
     "origin": "github.com/azure/get-keyvault-secrets",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "",
+      "published_at": "2020-02-03T12:10:48Z",
+      "html_url": "https://github.com/Azure/get-keyvault-secrets/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure key vault - Get Secrets",
@@ -41,6 +49,6 @@
     "source_hash": "8e46b220cc933e526caf033a8203d8a256ccd14b4b94bf35498287fd1e5ae48d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.702151Z"
+    "generated_at": "2025-12-15T05:21:57.882029Z"
   }
 }

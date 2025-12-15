@@ -1,0 +1,106 @@
+{
+  "action_id": "marketplace/mheap/submodule-sync-action",
+  "version_id": "5c5b11a76bac",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/submodule-sync-action/action.yml",
+    "origin": "github.com/mheap/submodule-sync-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.3.1",
+      "name": "v1.3.1",
+      "published_at": "2022-11-07T22:30:21Z",
+      "html_url": "https://github.com/mheap/submodule-sync-action/releases/tag/v1.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Submodule Sync",
+    "description": "Automatically update a submodule to the latest commit",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub API token to use"
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "The path in the repo to update"
+      },
+      {
+        "name": "ref",
+        "required": true,
+        "default": null,
+        "description": "The branch name to check for updates in the remote repo"
+      },
+      {
+        "name": "pr_branch",
+        "required": true,
+        "default": null,
+        "description": "The name of the branch to use when creating a pull request"
+      },
+      {
+        "name": "target_branch",
+        "required": true,
+        "default": null,
+        "description": "The name of the branch that the PR should be raised against"
+      },
+      {
+        "name": "base_branch",
+        "required": false,
+        "default": null,
+        "description": "The name of the branch that the PR should be based on"
+      },
+      {
+        "name": "pr_body",
+        "required": false,
+        "default": "",
+        "description": "Text to include in the generated PR's description"
+      },
+      {
+        "name": "pr_labels",
+        "required": false,
+        "default": "",
+        "description": "The labels that the PR will have, newline-seperated"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is designed to automatically update a submodule to the latest commit, which directly relates to managing dependencies within a repository.",
+        "tags": [
+          "submodule",
+          "dependency",
+          "git",
+          "automation",
+          "sync"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5c5b11a76bac9f3b1234a2f0d7f171429f1fb8b90141ae4ef2aff9474b1b3361",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:18.317904Z"
+  }
+}

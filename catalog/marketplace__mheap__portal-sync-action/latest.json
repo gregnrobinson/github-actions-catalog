@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/mheap/portal-sync-action",
+  "version_id": "d1f37577c638",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/portal-sync-action/action.yml",
+    "origin": "github.com/mheap/portal-sync-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2024-11-05T14:07:02Z",
+      "html_url": "https://github.com/mheap/portal-sync-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Portal sync action",
+    "description": "WIP Sync action for Konnect portal",
+    "author": "",
+    "inputs": [
+      {
+        "name": "konnect_pat",
+        "required": true,
+        "default": null,
+        "description": "Konnect authentication details"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Deployment"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "The action requires authentication details for the Konnect portal, indicating a focus on authentication. It may also be involved in deploying or syncing configurations, hence the secondary category.",
+        "tags": [
+          "konnect",
+          "authentication",
+          "sync",
+          "portal",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "d1f37577c638c91f0bacc6e3b4ad95905571b132c5f2ecd169fee4a947d2123e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:26.621018Z"
+  }
+}

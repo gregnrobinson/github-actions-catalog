@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/data-factory-deploy-action",
-  "version_id": "8208fc2592b9",
+  "version_id": "4e9cb3b837d0",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/data-factory-deploy-action/action.yml",
@@ -112,9 +112,9 @@
     ]
   },
   "cache": {
-    "source_hash": "8208fc2592b920146eacf44f6c1b6f9c115aa94c646da278226e2928c2eb3be8",
+    "source_hash": "4e9cb3b837d04f10b4da5d8a281451afaeca56ef3d712fee0cf3bc355826f3dc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.971449Z"
+    "generated_at": "2025-12-15T05:21:56.795174Z"
   }
 }

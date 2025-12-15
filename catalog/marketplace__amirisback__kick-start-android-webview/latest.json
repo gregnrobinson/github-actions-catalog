@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/kick-start-android-webview",
-  "version_id": "3e5b30d819fc",
+  "version_id": "003c90dae006",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/kick-start-android-webview/action.yml",
@@ -41,7 +41,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is a base project for a Webview application, which suggests it is primarily focused on building the application. It may also involve managing dependencies and providing documentation for setup.",
+        "reasoning": "The action is a base project for building a webview application, which falls under the Build category. It also involves managing dependencies and may require documentation for setup and usage.",
         "tags": [
           "android",
           "webview",
@@ -53,9 +53,9 @@
     ]
   },
   "cache": {
-    "source_hash": "3e5b30d819fcc739504acae45eaa14d4d2093d9957b564cafc4c0d9b7eec0e7a",
+    "source_hash": "003c90dae00610f2ca9f920ff183793fd707b89ebc8213f5f98b0eb80c0a54d7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.790241Z"
+    "generated_at": "2025-12-15T05:22:58.391841Z"
   }
 }

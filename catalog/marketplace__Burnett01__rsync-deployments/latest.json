@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/Burnett01/rsync-deployments",
-  "version_id": "a4abe1f70cad",
+  "version_id": "0104aace7170",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/Burnett01/rsync-deployments/action.yml",
@@ -111,7 +111,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed for deploying code using rsync over SSH, which falls under the deployment category. It also involves infrastructure considerations for remote server connections.",
+        "reasoning": "The action is specifically designed for deploying code using rsync, which falls under the deployment category, and it also involves infrastructure components by utilizing SSH for remote connections.",
         "tags": [
           "rsync",
           "deployment",
@@ -123,9 +123,9 @@
     ]
   },
   "cache": {
-    "source_hash": "a4abe1f70cadc165fc188bc1afd9270981c38b963fdd829df3d76788fa863b84",
+    "source_hash": "0104aace71701b95286c8b8e8985f73f4e3db9b00b9c24660899a64f3cd6ea0d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.978642Z"
+    "generated_at": "2025-12-15T05:23:16.394530Z"
   }
 }

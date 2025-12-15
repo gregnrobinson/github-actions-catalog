@@ -1,0 +1,139 @@
+{
+  "action_id": "marketplace/wpengine/github-action-wpe-site-deploy",
+  "version_id": "0f621391d240",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wpengine/github-action-wpe-site-deploy/action.yml",
+    "origin": "github.com/wpengine/github-action-wpe-site-deploy",
+    "publisher": "wpengine",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.2.8",
+      "name": "v3.2.8",
+      "published_at": "2025-04-25T17:10:54Z",
+      "html_url": "https://github.com/wpengine/github-action-wpe-site-deploy/releases/tag/v3.2.8",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Deploy WordPress to WP Engine",
+    "description": "Deploy WordPress projects to a WP Engine account using SSH Gateway",
+    "author": "",
+    "inputs": [
+      {
+        "name": "WPE_SSHG_KEY_PRIVATE",
+        "required": true,
+        "default": null,
+        "description": "The private RSA key you will save in the Github Secrets"
+      },
+      {
+        "name": "PHP_LINT",
+        "required": false,
+        "default": false,
+        "description": "optional php syntax check"
+      },
+      {
+        "name": "FLAGS",
+        "required": true,
+        "default": "-azvr --inplace --exclude=\".*\"",
+        "description": "Optional flags for the deployment"
+      },
+      {
+        "name": "CACHE_CLEAR",
+        "required": false,
+        "default": true,
+        "description": "Optional WPE Clear cache"
+      },
+      {
+        "name": "SRC_PATH",
+        "required": false,
+        "default": ".",
+        "description": "An optional source directory to deploy other than the root directory that is being versioned."
+      },
+      {
+        "name": "REMOTE_PATH",
+        "required": false,
+        "default": "",
+        "description": "An optional destination directory to deploy to other than the WordPress root."
+      },
+      {
+        "name": "WPE_ENV",
+        "required": false,
+        "default": null,
+        "description": "Destination to deploy to WPE"
+      },
+      {
+        "name": "PRD_ENV",
+        "required": false,
+        "default": null,
+        "description": "Destination to deploy to WPE Prod"
+      },
+      {
+        "name": "STG_ENV",
+        "required": false,
+        "default": null,
+        "description": "Destination to deploy to WPE Stage"
+      },
+      {
+        "name": "DEV_ENV",
+        "required": false,
+        "default": null,
+        "description": "Destination to deploy to WPE Dev"
+      },
+      {
+        "name": "SCRIPT",
+        "required": false,
+        "default": null,
+        "description": "File containing custom scripts run after the rsync"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://wpengine/site-deploy:1.0.6",
+      "env": {
+        "WPE_SSHG_KEY_PRIVATE": "${{ inputs.WPE_SSHG_KEY_PRIVATE }}",
+        "WPE_ENV": "${{ inputs.WPE_ENV }}",
+        "PRD_ENV": "${{ inputs.PRD_ENV }}",
+        "STG_ENV": "${{ inputs.STG_ENV }}",
+        "DEV_ENV": "${{ inputs.DEV_ENV }}",
+        "REMOTE_PATH": "${{ inputs.REMOTE_PATH }}",
+        "SRC_PATH": "${{ inputs.SRC_PATH }}",
+        "FLAGS": "${{ inputs.FLAGS }}",
+        "PHP_LINT": "${{ inputs.PHP_LINT }}",
+        "CACHE_CLEAR": "${{ inputs.CACHE_CLEAR }}",
+        "SCRIPT": "${{ inputs.SCRIPT }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is primarily focused on deploying WordPress projects to a hosting service, which falls under the Deployment category. Additionally, it includes an optional PHP syntax check, linking it to Code quality.",
+        "tags": [
+          "WordPress",
+          "WP Engine",
+          "Deployment",
+          "SSH",
+          "PHP"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0f621391d240175541db2823e30104097dad2072129fdd6e3fbf674cc429f88e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:14.463449Z"
+  }
+}

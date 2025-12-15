@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/run-sqlpackage-action",
-  "version_id": "8339505a9430",
+  "version_id": "d14f224c455d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/run-sqlpackage-action/action.yml",
@@ -75,7 +75,7 @@
           "id": "sqlpackage",
           "name": "Running SqlPackage tool",
           "shell": "bash",
-          "run": "echo \"::debug::Ensuring target folder '${{ inputs.outputpath }}'\"\nmkdir -p ${{ inputs.outputpath }}\n\necho \"::debug::Looking for dacpac files at '${{ inputs.sourcepath }}'\"\nPACKAGE_PATHS=$(find ${{ inputs.sourcepath }} -name '*.dacpac' -exec basename {} \\;)\n\nfor PACKAGE in $PACKAGE_PATHS\ndo\n  echo \"::debug::Runing ${{ inputs.action }} on package $PACKAGE\"\n  SQLPACKAGE_CMD=\"/opt/sqlpackage/sqlpackage \\\n      /Action:${{ inputs.action }} \\\n      /SourceFile:${{ inputs.sourcepath }}/$PACKAGE \\\n      /Profile:${{ inputs.profile }}\"\n\n  if [[ '${{ inputs.database-server }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /TargetServerName:${{ inputs.database-server }}\"\n  fi\n\n  if [[ '${{ inputs.database-name }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /TargetDatabaseName:${{ inputs.database-name }}\"\n  fi\n\n  if [[ '${{ inputs.authtoken }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /AccessToken:${{ inputs.authtoken }}\"\n  fi\n\n  if [[ '${{ inputs.action }}' != 'Publish' ]]; then\n    PACKAGE_NAME=\"${PACKAGE%.*}\"\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /OutputPath:${{ inputs.outputpath }}/$PACKAGE_NAME.${{ inputs.outputfile }} \\\n      /OverwriteFiles:True\"\n  fi\n\n  echo \"::debug::SqlPackage intruction is '$SQLPACKAGE_CMD'\"\n  eval $SQLPACKAGE_CMD\ndone\n"
+          "run": "echo \"::debug::Ensuring target folder '${{ inputs.outputpath }}'\"\nmkdir -p ${{ inputs.outputpath }}\n\necho \"::debug::Looking for dacpac files at '${{ inputs.sourcepath }}'\"\nPACKAGE_PATHS=$(find ${{ inputs.sourcepath }} -name '*.dacpac' -exec basename {} \\;)\n\nfor PACKAGE in $PACKAGE_PATHS\ndo\n  echo \"::debug::Runing ${{ inputs.action }} on package $PACKAGE\"\n  SQLPACKAGE_CMD=\"/opt/sqlpackage/sqlpackage \\\n      /Action:${{ inputs.action }} \\\n      /SourceFile:${{ inputs.sourcepath }}/$PACKAGE \\\n      /Profile:${{ inputs.profile }}\"\n  \n  if [[ '${{ inputs.database-server }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /TargetServerName:${{ inputs.database-server }}\"\n  fi\n\n  if [[ '${{ inputs.database-name }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /TargetDatabaseName:${{ inputs.database-name }}\"\n  fi\n\n  if [[ '${{ inputs.authtoken }}' != '' ]]; then\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /AccessToken:${{ inputs.authtoken }}\"\n  fi\n\n  if [[ '${{ inputs.action }}' != 'Publish' ]]; then\n    PACKAGE_NAME=\"${PACKAGE%.*}\"\n    SQLPACKAGE_CMD=\"$SQLPACKAGE_CMD \\\n      /OutputPath:${{ inputs.outputpath }}/$PACKAGE_NAME.${{ inputs.outputfile }} \\\n      /OverwriteFiles:True\"\n  fi\n\n  echo \"::debug::SqlPackage intruction is '$SQLPACKAGE_CMD'\"\n  eval $SQLPACKAGE_CMD\ndone\n"
         }
       ]
     }
@@ -91,21 +91,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is designed to run SqlPackage commands, which are typically used for deploying database changes, indicating its primary focus on deployment. It also interacts with database infrastructure.",
+        "reasoning": "The action runs SqlPackage commands which are primarily used for deploying and managing SQL Server databases, making Deployment the primary category. It also involves infrastructure management as it interacts with database environments.",
         "tags": [
           "sqlpackage",
           "database",
           "deployment",
-          "azure",
-          "infrastructure"
+          "infrastructure",
+          "azure"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "8339505a943099d6a5644a92141cc0d0bb3433cb1ac0a6ecfbfcca7f19c1e098",
+    "source_hash": "d14f224c455ddaa1994ea1fc5dc2a2fecb0b081bf2b70b568091478df2d950df",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.011027Z"
+    "generated_at": "2025-12-15T05:21:59.604499Z"
   }
 }

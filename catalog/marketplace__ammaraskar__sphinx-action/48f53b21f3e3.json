@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/ammaraskar/sphinx-action/action.yml",
     "origin": "github.com/ammaraskar/sphinx-action",
     "publisher": "ammaraskar",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.4",
+      "name": "No more github token",
+      "published_at": "2020-02-16T00:51:39Z",
+      "html_url": "https://github.com/ammaraskar/sphinx-action/releases/tag/0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Sphinx Build",
@@ -47,6 +55,6 @@
     "source_hash": "48f53b21f3e35cc4923466243edad802d5ab4ab28326c94c7c05cfe67c4651be",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.073176Z"
+    "generated_at": "2025-12-15T05:21:37.110278Z"
   }
 }

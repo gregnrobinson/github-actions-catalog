@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lukka/set-shell-env",
-  "version_id": "2e57021ee0c7",
+  "version_id": "bd06b9ff4ee0",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lukka/set-shell-env/action.yml",
@@ -49,7 +49,7 @@
   "annotations": {
     "categories": [
       "Dependency management",
-      "Infrastructure"
+      "Documentation"
     ],
     "confidence": "medium",
     "evidence": [
@@ -57,21 +57,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is designed to manage and export environment variables, which can be considered a form of dependency management for workflows. It also relates to infrastructure as it interacts with the shell environment.",
+        "reasoning": "This action is primarily focused on managing environment variables, which can be considered a part of dependency management in workflows. It also provides documentation through its description and input parameters.",
         "tags": [
           "environment variables",
           "workflow",
           "shell",
-          "dependency management",
-          "infrastructure"
+          "GitHub Actions",
+          "dependency management"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "2e57021ee0c754a18a3a43a15ccea4fdca566b9604c89db10e3d244c049f3ddc",
+    "source_hash": "bd06b9ff4ee08eb4a7a27b7a00a99963b206d4097e651f6dae5f581d636dfaf9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.125087Z"
+    "generated_at": "2025-12-15T05:22:05.721344Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/amazon-ecs-deploy-express-service",
-  "version_id": "62dc984f2947",
+  "version_id": "30bc4cb22888",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/amazon-ecs-deploy-express-service/action.yml",
@@ -172,21 +172,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is specifically designed to create or update an Amazon ECS service, which falls under the deployment category, and it also involves infrastructure management as it interacts with AWS resources.",
+        "reasoning": "This action is specifically designed to create or update an Amazon ECS service, which falls under the deployment category as it manages the deployment of containerized applications. It also involves infrastructure management as it interacts with AWS resources.",
         "tags": [
-          "ECS",
           "AWS",
+          "ECS",
           "Deployment",
-          "Infrastructure",
-          "GitHub Actions"
+          "GitHub Actions",
+          "Infrastructure"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "62dc984f29472c0ca4d185cc7505682b727262e29d09465479ba8fc1ebe888d9",
+    "source_hash": "30bc4cb22888c88bc368bd2eec6bf01aebb204ede646d2b275e9d36acf39c7e5",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.463855Z"
+    "generated_at": "2025-12-15T05:22:39.293418Z"
   }
 }

@@ -1,0 +1,34 @@
+name: 'Setup Julia environment'
+description: 'Setup a Julia environment and add it to the PATH'
+author: 'Sascha Mann'
+inputs:
+  version:
+    description: 'The Julia version to download (if necessary) and use. Use a string input to avoid unwanted decimal conversion e.g. 1.10 without quotes will be interpreted as 1.1. Examples: "1", "1.10", "lts", "pre"'
+    default: '1'
+  include-all-prereleases:
+    description: 'Include prereleases when matching the Julia version to available versions.'
+    required: false
+    default: 'false'
+  arch:
+    description: 'Architecture of the Julia binaries. Defaults to the architecture of the runner executing the job.'
+    required: false
+    default: 'default'
+  show-versioninfo:
+    description: 'Display InteractiveUtils.versioninfo() after installing'
+    required: false
+    default: 'false'
+  project:
+    description: 'The path to the project directory or file to use when resolving some versions (e.g. min)'
+    required: false
+    default: ''  # Special value which fallsback to using JULIA_PROJECT if defined, otherwise "."
+outputs:
+  julia-version:
+    description: 'The installed Julia version. May vary from the version input if a version range was given as input.'
+  julia-bindir:
+    description: 'Path to the directory containing the Julia executable. Equivalent to JULIA_BINDIR: https://docs.julialang.org/en/v1/manual/environment-variables/#JULIA_BINDIR'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+branding:
+  icon: 'download'
+  color: 'green'

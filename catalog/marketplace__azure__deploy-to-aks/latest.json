@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/deploy-to-aks",
-  "version_id": "96a50bc03689",
+  "version_id": "191ee7a2f223",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/deploy-to-aks/action.yml",
@@ -174,7 +174,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy applications to an Azure Kubernetes Service cluster, which falls under the Deployment category. It also involves managing infrastructure components related to Kubernetes.",
+        "reasoning": "The action is specifically designed to deploy applications to an Azure Kubernetes Service cluster, which falls under the Deployment category, while also involving infrastructure management.",
         "tags": [
           "Azure",
           "Kubernetes",
@@ -186,9 +186,9 @@
     ]
   },
   "cache": {
-    "source_hash": "96a50bc036892c265424cfc5e0ffe21448e3461c802006bf9f5efc4b95b1cb80",
+    "source_hash": "191ee7a2f223d4683d8c6752c6829685a18275ddfcbc972a96b4aec10f53db33",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.817387Z"
+    "generated_at": "2025-12-15T05:21:47.597581Z"
   }
 }

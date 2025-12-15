@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/coderabbitai/ai-pr-reviewer/action.yml",
     "origin": "github.com/coderabbitai/ai-pr-reviewer",
     "publisher": "coderabbitai",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.16.2",
+      "name": "1.16.2",
+      "published_at": "2023-09-15T03:19:48Z",
+      "html_url": "https://github.com/coderabbitai/ai-pr-reviewer/releases/tag/1.16.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "AI-based PR Reviewer & Summarizer with Chat Capabilities",
@@ -149,6 +157,6 @@
     "source_hash": "a4eaea14457106501baf3936e53e86a1f6b19e6433fbcc9f059f188f31de668d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.428469Z"
+    "generated_at": "2025-12-15T05:21:25.325792Z"
   }
 }

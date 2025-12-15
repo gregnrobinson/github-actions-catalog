@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-recycler-view/action.yml",
     "origin": "github.com/amirisback/frogo-recycler-view",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "4.4.2",
+      "name": "Release v4.4.2",
+      "published_at": "2024-09-08T15:05:45Z",
+      "html_url": "https://github.com/amirisback/frogo-recycler-view/releases/tag/4.4.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-Recycler-View",
@@ -38,6 +46,6 @@
     "source_hash": "a0beb5ad4085706a6802504b32af1328a231105a93612b45435f8318e1f12e0b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.605953Z"
+    "generated_at": "2025-12-15T05:22:58.151537Z"
   }
 }

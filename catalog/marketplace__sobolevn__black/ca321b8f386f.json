@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/sobolevn/black",
+  "version_id": "ca321b8f386f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/black/action.yml",
+    "origin": "github.com/sobolevn/black",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Black",
+    "description": "The uncompromising Python code formatter.",
+    "author": "\u0141ukasz Langa and contributors to Black",
+    "inputs": [
+      {
+        "name": "options",
+        "required": false,
+        "default": "--check --diff",
+        "description": "Options passed to Black. Use `black --help` to see available options. Default: '--check'"
+      },
+      {
+        "name": "src",
+        "required": false,
+        "default": ".",
+        "description": "Source to run Black. Default: '.'"
+      },
+      {
+        "name": "black_args",
+        "required": false,
+        "default": "",
+        "description": "[DEPRECATED] Black input arguments."
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": "",
+        "description": "Python Version specifier (PEP440) - e.g. \"21.5b1\""
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "# Exists since using github.action_path + path to main script doesn't work because bash\n# interprets the backslashes in github.action_path (which are used when the runner OS\n# is Windows) destroying the path to the target file.\n#\n# Also semicolons are necessary because I can't get the newlines to work\nentrypoint=\"import sys;\nimport subprocess;\nfrom pathlib import Path;\n\nMAIN_SCRIPT = Path(r'${GITHUB_ACTION_PATH}') / 'action' / 'main.py';\n\nproc = subprocess.run([sys.executable, str(MAIN_SCRIPT)]);\nsys.exit(proc.returncode)\n\"\n\nif [ \"$RUNNER_OS\" == \"Windows\" ]; then\n  echo $entrypoint | python\nelse\n  echo $entrypoint | python3\nfi\n",
+          "env": {
+            "INPUT_OPTIONS": "${{ inputs.options }}",
+            "INPUT_SRC": "${{ inputs.src }}",
+            "INPUT_BLACK_ARGS": "${{ inputs.black_args }}",
+            "INPUT_VERSION": "${{ inputs.version }}",
+            "pythonioencoding": "utf-8"
+          },
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ca321b8f386f083231ebd139198217f7a746d72f1779073921645a4e9e31bbd2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:33.584188Z"
+  }
+}

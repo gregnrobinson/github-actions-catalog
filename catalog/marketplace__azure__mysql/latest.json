@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/mysql",
-  "version_id": "ad967ab6a7b0",
+  "version_id": "3001f9284c1d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/mysql/action.yml",
@@ -81,7 +81,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is focused on deploying to an Azure MySQL database, which falls under the Deployment category, and it also involves infrastructure management as it interacts with cloud resources.",
+        "reasoning": "The action is specifically designed to deploy to an Azure MySQL database, which clearly falls under the Deployment category, while also relating to Infrastructure as it involves cloud database management.",
         "tags": [
           "Azure",
           "MySQL",
@@ -93,9 +93,9 @@
     ]
   },
   "cache": {
-    "source_hash": "ad967ab6a7b028ba100a8467582266a35efa38f01bd4554c0f94d3a7acc63fc6",
+    "source_hash": "3001f9284c1dc439f762133250fd3e501dafd81cadd86de4ccce9fbee9ddd703",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.947380Z"
+    "generated_at": "2025-12-15T05:21:54.152718Z"
   }
 }

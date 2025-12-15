@@ -1,0 +1,20 @@
+name: 'Very Good Coverage'
+description: 'Enforce LCOV Coverage Thresholds'
+branding:
+  icon: check-square
+  color: green
+inputs:
+  path:
+    description: 'lcov path'
+    required: false
+    default: './coverage/lcov.info'
+  min_coverage:
+    description: 'minimum coverage percentage allowed'
+    required: false
+    default: 100
+  exclude:
+    description: 'list of files you would like to exclude from coverage'
+    required: false
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

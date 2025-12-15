@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/pgrimaud/find-and-replace-pull-request-body",
+  "version_id": "bdcb3700a07f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pgrimaud/find-and-replace-pull-request-body/action.yml",
+    "origin": "github.com/pgrimaud/find-and-replace-pull-request-body",
+    "publisher": "pgrimaud",
+    "verified": false
+  },
+  "definition": {
+    "name": "Find And Replace Pull Request Body",
+    "description": "Replace workflow related Pull Request body.",
+    "author": "Ivan Gabriele",
+    "inputs": [
+      {
+        "name": "githubToken",
+        "required": true,
+        "default": null,
+        "description": "Github Personal Access Token"
+      },
+      {
+        "name": "prNumber",
+        "required": false,
+        "default": null,
+        "description": "Pull request number (if outside the pull_request context)"
+      },
+      {
+        "name": "body",
+        "required": false,
+        "default": null,
+        "description": "New Pull Request body"
+      },
+      {
+        "name": "find",
+        "required": false,
+        "default": null,
+        "description": "String to find in Pull Request body"
+      },
+      {
+        "name": "isHtmlCommentTag",
+        "required": false,
+        "default": null,
+        "description": "Treat `find` input as an HTML Comment Tag"
+      },
+      {
+        "name": "replace",
+        "required": false,
+        "default": null,
+        "description": "Replacement string in Pull Request body"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./index.dist.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action modifies the body of a pull request, which is primarily a communication tool within GitHub. It also relates to documentation as it affects the content presented in the pull request.",
+        "tags": [
+          "pull request",
+          "find and replace",
+          "GitHub Action",
+          "communication",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "bdcb3700a07f53b5ca3bddb510bb72f312262dc190cb28e25af1060f588a61bb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:08.956874Z"
+  }
+}

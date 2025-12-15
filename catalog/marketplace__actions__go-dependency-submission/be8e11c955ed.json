@@ -83,30 +83,14 @@
     }
   },
   "annotations": {
-    "categories": [
-      "Dependency management"
-    ],
-    "confidence": "high",
-    "evidence": [
-      {
-        "type": "llm_categorization",
-        "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "The action specifically calculates and submits dependencies for a Go build-target, which directly relates to managing dependencies in a project.",
-        "tags": [
-          "Go",
-          "dependencies",
-          "GitHub Actions",
-          "submission",
-          "API"
-        ]
-      }
-    ]
+    "categories": [],
+    "confidence": null,
+    "evidence": []
   },
   "cache": {
     "source_hash": "be8e11c955ed4d1614d704b11e2dbe1950c8a18f044b018c169f2f3890a6d44c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.709038Z"
+    "generated_at": "2025-12-15T05:22:44.228419Z"
   }
 }

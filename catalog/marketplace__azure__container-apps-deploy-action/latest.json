@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/container-apps-deploy-action",
-  "version_id": "7ee949a544e6",
+  "version_id": "673b5307c945",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/container-apps-deploy-action/action.yml",
@@ -163,7 +163,7 @@
         "name": "targetLabel",
         "required": false,
         "default": null,
-        "description": "'Specifies the target label for the Azure Container App revision.\nThis will replace any prior revision with the given label. This is required when using ActiveRevisionMode: Labels.'\n"
+        "description": "'Specifies the target label for the Azure Container App revision. \nThis will replace any prior revision with the given label. This is required when using ActiveRevisionMode: Labels.'\n"
       }
     ],
     "outputs": [],
@@ -184,7 +184,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying applications to Azure Container Apps, which falls under the Deployment category. It also involves building the application, hence the inclusion of the Build category.",
+        "reasoning": "The action is primarily focused on deploying applications to Azure Container Apps, which falls under Deployment. It also involves building the application, thus fitting into the Build category, and operates within Azure's infrastructure.",
         "tags": [
           "Azure",
           "Container Apps",
@@ -196,9 +196,9 @@
     ]
   },
   "cache": {
-    "source_hash": "7ee949a544e6fa212eca91f60834b2f1a8fec7574492a25ac5ffe507b27bf8be",
+    "source_hash": "673b5307c9459305802286bddfe8c573e5f4f73d89911e0091d3b88d47b75fae",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.788881Z"
+    "generated_at": "2025-12-15T05:21:45.363281Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/desktop-news-app",
-  "version_id": "175d64118501",
+  "version_id": "1f5c6098711a",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/desktop-news-app/action.yml",
@@ -47,21 +47,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action appears to be related to a desktop application, and its description suggests it may serve as a reference or example, which aligns with documentation. However, without more specific details about its functionality, the categorization remains uncertain.",
+        "reasoning": "The action is described as a 'Desktop News App' but lacks specific functionality details or context for other categories. It primarily serves as a documentation reference for users.",
         "tags": [
           "desktop",
           "news",
           "app",
-          "example",
-          "documentation"
+          "documentation",
+          "input"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "175d64118501079677303c30844cdd6581fa0c40cb99a1508497b0c515d5bd0d",
+    "source_hash": "1f5c6098711a78a8c18bd874c03b085e2484a9c36129f5053f75eb3c38fad180",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.781224Z"
+    "generated_at": "2025-12-15T05:22:56.058656Z"
   }
 }

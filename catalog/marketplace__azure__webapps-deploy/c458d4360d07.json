@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/webapps-deploy/action.yml",
     "origin": "github.com/azure/webapps-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2.2.17",
+      "name": "",
+      "published_at": "2025-08-01T05:51:11Z",
+      "html_url": "https://github.com/Azure/webapps-deploy/releases/tag/v2.2.17",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure WebApp",
@@ -112,6 +120,6 @@
     "source_hash": "c458d4360d07c061c3bd8dfe535f1032da4650dd2511f69874111b67864e6f56",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.530234Z"
+    "generated_at": "2025-12-15T05:21:46.887408Z"
   }
 }

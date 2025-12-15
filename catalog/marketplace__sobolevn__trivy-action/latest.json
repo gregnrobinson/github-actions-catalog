@@ -1,0 +1,234 @@
+{
+  "action_id": "marketplace/sobolevn/trivy-action",
+  "version_id": "6cd25c89fe18",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/trivy-action/action.yml",
+    "origin": "github.com/sobolevn/trivy-action",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Aqua Security Trivy",
+    "description": "Scans container images for vulnerabilities with Trivy",
+    "author": "Aqua Security",
+    "inputs": [
+      {
+        "name": "scan-type",
+        "required": false,
+        "default": "image",
+        "description": "Scan type to use for scanning vulnerability"
+      },
+      {
+        "name": "image-ref",
+        "required": false,
+        "default": null,
+        "description": "image reference(for backward compatibility)"
+      },
+      {
+        "name": "input",
+        "required": false,
+        "default": "",
+        "description": "reference of tar file to scan"
+      },
+      {
+        "name": "scan-ref",
+        "required": false,
+        "default": ".",
+        "description": "Scan reference"
+      },
+      {
+        "name": "exit-code",
+        "required": false,
+        "default": null,
+        "description": "exit code when vulnerabilities were found"
+      },
+      {
+        "name": "ignore-unfixed",
+        "required": false,
+        "default": "false",
+        "description": "ignore unfixed vulnerabilities"
+      },
+      {
+        "name": "vuln-type",
+        "required": false,
+        "default": "os,library",
+        "description": "comma-separated list of vulnerability types (os,library)"
+      },
+      {
+        "name": "severity",
+        "required": false,
+        "default": "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL",
+        "description": "severities of vulnerabilities to be displayed"
+      },
+      {
+        "name": "format",
+        "required": false,
+        "default": "table",
+        "description": "output format (table, json, template)"
+      },
+      {
+        "name": "template",
+        "required": false,
+        "default": "",
+        "description": "use an existing template for rendering output (@/contrib/gitlab.tpl, @/contrib/junit.tpl, @/contrib/html.tpl)"
+      },
+      {
+        "name": "output",
+        "required": false,
+        "default": "",
+        "description": "writes results to a file with the specified file name"
+      },
+      {
+        "name": "skip-dirs",
+        "required": false,
+        "default": "",
+        "description": "comma separated list of directories where traversal is skipped"
+      },
+      {
+        "name": "skip-files",
+        "required": false,
+        "default": "",
+        "description": "comma separated list of files to be skipped"
+      },
+      {
+        "name": "cache-dir",
+        "required": false,
+        "default": "",
+        "description": "specify where the cache is stored"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": "",
+        "description": "timeout (default 5m0s)"
+      },
+      {
+        "name": "ignore-policy",
+        "required": false,
+        "default": "",
+        "description": "filter vulnerabilities with OPA rego language"
+      },
+      {
+        "name": "hide-progress",
+        "required": false,
+        "default": null,
+        "description": "suppress progress bar and log output"
+      },
+      {
+        "name": "list-all-pkgs",
+        "required": false,
+        "default": "false",
+        "description": "output all packages regardless of vulnerability"
+      },
+      {
+        "name": "scanners",
+        "required": false,
+        "default": "",
+        "description": "comma-separated list of what security issues to detect"
+      },
+      {
+        "name": "trivyignores",
+        "required": false,
+        "default": "",
+        "description": "comma-separated list of relative paths in repository to one or more .trivyignore files"
+      },
+      {
+        "name": "artifact-type",
+        "required": false,
+        "default": null,
+        "description": "input artifact type (image, fs, repo, archive) for SBOM generation"
+      },
+      {
+        "name": "github-pat",
+        "required": false,
+        "default": null,
+        "description": "GitHub Personal Access Token (PAT) for submitting SBOM to GitHub Dependency Snapshot API"
+      },
+      {
+        "name": "trivy-config",
+        "required": false,
+        "default": null,
+        "description": "path to trivy.yaml config"
+      },
+      {
+        "name": "tf-vars",
+        "required": false,
+        "default": null,
+        "description": "path to terraform tfvars file"
+      },
+      {
+        "name": "limit-severities-for-sarif",
+        "required": false,
+        "default": null,
+        "description": "limit severities for SARIF format"
+      },
+      {
+        "name": "docker-host",
+        "required": false,
+        "default": null,
+        "description": "unix domain socket path to use for docker scanning, ex. unix:///var/run/docker.sock"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "-a ${{ inputs.scan-type }}",
+        "-b ${{ inputs.format }}",
+        "-c ${{ inputs.template }}",
+        "-d ${{ inputs.exit-code }}",
+        "-e ${{ inputs.ignore-unfixed }}",
+        "-f ${{ inputs.vuln-type }}",
+        "-g ${{ inputs.severity }}",
+        "-h ${{ inputs.output }}",
+        "-i ${{ inputs.image-ref }}",
+        "-j ${{ inputs.scan-ref }}",
+        "-k ${{ inputs.skip-dirs }}",
+        "-l ${{ inputs.input }}",
+        "-m ${{ inputs.cache-dir }}",
+        "-n ${{ inputs.timeout }}",
+        "-o ${{ inputs.ignore-policy }}",
+        "-p ${{ inputs.hide-progress }}",
+        "-q ${{ inputs.skip-files }}",
+        "-r ${{ inputs.list-all-pkgs }}",
+        "-s ${{ inputs.scanners }}",
+        "-t ${{ inputs.trivyignores }}",
+        "-u ${{ inputs.github-pat }}",
+        "-v ${{ inputs.trivy-config }}",
+        "-x ${{ inputs.tf-vars }}",
+        "-z ${{ inputs.limit-severities-for-sarif }}",
+        "-y ${{ inputs.docker-host }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Security",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Security",
+        "reasoning": "The action scans container images for vulnerabilities, which directly relates to security practices. Additionally, it involves testing the images for potential issues.",
+        "tags": [
+          "vulnerability",
+          "container",
+          "security",
+          "scanning",
+          "Trivy"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6cd25c89fe18febc06a146a2e28ae87bd71baf8e55f0420a4ee004e37f58b85e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:34.470893Z"
+  }
+}

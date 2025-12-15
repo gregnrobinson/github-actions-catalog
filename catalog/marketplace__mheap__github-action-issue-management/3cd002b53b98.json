@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/mheap/github-action-issue-management",
+  "version_id": "3cd002b53b98",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-issue-management/action.yml",
+    "origin": "github.com/mheap/github-action-issue-management",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2021-06-15T11:59:46Z",
+      "html_url": "https://github.com/mheap/github-action-issue-management/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Issue Management",
+    "description": "Automatically manage issue comments",
+    "author": "",
+    "inputs": [
+      {
+        "name": "necromancer_delay",
+        "required": false,
+        "default": "P7D",
+        "description": "The amount of time that an issue must be closed before new comments are considered necromancy"
+      },
+      {
+        "name": "disable_auto_assign",
+        "required": false,
+        "default": "off",
+        "description": "Set to 'on' to disable automatic issue assignment when a comment is added"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "3cd002b53b981d72903e3f248c51e0df16a61bebddb2921ebff6e54f4f85bd8a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:17.904813Z"
+  }
+}

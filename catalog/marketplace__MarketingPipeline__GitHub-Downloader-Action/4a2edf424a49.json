@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/MarketingPipeline/GitHub-Downloader-Action",
+  "version_id": "4a2edf424a49",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MarketingPipeline/GitHub-Downloader-Action/action.yml",
+    "origin": "github.com/MarketingPipeline/GitHub-Downloader-Action",
+    "publisher": "MarketingPipeline",
+    "verified": false
+  },
+  "definition": {
+    "name": "Action name",
+    "description": "Action description",
+    "author": "github.com/MarketingPipeline",
+    "inputs": [
+      {
+        "name": "filepath",
+        "required": false,
+        "default": "",
+        "description": "File Path To Place Files"
+      },
+      {
+        "name": "repo",
+        "required": true,
+        "default": "",
+        "description": "GitHub repository italia/publiccode-parser-action"
+      },
+      {
+        "name": "overwrite",
+        "required": false,
+        "default": "",
+        "description": "Overwrite Files In Repo"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.repo }}",
+        "${{ inputs.filepath }}",
+        "${{ inputs.overwrite }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4a2edf424a49458fb702128ef9cb43efbfd6ac90a184faf72f669437ba749a59",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:36.187216Z"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/mheap/frontmatter-json-schema-action",
+  "version_id": "db3c87b1c2a7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/frontmatter-json-schema-action/action.yml",
+    "origin": "github.com/mheap/frontmatter-json-schema-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "v1.1.0",
+      "published_at": "2024-12-09T11:26:41Z",
+      "html_url": "https://github.com/mheap/frontmatter-json-schema-action/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Frontmatter JSON Schema Validator",
+    "description": "Validate YAML frontmatter against a JSON schema",
+    "author": "",
+    "inputs": [
+      {
+        "name": "paths",
+        "required": true,
+        "default": null,
+        "description": "The paths to read frontmatter from (e.g. `**/*.md`)"
+      },
+      {
+        "name": "schema",
+        "required": false,
+        "default": null,
+        "description": "The JSON schema to use when validating"
+      },
+      {
+        "name": "schema_path",
+        "required": false,
+        "default": null,
+        "description": "The path to a JSON schema to use when validation. This will override `schema`"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action validates YAML frontmatter against a JSON schema, which is primarily focused on ensuring code quality by checking for adherence to a specified format. It also serves a testing purpose by validating the structure of the frontmatter.",
+        "tags": [
+          "JSON Schema",
+          "YAML",
+          "Validation",
+          "Frontmatter",
+          "Code Quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "db3c87b1c2a7e3dce26d0f6ade0a6335bb3ab90e93e5eacd047fe1687c33164d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:22.820096Z"
+  }
+}

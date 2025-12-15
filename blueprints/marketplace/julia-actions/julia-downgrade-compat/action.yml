@@ -1,0 +1,23 @@
+name: 'Downgrade Julia compat entries'
+description: 'Uses Resolver.jl to find and install minimal compatible versions of dependencies.'
+inputs:
+  skip:
+    description: 'Comma-separated list of packages to not downgrade.'
+    default: ''
+  projects:
+    description: 'Comma-separated list of Julia projects to resolve.'
+    default: '.'
+  mode:
+    description: 'Downgrade mode: deps (direct dependencies), alldeps (deps + weakdeps), weakdeps (only weakdeps), forcedeps (deps with strict lower bound verification)'
+    default: 'alldeps'
+  julia_version:
+    description: 'Julia version to use with resolver (default: 1.10)'
+    default: '1.10'
+runs:
+  using: "composite"
+  steps:
+    - run: julia --color=yes "${{ github.action_path }}/downgrade.jl" "${{ inputs.skip }}" "${{ inputs.projects }}" "${{ inputs.mode }}" "${{ inputs.julia_version }}"
+      shell: bash
+branding:
+  icon: trending-down
+  color: purple

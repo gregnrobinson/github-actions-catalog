@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/bundletool-action-apk",
-  "version_id": "987d1f7cfb3a",
+  "version_id": "cb1f613356e3",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/bundletool-action-apk/action.yml",
@@ -75,21 +75,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Packaging",
-        "reasoning": "The action is focused on converting an Android App Bundle (AAB) to APK files, which falls under the packaging category. It also involves building the APK from the provided AAB, thus it is relevant to the build category as well.",
+        "reasoning": "The action is focused on converting Android App Bundles (aab) to APK files, which is a packaging process. It also involves some build-related inputs like keystore information for signing the APK.",
         "tags": [
           "APK",
           "AAB",
-          "Android",
           "Packaging",
-          "Build"
+          "Build",
+          "Android"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "987d1f7cfb3a116084e24931a933f1064cc0f893ce2c4bcb11121ee8f6fd21e8",
+    "source_hash": "cb1f613356e310d00389960235d50edfcbf7ecea43cdb482fe144d291af42594",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.796171Z"
+    "generated_at": "2025-12-15T05:22:59.809592Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/cloudformation-aws-iam-policy-validator",
-  "version_id": "f81acf82e790",
+  "version_id": "fdf4bf4824ee",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/cloudformation-aws-iam-policy-validator/action.yml",
@@ -150,21 +150,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "This action focuses on validating IAM policies, which is a security measure to ensure proper access control in AWS. It also contributes to code quality by ensuring that CloudFormation templates adhere to best practices regarding IAM policies.",
+        "reasoning": "The action validates AWS IAM policies, which directly relates to security by ensuring proper access controls. Additionally, it contributes to code quality by ensuring that CloudFormation templates adhere to best practices.",
         "tags": [
           "AWS",
           "IAM",
           "CloudFormation",
-          "policy validation",
-          "security"
+          "Policy Validation",
+          "Security"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "f81acf82e7908d0cfe38df0091f25290adb5fd1d2a727a2e1fcfaf552e1d78e6",
+    "source_hash": "fdf4bf4824ee3a0a9dfa68232fda7e636178330901a6999d0af96be2df316f37",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.455425Z"
+    "generated_at": "2025-12-15T05:22:38.801585Z"
   }
 }

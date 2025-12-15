@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/codeguru-security",
-  "version_id": "8388e08a1ac3",
+  "version_id": "aed89959e47d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/codeguru-security/action.yml",
@@ -85,21 +85,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action is focused on scanning code for security vulnerabilities, which directly relates to the Security category, while also contributing to Code quality by ensuring the code adheres to security best practices.",
+        "reasoning": "The CodeGuru Security Action is focused on scanning code for security vulnerabilities, which falls under the Security category. Additionally, it contributes to Code quality by ensuring that the code adheres to security best practices.",
         "tags": [
           "AWS",
           "CodeGuru",
           "Security",
-          "Code quality",
+          "Code Quality",
           "GitHub Actions"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "8388e08a1ac32d0fcba21c777dd2df06217928915fabf13d79957b54c5235498",
+    "source_hash": "aed89959e47d91276832da706ee09c2d7749a8e27445fb8ae66c977751386c18",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.444270Z"
+    "generated_at": "2025-12-15T05:22:37.718348Z"
   }
 }

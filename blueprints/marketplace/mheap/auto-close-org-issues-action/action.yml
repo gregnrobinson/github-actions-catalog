@@ -1,0 +1,21 @@
+name: Auto Close Org Issues
+description: Automatically close issues that are raised by people that belong to a specific organization
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: slash
+  color: orange
+inputs:
+  token:
+    description: "A GitHub API token that has permission to list org membership"
+    required: true
+  org:
+    description: "The org to auto-close issues from"
+    required: true
+  message:
+    description: "The comment to add when auto-closing an issue"
+    required: true
+  keep_open:
+    description: "If any of these labels (comma-separated) are applied, the issue will not be auto-closed"
+    required: false

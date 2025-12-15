@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/WordPress-Azure-VirtualMachine",
-  "version_id": "30671ef994de",
+  "version_id": "11fadb82c1b6",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/WordPress-Azure-VirtualMachine/action.yml",
@@ -110,10 +110,10 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action primarily focuses on deploying WordPress on an Azure Virtual Machine, which falls under Deployment. It also requires authentication details to log into Azure, categorizing it under Authentication.",
+        "reasoning": "This action is primarily focused on deploying WordPress on an Azure Virtual Machine, which falls under Deployment. It also requires Azure authentication details, categorizing it under Authentication.",
         "tags": [
-          "WordPress",
           "Azure",
+          "WordPress",
           "Virtual Machine",
           "Deployment",
           "Infrastructure"
@@ -122,9 +122,9 @@
     ]
   },
   "cache": {
-    "source_hash": "30671ef994ded16454735165c1a6229474e86b09022c8beddc15cb8185d3d917",
+    "source_hash": "11fadb82c1b634ce777d1ee175f534867cb077649d45c2d8553bc17a422985ee",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.852503Z"
+    "generated_at": "2025-12-15T05:21:50.565863Z"
   }
 }

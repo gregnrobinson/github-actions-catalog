@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/CodelyTV/check-critical-files/action.yml",
     "origin": "github.com/CodelyTV/check-critical-files",
     "publisher": "CodelyTV",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version",
+      "published_at": "2020-03-23T12:55:53Z",
+      "html_url": "https://github.com/CodelyTV/check-critical-files/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Check Critical Files",
@@ -52,6 +60,6 @@
     "source_hash": "9c020d2e3b1eca309ab1c7274b39da368395f78f75a0d744853e74d9549716be",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.564942Z"
+    "generated_at": "2025-12-15T05:22:45.250234Z"
   }
 }

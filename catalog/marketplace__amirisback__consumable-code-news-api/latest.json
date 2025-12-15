@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/consumable-code-news-api",
-  "version_id": "acad55984e8e",
+  "version_id": "678cbc878964",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-news-api/action.yml",
@@ -48,21 +48,20 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action provides consumable code for interacting with a news API, which suggests a focus on documentation and code quality. However, the lack of clear inputs and outputs limits its categorization in other areas.",
+        "reasoning": "The action provides consumable code for interacting with a news API, which suggests a focus on documentation and code quality. However, without more details on its functionality, the categorization remains somewhat uncertain.",
         "tags": [
           "API",
-          "documentation",
           "consumable code",
-          "news",
-          "retrofit"
+          "documentation",
+          "news"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "acad55984e8e0f274415c3e1fe8a5e745fa62a23fb876ebe33885c469020d2db",
+    "source_hash": "678cbc8789640f1ff14f14e7e629e3fe63765023c4fb1155ef512a2fe5e4e219",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.763331Z"
+    "generated_at": "2025-12-15T05:22:48.871492Z"
   }
 }

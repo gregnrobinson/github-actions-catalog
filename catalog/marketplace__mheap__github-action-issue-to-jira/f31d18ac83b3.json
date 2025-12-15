@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/mheap/github-action-issue-to-jira",
+  "version_id": "f31d18ac83b3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-issue-to-jira/action.yml",
+    "origin": "github.com/mheap/github-action-issue-to-jira",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.2",
+      "name": "v1.0.2",
+      "published_at": "2021-03-20T16:13:34Z",
+      "html_url": "https://github.com/mheap/github-action-issue-to-jira/releases/tag/v1.0.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Issue to Jira",
+    "description": "Create Jira tickets for GitHub Issues automatically",
+    "author": "",
+    "inputs": [
+      {
+        "name": "jiraHost",
+        "required": false,
+        "default": null,
+        "description": "The URL of your Jira instance e.g. https://myapp.atlassian.net"
+      },
+      {
+        "name": "jiraUsername",
+        "required": false,
+        "default": null,
+        "description": "The username to authenticate with"
+      },
+      {
+        "name": "jiraPassword",
+        "required": false,
+        "default": null,
+        "description": "The password for the provided username"
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": null,
+        "description": "The project key to create a new issue in"
+      },
+      {
+        "name": "assignee",
+        "required": false,
+        "default": null,
+        "description": "The default assignee for any created issues"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f31d18ac83b35f9463f7e2f2270d7853a17f393e2d6c2f9e380651a529861ab7",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:26.960959Z"
+  }
+}

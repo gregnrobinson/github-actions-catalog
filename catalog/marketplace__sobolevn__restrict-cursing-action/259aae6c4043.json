@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/sobolevn/restrict-cursing-action",
+  "version_id": "259aae6c4043",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/restrict-cursing-action/action.yml",
+    "origin": "github.com/sobolevn/restrict-cursing-action",
+    "publisher": "sobolevn",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.1.0",
+      "name": "Version 0.1.0",
+      "published_at": "2019-10-10T11:19:52Z",
+      "html_url": "https://github.com/sobolevn/restrict-cursing-action/releases/tag/0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "restrict-cursing-action",
+    "description": "Github Action to prevent cursing and bad language in issues and pull requests",
+    "author": "sobolevn",
+    "inputs": [
+      {
+        "name": "text",
+        "required": false,
+        "default": "I am so sorry! :pray:",
+        "description": "Text of what to replace offensive comments with"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "259aae6c40437342dcf86dd484942e0de975d1e3db824b604951364fdcb13439",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:29.793843Z"
+  }
+}

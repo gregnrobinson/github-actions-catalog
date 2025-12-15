@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-consume-api/action.yml",
     "origin": "github.com/amirisback/frogo-consume-api",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.6.1",
+      "name": "2.6.1",
+      "published_at": "2025-09-03T10:18:30Z",
+      "html_url": "https://github.com/frogobox/frogo-consume-api/releases/tag/2.6.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-Consume-Api",
@@ -38,6 +46,6 @@
     "source_hash": "51f97eb42eee5973eee94f4f6ff06f094fa4aae95d9b4cf38d30a61195bb7688",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.630329Z"
+    "generated_at": "2025-12-15T05:23:05.460424Z"
   }
 }

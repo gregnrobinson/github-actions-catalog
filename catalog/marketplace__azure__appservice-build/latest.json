@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/appservice-build",
-  "version_id": "84c057f7a97f",
+  "version_id": "14c1534f876d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/appservice-build/action.yml",
@@ -69,21 +69,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is specifically designed to build an Azure Web App, which falls under the Build category, and it also involves deploying the built application to Azure, thus it is categorized under Deployment as well.",
+        "reasoning": "This action is specifically designed to build an Azure Web App, which falls under the Build category, and it also involves deploying the built application to Azure, thus fitting into the Deployment category.",
         "tags": [
           "Azure",
           "Build",
           "Web App",
           "Oryx",
-          "Linux"
+          "Deployment"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "84c057f7a97f39e6dbcb1822325b7f199bef91c277fcf94b6a7e0f5dc64fb743",
+    "source_hash": "14c1534f876dda40a1701f3a0cd12bb08ba73294d5796e9efaca08bcf66f5299",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.987048Z"
+    "generated_at": "2025-12-15T05:21:58.442334Z"
   }
 }

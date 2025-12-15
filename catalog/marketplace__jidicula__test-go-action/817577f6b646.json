@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/jidicula/test-go-action",
+  "version_id": "817577f6b646",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/test-go-action/action.yml",
+    "origin": "github.com/jidicula/test-go-action",
+    "publisher": "jidicula",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2021-12-08T17:38:50Z",
+      "html_url": "https://github.com/jidicula/test-go-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Tweeter Action",
+    "description": "Simple action to send a tweet via an GitHub Action.",
+    "author": "jidicula",
+    "inputs": [
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "description": "message you want to tweet"
+      },
+      {
+        "name": "apiKey",
+        "required": true,
+        "default": null,
+        "description": "api key for Twitter api"
+      },
+      {
+        "name": "apiKeySecret",
+        "required": true,
+        "default": null,
+        "description": "api key secret for Twitter api"
+      },
+      {
+        "name": "accessToken",
+        "required": true,
+        "default": null,
+        "description": "access token for Twitter api"
+      },
+      {
+        "name": "accessTokenSecret",
+        "required": true,
+        "default": null,
+        "description": "access token secret for Twitter api"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "errorMessage",
+        "description": "if something went wrong, the error message"
+      },
+      {
+        "name": "sentMessage",
+        "description": "message sent to Twitter"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "--message",
+        "${{ inputs.message }}",
+        "--apiKey",
+        "${{ inputs.apiKey }}",
+        "--apiKeySecret",
+        "${{ inputs.apiKeySecret }}",
+        "--accessToken",
+        "${{ inputs.accessToken }}",
+        "--accessTokenSecret",
+        "${{ inputs.accessTokenSecret }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "817577f6b64604bb7ad619f11d3448a6a63cf233369575c98fc389ddf52fca30",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:11.325987Z"
+  }
+}

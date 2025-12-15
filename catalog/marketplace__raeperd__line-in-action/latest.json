@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/raeperd/line-in-action",
-  "version_id": "88254c7fd5d9",
+  "version_id": "7792af1aaebc",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/raeperd/line-in-action/action.yml",
@@ -61,7 +61,8 @@
   "annotations": {
     "categories": [
       "Communication",
-      "Notification"
+      "Notification",
+      "Authentication"
     ],
     "confidence": "high",
     "evidence": [
@@ -69,21 +70,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is specifically designed to send messages via LINE-Notify, which falls under communication and notification categories.",
+        "reasoning": "This action is primarily focused on sending messages via LINE, which falls under communication, and it requires an access token for authentication, making it relevant to the authentication category as well.",
         "tags": [
           "LINE",
           "notification",
-          "communication",
           "GitHub Action",
-          "messaging"
+          "communication",
+          "authentication"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "88254c7fd5d9ca4ebb4d507d2274019a6fc5a1e85ad1a7fbe74b1016e6898c8a",
+    "source_hash": "7792af1aaebc3cc54edf1b2fc524623a72db7d62f6fddc30cd71d97110af04e7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.187530Z"
+    "generated_at": "2025-12-15T05:22:14.126316Z"
   }
 }

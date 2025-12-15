@@ -1,0 +1,21 @@
+name: Comvent - Comment Event
+description: Comment Event ⚡️ handler, which can be used as a building block of ChatBot like setup.
+author: rytswd
+branding:
+  icon: zap
+  color: green
+inputs:
+  token:
+    required: true
+    description: Your GitHub Token, often specified with GITHUB_TOKEN
+  config-path:
+    description: The path to keyword setup
+    required: false
+    default: .github/comvent-setup.yaml
+  config-check-only:
+    description: A flag to skip comment check so that you can check config validity only
+    required: false
+    default: ""
+runs:
+  using: node16
+  main: dist/index.js

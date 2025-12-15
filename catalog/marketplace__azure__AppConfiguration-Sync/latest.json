@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/AppConfiguration-Sync",
-  "version_id": "79d36ab3b93a",
+  "version_id": "a3e2bbd0c9f4",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/AppConfiguration-Sync/action.yml",
@@ -90,7 +90,7 @@
   },
   "annotations": {
     "categories": [
-      "Configuration",
+      "Configuration Management",
       "Dependency management",
       "Infrastructure"
     ],
@@ -99,22 +99,22 @@
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Configuration",
-        "reasoning": "The action is focused on syncing configuration files with Azure App Configuration, which relates to managing dependencies and infrastructure settings. However, it is deprecated, which affects the confidence level.",
+        "primary_category": "Configuration Management",
+        "reasoning": "The action is related to managing configuration files for Azure App Configuration, which falls under configuration management and infrastructure. However, it is marked as deprecated, which affects the confidence level.",
         "tags": [
           "Azure",
           "App Configuration",
-          "Sync",
           "Configuration Management",
+          "Infrastructure",
           "GitHub Actions"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "79d36ab3b93a787dec4ec65c6967ae3acb5a5b330511b8e285c375e56417cc89",
+    "source_hash": "a3e2bbd0c9f4dd1ab0340354812dfb6688eaf706369ad2193e1bbe9e4cf592d8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.890941Z"
+    "generated_at": "2025-12-15T05:21:52.359032Z"
   }
 }

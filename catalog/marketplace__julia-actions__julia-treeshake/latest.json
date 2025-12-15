@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/julia-actions/julia-treeshake",
+  "version_id": "3c7356881d01",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-treeshake/action.yml",
+    "origin": "github.com/julia-actions/julia-treeshake",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Find unused Julia project dependencies",
+    "description": "Run a given test to see if any project dependencies are unused",
+    "author": "Ian Butterworth",
+    "inputs": [
+      {
+        "name": "test_code",
+        "required": false,
+        "default": "import Pkg; Pkg.test(julia_args=[\"--code-coverage=user\"])",
+        "description": "Code to run while evaluating dependency usage"
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "default": "",
+        "description": "Value inserted in front of the julia command, e.g. for running xvfb-run julia [...]"
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": "@.",
+        "description": "Value passed to the --project flag. The default value is the repository root: \"@.\""
+      },
+      {
+        "name": "fail_unused_direct_deps",
+        "required": false,
+        "default": "yes",
+        "description": "Whether to fail the run if unused direct dependencies ar found. Default value: yes"
+      },
+      {
+        "name": "fail_unused_indirect_deps",
+        "required": false,
+        "default": "no",
+        "description": "Whether to fail the run if unused direct dependencies ar found. Default value: no"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "# The Julia command that will be executed\njulia_cmd=( julia --code-coverage=user --color=yes --project=${{ inputs.project }} -e '${{ inputs.test_code }}' )\n\n# Add the prefix in front of the command if there is one\nprefix=\"${{ inputs.prefix }}\"\n[[ -n $prefix ]] && julia_cmd=( \"$prefix\" \"${julia_cmd[@]}\" )\n\n# Run the Julia command\n\"${julia_cmd[@]}\"\n",
+          "shell": "bash"
+        },
+        {
+          "run": "julia --color=yes --project=${{ inputs.project }} \"$GITHUB_ACTION_PATH\"/treeshake.jl --fail_unused_direct=${{ inputs.fail_unused_direct_deps }} --fail_unused_indirect=${{ inputs.fail_unused_indirect_deps }}",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is designed to identify unused dependencies in a Julia project, which directly relates to code quality and dependency management. Additionally, it runs tests to evaluate the usage of these dependencies, linking it to testing as well.",
+        "tags": [
+          "julia",
+          "dependencies",
+          "code quality",
+          "testing",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3c7356881d0156d9b4f6fbb36a972eee368119622ced7c011d6f22edeca7571d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:24.416090Z"
+  }
+}

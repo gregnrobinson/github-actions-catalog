@@ -1,0 +1,119 @@
+{
+  "action_id": "marketplace/rhysd/lighthouse-ci-action",
+  "version_id": "f02a0595b909",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/lighthouse-ci-action/action.yml",
+    "origin": "github.com/rhysd/lighthouse-ci-action",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Lighthouse CI Action",
+    "description": "Audit URLs using Lighthouse and test performance with Lighthouse CI",
+    "author": "",
+    "inputs": [
+      {
+        "name": "urls",
+        "required": false,
+        "default": null,
+        "description": "List of URL(s) to analyze"
+      },
+      {
+        "name": "budgetPath",
+        "required": false,
+        "default": null,
+        "description": "Path to a Lighthouse budgets.json file"
+      },
+      {
+        "name": "configPath",
+        "required": false,
+        "default": null,
+        "description": "Path to a LHCI lighthouserc.json file"
+      },
+      {
+        "name": "uploadArtifacts",
+        "required": false,
+        "default": null,
+        "description": "Opt-out of saving Lighthouse results as an action artifacts"
+      },
+      {
+        "name": "artifactName",
+        "required": false,
+        "default": "lighthouse-results",
+        "description": "Name of the artifact group if using uploadArtifacts. default: lighthouse-results"
+      },
+      {
+        "name": "temporaryPublicStorage",
+        "required": false,
+        "default": null,
+        "description": ""
+      },
+      {
+        "name": "runs",
+        "required": false,
+        "default": null,
+        "description": "Number of runs to do per URL"
+      },
+      {
+        "name": "serverBaseUrl",
+        "required": false,
+        "default": null,
+        "description": "Address of a LHCI server"
+      },
+      {
+        "name": "serverToken",
+        "required": false,
+        "default": null,
+        "description": "API token to push to LHCI server"
+      },
+      {
+        "name": "basicAuthUsername",
+        "required": false,
+        "default": null,
+        "description": "Basic auth username for LHCI server"
+      },
+      {
+        "name": "basicAuthPassword",
+        "required": false,
+        "default": null,
+        "description": "Basic auth password for LHCI server"
+      },
+      {
+        "name": "uploadExtraArgs",
+        "required": false,
+        "default": null,
+        "description": "Upload command extra arguments"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "resultsPath",
+        "description": "Path to the folder with LHCI results"
+      },
+      {
+        "name": "links",
+        "description": "Links to compare/result UI for each URL (content of links.json)"
+      },
+      {
+        "name": "assertionResults",
+        "description": "Assertion results (content of assertion-results.json)"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "src/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f02a0595b909f2fc2f3bca467570b398a354095950e43cd7d9a987a7a35e6882",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:44.215912Z"
+  }
+}

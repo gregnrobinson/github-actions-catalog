@@ -1,0 +1,39 @@
+{
+  "action_id": "marketplace/wearerequired/action-wordpress-plugin-asset-update",
+  "version_id": "709b1902a85a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wearerequired/action-wordpress-plugin-asset-update/action.yml",
+    "origin": "github.com/wearerequired/action-wordpress-plugin-asset-update",
+    "publisher": "wearerequired",
+    "verified": false
+  },
+  "definition": {
+    "name": "WordPress Plugin Readme/Assets Update",
+    "description": "Deploy readme and asset updates to the WordPress Plugin Repository",
+    "author": "10up",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "id": "deploy",
+          "run": "${{ github.action_path }}/deploy.sh",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "709b1902a85ae23cb5decd85a3385ba7a3aed93204bbb4d1f4fee45afa87e559",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:13.338799Z"
+  }
+}

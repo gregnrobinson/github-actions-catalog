@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/issue-sentinel",
-  "version_id": "1658f057b082",
+  "version_id": "2290d4beb1c1",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/issue-sentinel/action.yml",
@@ -55,7 +55,8 @@
   "annotations": {
     "categories": [
       "Code quality",
-      "Security"
+      "Security",
+      "Communication"
     ],
     "confidence": "high",
     "evidence": [
@@ -63,21 +64,20 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action focuses on identifying similar issues and scanning for security issues, which directly relates to improving code quality and security practices in a project.",
+        "reasoning": "The action focuses on identifying similar issues and scanning for security issues, which directly relates to code quality and security. Additionally, it may facilitate communication about issues within a project.",
         "tags": [
           "issue scanning",
           "code quality",
           "security",
-          "GitHub",
-          "automation"
+          "GitHub"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "1658f057b0828a4bc563e8e3a2b483752edf507258874da2795468711364194f",
+    "source_hash": "2290d4beb1c1bb48c86a8c64d51db46d0b9cc67b5efcab6351ddea7f07933b07",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.000184Z"
+    "generated_at": "2025-12-15T05:21:59.273573Z"
   }
 }

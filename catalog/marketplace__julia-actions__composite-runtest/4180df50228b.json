@@ -1,0 +1,45 @@
+{
+  "action_id": "marketplace/julia-actions/composite-runtest",
+  "version_id": "4180df50228b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/composite-runtest/action.yml",
+    "origin": "github.com/julia-actions/composite-runtest",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Run Julia package tests",
+    "description": "Run the tests in a Julia package",
+    "author": "",
+    "inputs": [
+      {
+        "name": "inline",
+        "required": false,
+        "default": "yes",
+        "description": "Value passed to the --inline flag. Options: yes | no. Default value: yes."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "julia --color=yes --check-bounds=yes --inline=${{ inputs.inline }} --project -e 'using Pkg; Pkg.test(coverage=true)'",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4180df50228be9fee5b96912cf66583687888b0cad20289bdecbced4928cc903",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:21.844089Z"
+  }
+}

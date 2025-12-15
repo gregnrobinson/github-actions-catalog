@@ -1,0 +1,215 @@
+{
+  "action_id": "marketplace/julia-actions/cache",
+  "version_id": "3f4a6d46fe5f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/cache/action.yml",
+    "origin": "github.com/julia-actions/cache",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0 -  New outputs `cache-paths` and `cache-key`",
+      "published_at": "2025-04-01T15:14:53Z",
+      "html_url": "https://github.com/julia-actions/cache/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Cache Julia artifacts, packages and registry",
+    "description": "Cache Julia using actions/cache",
+    "author": "Sascha Mann, Rik Huijzer, and contributors",
+    "inputs": [
+      {
+        "name": "cache-name",
+        "required": false,
+        "default": "julia-cache;workflow=${{ github.workflow }};job=${{ github.job }}",
+        "description": "The cache key prefix. The key body automatically includes the OS and, unless disabled, the matrix vars. Include any other parameters/details in this prefix to ensure one unique cache key per concurrent job type."
+      },
+      {
+        "name": "include-matrix",
+        "required": false,
+        "default": "true",
+        "description": "Whether to include the matrix values when constructing the cache key."
+      },
+      {
+        "name": "depot",
+        "required": false,
+        "default": "",
+        "description": "Path to a Julia depot directory where cached data will be saved to and restored from."
+      },
+      {
+        "name": "cache-artifacts",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `artifacts` directory."
+      },
+      {
+        "name": "cache-packages",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `packages` directory."
+      },
+      {
+        "name": "cache-registries",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `registries` directory."
+      },
+      {
+        "name": "cache-compiled",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `compiled` directory."
+      },
+      {
+        "name": "cache-scratchspaces",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `scratchspaces` directory."
+      },
+      {
+        "name": "cache-logs",
+        "required": false,
+        "default": "true",
+        "description": "Whether to cache the depot's `logs` directory. This helps automatic `Pkg.gc()` keep the cache size down."
+      },
+      {
+        "name": "delete-old-caches",
+        "required": false,
+        "default": "true",
+        "description": "Whether to delete old caches for the given key."
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "A GitHub PAT. Requires `repo` scope to enable the deletion of old caches."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value to indicate an exact match was found for the primary key. Returns \"\" when the key is new. Forwarded from actions/cache."
+      },
+      {
+        "name": "cache-paths",
+        "description": "The paths that were cached"
+      },
+      {
+        "name": "cache-key",
+        "description": "The full cache key used"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install jq",
+          "uses": "dcarbone/install-jq-action@b7ef57d46ece78760b4019dbc4080a1ba2a40b45",
+          "with": {
+            "force": false
+          }
+        },
+        {
+          "id": "paths",
+          "run": "if [ -n \"${{ inputs.depot }}\" ]; then\n    depot=\"${{ inputs.depot }}\"\nelif [ -n \"$JULIA_DEPOT_PATH\" ]; then\n    # Use the first depot path\n    depot=$(echo $JULIA_DEPOT_PATH | cut -d$PATH_DELIMITER -f1)\nelse\n    depot=\"~/.julia\"\nfi\nif [[ \"$OSTYPE\" == \"msys\" || \"$OSTYPE\" == \"cygwin\" ]]; then\n  depot=\"${depot/#\\~/$USERPROFILE}\"  # Windows paths\n  depot=\"${depot//\\\\//}\"             # Replace backslashes with forward slashes\nelse\n  depot=\"${depot/#\\~/$HOME}\"  # Unix-like paths\nfi\necho \"depot=$depot\" | tee -a \"$GITHUB_OUTPUT\"\n\ncache_paths=()\nartifacts_path=\"${depot}/artifacts\"\n[ \"${{ inputs.cache-artifacts }}\" = \"true\" ] && cache_paths+=(\"$artifacts_path\")\npackages_path=\"${depot}/packages\"\n[ \"${{ inputs.cache-packages }}\" = \"true\" ] && cache_paths+=(\"$packages_path\")\nregistries_path=\"${depot}/registries\"\nif [ \"${{ inputs.cache-registries }}\" = \"true\" ]; then\n    if [ ! -d \"${registries_path}\" ]; then\n        cache_paths+=(\"$registries_path\")\n    else\n        echo \"::warning::Julia depot registries already exist. Skipping restoring of cached registries to avoid potential merge conflicts when updating. Please ensure that \\`julia-actions/cache\\` precedes any workflow steps which add registries.\"\n    fi\nfi\ncompiled_path=\"${depot}/compiled\"\n[ \"${{ inputs.cache-compiled }}\" = \"true\" ] && cache_paths+=(\"$compiled_path\")\nscratchspaces_path=\"${depot}/scratchspaces\"\n[ \"${{ inputs.cache-scratchspaces }}\" = \"true\" ] && cache_paths+=(\"$scratchspaces_path\")\nlogs_path=\"${depot}/logs\"\n[ \"${{ inputs.cache-logs }}\" = \"true\" ] && cache_paths+=(\"$logs_path\")\n{\n    echo \"cache-paths<<EOF\"\n    printf \"%s\\n\" \"${cache_paths[@]}\"\n    echo \"EOF\"\n} | tee -a \"$GITHUB_OUTPUT\"\n",
+          "shell": "bash",
+          "env": {
+            "PATH_DELIMITER": "${{ runner.OS == 'Windows' && ';' || ':' }}"
+          }
+        },
+        {
+          "name": "Generate Keys",
+          "id": "keys",
+          "run": "# `matrix_key` joins all of matrix keys/values (including nested objects) to ensure that concurrent runs each use a unique cache key.\n# When `matrix` isn't set for the job then `MATRIX_JSON=null`.\nif [ \"${{ inputs.include-matrix }}\" == \"true\" ] && [ \"$MATRIX_JSON\" != \"null\" ]; then\n  matrix_key=$(echo \"$MATRIX_JSON\" | jq 'paths(type != \"object\") as $p | ($p | join(\"-\")) + \"=\" + (getpath($p) | tostring)' | jq -rs 'join(\";\") | . + \";\"')\nfi\nrestore_key=\"${{ inputs.cache-name }};os=${{ runner.os }};${matrix_key}\"\n# URL encode any restricted characters:\n# https://github.com/actions/toolkit/blob/5430c5d84832076372990c7c27f900878ff66dc9/packages/cache/src/cache.ts#L38-L43\nrestore_key=$(sed 's/,/%2C/g' <<<\"${restore_key}\")\nkey=\"${restore_key}run_id=${{ github.run_id }};run_attempt=${{ github.run_attempt }}\"\necho \"restore-key=${restore_key}\" >> $GITHUB_OUTPUT\necho \"key=${key}\" >> $GITHUB_OUTPUT\n",
+          "shell": "bash",
+          "env": {
+            "MATRIX_JSON": "${{ toJSON(matrix) }}"
+          }
+        },
+        {
+          "uses": "actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830",
+          "id": "cache",
+          "with": {
+            "path": "${{ steps.paths.outputs.cache-paths }}\n",
+            "key": "${{ steps.keys.outputs.key }}",
+            "restore-keys": "${{ steps.keys.outputs.restore-key }}",
+            "enableCrossOsArchive": false
+          }
+        },
+        {
+          "name": "make depot if not restored, then list depot directory sizes",
+          "run": "mkdir -p ${{ steps.paths.outputs.depot }}\ndu -shc ${{ steps.paths.outputs.depot }}/* || true\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Update any cached registries",
+          "if": "${{ inputs.cache-registries == 'true' }}",
+          "continue-on-error": true,
+          "run": "if [ -d \"${{ steps.paths.outputs.depot }}/registries\" ] && [ -n \"$(ls -A \"${{ steps.paths.outputs.depot }}/registries\")\" ]; then\n  echo \"Registries directory exists and is non-empty. Updating any registries\"\n  julia -e \"import Pkg; isdefined(Pkg, :Registry) && Pkg.Registry.update();\"\nelse\n  echo \"Registries directory does not exist or is empty. Skipping registry update\"\nfi\n",
+          "shell": "bash"
+        },
+        {
+          "uses": "pyTooling/Actions/with-post-step@c2282e4d63fb9f7b3e8f4c672b01d9dab7af22c3",
+          "if": "${{ inputs.delete-old-caches != 'false' && github.ref != format('refs/heads/{0}', github.event.repository.default_branch) && runner.OS != 'Windows' }}",
+          "with": {
+            "main": "echo \"\"",
+            "post": "julia $GITHUB_ACTION_PATH/handle_caches.jl rm \"${{ github.repository }}\" \"${{ steps.keys.outputs.restore-key }}\" \"${{ github.ref }}\" \"${{ inputs.delete-old-caches != 'required' }}\""
+          },
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        },
+        {
+          "uses": "pyTooling/Actions/with-post-step@c2282e4d63fb9f7b3e8f4c672b01d9dab7af22c3",
+          "if": "${{ inputs.delete-old-caches != 'false' && github.ref != format('refs/heads/{0}', github.event.repository.default_branch) && runner.OS == 'Windows' }}",
+          "with": {
+            "main": "echo \"\"",
+            "post": "cd %GITHUB_ACTION_PATH% && julia handle_caches.jl rm \"${{ github.repository }}\" \"${{ steps.keys.outputs.restore-key }}\" \"${{ github.ref }}\" \"${{ inputs.delete-old-caches != 'required' }}\""
+          },
+          "env": {
+            "GH_TOKEN": "${{ inputs.token }}"
+          }
+        },
+        {
+          "id": "hit",
+          "run": "echo \"cache-hit=$CACHE_HIT\" >> $GITHUB_OUTPUT",
+          "env": {
+            "CACHE_HIT": "${{ steps.cache.outputs.cache-hit }}"
+          },
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Caching"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is primarily focused on caching Julia artifacts and packages, which is a key aspect of dependency management in software development. It helps speed up workflows by reusing previously cached data.",
+        "tags": [
+          "Julia",
+          "cache",
+          "dependencies",
+          "actions/cache",
+          "workflow"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3f4a6d46fe5f26891ab065f29d86248511425c5fd9d41ee52979be73876bc2a4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:17.055011Z"
+  }
+}

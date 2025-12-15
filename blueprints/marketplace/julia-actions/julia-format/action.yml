@@ -1,0 +1,63 @@
+name: 'Format suggestion with JuliaFormatter.jl'
+description: "Formats your Julia files and suggest changes"
+inputs:
+  version:
+    description: 'Version of JuliaFormatter.jl. Examples: 1, 1.0, 1.0.44'
+    default: '1'
+  suggestion-label:
+    description: 'If set, suggestions will only be shown for PRs with this label applied.'
+    default: ''
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v4
+    - uses: julia-actions/setup-julia@v2
+    - uses: julia-actions/cache@v2
+    - name: Install JuliaFormatter
+      shell: julia --color=yes {0}
+      run: |
+        import Pkg
+
+        # Get the desired JuliaFormatter version number:
+        _version_original = get(ENV, "jf-version", "1")
+
+        # Strip leading and lagging whitespace.
+        # We need to then convert back to String, because Pkg won't accept SubString:
+        version = convert(String, strip(_version_original))::String
+
+        if isempty(version)
+            msg = "The version input cannot be empty"
+            error(msg)
+        end
+
+        # Make sure to specify the UUID of the package:
+        p = Pkg.PackageSpec(
+            name = "JuliaFormatter",
+            uuid = "98e50ef6-434e-11e9-1051-2b60c6c9e899",
+            version = version,
+        )
+
+        # Install the package:
+        Pkg.add(p)
+      env:
+        jf-version: ${{ inputs.version }}
+    - name: Format
+      shell: julia --color=yes {0}
+      run: |
+        import JuliaFormatter
+        JuliaFormatter.format(".")
+    - name: Check for formatting errors
+      shell: bash
+      run: |
+        output=$(git diff --name-only)
+        if [ "$output" != "" ]; then
+            >&2 echo "Some files have not been formatted !!!"
+            echo "$output"
+            exit 1
+        fi
+    - name: Suggest
+      uses: reviewdog/action-suggester@v1
+      if: ${{ failure() && (inputs.suggestion-label == '' || contains( github.event.pull_request.labels.*.name, inputs.suggestion-label )) }}
+      with:
+        tool_name: JuliaFormatter
+        fail_level: error

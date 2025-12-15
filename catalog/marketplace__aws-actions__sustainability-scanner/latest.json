@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/sustainability-scanner",
-  "version_id": "0c9680e66230",
+  "version_id": "c857bc30fa2d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/sustainability-scanner/action.yml",
@@ -75,7 +75,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The AWS Sustainability Scanner is primarily focused on analyzing infrastructure as code for sustainability, which falls under code quality. It also involves testing the infrastructure configurations and can be considered part of the infrastructure category.",
+        "reasoning": "The AWS Sustainability Scanner is focused on analyzing infrastructure as code for sustainability, which aligns closely with code quality and testing practices. It also relates to infrastructure as it scans CloudFormation templates.",
         "tags": [
           "AWS",
           "sustainability",
@@ -87,9 +87,9 @@
     ]
   },
   "cache": {
-    "source_hash": "0c9680e662302bcd29af963faeb7c81d9a7b9766c4057383bb8aa148f33f3739",
+    "source_hash": "c857bc30fa2d69f5564b16aacef194bcc8c24677471b8ff71e68363f9a108d63",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.446368Z"
+    "generated_at": "2025-12-15T05:22:38.278717Z"
   }
 }

@@ -1,0 +1,149 @@
+{
+  "action_id": "marketplace/ravsamhq/notify-slack-action",
+  "version_id": "0939b469b3c5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/ravsamhq/notify-slack-action/action.yml",
+    "origin": "github.com/ravsamhq/notify-slack-action",
+    "publisher": "ravsamhq",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.5.0",
+      "name": "2.5.0",
+      "published_at": "2024-02-20T14:41:06Z",
+      "html_url": "https://github.com/ravsamhq/notify-slack-action/releases/tag/2.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Notify Slack Action",
+    "description": "Send Github Actions workflow status notifications to Slack",
+    "author": "RavSam Web Solutions",
+    "inputs": [
+      {
+        "name": "status",
+        "required": true,
+        "default": null,
+        "description": "Job Status"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "",
+        "description": "Github Token for accessing workflow url"
+      },
+      {
+        "name": "notification_title",
+        "required": false,
+        "default": "New Github Action Run",
+        "description": "Specify on the notification message title"
+      },
+      {
+        "name": "message_format",
+        "required": false,
+        "default": "{emoji} *{workflow}* {status_message} in <{repo_url}|{repo}@{branch}> on <{commit_url}|{commit_sha}>",
+        "description": "Specify on the notification message format"
+      },
+      {
+        "name": "footer",
+        "required": false,
+        "default": "<{run_url}|View Run> | Developed by <https://www.ravsam.in|RavSam>",
+        "description": "Specify the footer of the message"
+      },
+      {
+        "name": "notify_when",
+        "required": false,
+        "default": "success,failure,cancelled,warnings,skipped",
+        "description": "Specify on which events a slack notification is sent"
+      },
+      {
+        "name": "mention_users",
+        "required": false,
+        "default": "",
+        "description": "Specify the slack IDs of users you want to mention"
+      },
+      {
+        "name": "mention_users_when",
+        "required": false,
+        "default": "success,failure,cancelled,warnings,skipped",
+        "description": "Specify on which events you want to mention the users"
+      },
+      {
+        "name": "mention_groups",
+        "required": false,
+        "default": "",
+        "description": "Specify the slack IDs of groups you want to mention"
+      },
+      {
+        "name": "mention_groups_when",
+        "required": false,
+        "default": "success,failure,cancelled,warnings,skipped",
+        "description": "Specify on which events you want to mention the groups"
+      },
+      {
+        "name": "icon_success",
+        "required": false,
+        "default": ":heavy_check_mark:",
+        "description": "Specify on icon to be used when event is success"
+      },
+      {
+        "name": "icon_failure",
+        "required": false,
+        "default": ":x:",
+        "description": "Specify on icon to be used when event is failure"
+      },
+      {
+        "name": "icon_cancelled",
+        "required": false,
+        "default": ":x:",
+        "description": "Specify on icon to be used when event is cancelled"
+      },
+      {
+        "name": "icon_warnings",
+        "required": false,
+        "default": ":large_orange_diamond:",
+        "description": "Specify on icon to be used when event is warnings"
+      },
+      {
+        "name": "icon_skipped",
+        "required": false,
+        "default": ":fast_forward:",
+        "description": "Specify on icon to be used when event is skipped"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to send notifications about GitHub Actions workflow status to Slack, which clearly falls under communication and notification categories.",
+        "tags": [
+          "Slack",
+          "Notification",
+          "GitHub Actions",
+          "Communication",
+          "Workflow Status"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "0939b469b3c588a8c3875140afe794bec5a4b646fafcf93d6b951422871a216f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:16.672570Z"
+  }
+}

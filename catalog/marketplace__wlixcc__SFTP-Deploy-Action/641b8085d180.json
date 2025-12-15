@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/wlixcc/SFTP-Deploy-Action/action.yml",
     "origin": "github.com/wlixcc/SFTP-Deploy-Action",
     "publisher": "wlixcc",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.6",
+      "name": "v1.2.6 \u2013 Support for Encrypted Private Keys",
+      "published_at": "2025-04-16T02:42:22Z",
+      "html_url": "https://github.com/wlixcc/SFTP-Deploy-Action/releases/tag/v1.2.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "SFTP Deploy",
@@ -115,6 +123,6 @@
     "source_hash": "641b8085d18035d63fd8ae12f211039a3c29cc2185a0029956b7f3e9ff4541f8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.732313Z"
+    "generated_at": "2025-12-15T05:23:15.892451Z"
   }
 }

@@ -112,32 +112,14 @@
     }
   },
   "annotations": {
-    "categories": [
-      "Dependency management",
-      "Build",
-      "Infrastructure"
-    ],
-    "confidence": "high",
-    "evidence": [
-      {
-        "type": "llm_categorization",
-        "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "This action sets up a Node.js environment, which is primarily about managing dependencies related to Node.js versions. It also plays a role in building applications that rely on Node.js.",
-        "tags": [
-          "Node.js",
-          "setup",
-          "environment",
-          "dependencies",
-          "build"
-        ]
-      }
-    ]
+    "categories": [],
+    "confidence": null,
+    "evidence": []
   },
   "cache": {
     "source_hash": "9b4b752c7df1071ddb7d1ba132503d86239da9e86e9f505809112a3af9079659",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.662771Z"
+    "generated_at": "2025-12-15T05:22:43.557211Z"
   }
 }

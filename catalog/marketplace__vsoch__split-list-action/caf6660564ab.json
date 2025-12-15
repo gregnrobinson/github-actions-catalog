@@ -1,0 +1,71 @@
+{
+  "action_id": "marketplace/vsoch/split-list-action",
+  "version_id": "caf6660564ab",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/split-list-action/action.yml",
+    "origin": "github.com/vsoch/split-list-action",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "split-list-action",
+    "description": "Generate a hashed list of identifiers to evenly split up.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "ids_file",
+        "required": true,
+        "default": null,
+        "description": "Text file with identifiers to split, one per line."
+      },
+      {
+        "name": "outfile",
+        "required": false,
+        "default": null,
+        "description": "output file to write to (otherwise prints to screen)"
+      },
+      {
+        "name": "random_split",
+        "required": false,
+        "default": null,
+        "description": "change default for random split N, if using"
+      },
+      {
+        "name": "calendar_split",
+        "required": true,
+        "default": false,
+        "description": "split identifiers by letter matched to month (and return current day)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Split",
+          "env": {
+            "ids_file": "${{ inputs.ids_file }}",
+            "outfile": "${{ inputs.outfile }}",
+            "calendar_split": "${{ inputs.calendar_split }}",
+            "random_split": "${{ inputs.random_split }}",
+            "action_path": "${{ github.action_path }}"
+          },
+          "run": "cmd=\"python ${action_path}/generate.py\"\nif [[ \"${outfile}\" != \"\" ]]; then\n    cmd=\"${cmd} --outfile ${outfile}\"\nfi\nif [[ \"${keep_identifiers}\" == \"true\" ]]; then\n    cmd=\"$cmd --keep-identifiers\"\nfi\nif [[ \"${calendar_split}\" == \"true\" ]]; then\n    cmd=\"$cmd --calendar-split\"\nfi\nif [[ \"${calendar_split}\" == \"true\" ]] && [[ \"${random_split}\" != \"\" ]]; then\n    printf \"You can only do one of `random_split` or `calendar_split`\\n\"\n    exit 1;\nfi\nif [[ \"${random_split}\" != \"\" ]]; then\n    cmd=\"$cmd --random-split ${random_split}\"\nfi\ncmd=\"${cmd} ${ids_file}\"\nprintf \"${cmd}\\n\"\n$cmd\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "caf6660564ab6256e65ade24dc2252555c42675168a19da677280951d6ef2745",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:35.314257Z"
+  }
+}

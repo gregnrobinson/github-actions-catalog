@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/Burnett01/rsync-deployments/action.yml",
     "origin": "github.com/Burnett01/rsync-deployments",
     "publisher": "Burnett01",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v8",
+      "name": "v8",
+      "published_at": "2025-12-06T21:51:52Z",
+      "html_url": "https://github.com/Burnett01/rsync-deployments/releases/tag/v8",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Rsync Deployments Action",
@@ -101,6 +109,6 @@
     "source_hash": "0104aace71701b95286c8b8e8985f73f4e3db9b00b9c24660899a64f3cd6ea0d",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.740660Z"
+    "generated_at": "2025-12-15T05:23:16.394530Z"
   }
 }

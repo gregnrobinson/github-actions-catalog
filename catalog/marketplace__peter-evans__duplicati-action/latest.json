@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/duplicati-action",
-  "version_id": "28112e605209",
+  "version_id": "d92a3be58359",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/duplicati-action/action.yml",
@@ -39,21 +39,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Backup",
-        "reasoning": "The action is designed for securely storing encrypted backups, which primarily falls under backup but also relates to security and deployment aspects.",
+        "reasoning": "The Duplicati Action is focused on securely storing backups, which primarily falls under Backup, while also relating to Security due to encryption and Deployment as it involves cloud storage.",
         "tags": [
           "backup",
-          "security",
           "cloud",
+          "security",
           "duplicati",
-          "encryption"
+          "github-action"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "28112e6052090839c8f17b796475916811af2c341d322a4f336633357b3d5ebb",
+    "source_hash": "d92a3be583595cb7671d88b93c0e56edd9364731a4d0f4c1bc7736f9aefe10ef",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.029590Z"
+    "generated_at": "2025-12-15T05:23:33.216556Z"
   }
 }

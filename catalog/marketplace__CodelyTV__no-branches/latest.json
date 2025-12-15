@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/CodelyTV/no-branches",
-  "version_id": "7807a581619e",
+  "version_id": "e0c2faf288ca",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/CodelyTV/no-branches/action.yml",
@@ -48,19 +48,19 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "This action focuses on maintaining the repository by automatically removing branches, which relates to code quality and managing dependencies in the context of branch management.",
+        "reasoning": "The action's purpose is to automatically remove branches, which relates to maintaining code quality by managing branches effectively. It also involves dependency management as it may impact the state of the repository.",
         "tags": [
           "branch management",
-          "repository maintenance",
+          "code quality",
           "GitHub Actions"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "7807a581619ed6b9fed6b8de07d77d88a9310dc02551401d68a93801979cbb0b",
+    "source_hash": "e0c2faf288caa83631329fea40897bea4871da5f259d5a2403655f19fa96e9a0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.744087Z"
+    "generated_at": "2025-12-15T05:22:44.984676Z"
   }
 }

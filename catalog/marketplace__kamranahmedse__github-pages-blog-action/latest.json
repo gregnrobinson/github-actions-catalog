@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/kamranahmedse/github-pages-blog-action",
-  "version_id": "5a02b0392353",
+  "version_id": "62f682110270",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/kamranahmedse/github-pages-blog-action/action.yml",
@@ -57,21 +57,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action primarily focuses on deploying a blog created from markdown files to GitHub Pages, which falls under the Deployment category. It also relates to Documentation and Publishing as it involves creating and publishing content.",
+        "reasoning": "The action is primarily focused on deploying a blog created from markdown files to GitHub Pages, which falls under Deployment. Additionally, it involves creating and managing documentation through the blog, hence the inclusion of Documentation and Publishing categories.",
         "tags": [
           "GitHub Pages",
           "Markdown",
           "Blog",
           "Deployment",
-          "Publishing"
+          "Documentation"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "5a02b0392353290f9445a889e64c92d1632cfce65bd6e24ae5a247569c0bea6b",
+    "source_hash": "62f682110270c92ca0709a1bc0b4b09e97bc11d0afa2bd2139ebeab780889dc4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.118244Z"
+    "generated_at": "2025-12-15T05:23:37.575472Z"
   }
 }

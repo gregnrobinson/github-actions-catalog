@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/rhysd/codecov-action",
+  "version_id": "ef90a55f6a28",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/codecov-action/action.yml",
+    "origin": "github.com/rhysd/codecov-action",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Codecov",
+    "description": "GitHub Action that uploads coverage reports for your repository to codecov.io",
+    "author": "Ibrahim Ali <@ibrahim0814> | Codecov",
+    "inputs": [
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "User defined upload name. Visible in Codecov UI"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Repository upload token - get it from codecov.io. Required only for private repositories"
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to coverage file to upload"
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": null,
+        "description": "Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)"
+      },
+      {
+        "name": "fail_ci_if_error",
+        "required": false,
+        "default": null,
+        "description": "Specify whether or not CI build should fail if Codecov runs into an error during upload"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality",
+      "Publishing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action uploads coverage reports, which is a key aspect of testing and code quality assessment. It also involves publishing the reports to an external service.",
+        "tags": [
+          "codecov",
+          "coverage",
+          "testing",
+          "CI/CD",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ef90a55f6a28b4b2964b1400de0c106b2d5ddf8aa0f283f63f0480ab19599579",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:41.549761Z"
+  }
+}

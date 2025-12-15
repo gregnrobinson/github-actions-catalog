@@ -1,0 +1,104 @@
+{
+  "action_id": "marketplace/dineshsonachalam/markdown-autodocs",
+  "version_id": "02cb9e94d525",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dineshsonachalam/markdown-autodocs/action.yml",
+    "origin": "github.com/dineshsonachalam/markdown-autodocs",
+    "publisher": "dineshsonachalam",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.7",
+      "name": "v1.0.7",
+      "published_at": "2022-08-29T18:28:02Z",
+      "html_url": "https://github.com/dineshsonachalam/markdown-autodocs/releases/tag/v1.0.7",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Markdown autodocs",
+    "description": "A github action that automatically format markdown files, sync external docs/src code & make better docs.",
+    "author": "Dinesh Sonachalam <dineshsonachalam@gmail.com>",
+    "inputs": [
+      {
+        "name": "commit_author",
+        "required": false,
+        "default": "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>",
+        "description": "Value used for the commit author. Defaults to the username of whoever triggered this workflow run."
+      },
+      {
+        "name": "commit_user_email",
+        "required": false,
+        "default": "actions@github.com",
+        "description": "Email address used for the commit user"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Apply automatic changes",
+        "description": "Commit message"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "${{ github.head_ref }}",
+        "description": "Git branch name, where changes should be pushed too."
+      },
+      {
+        "name": "output_file_paths",
+        "required": false,
+        "default": "[./README.md]",
+        "description": "Output markdown file paths."
+      },
+      {
+        "name": "categories",
+        "required": false,
+        "default": "[code-block,json-to-html-table,workflow-artifact-table,markdown]",
+        "description": "Categories to automatically sync or transform its contents in the markdown files."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "wget https://raw.githubusercontent.com/dineshsonachalam/markdown-autodocs/master/action.py",
+          "shell": "bash"
+        },
+        {
+          "run": "python3 action.py -repo '${{ github.repository }}' -access_token '${{ github.token }}' -commit_author '${{ inputs.commit_author  }}' -commit_user_email '${{ inputs.commit_user_email  }}' -commit_message '${{ inputs.commit_message  }}' -branch '${{ inputs.branch }}' -output_file_paths '${{ inputs.output_file_paths }}' -categories '${{ inputs.categories }}'",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action focuses on automatically formatting markdown files and improving documentation, which places it primarily in the Documentation category. It also contributes to Code quality by ensuring that documentation adheres to certain standards.",
+        "tags": [
+          "markdown",
+          "documentation",
+          "automation",
+          "github action",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "02cb9e94d5254bef7d3b56c84225d192cb4c892ea21663ffb1ff590fd753b9fd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:29.246982Z"
+  }
+}

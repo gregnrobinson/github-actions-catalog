@@ -1,6 +1,6 @@
 {
   "action_id": "internal/contoso/deploy-kubernetes",
-  "version_id": "a9ea42fbe5a3",
+  "version_id": "242c8f6bcf4a",
   "source": {
     "type": "internal",
     "action_yml_path": "blueprints/internal/contoso/deploy-kubernetes/action.yml",
@@ -106,7 +106,7 @@
           "name": "Rollback on failure",
           "if": "failure() && inputs.rollback-on-failure == 'true'",
           "shell": "bash",
-          "run": "echo \"\u274c Deployment failed! Rolling back...\"\nkubectl rollout undo deployment/myapp -n ${{ inputs.namespace }}\nkubectl rollout status deployment/myapp -n ${{ inputs.namespace }}\necho \"\ud83d\udd04 Rollback completed\"\nexit 1"
+          "run": "echo \"\u274c Deployment failed! Rolling back...\"\nkubectl rollout undo deployment/myapp -n ${{ inputs.namespace }}\nkubectl rollout status deployment/myapp -n ${{ inputs.namespace }}\necho \"\ud83d\udd04 Rollback completed\"\nexit 1\n"
         }
       ]
     }
@@ -128,16 +128,16 @@
           "Kubernetes",
           "Deployment",
           "Containerization",
-          "Rollback",
-          "Health Checks"
+          "Health Checks",
+          "Rollback"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "a9ea42fbe5a3dafc915fdb3f70f8d0da0a8d4728a4246b0f5f2a960e7ebeea25",
+    "source_hash": "242c8f6bcf4ae9747501f8a77f88ffe31c20e4d60e3e0fa4deeed1c06e7ae382",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T04:14:30.064260Z"
+    "generated_at": "2025-12-15T05:21:23.972016Z"
   }
 }

@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/andstor/backstopjs-action",
+  "version_id": "6d57a93c8b7a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/backstopjs-action/action.yml",
+    "origin": "github.com/andstor/backstopjs-action",
+    "publisher": "andstor",
+    "verified": false
+  },
+  "definition": {
+    "name": "BackstopJS Action",
+    "description": "GitHub Action for running BackstopJS",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "command",
+        "required": false,
+        "default": "test",
+        "description": "The BackstopJS command to run."
+      },
+      {
+        "name": "config_file",
+        "required": false,
+        "default": "backstop.json",
+        "description": "The path to a BackstopJS json configuration file."
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "default": null,
+        "description": "The path to the image file to be compared against the base image."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "backstopjs-dir",
+        "description": "The BackstopJS dir."
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "src/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6d57a93c8b7a37cbd07c77e9a9a42922efbeca826a00ed867db772a75a2c4173",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:31.698627Z"
+  }
+}

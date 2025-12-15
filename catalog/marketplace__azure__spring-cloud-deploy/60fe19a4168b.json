@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/spring-cloud-deploy/action.yml",
     "origin": "github.com/azure/spring-cloud-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "GitHub Action for deploying to Azure Spring Cloud",
+      "published_at": "2021-11-10T07:13:34Z",
+      "html_url": "https://github.com/Azure/spring-cloud-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Spring Cloud",
@@ -107,6 +115,6 @@
     "source_hash": "60fe19a4168b27e9f6510d58a5ec5cb470582bd0de92ae0a194dbadcb865736b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.508356Z"
+    "generated_at": "2025-12-15T05:21:44.981422Z"
   }
 }

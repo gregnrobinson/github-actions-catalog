@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/axel-op/package-java-aws-lambda",
+  "version_id": "34450e250a00",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/package-java-aws-lambda/action.yml",
+    "origin": "github.com/axel-op/package-java-aws-lambda",
+    "publisher": "axel-op",
+    "verified": false
+  },
+  "definition": {
+    "name": "Package an AWS Lambda in Java",
+    "description": "Package an AWS Lambda in Java",
+    "author": "",
+    "inputs": [
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": ".",
+        "description": "The root directory of the function"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-directory",
+        "description": "The directory containing the files to be deployed"
+      },
+      {
+        "name": "deployment-file",
+        "description": "The jar file to be deployed"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Package",
+          "id": "package",
+          "working-directory": "${{ inputs.working-directory }}",
+          "run": "${GITHUB_ACTION_PATH}/package.sh",
+          "shell": "bash",
+          "env": {
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "34450e250a0047dabe8a9f89a5f5694853c292ac5d16d20ffe48fc94eddbe670",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:27.724764Z"
+  }
+}

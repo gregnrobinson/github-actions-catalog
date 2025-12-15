@@ -1,0 +1,156 @@
+{
+  "action_id": "marketplace/andstor/copycat-action",
+  "version_id": "327816a307ab",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/copycat-action/action.yml",
+    "origin": "github.com/andstor/copycat-action",
+    "publisher": "andstor",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.2.4",
+      "name": "v3.2.4",
+      "published_at": "2021-05-05T15:59:04Z",
+      "html_url": "https://github.com/andstor/copycat-action/releases/tag/v3.2.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Copycat Action",
+    "description": "GitHub Action for copying files to other repositories",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "personal_token",
+        "required": true,
+        "default": null,
+        "description": "Personal access token"
+      },
+      {
+        "name": "src_path",
+        "required": true,
+        "default": null,
+        "description": "The source path to the file(s) or folder(s) to copy from"
+      },
+      {
+        "name": "dst_path",
+        "required": false,
+        "default": null,
+        "description": "The destination path to copy the file(s) or folder(s) to"
+      },
+      {
+        "name": "dst_owner",
+        "required": true,
+        "default": null,
+        "description": "The name of the owner of the repository to push to"
+      },
+      {
+        "name": "dst_repo_name",
+        "required": true,
+        "default": null,
+        "description": "The name of the repository to push to"
+      },
+      {
+        "name": "src_branch",
+        "required": false,
+        "default": "master",
+        "description": "The branch name of the source repository"
+      },
+      {
+        "name": "dst_branch",
+        "required": false,
+        "default": "master",
+        "description": "The branch name of the destination repository"
+      },
+      {
+        "name": "clean",
+        "required": false,
+        "default": false,
+        "description": "Set to true if the dst_path should be emptied before copying"
+      },
+      {
+        "name": "file_filter",
+        "required": false,
+        "default": null,
+        "description": "A glob pattern for filtering file names"
+      },
+      {
+        "name": "filter",
+        "required": false,
+        "default": null,
+        "description": "A glob pattern for filtering file paths to be included for copying"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "A glob pattern for excluding paths"
+      },
+      {
+        "name": "src_wiki",
+        "required": false,
+        "default": false,
+        "description": "Set to true if the source repository you want to copy from is the GitHub Wiki"
+      },
+      {
+        "name": "dst_wiki",
+        "required": false,
+        "default": false,
+        "description": "Set to true if the destination repository you want to copy from is the GitHub Wiki"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": null,
+        "description": "A custom git commit message."
+      },
+      {
+        "name": "username",
+        "required": false,
+        "default": null,
+        "description": "The GitHub username to associate commits made by this GitHub action"
+      },
+      {
+        "name": "email",
+        "required": false,
+        "default": null,
+        "description": "The email used for associating commits made by this GitHub action"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.personal_token }}",
+        "${{ inputs.src_path }}",
+        "${{ inputs.dst_path }}",
+        "${{ inputs.dst_owner }}",
+        "${{ inputs.dst_repo_name }}",
+        "${{ inputs.src_branch }}",
+        "${{ inputs.dst_branch }}",
+        "${{ inputs.clean }}",
+        "${{ inputs.file_filter }}",
+        "${{ inputs.filter }}",
+        "${{ inputs.exclude }}",
+        "${{ inputs.src_wiki }}",
+        "${{ inputs.dst_wiki }}",
+        "${{ inputs.commit_message }}",
+        "${{ inputs.username }}",
+        "${{ inputs.email }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "327816a307abe342b7f651497363c7567e3cd8db38f127dc1aca21ccc9abc832",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:30.174753Z"
+  }
+}

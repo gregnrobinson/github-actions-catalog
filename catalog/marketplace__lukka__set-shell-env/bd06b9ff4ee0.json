@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/lukka/set-shell-env/action.yml",
     "origin": "github.com/lukka/set-shell-env",
     "publisher": "lukka",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1",
+      "name": "Security fixes service release",
+      "published_at": "2020-11-17T08:35:54Z",
+      "html_url": "https://github.com/lukka/set-shell-env/releases/tag/v1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "set-shell-env",
@@ -47,6 +55,6 @@
     "source_hash": "bd06b9ff4ee08eb4a7a27b7a00a99963b206d4097e651f6dae5f581d636dfaf9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.244941Z"
+    "generated_at": "2025-12-15T05:22:05.721344Z"
   }
 }

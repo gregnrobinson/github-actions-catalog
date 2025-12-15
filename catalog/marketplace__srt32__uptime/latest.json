@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/srt32/uptime",
+  "version_id": "75a21d9d2755",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/srt32/uptime/action.yml",
+    "origin": "github.com/srt32/uptime",
+    "publisher": "srt32",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.2.1",
+      "name": "",
+      "published_at": "2020-06-30T20:16:34Z",
+      "html_url": "https://github.com/srt32/uptime/releases/tag/v0.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Uptime Action",
+    "description": "Ping an URL and check HTTP status code",
+    "author": "",
+    "inputs": [
+      {
+        "name": "url-to-hit",
+        "required": true,
+        "default": null,
+        "description": "which url to hit"
+      },
+      {
+        "name": "expected-statuses",
+        "required": false,
+        "default": "200",
+        "description": "which http response statuses are expected"
+      },
+      {
+        "name": "user-agent-to-use",
+        "required": false,
+        "default": "",
+        "description": "User agent to use while sending the request"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "status",
+        "description": "The http status we got"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "The Uptime Action is designed to monitor the availability of a URL by checking its HTTP status code, which falls under monitoring. Additionally, it tests the response against expected statuses, categorizing it under testing as well.",
+        "tags": [
+          "uptime",
+          "monitoring",
+          "http status",
+          "testing",
+          "url check"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "75a21d9d275569b56a873614f0052a4e11749177f1c9ddf5e3fd91050d371b44",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:42.185391Z"
+  }
+}

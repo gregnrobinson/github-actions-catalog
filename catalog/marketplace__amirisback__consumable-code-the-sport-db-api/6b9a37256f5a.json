@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-the-sport-db-api/action.yml",
     "origin": "github.com/amirisback/consumable-code-the-sport-db-api",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.1.1",
+      "name": "Release v1.1.1",
+      "published_at": "2021-06-25T23:41:08Z",
+      "html_url": "https://github.com/caravancodes/consumable-code-the-sport-db-api/releases/tag/1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Consumable Code The Sport DB API",
@@ -38,6 +46,6 @@
     "source_hash": "6b9a37256f5a4999c8bfbd8574df382f69bb691df36455fb42786cd731bcf6de",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.597685Z"
+    "generated_at": "2025-12-15T05:22:54.330589Z"
   }
 }

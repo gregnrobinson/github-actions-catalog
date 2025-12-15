@@ -1,0 +1,135 @@
+{
+  "action_id": "marketplace/vsoch/tributors",
+  "version_id": "5bd3b6833972",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/tributors/action.yml",
+    "origin": "github.com/vsoch/tributors",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "tributors-action",
+    "description": "Update your contributor metadata files with repository members",
+    "author": "Vanessa Sochat",
+    "inputs": [
+      {
+        "name": "parsers",
+        "required": false,
+        "default": "unset",
+        "description": "space separated list of parsers to use. Defaults to unset (auto-detect)"
+      },
+      {
+        "name": "update_lookup",
+        "required": false,
+        "default": null,
+        "description": "before running update, update the .tributors metadata file from these resources"
+      },
+      {
+        "name": "skip_users",
+        "required": false,
+        "default": "unset",
+        "description": "one or more GitHub logins (space separated) to skip."
+      },
+      {
+        "name": "zenodo_file",
+        "required": false,
+        "default": ".zenodo.json",
+        "description": ".zenodo.json to update. If does not exist, must define doi variable"
+      },
+      {
+        "name": "zenodo_doi",
+        "required": false,
+        "default": null,
+        "description": "Zenodo DOI needed for init. Leave unset to skip init."
+      },
+      {
+        "name": "log_level",
+        "required": false,
+        "default": "INFO",
+        "description": "Log level to use (default INFO)"
+      },
+      {
+        "name": "threshold",
+        "required": false,
+        "default": 1,
+        "description": "the minimum number of contributions required to add a user"
+      },
+      {
+        "name": "force",
+        "required": false,
+        "default": false,
+        "description": "if any files exist, overwrite."
+      },
+      {
+        "name": "codemeta_file",
+        "required": false,
+        "default": "codemeta.json",
+        "description": "codemeta filename (skipped if not defined)"
+      },
+      {
+        "name": "mailmap_file",
+        "required": false,
+        "default": ".mailmap",
+        "description": "A mailmap file for update-lookup (defaults to .mailmap)"
+      },
+      {
+        "name": "allcontrib_file",
+        "required": false,
+        "default": ".all-contributorsrc",
+        "description": "All contributors filename (defaults to .all-contributorsrc)"
+      },
+      {
+        "name": "allcontrib_type",
+        "required": false,
+        "default": "code",
+        "description": "All Contributors contribution type, which defaults to code if not set."
+      },
+      {
+        "name": "allcontrib_skip_generate",
+        "required": false,
+        "default": false,
+        "description": "skip running all-contributors generate"
+      },
+      {
+        "name": "run_twice",
+        "required": false,
+        "default": true,
+        "description": "run twice to avoid opening two pull requests (defaults to true)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on updating contributor metadata files, which relates to documentation and maintaining code quality by ensuring accurate contributor information.",
+        "tags": [
+          "contributors",
+          "metadata",
+          "documentation",
+          "GitHub",
+          "repository"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5bd3b6833972492303a6e61cf7efab3ca0d1d3d0d74ff515a9b33f19e8a4db81",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:35.898392Z"
+  }
+}

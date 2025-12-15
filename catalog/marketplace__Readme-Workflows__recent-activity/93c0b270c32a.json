@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/Readme-Workflows/recent-activity",
+  "version_id": "93c0b270c32a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Readme-Workflows/recent-activity/action.yml",
+    "origin": "github.com/Readme-Workflows/recent-activity",
+    "publisher": "Readme-Workflows",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.4.1",
+      "name": "v2.4.1",
+      "published_at": "2023-01-13T14:38:33Z",
+      "html_url": "https://github.com/Readme-Workflows/recent-activity/releases/tag/v2.4.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Recent GitHub Activity - Profile Readme",
+    "description": "Add your recent activity to your profile readme!",
+    "author": "jamesgeorge007, abhijoshi2k, PuneetGopinath, Andre601",
+    "inputs": [
+      {
+        "name": "GH_USERNAME",
+        "required": false,
+        "default": "${{ github.repository_owner }}",
+        "description": "Your GitHub username"
+      },
+      {
+        "name": "CONFIG_FILE",
+        "required": false,
+        "default": "./.github/recent-activity.config.yml",
+        "description": "Path to configuration file"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "93c0b270c32a50f4b754737d6d96e24c490693811f6410eabdc3d7fe41e5dcc5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:12.822599Z"
+  }
+}

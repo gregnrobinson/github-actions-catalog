@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/actions-hub/gcloud",
+  "version_id": "f85f701019b3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions-hub/gcloud/action.yml",
+    "origin": "github.com/actions-hub/gcloud",
+    "publisher": "actions-hub",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "549.0.1",
+      "name": "549.0.1",
+      "published_at": "2025-12-12T01:57:44Z",
+      "html_url": "https://github.com/actions-hub/gcloud/releases/tag/549.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Google Cloud Platform (GCP) CLI - gcloud",
+    "description": "GitHub Action with all the components of the Google Cloud SDK",
+    "author": "Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": null,
+        "description": "Arguments for the CLI command"
+      },
+      {
+        "name": "cli",
+        "required": false,
+        "default": "gcloud",
+        "description": "cli command to run (gcloud, gsutil and kubectl available)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure",
+      "Deployment",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action provides access to the Google Cloud SDK, which is primarily used for managing cloud infrastructure and deploying applications. It also facilitates dependency management by allowing users to interact with various GCP services.",
+        "tags": [
+          "GCP",
+          "Google Cloud",
+          "CLI",
+          "Infrastructure",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f85f701019b3282c289441471e666762296d54697a18992ed2ca8cd9ef942946",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:03.468252Z"
+  }
+}

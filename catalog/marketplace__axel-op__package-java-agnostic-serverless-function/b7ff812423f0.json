@@ -1,0 +1,107 @@
+{
+  "action_id": "marketplace/axel-op/package-java-agnostic-serverless-function",
+  "version_id": "b7ff812423f0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/package-java-agnostic-serverless-function/action.yml",
+    "origin": "github.com/axel-op/package-java-agnostic-serverless-function",
+    "publisher": "axel-op",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.0.1",
+      "name": "v0.0.1",
+      "published_at": "2022-09-18T18:16:36Z",
+      "html_url": "https://github.com/axel-op/package-java-agnostic-serverless-function/releases/tag/v0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Package Java Agnostic Serverless Functions",
+    "description": "Package an Agnostic Serverless Function in Java to deploy it on a specific FaaS provider",
+    "author": "",
+    "inputs": [
+      {
+        "name": "faas-provider",
+        "required": true,
+        "default": null,
+        "description": "The provider to package the function for. Possible values are: aws, azure, gcloud."
+      },
+      {
+        "name": "function-name",
+        "required": true,
+        "default": null,
+        "description": "The name of the function to be packaged"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": ".",
+        "description": "The root directory of the function"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-directory",
+        "description": "The directory containing the files to be deployed"
+      },
+      {
+        "name": "deployment-file",
+        "description": "The zip (for gcloud and azure) or jar (for aws) file to be deployed"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Package AWS Lambda",
+          "if": "${{ inputs.faas-provider == 'aws' }}",
+          "id": "package-aws",
+          "uses": "axel-op/package-java-aws-lambda@main",
+          "with": {
+            "working-directory": "${{ inputs.working-directory }}"
+          },
+          "env": {
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        },
+        {
+          "name": "Package Google Cloud Function",
+          "if": "${{ inputs.faas-provider == 'gcloud' }}",
+          "id": "package-gcloud",
+          "uses": "axel-op/package-java-google-cloud-function@main",
+          "with": {
+            "working-directory": "${{ inputs.working-directory }}"
+          },
+          "env": {
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        },
+        {
+          "name": "Package Azure Function app",
+          "if": "${{ inputs.faas-provider == 'azure' }}",
+          "id": "package-azure",
+          "uses": "axel-op/package-java-azure-function@main",
+          "with": {
+            "working-directory": "${{ inputs.working-directory }}",
+            "function-name": "${{ inputs.function-name }}"
+          },
+          "env": {
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "b7ff812423f05dc0d63618e0b56fb32020eb1a2c14195f926c309d797a406197",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:26.776103Z"
+  }
+}

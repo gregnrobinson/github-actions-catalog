@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/axel-op/package-java-google-cloud-function",
+  "version_id": "5055922f0213",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/package-java-google-cloud-function/action.yml",
+    "origin": "github.com/axel-op/package-java-google-cloud-function",
+    "publisher": "axel-op",
+    "verified": false
+  },
+  "definition": {
+    "name": "Package a Google Cloud Function in Java",
+    "description": "Package a Google Cloud Function in Java",
+    "author": "",
+    "inputs": [
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": ".",
+        "description": "The root directory of the function"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-directory",
+        "description": "The directory containing the files to be deployed"
+      },
+      {
+        "name": "deployment-file",
+        "description": "The zip file to be deployed"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Package",
+          "id": "package",
+          "working-directory": "${{ inputs.working-directory }}",
+          "run": "${GITHUB_ACTION_PATH}/package.sh",
+          "shell": "bash",
+          "env": {
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "This action is focused on packaging a Google Cloud Function, which falls under the Packaging category, and it also involves preparing files for deployment, thus it is related to Deployment as well.",
+        "tags": [
+          "Google Cloud",
+          "Java",
+          "Packaging",
+          "Deployment",
+          "Cloud Functions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5055922f02133a2fdea083d8a99a6842d6bac550fb0db47015715d9fc3ee8b9b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:28.609928Z"
+  }
+}

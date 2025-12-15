@@ -1,0 +1,81 @@
+{
+  "action_id": "marketplace/rhysd/paths-filter",
+  "version_id": "59ccd8f78f49",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/paths-filter/action.yml",
+    "origin": "github.com/rhysd/paths-filter",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Paths Changes Filter",
+    "description": "Execute your workflow steps only if relevant files are modified.",
+    "author": "Michal Dorner <dorner.michal@gmail.com>",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Access Token"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "Relative path under $GITHUB_WORKSPACE where the repository was checked out."
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": null,
+        "description": "Git reference (e.g. branch name) from which the changes will be detected.\nThis option is ignored if action is triggered by pull_request event.\n"
+      },
+      {
+        "name": "base",
+        "required": false,
+        "default": null,
+        "description": "Git reference (e.g. branch name) against which the changes will be detected. Defaults to repository default branch (e.g. master).\nIf it references same branch it was pushed to, changes are detected against the most recent commit before the push.\nThis option is ignored if action is triggered by pull_request event.\n"
+      },
+      {
+        "name": "filters",
+        "required": true,
+        "default": null,
+        "description": "Path to the configuration file or YAML string with filters definition"
+      },
+      {
+        "name": "list-files",
+        "required": false,
+        "default": "none",
+        "description": "Enables listing of files matching the filter:\n  'none'  - Disables listing of matching files (default).\n  'csv'   - Coma separated list of filenames.\n            If needed it uses double quotes to wrap filename with unsafe characters.\n  'json'  - Serialized as JSON array.\n  'shell' - Space delimited list usable as command line argument list in linux shell.\n            If needed it uses single or double quotes to wrap filename with unsafe characters.\n  'escape'- Space delimited list usable as command line argument list in linux shell.\n            Backslash escapes every potentially unsafe character.\n"
+      },
+      {
+        "name": "initial-fetch-depth",
+        "required": false,
+        "default": "100",
+        "description": "How many commits are initially fetched from base branch.\nIf needed, each subsequent fetch doubles the previously requested number of commits\nuntil the merge-base is found or there are no more commits in the history.\nThis option takes effect only when changes are detected using git against different base branch.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changes",
+        "description": "JSON array with names of all filters matching any of changed files"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "59ccd8f78f497326e958bcc06430ea8c2aa37d3c74ab3ac033944d611de45fa1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:41.874369Z"
+  }
+}

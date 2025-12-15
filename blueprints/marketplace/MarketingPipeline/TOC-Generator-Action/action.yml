@@ -1,0 +1,11 @@
+name: 'TOC Generator'
+description: 'A GitHub Action to generate a Table of Contents in your README.md'
+author: 'github.com/MarketingPipeline'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'activity'
+  color: 'white'

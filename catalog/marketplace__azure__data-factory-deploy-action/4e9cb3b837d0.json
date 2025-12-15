@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/data-factory-deploy-action/action.yml",
     "origin": "github.com/azure/data-factory-deploy-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "GitHub Action for Azure Data Factory Deploy",
+      "published_at": "2022-01-06T13:02:22Z",
+      "html_url": "https://github.com/Azure/data-factory-deploy-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "data-factory-deploy",
@@ -90,6 +98,6 @@
     "source_hash": "4e9cb3b837d04f10b4da5d8a281451afaeca56ef3d712fee0cf3bc355826f3dc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.688608Z"
+    "generated_at": "2025-12-15T05:21:56.795174Z"
   }
 }

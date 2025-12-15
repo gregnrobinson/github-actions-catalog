@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/cloudformation-aws-iam-policy-validator/action.yml",
     "origin": "github.com/aws-actions/cloudformation-aws-iam-policy-validator",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.4",
+      "name": "Release 1.0.4",
+      "published_at": "2025-06-09T17:47:53Z",
+      "html_url": "https://github.com/aws-actions/cloudformation-aws-iam-policy-validator/releases/tag/v1.0.4",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Policy checks to validate AWS IAM policies in CloudFormation templates\" Action For GitHub Actions",
@@ -140,6 +148,6 @@
     "source_hash": "fdf4bf4824ee3a0a9dfa68232fda7e636178330901a6999d0af96be2df316f37",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.043767Z"
+    "generated_at": "2025-12-15T05:22:38.801585Z"
   }
 }

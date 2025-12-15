@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/WordPress-Azure-VirtualMachine/action.yml",
     "origin": "github.com/azure/WordPress-Azure-VirtualMachine",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:21:07Z",
+      "html_url": "https://github.com/Azure/WordPress-Azure-VirtualMachine/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy WordPress on Azure Virtual Machine - Azure Quickstart Template",
@@ -99,6 +107,6 @@
     "source_hash": "11fadb82c1b634ce777d1ee175f534867cb077649d45c2d8553bc17a422985ee",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.577805Z"
+    "generated_at": "2025-12-15T05:21:50.565863Z"
   }
 }

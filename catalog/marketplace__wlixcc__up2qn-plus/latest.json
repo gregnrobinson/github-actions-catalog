@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/wlixcc/up2qn-plus",
-  "version_id": "18371c0da88e",
+  "version_id": "7f10377d2efb",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/wlixcc/up2qn-plus/action.yml",
@@ -80,7 +80,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is designed to upload files to a cloud storage service (\u4e03\u725b), which falls under deployment. It also requires authentication credentials (access_key), linking it to the authentication category.",
+        "reasoning": "The action is designed to upload files to a cloud storage service (\u4e03\u725b), which falls under deployment. It also requires authentication credentials (access_key) for secure access to the service.",
         "tags": [
           "file upload",
           "\u4e03\u725b",
@@ -92,9 +92,9 @@
     ]
   },
   "cache": {
-    "source_hash": "18371c0da88e2105c54b481f8b65706dad965cb76f57f3f6e2998aa2997bb4c8",
+    "source_hash": "7f10377d2efb212862e76fe1ae2c0d0c4e2d501819b04c8f9e6a320c8f79477a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.956495Z"
+    "generated_at": "2025-12-15T05:23:15.558932Z"
   }
 }

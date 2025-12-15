@@ -1,0 +1,15 @@
+name: 'Docker2Apptainer'
+description: 'Convert a Docker container to an Apptainer container'
+inputs:
+  docker-image:
+    description: 'Docker image'
+    required: true
+  save-path:
+    description: 'Path to save the Apptainer sif file'
+    required: true
+outputs:
+  image:
+    description: 'Apptainer sif image file'
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/publish-security-assessments",
-  "version_id": "18f11f0c1f81",
+  "version_id": "ae1ffc4b136c",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/publish-security-assessments/action.yml",
@@ -81,7 +81,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action focuses on publishing security assessments, which falls under the Security category, and it also involves deploying these assessments to Azure, thus fitting into the Deployment category.",
+        "reasoning": "The action is focused on publishing security assessments, which directly relates to security practices. It also involves deploying these assessments to Azure, thus fitting into the deployment category.",
         "tags": [
           "security",
           "azure",
@@ -93,9 +93,9 @@
     ]
   },
   "cache": {
-    "source_hash": "18f11f0c1f8158f7111532f9d9821cbc84b4836d08837e257000c328eaed49e0",
+    "source_hash": "ae1ffc4b136c1d453ae955e9455dfd67f9ea768eb0bc66d551ba0b93864e24b9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.796941Z"
+    "generated_at": "2025-12-15T05:21:45.757974Z"
   }
 }

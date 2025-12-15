@@ -1,0 +1,13 @@
+name: Review Go Dependency Updates
+description: Set the PR description to contain all release notes for updated libraries
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: slash
+  color: orange
+inputs:
+  token:
+    description: "A GitHub API token used to call the API"
+    default: ${{ github.token }}
+    required: false

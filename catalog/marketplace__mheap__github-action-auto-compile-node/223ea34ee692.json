@@ -1,0 +1,40 @@
+{
+  "action_id": "marketplace/mheap/github-action-auto-compile-node",
+  "version_id": "223ea34ee692",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-auto-compile-node/action.yml",
+    "origin": "github.com/mheap/github-action-auto-compile-node",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Auto-Compile Node Actions",
+    "description": "Automatically compile node GitHub Actions to a single file",
+    "author": "",
+    "inputs": [
+      {
+        "name": "main",
+        "required": false,
+        "default": "index.js",
+        "description": "Entrypoint file of your action to compile."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "223ea34ee692693e7928b55c365c959aee232fd23d50ec31e4fb1ea2d82c0afe",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:22.439147Z"
+  }
+}

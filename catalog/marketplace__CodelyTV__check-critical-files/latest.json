@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/CodelyTV/check-critical-files",
-  "version_id": "026e83d0137f",
+  "version_id": "9c020d2e3b1e",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/CodelyTV/check-critical-files/action.yml",
@@ -65,17 +65,18 @@
         "reasoning": "This action checks for critical files in commits, which directly relates to maintaining code quality. It also provides warnings, which falls under notification.",
         "tags": [
           "code quality",
-          "critical files",
-          "commit check",
-          "notification"
+          "file check",
+          "commit",
+          "notification",
+          "GitHub Action"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "026e83d0137f8192512ae2a7d1289dfab16d93062a86d30016c9d6899d4b8689",
+    "source_hash": "9c020d2e3b1eca309ab1c7274b39da368395f78f75a0d744853e74d9549716be",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.745859Z"
+    "generated_at": "2025-12-15T05:22:45.250234Z"
   }
 }

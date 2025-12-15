@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/rhysd/actions-hugo",
+  "version_id": "939dae27d8d2",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/actions-hugo/action.yml",
+    "origin": "github.com/rhysd/actions-hugo",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Hugo setup",
+    "description": "GitHub Actions for Hugo \u26a1\ufe0f Setup Hugo quickly and build your site fast. Hugo extended and Hugo Modules are supported.",
+    "author": "peaceiris",
+    "inputs": [
+      {
+        "name": "hugo-version",
+        "required": false,
+        "default": "latest",
+        "description": "The Hugo version to download (if necessary) and use. Example: 0.58.2"
+      },
+      {
+        "name": "extended",
+        "required": false,
+        "default": "false",
+        "description": "Download (if necessary) and use Hugo extended version. Example: true"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is primarily focused on setting up Hugo, which is a static site generator, indicating its main purpose is to facilitate the build process of a site. Additionally, it manages dependencies by allowing users to specify the version of Hugo to use.",
+        "tags": [
+          "Hugo",
+          "static site",
+          "build",
+          "setup",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "939dae27d8d2edb1d91c993f545707ccd75ab1c76477499615cb42833aaa804b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:41.335888Z"
+  }
+}

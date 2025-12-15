@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/mheap/phpunit-matcher-action",
+  "version_id": "e88a4b51b508",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/phpunit-matcher-action/action.yml",
+    "origin": "github.com/mheap/phpunit-matcher-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.3.0",
+      "name": "v1.3.0",
+      "published_at": "2023-04-01T11:37:30Z",
+      "html_url": "https://github.com/mheap/phpunit-matcher-action/releases/tag/v1.3.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "PHPUnit Problem Matchers",
+    "description": "Adds problem matcher for PHPUnit",
+    "author": "Michael Heap",
+    "inputs": [
+      {
+        "name": "base_path",
+        "required": false,
+        "default": null,
+        "description": "The base path to strip from your test output to leave just relative paths"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e88a4b51b5087f2a8408308e290e03f57c07b9bc39dae189d9435a9ff580fb6a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:25.022561Z"
+  }
+}

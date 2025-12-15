@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/FranzDiebold/github-env-vars-action",
+  "version_id": "0f9306b31299",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/FranzDiebold/github-env-vars-action/action.yml",
+    "origin": "github.com/FranzDiebold/github-env-vars-action",
+    "publisher": "FranzDiebold",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.8.0",
+      "name": "v2.8.0",
+      "published_at": "2024-02-10T13:22:34Z",
+      "html_url": "https://github.com/FranzDiebold/github-env-vars-action/releases/tag/v2.8.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "GitHub Environment Variables Action",
+    "description": "Expose useful Environment Variables.",
+    "author": "Franz Diebold",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0f9306b31299edcec2c4b1d8970d75962b9d2b984aa7d6aa112649800d9ada83",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:11.531173Z"
+  }
+}

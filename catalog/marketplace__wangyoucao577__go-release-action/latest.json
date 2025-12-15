@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/wangyoucao577/go-release-action",
-  "version_id": "11796e9812a0",
+  "version_id": "43562f736f45",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/wangyoucao577/go-release-action/action.yml",
@@ -227,8 +227,8 @@
   "annotations": {
     "categories": [
       "Build",
-      "Publishing",
-      "Deployment"
+      "Deployment",
+      "Publishing"
     ],
     "confidence": "high",
     "evidence": [
@@ -236,21 +236,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is primarily focused on building Go binaries and releasing them as assets on GitHub, which aligns it closely with the Build category. Additionally, it involves publishing those binaries to GitHub Releases, thus fitting into both Publishing and Deployment categories.",
+        "reasoning": "This action is primarily focused on building Go binaries and releasing them to GitHub, which fits well into the Build category. Additionally, it involves deploying those binaries as release assets, thus also fitting into Deployment and Publishing categories.",
         "tags": [
           "Go",
           "Release",
-          "GitHub",
+          "GitHub Actions",
           "Binaries",
-          "CI/CD"
+          "Deployment"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "11796e9812a033f186403648a0c83ad7b4fb2d5fe6ac0bc476cf9652204035ee",
+    "source_hash": "43562f736f453755efea8c6da25e6a236f23b2d1f288cee6ed22bedd28dc5fcd",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.109787Z"
+    "generated_at": "2025-12-15T05:22:01.376312Z"
   }
 }

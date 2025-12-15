@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/rhysd/pnpm-action-setup",
+  "version_id": "36a327748fbc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/pnpm-action-setup/action.yml",
+    "origin": "github.com/rhysd/pnpm-action-setup",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup pnpm",
+    "description": "Install pnpm package manager",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Version of pnpm to install"
+      },
+      {
+        "name": "dest",
+        "required": false,
+        "default": "~/setup-pnpm",
+        "description": "Where to store pnpm files"
+      },
+      {
+        "name": "run_install",
+        "required": false,
+        "default": "null",
+        "description": "If specified, run `pnpm install`"
+      },
+      {
+        "name": "package_json_file",
+        "required": false,
+        "default": "package.json",
+        "description": "File path to the package.json to read \"packageManager\" configuration"
+      },
+      {
+        "name": "standalone",
+        "required": false,
+        "default": "false",
+        "description": "When set to true, @pnpm/exe, which is a Node.js bundled package, will be installed, enabling using pnpm without Node.js."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js",
+      "post": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on installing the pnpm package manager, which is primarily related to managing project dependencies. It also has the option to run installations, linking it to the build process.",
+        "tags": [
+          "pnpm",
+          "dependency",
+          "package manager",
+          "setup",
+          "installation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "36a327748fbcecc525db964c8299c23123fd6d78b18b08bcdaf3d1844e0a4220",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:41.140967Z"
+  }
+}

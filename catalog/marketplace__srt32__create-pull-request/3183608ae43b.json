@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/srt32/create-pull-request",
+  "version_id": "3183608ae43b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/srt32/create-pull-request/action.yml",
+    "origin": "github.com/srt32/create-pull-request",
+    "publisher": "srt32",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create Pull Request",
+    "description": "Creates a pull request for changes to your repository in the actions workspace",
+    "author": "Peter Evans",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "docker://peterevans/create-pull-request:1.5.2"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "3183608ae43baae9904d29564370c730eddd2d1810e41d8d21743ac6405571d2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:41.174668Z"
+  }
+}

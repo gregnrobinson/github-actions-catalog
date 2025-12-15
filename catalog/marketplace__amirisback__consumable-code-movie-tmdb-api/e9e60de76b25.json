@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-movie-tmdb-api/action.yml",
     "origin": "github.com/amirisback/consumable-code-movie-tmdb-api",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.2.1",
+      "name": "Release v1.2.1",
+      "published_at": "2021-06-25T23:26:44Z",
+      "html_url": "https://github.com/amirisback/consumable-code-movie-tmdb-api/releases/tag/1.2.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Consumable Code Movie TMDB API",
@@ -38,6 +46,6 @@
     "source_hash": "e9e60de76b25a7024e1b2f9618f6201aa0f4497d0de87258ee3efd4a65b00fa4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.614276Z"
+    "generated_at": "2025-12-15T05:23:00.201816Z"
   }
 }

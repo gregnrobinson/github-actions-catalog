@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/axel-op/googlejavaformat-action",
+  "version_id": "2dffa93ff37d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/googlejavaformat-action/action.yml",
+    "origin": "github.com/axel-op/googlejavaformat-action",
+    "publisher": "axel-op",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "v4.0.0",
+      "published_at": "2025-02-17T23:23:33Z",
+      "html_url": "https://github.com/axel-op/googlejavaformat-action/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Google Java Format",
+    "description": "Automatically format Java files using Google Java Style",
+    "author": "axel-op",
+    "inputs": [
+      {
+        "name": "args",
+        "required": false,
+        "default": "--replace",
+        "description": "Arguments for the Google Java Format executable"
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": "**/*.java",
+        "description": "Pattern to match the files to be formatted"
+      },
+      {
+        "name": "files-excluded",
+        "required": false,
+        "default": null,
+        "description": "Pattern to match the files to be ignored by this action"
+      },
+      {
+        "name": "skip-commit",
+        "required": false,
+        "default": "false",
+        "description": "By default, this action commits any change made to the files. Set to \"true\" to skip this commit."
+      },
+      {
+        "name": "release-name",
+        "required": false,
+        "default": null,
+        "description": "Release name of Google Java Format to use. Examples: 1.7, v1.24.0... Leave empty to use the latest release compatible with your JDK."
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": null,
+        "description": "If provided, will be used to authenticate the calls to the GitHub API."
+      },
+      {
+        "name": "commit-message",
+        "required": false,
+        "default": null,
+        "description": "This message will be used for commits made by this action"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2dffa93ff37d5c6927583db0feb3091dadb01db975a67124e7650b6df572b941",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:26.215701Z"
+  }
+}

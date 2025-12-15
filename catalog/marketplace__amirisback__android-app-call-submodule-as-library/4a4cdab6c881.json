@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/android-app-call-submodule-as-library/action.yml",
     "origin": "github.com/amirisback/android-app-call-submodule-as-library",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Release v1.0.0",
+      "published_at": "2023-03-01T11:21:40Z",
+      "html_url": "https://github.com/amirisback/android-app-call-submodule-as-library/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Android-Research-Tech",
@@ -38,6 +46,6 @@
     "source_hash": "4a4cdab6c881836ea1504412f277c3131d77719f2d7e7e1133aba8bc9d4cbd13",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.589661Z"
+    "generated_at": "2025-12-15T05:22:50.897439Z"
   }
 }

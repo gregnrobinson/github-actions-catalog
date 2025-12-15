@@ -1,0 +1,82 @@
+{
+  "action_id": "marketplace/julia-actions/julia-fix-doctests",
+  "version_id": "324bf24d1a2a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-fix-doctests/action.yml",
+    "origin": "github.com/julia-actions/julia-fix-doctests",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2021-09-01T23:05:18Z",
+      "html_url": "https://github.com/julia-actions/julia-fix-doctests/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "julia-fix-doctests",
+    "description": "Run `doctest(MyPkg; fix=true)`",
+    "author": "Eric P. Hanson and contributors",
+    "inputs": [
+      {
+        "name": "package_path",
+        "required": false,
+        "default": "",
+        "description": "Path to the directory of the package. Only required for subdirectory packages."
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": "docs",
+        "description": "Value passed to the --project flag. The default value is \"docs\""
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Fix doctests",
+          "run": "julia --project=${{ inputs.project }} \"$GITHUB_ACTION_PATH\"/fix_doctests.jl",
+          "shell": "bash",
+          "env": {
+            "INPUT_PACKAGE_PATH": "${{ inputs.package_path }}",
+            "INPUT_PROJECT": "${{ inputs.project }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is designed to run doctests, which are a form of testing that ensures the documentation examples work as intended. It also relates to documentation and code quality by verifying that the examples in the documentation are correct.",
+        "tags": [
+          "julia",
+          "doctest",
+          "testing",
+          "documentation",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "324bf24d1a2a3a0d5b5981fa56894d51ed8a5a03538411747e54f864672247fa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:19.061771Z"
+  }
+}

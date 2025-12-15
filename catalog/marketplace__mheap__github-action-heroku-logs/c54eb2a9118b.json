@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/mheap/github-action-heroku-logs",
+  "version_id": "c54eb2a9118b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-heroku-logs/action.yml",
+    "origin": "github.com/mheap/github-action-heroku-logs",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "",
+      "published_at": "2020-11-12T16:19:08Z",
+      "html_url": "https://github.com/mheap/github-action-heroku-logs/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Heroku Build Logs",
+    "description": "Attach Heroku build logs on deployment failure",
+    "author": "Michael Heap",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "c54eb2a9118bc6c9911f9f5f7c36e462b5ce7178ee9051bfb20c237e38842eea",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:29.348075Z"
+  }
+}

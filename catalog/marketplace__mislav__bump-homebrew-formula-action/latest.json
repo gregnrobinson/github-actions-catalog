@@ -1,0 +1,125 @@
+{
+  "action_id": "marketplace/mislav/bump-homebrew-formula-action",
+  "version_id": "5d7bb212be23",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mislav/bump-homebrew-formula-action/action.yml",
+    "origin": "github.com/mislav/bump-homebrew-formula-action",
+    "publisher": "mislav",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.6",
+      "name": "bump-homebrew-formula-action 3.6",
+      "published_at": "2025-09-16T14:08:54Z",
+      "html_url": "https://github.com/mislav/bump-homebrew-formula-action/releases/tag/v3.6",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "bump-homebrew-formula",
+    "description": "Bump Homebrew formula after a new release",
+    "author": "@mislav",
+    "inputs": [
+      {
+        "name": "formula-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the Homebrew formula (defaults to lower-cased repository name)"
+      },
+      {
+        "name": "formula-path",
+        "required": false,
+        "default": null,
+        "description": "The path to the Homebrew formula file (defaults to `Formula/<formula-name>.rb`)"
+      },
+      {
+        "name": "tag-name",
+        "required": false,
+        "default": null,
+        "description": "The git tag name to bump the formula to (defaults to the currently pushed tag)"
+      },
+      {
+        "name": "download-url",
+        "required": false,
+        "default": null,
+        "description": "The package download URL for the Homebrew formula (defaults to the release tarball)"
+      },
+      {
+        "name": "download-sha256",
+        "required": false,
+        "default": null,
+        "description": "The SHA256 checksum of the archive at download-url (defaults to calculating it)"
+      },
+      {
+        "name": "homebrew-tap",
+        "required": false,
+        "default": "Homebrew/homebrew-core",
+        "description": "The repository where the formula should be updated"
+      },
+      {
+        "name": "push-to",
+        "required": false,
+        "default": null,
+        "description": "An existing fork of the homebrew-tap repository where the edit should be pushed to (defaults to creating or reusing a personal fork)"
+      },
+      {
+        "name": "base-branch",
+        "required": false,
+        "default": null,
+        "description": "The branch name in the homebrew-tap repository to update the formula in"
+      },
+      {
+        "name": "create-pullrequest",
+        "required": false,
+        "default": null,
+        "description": "Set to a boolean value to either force or prohibit making a pull request to homebrew-tap"
+      },
+      {
+        "name": "create-branch",
+        "required": false,
+        "default": null,
+        "description": "Set to a boolean value to either force or prohibit creating a separate branch on homebrew-tap"
+      },
+      {
+        "name": "commit-message",
+        "required": false,
+        "default": "{{formulaName}} {{version}}\n\nCreated by https://github.com/mislav/bump-homebrew-formula-action\n",
+        "description": "The git commit message template to use when updating the formula"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "./lib/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "This action is designed to update Homebrew formulas, which is a deployment-related task, and it involves packaging the software for distribution via Homebrew.",
+        "tags": [
+          "homebrew",
+          "deployment",
+          "packaging",
+          "automation",
+          "release"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5d7bb212be237c0ae2f54786e44eeff587f1cba19e472a3bf23841beaf475622",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:16.175400Z"
+  }
+}

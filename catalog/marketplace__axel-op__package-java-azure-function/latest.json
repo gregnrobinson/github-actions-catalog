@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/axel-op/package-java-azure-function",
+  "version_id": "b77b325f9a39",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/package-java-azure-function/action.yml",
+    "origin": "github.com/axel-op/package-java-azure-function",
+    "publisher": "axel-op",
+    "verified": false
+  },
+  "definition": {
+    "name": "Package an Azure Function app in Java",
+    "description": "Package an Azure Function app in Java",
+    "author": "",
+    "inputs": [
+      {
+        "name": "function-name",
+        "required": true,
+        "default": null,
+        "description": "The name of the function app to package"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": ".",
+        "description": "The root directory of the function"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "deployment-directory",
+        "description": "The directory containing the files to deploy"
+      },
+      {
+        "name": "deployment-file",
+        "description": "The zip file to deploy"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Package",
+          "id": "package",
+          "working-directory": "${{ inputs.working-directory }}",
+          "run": "${GITHUB_ACTION_PATH}/package.sh",
+          "shell": "bash",
+          "env": {
+            "APP_NAME": "${{ inputs.function-name }}",
+            "DEPLOYMENT_DIR": "deployment"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action is focused on packaging an Azure Function app, which falls under the Packaging category, while also preparing it for deployment, thus fitting into the Deployment category as well.",
+        "tags": [
+          "Azure",
+          "Java",
+          "Function",
+          "Packaging",
+          "Deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b77b325f9a399916eaeb7c0606ff4ae7d1bb0674b151c9dda80ed27177504900",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:25.811900Z"
+  }
+}

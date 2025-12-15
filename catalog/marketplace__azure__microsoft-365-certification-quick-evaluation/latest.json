@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/microsoft-365-certification-quick-evaluation",
-  "version_id": "3a26f9532f3c",
+  "version_id": "c28b46bdc326",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/microsoft-365-certification-quick-evaluation/action.yml",
@@ -52,7 +52,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Testing",
-        "reasoning": "The action evaluates compliance for Microsoft 365 certifications, which aligns it with testing and compliance categories. It also involves reporting, which relates to documentation.",
+        "reasoning": "The action evaluates compliance, which is a form of testing, and it also involves reporting, which relates to documentation. However, it is less clear how it fits into broader categories like deployment or security.",
         "tags": [
           "Microsoft 365",
           "compliance",
@@ -64,9 +64,9 @@
     ]
   },
   "cache": {
-    "source_hash": "3a26f9532f3c8e45acddc199a98c524b63c6e047b404eed493935128d72fb569",
+    "source_hash": "c28b46bdc326db45104dea5d169c71726b1f78a7bc094c67a693bb948e310757",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.847636Z"
+    "generated_at": "2025-12-15T05:21:49.944391Z"
   }
 }

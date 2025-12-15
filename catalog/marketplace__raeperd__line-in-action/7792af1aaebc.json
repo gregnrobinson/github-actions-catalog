@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/raeperd/line-in-action/action.yml",
     "origin": "github.com/raeperd/line-in-action",
     "publisher": "raeperd",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0",
+      "name": "First release v1.0",
+      "published_at": "2021-03-28T12:41:14Z",
+      "html_url": "https://github.com/raeperd/line-in-action/releases/tag/v1.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "LINE-in-action",
@@ -59,6 +67,6 @@
     "source_hash": "7792af1aaebc3cc54edf1b2fc524623a72db7d62f6fddc30cd71d97110af04e7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.295640Z"
+    "generated_at": "2025-12-15T05:22:14.126316Z"
   }
 }

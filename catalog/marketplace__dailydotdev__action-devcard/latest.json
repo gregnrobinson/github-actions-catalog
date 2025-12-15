@@ -1,0 +1,113 @@
+{
+  "action_id": "marketplace/dailydotdev/action-devcard",
+  "version_id": "1a4145476060",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dailydotdev/action-devcard/action.yml",
+    "origin": "github.com/dailydotdev/action-devcard",
+    "publisher": "dailydotdev",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "3.2.1",
+      "name": "3.2.1",
+      "published_at": "2025-04-10T08:49:52Z",
+      "html_url": "https://github.com/dailydotdev/action-devcard/releases/tag/3.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "@dailydotdev/devcard",
+    "description": "GitHub Action to download the devcard from daily.dev",
+    "author": "Ole-Martin Bratteng",
+    "inputs": [
+      {
+        "name": "user_id",
+        "required": true,
+        "default": null,
+        "description": "Your daily.dev user id"
+      },
+      {
+        "name": "type",
+        "required": false,
+        "default": "default",
+        "description": "Configure orientation for devcard. Must be either \"default\" or \"wide\""
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "GitHub Token used to commit the devcard"
+      },
+      {
+        "name": "commit_branch",
+        "required": false,
+        "default": "",
+        "description": "Branch used to commit the devcard"
+      },
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Update ${filename}",
+        "description": "Commit message"
+      },
+      {
+        "name": "commit_filename",
+        "required": false,
+        "default": "devcard.png",
+        "description": "Filename to save devcard to"
+      },
+      {
+        "name": "committer_email",
+        "required": false,
+        "default": "41898282+github-actions[bot]@users.noreply.github.com",
+        "description": "Committer email"
+      },
+      {
+        "name": "committer_name",
+        "required": false,
+        "default": "github-actions[bot]",
+        "description": "Committer name"
+      },
+      {
+        "name": "dryrun",
+        "required": false,
+        "default": false,
+        "description": "If true, no changes will be made to the repo"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "This action is primarily focused on downloading a devcard, which serves as a form of documentation for developers. It also facilitates communication by providing a visual representation of a user's profile.",
+        "tags": [
+          "devcard",
+          "documentation",
+          "daily.dev",
+          "GitHub Action",
+          "user profile"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1a41454760606422709aa93bc8eb8348539017279d533d4c38fb8f027a7ab21a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:29.792251Z"
+  }
+}

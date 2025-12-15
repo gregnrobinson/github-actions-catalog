@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/appservice-settings",
-  "version_id": "8373614b5dbb",
+  "version_id": "c7e798546aef",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/appservice-settings/action.yml",
@@ -72,8 +72,7 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Configuration",
-      "Deployment"
+      "Configuration"
     ],
     "confidence": "high",
     "evidence": [
@@ -81,21 +80,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on configuring Azure App Services, which falls under infrastructure management, and it also relates to deployment as it sets up application settings for web apps.",
+        "reasoning": "This action is primarily focused on configuring Azure App Services, which falls under the infrastructure category. It also involves setting application settings, which can be considered a form of configuration.",
         "tags": [
           "Azure",
           "App Service",
           "Configuration",
-          "Deployment",
-          "Infrastructure"
+          "Infrastructure",
+          "Web App"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "8373614b5dbb1a70e86692e91dde209c12a814fc26e56881f0defece7904019a",
+    "source_hash": "c7e798546aeffdcbfd888a8fa64b7e5d26f33f9edc2d37816f7ca2f56ade8352",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.953846Z"
+    "generated_at": "2025-12-15T05:21:55.378317Z"
   }
 }

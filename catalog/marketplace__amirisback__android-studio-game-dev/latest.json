@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/android-studio-game-dev",
-  "version_id": "71e4bbe6299d",
+  "version_id": "3b55294a9a7a",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/android-studio-game-dev/action.yml",
@@ -39,21 +39,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action focuses on providing full and clear documentation, which places it squarely in the Documentation category.",
+        "reasoning": "The action is focused on providing full and clear documentation, which places it primarily in the Documentation category.",
         "tags": [
           "documentation",
           "game development",
-          "android",
-          "studio",
-          "dev"
+          "android studio",
+          "action",
+          "GitHub"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "71e4bbe6299da183b2e1303e3d315c14cfc43c94859724d9a42addce0d2e7b89",
+    "source_hash": "3b55294a9a7ad8452beb4131f11ceefa1ea809449464aa2b66e070b0fbd0a566",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.808343Z"
+    "generated_at": "2025-12-15T05:23:04.302665Z"
   }
 }

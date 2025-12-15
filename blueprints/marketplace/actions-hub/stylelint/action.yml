@@ -1,0 +1,9 @@
+name: 'stylelinter'
+description: 'GitHub Action that runs stylelint.'
+author: 'Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>'
+branding:
+  icon: 'layout'
+  color: 'black'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

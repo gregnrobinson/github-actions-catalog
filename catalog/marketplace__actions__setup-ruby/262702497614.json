@@ -41,31 +41,14 @@
     }
   },
   "annotations": {
-    "categories": [
-      "Dependency management",
-      "Build"
-    ],
-    "confidence": "high",
-    "evidence": [
-      {
-        "type": "llm_categorization",
-        "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "This action is primarily focused on setting up a specific version of Ruby, which is essential for managing dependencies in a project. It also facilitates the build process by ensuring the correct Ruby environment is available.",
-        "tags": [
-          "Ruby",
-          "setup",
-          "dependency management",
-          "build",
-          "GitHub Actions"
-        ]
-      }
-    ]
+    "categories": [],
+    "confidence": null,
+    "evidence": []
   },
   "cache": {
     "source_hash": "262702497614ac6e9bb80dda75acd96b67332e8f09ae5b9fb956645a88de1c57",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.652470Z"
+    "generated_at": "2025-12-15T05:22:42.996148Z"
   }
 }

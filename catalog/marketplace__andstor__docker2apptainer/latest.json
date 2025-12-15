@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/andstor/docker2apptainer",
+  "version_id": "96e4e3748b24",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/docker2apptainer/action.yml",
+    "origin": "github.com/andstor/docker2apptainer",
+    "publisher": "andstor",
+    "verified": false
+  },
+  "definition": {
+    "name": "Docker2Apptainer",
+    "description": "Convert a Docker container to an Apptainer container",
+    "author": "",
+    "inputs": [
+      {
+        "name": "docker-image",
+        "required": true,
+        "default": null,
+        "description": "Docker image"
+      },
+      {
+        "name": "save-path",
+        "required": true,
+        "default": null,
+        "description": "Path to save the Apptainer sif file"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "image",
+        "description": "Apptainer sif image file"
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Packaging",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Packaging",
+        "reasoning": "The action converts a Docker container into an Apptainer container, which is primarily a packaging task. It also involves building the Apptainer image from the Docker image.",
+        "tags": [
+          "Docker",
+          "Apptainer",
+          "Container",
+          "Packaging",
+          "Build"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "96e4e3748b246662b70a52706353e07d487d1d4ccbc781b32d95f18655ac07b8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:32.572804Z"
+  }
+}

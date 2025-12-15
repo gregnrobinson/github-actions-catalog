@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/goto-bus-stop/standard-action",
+  "version_id": "09f919ba79a3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/goto-bus-stop/standard-action/action.yml",
+    "origin": "github.com/goto-bus-stop/standard-action",
+    "publisher": "goto-bus-stop",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.3",
+      "name": "v1.0.3",
+      "published_at": "2020-02-17T14:14:29Z",
+      "html_url": "https://github.com/goto-bus-stop/standard-action/releases/tag/v1.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "StandardJS lint checks",
+    "description": "Check that your code follows Standard Style",
+    "author": "goto-bus-stop",
+    "inputs": [
+      {
+        "name": "files",
+        "required": false,
+        "default": null,
+        "description": "Globs to lint."
+      },
+      {
+        "name": "version",
+        "required": true,
+        "default": "stylish",
+        "description": "Output format style, see https://eslint.org/docs/user-guide/formatters/. Default `stylish`."
+      },
+      {
+        "name": "linter",
+        "required": true,
+        "default": "standard",
+        "description": "Standard-compatible linter variant to use. ex. semistandard, happiness, doublestandard..."
+      },
+      {
+        "name": "annotate",
+        "required": false,
+        "default": false,
+        "description": "Annotate the diff UI with lint errors. Requires passing in env.GITHUB_TOKEN."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "09f919ba79a35abc5a6d599c59ddf93477dbf7e0f3a729d938a678ad8a92d000",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:37.887357Z"
+  }
+}

@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generated_at": "2025-12-15T02:09:40.284439Z",
-    "total_publishers": 66,
+    "generated_at": "2025-12-15T05:06:53.597823Z",
+    "total_publishers": 105,
     "verified_count": 7,
-    "community_count": 59,
+    "community_count": 98,
     "source": "GitHub Marketplace API",
     "version": "2.0"
   },
@@ -44,6 +44,12 @@
       "type": "official"
     },
     {
+      "name": "8BitJonny",
+      "verified": false,
+      "type": "community",
+      "stars": 127
+    },
+    {
       "name": "AndreasAugustin",
       "verified": false,
       "type": "community",
@@ -80,6 +86,30 @@
       "stars": 217
     },
     {
+      "name": "DoozyX",
+      "verified": false,
+      "type": "community",
+      "stars": 144
+    },
+    {
+      "name": "Flow-Scanner",
+      "verified": false,
+      "type": "community",
+      "stars": 150
+    },
+    {
+      "name": "FranzDiebold",
+      "verified": false,
+      "type": "community",
+      "stars": 189
+    },
+    {
+      "name": "Harmon758",
+      "verified": false,
+      "type": "community",
+      "stars": 128
+    },
+    {
       "name": "Ilshidur",
       "verified": false,
       "type": "community",
@@ -104,16 +134,46 @@
       "stars": 227
     },
     {
+      "name": "MarketingPipeline",
+      "verified": false,
+      "type": "community",
+      "stars": 182
+    },
+    {
+      "name": "Oval-Tutu",
+      "verified": false,
+      "type": "community",
+      "stars": 148
+    },
+    {
+      "name": "Readme-Workflows",
+      "verified": false,
+      "type": "community",
+      "stars": 141
+    },
+    {
       "name": "TideDra",
       "verified": false,
       "type": "community",
-      "stars": 4218
+      "stars": 4221
     },
     {
       "name": "TryGhost",
       "verified": false,
       "type": "community",
       "stars": 384
+    },
+    {
+      "name": "VeryGoodOpenSource",
+      "verified": false,
+      "type": "community",
+      "stars": 171
+    },
+    {
+      "name": "actions-hub",
+      "verified": false,
+      "type": "community",
+      "stars": 155
     },
     {
       "name": "amannn",
@@ -134,6 +194,12 @@
       "stars": 207
     },
     {
+      "name": "andstor",
+      "verified": false,
+      "type": "community",
+      "stars": 108
+    },
+    {
       "name": "appleboy",
       "verified": false,
       "type": "community",
@@ -146,6 +212,12 @@
       "stars": 201
     },
     {
+      "name": "axel-op",
+      "verified": false,
+      "type": "community",
+      "stars": 116
+    },
+    {
       "name": "bcanseco",
       "verified": false,
       "type": "community",
@@ -156,6 +228,12 @@
       "verified": false,
       "type": "community",
       "stars": 1172
+    },
+    {
+      "name": "brandedoutcast",
+      "verified": false,
+      "type": "community",
+      "stars": 198
     },
     {
       "name": "calibreapp",
@@ -194,10 +272,22 @@
       "stars": 559
     },
     {
+      "name": "dailydotdev",
+      "verified": false,
+      "type": "community",
+      "stars": 102
+    },
+    {
       "name": "dflook",
       "verified": false,
       "type": "community",
       "stars": 934
+    },
+    {
+      "name": "dineshsonachalam",
+      "verified": false,
+      "type": "community",
+      "stars": 146
     },
     {
       "name": "dkamm",
@@ -206,10 +296,28 @@
       "stars": 201
     },
     {
+      "name": "dokku",
+      "verified": false,
+      "type": "community",
+      "stars": 189
+    },
+    {
+      "name": "federicocarboni",
+      "verified": false,
+      "type": "community",
+      "stars": 135
+    },
+    {
       "name": "filipdutescu",
       "verified": false,
       "type": "community",
       "stars": 1867
+    },
+    {
+      "name": "goto-bus-stop",
+      "verified": false,
+      "type": "community",
+      "stars": 157
     },
     {
       "name": "graalvm",
@@ -236,6 +344,18 @@
       "stars": 909
     },
     {
+      "name": "jidicula",
+      "verified": false,
+      "type": "community",
+      "stars": 127
+    },
+    {
+      "name": "julia-actions",
+      "verified": false,
+      "type": "community",
+      "stars": 103
+    },
+    {
       "name": "kamranahmedse",
       "verified": false,
       "type": "community",
@@ -245,19 +365,43 @@
       "name": "lowlighter",
       "verified": false,
       "type": "community",
-      "stars": 15784
+      "stars": 15785
+    },
+    {
+      "name": "lucernae",
+      "verified": false,
+      "type": "community",
+      "stars": 195
     },
     {
       "name": "lukka",
       "verified": false,
       "type": "community",
-      "stars": 224
+      "stars": 192
     },
     {
       "name": "maehr",
       "verified": false,
       "type": "community",
       "stars": 268
+    },
+    {
+      "name": "mheap",
+      "verified": false,
+      "type": "community",
+      "stars": 111
+    },
+    {
+      "name": "miloserdow",
+      "verified": false,
+      "type": "community",
+      "stars": 130
+    },
+    {
+      "name": "mislav",
+      "verified": false,
+      "type": "community",
+      "stars": 195
     },
     {
       "name": "mszostok",
@@ -284,16 +428,28 @@
       "stars": 2615
     },
     {
+      "name": "pgrimaud",
+      "verified": false,
+      "type": "community",
+      "stars": 130
+    },
+    {
       "name": "pompelmi",
       "verified": false,
       "type": "community",
-      "stars": 411
+      "stars": 412
     },
     {
       "name": "posener",
       "verified": false,
       "type": "community",
       "stars": 215
+    },
+    {
+      "name": "primer",
+      "verified": false,
+      "type": "community",
+      "stars": 170
     },
     {
       "name": "pypa",
@@ -308,6 +464,12 @@
       "stars": 221
     },
     {
+      "name": "ravsamhq",
+      "verified": false,
+      "type": "community",
+      "stars": 178
+    },
+    {
       "name": "renovatebot",
       "verified": false,
       "type": "community",
@@ -318,6 +480,12 @@
       "verified": false,
       "type": "community",
       "stars": 435
+    },
+    {
+      "name": "rhysd",
+      "verified": false,
+      "type": "community",
+      "stars": 154
     },
     {
       "name": "robvanderleek",
@@ -332,16 +500,52 @@
       "stars": 711
     },
     {
+      "name": "skx",
+      "verified": false,
+      "type": "community",
+      "stars": 138
+    },
+    {
+      "name": "sobolevn",
+      "verified": false,
+      "type": "community",
+      "stars": 151
+    },
+    {
+      "name": "srggrs",
+      "verified": false,
+      "type": "community",
+      "stars": 176
+    },
+    {
+      "name": "srt32",
+      "verified": false,
+      "type": "community",
+      "stars": 104
+    },
+    {
       "name": "stefanzweifel",
       "verified": false,
       "type": "community",
       "stars": 2430
     },
     {
+      "name": "szenius",
+      "verified": false,
+      "type": "community",
+      "stars": 112
+    },
+    {
       "name": "techpivot",
       "verified": false,
       "type": "community",
       "stars": 201
+    },
+    {
+      "name": "techthoughts2",
+      "verified": false,
+      "type": "community",
+      "stars": 188
     },
     {
       "name": "tgymnich",
@@ -356,16 +560,34 @@
       "stars": 554
     },
     {
+      "name": "upsidr",
+      "verified": false,
+      "type": "community",
+      "stars": 126
+    },
+    {
       "name": "vn7n24fzkq",
       "verified": false,
       "type": "community",
       "stars": 3212
     },
     {
+      "name": "vsoch",
+      "verified": false,
+      "type": "community",
+      "stars": 174
+    },
+    {
       "name": "wangyoucao577",
       "verified": false,
       "type": "community",
       "stars": 539
+    },
+    {
+      "name": "wearerequired",
+      "verified": false,
+      "type": "community",
+      "stars": 153
     },
     {
       "name": "wei",
@@ -380,10 +602,22 @@
       "stars": 275
     },
     {
+      "name": "wpengine",
+      "verified": false,
+      "type": "community",
+      "stars": 189
+    },
+    {
       "name": "xandemon",
       "verified": false,
       "type": "community",
       "stars": 383
+    },
+    {
+      "name": "yeslayla",
+      "verified": false,
+      "type": "community",
+      "stars": 157
     },
     {
       "name": "yoshi389111",

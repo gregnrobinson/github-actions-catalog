@@ -1,0 +1,31 @@
+name: "Package an Azure Function app in Java"
+description: "Package an Azure Function app in Java"
+branding:
+  icon: package
+  color: red
+inputs:
+  function-name:
+    description: "The name of the function app to package"
+    required: true
+  working-directory:
+    description: "The root directory of the function"
+    required: false
+    default: "."
+outputs:
+  deployment-directory:
+    description: "The directory containing the files to deploy"
+    value: ${{ steps.package.outputs.deployment-directory }}
+  deployment-file:
+    description: "The zip file to deploy"
+    value: ${{ steps.package.outputs.deployment-file }}
+runs:
+  using: "composite"
+  steps:
+    - name: Package
+      id: package
+      working-directory: ${{ inputs.working-directory }}
+      run: "${GITHUB_ACTION_PATH}/package.sh"
+      shell: bash
+      env:
+        APP_NAME: ${{ inputs.function-name }}
+        DEPLOYMENT_DIR: deployment

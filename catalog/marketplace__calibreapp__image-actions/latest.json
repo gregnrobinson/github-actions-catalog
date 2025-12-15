@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/calibreapp/image-actions",
-  "version_id": "6e4f9450c22c",
+  "version_id": "f47923b01dee",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/calibreapp/image-actions/action.yml",
@@ -90,6 +90,7 @@
   "annotations": {
     "categories": [
       "Build",
+      "Optimization",
       "Packaging"
     ],
     "confidence": "high",
@@ -98,7 +99,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action compresses images, which is a part of the build process for optimizing assets for web use, and it also involves packaging the images for deployment.",
+        "reasoning": "The action compresses images, which is a build optimization task that reduces file sizes for web usage, making it fit into the Build category. Additionally, it involves packaging images for deployment.",
         "tags": [
           "image compression",
           "web optimization",
@@ -108,9 +109,9 @@
     ]
   },
   "cache": {
-    "source_hash": "6e4f9450c22c26bbec940fcce8552bd571dc2273d3b772478a980c4e6c1ed72c",
+    "source_hash": "f47923b01dee48631886d7de1f4705a868217277aed60bfef86925e0d235a6b3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.118015Z"
+    "generated_at": "2025-12-15T05:22:02.100488Z"
   }
 }

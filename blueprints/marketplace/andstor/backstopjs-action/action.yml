@@ -1,0 +1,24 @@
+name: 'BackstopJS Action'
+description: 'GitHub Action for running BackstopJS'
+author: 'André Storhaug'
+branding:
+  icon: 'image'
+  color: 'purple'
+inputs:
+  command:
+    description: 'The BackstopJS command to run.'
+    default: 'test'
+    required: false
+  config_file:
+    description: 'The path to a BackstopJS json configuration file.'
+    default: 'backstop.json'
+    required: false
+  filter:
+    description: 'The path to the image file to be compared against the base image.'
+    required: false
+outputs:
+  backstopjs-dir:
+    description: 'The BackstopJS dir.'
+runs:
+  using: 'node12'
+  main: 'src/index.js'

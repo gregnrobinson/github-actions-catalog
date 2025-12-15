@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/LAMPStack-Azure-VirtualMachine/action.yml",
     "origin": "github.com/azure/LAMPStack-Azure-VirtualMachine",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Updating product description",
+      "published_at": "2024-05-02T19:13:47Z",
+      "html_url": "https://github.com/Azure/LAMPStack-Azure-VirtualMachine/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy LAMP stack on Azure Virtual Machine",
@@ -106,6 +114,6 @@
     "source_hash": "4a8f9e836c3ebaae55043c21316dcf8dee93a0e2447e7e603241b4a30c509c2b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.548801Z"
+    "generated_at": "2025-12-15T05:21:48.033170Z"
   }
 }

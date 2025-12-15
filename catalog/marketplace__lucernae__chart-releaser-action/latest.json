@@ -1,0 +1,70 @@
+{
+  "action_id": "marketplace/lucernae/chart-releaser-action",
+  "version_id": "c1e64a6bd01f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/lucernae/chart-releaser-action/action.yml",
+    "origin": "github.com/lucernae/chart-releaser-action",
+    "publisher": "lucernae",
+    "verified": false
+  },
+  "definition": {
+    "name": "Helm Chart Releaser",
+    "description": "Host a Helm charts repo on GitHub Pages",
+    "author": "The Helm authors",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The chart-releaser version to use (default: v1.0.0)"
+      },
+      {
+        "name": "charts_dir",
+        "required": false,
+        "default": "charts",
+        "description": "The charts directory"
+      },
+      {
+        "name": "charts_repo_url",
+        "required": true,
+        "default": null,
+        "description": "The GitHub Pages URL to the charts repo (default: https://<owner>.github.io/<repo>)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Deployment",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "This action is primarily focused on publishing Helm charts to a GitHub Pages repository, which falls under the Publishing category. It also involves deployment aspects by hosting the charts and provides documentation through the hosted repo.",
+        "tags": [
+          "Helm",
+          "GitHub Pages",
+          "chart-releaser",
+          "deployment",
+          "publishing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c1e64a6bd01fe866444033b578be7019099261df29c80489a067305e0d61cb0f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:02.956094Z"
+  }
+}

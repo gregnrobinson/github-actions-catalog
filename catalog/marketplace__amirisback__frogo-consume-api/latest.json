@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/frogo-consume-api",
-  "version_id": "2f1f49a64944",
+  "version_id": "51f97eb42eee",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-consume-api/action.yml",
@@ -48,7 +48,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is designed to consume APIs, which can be seen as a way to manage dependencies in an application, particularly for Android development. Additionally, the description implies a focus on easing development, which aligns with documentation.",
+        "reasoning": "The action is designed to consume APIs, which can assist in managing dependencies for Android app development. Additionally, it includes an input description, indicating some level of documentation.",
         "tags": [
           "API",
           "Android",
@@ -60,9 +60,9 @@
     ]
   },
   "cache": {
-    "source_hash": "2f1f49a64944da5f99845da9eb14d67681e9970c182c8199b0b6c191996a4e11",
+    "source_hash": "51f97eb42eee5973eee94f4f6ff06f094fa4aae95d9b4cf38d30a61195bb7688",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.813494Z"
+    "generated_at": "2025-12-15T05:23:05.460424Z"
   }
 }

@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/pgrimaud/action-lametric",
+  "version_id": "5f1b6153d728",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pgrimaud/action-lametric/action.yml",
+    "origin": "github.com/pgrimaud/action-lametric",
+    "publisher": "pgrimaud",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "First release",
+      "published_at": "2020-03-27T16:51:21Z",
+      "html_url": "https://github.com/pgrimaud/action-lametric/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Notify LaMetric",
+    "description": "Send notification to your LaMetric using Github Actions",
+    "author": "Pierre Grimaud",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to send notifications, which directly falls under the Communication category, and more specifically under Notification.",
+        "tags": [
+          "LaMetric",
+          "notification",
+          "GitHub Actions",
+          "communication",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5f1b6153d72822eb2bd70cabb3e6a289c1883ad94d6a33d842e055d5970b94a9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:10.183462Z"
+  }
+}

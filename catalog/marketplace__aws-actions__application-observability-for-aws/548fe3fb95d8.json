@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/application-observability-for-aws/action.yml",
     "origin": "github.com/aws-actions/application-observability-for-aws",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "v1.1.1",
+      "published_at": "2025-12-10T20:14:23Z",
+      "html_url": "https://github.com/aws-actions/application-observability-for-aws/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Application observability for AWS",
@@ -212,6 +220,6 @@
     "source_hash": "548fe3fb95d8fecb797cfb9931159654fcf8e101c8ee1bf9c4faec24abc164d3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.084684Z"
+    "generated_at": "2025-12-15T05:22:40.435373Z"
   }
 }

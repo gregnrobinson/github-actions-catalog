@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/vsoch/codestats",
+  "version_id": "ab0fe0108f19",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/codestats/action.yml",
+    "origin": "github.com/vsoch/codestats",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "Codestats Action",
+    "description": "Collect basic metrics about repository health and file content.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "repository",
+        "required": false,
+        "default": null,
+        "description": "Repository to get stats for."
+      },
+      {
+        "name": "org",
+        "required": false,
+        "default": null,
+        "description": "Organization to get stats for"
+      },
+      {
+        "name": "config",
+        "required": false,
+        "default": null,
+        "description": "Config file to derive stats from"
+      },
+      {
+        "name": "outfile",
+        "required": false,
+        "default": null,
+        "description": "Output file to write to (defaults to org.json or repo.json)"
+      },
+      {
+        "name": "metric",
+        "required": false,
+        "default": null,
+        "description": "Instead of a default or config to derive metrics, use this single or comma separated list"
+      },
+      {
+        "name": "skip",
+        "required": false,
+        "default": null,
+        "description": "Pattern to skip (for org extraction only)"
+      },
+      {
+        "name": "pattern",
+        "required": false,
+        "default": null,
+        "description": "Pattern to include (for org extraction only)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ab0fe0108f19829ee9d4eb89ff662d1e769364e6f913c7c058308c1fda575cdf",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:33.141494Z"
+  }
+}

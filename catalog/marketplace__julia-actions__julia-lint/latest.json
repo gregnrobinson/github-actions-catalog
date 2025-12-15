@@ -1,0 +1,101 @@
+{
+  "action_id": "marketplace/julia-actions/julia-lint",
+  "version_id": "150fe1afb496",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-lint/action.yml",
+    "origin": "github.com/julia-actions/julia-lint",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Julia Lint",
+    "description": "Lint Julia files",
+    "author": "",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "lint-results",
+        "description": ""
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Compute Manifest hash",
+          "id": "project-hash",
+          "shell": "pwsh",
+          "run": "$ourHash = Get-FileHash -LiteralPath \"$env:GITHUB_ACTION_PATH\\Manifest.toml\"\n\"MANIFEST_HASH=$($ourHash.Hash)\" | Out-File -FilePath $env:GITHUB_OUTPUT -Append\n"
+        },
+        {
+          "name": "Check Julia version",
+          "shell": "bash",
+          "id": "julia-version",
+          "run": "echo \"juliaversion=$(julia -v)\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "uses": "actions/cache@v4",
+          "id": "cache-project",
+          "with": {
+            "path": "${{ github.action_path }}/.julia",
+            "key": "julia-lint-cache-${{ runner.os }}-${{ steps.julia-version.outputs.juliaversion }}-${{ steps.project-hash.outputs.MANIFEST_HASH }}"
+          }
+        },
+        {
+          "name": "Install and precompile",
+          "if": "steps.cache-project.outputs.cache-hit != 'true'",
+          "run": "julia --project=${{ github.action_path }} -e 'import Pkg; Pkg.instantiate()'",
+          "shell": "bash",
+          "env": {
+            "JULIA_DEPOT_PATH": "${{ github.action_path }}/.julia"
+          }
+        },
+        {
+          "uses": "actions/cache/save@v4",
+          "if": "steps.cache-project.outputs.cache-hit != 'true'",
+          "with": {
+            "path": "${{ github.action_path }}/.julia",
+            "key": "julia-lint-cache-${{ runner.os }}-${{ steps.julia-version.outputs.juliaversion }}-${{ steps.project-hash.outputs.MANIFEST_HASH }}"
+          }
+        },
+        {
+          "name": "Lint",
+          "id": "lint-step",
+          "run": "julia --project=${{ github.action_path }} ${{ github.action_path }}/main.jl",
+          "shell": "bash",
+          "env": {
+            "JULIA_DEPOT_PATH": "${{ github.action_path }}/.julia"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is specifically designed to lint Julia files, which directly relates to improving code quality by identifying potential issues in the code.",
+        "tags": [
+          "lint",
+          "julia",
+          "code quality",
+          "static analysis",
+          "github actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "150fe1afb496a96434bf39a976aea8d2f76db38ab345449aaca41f72ac8226f0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:28.121834Z"
+  }
+}

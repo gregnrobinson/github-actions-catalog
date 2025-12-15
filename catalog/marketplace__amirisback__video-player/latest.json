@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/video-player",
-  "version_id": "e85b92190505",
+  "version_id": "9562fd5cef65",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/video-player/action.yml",
@@ -31,30 +31,30 @@
   },
   "annotations": {
     "categories": [
-      "Documentation",
-      "Dependency management"
+      "Dependency management",
+      "Documentation"
     ],
     "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Documentation",
-        "reasoning": "The action is described as an SDK aimed at making Android app development easier, which suggests it provides documentation and support for developers. It may also involve managing dependencies for the SDK.",
+        "primary_category": "Dependency management",
+        "reasoning": "The action provides an SDK that aids in developing Android apps, which aligns it with dependency management. Additionally, it includes documentation for usage, making it relevant for that category as well.",
         "tags": [
           "SDK",
           "Android",
           "development",
           "Frogobox",
-          "documentation"
+          "dependency"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "e85b921905053075ed0432c71f59d295e6ded2365f64ff68dc1deedd2f64482b",
+    "source_hash": "9562fd5cef6529e6c05b3a0e8d5bca962ea21c56e3565dabe2504777b4e50e96",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.816458Z"
+    "generated_at": "2025-12-15T05:23:05.985254Z"
   }
 }

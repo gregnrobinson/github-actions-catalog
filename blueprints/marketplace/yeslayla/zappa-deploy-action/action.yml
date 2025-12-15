@@ -1,0 +1,19 @@
+name: "Zappa Deploy"
+description: "Deploys a Zappa application to AWS"
+author: josephbmanley
+inputs:
+  directory:
+    description: ""
+    default: "."
+  environment:
+    description: 'Name of the preset in `zappa_settings` to use'
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.directory }}
+    - ${{ inputs.environment }}
+branding:
+  icon: package
+  color: blue

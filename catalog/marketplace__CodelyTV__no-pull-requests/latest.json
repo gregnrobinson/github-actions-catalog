@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/CodelyTV/no-pull-requests",
-  "version_id": "f1ef4bd45340",
+  "version_id": "981f30b6d115",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/CodelyTV/no-pull-requests/action.yml",
@@ -55,21 +55,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action automatically closes open pull requests, which is a form of communication regarding the project's contribution policy. It also provides a message to notify users why their pull request was closed.",
+        "reasoning": "This action automatically closes open pull requests, which involves communication with users about the status of their contributions. It also provides a message to notify users why their pull requests are being closed.",
         "tags": [
           "pull requests",
           "automation",
           "GitHub",
-          "communication",
-          "notification"
+          "notifications",
+          "communication"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "f1ef4bd45340c37f9f2435473bef2c9eda17d6748bd365ae5bcbce9f7a80e823",
+    "source_hash": "981f30b6d1151b06623b1c1a4c5f9224ad88a6739b0393f675f4b86b1cd3db17",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.754456Z"
+    "generated_at": "2025-12-15T05:22:46.028927Z"
   }
 }

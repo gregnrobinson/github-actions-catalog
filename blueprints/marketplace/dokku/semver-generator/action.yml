@@ -1,0 +1,22 @@
+---
+name: "semver-generator"
+description: "Github Action for generating a semver version"
+author: "Dokku"
+branding:
+  icon: "tag"
+  color: "blue"
+inputs:
+  bump:
+    description: "The type of bump to perform (major, minor, patch)"
+    required: true
+  input:
+    description: "The input version to bump"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  entrypoint: "/usr/local/bin/github-entrypoint"
+
+outputs:
+  version:
+    description: "The computed version"

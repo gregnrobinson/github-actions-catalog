@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/consumable-code-the-sport-db-api",
-  "version_id": "925c4f70a2aa",
+  "version_id": "6b9a37256f5a",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-the-sport-db-api/action.yml",
@@ -39,7 +39,7 @@
   },
   "annotations": {
     "categories": [
-      "Code quality",
+      "Dependency management",
       "Documentation"
     ],
     "confidence": "medium",
@@ -47,22 +47,22 @@
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Code quality",
-        "reasoning": "The action provides consumable code for interacting with a public API, which can enhance code quality and reusability. It also includes documentation for input parameters.",
+        "primary_category": "Dependency management",
+        "reasoning": "The action provides consumable code for interacting with a public API, which suggests it is focused on managing dependencies related to API consumption. Additionally, it includes descriptions for inputs, indicating a documentation aspect.",
         "tags": [
           "API",
-          "Code",
-          "Documentation",
-          "Public API",
-          "Retrofit"
+          "dependency",
+          "documentation",
+          "consumable code",
+          "TheSportDbApi"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "925c4f70a2aa0f76b0fc3af7b66998150a47a5851bcf66da7ea9ee86c43be603",
+    "source_hash": "6b9a37256f5a4999c8bfbd8574df382f69bb691df36455fb42786cd731bcf6de",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.776006Z"
+    "generated_at": "2025-12-15T05:22:54.330589Z"
   }
 }

@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/julia-actions/julia-downgrade-compat",
+  "version_id": "cdf29f39571b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-downgrade-compat/action.yml",
+    "origin": "github.com/julia-actions/julia-downgrade-compat",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "v2.0.0",
+      "published_at": "2025-07-26T13:43:48Z",
+      "html_url": "https://github.com/julia-actions/julia-downgrade-compat/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Downgrade Julia compat entries",
+    "description": "Uses Resolver.jl to find and install minimal compatible versions of dependencies.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "skip",
+        "required": false,
+        "default": "",
+        "description": "Comma-separated list of packages to not downgrade."
+      },
+      {
+        "name": "projects",
+        "required": false,
+        "default": ".",
+        "description": "Comma-separated list of Julia projects to resolve."
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "default": "alldeps",
+        "description": "Downgrade mode: deps (direct dependencies), alldeps (deps + weakdeps), weakdeps (only weakdeps), forcedeps (deps with strict lower bound verification)"
+      },
+      {
+        "name": "julia_version",
+        "required": false,
+        "default": "1.10",
+        "description": "Julia version to use with resolver (default: 1.10)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "julia --color=yes \"${{ github.action_path }}/downgrade.jl\" \"${{ inputs.skip }}\" \"${{ inputs.projects }}\" \"${{ inputs.mode }}\" \"${{ inputs.julia_version }}\"",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on finding and installing minimal compatible versions of dependencies, which directly relates to managing dependencies in a project.",
+        "tags": [
+          "Julia",
+          "dependency",
+          "compatibility",
+          "resolver",
+          "downgrade"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "cdf29f39571b5621b200f6c976f974d2b5b5e1459484601959242882832997b9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:24.096868Z"
+  }
+}

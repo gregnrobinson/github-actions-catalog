@@ -1,0 +1,6 @@
+name: 'Upload Julia codecov results'
+description: 'Upload Julia test coverage results to codecov'
+author: 'David Anthoff'
+runs:
+  using: 'node12'
+  main: 'lib/main.js'

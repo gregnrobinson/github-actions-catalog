@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lowlighter/setup-velociraptor",
-  "version_id": "c07c7b5d88fa",
+  "version_id": "ad0af8fb5766",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lowlighter/setup-velociraptor/action.yml",
@@ -98,7 +98,7 @@
           "name": "compute output velociraptor-version",
           "id": "velociraptor",
           "shell": "bash",
-          "run": "echo \"::set-output name=velociraptor-version::$(${{ inputs.velociraptor-alias }} --version)\"\n"
+          "run": "echo \"::set-output name=velociraptor-version::$(${{ inputs.velociraptor-alias }} --version)\""
         }
       ]
     }
@@ -115,21 +115,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action installs a scripts manager (Velociraptor) and manages dependencies like Deno, making it primarily focused on dependency management. It also involves building the environment by installing necessary tools.",
+        "reasoning": "This action installs the Velociraptor scripts manager, which is primarily focused on managing dependencies and versions of scripts. It also involves setup processes that are typical in build and infrastructure contexts.",
         "tags": [
           "Velociraptor",
           "Deno",
           "Dependency Management",
           "Setup",
-          "Build"
+          "Scripts"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "c07c7b5d88fa4903d6d2a57d7f3b94c20b45a97c41e066a01f19fb38d03a341f",
+    "source_hash": "ad0af8fb5766dd6c3c3da4ecf22f7e7dda0033afdef308787153104db2137657",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.884806Z"
+    "generated_at": "2025-12-15T05:23:08.200741Z"
   }
 }

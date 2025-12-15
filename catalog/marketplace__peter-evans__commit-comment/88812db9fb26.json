@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/commit-comment/action.yml",
     "origin": "github.com/peter-evans/commit-comment",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.0.0",
+      "name": "Commit Comment v4.0.0",
+      "published_at": "2025-10-02T15:55:31Z",
+      "html_url": "https://github.com/peter-evans/commit-comment/releases/tag/v4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Commit Comment",
@@ -106,6 +114,6 @@
     "source_hash": "88812db9fb260e71e7f75f4d7934dbc84cb4cd3ab5b969de08bd430636ed4612",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.517770Z"
+    "generated_at": "2025-12-15T05:23:35.942228Z"
   }
 }

@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/mheap/auto-close-org-issues-action",
+  "version_id": "6adb4e80dde0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/auto-close-org-issues-action/action.yml",
+    "origin": "github.com/mheap/auto-close-org-issues-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2023-01-12T20:22:00Z",
+      "html_url": "https://github.com/mheap/auto-close-org-issues-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Auto Close Org Issues",
+    "description": "Automatically close issues that are raised by people that belong to a specific organization",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "A GitHub API token that has permission to list org membership"
+      },
+      {
+        "name": "org",
+        "required": true,
+        "default": null,
+        "description": "The org to auto-close issues from"
+      },
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "description": "The comment to add when auto-closing an issue"
+      },
+      {
+        "name": "keep_open",
+        "required": false,
+        "default": null,
+        "description": "If any of these labels (comma-separated) are applied, the issue will not be auto-closed"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Automation",
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Automation",
+        "reasoning": "This action automates the process of closing issues based on organization membership, which relates to automation and communication through comments. It also touches on code quality by managing issues effectively.",
+        "tags": [
+          "auto-close",
+          "issues",
+          "GitHub",
+          "organization",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "6adb4e80dde0641189072699e303205d5a5a33bf47babb4cf4d9958e6744de74",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:22.029409Z"
+  }
+}

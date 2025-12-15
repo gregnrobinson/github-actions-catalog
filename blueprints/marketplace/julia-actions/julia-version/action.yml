@@ -1,0 +1,41 @@
+# See: https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-actions
+---
+name: julia-version
+description: Resolve version specifiers into Julia versions
+author: Curtis Vogt
+branding:
+  icon: filter
+  color: purple
+inputs:
+  versions:
+    description: >-
+      The Julia version specifier or list of specifiers to resolve. Support
+      formats include a scalar, JSON list, or a YAML list. When passing in a
+      scalar prefer using a string instead of a numeric value to avoid unwanted
+      YAML decimal conversions (e.g. `1.10` will be interpreted as `1.1`).
+    required: true
+  project:
+    description: >-
+      The path to the Julia project directory or file to use when resolving some
+      specifiers (e.g. `min`). Defaults to using the environmental variable
+      `JULIA_PROJECT` if set or otherwise `.`.
+    required: false
+    default: "" # Empty string is a special value which falls back to using JULIA_PROJECT if defined, otherwise "."
+  if-missing:
+    description: >-
+      Determine the behavior if a version specifier cannot be resolved.
+    required: false
+    default: warn
+outputs:
+  resolved-json:
+    description: >-
+      The unique JSON list of resolved Julia versions. Any versions which could
+      not be resolved will be excluded from this list.
+  resolved:
+    description: >-
+      A single resolved Julia version when the input `versions` contains is a
+      single version specifier. Will be an empty string if version cannot be
+      resolved.
+runs:
+  using: node20
+  main: dist/index.js

@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/mheap/debug-artifact",
+  "version_id": "5749b5fae321",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/debug-artifact/action.yml",
+    "origin": "github.com/mheap/debug-artifact",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.4",
+      "name": "v1.0.4",
+      "published_at": "2022-11-07T22:31:14Z",
+      "html_url": "https://github.com/mheap/debug-artifact/releases/tag/v1.0.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Debug Artifacts",
+    "description": "Uploads debug logs as an artifact",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Debugging"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action uploads debug logs, which can be considered a form of documentation for troubleshooting and understanding application behavior.",
+        "tags": [
+          "debug",
+          "artifacts",
+          "logs",
+          "upload",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "5749b5fae321e4b76bf33b0a977cd5bd3b9e2e53bc470c1ea5c46d25fd33fc51",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:20.966857Z"
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/MarketingPipeline/OCR-PDF-Action",
+  "version_id": "7535bed2f9e3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MarketingPipeline/OCR-PDF-Action/action.yml",
+    "origin": "github.com/MarketingPipeline/OCR-PDF-Action",
+    "publisher": "MarketingPipeline",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "2.0.0 (Mar, 2, 2025)",
+      "published_at": "2025-03-02T07:34:19Z",
+      "html_url": "https://github.com/MarketingPipeline/OCR-PDF-Action/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "OCR PDF Action",
+    "description": "Turn scanned PDFs into searchable documents",
+    "author": "github.com/MarketingPipeline",
+    "inputs": [
+      {
+        "name": "input_file",
+        "required": true,
+        "default": "",
+        "description": "Input PDF filepath"
+      },
+      {
+        "name": "output_file",
+        "required": true,
+        "default": "",
+        "description": "Output PDF filepath"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.input_file }}",
+        "${{ inputs.output_file }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action converts scanned PDFs into searchable documents, which enhances documentation quality and accessibility. It also relates to code quality as it improves the usability of documents in a development context.",
+        "tags": [
+          "OCR",
+          "PDF",
+          "searchable documents",
+          "documentation",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "7535bed2f9e33a84ebd515d9a8041da41d04c3b5705019ebb5df4774d0446f65",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:36.487663Z"
+  }
+}

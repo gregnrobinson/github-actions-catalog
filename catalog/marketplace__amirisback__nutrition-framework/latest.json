@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/nutrition-framework",
-  "version_id": "cd1e52b86fe6",
+  "version_id": "02fcd30ec582",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/nutrition-framework/action.yml",
@@ -47,10 +47,10 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is described as a final project with full and clear documentation, indicating its primary focus on providing documentation. However, without more context on its functionality, other categories are not applicable.",
+        "reasoning": "The action is described as having full and clear documentation, indicating its primary focus on providing documentation resources. However, the lack of specific functionality details makes it harder to categorize definitively.",
         "tags": [
-          "nutrition",
           "documentation",
+          "nutrition",
           "project",
           "bachelor",
           "framework"
@@ -59,9 +59,9 @@
     ]
   },
   "cache": {
-    "source_hash": "cd1e52b86fe64662d2dc5a0d5f5d30ecdb7a7cba43af08cc1e3570e16d8a07dc",
+    "source_hash": "02fcd30ec582e90a31cce0a2f6469e3c7033633524399f19058316aff0170f5a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.818497Z"
+    "generated_at": "2025-12-15T05:23:06.694318Z"
   }
 }

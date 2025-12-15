@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/spring-apps-deploy",
-  "version_id": "b0b6ac8751dc",
+  "version_id": "0b190c0473b2",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/spring-apps-deploy/action.yml",
@@ -255,7 +255,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is focused on deploying applications to Azure Spring Apps, which clearly falls under the Deployment category, and it also involves managing infrastructure on Azure, hence the Infrastructure category.",
+        "reasoning": "The action is specifically designed to deploy applications to Azure Spring Apps, which falls under the Deployment category. It also involves managing infrastructure on Azure, hence the secondary category of Infrastructure.",
         "tags": [
           "Azure",
           "Deployment",
@@ -267,9 +267,9 @@
     ]
   },
   "cache": {
-    "source_hash": "b0b6ac8751dcb4a59a2342491b3c7d4e948400f6b1564d4f9bb4aa783ba05f37",
+    "source_hash": "0b190c0473b26f340197465a7242f09f58c42f87933470ae8fb68705e8ce1958",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.873562Z"
+    "generated_at": "2025-12-15T05:21:51.691111Z"
   }
 }

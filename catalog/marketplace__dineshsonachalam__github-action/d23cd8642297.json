@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/dineshsonachalam/github-action",
+  "version_id": "d23cd8642297",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dineshsonachalam/github-action/action.yml",
+    "origin": "github.com/dineshsonachalam/github-action",
+    "publisher": "dineshsonachalam",
+    "verified": false
+  },
+  "definition": {
+    "name": "API documentation on Bump",
+    "description": "Generate your API doc and an automatic changelog from any OpenAPI or AsyncAPI file.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "file",
+        "required": true,
+        "default": "api-contract.yml",
+        "description": "Relative path to the documentation file"
+      },
+      {
+        "name": "doc",
+        "required": true,
+        "default": null,
+        "description": "Documentation id. Can be found in the documentation settings on https://bump.sh"
+      },
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "Documentation token. Can be found in the documentation settings on https://bump.sh"
+      },
+      {
+        "name": "command",
+        "required": false,
+        "default": "deploy",
+        "description": "Bump command: deploy/dry-run/preview"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d23cd8642297b59a527714114f92575a5d04bb4f9fe0cd28e9e84d70cd97e7dc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:30.222218Z"
+  }
+}

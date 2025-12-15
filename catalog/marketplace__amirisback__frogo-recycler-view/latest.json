@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/frogo-recycler-view",
-  "version_id": "71049752cd9e",
+  "version_id": "a0beb5ad4085",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-recycler-view/action.yml",
@@ -49,11 +49,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is a library that provides documentation and is based on RecyclerView, which relates to code quality and dependency management. However, the primary focus is on documentation.",
+        "reasoning": "The action focuses on providing a library with clear documentation, which is essential for understanding and using the library effectively. It also relates to code quality and dependency management as it is a library that can be used within projects.",
         "tags": [
           "library",
-          "RecyclerView",
           "documentation",
+          "RecyclerView",
           "Android",
           "dependency"
         ]
@@ -61,9 +61,9 @@
     ]
   },
   "cache": {
-    "source_hash": "71049752cd9e63e85499d13490c877a24359391ed99a38f2a14b2bf69acf3c55",
+    "source_hash": "a0beb5ad4085706a6802504b32af1328a231105a93612b45435f8318e1f12e0b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.789010Z"
+    "generated_at": "2025-12-15T05:22:58.151537Z"
   }
 }

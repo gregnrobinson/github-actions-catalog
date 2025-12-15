@@ -1,0 +1,93 @@
+name: "urlchecker-action"
+author: "Ayoub Malek, Vanessa Sochat"
+description: "Automatically check for broken links in a project files. This includes python, markdwon, restructured text files and more."
+
+inputs:
+  git_path:
+    description: "A project to clone. If not provided, assumes already cloned in the present working directory."
+    required: false
+
+  subfolder:
+    description: "A subfolder to parse instead of the root directory."
+    required: false
+
+  force_pass:
+    description: "Force pass of checking, regardless of the result."
+    required: false
+
+  branch:
+    description: "If a project (git_path) is defined, use this branch. Defaults to master"
+    required: false
+    default: master
+
+  cleanup:
+    description: "Cleanup (delete) repository to check after doing so (appropriate for when clone is done)"
+    required: false
+    default: false
+
+  include_files:
+    description: "A comma seperated list of paths or patterns to include."
+    required: false
+    default: ""
+
+  file_types:
+    description: "A comma-separated list of file types to cover in the URL checks"
+    required: false
+    default: ".md,.py,.rst,.html"
+
+  print_all:
+    description: "Choose whether to include file with no URLs in the prints."
+    required: false
+    default: false
+
+  verbose:
+    description: "Choose whether to print a more verbose end summary with files and broken URLs."
+    required: false
+    default: false
+
+  serial:
+    description: "Run in serial (good for debugging)"
+    required: false
+    default: false
+
+  retry_count:
+    description: "If a request fails, retry this number of times. Defaults to 1"
+    required: false
+    default: 1
+
+  save:
+    description: "A csv file path to save the results to."
+    required: false
+    default: ""
+
+  timeout:
+    description: "The timeout (seconds) to provide to requests to wait for a response."
+    required: false
+    default: 5
+
+  exclude_urls:
+    description: "A comma seperated links to exclude during URL checks."
+    required: false
+    default: ""
+
+  exclude_patterns:
+    description: "A comma seperated patterns to exclude during URL checks."
+    required: false
+    default: ""
+
+  exclude_files:
+    description: "A comma seperated list of paths or patterns to exclude during URL checks."
+    required: false
+    default: ""
+
+  workers:
+    description: "Number of workers to run in parallel (defaults to 9)"
+    required: false
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "link"
+  color: "blue"

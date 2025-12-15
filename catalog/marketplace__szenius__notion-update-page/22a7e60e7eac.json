@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/szenius/notion-update-page",
+  "version_id": "22a7e60e7eac",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/szenius/notion-update-page/action.yml",
+    "origin": "github.com/szenius/notion-update-page",
+    "publisher": "szenius",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.0.3",
+      "name": "Fix upgrade to Node16",
+      "published_at": "2023-05-05T15:56:27Z",
+      "html_url": "https://github.com/szenius/notion-update-page/releases/tag/2.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Notion Update Page",
+    "description": "Update property of Notion page on commit",
+    "author": "",
+    "inputs": [
+      {
+        "name": "gh-username",
+        "required": true,
+        "default": null,
+        "description": "GitHub username of user who has access to the repository"
+      },
+      {
+        "name": "gh-token",
+        "required": true,
+        "default": null,
+        "description": "GitHub access token of user who has access to the repository"
+      },
+      {
+        "name": "notion-key",
+        "required": true,
+        "default": null,
+        "description": "Notion Integration Secret Key"
+      },
+      {
+        "name": "notion-property-name",
+        "required": true,
+        "default": null,
+        "description": "Notion Page property to be updated"
+      },
+      {
+        "name": "notion-update-value",
+        "required": true,
+        "default": null,
+        "description": "New value for Notion page property"
+      },
+      {
+        "name": "existing-value",
+        "required": false,
+        "default": "overwrite",
+        "description": "What to do with existing value in field to be updated"
+      },
+      {
+        "name": "notion-property-type",
+        "required": false,
+        "default": "rich_text",
+        "description": "Type of Notion Page property"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "22a7e60e7eace6b6b958bfff88a783318279483d46de3b5ae3de7949769cd73f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:07.998545Z"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/dineshsonachalam/action-my-markdown-link-checker",
+  "version_id": "b0a318135e4b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dineshsonachalam/action-my-markdown-link-checker/action.yml",
+    "origin": "github.com/dineshsonachalam/action-my-markdown-link-checker",
+    "publisher": "dineshsonachalam",
+    "verified": false
+  },
+  "definition": {
+    "name": "My Markdown Link Checker",
+    "description": "Check markdown files for broken links",
+    "author": "ruzickap",
+    "inputs": [
+      {
+        "name": "config_file",
+        "required": false,
+        "default": null,
+        "description": "markdown-link-check config file"
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": null,
+        "description": "Debug mode"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "Exclude files or directories"
+      },
+      {
+        "name": "fd_cmd_params",
+        "required": false,
+        "default": null,
+        "description": "Command line parameters for fd command. \"exclude\" and \"search_paths\" parameters are ignored if this is set"
+      },
+      {
+        "name": "quiet",
+        "required": false,
+        "default": null,
+        "description": "Quiet mode for markdown-link-check"
+      },
+      {
+        "name": "search_paths",
+        "required": false,
+        "default": null,
+        "description": "Set paths which should be recursively scanned for markdown files (*.md) and linted. By default all \"*.md\" files are checked"
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": null,
+        "description": "Verbose mode for markdown-link-check"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action checks markdown files for broken links, which is a quality assurance task related to the integrity of documentation. It also serves as a testing tool for markdown files.",
+        "tags": [
+          "markdown",
+          "link checker",
+          "code quality",
+          "testing",
+          "documentation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b0a318135e4b840e66aa822ab1dc0ca406f525f96c3ed5c081fca3f41d40a52d",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:29.815992Z"
+  }
+}

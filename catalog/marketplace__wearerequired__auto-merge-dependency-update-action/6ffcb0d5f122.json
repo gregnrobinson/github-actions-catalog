@@ -1,0 +1,78 @@
+{
+  "action_id": "marketplace/wearerequired/auto-merge-dependency-update-action",
+  "version_id": "6ffcb0d5f122",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wearerequired/auto-merge-dependency-update-action/action.yml",
+    "origin": "github.com/wearerequired/auto-merge-dependency-update-action",
+    "publisher": "wearerequired",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2021-03-14T14:43:48Z",
+      "html_url": "https://github.com/wearerequired/auto-merge-dependency-update-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Auto Merge Dependency Updates",
+    "description": "Enable auto-merge for a PR that only contains dependency updates, based on some rules.",
+    "author": "required gmbh",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": true,
+        "default": null,
+        "description": "A personal access token used to authenticated with GitHub"
+      },
+      {
+        "name": "allowed-actors",
+        "required": false,
+        "default": "dependabot-preview[bot], dependabot[bot]",
+        "description": "Comma-separated list of usernames auto merge is allowed for"
+      },
+      {
+        "name": "allowed-update-types",
+        "required": false,
+        "default": "devDependencies:minor, devDependencies:patch",
+        "description": "Comma-separated list of types of updates that are allowed. Supported: [devDependencies|dependencies]:[major|minor|patch]"
+      },
+      {
+        "name": "package-block-list",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of packages that auto merge should not be allowed for"
+      },
+      {
+        "name": "merge-method",
+        "required": false,
+        "default": "SQUASH",
+        "description": "The merge method to use. Supported: MERGE, SQUASH, REBASE"
+      },
+      {
+        "name": "merge-author-email",
+        "required": false,
+        "default": null,
+        "description": "The email address to associate with the auto-merge"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6ffcb0d5f122411dc90e1d0261f4ec00fb2677c5ecb55cb6f734c2b254659b07",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:13.958915Z"
+  }
+}

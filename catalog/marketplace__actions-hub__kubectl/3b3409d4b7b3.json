@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/actions-hub/kubectl",
+  "version_id": "3b3409d4b7b3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/actions-hub/kubectl/action.yml",
+    "origin": "github.com/actions-hub/kubectl",
+    "publisher": "actions-hub",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.34.3",
+      "name": "v1.34.3",
+      "published_at": "2025-12-10T12:24:17Z",
+      "html_url": "https://github.com/actions-hub/kubectl/releases/tag/v1.34.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Kuberentes (k8s) cli - kubectl",
+    "description": "GitHub Action for interacting with kubectl (k8s)",
+    "author": "Serhiy Mytrovtsiy <mitrovtsiy@ukr.net>",
+    "inputs": [
+      {
+        "name": "args",
+        "required": false,
+        "default": null,
+        "description": "Arguments for the CLI command"
+      },
+      {
+        "name": "redirect-to",
+        "required": false,
+        "default": null,
+        "description": "Variable name to redirect CLI output"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "env": {
+        "dest": "${{ inputs.redirect-to }}"
+      }
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "3b3409d4b7b3c8dc502010ef736c2c7aca97834580ea4a8fbb0098f4633964be",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:05.048866Z"
+  }
+}

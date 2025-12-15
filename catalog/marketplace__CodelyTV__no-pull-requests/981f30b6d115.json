@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/CodelyTV/no-pull-requests/action.yml",
     "origin": "github.com/CodelyTV/no-pull-requests",
     "publisher": "CodelyTV",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version!",
+      "published_at": "2020-04-08T12:15:42Z",
+      "html_url": "https://github.com/CodelyTV/no-pull-requests/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "No Pull Requests",
@@ -45,6 +53,6 @@
     "source_hash": "981f30b6d1151b06623b1c1a4c5f9224ad88a6739b0393f675f4b86b1cd3db17",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.573012Z"
+    "generated_at": "2025-12-15T05:22:46.028927Z"
   }
 }

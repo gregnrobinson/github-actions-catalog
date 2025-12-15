@@ -1,0 +1,131 @@
+{
+  "action_id": "marketplace/vsoch/action-updater",
+  "version_id": "f37a3d972dd7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/action-updater/action.yml",
+    "origin": "github.com/vsoch/action-updater",
+    "publisher": "vsoch",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.0.16",
+      "name": "Action Updater v0.0.16",
+      "published_at": "2022-11-05T03:22:37Z",
+      "html_url": "https://github.com/vsoch/action-updater/releases/tag/0.0.16",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "action-updater",
+    "description": "Check for updates to your actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "GitHub token"
+      },
+      {
+        "name": "updaters",
+        "required": false,
+        "default": null,
+        "description": "Choose named updaters to run (comma separated value, no spaces)"
+      },
+      {
+        "name": "path",
+        "required": false,
+        "default": ".github/workflows",
+        "description": "path to file or directory to check"
+      },
+      {
+        "name": "settings_file",
+        "required": false,
+        "default": null,
+        "description": "custom settings file for updater"
+      },
+      {
+        "name": "args",
+        "required": false,
+        "default": null,
+        "description": "additional args to provide to 'detect' or 'update' commands"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "release of updater to use"
+      },
+      {
+        "name": "allow_fail",
+        "required": false,
+        "default": false,
+        "description": "allow a failure (only relevant if pull_request is false)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install Action Updater",
+          "env": {
+            "version": "${{ inputs.version }}"
+          },
+          "run": "if [[ \"${version}\" == \"\" ]]; then\n    pip install git+https://github.com/vsoch/action-updater.git@main\nelse\n    pip install action-updater@${version}\nfi\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Detect Action Updates",
+          "env": {
+            "path": "${{ inputs.path }}",
+            "settings_file": "${{ inputs.settings_file }}",
+            "args": "${{ inputs.args }}",
+            "updaters": "${{ inputs.updaters }}",
+            "GITHUB_TOKEN": "${{ inputs.token }}"
+          },
+          "run": "# If pwd is provided, ensure we get the entire path\nif [[ \"${path}\" == \".\" ]]; then\n    path=$(pwd)\n    echo \"path=${path}\" >> ${GITHUB_ENV}\nfi\ncmd=\"action-updater\"\nif [[ \"${settings_file}\" != \"\" ]]; then\n    cmd=\"$cmd --settings-file ${settings_file}\"\nfi\ncmd=\"${cmd} detect\"\nif [[ \"${updaters}\" != \"\" ]]; then\n    cmd=\"${cmd} --updaters ${updaters}\"\nfi\ncmd=\"${cmd} ${path} ${args}\"\nprintf \"${cmd}\\n\"\n$cmd && retval=0 || retval=1\necho \"retval=${retval}\" >> $GITHUB_ENV\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Exit on failure (updates)",
+          "env": {
+            "allow_fail": "${{ inputs.allow_fail }}",
+            "retval": "${{ env.retval }}"
+          },
+          "run": "if [[ \"${retval}\" != \"0\" ]] && [[ \"${allow_fail}\" == \"false\" ]]; then\n    printf \"Detect found changes, and allow_fail is false.\"\n    exit 1\nelif [[ \"${retval}\" != \"0\" ]] && [[ \"${allow_fail}\" == \"true\" ]]; then\n    printf \"Detect found changes, and allow_fail is true.\"\n    exit 0\nfi\nprintf \"Return value is ${retval}, no changes needed!\\n\"\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action checks for updates to GitHub Actions, which falls under dependency management, and it also relates to code quality by ensuring that the latest versions of actions are used.",
+        "tags": [
+          "dependency",
+          "updater",
+          "GitHub Actions",
+          "automation",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f37a3d972dd712a354f7741623019f2e2e2b514c1007190ab884da0d0bd56506",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:32.735716Z"
+  }
+}

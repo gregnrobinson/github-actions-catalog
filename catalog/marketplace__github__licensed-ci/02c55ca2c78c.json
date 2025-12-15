@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/licensed-ci/action.yml",
     "origin": "github.com/github/licensed-ci",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.11.1",
+      "name": "1.11.1: Dependencies bump",
+      "published_at": "2024-12-02T21:37:52Z",
+      "html_url": "https://github.com/github/licensed-ci/releases/tag/v1.11.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Licensed CI",
@@ -132,6 +140,6 @@
     "source_hash": "02c55ca2c78c8f8c91df585e53aa49bc2079aed87d5f266ae2d2c98faf18f9af",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.969661Z"
+    "generated_at": "2025-12-15T05:22:31.025568Z"
   }
 }

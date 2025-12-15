@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/easy-kotlin-lib-jar",
-  "version_id": "a4904713d605",
+  "version_id": "c93f345e5c19",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/easy-kotlin-lib-jar/action.yml",
@@ -40,30 +40,29 @@
   "annotations": {
     "categories": [
       "Packaging",
-      "Build",
-      "Documentation"
+      "Build"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Packaging",
-        "reasoning": "The action is focused on creating a Kotlin library, which falls under packaging, while also being related to build processes and potentially documentation for the library usage.",
+        "reasoning": "The action is focused on creating a Kotlin library, which falls under packaging, while also involving build processes to compile the library.",
         "tags": [
           "Kotlin",
           "Library",
           "Packaging",
           "Build",
-          "Sample"
+          "Java"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "a4904713d605f729a2dd71fb6f4953e8db7b0f90b251d8985272d802a9b62038",
+    "source_hash": "c93f345e5c19675f07d0f92799d4c225ac8e4b10ddce095ffc1bd790c6ffb918",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.820388Z"
+    "generated_at": "2025-12-15T05:23:07.329244Z"
   }
 }

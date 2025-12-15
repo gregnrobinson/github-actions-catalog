@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/vdc",
-  "version_id": "c178a5852ddf",
+  "version_id": "8292178fe66c",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/vdc/action.yml",
@@ -30,21 +30,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is focused on building a toolkit, which falls under the Build category, and it also mentions deployment, indicating it facilitates deploying the built toolkit.",
+        "reasoning": "The action is focused on building a toolkit, which falls under the Build category, and it also mentions deployment, indicating it is used for deploying the built toolkit.",
         "tags": [
           "VDC",
-          "build",
-          "deployment",
           "toolkit",
-          "azure"
+          "build",
+          "deploy",
+          "Azure"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "c178a5852ddf6416244a1fb5353169a51e41fe988647b5fe4104bf0dd7761ff1",
+    "source_hash": "8292178fe66c3f6f3642786500b0e9e88fe76a6a56b64d00cc092aa8de1a0956",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.865346Z"
+    "generated_at": "2025-12-15T05:21:51.033242Z"
   }
 }

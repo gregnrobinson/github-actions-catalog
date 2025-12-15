@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/manage-azure-policy",
-  "version_id": "e64191474d78",
+  "version_id": "4f002e190198",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/manage-azure-policy/action.yml",
@@ -61,7 +61,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is focused on managing Azure policies, which directly relates to infrastructure management and deployment practices in cloud environments.",
+        "reasoning": "The action is focused on managing Azure policies, which directly relates to infrastructure management and deployment practices in cloud environments.",
         "tags": [
           "Azure",
           "policy",
@@ -73,9 +73,9 @@
     ]
   },
   "cache": {
-    "source_hash": "e64191474d78a1422dc52e2346e0b1bcd38e46a212558a87d0d2469b9272a708",
+    "source_hash": "4f002e19019884dc7f9874f984699b29d492fb298e79b0a10cd817e58300c171",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.843008Z"
+    "generated_at": "2025-12-15T05:21:49.058800Z"
   }
 }

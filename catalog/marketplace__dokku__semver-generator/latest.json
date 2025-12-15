@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/dokku/semver-generator",
+  "version_id": "a754adfa61f3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dokku/semver-generator/action.yml",
+    "origin": "github.com/dokku/semver-generator",
+    "publisher": "dokku",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.2.13",
+      "name": "0.2.13",
+      "published_at": "2024-05-18T04:32:58Z",
+      "html_url": "https://github.com/dokku/semver-generator/releases/tag/0.2.13",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "semver-generator",
+    "description": "Github Action for generating a semver version",
+    "author": "Dokku",
+    "inputs": [
+      {
+        "name": "bump",
+        "required": true,
+        "default": null,
+        "description": "The type of bump to perform (major, minor, patch)"
+      },
+      {
+        "name": "input",
+        "required": true,
+        "default": null,
+        "description": "The input version to bump"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "version",
+        "description": "The computed version"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "entrypoint": "/usr/local/bin/github-entrypoint"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Versioning",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Versioning",
+        "reasoning": "The action generates a semantic version based on the input version and the type of bump specified, which relates to versioning and dependency management.",
+        "tags": [
+          "semver",
+          "versioning",
+          "bump",
+          "git",
+          "dokku"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "a754adfa61f344f9c192065f005c55bff3fc998ea67178be6de6c4d7633df4a6",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:11.870901Z"
+  }
+}

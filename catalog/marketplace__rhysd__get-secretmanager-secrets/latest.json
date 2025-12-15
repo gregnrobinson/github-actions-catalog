@@ -1,0 +1,63 @@
+{
+  "action_id": "marketplace/rhysd/get-secretmanager-secrets",
+  "version_id": "94931da82acc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/get-secretmanager-secrets/action.yml",
+    "origin": "github.com/rhysd/get-secretmanager-secrets",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Get Secret Manager secrets",
+    "description": "Get secrets from Google Secret Manager and make their results available as\noutput variables.",
+    "author": "Google LLC",
+    "inputs": [
+      {
+        "name": "secrets",
+        "required": true,
+        "default": null,
+        "description": "Comma-separated or newline-separated list of secrets to fetch. Secrets\nmust be of the format <project>/<secret> or <project>/<secret>/<version>."
+      },
+      {
+        "name": "min_mask_length",
+        "required": false,
+        "default": "4",
+        "description": "Minimum line length for a secret to be masked. Extremely short secrets\n(e.g. \"{\" or \"a\") can make GitHub Actions log output unreadable. This is\nespecially important for multi-line secrets, since each line of the secret\nis masked independently."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Authentication",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Authentication",
+        "reasoning": "This action retrieves secrets from Google Secret Manager, which is primarily an authentication mechanism for accessing sensitive information. It also involves dependency management as it fetches necessary secrets for the workflow.",
+        "tags": [
+          "Google",
+          "Secret Manager",
+          "secrets",
+          "authentication",
+          "dependency management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "94931da82acc5afdfcfa3c74c83638b8a75404affd703191da486d3aee9cbafd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:43.733285Z"
+  }
+}

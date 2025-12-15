@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/terraform-aws-iam-policy-validator",
-  "version_id": "18bae6d7273e",
+  "version_id": "5b8146689a99",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/terraform-aws-iam-policy-validator/action.yml",
@@ -128,7 +128,8 @@
   "annotations": {
     "categories": [
       "Security",
-      "Code quality"
+      "Code quality",
+      "Testing"
     ],
     "confidence": "high",
     "evidence": [
@@ -136,7 +137,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "This action focuses on validating AWS IAM policies, which is a security-related task, while also ensuring the quality of the code by checking the Terraform templates for compliance with policy standards.",
+        "reasoning": "This action focuses on validating AWS IAM policies, which is primarily a security concern. Additionally, it checks the quality of the Terraform templates by ensuring compliance with IAM policies, which falls under code quality and testing.",
         "tags": [
           "AWS",
           "IAM",
@@ -148,9 +149,9 @@
     ]
   },
   "cache": {
-    "source_hash": "18bae6d7273ecac8c2bf8b296584f2d3a0cb061bc74e78a60cde4be9f2f5b3b6",
+    "source_hash": "5b8146689a9934baea9ea4b63469bb734c1a3ddc852f1a5e2cbcfdc5b5f4c5b8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.475012Z"
+    "generated_at": "2025-12-15T05:22:39.803798Z"
   }
 }

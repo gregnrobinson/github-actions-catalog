@@ -1,0 +1,62 @@
+{
+  "action_id": "marketplace/vsoch/pull-request-action",
+  "version_id": "6e395b7c24fa",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/pull-request-action/action.yml",
+    "origin": "github.com/vsoch/pull-request-action",
+    "publisher": "vsoch",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.1.1",
+      "name": "Pull Request Action v1.1.1",
+      "published_at": "2024-03-14T17:11:05Z",
+      "html_url": "https://github.com/vsoch/pull-request-action/releases/tag/1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Pull Request Action",
+    "description": "A GitHub action to open a pull request",
+    "author": "vsoch",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "pull_request_number",
+        "description": "If the pull request is opened, this is the number for it."
+      },
+      {
+        "name": "pull_request_url",
+        "description": "If the pull request is opened, the html url for it."
+      },
+      {
+        "name": "pull_request_return_code",
+        "description": "The pull request return code."
+      },
+      {
+        "name": "assignees_return_code",
+        "description": "The add assignees post return code."
+      },
+      {
+        "name": "reviewers_return_code",
+        "description": "The add reviewers post return code."
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "6e395b7c24fafbb0002468aee9dd5c1fbd68b7155995268239accde6ac0a7218",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:34.557492Z"
+  }
+}

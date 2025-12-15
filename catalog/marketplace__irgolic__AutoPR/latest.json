@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/irgolic/AutoPR",
-  "version_id": "32888afd2158",
+  "version_id": "5e10a1fbb3d1",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/irgolic/AutoPR/action.yml",
@@ -115,8 +115,8 @@
   "annotations": {
     "categories": [
       "Code quality",
-      "Communication",
-      "Testing"
+      "Testing",
+      "Communication"
     ],
     "confidence": "high",
     "evidence": [
@@ -124,21 +124,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action focuses on automatically generating pull requests to fix issues, which directly relates to improving code quality. It also involves communication through the creation of pull requests and may include testing aspects of the generated code.",
+        "reasoning": "The action automates the creation of pull requests to fix issues, which directly relates to code quality. It also involves communication through the generation of pull requests and potentially notifying users of changes.",
         "tags": [
           "pull request",
           "automation",
           "AI",
-          "GitHub",
+          "ChatGPT",
           "code quality"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "32888afd2158ff2a50232dcb1e4825e097b8aa089c2fe412c90a6262c5fba6fa",
+    "source_hash": "5e10a1fbb3d137099d2259a72185dfb19fe275e6efcfe691ec75c520286b40a1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.509362Z"
+    "generated_at": "2025-12-15T05:22:40.617350Z"
   }
 }

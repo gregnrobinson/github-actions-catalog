@@ -1,0 +1,165 @@
+{
+  "action_id": "marketplace/mislav/action-shellcheck",
+  "version_id": "f1a29abf6a83",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mislav/action-shellcheck/action.yml",
+    "origin": "github.com/mislav/action-shellcheck",
+    "publisher": "mislav",
+    "verified": false
+  },
+  "definition": {
+    "name": "ShellCheck",
+    "description": "GitHub action for ShellCheck.",
+    "author": "Ludeeus <hi@ludeeus.dev>",
+    "inputs": [
+      {
+        "name": "additional_files",
+        "required": false,
+        "default": "",
+        "description": "A space separated list of additional filename to check"
+      },
+      {
+        "name": "ignore",
+        "required": false,
+        "default": "",
+        "description": "Paths to ignore when running ShellCheck"
+      },
+      {
+        "name": "ignore_paths",
+        "required": false,
+        "default": "",
+        "description": "Paths to ignore when running ShellCheck"
+      },
+      {
+        "name": "ignore_names",
+        "required": false,
+        "default": "",
+        "description": "Names to ignore when running ShellCheck"
+      },
+      {
+        "name": "severity",
+        "required": false,
+        "default": "",
+        "description": "Minimum severity of errors to consider. Options: [error, warning, info, style]"
+      },
+      {
+        "name": "check_together",
+        "required": false,
+        "default": "",
+        "description": "Run shellcheck on _all_ files at once, instead of one at a time"
+      },
+      {
+        "name": "scandir",
+        "required": false,
+        "default": ".",
+        "description": "Directory to be searched for files. Defaults to ."
+      },
+      {
+        "name": "disable_matcher",
+        "required": false,
+        "default": "false",
+        "description": "Set to true to skip using problem-matcher"
+      },
+      {
+        "name": "format",
+        "required": false,
+        "default": "gcc",
+        "description": "Output format (checkstyle, diff, gcc, json, json1, quiet, tty)"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": "stable",
+        "description": "Specify a concrete version of ShellCheck to use"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "files",
+        "description": "A list of files with issues"
+      },
+      {
+        "name": "options",
+        "description": "The options used"
+      }
+    ],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Download shellcheck",
+          "shell": "bash",
+          "env": {
+            "INPUT_VERSION": "${{ inputs.version }}"
+          },
+          "run": "if [[ \"${{ runner.os }}\" == \"macOS\" ]]; then\n  osvariant=\"darwin\"\nelse\n  osvariant=\"linux\"\nfi\n\nbaseurl=\"https://github.com/koalaman/shellcheck/releases/download\"\n\ncurl -Lso \"${{ github.action_path }}/sc.tar.xz\" \\\n  \"${baseurl}/${INPUT_VERSION}/shellcheck-${INPUT_VERSION}.${osvariant}.x86_64.tar.xz\"\n\ntar -xf \"${{ github.action_path }}/sc.tar.xz\" -C \"${{ github.action_path }}\"\nmv \"${{ github.action_path }}/shellcheck-${INPUT_VERSION}/shellcheck\" \\\n  \"${{ github.action_path }}/shellcheck\"\n"
+        },
+        {
+          "name": "Display shellcheck version",
+          "shell": "bash",
+          "run": "\"${{ github.action_path }}/shellcheck\" --version\n"
+        },
+        {
+          "name": "Set options",
+          "shell": "bash",
+          "id": "options",
+          "env": {
+            "INPUT_SEVERITY": "${{ inputs.severity }}",
+            "INPUT_FORMAT": "${{ inputs.format }}"
+          },
+          "run": "declare -a options\nif [[ -n \"${INPUT_SEVERITY}\" ]]; then\n  options+=(\"-S ${INPUT_SEVERITY}\")\nfi\noptions+=(\"--format=${INPUT_FORMAT}\")\necho \"options=${options[@]}\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "name": "Gather excluded paths",
+          "shell": "bash",
+          "id": "exclude",
+          "env": {
+            "INPUT_IGNORE": "${{ inputs.ignore }}",
+            "INPUT_IGNORE_PATHS": "${{ inputs.ignore_paths }}",
+            "INPUT_IGNORE_NAMES": "${{ inputs.ignore_names }}"
+          },
+          "run": "declare -a excludes\nset -f # temporarily disable globbing so that globs in input aren't expanded\n\nexcludes+=(\"! -path *./.git/*\")\nexcludes+=(\"! -path *.go\")\nexcludes+=(\"! -path */mvnw\")\nif [[ -n \"${INPUT_IGNORE}\" ]]; then\n  for path in ${INPUT_IGNORE}; do\n    excludes+=(\"! -path *./$path/*\")\n    excludes+=(\"! -path */$path/*\")\n    excludes+=(\"! -path $path\")\n  done\nelse\n  for path in ${INPUT_IGNORE_PATHS}; do\n    excludes+=(\"! -path *./$path/*\")\n    excludes+=(\"! -path */$path/*\")\n    excludes+=(\"! -path $path\")\n  done\nfi\n\nfor name in ${INPUT_IGNORE_NAMES}; do\n  excludes+=(\"! -name $name\")\ndone\necho \"excludes=${excludes[@]}\" >> $GITHUB_OUTPUT\n\nset +f # re-enable globbing\n"
+        },
+        {
+          "name": "Gather additional files",
+          "shell": "bash",
+          "id": "additional",
+          "env": {
+            "INPUT_ADDITIONAL_FILES": "${{ inputs.additional_files }}"
+          },
+          "run": "declare -a files\nfor file in ${INPUT_ADDITIONAL_FILES}; do\n  files+=(\"-o -name *$file\")\ndone\necho \"files=${files[@]}\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "name": "Run the check",
+          "shell": "bash",
+          "id": "check",
+          "env": {
+            "INPUT_SCANDIR": "${{ inputs.scandir }}",
+            "INPUT_CHECK_TOGETHER": "${{ inputs.check_together }}",
+            "INPUT_EXCLUDE_ARGS": "${{ steps.exclude.outputs.excludes }}",
+            "INPUT_ADDITIONAL_FILE_ARGS": "${{ steps.additional.outputs.files }}",
+            "INPUT_SHELLCHECK_OPTIONS": "${{ steps.options.outputs.options }}"
+          },
+          "run": "statuscode=0\ndeclare -a filepaths\nshebangregex=\"^#! */[^ ]*/(env *)?[abk]*sh\"\n\nset -f # temporarily disable globbing so that globs in inputs aren't expanded\n\nwhile IFS= read -r -d '' file; do\n  filepaths+=(\"$file\")\ndone < <(find \"${INPUT_SCANDIR}\" \\\n    ${INPUT_EXCLUDE_ARGS} \\\n    -type f \\\n    '(' \\\n    -name '*.bash' \\\n    -o -name '.bashrc' \\\n    -o -name 'bashrc' \\\n    -o -name '.bash_aliases' \\\n    -o -name '.bash_completion' \\\n    -o -name '.bash_login' \\\n    -o -name '.bash_logout' \\\n    -o -name '.bash_profile' \\\n    -o -name 'bash_profile' \\\n    -o -name '*.ksh' \\\n    -o -name 'suid_profile' \\\n    -o -name '*.zsh' \\\n    -o -name '.zlogin' \\\n    -o -name 'zlogin' \\\n    -o -name '.zlogout' \\\n    -o -name 'zlogout' \\\n    -o -name '.zprofile' \\\n    -o -name 'zprofile' \\\n    -o -name '.zsenv' \\\n    -o -name 'zsenv' \\\n    -o -name '.zshrc' \\\n    -o -name 'zshrc' \\\n    -o -name '*.sh' \\\n    -o -path '*/.profile' \\\n    -o -path '*/profile' \\\n    -o -name '*.shlib' \\\n    ${INPUT_ADDITIONAL_FILE_ARGS} \\\n    ')' \\\n    -print0)\n\nwhile IFS= read -r -d '' file; do\n  head -n1 \"$file\" | grep -Eqs \"$shebangregex\" || continue\n  filepaths+=(\"$file\")\ndone < <(find \"${INPUT_SCANDIR}\" \\\n    ${INPUT_EXCLUDE_ARGS} \\\n    -type f ! -name '*.*' -perm /111 \\\n    -print0)\n\nif [[ -n \"${INPUT_CHECK_TOGETHER}\" ]]; then\n  \"${{ github.action_path }}/shellcheck\" \\\n    ${INPUT_SHELLCHECK_OPTIONS} \\\n    \"${filepaths[@]}\" || statuscode=$?\nelse\n  for file in \"${filepaths[@]}\"; do\n    \"${{ github.action_path }}/shellcheck\" \\\n      ${INPUT_SHELLCHECK_OPTIONS} \\\n      \"$file\" || statuscode=$?\n  done\nfi\n\necho \"filepaths=${filepaths[@]}\" >> $GITHUB_OUTPUT\necho \"statuscode=$statuscode\" >> $GITHUB_OUTPUT\n\nset +f # re-enable globbing\n"
+        },
+        {
+          "name": "Exit action",
+          "shell": "bash",
+          "run": "exit ${{steps.check.outputs.statuscode}}"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f1a29abf6a83c6745565d5820a10c765ed16d36173c8147bf06344af8e4ad3e8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:15.580367Z"
+  }
+}

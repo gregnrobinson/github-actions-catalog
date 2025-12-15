@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/aws-actions/application-observability-for-aws",
-  "version_id": "e7f39fab5f86",
+  "version_id": "548fe3fb95d8",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/aws-actions/application-observability-for-aws/action.yml",
@@ -206,7 +206,7 @@
           "name": "Fail Workflow on Validation Error",
           "if": "steps.validate-cli.outcome == 'failure'",
           "shell": "bash",
-          "run": "echo \"::error::Workflow stopped due to validation error. See the posted comment for details.\"\nexit 1\n"
+          "run": "echo \"::error::Workflow stopped due to validation error. See the posted comment for details.\"\nexit 1"
         }
       ]
     }
@@ -223,7 +223,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Monitoring",
-        "reasoning": "The action focuses on performance investigation and resolution using telemetry, which aligns closely with monitoring. It also involves communication through comments and may be used in testing scenarios.",
+        "reasoning": "The action focuses on performance investigation and resolution using telemetry, which aligns it primarily with monitoring. It also involves communication through comments and may include testing aspects related to performance.",
         "tags": [
           "AWS",
           "observability",
@@ -235,9 +235,9 @@
     ]
   },
   "cache": {
-    "source_hash": "e7f39fab5f863afd62ab56e1d3d831738754d17f7bfe307bde2080e41d9c1e23",
+    "source_hash": "548fe3fb95d8fecb797cfb9931159654fcf8e101c8ee1bf9c4faec24abc164d3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.503458Z"
+    "generated_at": "2025-12-15T05:22:40.435373Z"
   }
 }

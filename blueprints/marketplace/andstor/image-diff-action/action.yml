@@ -1,0 +1,28 @@
+name: 'Image Diff Action'
+description: 'GitHub Action for producing image diffs'
+author: 'André Storhaug'
+branding:
+  icon: 'image'
+  color: 'purple'
+inputs:
+  img_1:
+    description: 'The path to the image file used as base image.'
+    required: true
+  img_2:
+    description: 'The path to the image file to be compared against the base image.'
+    required: true
+  diff_color:
+    description: 'Color for the diff highlighting.'
+    default: '255, 255, 0'
+    required: false
+  ignore_mask:
+    description: 'The path to the image file to be compared against the base image.'
+    required: false
+outputs:
+  img-diff:
+    description: 'The image diff.'
+  mismatch:
+    description: 'The mismatch percentage'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

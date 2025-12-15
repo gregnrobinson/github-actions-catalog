@@ -1,0 +1,24 @@
+name: Find And Replace Pull Request Body
+description: Replace workflow related Pull Request body.
+author: Ivan Gabriele
+branding:
+  color: yellow
+  icon: git-pull-request
+
+inputs:
+  githubToken:
+    description: 'Github Personal Access Token'
+    required: true
+  prNumber:
+    description: 'Pull request number (if outside the pull_request context)'
+  body:
+    description: 'New Pull Request body'
+  find:
+    description: 'String to find in Pull Request body'
+  isHtmlCommentTag:
+    description: 'Treat `find` input as an HTML Comment Tag'
+  replace:
+    description: 'Replacement string in Pull Request body'
+runs:
+  using: node20
+  main: ./index.dist.js

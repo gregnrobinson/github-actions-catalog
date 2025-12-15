@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/julia-actions/restic-action",
+  "version_id": "0449b8c1f99f",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/restic-action/action.yml",
+    "origin": "github.com/julia-actions/restic-action",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "restic backup action",
+    "description": "Backup a repo with restic",
+    "author": "Sascha Mann",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "GitHub access token"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install dependencies",
+          "run": "echo \"This action has been disabled.\"",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0449b8c1f99f8625f5a65ab841c87f11c82eedee569fa4c8bc62a364a1aa9fb8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:21.303446Z"
+  }
+}

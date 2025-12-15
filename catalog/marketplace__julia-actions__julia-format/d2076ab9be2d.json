@@ -1,0 +1,91 @@
+{
+  "action_id": "marketplace/julia-actions/julia-format",
+  "version_id": "d2076ab9be2d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-format/action.yml",
+    "origin": "github.com/julia-actions/julia-format",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.1.0",
+      "name": "v4.1.0",
+      "published_at": "2025-04-22T18:24:32Z",
+      "html_url": "https://github.com/julia-actions/julia-format/releases/tag/v4.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Format suggestion with JuliaFormatter.jl",
+    "description": "Formats your Julia files and suggest changes",
+    "author": "",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "1",
+        "description": "Version of JuliaFormatter.jl. Examples: 1, 1.0, 1.0.44"
+      },
+      {
+        "name": "suggestion-label",
+        "required": false,
+        "default": "",
+        "description": "If set, suggestions will only be shown for PRs with this label applied."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "uses": "actions/checkout@v4"
+        },
+        {
+          "uses": "julia-actions/setup-julia@v2"
+        },
+        {
+          "uses": "julia-actions/cache@v2"
+        },
+        {
+          "name": "Install JuliaFormatter",
+          "shell": "julia --color=yes {0}",
+          "run": "import Pkg\n\n# Get the desired JuliaFormatter version number:\n_version_original = get(ENV, \"jf-version\", \"1\")\n\n# Strip leading and lagging whitespace.\n# We need to then convert back to String, because Pkg won't accept SubString:\nversion = convert(String, strip(_version_original))::String\n\nif isempty(version)\n    msg = \"The version input cannot be empty\"\n    error(msg)\nend\n\n# Make sure to specify the UUID of the package:\np = Pkg.PackageSpec(\n    name = \"JuliaFormatter\",\n    uuid = \"98e50ef6-434e-11e9-1051-2b60c6c9e899\",\n    version = version,\n)\n\n# Install the package:\nPkg.add(p)\n",
+          "env": {
+            "jf-version": "${{ inputs.version }}"
+          }
+        },
+        {
+          "name": "Format",
+          "shell": "julia --color=yes {0}",
+          "run": "import JuliaFormatter\nJuliaFormatter.format(\".\")\n"
+        },
+        {
+          "name": "Check for formatting errors",
+          "shell": "bash",
+          "run": "output=$(git diff --name-only)\nif [ \"$output\" != \"\" ]; then\n    >&2 echo \"Some files have not been formatted !!!\"\n    echo \"$output\"\n    exit 1\nfi\n"
+        },
+        {
+          "name": "Suggest",
+          "uses": "reviewdog/action-suggester@v1",
+          "if": "${{ failure() && (inputs.suggestion-label == '' || contains( github.event.pull_request.labels.*.name, inputs.suggestion-label )) }}",
+          "with": {
+            "tool_name": "JuliaFormatter",
+            "fail_level": "error"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d2076ab9be2d9dab6d424dbee93ac33fb296aa401c145b9f34219a421ecdbf96",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:17.981521Z"
+  }
+}

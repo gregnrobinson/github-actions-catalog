@@ -1,0 +1,50 @@
+name: "contributor-ci-action"
+author: "Vanessa Sochat"
+description: "Extract repository contribution metadata."
+
+inputs:
+  results_dir:
+    description: "If doing an extraction, save results here. Defaults to .cci in $PWD"
+    required: false
+
+  extract:
+    description: "Run this kind of extraction (e.g., repos or all)"
+    required: false
+    default: repos
+
+  cfa:
+    description: "Generate contributor friendliness assessment files for a repository instead."
+    required: false
+
+  update:
+    description: "Update an existing Contributor CI interface."
+    required: false
+
+  update_random:
+    description: Only update a random selection of N extractors. This is intended for large projects.
+    required: false
+
+  update_cfa:
+    description: "Find and generate CFAs for new repos."
+    required: false
+
+  config_file:
+    description: "The contributor-ci.yaml file with organization metadata."
+    required: true
+    default: contributor-ci.yaml
+
+  extract_save_format:
+    description: |
+      Given using extract, change the default save format / structure from year/month/day to something else.
+      This will force extraction of new data since we can't reliably say when it was last done. If you need
+      to change the save format but want to use a cache, it's recommended to not change the format, but clean
+      up directories you don't need after.
+    required: false
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+
+branding:
+  icon: "link"
+  color: "blue"

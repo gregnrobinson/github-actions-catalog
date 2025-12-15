@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/mheap/vale-action",
+  "version_id": "3e765538a489",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/vale-action/action.yml",
+    "origin": "github.com/mheap/vale-action",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Vale Linter",
+    "description": "The official GitHub Action for Vale -- install, manage, and run Vale with ease.",
+    "author": "jdkato",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "latest",
+        "description": "The Vale CLI version to install."
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": "all",
+        "description": "The files to lint: \"all\" or \"<some_folder>\"."
+      },
+      {
+        "name": "debug",
+        "required": false,
+        "default": "false",
+        "description": "Log debugging information to stdout."
+      },
+      {
+        "name": "reporter",
+        "required": false,
+        "default": "github-pr-check",
+        "description": "Reporter of reviewdog command [github-pr-check,github-pr-review,github-check]."
+      },
+      {
+        "name": "fail_on_error",
+        "required": false,
+        "default": "false",
+        "description": "Exit code for reviewdog when errors are found [true,false]\nDefault is `false`.\n"
+      },
+      {
+        "name": "level",
+        "required": false,
+        "default": "error",
+        "description": "Report level for reviewdog [info,warning,error]."
+      },
+      {
+        "name": "filter_mode",
+        "required": false,
+        "default": "added",
+        "description": "Filtering for the reviewdog command [added,diff_context,file,nofilter].\nDefault is added.\n"
+      },
+      {
+        "name": "vale_flags",
+        "required": false,
+        "default": "",
+        "description": "Space-delimited list of flags for the Vale CLI."
+      },
+      {
+        "name": "separator",
+        "required": false,
+        "default": "",
+        "description": "Split character for input strings."
+      },
+      {
+        "name": "reviewdog_url",
+        "required": false,
+        "default": "",
+        "description": "The URL to a tar.gz build of reviewdog to use in the action"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Vale Linter is designed to run linting checks on files, which falls under code quality and testing practices.",
+        "tags": [
+          "linting",
+          "vale",
+          "code quality",
+          "testing",
+          "github action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3e765538a489e624db3ee00ba9222e4d20c970ea620c50b167b56fc9d133eb61",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:24.638597Z"
+  }
+}

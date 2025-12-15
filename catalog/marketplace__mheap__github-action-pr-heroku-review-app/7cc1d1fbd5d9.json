@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/mheap/github-action-pr-heroku-review-app",
+  "version_id": "7cc1d1fbd5d9",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-pr-heroku-review-app/action.yml",
+    "origin": "github.com/mheap/github-action-pr-heroku-review-app",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.3",
+      "name": "v1.2.3",
+      "published_at": "2020-11-12T15:50:55Z",
+      "html_url": "https://github.com/mheap/github-action-pr-heroku-review-app/releases/tag/v1.2.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Heroku Review Application",
+    "description": "Create a Heroku review app when a PR is raised by someone with write or admin access",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7cc1d1fbd5d9931427c2db2776d52f34e8f0aded22e9bd26f4326811d89cf0d5",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:21.324799Z"
+  }
+}

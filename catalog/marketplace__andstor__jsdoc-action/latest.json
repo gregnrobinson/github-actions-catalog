@@ -1,0 +1,107 @@
+{
+  "action_id": "marketplace/andstor/jsdoc-action",
+  "version_id": "bcccdb656fee",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/jsdoc-action/action.yml",
+    "origin": "github.com/andstor/jsdoc-action",
+    "publisher": "andstor",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.1",
+      "name": "v1.2.1",
+      "published_at": "2021-12-07T02:29:16Z",
+      "html_url": "https://github.com/andstor/jsdoc-action/releases/tag/v1.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "JSDoc Action",
+    "description": "GitHub Action to build JSDoc documentation",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "source_dir",
+        "required": false,
+        "default": null,
+        "description": "Source directory to build documentation from"
+      },
+      {
+        "name": "output_dir",
+        "required": false,
+        "default": null,
+        "description": "Output folder for the generated documentation"
+      },
+      {
+        "name": "recurse",
+        "required": false,
+        "default": null,
+        "description": "Recurse into subdirectories when scanning for source files"
+      },
+      {
+        "name": "config_file",
+        "required": false,
+        "default": null,
+        "description": "The path to a JSDoc configuration file"
+      },
+      {
+        "name": "template",
+        "required": false,
+        "default": null,
+        "description": "The JSDoc template to install"
+      },
+      {
+        "name": "template_name",
+        "required": false,
+        "default": null,
+        "description": "This input variable is deprecated in favour of \"template\""
+      },
+      {
+        "name": "template_dir",
+        "required": false,
+        "default": null,
+        "description": "The relative location of the template files within the template package"
+      },
+      {
+        "name": "front_page",
+        "required": false,
+        "default": null,
+        "description": "The path to a Markdown file to be used as a the front page"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "src/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation",
+      "Build"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The JSDoc Action is primarily focused on generating documentation from source code, which falls under the Documentation category. It also involves building the documentation, hence the secondary category of Build.",
+        "tags": [
+          "JSDoc",
+          "documentation",
+          "build",
+          "GitHub Action",
+          "JavaScript"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "bcccdb656feebb40f9a9c259641738d86ca875bc6fa9a762fc8b76769315b2f2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:31.477123Z"
+  }
+}

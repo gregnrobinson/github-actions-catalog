@@ -1,0 +1,34 @@
+name: "Google Java Format"
+description: "Automatically format Java files using Google Java Style"
+author: "axel-op"
+branding:
+  color: "red"
+  icon: "align-right"
+inputs:
+  args:
+    description: "Arguments for the Google Java Format executable"
+    required: false
+    default: "--replace"
+  files:
+    description: "Pattern to match the files to be formatted"
+    required: false
+    default: "**/*.java"
+  files-excluded:
+    description: "Pattern to match the files to be ignored by this action"
+    required: false
+  skip-commit:
+    description: "By default, this action commits any change made to the files. Set to \"true\" to skip this commit."
+    required: false
+    default: "false"
+  release-name:
+    description: "Release name of Google Java Format to use. Examples: 1.7, v1.24.0... Leave empty to use the latest release compatible with your JDK."
+    required: false
+  github-token:
+    description: "If provided, will be used to authenticate the calls to the GitHub API."
+    required: false
+  commit-message:
+    description: "This message will be used for commits made by this action"
+    required: false
+runs:
+  using: "node20"
+  main: "dist/index.js"

@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/yeslayla/zappa-deploy-action",
+  "version_id": "9522e84778b0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/yeslayla/zappa-deploy-action/action.yml",
+    "origin": "github.com/yeslayla/zappa-deploy-action",
+    "publisher": "yeslayla",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.1",
+      "name": "Zappa Deploy Action v0.1.1",
+      "published_at": "2020-10-04T23:23:51Z",
+      "html_url": "https://github.com/yeslayla/zappa-deploy-action/releases/tag/v0.1.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Zappa Deploy",
+    "description": "Deploys a Zappa application to AWS",
+    "author": "josephbmanley",
+    "inputs": [
+      {
+        "name": "directory",
+        "required": false,
+        "default": ".",
+        "description": ""
+      },
+      {
+        "name": "environment",
+        "required": true,
+        "default": null,
+        "description": "Name of the preset in `zappa_settings` to use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.directory }}",
+        "${{ inputs.environment }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9522e84778b0570ade94d18474c864c0c5bfe6ccf0f65c9a5114d6ac044565e1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:00.295353Z"
+  }
+}

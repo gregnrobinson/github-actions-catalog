@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/consumable-code-pixabay-api",
-  "version_id": "cd162ec52bb4",
+  "version_id": "18bf8255a4a2",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-pixabay-api/action.yml",
@@ -39,7 +39,7 @@
   },
   "annotations": {
     "categories": [
-      "Code quality",
+      "Dependency management",
       "Documentation"
     ],
     "confidence": "medium",
@@ -47,22 +47,22 @@
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Code quality",
-        "reasoning": "The action provides consumable code for interacting with the Pixabay API, which can enhance code quality by offering reusable components. Additionally, it includes documentation through the description and input details.",
+        "primary_category": "Dependency management",
+        "reasoning": "The action provides consumable code for interacting with the Pixabay API, which suggests it helps manage dependencies related to API requests. Additionally, it includes documentation through its description and input parameters.",
         "tags": [
-          "Pixabay",
           "API",
+          "Pixabay",
           "consumable code",
-          "retrofit",
+          "dependency management",
           "documentation"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "cd162ec52bb462dba699d50cd9b4b565915fb79dc803147a96a66b9cfa1d5f79",
+    "source_hash": "18bf8255a4a2458181606750530df45dcb54ccea2576cb41c146bf74f927d536",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.791499Z"
+    "generated_at": "2025-12-15T05:22:59.183676Z"
   }
 }

@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/szenius/set-timezone",
+  "version_id": "74c66f76266c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/szenius/set-timezone/action.yml",
+    "origin": "github.com/szenius/set-timezone",
+    "publisher": "szenius",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0",
+      "name": "v2.0",
+      "published_at": "2024-05-07T14:03:01Z",
+      "html_url": "https://github.com/szenius/set-timezone/releases/tag/v2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Set Timezone",
+    "description": "Sets timezone in your locale",
+    "author": "szenius",
+    "inputs": [
+      {
+        "name": "timezoneLinux",
+        "required": false,
+        "default": "UTC",
+        "description": "Desired timezone for Linux"
+      },
+      {
+        "name": "timezoneMacos",
+        "required": false,
+        "default": "GMT",
+        "description": "Desired timezone for MacOS"
+      },
+      {
+        "name": "timezoneWindows",
+        "required": false,
+        "default": "UTC",
+        "description": "Desired timezone for Windows"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.mjs"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action sets the timezone for different operating systems, which is a configuration related to the infrastructure of the environment where the code runs.",
+        "tags": [
+          "timezone",
+          "infrastructure",
+          "configuration",
+          "localization",
+          "environment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "74c66f76266c6e3faaee5738506ed757a739e0248eceb1a2e1a5472f42f7722a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:08.272770Z"
+  }
+}

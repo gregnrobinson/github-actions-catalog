@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/mheap/require-checklist-action",
+  "version_id": "413c0e2338e8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/require-checklist-action/action.yml",
+    "origin": "github.com/mheap/require-checklist-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.5.0",
+      "name": "v2.5.0",
+      "published_at": "2025-05-25T10:58:36Z",
+      "html_url": "https://github.com/mheap/require-checklist-action/releases/tag/v2.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Require Checklist",
+    "description": "Ensure that any checklists in an issue/pull request are completed",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub API token to use"
+      },
+      {
+        "name": "requireChecklist",
+        "required": false,
+        "default": "false",
+        "description": "Require a checklist to exist"
+      },
+      {
+        "name": "skipComments",
+        "required": false,
+        "default": "false",
+        "description": "Do not look for checklists in comments"
+      },
+      {
+        "name": "skipDescriptionRegex",
+        "required": false,
+        "default": "undefined",
+        "description": "A regex pattern of descriptions that will be skipped if matched"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "413c0e2338e82340c602d6df9675cf398129fe0a889b27ab1bfa66723aaf1e76",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:27.839507Z"
+  }
+}

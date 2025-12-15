@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/yeslayla/run-gut-tests-action",
+  "version_id": "2bc9ed6b87a7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/yeslayla/run-gut-tests-action/action.yml",
+    "origin": "github.com/yeslayla/run-gut-tests-action",
+    "publisher": "yeslayla",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.0",
+      "name": "Run GUT Tests v1.1.0",
+      "published_at": "2021-02-12T00:07:47Z",
+      "html_url": "https://github.com/yeslayla/run-gut-tests-action/releases/tag/v1.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Run GUT Tests",
+    "description": "Run GUT tests for a Godot project",
+    "author": "josephbmanley",
+    "inputs": [
+      {
+        "name": "containerImage",
+        "required": false,
+        "default": "barichello/godot-ci:latest",
+        "description": "The container to run tests inside of."
+      },
+      {
+        "name": "useContainer",
+        "required": false,
+        "default": true,
+        "description": "Boolean value of whether or not to run container."
+      },
+      {
+        "name": "godotExecutable",
+        "required": false,
+        "default": "godot",
+        "description": "Path of Godot binary to call when running GUT tests."
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "The name directory to run tests in."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2bc9ed6b87a7d39a456632d30c35b652837c7b162cc32c9e12f9870f18fa163b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:00.887261Z"
+  }
+}

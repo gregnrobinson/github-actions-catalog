@@ -1,0 +1,117 @@
+{
+  "action_id": "marketplace/sobolevn/telegram-notifier",
+  "version_id": "4c4892669a3a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/telegram-notifier/action.yml",
+    "origin": "github.com/sobolevn/telegram-notifier",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Telegram Issue Notifier",
+    "description": "Send Telegram notifications for new GitHub issues",
+    "author": "Sehat1137",
+    "inputs": [
+      {
+        "name": "tg-bot-token",
+        "required": true,
+        "default": null,
+        "description": "Telegram Bot Token"
+      },
+      {
+        "name": "tg-chat-id",
+        "required": true,
+        "default": null,
+        "description": "Telegram Chat ID"
+      },
+      {
+        "name": "tg-message-thread-id",
+        "required": false,
+        "default": null,
+        "description": "Telegram Message Thread ID"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": null,
+        "description": "GitHub Token for API access"
+      },
+      {
+        "name": "base-url",
+        "required": false,
+        "default": "https://github.com",
+        "description": "Base URL for sulguk"
+      },
+      {
+        "name": "python-version",
+        "required": false,
+        "default": "3.10",
+        "description": "Python version for action"
+      },
+      {
+        "name": "attempt-count",
+        "required": false,
+        "default": "10",
+        "description": "Telegram API attempt count"
+      },
+      {
+        "name": "html-template",
+        "required": false,
+        "default": null,
+        "description": "HTML template for Telegram message"
+      },
+      {
+        "name": "md-template",
+        "required": false,
+        "default": null,
+        "description": "Markdown template for Telegram message"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set up Python",
+          "uses": "actions/setup-python@v4",
+          "with": {
+            "python-version": "${{ inputs.python-version }}"
+          }
+        },
+        {
+          "name": "Install dependencies",
+          "shell": "bash",
+          "run": "pip install -r $GITHUB_ACTION_PATH/requirements.txt\n"
+        },
+        {
+          "name": "Send Telegram notification",
+          "shell": "bash",
+          "env": {
+            "TELEGRAM_BOT_TOKEN": "${{ inputs.tg-bot-token }}",
+            "TELEGRAM_CHAT_ID": "${{ inputs.tg-chat-id }}",
+            "GITHUB_TOKEN": "${{ inputs.github-token }}",
+            "EVENT_URL": "${{ github.event.issue.url || github.event.pull_request.url }}",
+            "BASE_URL": "${{ inputs.base-url }}",
+            "ATTEMPT_COUNT": "${{ inputs.attempt-count }}",
+            "HTML_TEMPLATE": "${{ inputs.html-template }}",
+            "MD_TEMPLATE": "${{ inputs.md-template }}",
+            "TELEGRAM_MESSAGE_THREAD_ID": "${{ inputs.tg-message-thread-id }}"
+          },
+          "run": "python3 $GITHUB_ACTION_PATH/main.py\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4c4892669a3a92b16cc7c3de757a033ac9ef14ac4eb68c7a4bbd82c287b89869",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:32.022156Z"
+  }
+}

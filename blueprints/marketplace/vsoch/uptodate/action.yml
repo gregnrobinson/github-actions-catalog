@@ -1,0 +1,50 @@
+name: "uptodate-action"
+author: "Vanessa Sochat"
+description: "Check that repository assets are up to date"
+
+inputs:
+  root:
+    description: "Root path to provide to command. Can be a Dockerfile or directory."
+    required: false
+    default: ""
+
+  parser:
+    description: "Parser to run, one of dockerfile, or dockerhierarchy"
+    required: true
+
+  dry_run:
+    description: "Do a dry run (don't write, but show changes) one of true or false, defaults to false"
+    required: false
+    default: false
+
+  changes:
+    description: "Only consider relevant changed files for the current git commit"
+    required: false
+    default: false
+
+  flags:
+    description: "Extra flags for the parser (e.g., --no-build-args or --no-empty-build-args for dockerfilelist)"
+    required: false
+    default: ""
+
+#runs:
+#  using: "docker"
+#  image: "Dockerfile"
+
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/vsoch/uptodate:latest'
+
+branding:
+  icon: "activity"
+  color: "blue"
+
+outputs:
+  dockerfile_matrix:
+    description: A matrix of Dockerfile changes with name and filename set to the Dockerfile name
+  dockerhierarchy_matrix:
+    description: A matrix of new Dockerfiles and the corresponding tag (Name)
+  dockerfilelist_matrix:
+    description: A matrix of Dockerfiles listed with dockerfilelist
+  dockerbuild_matrix:
+    description: A matrix of Docker builds

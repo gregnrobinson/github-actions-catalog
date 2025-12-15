@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/github/accessibility-alt-text-bot/action.yml",
     "origin": "github.com/github/accessibility-alt-text-bot",
     "publisher": "github",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.7.1",
+      "name": "v1.7.1",
+      "published_at": "2025-01-29T21:33:34Z",
+      "html_url": "https://github.com/github/accessibility-alt-text-bot/releases/tag/v1.7.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Accessibility alt text bot",
@@ -49,6 +57,6 @@
     "source_hash": "9665c2f3888a4585084103c56cb1fc8bfd04eff7b58249cf3be769a05eadf7de",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.959253Z"
+    "generated_at": "2025-12-15T05:22:30.625622Z"
   }
 }

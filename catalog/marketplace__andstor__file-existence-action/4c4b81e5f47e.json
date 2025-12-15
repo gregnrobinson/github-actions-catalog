@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/andstor/file-existence-action",
+  "version_id": "4c4b81e5f47e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/file-existence-action/action.yml",
+    "origin": "github.com/andstor/file-existence-action",
+    "publisher": "andstor",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2024-01-28T18:28:52Z",
+      "html_url": "https://github.com/andstor/file-existence-action/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "File Existence",
+    "description": "GitHub Action to check for file existence",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "files",
+        "required": true,
+        "default": null,
+        "description": "Comma separated string with paths to files and directories to check for existence."
+      },
+      {
+        "name": "ignore_case",
+        "required": false,
+        "default": false,
+        "description": "Ignore if a file has upper or lower cases."
+      },
+      {
+        "name": "follow_symbolic_links",
+        "required": false,
+        "default": true,
+        "description": "Indicates whether to follow symbolic links."
+      },
+      {
+        "name": "fail",
+        "required": false,
+        "default": false,
+        "description": "Makes the Action fail on missing files."
+      },
+      {
+        "name": "allow_failure",
+        "required": false,
+        "default": null,
+        "description": "This variable is deprecated in favour of \"fail\"."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "files_exists",
+        "description": "Whether the file(s) exists or not."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "4c4b81e5f47e1cf093ab92b959eaa1e6edb0e64416e702e3bfd8a2cc75528517",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:32.859549Z"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/mheap/github-action-pull-request-milestone-bash",
+  "version_id": "e1a5aa7729b0",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-pull-request-milestone-bash/action.yml",
+    "origin": "github.com/mheap/github-action-pull-request-milestone-bash",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Pull Request Milestone",
+    "description": "Congratulate people when they hit a certain number of merged pull requests",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e1a5aa7729b0491dd07676d303e550e9fa9bff82433357aba11d03b164398820",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:20.098768Z"
+  }
+}

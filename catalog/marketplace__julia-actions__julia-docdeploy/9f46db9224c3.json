@@ -1,0 +1,80 @@
+{
+  "action_id": "marketplace/julia-actions/julia-docdeploy",
+  "version_id": "9f46db9224c3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-docdeploy/action.yml",
+    "origin": "github.com/julia-actions/julia-docdeploy",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.3.1",
+      "name": "v1.3.1: Fix use of `inputs.install-package` variable ",
+      "published_at": "2023-03-29T19:59:37Z",
+      "html_url": "https://github.com/julia-actions/julia-docdeploy/releases/tag/v1.3.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Deploy package documentation",
+    "description": "Build and deploy the documentation for a Julia package.",
+    "author": "David Anthoff",
+    "inputs": [
+      {
+        "name": "prefix",
+        "required": false,
+        "default": "",
+        "description": "Value inserted in front of the julia command, e.g. for running xvfb-run julia [...]"
+      },
+      {
+        "name": "install-package",
+        "required": false,
+        "default": true,
+        "description": "Whether or not to install the package with `Pkg.develop` into the `docs` environment"
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": ".",
+        "description": "Directory that contains the folder `docs` to deploy from"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install GitHubActions.jl in its own (shared) environment",
+          "run": "using Pkg\nPkg.activate(\"docs-logger-env\"; shared=true)\nPkg.add(Pkg.PackageSpec(name=\"GitHubActions\", version=\"0.1\"))\n",
+          "shell": "julia --color=yes {0}",
+          "working-directory": "${{inputs.project}}"
+        },
+        {
+          "name": "Install the current package into the `docs` environment",
+          "run": "# The Julia command that will be executed\njulia_cmd=( julia --color=yes --code-coverage --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd())); Pkg.instantiate()' )\n\n# Add the prefix in front of the command if there is one\nprefix=( ${{ inputs.prefix }} )\n[[ ${#prefix[@]} -gt 0 ]] && julia_cmd=( \"${prefix[@]}\" \"${julia_cmd[@]}\" )\n\n# Run the Julia command\n\"${julia_cmd[@]}\"\n",
+          "shell": "bash",
+          "working-directory": "${{inputs.project}}",
+          "if": "${{ inputs.install-package == 'true'}}"
+        },
+        {
+          "name": "Build the documentation",
+          "run": "# The Julia command that will be executed\njulia_cmd=( julia --color=yes --project=docs/ -e '\n    @eval Module() begin\n        push!(LOAD_PATH, \"@docs-logger-env\") # access GitHubActions.jl\n        import Logging, GitHubActions\n        Logging.global_logger(GitHubActions.GitHubActionsLogger())\n        pop!(LOAD_PATH)\n    end\n    include(\"docs/make.jl\")' )\n\n# Add the prefix in front of the command if there is one\nprefix=\"${{ inputs.prefix }}\"\n[[ -n $prefix ]] && julia_cmd=( \"$prefix\" \"${julia_cmd[@]}\" )\n\n# Run the Julia command\n\"${julia_cmd[@]}\"\n",
+          "shell": "bash",
+          "working-directory": "${{inputs.project}}"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "9f46db9224c374d29786556cd2e2f579e3036e6c7f9e62f0f39f2180b2284bae",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:27.534103Z"
+  }
+}

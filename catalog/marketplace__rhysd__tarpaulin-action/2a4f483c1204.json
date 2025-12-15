@@ -1,0 +1,64 @@
+{
+  "action_id": "marketplace/rhysd/tarpaulin-action",
+  "version_id": "2a4f483c1204",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/tarpaulin-action/action.yml",
+    "origin": "github.com/rhysd/tarpaulin-action",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "rust-tarpaulin",
+    "description": "Gather Rust code coverage information with Tarpaulin",
+    "author": "actions-rs team",
+    "inputs": [
+      {
+        "name": "version",
+        "required": true,
+        "default": "latest",
+        "description": "The version of cargo-tarpaulin to install"
+      },
+      {
+        "name": "args",
+        "required": false,
+        "default": null,
+        "description": "Extra command line arguments passed to cargo-tarpaulin"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": null,
+        "description": "The maximum time in seconds without a response from a test before timeout"
+      },
+      {
+        "name": "run-types",
+        "required": false,
+        "default": null,
+        "description": "The type of the coverage run [possible values: Tests, Doctests]"
+      },
+      {
+        "name": "out-type",
+        "required": false,
+        "default": "Xml",
+        "description": "Output format of coverage report [possible values: Json, Toml, Stdout, Xml, Html, Lcov]"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2a4f483c12041fcad82b36a1e1cfd7af3a7f0d249dea23476c2e82b314642048",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:42.683276Z"
+  }
+}

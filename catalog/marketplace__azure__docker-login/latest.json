@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/docker-login",
-  "version_id": "c7d59b08e489",
+  "version_id": "67c8b8f2fbb4",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/docker-login/action.yml",
@@ -57,7 +57,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "This action is primarily focused on logging in to a container registry, which falls under authentication. It also relates to packaging as it prepares for the use of container images.",
+        "reasoning": "This action is primarily focused on logging into a container registry, which falls under authentication. It also relates to packaging as it prepares for container image management.",
         "tags": [
           "Azure",
           "Docker",
@@ -69,9 +69,9 @@
     ]
   },
   "cache": {
-    "source_hash": "c7d59b08e4890b8df93c16754869dc7c9429d8a9a3211fa30f07bbd8f501335d",
+    "source_hash": "67c8b8f2fbb4d718d37afa6c1907dae87688cad141f41173f1b4a73db13bc60c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.994100Z"
+    "generated_at": "2025-12-15T05:21:58.872492Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/JamesIves/github-pages-deploy-action/action.yml",
     "origin": "github.com/JamesIves/github-pages-deploy-action",
     "publisher": "JamesIves",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.7.6",
+      "name": "v4.7.6",
+      "published_at": "2025-12-09T19:41:50Z",
+      "html_url": "https://github.com/JamesIves/github-pages-deploy-action/releases/tag/v4.7.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Deploy to GitHub Pages",
@@ -136,6 +144,6 @@
     "source_hash": "6f6e0f774cbf0404673c1cac9def11c158938bb299633fdf5259a10567c21399",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.853144Z"
+    "generated_at": "2025-12-15T05:22:15.255668Z"
   }
 }

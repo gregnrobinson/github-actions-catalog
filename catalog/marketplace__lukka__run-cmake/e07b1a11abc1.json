@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/lukka/run-cmake/action.yml",
     "origin": "github.com/lukka/run-cmake",
     "publisher": "lukka",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v10.8",
+      "name": "run-cmake@v10.8",
+      "published_at": "2024-09-10T12:03:05Z",
+      "html_url": "https://github.com/lukka/run-cmake/releases/tag/v10.8",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "run-cmake",
@@ -137,6 +145,6 @@
     "source_hash": "e07b1a11abc1d3426dbab111fc65bf022a81fef1312ceda0043ac89198c978ca",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.259129Z"
+    "generated_at": "2025-12-15T05:22:07.114467Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/aks-create-action",
-  "version_id": "bbccc366ba6e",
+  "version_id": "29ec776003a2",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/aks-create-action/action.yml",
@@ -139,7 +139,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is focused on creating an Azure Kubernetes Service (AKS) cluster, which falls under Infrastructure. It also requires authentication details for a Service Principal, placing it in the Authentication category as well.",
+        "reasoning": "The action is primarily focused on creating an Azure Kubernetes Service (AKS) cluster, which falls under infrastructure management. It also requires authentication credentials for a service principal, categorizing it under authentication as well.",
         "tags": [
           "AKS",
           "Azure",
@@ -151,9 +151,9 @@
     ]
   },
   "cache": {
-    "source_hash": "bbccc366ba6e589f721942ea5c992a7cb4ef848897a8b43d1dc9014adb395bf7",
+    "source_hash": "29ec776003a2ad4ee9fe220ed50d0c7f7d8ac22e098b5cd65daa1c6967f71f76",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.898563Z"
+    "generated_at": "2025-12-15T05:21:52.767947Z"
   }
 }

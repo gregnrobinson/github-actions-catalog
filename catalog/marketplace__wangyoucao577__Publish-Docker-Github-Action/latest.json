@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/wangyoucao577/Publish-Docker-Github-Action",
-  "version_id": "97eef512fab2",
+  "version_id": "039e7c591feb",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/wangyoucao577/Publish-Docker-Github-Action/action.yml",
@@ -163,8 +163,8 @@
   "annotations": {
     "categories": [
       "Publishing",
-      "Packaging",
-      "Authentication"
+      "Authentication",
+      "Packaging"
     ],
     "confidence": "high",
     "evidence": [
@@ -172,7 +172,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Publishing",
-        "reasoning": "This action is primarily focused on publishing Docker images to a registry, which falls under the Publishing category. It also requires authentication details to push the image, thus it includes Authentication as a secondary category.",
+        "reasoning": "The action is primarily focused on publishing Docker images by pushing them to a registry, which falls under the Publishing category. It also requires authentication to the registry, thus it includes Authentication and Packaging as secondary categories.",
         "tags": [
           "Docker",
           "Publish",
@@ -184,9 +184,9 @@
     ]
   },
   "cache": {
-    "source_hash": "97eef512fab2f6410c8efd5c98968622c2f8264a424cbaea7377019340c7ad5b",
+    "source_hash": "039e7c591feb0b6c1a895a6b3014aada51fd8a707cdcab356b69da9957e1d8d3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.115208Z"
+    "generated_at": "2025-12-15T05:22:01.807534Z"
   }
 }

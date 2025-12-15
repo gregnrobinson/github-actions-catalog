@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/webapps-container-deploy",
-  "version_id": "6921dfc8d4ac",
+  "version_id": "21dde1b6a84c",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/webapps-container-deploy/action.yml",
@@ -74,11 +74,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is specifically designed to deploy containerized applications to Azure Web Apps, which falls under the Deployment category. It also involves infrastructure management as it interacts with Azure services.",
+        "reasoning": "This action is specifically designed to deploy containerized applications to Azure Web Apps, which falls under the Deployment category. It also involves Azure infrastructure, making it relevant to the Infrastructure category.",
         "tags": [
           "Azure",
-          "Deployment",
           "WebApp",
+          "Deployment",
           "Container",
           "Infrastructure"
         ]
@@ -86,9 +86,9 @@
     ]
   },
   "cache": {
-    "source_hash": "6921dfc8d4acdc97abd7f4d9efc2da7c4307e6273c6d6bee0110747c4fdf1443",
+    "source_hash": "21dde1b6a84ca1b5ebf3769e55b432e5bf335f93939b159971d31e6d451ad822",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.834703Z"
+    "generated_at": "2025-12-15T05:21:48.688548Z"
   }
 }

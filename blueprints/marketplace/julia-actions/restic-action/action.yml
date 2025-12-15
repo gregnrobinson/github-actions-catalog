@@ -1,0 +1,20 @@
+name: restic backup action
+description: Backup a repo with restic
+author: Sascha Mann
+
+branding:
+  icon: save
+  color: green
+
+inputs:
+  token:
+    description: GitHub access token
+    default: ${{ github.token }}
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install dependencies
+      run: echo "This action has been disabled."
+      shell: bash

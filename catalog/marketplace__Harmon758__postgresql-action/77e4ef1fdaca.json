@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/Harmon758/postgresql-action",
+  "version_id": "77e4ef1fdaca",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Harmon758/postgresql-action/action.yml",
+    "origin": "github.com/Harmon758/postgresql-action",
+    "publisher": "Harmon758",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2019-08-19T21:30:16Z",
+      "html_url": "https://github.com/Harmon758/postgresql-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Setup PostgreSQL",
+    "description": "Setup a PostgreSQL database",
+    "author": "Harmon",
+    "inputs": [
+      {
+        "name": "postgresql version",
+        "required": false,
+        "default": "latest",
+        "description": "Version of PostgreSQL to use"
+      },
+      {
+        "name": "postgresql db",
+        "required": false,
+        "default": "",
+        "description": "POSTGRES_DB - name for the default database that is created"
+      },
+      {
+        "name": "postgresql user",
+        "required": false,
+        "default": "",
+        "description": "POSTGRES_USER - create the specified user with superuser power"
+      },
+      {
+        "name": "postgresql password",
+        "required": false,
+        "default": "",
+        "description": "POSTGRES_PASSWORD - superuser password"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "77e4ef1fdacaae29c93e70343005fe8ab4b005ec7f14dddd09f233bec20b16b0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:24.841228Z"
+  }
+}

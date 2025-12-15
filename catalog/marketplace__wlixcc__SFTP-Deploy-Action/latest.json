@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/wlixcc/SFTP-Deploy-Action",
-  "version_id": "8a37c7550da6",
+  "version_id": "641b8085d180",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/wlixcc/SFTP-Deploy-Action/action.yml",
@@ -125,7 +125,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy files to a server using SFTP, which falls under the Deployment category. It also involves server interaction, categorizing it under Infrastructure.",
+        "reasoning": "The action is specifically designed to deploy files to a server using SFTP, which falls under the deployment category. It also involves server interaction, categorizing it under infrastructure.",
         "tags": [
           "SFTP",
           "Deployment",
@@ -137,9 +137,9 @@
     ]
   },
   "cache": {
-    "source_hash": "8a37c7550da6654ac6874b032dce08825a1abae2259dc4d2dedd279e4233ea26",
+    "source_hash": "641b8085d18035d63fd8ae12f211039a3c29cc2185a0029956b7f3e9ff4541f8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.961314Z"
+    "generated_at": "2025-12-15T05:23:15.892451Z"
   }
 }

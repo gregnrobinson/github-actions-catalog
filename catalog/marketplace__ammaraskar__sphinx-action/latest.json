@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/ammaraskar/sphinx-action",
-  "version_id": "ecee430fe739",
+  "version_id": "48f53b21f3e3",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/ammaraskar/sphinx-action/action.yml",
@@ -57,21 +57,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is specifically designed to build documentation using Sphinx, which places it firmly in the Documentation category, while also involving a build process.",
+        "reasoning": "The action is specifically designed to build documentation using Sphinx, making Documentation the primary category, while Build is relevant due to the action's function of compiling the documentation.",
         "tags": [
           "sphinx",
           "documentation",
           "build",
-          "markdown",
-          "automation"
+          "automation",
+          "github-actions"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "ecee430fe739ebd60dc1dcbbfe5691674ffd12c2aecab30e301e7fbacbee30ab",
+    "source_hash": "48f53b21f3e35cc4923466243edad802d5ab4ab28326c94c7c05cfe67c4651be",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.754742Z"
+    "generated_at": "2025-12-15T05:21:37.110278Z"
   }
 }

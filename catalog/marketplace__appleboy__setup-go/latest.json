@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/appleboy/setup-go",
-  "version_id": "d6e027bc2327",
+  "version_id": "75fea184b1bd",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/appleboy/setup-go/action.yml",
@@ -34,30 +34,30 @@
   },
   "annotations": {
     "categories": [
-      "Dependency management",
-      "Build"
+      "Infrastructure",
+      "Dependency management"
     ],
     "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "This action sets up a Go environment, which is essential for managing dependencies and building Go applications. It focuses on ensuring the correct version of Go is available for the build process.",
+        "primary_category": "Infrastructure",
+        "reasoning": "The action sets up a Go environment, which is essential for the infrastructure of a project, and it manages the Go version as a dependency.",
         "tags": [
           "Go",
           "setup",
           "environment",
-          "dependency",
-          "build"
+          "infrastructure",
+          "dependency"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "d6e027bc23270606910c2f6214b978aec081df59ad79f6f3375c016ee2ae2829",
+    "source_hash": "75fea184b1bd6b94c23f01ec5259e32c0ca49558d1606096c6765532f70e9bd4",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.593787Z"
+    "generated_at": "2025-12-15T05:22:42.473798Z"
   }
 }

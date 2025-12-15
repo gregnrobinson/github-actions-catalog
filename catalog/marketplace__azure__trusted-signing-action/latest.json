@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/trusted-signing-action",
-  "version_id": "225873e801b5",
+  "version_id": "bd77cd93069f",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/trusted-signing-action/action.yml",
@@ -451,8 +451,7 @@
   "annotations": {
     "categories": [
       "Security",
-      "Authentication",
-      "Code quality"
+      "Authentication"
     ],
     "confidence": "high",
     "evidence": [
@@ -460,21 +459,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Security",
-        "reasoning": "The action is focused on signing files, which is a security measure, and it requires authentication details for Azure, indicating a role in both security and code quality.",
+        "reasoning": "The action is focused on signing files, which is a security measure, and it requires Azure authentication credentials, indicating its role in managing secure access.",
         "tags": [
           "signing",
           "security",
           "azure",
           "authentication",
-          "code quality"
+          "trusted-signing"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "225873e801b52c85f2e01f821f68c7cdbbbec0a5e2524e25a3926ff2b3e7d327",
+    "source_hash": "bd77cd93069f54527d26e0ca48268de2925bf1fda5e6db7bf616b9d3d07fb7bf",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.944579Z"
+    "generated_at": "2025-12-15T05:21:53.694672Z"
   }
 }

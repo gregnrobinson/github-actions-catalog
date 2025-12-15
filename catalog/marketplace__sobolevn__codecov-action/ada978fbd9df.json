@@ -1,0 +1,178 @@
+{
+  "action_id": "marketplace/sobolevn/codecov-action",
+  "version_id": "ada978fbd9df",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/codecov-action/action.yml",
+    "origin": "github.com/sobolevn/codecov-action",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Codecov",
+    "description": "GitHub Action that uploads coverage reports for your repository to codecov.io",
+    "author": "Ibrahim Ali <@ibrahim0814> & Thomas Hu <@thomasrockhu> | Codecov",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": null,
+        "description": "Repository upload token - get it from codecov.io. Required only for private repositories"
+      },
+      {
+        "name": "files",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list of files to upload"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": null,
+        "description": "Directory to search for coverage reports."
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": null,
+        "description": "Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)"
+      },
+      {
+        "name": "commit_parent",
+        "required": false,
+        "default": null,
+        "description": "The commit SHA of the parent for which you are uploading coverage. If not present, the parent will be determined using the API of your repository provider.  When using the repository providers API, the parent is determined via finding the closest ancestor to the commit."
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": null,
+        "description": "Don't upload files to Codecov"
+      },
+      {
+        "name": "env_vars",
+        "required": false,
+        "default": null,
+        "description": "Environment variables to tag the upload with (e.g. PYTHON | OS,PYTHON)"
+      },
+      {
+        "name": "fail_ci_if_error",
+        "required": false,
+        "default": null,
+        "description": "Specify whether or not CI build should fail if Codecov runs into an error during upload"
+      },
+      {
+        "name": "file",
+        "required": false,
+        "default": null,
+        "description": "Path to coverage file to upload"
+      },
+      {
+        "name": "functionalities",
+        "required": false,
+        "default": null,
+        "description": "Comma-separated list, see the README for options and their usage"
+      },
+      {
+        "name": "move_coverage_to_trash",
+        "required": false,
+        "default": null,
+        "description": "Move discovered coverage reports to the trash"
+      },
+      {
+        "name": "name",
+        "required": false,
+        "default": null,
+        "description": "User defined upload name. Visible in Codecov UI"
+      },
+      {
+        "name": "override_branch",
+        "required": false,
+        "default": null,
+        "description": "Specify the branch name"
+      },
+      {
+        "name": "override_build",
+        "required": false,
+        "default": null,
+        "description": "Specify the build number"
+      },
+      {
+        "name": "override_commit",
+        "required": false,
+        "default": null,
+        "description": "Specify the commit SHA"
+      },
+      {
+        "name": "override_pr",
+        "required": false,
+        "default": null,
+        "description": "Specify the pull request number"
+      },
+      {
+        "name": "override_tag",
+        "required": false,
+        "default": null,
+        "description": "Specify the git tag"
+      },
+      {
+        "name": "os",
+        "required": false,
+        "default": null,
+        "description": "Override the assumed OS. Options are alpine | linux | macos | windows."
+      },
+      {
+        "name": "root_dir",
+        "required": false,
+        "default": null,
+        "description": "Used when not in git/hg project to identify project root directory"
+      },
+      {
+        "name": "slug",
+        "required": false,
+        "default": null,
+        "description": "Specify the slug manually (Enterprise use)"
+      },
+      {
+        "name": "url",
+        "required": false,
+        "default": null,
+        "description": "Change the upload host (Enterprise use)"
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": null,
+        "description": "Specify whether the Codecov output should be verbose"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "Specify which version of the Codecov Uploader should be used. Defaults to `latest`"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "Directory in which to execute codecov.sh"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ada978fbd9df36126bd9bcdd1d4214d61b534ee76fd492c527f916db654a70ad",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:31.273337Z"
+  }
+}

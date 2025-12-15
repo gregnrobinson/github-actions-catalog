@@ -1,0 +1,19 @@
+name: 'github-action-publish-binaries'
+description: 'Publish binaries when new releases are made.'
+author: 'Steve Kemp'
+branding:
+  icon: save
+  color: black
+inputs:
+  args:
+    description: 'The pattern of files to upload'
+    required: true
+  releaseId:
+    description: 'The release Id of the release to be targeted.'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+      - ${{ inputs.args }}
+      - ${{ inputs.releaseId }}

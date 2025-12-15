@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/Sample-Chat-Completion-OpenAI-Infra",
-  "version_id": "6cef7c0e5f49",
+  "version_id": "042009df6935",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/Sample-Chat-Completion-OpenAI-Infra/action.yml",
@@ -101,7 +101,7 @@
             "INPUT_ARGS": "${{ inputs.additional-args }}"
           },
           "with": {
-            "inlineScript": "# Create and initialize AZD project\ndir\nmkdir orig-ai-repo\ncd orig-ai-repo\nazd init -t Azure-Samples/azure-search-openai-demo -e ${{ inputs.env-name }}\n\n# modify main.parameters.json in template to take in open ai location as env var\n$filePath = \"infra/main.parameters.json\"\n$json = Get-Content -Raw -Path $filePath | ConvertFrom-Json\n$openAiEnvVar = @{\n  value = '${AZURE_OPENAI_LOCATION}'\n}\nif ($json.parameters) {\n    $json.parameters | Add-Member -Name \"openAiResourceGroupLocation\" -Value $openAiEnvVar -MemberType NoteProperty\n}\n$json | ConvertTo-Json -Depth 10 | Set-Content -Path $filePath\n\n# Get permissions\nazd auth login --client-id ${{ env.AZURE_CLIENT_ID }} --federated-credential-provider \"github\" --tenant-id ${{ env.AZURE_TENANT_ID }}\nGet-AzAccessToken -ResourceUrl \"https://vault.azure.net\"\n\n# Set requied environment variables\nazd env set AZURE_SUBSCRIPTION_ID ${{ env.AZURE_SUBSCRIPTION_ID }}\nazd env set AZURE_PRINCIPAL_ID ${{ env.AZURE_PRINCIPAL_ID}}\n# azd env set AZURE_RESOURCE_GROUP ${{ env.AZURE_RG }}\n\n# Set environment variables to answer prompts\nazd env set AZURE_LOCATION ${{ inputs.location }}\n\n# Set open ai location if provided, else default to rg location\nif ([string]::IsNullOrEmpty(\"${{ inputs.openai-location }}\")) {\n  azd env set AZURE_OPENAI_LOCATION ${{ inputs.location }}\n} else {\n  azd env set AZURE_OPENAI_LOCATION ${{ inputs.openai-location }}\n}\n\n# Set document intelligence location if provided, else default to rg location\nif ([string]::IsNullOrEmpty(\"${{ inputs.documentintelligence-location }}\")) {\n  azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.location }}\n} else {\n  azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.documentintelligence-location }}\n}\n\n# Set additional environment variables\nif (-not [string]::IsNullOrEmpty($env:INPUT_ARGS)) {\n  $jsonObject = ConvertFrom-Json -InputObject $env:INPUT_ARGS -AsHashtable\n  foreach ($key in $jsonObject.Keys) {\n    $value = $jsonObject[$key]\n    azd env set $key $value\n  }\n}\nazd env get-values\n\n# Bring your own data\n$bringYourOwnData = [System.Convert]::ToBoolean($env:BRING_YOUR_OWN_DATA)\nif ($bringYourOwnData -eq $true) {\n  Write-Output \"The bring-your-own-data input is true.\"\n  if (Test-Path data) {\n    Remove-Item data -Recurse -Force\n  }\n  if (Test-Path ../${{ inputs.data-path }}) {\n    Copy-Item ../${{ inputs.data-path }} data -Recurse\n  }\n}\n\n#Start the deployment\nazd up --no-prompt -e ${{ inputs.env-name }}\n",
+            "inlineScript": "# Create and initialize AZD project\ndir\nmkdir orig-ai-repo\ncd orig-ai-repo\nazd init -t Azure-Samples/azure-search-openai-demo -e ${{ inputs.env-name }}\n\n# modify main.parameters.json in template to take in open ai location as env var\n$filePath = \"infra/main.parameters.json\"\n$json = Get-Content -Raw -Path $filePath | ConvertFrom-Json    \n$openAiEnvVar = @{\n  value = '${AZURE_OPENAI_LOCATION}'\n}\nif ($json.parameters) {\n    $json.parameters | Add-Member -Name \"openAiResourceGroupLocation\" -Value $openAiEnvVar -MemberType NoteProperty\n}\n$json | ConvertTo-Json -Depth 10 | Set-Content -Path $filePath\n\n# Get permissions\nazd auth login --client-id ${{ env.AZURE_CLIENT_ID }} --federated-credential-provider \"github\" --tenant-id ${{ env.AZURE_TENANT_ID }}\nGet-AzAccessToken -ResourceUrl \"https://vault.azure.net\"\n\n# Set requied environment variables\nazd env set AZURE_SUBSCRIPTION_ID ${{ env.AZURE_SUBSCRIPTION_ID }}\nazd env set AZURE_PRINCIPAL_ID ${{ env.AZURE_PRINCIPAL_ID}}\n# azd env set AZURE_RESOURCE_GROUP ${{ env.AZURE_RG }}\n\n# Set environment variables to answer prompts\nazd env set AZURE_LOCATION ${{ inputs.location }}\n\n# Set open ai location if provided, else default to rg location\nif ([string]::IsNullOrEmpty(\"${{ inputs.openai-location }}\")) {\n  azd env set AZURE_OPENAI_LOCATION ${{ inputs.location }}\n} else {\n  azd env set AZURE_OPENAI_LOCATION ${{ inputs.openai-location }}\n}\n\n# Set document intelligence location if provided, else default to rg location\nif ([string]::IsNullOrEmpty(\"${{ inputs.documentintelligence-location }}\")) {\n  azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.location }}\n} else {\n  azd env set AZURE_DOCUMENTINTELLIGENCE_LOCATION ${{ inputs.documentintelligence-location }}\n}\n\n# Set additional environment variables\nif (-not [string]::IsNullOrEmpty($env:INPUT_ARGS)) {\n  $jsonObject = ConvertFrom-Json -InputObject $env:INPUT_ARGS -AsHashtable\n  foreach ($key in $jsonObject.Keys) {\n    $value = $jsonObject[$key]\n    azd env set $key $value\n  }\n}\nazd env get-values\n\n# Bring your own data\n$bringYourOwnData = [System.Convert]::ToBoolean($env:BRING_YOUR_OWN_DATA)\nif ($bringYourOwnData -eq $true) {\n  Write-Output \"The bring-your-own-data input is true.\"\n  if (Test-Path data) {\n    Remove-Item data -Recurse -Force\n  }\n  if (Test-Path ../${{ inputs.data-path }}) {\n    Copy-Item ../${{ inputs.data-path }} data -Recurse\n  }\n}\n\n#Start the deployment\nazd up --no-prompt -e ${{ inputs.env-name }}\n",
             "azPSVersion": "latest"
           }
         }
@@ -119,7 +119,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on deploying infrastructure to Azure for a specific application, which clearly aligns it with the Infrastructure and Deployment categories.",
+        "reasoning": "The action is focused on deploying infrastructure to Azure for a chat-completion experience, which clearly aligns it with the Infrastructure and Deployment categories.",
         "tags": [
           "Azure",
           "OpenAI",
@@ -131,9 +131,9 @@
     ]
   },
   "cache": {
-    "source_hash": "6cef7c0e5f49ef7eb4e14cd1072a71783ccac740d2c891a90d158eecfd74a2b2",
+    "source_hash": "042009df6935ee0f5776b4612b711ac5c69bd01f1a8000aa7cc0855628bfa6c1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.829980Z"
+    "generated_at": "2025-12-15T05:21:48.406809Z"
   }
 }

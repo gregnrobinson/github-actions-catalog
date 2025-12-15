@@ -1,0 +1,124 @@
+{
+  "action_id": "marketplace/8BitJonny/gh-get-current-pr",
+  "version_id": "9dfa324f1629",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/8BitJonny/gh-get-current-pr/action.yml",
+    "origin": "github.com/8BitJonny/gh-get-current-pr",
+    "publisher": "8BitJonny",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "4.0.0",
+      "name": "v4.0.0",
+      "published_at": "2025-09-06T23:15:29Z",
+      "html_url": "https://github.com/8BitJonny/gh-get-current-pr/releases/tag/4.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Get Current Pull Request",
+    "description": "Get the PR associated with the current commit.",
+    "author": "8BitJonny",
+    "inputs": [
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token used to create an authenticated client."
+      },
+      {
+        "name": "sha",
+        "required": false,
+        "default": null,
+        "description": "Sha to get PR for. Defaults to current sha."
+      },
+      {
+        "name": "filterOutClosed",
+        "required": false,
+        "default": null,
+        "description": "True, False, 1 or 0 if only open PRs should be returned. Defaults to false."
+      },
+      {
+        "name": "filterOutDraft",
+        "required": false,
+        "default": null,
+        "description": "True, False, 1 or 0 if only non-draft PRs should be returned. Defaults to false."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "pr_found",
+        "description": "The outcome if a PR has been found. If so, the other outputs are set."
+      },
+      {
+        "name": "pr",
+        "description": "The whole PR object if one was found."
+      },
+      {
+        "name": "number",
+        "description": "The PR number if one was found."
+      },
+      {
+        "name": "pr_title",
+        "description": "The PR Title if one was found."
+      },
+      {
+        "name": "pr_body",
+        "description": "The PR Body if one was found."
+      },
+      {
+        "name": "pr_url",
+        "description": "The PR Url if one was found."
+      },
+      {
+        "name": "pr_created_at",
+        "description": "The PR Created timestamp if one was found."
+      },
+      {
+        "name": "pr_merged_at",
+        "description": "The PR Merged timestamp if one was found."
+      },
+      {
+        "name": "pr_closed_at",
+        "description": "The PR Closed timestamp if one was found."
+      },
+      {
+        "name": "pr_labels",
+        "description": "The PR Labels if any was found."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action retrieves information about the current pull request, which is essential for communication and collaboration in a development workflow. It also relates to code quality by providing context on pull requests that may affect the codebase.",
+        "tags": [
+          "pull request",
+          "GitHub",
+          "API",
+          "communication",
+          "workflow"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "9dfa324f16293c750a35a4d2c95a74a5e96b91f4e2acb261c5609e49434b30f8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:13.514855Z"
+  }
+}

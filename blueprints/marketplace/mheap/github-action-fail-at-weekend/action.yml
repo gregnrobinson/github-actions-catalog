@@ -1,0 +1,8 @@
+name: Fail at Weekend
+description: Fails all builds at the weekend
+runs:
+  using: node12
+  main: index.js
+branding:
+  icon: alert-octagon
+  color: red

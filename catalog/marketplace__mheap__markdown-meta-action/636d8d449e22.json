@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/mheap/markdown-meta-action",
+  "version_id": "636d8d449e22",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/markdown-meta-action/action.yml",
+    "origin": "github.com/mheap/markdown-meta-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2022-11-07T22:31:07Z",
+      "html_url": "https://github.com/mheap/markdown-meta-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Markdown Meta",
+    "description": "Read front-matter from Markdown files",
+    "author": "",
+    "inputs": [
+      {
+        "name": "file",
+        "required": true,
+        "default": null,
+        "description": "The file to read"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "636d8d449e224c0559f2e015d9fbcde09bc1d9828c8d0d89e57b127e8398eda3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:23.167658Z"
+  }
+}

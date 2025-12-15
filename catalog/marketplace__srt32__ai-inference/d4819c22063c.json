@@ -1,0 +1,115 @@
+{
+  "action_id": "marketplace/srt32/ai-inference",
+  "version_id": "d4819c22063c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/srt32/ai-inference/action.yml",
+    "origin": "github.com/srt32/ai-inference",
+    "publisher": "srt32",
+    "verified": false
+  },
+  "definition": {
+    "name": "AI Inference",
+    "description": "Generate an AI response based on a provided prompt",
+    "author": "GitHub",
+    "inputs": [
+      {
+        "name": "prompt",
+        "required": false,
+        "default": "",
+        "description": "The prompt for the model"
+      },
+      {
+        "name": "prompt-file",
+        "required": false,
+        "default": "",
+        "description": "Path to a file containing the prompt (supports .txt and .prompt.yml formats)"
+      },
+      {
+        "name": "input",
+        "required": false,
+        "default": "",
+        "description": "Template variables in YAML format for .prompt.yml files"
+      },
+      {
+        "name": "file_input",
+        "required": false,
+        "default": "",
+        "description": "Template variables in YAML format mapping variable names to file paths. The file contents will be used for templating."
+      },
+      {
+        "name": "model",
+        "required": false,
+        "default": "openai/gpt-4o",
+        "description": "The model to use"
+      },
+      {
+        "name": "endpoint",
+        "required": false,
+        "default": "https://models.github.ai/inference",
+        "description": "The endpoint to use"
+      },
+      {
+        "name": "system-prompt",
+        "required": false,
+        "default": "You are a helpful assistant",
+        "description": "The system prompt for the model"
+      },
+      {
+        "name": "system-prompt-file",
+        "required": false,
+        "default": "",
+        "description": "Path to a file containing the system prompt"
+      },
+      {
+        "name": "max-tokens",
+        "required": false,
+        "default": "200",
+        "description": "The maximum number of tokens to generate"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The token to use"
+      },
+      {
+        "name": "enable-github-mcp",
+        "required": false,
+        "default": "false",
+        "description": "Enable Model Context Protocol integration with GitHub tools"
+      },
+      {
+        "name": "github-mcp-token",
+        "required": false,
+        "default": "",
+        "description": "The token to use for GitHub MCP server (defaults to the main token if not specified). This must be a PAT for MCP to work."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "response",
+        "description": "The response from the model"
+      },
+      {
+        "name": "response-file",
+        "description": "The file path where the response is saved"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d4819c22063cb8153bf2c55723cf44889f24b1e197b64686af3c15041ba47fc9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:40.973320Z"
+  }
+}

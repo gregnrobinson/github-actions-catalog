@@ -1,0 +1,32 @@
+name: "Notion Update Page"
+description: "Update property of Notion page on commit"
+branding:
+  icon: book-open
+  color: white
+inputs:
+  gh-username:
+    description: "GitHub username of user who has access to the repository"
+    required: true
+  gh-token:
+    description: "GitHub access token of user who has access to the repository"
+    required: true
+  notion-key:
+    description: "Notion Integration Secret Key"
+    required: true
+  notion-property-name:
+    description: "Notion Page property to be updated"
+    required: true
+  notion-update-value:
+    description: "New value for Notion page property"
+    required: true
+  existing-value:
+    description: "What to do with existing value in field to be updated"
+    required: false
+    default: "overwrite"
+  notion-property-type:
+    description: "Type of Notion Page property"
+    required: false
+    default: "rich_text"
+runs:
+  using: "node16"
+  main: "dist/index.js"

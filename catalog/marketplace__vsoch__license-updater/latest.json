@@ -1,0 +1,109 @@
+{
+  "action_id": "marketplace/vsoch/license-updater",
+  "version_id": "1eaf10cf480b",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/license-updater/action.yml",
+    "origin": "github.com/vsoch/license-updater",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "license-updater",
+    "description": "Check for updates to your license files.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "updaters",
+        "required": false,
+        "default": null,
+        "description": "Choose named updaters to run (comma separated value, no spaces)"
+      },
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "path to file or directory to check"
+      },
+      {
+        "name": "args",
+        "required": false,
+        "default": null,
+        "description": "additional args to provide to 'detect' or 'update' commands"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "release of updater to use"
+      },
+      {
+        "name": "allow_fail",
+        "required": false,
+        "default": false,
+        "description": "allow a failure (only relevant if pull_request is false)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Install Action Updater",
+          "env": {
+            "version": "${{ inputs.version }}"
+          },
+          "run": "if [[ \"${version}\" == \"\" ]]; then\n    pip install git+https://github.com/vsoch/license-updater.git@main\nelse\n    pip install license-updater@${version}\nfi\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Detect Action Updates",
+          "env": {
+            "path": "${{ inputs.path }}",
+            "args": "${{ inputs.args }}",
+            "updaters": "${{ inputs.updaters }}"
+          },
+          "run": "# If pwd is provided, ensure we get the entire path\nif [[ \"${path}\" == \".\" ]]; then\n    path=$(pwd)\n    echo \"path=${path}\" >> ${GITHUB_ENV}\nfi\ncmd=\"license-updater\"\ncmd=\"${cmd} detect\"\nif [[ \"${updaters}\" != \"\" ]]; then\n    cmd=\"${cmd} --updaters ${updaters}\"\nfi\ncmd=\"${cmd} ${path} ${args}\"\nprintf \"${cmd}\\n\"\n$cmd && retval=0 || retval=1\necho \"retval=${retval}\" >> $GITHUB_ENV\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Exit on failure (updates)",
+          "env": {
+            "allow_fail": "${{ inputs.allow_fail }}",
+            "retval": "${{ env.retval }}"
+          },
+          "run": "if [[ \"${retval}\" != \"0\" ]] && [[ \"${allow_fail}\" == \"false\" ]]; then\n    printf \"Detect found changes, and allow_fail is false.\"\n    exit 1\nelif [[ \"${retval}\" != \"0\" ]] && [[ \"${allow_fail}\" == \"true\" ]]; then\n    printf \"Detect found changes, and allow_fail is true.\"\n    exit 0\nfi\nprintf \"Return value is ${retval}, no changes needed!\\n\"\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is focused on checking and updating license files, which relates to managing dependencies and ensuring compliance with documentation requirements.",
+        "tags": [
+          "license",
+          "updater",
+          "dependency management",
+          "documentation",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1eaf10cf480b41aaa55bc3994c19253a669ead7301d9a24f1c38f14ba25b90fb",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:34.049035Z"
+  }
+}

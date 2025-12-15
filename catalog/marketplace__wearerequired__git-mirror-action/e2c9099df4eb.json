@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/wearerequired/git-mirror-action",
+  "version_id": "e2c9099df4eb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wearerequired/git-mirror-action/action.yml",
+    "origin": "github.com/wearerequired/git-mirror-action",
+    "publisher": "wearerequired",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v.1.2.0",
+      "published_at": "2021-11-16T07:05:58Z",
+      "html_url": "https://github.com/wearerequired/git-mirror-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Mirror a repository using SSH",
+    "description": "Action for mirroring a repository in another location (Bitbucket, GitHub, GitLab,\u00a0\u2026) using SSH.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "source-repo",
+        "required": true,
+        "default": "",
+        "description": "SSH URL of the source repo."
+      },
+      {
+        "name": "destination-repo",
+        "required": true,
+        "default": "",
+        "description": "SSH URL of the destination repo."
+      },
+      {
+        "name": "dry-run",
+        "required": false,
+        "default": "false",
+        "description": "Execute a dry run."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.source-repo }}",
+        "${{ inputs.destination-repo }}",
+        "${{ inputs.dry-run }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "e2c9099df4ebaf220b1ebf8534d4d229a3549e28b3f2c638f634034b9fdc9390",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:14.636299Z"
+  }
+}

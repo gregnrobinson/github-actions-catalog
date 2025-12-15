@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/pgrimaud/action-shopify",
+  "version_id": "630928d7546c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pgrimaud/action-shopify/action.yml",
+    "origin": "github.com/pgrimaud/action-shopify",
+    "publisher": "pgrimaud",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.2.2",
+      "name": "Fix docker image version",
+      "published_at": "2021-06-25T16:19:14Z",
+      "html_url": "https://github.com/pgrimaud/action-shopify/releases/tag/2.2.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Deploy Shopify theme",
+    "description": "Deploy Shopify theme with Theme Kit",
+    "author": "Pierre Grimaud",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed to deploy a Shopify theme, which falls under the deployment category. It also involves infrastructure as it interacts with the Shopify platform.",
+        "tags": [
+          "Shopify",
+          "Deployment",
+          "Theme Kit",
+          "Infrastructure",
+          "CI/CD"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "630928d7546ce5ba1bad78ab562375d23d18b552cfc1dbcd6ffbd39e4665f898",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:08.640152Z"
+  }
+}

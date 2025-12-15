@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/slash-command-dispatch",
-  "version_id": "9d2495092537",
+  "version_id": "d730c70bd8f9",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/slash-command-dispatch/action.yml",
@@ -122,21 +122,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action facilitates ChatOps by creating dispatch events for slash commands, which is primarily a communication function. It also involves notifications through reactions to comments.",
+        "reasoning": "The action facilitates ChatOps by creating dispatch events for slash commands, which is primarily a communication function. It also includes features for adding reactions, enhancing the notification aspect.",
         "tags": [
           "ChatOps",
-          "slash commands",
           "GitHub",
-          "communication",
-          "notifications"
+          "slash-command",
+          "dispatch",
+          "communication"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "9d249509253730f91df6f66a1b539b4386beca506465f5ace316b83d5b4564e2",
+    "source_hash": "d730c70bd8f9e8fa5630fb0665fcf60cd9cef229438e51144519bb8dc4816abe",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.056261Z"
+    "generated_at": "2025-12-15T05:23:35.630079Z"
   }
 }

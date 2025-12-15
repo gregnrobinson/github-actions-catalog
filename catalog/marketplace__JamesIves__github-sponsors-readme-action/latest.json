@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/JamesIves/github-sponsors-readme-action",
-  "version_id": "5b1e8da2389c",
+  "version_id": "fb982d234ce4",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/JamesIves/github-sponsors-readme-action/action.yml",
@@ -25,7 +25,7 @@
         "name": "token",
         "required": true,
         "default": null,
-        "description": "You must provide the action with a Personal Access Token (PAT) with either the user:read and org:read permission scope and store it in the secrets / with menu as a secret. This should be generated from the account or organization that receives sponsorship.\n[Learn more about creating and using encrypted secrets here.](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)\n"
+        "description": "You must provide the action with a Personal Access Token (PAT) with either the user:read and org:read permission scope and store it in the secrets / with menu as a secret.  This should be generated from the account or organization that receives sponsorship.\n[Learn more about creating and using encrypted secrets here.](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)\n"
       },
       {
         "name": "file",
@@ -97,7 +97,7 @@
     "categories": [
       "Documentation",
       "Communication",
-      "Publishing"
+      "Code quality"
     ],
     "confidence": "high",
     "evidence": [
@@ -105,21 +105,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "This action is primarily focused on enhancing the README documentation by adding GitHub Sponsors information, which also involves aspects of communication and publishing the sponsorship details.",
+        "reasoning": "This action focuses on enhancing the README file by adding GitHub Sponsors information, which falls under documentation. It also facilitates communication about sponsorships, contributing to code quality by promoting funding.",
         "tags": [
           "GitHub Sponsors",
           "README",
           "Documentation",
-          "Automation",
-          "Open Source"
+          "Communication",
+          "Action"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "5b1e8da2389c0afa75fe8a7da44555a16610dfe9ffb6652e939cac8282c32224",
+    "source_hash": "fb982d234ce422669de6797a95f3b7c314af11b20505c6e9ddec4fdca5f75b55",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.215304Z"
+    "generated_at": "2025-12-15T05:22:14.848858Z"
   }
 }

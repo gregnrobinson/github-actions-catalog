@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/functions-action/action.yml",
     "origin": "github.com/azure/functions-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.5.3",
+      "name": "",
+      "published_at": "2025-04-30T19:24:57Z",
+      "html_url": "https://github.com/Azure/functions-action/releases/tag/v1.5.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Functions Action",
@@ -98,6 +106,6 @@
     "source_hash": "1f615afe6f9db67ecfd0eb1cb5006b8d55a374a9c5078e4261d7df9d343780c9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.685643Z"
+    "generated_at": "2025-12-15T05:21:56.395697Z"
   }
 }

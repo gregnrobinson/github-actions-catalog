@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/frogo-notification",
-  "version_id": "741f0f9ef3aa",
+  "version_id": "8403da8bb8af",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-notification/action.yml",
@@ -60,9 +60,9 @@
     ]
   },
   "cache": {
-    "source_hash": "741f0f9ef3aafc2b9a8b6836e8e880a890261162c3dcf265f633b897f286e570",
+    "source_hash": "8403da8bb8af581ea02cd9e1b338c98b28e51702c7058f0fdc35bfebf60fb3cc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.782536Z"
+    "generated_at": "2025-12-15T05:22:56.416727Z"
   }
 }

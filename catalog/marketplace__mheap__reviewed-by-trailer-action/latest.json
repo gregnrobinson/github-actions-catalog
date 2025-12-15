@@ -1,0 +1,65 @@
+{
+  "action_id": "marketplace/mheap/reviewed-by-trailer-action",
+  "version_id": "748eb791eadf",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/reviewed-by-trailer-action/action.yml",
+    "origin": "github.com/mheap/reviewed-by-trailer-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2020-11-18T18:08:04Z",
+      "html_url": "https://github.com/mheap/reviewed-by-trailer-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Add Reviewed-by trailer",
+    "description": "Automatically add a Reviewed-by trailer to Pull Requests",
+    "author": "",
+    "inputs": [
+      {
+        "name": "states",
+        "required": false,
+        "default": "approved",
+        "description": "Comma delimited list of states to add the trailer on. Can be: approved, changes_requested, commented"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Communication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action is focused on enhancing code quality by automatically adding a Reviewed-by trailer to Pull Requests, which is a communication tool for collaborators.",
+        "tags": [
+          "review",
+          "pull request",
+          "trailer",
+          "automation",
+          "code quality"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "748eb791eadf0802e81ad7ee198548a834bea84c1d69b0e0d8899052f4721cba",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:28.264636Z"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/android-edit-text-spinner",
-  "version_id": "b6af677ffb67",
+  "version_id": "4a4cdab6c881",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/android-edit-text-spinner/action.yml",
@@ -39,19 +39,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action focuses on providing full and clear documentation, which directly aligns it with the Documentation category.",
+        "reasoning": "The action is focused on providing full and clear documentation, which directly aligns with the Documentation category.",
         "tags": [
           "documentation",
           "android",
-          "input"
+          "input",
+          "clear",
+          "full"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "b6af677ffb67bc2088df01f527c63d03e086f9bfdb68dafa44ff99123e2c5c85",
+    "source_hash": "4a4cdab6c881836ea1504412f277c3131d77719f2d7e7e1133aba8bc9d4cbd13",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.787322Z"
+    "generated_at": "2025-12-15T05:22:57.617320Z"
   }
 }

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/calibreapp/github-actions",
-  "version_id": "3a0581313e94",
+  "version_id": "8ceeb49a1465",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/calibreapp/github-actions/action.yml",
@@ -48,21 +48,20 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action integrates Calibre into GitHub workflows, which is likely related to building or managing dependencies, but the exact nature of its functionality is not fully clear from the description.",
+        "reasoning": "The action is designed to integrate Calibre into GitHub workflows, which suggests it is used for building or managing dependencies related to Calibre. However, without more specific details about its functionality, the confidence is medium.",
         "tags": [
           "Calibre",
           "GitHub Actions",
-          "build",
-          "dependency management",
-          "workflow"
+          "Build",
+          "Dependency Management"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "3a0581313e94b5f55fadaa4a5ea5dc456f76e3b75e7252dc32dc8da5eef0eba8",
+    "source_hash": "8ceeb49a1465db2c0bf6302157238cb0220ffa6e28d06b209929d1d0a8b51465",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.119223Z"
+    "generated_at": "2025-12-15T05:22:02.502277Z"
   }
 }

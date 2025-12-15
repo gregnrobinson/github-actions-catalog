@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/pipelines",
-  "version_id": "4cec80303225",
+  "version_id": "ec8d101c6020",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/pipelines/action.yml",
@@ -63,7 +63,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is designed to trigger a run in Azure pipelines, which is primarily a deployment task. It also involves communication with Azure DevOps services.",
+        "reasoning": "The Azure Pipelines Action is primarily used to trigger deployments in Azure pipelines, which falls under the Deployment category. It also involves communication with the Azure DevOps service to initiate the pipeline run.",
         "tags": [
           "Azure",
           "Pipelines",
@@ -75,9 +75,9 @@
     ]
   },
   "cache": {
-    "source_hash": "4cec80303225987ce922fe5f4fcf077e71e7fc2af26419ebca774a5bb684cb83",
+    "source_hash": "ec8d101c6020c0ad767abe63aeeef0a5c93d72d107344f2c9fd91cc698c75b4e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.875307Z"
+    "generated_at": "2025-12-15T05:21:51.996288Z"
   }
 }

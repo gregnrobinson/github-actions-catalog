@@ -1,0 +1,133 @@
+{
+  "action_id": "marketplace/primer/vercel-action",
+  "version_id": "d0aa876554fc",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/primer/vercel-action/action.yml",
+    "origin": "github.com/primer/vercel-action",
+    "publisher": "primer",
+    "verified": false
+  },
+  "definition": {
+    "name": "Vercel Action",
+    "description": "This action make a deployment with github actions instead of Vercel builder.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "vercel-token",
+        "required": true,
+        "default": null,
+        "description": "Vercel token"
+      },
+      {
+        "name": "vercel-args",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "github-comment",
+        "required": false,
+        "default": "true",
+        "description": "if you want to comment on pr and commit, set true, default: true"
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": null,
+        "description": "if you want to comment on pr and commit, set token"
+      },
+      {
+        "name": "github-deployment",
+        "required": false,
+        "default": "false",
+        "description": "if you want to create github deployment, set true, default: false"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": null,
+        "description": "the working directory"
+      },
+      {
+        "name": "vercel-project-id",
+        "required": false,
+        "default": null,
+        "description": "Vercel CLI 17+, \u2757\ufe0f  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
+      },
+      {
+        "name": "vercel-org-id",
+        "required": false,
+        "default": null,
+        "description": "Vercel CLI 17+, \u2757\ufe0f  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
+      },
+      {
+        "name": "vercel-project-name",
+        "required": false,
+        "default": null,
+        "description": "The name of the project; if absent we'll use the `vercel inspect` command to determine."
+      },
+      {
+        "name": "scope",
+        "required": false,
+        "default": null,
+        "description": "If you are work in team scope, you should set this value to your team id."
+      },
+      {
+        "name": "zeit-token",
+        "required": true,
+        "default": null,
+        "description": "zeit.co token"
+      },
+      {
+        "name": "now-args",
+        "required": false,
+        "default": "",
+        "description": ""
+      },
+      {
+        "name": "now-project-id",
+        "required": false,
+        "default": null,
+        "description": "Vercel CLI 17+, \u2757\ufe0f  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
+      },
+      {
+        "name": "now-org-id",
+        "required": false,
+        "default": null,
+        "description": "Vercel CLI 17+, \u2757\ufe0f  The `name` property in vercel.json is deprecated (https://zeit.ink/5F)"
+      },
+      {
+        "name": "alias-domains",
+        "required": false,
+        "default": "",
+        "description": "You can assign a domain to this deployment. Please note that this domain must have been configured in the project. You can use pull request number via `{{PR_NUMBER}}` and branch via `{{BRANCH}}`"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "preview-url",
+        "description": "deployment preview URL"
+      },
+      {
+        "name": "preview-name",
+        "description": "deployment preview name"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d0aa876554fc79d78b63b71b389d48ddd53a18f9d41e428aecb7e47beb529f76",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:35.001860Z"
+  }
+}

@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/autopep8",
-  "version_id": "127cfe0d7587",
+  "version_id": "2e3f95bc95ce",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/autopep8/action.yml",
@@ -53,11 +53,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The action formats Python code to ensure it adheres to the PEP 8 style guide, which directly relates to code quality. It can also be used in testing workflows to ensure code style consistency.",
+        "reasoning": "The action formats Python code to adhere to the PEP 8 style guide, which is primarily focused on improving code quality. It can also be used in testing scenarios to ensure code style consistency.",
         "tags": [
           "python",
           "code-formatting",
-          "PEP8",
+          "pep8",
           "autopep8",
           "linting"
         ]
@@ -65,9 +65,9 @@
     ]
   },
   "cache": {
-    "source_hash": "127cfe0d7587a9539bc9b6d7467bf41f0dc3c1e50f710d3ab89942b879a2faa5",
+    "source_hash": "2e3f95bc95ceb96080ba3a6d7026555abff989819b04a15ba9695a8f1afcf4ad",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.042232Z"
+    "generated_at": "2025-12-15T05:23:35.338338Z"
   }
 }

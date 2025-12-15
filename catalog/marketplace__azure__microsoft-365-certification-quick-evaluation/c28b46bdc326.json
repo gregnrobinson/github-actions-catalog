@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/microsoft-365-certification-quick-evaluation/action.yml",
     "origin": "github.com/azure/microsoft-365-certification-quick-evaluation",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Release v1.0.1  for microsoft-365-certification-quick-evaluation",
+      "published_at": "2023-03-15T05:06:53Z",
+      "html_url": "https://github.com/Azure/microsoft-365-certification-quick-evaluation/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Microsoft 365 certification quick evaluation",
@@ -41,6 +49,6 @@
     "source_hash": "c28b46bdc326db45104dea5d169c71726b1f78a7bc094c67a693bb948e310757",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.572521Z"
+    "generated_at": "2025-12-15T05:21:49.944391Z"
   }
 }

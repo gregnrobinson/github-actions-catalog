@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/axel-op/containerized-dart-github-action",
+  "version_id": "21fb3ab6eb36",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/containerized-dart-github-action/action.yml",
+    "origin": "github.com/axel-op/containerized-dart-github-action",
+    "publisher": "axel-op",
+    "verified": false
+  },
+  "definition": {
+    "name": "Hello World",
+    "description": "Greet someone and record the time",
+    "author": "",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "pre-entrypoint": "/action/scripts/setup.sh",
+      "entrypoint": "/action/scripts/main.sh",
+      "post-entrypoint": "/action/scripts/cleanup.sh"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "21fb3ab6eb3642e6fd63f06d5e014bd25e3b6e405e677d54b7fac977c59e9628",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:27.292188Z"
+  }
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/issue-sentinel/action.yml",
     "origin": "github.com/azure/issue-sentinel",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.5.0",
+      "name": "Azure/issue-sentinel@v1.5.0",
+      "published_at": "2025-12-11T06:42:46Z",
+      "html_url": "https://github.com/Azure/issue-sentinel/releases/tag/v1.5.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Issue Sentinel",
@@ -53,6 +61,6 @@
     "source_hash": "2290d4beb1c1bb48c86a8c64d51db46d0b9cc67b5efcab6351ddea7f07933b07",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.717506Z"
+    "generated_at": "2025-12-15T05:21:59.273573Z"
   }
 }

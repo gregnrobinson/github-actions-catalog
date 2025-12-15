@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/jidicula/clang-format-action",
+  "version_id": "b69710c3a569",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/clang-format-action/action.yml",
+    "origin": "github.com/jidicula/clang-format-action",
+    "publisher": "jidicula",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v4.16.0",
+      "name": "v4.16.0",
+      "published_at": "2025-10-29T15:03:40Z",
+      "html_url": "https://github.com/jidicula/clang-format-action/releases/tag/v4.16.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "clang-format Check",
+    "description": "Use clang-format to see if your C/C++/Protobuf code is formatted according to project guidelines.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "clang-format-version",
+        "required": false,
+        "default": "21",
+        "description": "The major version of clang-format that you want to use."
+      },
+      {
+        "name": "check-path",
+        "required": false,
+        "default": ".",
+        "description": "The path to the directory you want to check for correct C/C++/Protobuf formatting. Default is the full repository."
+      },
+      {
+        "name": "exclude-regex",
+        "required": false,
+        "default": "",
+        "description": "A regex to exclude files or directories that should not be checked. Default is empty."
+      },
+      {
+        "name": "fallback-style",
+        "required": false,
+        "default": "llvm",
+        "description": "The fallback style for clang-format if no .clang-format file exists in your repository."
+      },
+      {
+        "name": "include-regex",
+        "required": false,
+        "default": "",
+        "description": "A regex to override the C/C++/Protobuf/CUDA filetype regex. that should be checked. Default results in the regex defined in `check.sh`."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "\"${{ github.action_path }}/check.sh\" \"${{ inputs.clang-format-version }}\" \"${{ inputs.check-path }}\" \"${{ inputs.fallback-style }}\" \"${{ inputs.exclude-regex }}\" \"${{ inputs.include-regex }}\"\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Save PR head commit SHA",
+          "if": "failure() && github.event_name == 'pull_request'",
+          "shell": "bash",
+          "run": "SHA=\"${{ github.event.pull_request.head.sha }}\"\necho \"SHA=$SHA\" >> $GITHUB_ENV\n"
+        },
+        {
+          "name": "Save latest commit SHA if not PR",
+          "if": "failure() && github.event_name != 'pull_request'",
+          "shell": "bash",
+          "run": "echo \"SHA=${{ github.sha }}\" >> $GITHUB_ENV"
+        },
+        {
+          "name": "Report failure in job summary",
+          "if": "failure()",
+          "run": "DEEPLINK=\"${{ github.server_url }}/${{ github.repository }}/commit/${{ env.SHA }}\"\necho -e \"Format check failed on commit [${GITHUB_SHA:0:8}]($DEEPLINK) with files:\\n$(<$GITHUB_WORKSPACE/failing-files.txt)\" >> $GITHUB_STEP_SUMMARY\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "This action is focused on checking the formatting of code, which falls under code quality, and it is typically used in testing to ensure code adheres to style guidelines.",
+        "tags": [
+          "clang-format",
+          "code quality",
+          "C++",
+          "formatting",
+          "linting"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b69710c3a5699b9d8aa2872aa2cc1d1df9d08dd00d049eae6de575bb0b9964b2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:09.795301Z"
+  }
+}

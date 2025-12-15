@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/yeslayla/butler-publish-itchio-action",
+  "version_id": "f6433f4f5e1d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/yeslayla/butler-publish-itchio-action/action.yml",
+    "origin": "github.com/yeslayla/butler-publish-itchio-action",
+    "publisher": "yeslayla",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.3",
+      "name": "Butler Push v1.0.3",
+      "published_at": "2022-01-31T22:13:03Z",
+      "html_url": "https://github.com/yeslayla/butler-publish-itchio-action/releases/tag/v1.0.3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Butler Push",
+    "description": "Publish releases to Itch.io using Butler",
+    "author": "yeslayla",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "This action is specifically designed to publish releases to Itch.io, which falls under the Publishing category, and it also involves deploying those releases to the platform.",
+        "tags": [
+          "Itch.io",
+          "Publishing",
+          "Deployment",
+          "Game Development",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f6433f4f5e1dd2a8bc2c9d173677c2a02f684c18a6ff5aa1346c9457ec3e2694",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:00.541993Z"
+  }
+}

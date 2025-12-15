@@ -1,0 +1,107 @@
+{
+  "action_id": "marketplace/mheap/raise-pr-on-change-action",
+  "version_id": "1740637f9865",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/raise-pr-on-change-action/action.yml",
+    "origin": "github.com/mheap/raise-pr-on-change-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.9.0",
+      "name": "v1.9.0",
+      "published_at": "2025-12-05T10:09:11Z",
+      "html_url": "https://github.com/mheap/raise-pr-on-change-action/releases/tag/v1.9.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Raise PR on change",
+    "description": "Automatically raise a PR to a downstream repo whenever a file changes",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "A GitHub API token that has permission to list org membership"
+      },
+      {
+        "name": "mode",
+        "required": false,
+        "default": null,
+        "description": "Should we rely on the PR files changes, or check the contents in the upstream repo (default: check-upstream)"
+      },
+      {
+        "name": "configFile",
+        "required": false,
+        "default": ".github/raise-pr-on-change.json",
+        "description": "A file containing downstream repos and any file paths that need updating"
+      },
+      {
+        "name": "prBranch",
+        "required": false,
+        "default": null,
+        "description": "The branch to push changes to before submitting a PR"
+      },
+      {
+        "name": "targetBranch",
+        "required": false,
+        "default": null,
+        "description": "The branch to target when opening a PR"
+      },
+      {
+        "name": "prTitle",
+        "required": true,
+        "default": null,
+        "description": "The PR title to use"
+      },
+      {
+        "name": "prBody",
+        "required": true,
+        "default": null,
+        "description": "The PR body to use"
+      },
+      {
+        "name": "commitMessage",
+        "required": false,
+        "default": null,
+        "description": "The commit message use"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action automatically raises a pull request to a downstream repository when a file changes, which primarily falls under communication between repositories. It also involves deployment aspects as it updates downstream code.",
+        "tags": [
+          "pull request",
+          "automation",
+          "GitHub",
+          "repository",
+          "file change"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1740637f9865851d2467b8eac0fbce61aa50a86bc25b91ffc321c58abcb96f64",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:26.321187Z"
+  }
+}

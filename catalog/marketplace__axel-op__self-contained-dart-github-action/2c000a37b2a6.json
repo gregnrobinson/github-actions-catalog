@@ -1,0 +1,48 @@
+{
+  "action_id": "marketplace/axel-op/self-contained-dart-github-action",
+  "version_id": "2c000a37b2a6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/self-contained-dart-github-action/action.yml",
+    "origin": "github.com/axel-op/self-contained-dart-github-action",
+    "publisher": "axel-op",
+    "verified": false
+  },
+  "definition": {
+    "name": "Hello World",
+    "description": "Greet someone and record the time",
+    "author": "",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": false,
+        "default": null,
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile.action",
+      "args": [
+        "${{ inputs.who-to-greet }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "2c000a37b2a64c6a81839e786f314f073a3b1ebf6f9883135a46fbe0a43f8b67",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:28.399775Z"
+  }
+}

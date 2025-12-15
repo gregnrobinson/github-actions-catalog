@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/dflook/run-in-container",
-  "version_id": "03739addabb5",
+  "version_id": "700944101424",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/dflook/run-in-container/action.yml",
@@ -58,7 +58,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "The action is designed to run commands within a container, which is primarily related to infrastructure management. It also involves building or executing processes, hence the secondary category of Build.",
+        "reasoning": "The action is designed to run commands within a container, which is a key aspect of infrastructure management and build processes. It allows for executing tasks in isolated environments.",
         "tags": [
           "container",
           "infrastructure",
@@ -70,9 +70,9 @@
     ]
   },
   "cache": {
-    "source_hash": "03739addabb54b918b02fee1710314e9337c9c4b74728ac9c80242f724feaf5a",
+    "source_hash": "70094410142438b10adf4117eaf10603fd7f165e836f7d080ca86cc527113592",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.642492Z"
+    "generated_at": "2025-12-15T05:21:24.440475Z"
   }
 }

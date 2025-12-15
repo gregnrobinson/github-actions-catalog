@@ -1,0 +1,27 @@
+name: "Package an AWS Lambda in Java"
+description: "Package an AWS Lambda in Java"
+branding:
+  icon: package
+  color: red
+inputs:
+  working-directory:
+    description: "The root directory of the function"
+    required: false
+    default: "."
+outputs:
+  deployment-directory:
+    description: "The directory containing the files to be deployed"
+    value: ${{ steps.package.outputs.deployment-directory }}
+  deployment-file:
+    description: "The jar file to be deployed"
+    value: ${{ steps.package.outputs.deployment-file }}
+runs:
+  using: "composite"
+  steps:
+    - name: Package
+      id: package
+      working-directory: ${{ inputs.working-directory }}
+      run: "${GITHUB_ACTION_PATH}/package.sh"
+      shell: bash
+      env:
+        DEPLOYMENT_DIR: deployment

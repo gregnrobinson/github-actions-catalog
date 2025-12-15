@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/mheap/github-action-pokemon-comment",
+  "version_id": "53acb4aa7ec6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-pokemon-comment/action.yml",
+    "origin": "github.com/mheap/github-action-pokemon-comment",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "PR-kemon",
+    "description": "Adds a comment thanking the author when a PR is opened, with bonus pokemon information",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Notification"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "This action is designed to add a comment on a pull request, which falls under communication and notification categories.",
+        "tags": [
+          "PR",
+          "comment",
+          "thank you",
+          "pokemon",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "53acb4aa7ec696ecba2dc310a07b1bc4a5623c3f7256e98d7020336fbac08bb4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:28.771053Z"
+  }
+}

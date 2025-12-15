@@ -1,0 +1,80 @@
+name: 'Run Julia package tests'
+description: 'Run the tests in a Julia package'
+author: 'David Anthoff'
+
+branding:
+  icon: 'aperture'
+  color: 'gray-dark'
+
+inputs:
+  check_bounds:
+    description: 'Value determining which bounds checking setting to use. Options: yes | no | auto. Default value: yes.'
+    default: 'yes'
+  coverage:
+    description: 'Value determining whether to test with coverage or not. Options: true | false. Default value: true.'
+    default: 'true'
+  depwarn:
+    description: 'Value passed to the --depwarn flag. Options: yes | no | error. Default value: yes.'
+    default: 'yes'
+  force_latest_compatible_version:
+    description: 'If true, then, for each [compat] entry in the active project, only allow the latest compatible version. If the value is auto and the pull request has been opened by Dependabot or CompatHelper, then force_latest_compatible_version will be set to true, otherwise it will be set to false. Options: true | false | auto. Default value: auto.'
+    default: 'auto'
+  inline:
+    description: 'Value passed to the --inline flag. Options: yes | no. Default value: yes.'
+    default: 'yes'
+  prefix:
+    description: 'Value inserted in front of the julia command, e.g. for running xvfb-run julia [...]'
+    default: ''
+    required: false
+  project:
+    description: 'Value passed to the --project flag. The default value is the repository root: "@."'
+    default: '@.'
+  annotate:
+    description: 'Whether or not to attempt to create GitHub annotations to show test failures inline. Only effective on Julia 1.8+.'
+    default: 'false'
+  compiled_modules:
+    description: 'Whether to run tests with `compiled-modules`. For possible values, refer to https://docs.julialang.org/en/v1/manual/command-line-interface/#command-line-interface'
+    default: 'yes'
+  allow_reresolve:
+    description: 'Whether to allow re-resolving of package versions in the test environment. Only effective on Julia 1.9+. Options: true | false. Default value: true'
+    default: 'true'
+  test_args:
+    description: 'Arguments string that is passed on to test.'
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set and export registry flavor preference
+      run: echo "JULIA_PKG_SERVER_REGISTRY_PREFERENCE=${JULIA_PKG_SERVER_REGISTRY_PREFERENCE:-eager}" >> ${GITHUB_ENV}
+      shell: bash
+    - name: Install dependencies in their own (shared) environment
+      run: |
+        # Functionality only currently works on a narrow range of Julia versions... see #76
+        if v"1.8pre" < VERSION < v"1.9.0-beta3"
+          using Pkg
+          Pkg.activate("tests-logger-env"; shared=true)
+          Pkg.add(Pkg.PackageSpec(name="GitHubActions", version="0.1"))
+        end
+      shell: julia --color=yes {0}
+      if: inputs.annotate == 'true'
+    - run: |
+        # The Julia command that will be executed
+        julia_cmd=( julia --color=yes --inline=${{ inputs.inline }} --project=${{ inputs.project }} -e 'include(joinpath(ENV["GITHUB_ACTION_PATH"], "test_harness.jl"))' -- ${{inputs.test_args}} )
+
+        # Add the prefix in front of the command if there is one
+        prefix=( ${{ inputs.prefix }} )
+        [[ -n ${prefix[*]} ]] && julia_cmd=( "${prefix[@]}" "${julia_cmd[@]}" )
+
+        # Run the Julia command
+        echo "::debug::Executing Julia: ${julia_cmd[*]}"
+        "${julia_cmd[@]}"
+      shell: bash
+      env:
+        ANNOTATE: ${{ inputs.annotate }}
+        COVERAGE: ${{ inputs.coverage }}
+        FORCE_LATEST_COMPATIBLE_VERSION: ${{ inputs.force_latest_compatible_version }}
+        CHECK_BOUNDS: ${{ inputs.check_bounds }}
+        COMPILED_MODULES: ${{ inputs.compiled_modules }}
+        ALLOW_RERESOLVE: ${{ inputs.allow_reresolve }}
+        DEPWARN: ${{ inputs.depwarn }}

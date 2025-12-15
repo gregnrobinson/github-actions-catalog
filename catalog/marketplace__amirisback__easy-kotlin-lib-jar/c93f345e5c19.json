@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/easy-kotlin-lib-jar/action.yml",
     "origin": "github.com/amirisback/easy-kotlin-lib-jar",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.6",
+      "name": "Release v1.0.6",
+      "published_at": "2022-03-03T10:37:11Z",
+      "html_url": "https://github.com/amirisback/easy-kotlin-lib-jar/releases/tag/1.0.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Easy Kotlin Lib Jar",
@@ -38,6 +46,6 @@
     "source_hash": "c93f345e5c19675f07d0f92799d4c225ac8e4b10ddce095ffc1bd790c6ffb918",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.637646Z"
+    "generated_at": "2025-12-15T05:23:07.329244Z"
   }
 }

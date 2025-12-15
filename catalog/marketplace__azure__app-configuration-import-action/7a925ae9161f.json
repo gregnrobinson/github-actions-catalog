@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/app-configuration-import-action/action.yml",
     "origin": "github.com/azure/app-configuration-import-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "App Configuration Import Action v1.0.0",
+      "published_at": "2021-10-01T15:32:08Z",
+      "html_url": "https://github.com/Azure/app-configuration-import-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "app-configuration-import",
@@ -71,6 +79,6 @@
     "source_hash": "7a925ae9161fff2a44f3c1a5217d457dd58065f116d7361ad782bca5b7c380e6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.699425Z"
+    "generated_at": "2025-12-15T05:21:57.313070Z"
   }
 }

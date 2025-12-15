@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lukka/get-cmake",
-  "version_id": "65777e8b3335",
+  "version_id": "5a4988947c0c",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lukka/get-cmake/action.yml",
@@ -73,21 +73,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "This action installs and manages dependencies (CMake and Ninja) required for building projects, and it caches them for efficiency. The focus on managing versions and caching aligns it closely with dependency management.",
+        "reasoning": "This action installs and manages dependencies (CMake and Ninja) necessary for building projects, and it also includes caching functionality to optimize installation times.",
         "tags": [
           "CMake",
           "Ninja",
-          "Dependency Management",
-          "Build Tools",
-          "Caching"
+          "dependency",
+          "build",
+          "cache"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "65777e8b33350f8a2f80b0cf1074e167df53312adad26f48daf5ee5da646b5b1",
+    "source_hash": "5a4988947c0c59e2b642a72a57b69231441ce4cea81f8ffcafd5c18fb4bcac11",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.142759Z"
+    "generated_at": "2025-12-15T05:22:07.414943Z"
   }
 }

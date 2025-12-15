@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/pgrimaud/action-shopify-theme-check",
+  "version_id": "0fed319a08b8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pgrimaud/action-shopify-theme-check/action.yml",
+    "origin": "github.com/pgrimaud/action-shopify-theme-check",
+    "publisher": "pgrimaud",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.0.1",
+      "name": "Test release",
+      "published_at": "2021-03-23T13:01:30Z",
+      "html_url": "https://github.com/pgrimaud/action-shopify-theme-check/releases/tag/0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Run Shopify Theme Check",
+    "description": "Run Shopify Theme Check on GitHub Actions",
+    "author": "Pierre Grimaud",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0fed319a08b84f003279dad7d5f7b2dee18de47ca0a4c06934399bd5af0274e0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:09.446694Z"
+  }
+}

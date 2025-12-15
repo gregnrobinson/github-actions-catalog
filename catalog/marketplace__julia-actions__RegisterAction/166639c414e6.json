@@ -1,0 +1,54 @@
+{
+  "action_id": "marketplace/julia-actions/RegisterAction",
+  "version_id": "166639c414e6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/RegisterAction/action.yml",
+    "origin": "github.com/julia-actions/RegisterAction",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.3.2",
+      "name": "v0.3.2",
+      "published_at": "2023-01-24T17:31:41Z",
+      "html_url": "https://github.com/julia-actions/RegisterAction/releases/tag/v0.3.2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Register Julia Package",
+    "description": "Register your Julia package with Registrator",
+    "author": "Chris de Graaf",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "GitHub API token"
+      },
+      {
+        "name": "registrator",
+        "required": false,
+        "default": "JuliaRegistrator",
+        "description": "Registrator bot username"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "register.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "166639c414e63094be9a0dbb54f7a4959ce2785cf548ca2f23f9b578cccb1ee9",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:22.857746Z"
+  }
+}

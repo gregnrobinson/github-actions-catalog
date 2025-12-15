@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/rhysd/action-setup-vim",
+  "version_id": "0f702bb4a94e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/action-setup-vim/action.yml",
+    "origin": "github.com/rhysd/action-setup-vim",
+    "publisher": "rhysd",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.6.0",
+      "name": "",
+      "published_at": "2025-11-09T12:54:22Z",
+      "html_url": "https://github.com/rhysd/action-setup-vim/releases/tag/v1.6.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Setup Vim",
+    "description": "Setup Vim or Neovim text editors on GitHub Actions",
+    "author": "rhysd <https://rhysd.github.io>",
+    "inputs": [
+      {
+        "name": "version",
+        "required": false,
+        "default": "stable",
+        "description": "Version of Vim or Neovim to install. Valid values are 'stable', 'nightly' or version tag such as 'v8.2.0126'. Note that this value must exactly match to a tag name when installing the specific version.\n"
+      },
+      {
+        "name": "neovim",
+        "required": false,
+        "default": false,
+        "description": "Setting to true will install Neovim.\n"
+      },
+      {
+        "name": "configure-args",
+        "required": false,
+        "default": null,
+        "description": "Arguments passed to ./configure execution when building Vim from source.\n"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "Personal access token for GitHub API. It is used for calling GitHub API when Neovim asset is not found in stable releases and needs to fallback. You don't need to set this input since it is set automatically.\n"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "executable",
+        "description": "Absolute file path to the installed executable.\n"
+      },
+      {
+        "name": "vim-dir",
+        "description": "Absolute file path to the $VIM directory of the installation. Please see `:help $VIM` for more details.\n"
+      }
+    ],
+    "runs": {
+      "using": "node24",
+      "main": "src/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "0f702bb4a94e4d14477cf3c800eb0d226e02c322bf5790bd537400ceff09cdea",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:42.248088Z"
+  }
+}

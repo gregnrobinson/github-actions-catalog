@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/axel-op/docker-labels-retriever",
+  "version_id": "fd30dbe5e8cf",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/docker-labels-retriever/action.yml",
+    "origin": "github.com/axel-op/docker-labels-retriever",
+    "publisher": "axel-op",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "",
+      "published_at": "2019-11-30T01:15:24Z",
+      "html_url": "https://github.com/axel-op/docker-labels-retriever/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Docker Labels Retriever",
+    "description": "Inspects labels of remote images on Docker Hub, GitHub Packages or Google Container Registry, without pulling them",
+    "author": "axel-op",
+    "inputs": [
+      {
+        "name": "registry",
+        "required": true,
+        "default": null,
+        "description": "Registry of the image."
+      },
+      {
+        "name": "image",
+        "required": true,
+        "default": null,
+        "description": "Docker image to inspect."
+      },
+      {
+        "name": "accessToken",
+        "required": false,
+        "default": null,
+        "description": "Token to use to authenticate."
+      },
+      {
+        "name": "dockerHubUsername",
+        "required": false,
+        "default": null,
+        "description": "Username of a Docker Hub account for private Docker Hub images."
+      },
+      {
+        "name": "hostname",
+        "required": false,
+        "default": null,
+        "description": "Hostname for Google Container Registry."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "fd30dbe5e8cf7616da0235f63f9327eb5437dedb699827712e163b7ca968f32f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:29.142826Z"
+  }
+}

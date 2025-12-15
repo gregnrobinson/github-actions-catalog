@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-notification/action.yml",
     "origin": "github.com/amirisback/frogo-notification",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.1.1",
+      "name": "Release v1.1.1",
+      "published_at": "2022-03-09T05:20:26Z",
+      "html_url": "https://github.com/amirisback/frogo-notification/releases/tag/1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-Notification",
@@ -38,6 +46,6 @@
     "source_hash": "8403da8bb8af581ea02cd9e1b338c98b28e51702c7058f0fdc35bfebf60fb3cc",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.602758Z"
+    "generated_at": "2025-12-15T05:22:56.416727Z"
   }
 }

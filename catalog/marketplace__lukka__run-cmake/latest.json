@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lukka/run-cmake",
-  "version_id": "be497d07c000",
+  "version_id": "e07b1a11abc1",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lukka/run-cmake/action.yml",
@@ -148,7 +148,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is primarily focused on running CMake to configure, build, package, and test C/C++ source code, which aligns it closely with the Build category. Additionally, it involves packaging and testing aspects.",
+        "reasoning": "The action is primarily focused on building C/C++ source code using CMake, which falls under the Build category. Additionally, it involves packaging and testing as part of the build process.",
         "tags": [
           "CMake",
           "C++",
@@ -160,9 +160,9 @@
     ]
   },
   "cache": {
-    "source_hash": "be497d07c0008ab50cce84c6ce0693fe0ac20dfecb0e4c99df40390950a147ba",
+    "source_hash": "e07b1a11abc1d3426dbab111fc65bf022a81fef1312ceda0043ac89198c978ca",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.140448Z"
+    "generated_at": "2025-12-15T05:22:07.114467Z"
   }
 }

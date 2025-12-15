@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/lowlighter/setup-velociraptor/action.yml",
     "origin": "github.com/lowlighter/setup-velociraptor",
     "publisher": "lowlighter",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "v2.0",
+      "published_at": "2021-11-30T02:35:06Z",
+      "html_url": "https://github.com/jurassiscripts/setup-velociraptor/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Setup Velociraptor",
@@ -104,6 +112,6 @@
     "source_hash": "ad0af8fb5766dd6c3c3da4ecf22f7e7dda0033afdef308787153104db2137657",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.387740Z"
+    "generated_at": "2025-12-15T05:23:08.200741Z"
   }
 }

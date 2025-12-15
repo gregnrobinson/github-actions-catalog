@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/LAMPStack-Azure-VirtualMachine",
-  "version_id": "dde623ba1d34",
+  "version_id": "4a8f9e836c3e",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/LAMPStack-Azure-VirtualMachine/action.yml",
@@ -108,8 +108,8 @@
   "annotations": {
     "categories": [
       "Deployment",
-      "Infrastructure",
-      "Authentication"
+      "Authentication",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -117,7 +117,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "This action is primarily focused on deploying a LAMP stack on an Azure Virtual Machine, which falls under the Deployment category. It also requires authentication details to log into Azure, making Authentication a relevant secondary category.",
+        "reasoning": "The action is primarily focused on deploying a LAMP stack on an Azure Virtual Machine, which categorizes it under Deployment. It also requires Azure authentication details, placing it in the Authentication and Infrastructure categories as well.",
         "tags": [
           "Azure",
           "LAMP",
@@ -129,9 +129,9 @@
     ]
   },
   "cache": {
-    "source_hash": "dde623ba1d341e4583f3635d89c566feaa7d0c47ee1da48eea64b01416802194",
+    "source_hash": "4a8f9e836c3ebaae55043c21316dcf8dee93a0e2447e7e603241b4a30c509c2b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.823054Z"
+    "generated_at": "2025-12-15T05:21:48.033170Z"
   }
 }

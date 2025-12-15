@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/build-vm-image/action.yml",
     "origin": "github.com/azure/build-vm-image",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v0.1.1",
+      "name": "Updating new set of locations for AIB",
+      "published_at": "2022-11-23T17:22:05Z",
+      "html_url": "https://github.com/Azure/build-vm-image/releases/tag/v0.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Build Azure Virtual Machine Image",
@@ -144,6 +152,6 @@
     "source_hash": "a55166f561de6e32ff8d6d6d6c4b465c38ee84823ecc593727a59fc53c0d70bb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.681443Z"
+    "generated_at": "2025-12-15T05:21:55.938628Z"
   }
 }

@@ -1,0 +1,71 @@
+{
+  "action_id": "marketplace/julia-actions/install-juliaup",
+  "version_id": "14b65e5bc408",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/install-juliaup/action.yml",
+    "origin": "github.com/julia-actions/install-juliaup",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.2.1",
+      "name": "v2.2.1",
+      "published_at": "2024-10-09T14:54:04Z",
+      "html_url": "https://github.com/julia-actions/install-juliaup/releases/tag/v2.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "install-juliaup",
+    "description": "Install Juliaup, add it to the PATH, and use it to install Julia",
+    "author": "julia-actions organization, contributors",
+    "inputs": [
+      {
+        "name": "channel",
+        "required": true,
+        "default": null,
+        "description": "The Juliaup channel to install (and set as the default channel)."
+      },
+      {
+        "name": "internal-juliaup-version",
+        "required": false,
+        "default": "1.18.2",
+        "description": "[private internal]. The Juliaup version to install. This is not part of the public API of this action."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action installs Juliaup, which is a tool for managing Julia installations, making it primarily related to dependency management. It also involves setting up the environment, which relates to infrastructure.",
+        "tags": [
+          "julia",
+          "dependency",
+          "installation",
+          "infrastructure",
+          "juliaup"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "14b65e5bc408e64eaf2fb52379a75227f1b3e6db484fd9ac9716c93202664ce8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:27.790479Z"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "action_id": "marketplace/vsoch/urlchecker-action",
+  "version_id": "378c92a47619",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/urlchecker-action/action.yml",
+    "origin": "github.com/vsoch/urlchecker-action",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "urlchecker-action",
+    "description": "Automatically check for broken links in a project files. This includes python, markdwon, restructured text files and more.",
+    "author": "Ayoub Malek, Vanessa Sochat",
+    "inputs": [
+      {
+        "name": "git_path",
+        "required": false,
+        "default": null,
+        "description": "A project to clone. If not provided, assumes already cloned in the present working directory."
+      },
+      {
+        "name": "subfolder",
+        "required": false,
+        "default": null,
+        "description": "A subfolder to parse instead of the root directory."
+      },
+      {
+        "name": "force_pass",
+        "required": false,
+        "default": null,
+        "description": "Force pass of checking, regardless of the result."
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "master",
+        "description": "If a project (git_path) is defined, use this branch. Defaults to master"
+      },
+      {
+        "name": "cleanup",
+        "required": false,
+        "default": false,
+        "description": "Cleanup (delete) repository to check after doing so (appropriate for when clone is done)"
+      },
+      {
+        "name": "include_files",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated list of paths or patterns to include."
+      },
+      {
+        "name": "file_types",
+        "required": false,
+        "default": ".md,.py,.rst,.html",
+        "description": "A comma-separated list of file types to cover in the URL checks"
+      },
+      {
+        "name": "print_all",
+        "required": false,
+        "default": false,
+        "description": "Choose whether to include file with no URLs in the prints."
+      },
+      {
+        "name": "verbose",
+        "required": false,
+        "default": false,
+        "description": "Choose whether to print a more verbose end summary with files and broken URLs."
+      },
+      {
+        "name": "serial",
+        "required": false,
+        "default": false,
+        "description": "Run in serial (good for debugging)"
+      },
+      {
+        "name": "retry_count",
+        "required": false,
+        "default": 1,
+        "description": "If a request fails, retry this number of times. Defaults to 1"
+      },
+      {
+        "name": "save",
+        "required": false,
+        "default": "",
+        "description": "A csv file path to save the results to."
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": 5,
+        "description": "The timeout (seconds) to provide to requests to wait for a response."
+      },
+      {
+        "name": "exclude_urls",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated links to exclude during URL checks."
+      },
+      {
+        "name": "exclude_patterns",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated patterns to exclude during URL checks."
+      },
+      {
+        "name": "exclude_files",
+        "required": false,
+        "default": "",
+        "description": "A comma seperated list of paths or patterns to exclude during URL checks."
+      },
+      {
+        "name": "workers",
+        "required": false,
+        "default": null,
+        "description": "Number of workers to run in parallel (defaults to 9)"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The action checks for broken links in project files, which directly relates to maintaining code quality and ensuring that documentation and resources are accessible. It also serves a testing function by validating the integrity of links.",
+        "tags": [
+          "link checker",
+          "code quality",
+          "testing",
+          "automation",
+          "url validation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "378c92a47619e77fec8b9db2d20ec04195b057609647137713506bddf623b0ab",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:33.541312Z"
+  }
+}

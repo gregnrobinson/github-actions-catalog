@@ -1,0 +1,108 @@
+{
+  "action_id": "marketplace/axel-op/dart-package-analyzer",
+  "version_id": "781dcfe2864d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/dart-package-analyzer/action.yml",
+    "origin": "github.com/axel-op/dart-package-analyzer",
+    "publisher": "axel-op",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "Pana 0.14.0",
+      "published_at": "2020-08-14T17:34:42Z",
+      "html_url": "https://github.com/axel-op/dart-package-analyzer/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Dart/Flutter Package Analyzer",
+    "description": "Performs static analysis, linting, formatting, to compute the Pub score of your Dart/Flutter package.",
+    "author": "axel-op",
+    "inputs": [
+      {
+        "name": "githubToken",
+        "required": true,
+        "default": null,
+        "description": "Token to connect to GitHub. Use secrets.GITHUB_TOKEN"
+      },
+      {
+        "name": "relativePath",
+        "required": false,
+        "default": "",
+        "description": "Path of the package relatively to the root of the repository"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "total",
+        "description": "Total score of the package"
+      },
+      {
+        "name": "total_max",
+        "description": "Maximum score the package can get"
+      },
+      {
+        "name": "conventions",
+        "description": "Score for the category 'Follow Dart file conventions'"
+      },
+      {
+        "name": "conventions_max",
+        "description": "Maximum score for the category 'Follow Dart file conventions'"
+      },
+      {
+        "name": "documentation",
+        "description": "Score for the category 'Provide documentation'"
+      },
+      {
+        "name": "documentation_max",
+        "description": "Maximum score for the category 'Provide documentation'"
+      },
+      {
+        "name": "platforms",
+        "description": "Score for the category 'Support multiple platforms'"
+      },
+      {
+        "name": "platforms_max",
+        "description": "Maximum score for the category 'Support multiple platforms'"
+      },
+      {
+        "name": "analysis",
+        "description": "Score for the category 'Static analysis'"
+      },
+      {
+        "name": "analysis_max",
+        "description": "Maximum score for the category 'Static analysis'"
+      },
+      {
+        "name": "dependencies",
+        "description": "Score for the category 'Support up-to-date dependencies'"
+      },
+      {
+        "name": "dependencies_max",
+        "description": "Maximum score for the category 'Support up-to-date dependencies'"
+      },
+      {
+        "name": "json_output",
+        "description": "The pana output in JSON format"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/axel-op/dart-package-analyzer:v3",
+      "entrypoint": "/dart_package_analyzer"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "781dcfe2864d1a145c465af57bc96f5da0f2716e3813499c9a3b78ad29031676",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:28.890892Z"
+  }
+}

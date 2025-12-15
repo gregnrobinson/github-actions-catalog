@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/bicep-build-action/action.yml",
     "origin": "github.com/azure/bicep-build-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Bicep Build Action v1.0.1",
+      "published_at": "2022-06-18T18:00:59Z",
+      "html_url": "https://github.com/Azure/bicep-build-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "bicep-build-output",
@@ -46,6 +54,6 @@
     "source_hash": "c46dc54280ddf5fc836f1ae4c75d632796958496b1545b5ecdaa72bbd1e314ec",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.523929Z"
+    "generated_at": "2025-12-15T05:21:46.335584Z"
   }
 }

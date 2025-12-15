@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/build-vm-image",
-  "version_id": "f51dca95d442",
+  "version_id": "a55166f561de",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/build-vm-image/action.yml",
@@ -155,7 +155,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is primarily focused on building custom virtual machine images, which falls under the Build category. It also involves infrastructure management on Azure and deployment of those images, hence the additional categories.",
+        "reasoning": "This action is primarily focused on building custom virtual machine images, which falls under the Build category, while also involving infrastructure management and deployment of those images in Azure.",
         "tags": [
           "Azure",
           "VM Image",
@@ -167,9 +167,9 @@
     ]
   },
   "cache": {
-    "source_hash": "f51dca95d442270e17856b98e61dbb8fa75e6e4a98e9d68f573aba437938e575",
+    "source_hash": "a55166f561de6e32ff8d6d6d6c4b465c38ee84823ecc593727a59fc53c0d70bb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.960290Z"
+    "generated_at": "2025-12-15T05:21:55.938628Z"
   }
 }

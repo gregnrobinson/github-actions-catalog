@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/sobolevn/repo-visualizer",
+  "version_id": "d31d8df1679c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/repo-visualizer/action.yml",
+    "origin": "github.com/sobolevn/repo-visualizer",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Repo Visualizer",
+    "description": "A GitHub Action that creates an SVG diagram of your repo",
+    "author": "GitHub OCTO",
+    "inputs": [
+      {
+        "name": "output_file",
+        "required": false,
+        "default": null,
+        "description": "A path (relative to the root of your repo) to where you would like the diagram to live. For example: images/diagram.svg. Default: diagram.svg"
+      },
+      {
+        "name": "excluded_paths",
+        "required": false,
+        "default": null,
+        "description": "A list of paths to exclude from the diagram, separated by commas. For example: dist,node_modules"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "d31d8df1679c1efac8d280c22fee42ba517e1001128d35d4e2aadba27e5fc573",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:30.599035Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/jidicula/black",
+  "version_id": "356393dac086",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/black/action.yml",
+    "origin": "github.com/jidicula/black",
+    "publisher": "jidicula",
+    "verified": false
+  },
+  "definition": {
+    "name": "Black",
+    "description": "The uncompromising Python code formatter.",
+    "author": "\u0141ukasz Langa and contributors to Black",
+    "inputs": [
+      {
+        "name": "options",
+        "required": false,
+        "default": "--check --diff",
+        "description": "Options passed to black. Use `black --help` to see available options. Default: '--check'"
+      },
+      {
+        "name": "src",
+        "required": false,
+        "default": ".",
+        "description": "Source to run black. Default: '.'"
+      },
+      {
+        "name": "black_args",
+        "required": false,
+        "default": "",
+        "description": "[DEPRECATED] Black input arguments."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "action/Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "356393dac086732ce3c2941e5c49ba3fb1d65bc6634d6a4334f953ae34085352",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:11.058207Z"
+  }
+}

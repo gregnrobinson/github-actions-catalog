@@ -1,0 +1,103 @@
+{
+  "action_id": "marketplace/yeslayla/build-godot-action",
+  "version_id": "8351e6bd3cc7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/yeslayla/build-godot-action/action.yml",
+    "origin": "github.com/yeslayla/build-godot-action",
+    "publisher": "yeslayla",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.5.0",
+      "name": "Build Godot Action v1.5.0",
+      "published_at": "2023-07-10T19:32:27Z",
+      "html_url": "https://github.com/yeslayla/build-godot-action/releases/tag/v1.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Build Godot",
+    "description": "Build a Godot project for multiple platforms",
+    "author": "yeslayla",
+    "inputs": [
+      {
+        "name": "name",
+        "required": true,
+        "default": null,
+        "description": "Name of the exported binary"
+      },
+      {
+        "name": "preset",
+        "required": true,
+        "default": null,
+        "description": "Name of the preset in `export_presets.cfg` to use"
+      },
+      {
+        "name": "subdirectory",
+        "required": false,
+        "default": "",
+        "description": "Optional name of the subdirectory to put exported project in"
+      },
+      {
+        "name": "package",
+        "required": false,
+        "default": false,
+        "description": "Set true to output an artifact zip file"
+      },
+      {
+        "name": "projectDir",
+        "required": false,
+        "default": ".",
+        "description": "Location of Godot project in repository"
+      },
+      {
+        "name": "debugMode",
+        "required": false,
+        "default": false,
+        "description": "Whether or not to use `--export-debug`"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.name }}",
+        "${{ inputs.preset }}",
+        "${{ inputs.subdirectory }}",
+        "${{ inputs.package }}",
+        "${{ inputs.projectDir }}",
+        "${{ inputs.debugMode }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action is focused on building a Godot project, which falls under the Build category, and it also involves creating an exportable binary, aligning it with Packaging.",
+        "tags": [
+          "Godot",
+          "Build",
+          "Action",
+          "Export",
+          "Multi-platform"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8351e6bd3cc7a3541bcf2ba178e4a215b8b69ae93442dbcc926ef6efe736394c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:01.097399Z"
+  }
+}

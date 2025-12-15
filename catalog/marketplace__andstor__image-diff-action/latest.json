@@ -1,0 +1,84 @@
+{
+  "action_id": "marketplace/andstor/image-diff-action",
+  "version_id": "3df608704a3c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/image-diff-action/action.yml",
+    "origin": "github.com/andstor/image-diff-action",
+    "publisher": "andstor",
+    "verified": false
+  },
+  "definition": {
+    "name": "Image Diff Action",
+    "description": "GitHub Action for producing image diffs",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "img_1",
+        "required": true,
+        "default": null,
+        "description": "The path to the image file used as base image."
+      },
+      {
+        "name": "img_2",
+        "required": true,
+        "default": null,
+        "description": "The path to the image file to be compared against the base image."
+      },
+      {
+        "name": "diff_color",
+        "required": false,
+        "default": "255, 255, 0",
+        "description": "Color for the diff highlighting."
+      },
+      {
+        "name": "ignore_mask",
+        "required": false,
+        "default": null,
+        "description": "The path to the image file to be compared against the base image."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "img-diff",
+        "description": "The image diff."
+      },
+      {
+        "name": "mismatch",
+        "description": "The mismatch percentage"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is designed to produce image diffs, which is a form of testing to compare visual changes between images, thus falling under testing and code quality categories.",
+        "tags": [
+          "image-diff",
+          "testing",
+          "code-quality",
+          "visual-testing",
+          "github-action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3df608704a3c9381936d1631494e5fc002aaf5562879d6aaa16ce5df7d53cd67",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:30.519445Z"
+  }
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/autopep8/action.yml",
     "origin": "github.com/peter-evans/autopep8",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "autopep8 v2.0.0",
+      "published_at": "2023-01-17T05:50:13Z",
+      "html_url": "https://github.com/peter-evans/autopep8/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "autopep8",
@@ -43,6 +51,6 @@
     "source_hash": "2e3f95bc95ceb96080ba3a6d7026555abff989819b04a15ba9695a8f1afcf4ad",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.482615Z"
+    "generated_at": "2025-12-15T05:23:35.338338Z"
   }
 }

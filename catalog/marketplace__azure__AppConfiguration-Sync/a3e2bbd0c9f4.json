@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/AppConfiguration-Sync/action.yml",
     "origin": "github.com/azure/AppConfiguration-Sync",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.1.7",
+      "name": "v1.1.7",
+      "published_at": "2024-09-09T18:29:22Z",
+      "html_url": "https://github.com/Azure/AppConfiguration-Sync/releases/tag/v1.1.7",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure App Configuration Sync (Deprecated)",
@@ -89,6 +97,6 @@
     "source_hash": "a3e2bbd0c9f4dd1ab0340354812dfb6688eaf706369ad2193e1bbe9e4cf592d8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.612486Z"
+    "generated_at": "2025-12-15T05:21:52.359032Z"
   }
 }

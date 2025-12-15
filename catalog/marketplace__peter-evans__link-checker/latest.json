@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/link-checker",
-  "version_id": "73c936f8f9dc",
+  "version_id": "5e6950e2f189",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/link-checker/action.yml",
@@ -37,7 +37,7 @@
   "annotations": {
     "categories": [
       "Code quality",
-      "Documentation"
+      "Testing"
     ],
     "confidence": "high",
     "evidence": [
@@ -45,11 +45,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Code quality",
-        "reasoning": "The Link Checker action is primarily focused on ensuring the quality of links in Markdown and HTML files, which falls under code quality. Additionally, it relates to documentation since it checks links within documentation files.",
+        "reasoning": "The Link Checker action is primarily focused on ensuring the quality of links in Markdown and HTML files, which falls under code quality. It also serves a testing purpose by verifying that links are valid.",
         "tags": [
           "link checker",
           "code quality",
-          "documentation",
+          "testing",
           "markdown",
           "html"
         ]
@@ -57,9 +57,9 @@
     ]
   },
   "cache": {
-    "source_hash": "73c936f8f9dccb8607cfc3ef142421cdc4c20cf721a7ab83ac46079241d950b6",
+    "source_hash": "5e6950e2f18917407f96a9bea92d8ebcc9c39e13e674d8c49ce7d13a32762db7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.038637Z"
+    "generated_at": "2025-12-15T05:23:35.031241Z"
   }
 }

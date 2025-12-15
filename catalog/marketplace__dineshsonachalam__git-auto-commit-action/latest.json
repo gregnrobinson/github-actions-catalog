@@ -1,0 +1,147 @@
+{
+  "action_id": "marketplace/dineshsonachalam/git-auto-commit-action",
+  "version_id": "e6beff2e8ddd",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/dineshsonachalam/git-auto-commit-action/action.yml",
+    "origin": "github.com/dineshsonachalam/git-auto-commit-action",
+    "publisher": "dineshsonachalam",
+    "verified": false
+  },
+  "definition": {
+    "name": "Git Auto Commit",
+    "description": "Automatically commits files which have been changed during the workflow run and push changes back to remote repository.",
+    "author": "Stefan Zweifel <hello@stefanzweifel.io>",
+    "inputs": [
+      {
+        "name": "commit_message",
+        "required": false,
+        "default": "Apply automatic changes",
+        "description": "Commit message"
+      },
+      {
+        "name": "branch",
+        "required": false,
+        "default": "${{ github.head_ref }}",
+        "description": "Git branch name, where changes should be pushed too. Required if Action is used on the `pull_request` event"
+      },
+      {
+        "name": "commit_options",
+        "required": false,
+        "default": "",
+        "description": "Commit options (eg. --no-verify)"
+      },
+      {
+        "name": "add_options",
+        "required": false,
+        "default": "",
+        "description": "Add options (eg. -u)"
+      },
+      {
+        "name": "status_options",
+        "required": false,
+        "default": "",
+        "description": "Status options (eg. --untracked-files=no)"
+      },
+      {
+        "name": "file_pattern",
+        "required": false,
+        "default": ".",
+        "description": "File pattern used for `git add`. For example `src/\\*.js`"
+      },
+      {
+        "name": "repository",
+        "required": false,
+        "default": ".",
+        "description": "Local file path to the git repository. Defaults to the current directory (`.`)"
+      },
+      {
+        "name": "commit_user_name",
+        "required": false,
+        "default": "GitHub Actions",
+        "description": "Name used for the commit user"
+      },
+      {
+        "name": "commit_user_email",
+        "required": false,
+        "default": "actions@github.com",
+        "description": "Email address used for the commit user"
+      },
+      {
+        "name": "commit_author",
+        "required": false,
+        "default": "${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>",
+        "description": "Value used for the commit author. Defaults to the username of whoever triggered this workflow run."
+      },
+      {
+        "name": "tagging_message",
+        "required": false,
+        "default": "",
+        "description": "Message used to create a new git tag with the commit. Keep this empty, if no tag should be created."
+      },
+      {
+        "name": "push_options",
+        "required": false,
+        "default": "",
+        "description": "Push options (eg. --force)"
+      },
+      {
+        "name": "skip_dirty_check",
+        "required": false,
+        "default": false,
+        "description": "Skip the check if the git repository is dirty and always try to create a commit."
+      },
+      {
+        "name": "skip_fetch",
+        "required": false,
+        "default": false,
+        "description": "Skip the call to git-fetch."
+      },
+      {
+        "name": "disable_globbing",
+        "required": false,
+        "default": false,
+        "description": "Stop the shell from expanding filenames (https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "changes_detected",
+        "description": "Value is \"true\", if the repository was dirty and file changes have been detected. Value is \"false\", if no changes have been detected."
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Automation",
+      "Code quality",
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Automation",
+        "reasoning": "This action automates the process of committing changes to a Git repository, which relates to code quality and dependency management by ensuring that changes are tracked and integrated. However, it does not fit neatly into the predefined categories, hence the medium confidence.",
+        "tags": [
+          "git",
+          "auto-commit",
+          "automation",
+          "workflow",
+          "repository"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e6beff2e8dddcfb8b1cc5032ac0f1821209fa3e3af9769c7160680e8f0fd35ad",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:29.472692Z"
+  }
+}

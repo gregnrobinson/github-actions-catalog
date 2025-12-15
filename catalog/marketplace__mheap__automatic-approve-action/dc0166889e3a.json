@@ -1,0 +1,66 @@
+{
+  "action_id": "marketplace/mheap/automatic-approve-action",
+  "version_id": "dc0166889e3a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/automatic-approve-action/action.yml",
+    "origin": "github.com/mheap/automatic-approve-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2021-05-09T17:14:02Z",
+      "html_url": "https://github.com/mheap/automatic-approve-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Automatic Approve",
+    "description": "Automatically approve workflow runs from first time contributors",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "The GitHub Token to use"
+      },
+      {
+        "name": "workflows",
+        "required": true,
+        "default": null,
+        "description": "The workflows to automatically approve"
+      },
+      {
+        "name": "dangerous_files",
+        "required": false,
+        "default": null,
+        "description": "Filenames that prevent the PR being automatically approved"
+      },
+      {
+        "name": "safe_files",
+        "required": false,
+        "default": null,
+        "description": "Filenames that allow the PR being automatically approved"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "dc0166889e3af788a35d068e3ef3ba6ed73c1f0ae7e20f49cd2f7f6c09886f17",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:20.678445Z"
+  }
+}

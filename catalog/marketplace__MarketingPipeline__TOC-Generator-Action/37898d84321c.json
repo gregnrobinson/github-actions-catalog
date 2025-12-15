@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/MarketingPipeline/TOC-Generator-Action",
+  "version_id": "37898d84321c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MarketingPipeline/TOC-Generator-Action/action.yml",
+    "origin": "github.com/MarketingPipeline/TOC-Generator-Action",
+    "publisher": "MarketingPipeline",
+    "verified": false
+  },
+  "definition": {
+    "name": "TOC Generator",
+    "description": "A GitHub Action to generate a Table of Contents in your README.md",
+    "author": "github.com/MarketingPipeline",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "37898d84321c9f90453fa96fc1af01cfc5080b1fba95b5335169e0166cf49616",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:36.898578Z"
+  }
+}

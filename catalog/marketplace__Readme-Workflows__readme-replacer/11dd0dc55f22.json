@@ -1,0 +1,96 @@
+{
+  "action_id": "marketplace/Readme-Workflows/readme-replacer",
+  "version_id": "11dd0dc55f22",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Readme-Workflows/readme-replacer/action.yml",
+    "origin": "github.com/Readme-Workflows/readme-replacer",
+    "publisher": "Readme-Workflows",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Readme Replacer v1.0.1 released!",
+      "published_at": "2021-07-23T16:34:33Z",
+      "html_url": "https://github.com/Readme-Workflows/readme-replacer/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Readme Replacer - Readme-Workflows",
+    "description": "Auto replace content from template file!",
+    "author": "Readme-Workflows",
+    "inputs": [
+      {
+        "name": "GH_USERNAME",
+        "required": false,
+        "default": "${{ github.repository_owner }}",
+        "description": "Your GitHub username"
+      },
+      {
+        "name": "TEMPLATE_FILE",
+        "required": false,
+        "default": "./TEMPLATE.md",
+        "description": "Path to template file"
+      },
+      {
+        "name": "COMMIT_FILE",
+        "required": false,
+        "default": "./README.md",
+        "description": "Path to commit file"
+      },
+      {
+        "name": "CUSTOM_REPLACER_FILE",
+        "required": false,
+        "default": "./.github/customReplacer.json",
+        "description": "Path to custom replacer file (JSON). You can select if you want to use eval or not!"
+      },
+      {
+        "name": "DATE_FORMAT",
+        "required": false,
+        "default": "dddd, mmmm dS, yyyy, h:MM:ss TT",
+        "description": "Format of the date/time (if date replacer used)"
+      },
+      {
+        "name": "TIMEZONE",
+        "required": false,
+        "default": "0",
+        "description": "Desired timezone of the date (can be locale based of GMT offset)"
+      },
+      {
+        "name": "COMMIT_MESSAGE",
+        "required": false,
+        "default": "\u26a1 Update README by replacing keywords",
+        "description": "Message used for committing changes"
+      },
+      {
+        "name": "COMMIT_EMAIL",
+        "required": false,
+        "default": "41898282+github-actions[bot]@users.noreply.github.com",
+        "description": "Email used for committing changes"
+      },
+      {
+        "name": "COMMIT_NAME",
+        "required": false,
+        "default": "replacer-bot",
+        "description": "Name used for committing changes"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "11dd0dc55f22251bcd80bad019c3f0e4262d3eb14c1a0875952369d06d3e163a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:12.245347Z"
+  }
+}

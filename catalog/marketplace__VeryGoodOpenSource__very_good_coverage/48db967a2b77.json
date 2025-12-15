@@ -1,0 +1,60 @@
+{
+  "action_id": "marketplace/VeryGoodOpenSource/very_good_coverage",
+  "version_id": "48db967a2b77",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/VeryGoodOpenSource/very_good_coverage/action.yml",
+    "origin": "github.com/VeryGoodOpenSource/very_good_coverage",
+    "publisher": "VeryGoodOpenSource",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2024-03-05T17:24:47Z",
+      "html_url": "https://github.com/VeryGoodOpenSource/very_good_coverage/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Very Good Coverage",
+    "description": "Enforce LCOV Coverage Thresholds",
+    "author": "",
+    "inputs": [
+      {
+        "name": "path",
+        "required": false,
+        "default": "./coverage/lcov.info",
+        "description": "lcov path"
+      },
+      {
+        "name": "min_coverage",
+        "required": false,
+        "default": 100,
+        "description": "minimum coverage percentage allowed"
+      },
+      {
+        "name": "exclude",
+        "required": false,
+        "default": null,
+        "description": "list of files you would like to exclude from coverage"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "48db967a2b77ef14447492357aef67d0c69ae0537ea9c7a3a13730dc81ceb119",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:44.422353Z"
+  }
+}

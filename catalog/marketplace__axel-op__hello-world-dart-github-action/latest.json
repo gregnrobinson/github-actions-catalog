@@ -1,0 +1,72 @@
+{
+  "action_id": "marketplace/axel-op/hello-world-dart-github-action",
+  "version_id": "4efb2b2fa540",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/axel-op/hello-world-dart-github-action/action.yml",
+    "origin": "github.com/axel-op/hello-world-dart-github-action",
+    "publisher": "axel-op",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "",
+      "published_at": "2020-05-14T05:10:26Z",
+      "html_url": "https://github.com/axel-op/hello-world-dart-github-action/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Hello World Dart Action",
+    "description": "A template to demonstrate how to build a Dart action. Greet someone and record the time.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "pre": "scripts/setup.js",
+      "main": "scripts/index.js",
+      "post": "scripts/cleanup.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Testing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "This action serves as a template for building a Dart action, which falls under the Build category. Additionally, it demonstrates functionality that could be tested, hence the inclusion of Testing.",
+        "tags": [
+          "Dart",
+          "GitHub Action",
+          "template",
+          "greeting",
+          "example"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4efb2b2fa5402479a639808d8729152c2c1741e1dd7e8c0e70e6784176b442e8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:28.091832Z"
+  }
+}

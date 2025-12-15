@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/JamesIves/github-sponsors-readme-action/action.yml",
     "origin": "github.com/JamesIves/github-sponsors-readme-action",
     "publisher": "JamesIves",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.5.6",
+      "name": "v1.5.6",
+      "published_at": "2024-12-17T14:53:26Z",
+      "html_url": "https://github.com/JamesIves/github-sponsors-readme-action/releases/tag/v1.5.6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Add GitHub Sponsors to Readme",
@@ -94,6 +102,6 @@
     "source_hash": "fb982d234ce422669de6797a95f3b7c314af11b20505c6e9ddec4fdca5f75b55",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.847845Z"
+    "generated_at": "2025-12-15T05:22:14.848858Z"
   }
 }

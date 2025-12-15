@@ -1,0 +1,38 @@
+{
+  "action_id": "marketplace/julia-actions/julia-codeformat",
+  "version_id": "1c32d3f26208",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-codeformat/action.yml",
+    "origin": "github.com/julia-actions/julia-codeformat",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Format Julia code",
+    "description": "A Julia code formatter based on DocumentFormat.jl",
+    "author": "David Anthoff",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "run": "julia --color=yes -e 'using Pkg; Pkg.activate(\"juliaformatter\", shared=true); Pkg.add([\"DocumentFormat\", \"FilePaths\"]); using DocumentFormat, FilePaths; DocumentFormat.format(p\".\")'",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1c32d3f262085671be9a398823c33f0a88a90ff8ae558a80a38791363af32915",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:28.659322Z"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/mheap/setup-deck",
+  "version_id": "7dec62de0d92",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/setup-deck/action.yml",
+    "origin": "github.com/mheap/setup-deck",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup decK",
+    "description": "Install decK from Kong",
+    "author": "",
+    "inputs": [
+      {
+        "name": "deck-version",
+        "required": false,
+        "default": null,
+        "description": "The version of decK to install"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use when fetching the latest version of deck"
+      },
+      {
+        "name": "wrapper",
+        "required": false,
+        "default": "false",
+        "description": "Add a wrapper script to make stdout, stderr and errorcode available as outputs"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7dec62de0d920231a4bcb868db1664fc8e622addcd57371d9bc34eebba046b18",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:21.562637Z"
+  }
+}

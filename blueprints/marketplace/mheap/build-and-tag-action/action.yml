@@ -1,0 +1,11 @@
+name: Build and Tag
+description: Properly tags your GitHub Action
+runs:
+  using: node12
+  main: dist/index.js
+branding:
+  icon: archive
+  color: blue
+inputs:
+  tag_name:
+    description: The tag to update. If the workflow event is `release`, it will use the `tag_name` from the event payload.

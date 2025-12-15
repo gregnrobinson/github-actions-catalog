@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/app-configuration-import-action",
-  "version_id": "8e58e5dee0fc",
+  "version_id": "7a925ae9161f",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/app-configuration-import-action/action.yml",
@@ -73,29 +73,30 @@
   "annotations": {
     "categories": [
       "Infrastructure",
-      "Configuration Management"
+      "Configuration",
+      "Deployment"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Infrastructure",
-        "reasoning": "This action is focused on importing configuration settings into Azure App Configuration, which relates primarily to infrastructure management. It also involves aspects of configuration management.",
+        "reasoning": "This action is focused on importing application configurations into Azure, which is a key aspect of infrastructure management and deployment processes.",
         "tags": [
           "Azure",
           "App Configuration",
-          "Infrastructure",
-          "Configuration Management",
-          "Import"
+          "Import",
+          "Deployment",
+          "Infrastructure"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "8e58e5dee0fcd06b28b025bd345e476f17fd060c02b411d0d3b196483b3c1ed9",
+    "source_hash": "7a925ae9161fff2a44f3c1a5217d457dd58065f116d7361ad782bca5b7c380e6",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.982740Z"
+    "generated_at": "2025-12-15T05:21:57.313070Z"
   }
 }

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/spring-apps-deploy/action.yml",
     "origin": "github.com/azure/spring-apps-deploy",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1 latest release",
+      "published_at": "2022-09-22T02:37:53Z",
+      "html_url": "https://github.com/Azure/spring-apps-deploy/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Spring Apps",
@@ -245,6 +253,6 @@
     "source_hash": "0b190c0473b26f340197465a7242f09f58c42f87933470ae8fb68705e8ce1958",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.596468Z"
+    "generated_at": "2025-12-15T05:21:51.691111Z"
   }
 }

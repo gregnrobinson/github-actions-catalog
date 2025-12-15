@@ -1,0 +1,54 @@
+name: '@dailydotdev/devcard'
+description: 'GitHub Action to download the devcard from daily.dev'
+author: 'Ole-Martin Bratteng'
+branding:
+  icon: user-check
+  color: gray-dark
+inputs:
+  user_id:
+    description: 'Your daily.dev user id'
+    required: true
+
+  type:
+    description: 'Configure orientation for devcard. Must be either "default" or "wide"'
+    default: default
+    required: false
+
+  token:
+    description: GitHub Token used to commit the devcard
+    default: ${{ github.token }}
+    required: false
+
+  commit_branch:
+    description: Branch used to commit the devcard
+    default: ""
+    required: false
+
+  commit_message:
+    description: Commit message
+    default: Update ${filename}
+    required: false
+
+  commit_filename:
+    description: Filename to save devcard to
+    default: devcard.png
+    required: false
+
+  committer_email:
+    description: Committer email
+    default: 41898282+github-actions[bot]@users.noreply.github.com
+    required: false
+
+  committer_name:
+    description: Committer name
+    default: github-actions[bot]
+    required: false
+
+  dryrun:
+    description: 'If true, no changes will be made to the repo'
+    default: false
+    required: false
+
+runs:
+  using: 'node20'
+  main: "dist/index.js"

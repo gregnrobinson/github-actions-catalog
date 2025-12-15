@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/FranzDiebold/html-to-pdf-action",
+  "version_id": "882cdbcab70c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/FranzDiebold/html-to-pdf-action/action.yml",
+    "origin": "github.com/FranzDiebold/html-to-pdf-action",
+    "publisher": "FranzDiebold",
+    "verified": false
+  },
+  "definition": {
+    "name": "HTML to PDF",
+    "description": "Converts HTML file to PDF.",
+    "author": "fifsky@gmail.com",
+    "inputs": [
+      {
+        "name": "htmlFile",
+        "required": true,
+        "default": null,
+        "description": "html file path"
+      },
+      {
+        "name": "outputFile",
+        "required": true,
+        "default": null,
+        "description": "output file path"
+      },
+      {
+        "name": "pdfOptions",
+        "required": false,
+        "default": "{}",
+        "description": "PDF options as described here:\nhttps://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions -\nNeeds to be in JSON format, e.g. `{\"format\": \"A4\", \"pageRanges\": \"1\"}`\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "882cdbcab70c76d56e846852086e37040ae7a8e22cb7e1c6a29c9e964df4e7ed",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:11.879402Z"
+  }
+}

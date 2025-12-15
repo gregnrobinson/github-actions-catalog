@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/functions-action",
-  "version_id": "9ba11eacab8e",
+  "version_id": "1f615afe6f9d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/functions-action/action.yml",
@@ -108,21 +108,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The Azure Functions Action is primarily focused on deploying a Function App to Azure, which falls under the Deployment category. It also involves aspects of Infrastructure as it interacts with Azure's cloud services.",
+        "reasoning": "The Azure Functions Action is primarily focused on deploying applications to Azure Functions, which falls under the Deployment category. It also involves infrastructure management as it interacts with Azure services.",
         "tags": [
           "Azure",
           "Functions",
           "Deployment",
-          "Cloud",
-          "Infrastructure"
+          "Infrastructure",
+          "GitHub Actions"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "9ba11eacab8e36c591c4a3dcebec857153647351a144998b88b4f4890445d2b2",
+    "source_hash": "1f615afe6f9db67ecfd0eb1cb5006b8d55a374a9c5078e4261d7df9d343780c9",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.966928Z"
+    "generated_at": "2025-12-15T05:21:56.395697Z"
   }
 }

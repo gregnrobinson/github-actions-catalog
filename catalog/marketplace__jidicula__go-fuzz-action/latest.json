@@ -1,0 +1,143 @@
+{
+  "action_id": "marketplace/jidicula/go-fuzz-action",
+  "version_id": "caf6e963ba50",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/go-fuzz-action/action.yml",
+    "origin": "github.com/jidicula/go-fuzz-action",
+    "publisher": "jidicula",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.0",
+      "name": "v1.2.0",
+      "published_at": "2022-07-24T19:28:08Z",
+      "html_url": "https://github.com/jidicula/go-fuzz-action/releases/tag/v1.2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Go fuzz test",
+    "description": "A GitHub Action for running go test -fuzz.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "packages",
+        "required": false,
+        "default": ".",
+        "description": "Run fuzz test on these packages. Corresponds to the `[packages]` input for the `go test` command."
+      },
+      {
+        "name": "fuzz-regexp",
+        "required": false,
+        "default": "Fuzz",
+        "description": "Run the fuzz test matching the regular expression. Corresponds to the `-fuzz` flag for the `go test` command."
+      },
+      {
+        "name": "fuzz-time",
+        "required": true,
+        "default": null,
+        "description": "Fuzz target iteration duration, specified as a `time.Duration` (for example `1h30s`). Corresponds to `-fuzztime` flag for the `go test` command. Ensure this is less than your job timeout."
+      },
+      {
+        "name": "fuzz-minimize-time",
+        "required": false,
+        "default": "10s",
+        "description": "Fuzz minimization duration, specified as a `time.Duration` (for example `1h30s`). Corresponds to `-fuzzminimizetime` flag for the `go test` command. If you provide this input, ensure it is less than your job timeout."
+      },
+      {
+        "name": "go-version",
+        "required": false,
+        "default": "1.21",
+        "description": "Which version of Go to use for fuzzing"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "uses": "actions/checkout@v6"
+        },
+        {
+          "uses": "actions/setup-go@v6",
+          "with": {
+            "go-version": "${{ inputs.go-version }}"
+          }
+        },
+        {
+          "shell": "bash",
+          "run": "go test \"${{ inputs.packages }}\" -fuzz=\"${{ inputs.fuzz-regexp }}\" -fuzztime=\"${{ inputs.fuzz-time }}\" -fuzzminimizetime=\"${{ inputs.fuzz-minimize-time }}\""
+        },
+        {
+          "name": "Upload fuzz failure seed corpus as run artifact",
+          "if": "failure()",
+          "uses": "actions/upload-artifact@v5",
+          "with": {
+            "name": "testdata",
+            "path": "testdata"
+          }
+        },
+        {
+          "run": "echo \"EVENT NAME IS ${{ github.event_name }}\"",
+          "if": "failure()",
+          "shell": "bash"
+        },
+        {
+          "name": "Save PR head commit SHA",
+          "if": "failure() && github.event_name == 'pull_request'",
+          "shell": "bash",
+          "run": "SHA=\"${{ github.event.pull_request.head.sha }}\"\necho \"SHA=$SHA\" >> $GITHUB_ENV\n"
+        },
+        {
+          "name": "Save latest commit SHA if not PR",
+          "if": "failure() && github.event_name != 'pull_request'",
+          "shell": "bash",
+          "run": "echo \"SHA=${{ github.sha }}\" >> $GITHUB_ENV"
+        },
+        {
+          "name": "Output message",
+          "if": "failure()",
+          "shell": "bash",
+          "run": "MESSAGE='Fuzz test failed on commit ${{ env.SHA }}. To troubleshoot locally, use the [GitHub CLI](https://cli.github.com) to download the seed corpus with\\n```\\ngh run download ${{ github.run_id }} -n testdata\\n```'\nDEEPLINK=\"https://github.com/${{ github.repository }}/commit/${{ env.SHA }}\"\necho -e \"${MESSAGE/${{ env.SHA }}/$DEEPLINK}\"\necho -e \"${MESSAGE/${{ env.SHA }}/[${GITHUB_SHA:0:8}]($DEEPLINK)}\" >> $GITHUB_STEP_SUMMARY\n"
+        },
+        {
+          "name": "Report failure",
+          "uses": "actions/github-script@v8",
+          "if": "failure() && github.event_name == 'pull_request'",
+          "with": {
+            "script": "github.rest.issues.createComment({\n  issue_number: context.issue.number,\n  owner: context.repo.owner,\n  repo: context.repo.repo,\n  body: 'Fuzz test failed on commit ${{ env.SHA }}. To troubleshoot locally, use the [GitHub CLI](https://cli.github.com) to download the seed corpus with\\n```\\ngh run download ${{ github.run_id }} -n testdata\\n```'\n})\n"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "This action is specifically designed to run fuzz tests in Go, which falls under the Testing category. Additionally, it contributes to Code quality by identifying potential issues in the code through fuzz testing.",
+        "tags": [
+          "Go",
+          "fuzz testing",
+          "testing",
+          "code quality",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "caf6e963ba50ee74436b14a57676625720d8d38f4a948692430d215a217c33ec",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:10.353741Z"
+  }
+}

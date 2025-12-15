@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/CodelyTV/no-branches/action.yml",
     "origin": "github.com/CodelyTV/no-branches",
     "publisher": "CodelyTV",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "First version",
+      "published_at": "2020-04-08T13:15:14Z",
+      "html_url": "https://github.com/CodelyTV/no-branches/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "No Branches",
@@ -38,6 +46,6 @@
     "source_hash": "e0c2faf288caa83631329fea40897bea4871da5f259d5a2403655f19fa96e9a0",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.563631Z"
+    "generated_at": "2025-12-15T05:22:44.984676Z"
   }
 }

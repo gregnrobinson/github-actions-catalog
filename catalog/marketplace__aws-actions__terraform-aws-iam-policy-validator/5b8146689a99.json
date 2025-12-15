@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/aws-actions/terraform-aws-iam-policy-validator/action.yml",
     "origin": "github.com/aws-actions/terraform-aws-iam-policy-validator",
     "publisher": "aws-actions",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.0.3",
+      "name": "v1.0.3",
+      "published_at": "2025-06-10T17:35:21Z",
+      "html_url": "https://github.com/aws-actions/terraform-aws-iam-policy-validator/releases/tag/v1.0.3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Policy checks to validate AWS IAM policies in Terraform templates\" Action For GitHub Actions",
@@ -126,6 +134,6 @@
     "source_hash": "5b8146689a9934baea9ea4b63469bb734c1a3ddc852f1a5e2cbcfdc5b5f4c5b8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.061654Z"
+    "generated_at": "2025-12-15T05:22:39.803798Z"
   }
 }

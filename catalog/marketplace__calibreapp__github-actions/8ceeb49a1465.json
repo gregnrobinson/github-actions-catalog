@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/calibreapp/github-actions/action.yml",
     "origin": "github.com/calibreapp/github-actions",
     "publisher": "calibreapp",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "2.0.0",
+      "name": "Release 2.0.0",
+      "published_at": "2019-05-14T05:58:42Z",
+      "html_url": "https://github.com/calibreapp/github-actions/releases/tag/2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "GitHub Actions",
@@ -38,6 +46,6 @@
     "source_hash": "8ceeb49a1465db2c0bf6302157238cb0220ffa6e28d06b209929d1d0a8b51465",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.826122Z"
+    "generated_at": "2025-12-15T05:22:02.502277Z"
   }
 }

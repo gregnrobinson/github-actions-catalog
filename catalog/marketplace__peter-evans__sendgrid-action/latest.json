@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/sendgrid-action",
-  "version_id": "2c6817b82b7a",
+  "version_id": "06e0c0219f37",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/sendgrid-action/action.yml",
@@ -38,7 +38,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "The action is designed to send emails using SendGrid, which falls under the category of communication and notification.",
+        "reasoning": "The action is designed to send emails using SendGrid, which primarily falls under communication and notification functionalities.",
         "tags": [
           "email",
           "sendgrid",
@@ -50,9 +50,9 @@
     ]
   },
   "cache": {
-    "source_hash": "2c6817b82b7a1a52bdc935677bcee9f396c65627b943386b7402878a07f9bc72",
+    "source_hash": "06e0c0219f373712a8941d0aafd6cf991e07fcce8aa5a029837e3503a8ce9c36",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.036498Z"
+    "generated_at": "2025-12-15T05:23:34.604729Z"
   }
 }

@@ -1,0 +1,133 @@
+{
+  "action_id": "marketplace/julia-actions/julia-runtest",
+  "version_id": "f1acdad7ec2a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-runtest/action.yml",
+    "origin": "github.com/julia-actions/julia-runtest",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.11.4",
+      "name": "v1.11.4",
+      "published_at": "2025-11-23T23:57:36Z",
+      "html_url": "https://github.com/julia-actions/julia-runtest/releases/tag/v1.11.4",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Run Julia package tests",
+    "description": "Run the tests in a Julia package",
+    "author": "David Anthoff",
+    "inputs": [
+      {
+        "name": "check_bounds",
+        "required": false,
+        "default": "yes",
+        "description": "Value determining which bounds checking setting to use. Options: yes | no | auto. Default value: yes."
+      },
+      {
+        "name": "coverage",
+        "required": false,
+        "default": "true",
+        "description": "Value determining whether to test with coverage or not. Options: true | false. Default value: true."
+      },
+      {
+        "name": "depwarn",
+        "required": false,
+        "default": "yes",
+        "description": "Value passed to the --depwarn flag. Options: yes | no | error. Default value: yes."
+      },
+      {
+        "name": "force_latest_compatible_version",
+        "required": false,
+        "default": "auto",
+        "description": "If true, then, for each [compat] entry in the active project, only allow the latest compatible version. If the value is auto and the pull request has been opened by Dependabot or CompatHelper, then force_latest_compatible_version will be set to true, otherwise it will be set to false. Options: true | false | auto. Default value: auto."
+      },
+      {
+        "name": "inline",
+        "required": false,
+        "default": "yes",
+        "description": "Value passed to the --inline flag. Options: yes | no. Default value: yes."
+      },
+      {
+        "name": "prefix",
+        "required": false,
+        "default": "",
+        "description": "Value inserted in front of the julia command, e.g. for running xvfb-run julia [...]"
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": "@.",
+        "description": "Value passed to the --project flag. The default value is the repository root: \"@.\""
+      },
+      {
+        "name": "annotate",
+        "required": false,
+        "default": "false",
+        "description": "Whether or not to attempt to create GitHub annotations to show test failures inline. Only effective on Julia 1.8+."
+      },
+      {
+        "name": "compiled_modules",
+        "required": false,
+        "default": "yes",
+        "description": "Whether to run tests with `compiled-modules`. For possible values, refer to https://docs.julialang.org/en/v1/manual/command-line-interface/#command-line-interface"
+      },
+      {
+        "name": "allow_reresolve",
+        "required": false,
+        "default": "true",
+        "description": "Whether to allow re-resolving of package versions in the test environment. Only effective on Julia 1.9+. Options: true | false. Default value: true"
+      },
+      {
+        "name": "test_args",
+        "required": false,
+        "default": "",
+        "description": "Arguments string that is passed on to test."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Set and export registry flavor preference",
+          "run": "echo \"JULIA_PKG_SERVER_REGISTRY_PREFERENCE=${JULIA_PKG_SERVER_REGISTRY_PREFERENCE:-eager}\" >> ${GITHUB_ENV}",
+          "shell": "bash"
+        },
+        {
+          "name": "Install dependencies in their own (shared) environment",
+          "run": "# Functionality only currently works on a narrow range of Julia versions... see #76\nif v\"1.8pre\" < VERSION < v\"1.9.0-beta3\"\n  using Pkg\n  Pkg.activate(\"tests-logger-env\"; shared=true)\n  Pkg.add(Pkg.PackageSpec(name=\"GitHubActions\", version=\"0.1\"))\nend\n",
+          "shell": "julia --color=yes {0}",
+          "if": "inputs.annotate == 'true'"
+        },
+        {
+          "run": "# The Julia command that will be executed\njulia_cmd=( julia --color=yes --inline=${{ inputs.inline }} --project=${{ inputs.project }} -e 'include(joinpath(ENV[\"GITHUB_ACTION_PATH\"], \"test_harness.jl\"))' -- ${{inputs.test_args}} )\n\n# Add the prefix in front of the command if there is one\nprefix=( ${{ inputs.prefix }} )\n[[ -n ${prefix[*]} ]] && julia_cmd=( \"${prefix[@]}\" \"${julia_cmd[@]}\" )\n\n# Run the Julia command\necho \"::debug::Executing Julia: ${julia_cmd[*]}\"\n\"${julia_cmd[@]}\"\n",
+          "shell": "bash",
+          "env": {
+            "ANNOTATE": "${{ inputs.annotate }}",
+            "COVERAGE": "${{ inputs.coverage }}",
+            "FORCE_LATEST_COMPATIBLE_VERSION": "${{ inputs.force_latest_compatible_version }}",
+            "CHECK_BOUNDS": "${{ inputs.check_bounds }}",
+            "COMPILED_MODULES": "${{ inputs.compiled_modules }}",
+            "ALLOW_RERESOLVE": "${{ inputs.allow_reresolve }}",
+            "DEPWARN": "${{ inputs.depwarn }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f1acdad7ec2afbb40d30fbe74ca324e20e9e0c92a27b8da10f77a81c1eb6bc74",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:25.563943Z"
+  }
+}

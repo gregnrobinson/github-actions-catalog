@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/wei/git-sync/action.yml",
     "origin": "github.com/wei/git-sync",
     "publisher": "wei",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "feat: add support for source/destination ssh keys",
+      "published_at": "2021-01-18T02:53:32Z",
+      "html_url": "https://github.com/wei/git-sync/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Git Sync Action",
@@ -82,6 +90,6 @@
     "source_hash": "5df66a6c471dde94d0a9d83b7674301c797095c0521948cde4e09d45925a73a3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.722725Z"
+    "generated_at": "2025-12-15T05:23:15.144500Z"
   }
 }

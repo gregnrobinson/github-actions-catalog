@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/Burnett01/actions-drawio",
-  "version_id": "ec95beb41b6b",
+  "version_id": "d086b48d2d51",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/Burnett01/actions-drawio/action.yml",
@@ -63,21 +63,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Packaging",
-        "reasoning": "The action converts draw.io documents into various image formats, which aligns with the Packaging category. Additionally, it can be considered related to Documentation as it helps in creating visual documentation outputs.",
+        "reasoning": "The action converts draw.io documents into various image formats, which aligns it primarily with packaging outputs. Additionally, it serves a documentation purpose by converting design documents into shareable formats.",
         "tags": [
           "drawio",
           "image conversion",
-          "documentation",
           "packaging",
+          "documentation",
           "svg"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "ec95beb41b6bffda30e39bf0fc66832d51b8d36a4966414e3602efc65872b67b",
+    "source_hash": "d086b48d2d518e73db93233ae1dae1c95f0d0606ebb349311cb44ae6104be1b2",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.980354Z"
+    "generated_at": "2025-12-15T05:23:16.944143Z"
   }
 }

@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/pgrimaud/action-shopify-cli",
+  "version_id": "1047e2bd28fe",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/pgrimaud/action-shopify-cli/action.yml",
+    "origin": "github.com/pgrimaud/action-shopify-cli",
+    "publisher": "pgrimaud",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.0.1",
+      "name": "0.0.1",
+      "published_at": "2021-09-07T15:38:00Z",
+      "html_url": "https://github.com/pgrimaud/action-shopify-cli/releases/tag/0.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Shopify CLI theme deploy",
+    "description": "Deploy Shopify theme with Shopify CLI",
+    "author": "Pierre Grimaud",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1047e2bd28fe09d39cd4a3667afc062474bd32204d47c3f1fe57579ac7da4486",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:09.818581Z"
+  }
+}

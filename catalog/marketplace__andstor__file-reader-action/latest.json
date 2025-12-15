@@ -1,0 +1,75 @@
+{
+  "action_id": "marketplace/andstor/file-reader-action",
+  "version_id": "f64ee7914df5",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/andstor/file-reader-action/action.yml",
+    "origin": "github.com/andstor/file-reader-action",
+    "publisher": "andstor",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.0",
+      "name": "v1.0.0",
+      "published_at": "2020-04-27T16:07:33Z",
+      "html_url": "https://github.com/andstor/file-reader-action/releases/tag/v1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "File Reader",
+    "description": "Read the contents of a file",
+    "author": "Andr\u00e9 Storhaug",
+    "inputs": [
+      {
+        "name": "path",
+        "required": true,
+        "default": null,
+        "description": "The path to the file to be read."
+      },
+      {
+        "name": "encoding",
+        "required": false,
+        "default": "utf8",
+        "description": "The encoding of the file."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "contents",
+        "description": "The file contents."
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action reads the contents of a file, which can be useful for managing dependencies or configurations in a project. However, it does not directly fit into other categories like testing or deployment.",
+        "tags": [
+          "file",
+          "reader",
+          "dependency",
+          "action",
+          "GitHub"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "f64ee7914df58ad57f33e4a28399f7728a6ac8ed74b474e5b00d5c83a18a3c45",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:32.120319Z"
+  }
+}

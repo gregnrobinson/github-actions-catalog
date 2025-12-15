@@ -1,0 +1,33 @@
+{
+  "action_id": "marketplace/julia-actions/julia-uploadcodecov",
+  "version_id": "5c8dddaeac39",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-uploadcodecov/action.yml",
+    "origin": "github.com/julia-actions/julia-uploadcodecov",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Upload Julia codecov results",
+    "description": "Upload Julia test coverage results to codecov",
+    "author": "David Anthoff",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "lib/main.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5c8dddaeac398adce884181f317c64ab762a2be29108e0bc62125577bb06420f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:19.481011Z"
+  }
+}

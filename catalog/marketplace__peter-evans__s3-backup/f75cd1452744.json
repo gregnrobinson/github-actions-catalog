@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/s3-backup/action.yml",
     "origin": "github.com/peter-evans/s3-backup",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.1.1",
+      "name": "S3 Backup v1.1.1",
+      "published_at": "2022-10-20T06:47:36Z",
+      "html_url": "https://github.com/peter-evans/s3-backup/releases/tag/v1.1.1",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "S3 Backup",
@@ -28,6 +36,6 @@
     "source_hash": "f75cd1452744e376c3781a1d41987ce3cb11bb6c760d78e0b3124ff5f2206e14",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.465750Z"
+    "generated_at": "2025-12-15T05:23:33.629506Z"
   }
 }

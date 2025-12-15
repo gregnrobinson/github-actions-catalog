@@ -1,0 +1,105 @@
+{
+  "action_id": "marketplace/upsidr/merge-gatekeeper",
+  "version_id": "e0986d465908",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/upsidr/merge-gatekeeper/action.yml",
+    "origin": "github.com/upsidr/merge-gatekeeper",
+    "publisher": "upsidr",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.1",
+      "name": "v1.2.1",
+      "published_at": "2023-02-03T22:02:08Z",
+      "html_url": "https://github.com/upsidr/merge-gatekeeper/releases/tag/v1.2.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Merge Gatekeeper",
+    "description": "Get better merge control",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "set github token"
+      },
+      {
+        "name": "self",
+        "required": false,
+        "default": "merge-gatekeeper",
+        "description": "set self job name"
+      },
+      {
+        "name": "interval",
+        "required": false,
+        "default": "5",
+        "description": "set validate interval second (default 5)"
+      },
+      {
+        "name": "timeout",
+        "required": false,
+        "default": "600",
+        "description": "set validate timeout second (default 600)"
+      },
+      {
+        "name": "ignored",
+        "required": false,
+        "default": "",
+        "description": "set ignored jobs (comma-separated list)"
+      },
+      {
+        "name": "ref",
+        "required": false,
+        "default": "${{ github.event.pull_request.head.sha }}",
+        "description": "set ref of github repository. the ref can be a SHA, a branch name, or tag name"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "validate",
+        "--token=${{ inputs.token }}",
+        "--self=${{ inputs.self }}",
+        "--interval=${{ inputs.interval }}",
+        "--ref=${{ inputs.ref }}",
+        "--timeout=${{ inputs.timeout }}",
+        "--ignored=${{ inputs.ignored }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Code quality",
+      "Testing",
+      "Deployment"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Code quality",
+        "reasoning": "The Merge Gatekeeper action is focused on improving merge control, which relates to maintaining code quality and ensuring that merges meet certain criteria. It also involves testing the merge conditions before deployment.",
+        "tags": [
+          "merge",
+          "code quality",
+          "testing",
+          "deployment",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "e0986d46590815e9e1d77685de6f85daea664782fac83485a2656641c0f33a46",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:31.707604Z"
+  }
+}

@@ -1,0 +1,77 @@
+name: "Go fuzz test"
+description: "A GitHub Action for running go test -fuzz."
+
+branding:
+  icon: "check-circle"
+  color: "green"
+
+inputs:
+  packages:
+    description: 'Run fuzz test on these packages. Corresponds to the `[packages]` input for the `go test` command.'
+    required: false
+    default: '.'
+  fuzz-regexp:
+    description: 'Run the fuzz test matching the regular expression. Corresponds to the `-fuzz` flag for the `go test` command.'
+    required: false
+    default: 'Fuzz'
+  fuzz-time:
+    description: 'Fuzz target iteration duration, specified as a `time.Duration` (for example `1h30s`). Corresponds to `-fuzztime` flag for the `go test` command. Ensure this is less than your job timeout.'
+    required: true
+  fuzz-minimize-time:
+    description: 'Fuzz minimization duration, specified as a `time.Duration` (for example `1h30s`). Corresponds to `-fuzzminimizetime` flag for the `go test` command. If you provide this input, ensure it is less than your job timeout.'
+    required: false
+    default: '10s'
+  go-version:
+    description: 'Which version of Go to use for fuzzing'
+    required: false
+    default: '1.21'
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-go@v6
+      with:
+        go-version: '${{ inputs.go-version }}'
+    - shell: bash
+      run: go test "${{ inputs.packages }}" -fuzz="${{ inputs.fuzz-regexp }}" -fuzztime="${{ inputs.fuzz-time }}" -fuzzminimizetime="${{ inputs.fuzz-minimize-time }}"
+    - name: Upload fuzz failure seed corpus as run artifact
+      if: failure()
+      uses: actions/upload-artifact@v5
+      with:
+        name: testdata
+        path: testdata
+    - run: echo "EVENT NAME IS ${{ github.event_name }}"
+      if: failure()
+      shell: bash
+
+    - name: Save PR head commit SHA
+      if: failure() && github.event_name == 'pull_request'
+      shell: bash
+      run: |
+        SHA="${{ github.event.pull_request.head.sha }}"
+        echo "SHA=$SHA" >> $GITHUB_ENV
+    - name: Save latest commit SHA if not PR
+      if: failure() && github.event_name != 'pull_request'
+      shell: bash
+      run: echo "SHA=${{ github.sha }}" >> $GITHUB_ENV
+
+    - name: Output message
+      if: failure()
+      shell: bash
+      run: |
+        MESSAGE='Fuzz test failed on commit ${{ env.SHA }}. To troubleshoot locally, use the [GitHub CLI](https://cli.github.com) to download the seed corpus with\n```\ngh run download ${{ github.run_id }} -n testdata\n```'
+        DEEPLINK="https://github.com/${{ github.repository }}/commit/${{ env.SHA }}"
+        echo -e "${MESSAGE/${{ env.SHA }}/$DEEPLINK}"
+        echo -e "${MESSAGE/${{ env.SHA }}/[${GITHUB_SHA:0:8}]($DEEPLINK)}" >> $GITHUB_STEP_SUMMARY
+    - name: Report failure
+      uses: actions/github-script@v8
+      if: failure() && github.event_name == 'pull_request'
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: 'Fuzz test failed on commit ${{ env.SHA }}. To troubleshoot locally, use the [GitHub CLI](https://cli.github.com) to download the seed corpus with\n```\ngh run download ${{ github.run_id }} -n testdata\n```'
+          })

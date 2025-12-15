@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/appservice-build/action.yml",
     "origin": "github.com/azure/appservice-build",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "GitHub Action for building Azure Web Apps",
+      "published_at": "2023-01-13T14:54:07Z",
+      "html_url": "https://github.com/Azure/appservice-build/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "App Service Web App Build Action",
@@ -59,6 +67,6 @@
     "source_hash": "14c1534f876dda40a1701f3a0cd12bb08ba73294d5796e9efaca08bcf66f5299",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.704090Z"
+    "generated_at": "2025-12-15T05:21:58.442334Z"
   }
 }

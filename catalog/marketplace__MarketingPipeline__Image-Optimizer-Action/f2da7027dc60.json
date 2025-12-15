@@ -1,0 +1,58 @@
+{
+  "action_id": "marketplace/MarketingPipeline/Image-Optimizer-Action",
+  "version_id": "f2da7027dc60",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/MarketingPipeline/Image-Optimizer-Action/action.yml",
+    "origin": "github.com/MarketingPipeline/Image-Optimizer-Action",
+    "publisher": "MarketingPipeline",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.0.0",
+      "name": "2.0.0 (Apr, 4, 2025)",
+      "published_at": "2025-04-05T01:01:27Z",
+      "html_url": "https://github.com/MarketingPipeline/Image-Optimizer-Action/releases/tag/v2.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Image-Optimizer-Action",
+    "description": "A Github action to optimize images in a repo",
+    "author": "github.com/MarketingPipeline",
+    "inputs": [
+      {
+        "name": "filename",
+        "required": false,
+        "default": "",
+        "description": "Folder or image path to optimize"
+      },
+      {
+        "name": "recursion",
+        "required": false,
+        "default": "",
+        "description": "Optimize all image files in current working directory and all of its subdirectories"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.filename }}",
+        "${{ inputs.recursion }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f2da7027dc60cbaac977e11b689ae76598c0efb08d999b5ea6a2409d20e37457",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:37.308581Z"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "action_id": "marketplace/mheap/github-action-csharp-example",
+  "version_id": "55003a783c01",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-csharp-example/action.yml",
+    "origin": "github.com/mheap/github-action-csharp-example",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "C# Example Debug",
+    "description": "Show available data for any Action run",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Documentation",
+        "reasoning": "The action is focused on demonstrating available data for Action runs, which aligns closely with documentation purposes.",
+        "tags": [
+          "C#",
+          "example",
+          "GitHub Actions",
+          "documentation",
+          "debug"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "55003a783c01365d3c9ef281026481b45093749d448481fb6e3544e5e05595d4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:19.850279Z"
+  }
+}

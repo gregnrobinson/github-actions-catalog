@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/peter-evans/link-checker/action.yml",
     "origin": "github.com/peter-evans/link-checker",
     "publisher": "peter-evans",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.2.2",
+      "name": "Link Checker v1.2.2",
+      "published_at": "2020-05-17T05:18:34Z",
+      "html_url": "https://github.com/peter-evans/link-checker/releases/tag/v1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Link Checker",
@@ -35,6 +43,6 @@
     "source_hash": "5e6950e2f18917407f96a9bea92d8ebcc9c39e13e674d8c49ce7d13a32762db7",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:52.479332Z"
+    "generated_at": "2025-12-15T05:23:35.031241Z"
   }
 }

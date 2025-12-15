@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/bundletool-action-apk/action.yml",
     "origin": "github.com/amirisback/bundletool-action-apk",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "Release v1.0.0",
+      "published_at": "2023-06-18T22:31:41Z",
+      "html_url": "https://github.com/amirisback/bundletool-action-apk/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "BundleTool Action APK",
@@ -65,6 +73,6 @@
     "source_hash": "cb1f613356e310d00389960235d50edfcbf7ecea43cdb482fe144d291af42594",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.612021Z"
+    "generated_at": "2025-12-15T05:22:59.809592Z"
   }
 }

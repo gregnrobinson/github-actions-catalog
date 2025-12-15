@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/techpivot/terraform-module-releaser",
-  "version_id": "d7f39fcfbb2b",
+  "version_id": "8cccaa299492",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/techpivot/terraform-module-releaser/action.yml",
@@ -85,7 +85,7 @@
         "name": "module-path-ignore",
         "required": false,
         "default": "",
-        "description": "A comma-separated list of module paths to completely ignore during processing. Paths matching these patterns will not be considered for versioning, releases, or documentation generation. These patterns follow glob syntax and are relative to the repository root. Use this to exclude example modules, test modules, or other paths that should not be treated as releasable modules.\nThis is a top-level filter: if a module matches any of these patterns, it is completely excluded from all release, versioning, and documentation logic. No releases will ever happen for a module that matches this filter.\nThe minimatch syntax is used for pattern matching. Patterns are relative to the workspace directory (no leading slash).\nNOTE: To match both a directory and its contents, use separate patterns (e.g., \"dir,dir/**\").\n"
+        "description": "A comma-separated list of module paths to completely ignore during processing. Paths matching these patterns will not be considered for versioning, releases, or documentation generation. These patterns follow glob syntax and are  relative to the repository root. Use this to exclude example modules, test modules, or other paths that should not  be treated as releasable modules.\nThis is a top-level filter: if a module matches any of these patterns, it is completely excluded from all release, versioning, and documentation logic. No releases will ever happen for a module that matches this filter.\nThe minimatch syntax is used for pattern matching. Patterns are relative to the workspace directory (no leading slash).\nNOTE: To match both a directory and its contents, use separate patterns (e.g., \"dir,dir/**\").\n"
       },
       {
         "name": "module-change-exclude-patterns",
@@ -97,7 +97,7 @@
         "name": "module-asset-exclude-patterns",
         "required": true,
         "default": ".gitignore,*.md,*.tftest.hcl,tests/**",
-        "description": "A comma-separated list of file patterns to exclude when bundling a Terraform module for release assets. These patterns follow glob syntax and are relative to each Terraform module directory, not the repository root. Files matching these patterns will be excluded from the bundled release archives. Uses matchBase: true for pattern matching, similar to module-change-exclude-patterns.\nThese patterns only affect what's included in release assets and do not impact versioning decisions.\n"
+        "description": "A comma-separated list of file patterns to exclude when bundling a Terraform module for release assets. These patterns follow glob syntax and are relative to each Terraform module directory, not the repository root. Files matching these patterns will be excluded from the bundled release archives. Uses matchBase: true for  pattern matching, similar to module-change-exclude-patterns.\nThese patterns only affect what's included in release assets and do not impact versioning decisions.\n"
       },
       {
         "name": "use-ssh-source-format",
@@ -109,25 +109,25 @@
         "name": "github_token",
         "required": true,
         "default": "${{ github.token }}",
-        "description": "Required for retrieving pull request metadata, tags, releases, updating PR comments, wiki, and creating tags/releases. Automatically injected for convenience; no need to provide a custom token unless you have specific requirements.\n"
+        "description": "Required for retrieving pull request metadata, tags, releases, updating PR comments, wiki, and creating  tags/releases. Automatically injected for convenience; no need to provide a custom token unless you have  specific requirements.\n"
       },
       {
         "name": "tag-directory-separator",
         "required": true,
         "default": "/",
-        "description": "Character used to separate directory path components in Git tags. This separator is used to convert module directory paths into tag names (e.g., 'modules/aws/s3-bucket' becomes 'modules-aws-s3-bucket-v1.0.0' when using '-'). Must be a single character from: /, -, _, or .\nExamples with different separators: - \"/\" (default): modules/aws/s3-bucket/v1.0.0 - \"-\": modules-aws-s3-bucket-v1.0.0 - \"_\": modules_aws_s3_bucket_v1.0.0 - \".\": modules.aws.s3.bucket.v1.0.0\n"
+        "description": "Character used to separate directory path components in Git tags. This separator is used to convert  module directory paths into tag names (e.g., 'modules/aws/s3-bucket' becomes 'modules-aws-s3-bucket-v1.0.0'  when using '-'). Must be a single character from: /, -, _, or .\nExamples with different separators: - \"/\" (default): modules/aws/s3-bucket/v1.0.0 - \"-\": modules-aws-s3-bucket-v1.0.0   - \"_\": modules_aws_s3_bucket_v1.0.0 - \".\": modules.aws.s3.bucket.v1.0.0\n"
       },
       {
         "name": "use-version-prefix",
         "required": true,
         "default": "true",
-        "description": "Whether to include the 'v' prefix on version tags (e.g., v1.2.3 vs 1.2.3). When enabled, all new version tags will include the 'v' prefix. For initial releases, this setting takes precedence over any 'v' prefix specified in the default-first-tag - if use-version-prefix is false and default-first-tag contains 'v', the 'v' will be automatically removed to ensure consistency.\n"
+        "description": "Whether to include the 'v' prefix on version tags (e.g., v1.2.3 vs 1.2.3). When enabled, all new version  tags will include the 'v' prefix. For initial releases, this setting takes precedence over any 'v' prefix  specified in the default-first-tag - if use-version-prefix is false and default-first-tag contains 'v',  the 'v' will be automatically removed to ensure consistency.\n"
       },
       {
         "name": "module-ref-mode",
         "required": true,
         "default": "tag",
-        "description": "Controls how Terraform module usage examples reference versions in generated documentation. Valid values: \"tag\" or \"sha\". When \"tag\" (default), examples use the tag name in the ref parameter (e.g., ?ref=aws/vpc-endpoint/v1.1.3). When \"sha\", examples use the commit SHA with the tag as a comment (e.g., ?ref=abc123def456 # aws/vpc-endpoint/v1.1.3). This allows pinning to immutable commit SHAs that cannot be deleted, useful with Renovate for handling module removal scenarios. Note: This only affects generated documentation; tag and release creation remains unchanged.\n"
+        "description": "Controls how Terraform module usage examples reference versions in generated documentation. Valid values: \"tag\" or \"sha\". When \"tag\" (default), examples use the tag name in the ref parameter (e.g., ?ref=aws/vpc-endpoint/v1.1.3). When \"sha\", examples use the commit SHA with the tag as a  comment (e.g., ?ref=abc123def456 # aws/vpc-endpoint/v1.1.3). This allows pinning to immutable  commit SHAs that cannot be deleted, useful with Renovate for handling module removal scenarios. Note: This only affects generated documentation; tag and release creation remains unchanged.\n"
       }
     ],
     "outputs": [
@@ -173,7 +173,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The Terraform Module Releaser automates versioning and releases for Terraform modules, which falls under Deployment. It also generates documentation for the modules, thus fitting into the Documentation category.",
+        "reasoning": "The Terraform Module Releaser automates the process of versioning and releasing Terraform modules, which is primarily a deployment task. It also generates documentation related to the modules, making it relevant for the documentation category.",
         "tags": [
           "terraform",
           "release",
@@ -185,9 +185,9 @@
     ]
   },
   "cache": {
-    "source_hash": "d7f39fcfbb2b70962e5a464691ccd868c09bae8ad369a6c3b6115d306936f4c5",
+    "source_hash": "8cccaa299492ae75193e3de399dd3eaf18dd06d7d9f4e0da0679aa4e16a5e9e8",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.742994Z"
+    "generated_at": "2025-12-15T05:22:44.562320Z"
   }
 }

@@ -1,0 +1,112 @@
+{
+  "action_id": "marketplace/julia-actions/julia-report-ci-results",
+  "version_id": "68b3b6bfeb93",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-report-ci-results/action.yml",
+    "origin": "github.com/julia-actions/julia-report-ci-results",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Report Julia CI results",
+    "description": "Report Julia CI results",
+    "author": "",
+    "inputs": [
+      {
+        "name": "results-path",
+        "required": true,
+        "default": null,
+        "description": ""
+      },
+      {
+        "name": "lint-results",
+        "required": false,
+        "default": null,
+        "description": ""
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Compute Manifest hash",
+          "id": "project-hash",
+          "shell": "pwsh",
+          "run": "$ourHash = Get-FileHash -LiteralPath \"$env:GITHUB_ACTION_PATH\\Manifest.toml\"\n\"MANIFEST_HASH=$($ourHash.Hash)\" | Out-File -FilePath $env:GITHUB_OUTPUT -Append\n"
+        },
+        {
+          "name": "Check Julia version",
+          "shell": "bash",
+          "id": "julia-version",
+          "run": "echo \"JULIA_VERSION=$(julia -v)\" >> $GITHUB_OUTPUT\n"
+        },
+        {
+          "uses": "actions/cache@v4",
+          "id": "cache-project",
+          "with": {
+            "path": "${{ runner.tool_cache }}/julia-run-testitems-depot",
+            "key": "julia-report-ci-results-cache-${{ runner.os }}-${{ steps.julia-version.outputs.JULIA_VERSION }}-${{ steps.project-hash.outputs.MANIFEST_HASH }}"
+          }
+        },
+        {
+          "name": "Install and precompile",
+          "if": "steps.cache-project.outputs.cache-hit != 'true'",
+          "run": "julia -e 'import Pkg; Pkg.instantiate()'",
+          "shell": "bash",
+          "env": {
+            "JULIA_PROJECT": "${{ github.action_path }}",
+            "JULIA_DEPOT_PATH": "${{ runner.tool_cache }}/julia-run-testitems-depot"
+          }
+        },
+        {
+          "uses": "actions/cache/save@v4",
+          "if": "steps.cache-project.outputs.cache-hit != 'true'",
+          "with": {
+            "path": "${{ runner.tool_cache }}/julia-run-testitems-depot",
+            "key": "julia-report-ci-results-cache-${{ runner.os }}-${{ steps.julia-version.outputs.JULIA_VERSION }}-${{ steps.project-hash.outputs.MANIFEST_HASH }}"
+          }
+        },
+        {
+          "name": "Run test items",
+          "run": "julia --project=${{ github.action_path }} ${{ github.action_path }}/main.jl",
+          "shell": "pwsh",
+          "env": {
+            "JULIA_DEPOT_PATH": "${{ runner.tool_cache }}/julia-run-testitems-depot",
+            "RESULTS_PATH": "${{ inputs.results-path }}",
+            "LINT_RESULTS": "${{ inputs.lint-results }}"
+          }
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Testing",
+      "Code quality"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Testing",
+        "reasoning": "The action is focused on reporting CI results, which is a key aspect of testing. Additionally, it can involve lint results, linking it to code quality.",
+        "tags": [
+          "Julia",
+          "CI",
+          "testing",
+          "code quality",
+          "reporting"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "68b3b6bfeb931c74f36cc0b00f158a52f774bee0d602042e704e8d9c5b7ee732",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:22.356133Z"
+  }
+}

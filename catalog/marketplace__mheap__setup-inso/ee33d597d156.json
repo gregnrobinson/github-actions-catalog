@@ -1,0 +1,52 @@
+{
+  "action_id": "marketplace/mheap/setup-inso",
+  "version_id": "ee33d597d156",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/setup-inso/action.yml",
+    "origin": "github.com/mheap/setup-inso",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Setup inso",
+    "description": "Install inso from Kong",
+    "author": "",
+    "inputs": [
+      {
+        "name": "inso-version",
+        "required": true,
+        "default": null,
+        "description": "The version of inso to install"
+      },
+      {
+        "name": "compression",
+        "required": false,
+        "default": null,
+        "description": "The compression algorithm to use. One of: [gzip, bzip]"
+      },
+      {
+        "name": "wrapper",
+        "required": false,
+        "default": "false",
+        "description": "Add a wrapper script to make stdout, stderr and errorcode available as outputs"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ee33d597d15678d2f9f4fb17dbceaa511b817ae16cbcfca77ae3b71c310f48fa",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:22.964414Z"
+  }
+}

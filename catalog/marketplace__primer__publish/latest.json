@@ -1,0 +1,93 @@
+{
+  "action_id": "marketplace/primer/publish",
+  "version_id": "2ae019a78657",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/primer/publish/action.yml",
+    "origin": "github.com/primer/publish",
+    "publisher": "primer",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2020-09-16T20:10:56Z",
+      "html_url": "https://github.com/primer/publish/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "@primer/publish",
+    "description": "Publish Primer projects to npm with GitHub Design Systems conventions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "default_branch",
+        "required": false,
+        "default": null,
+        "description": "Branch that releases should be cut from (usually your default branch)"
+      },
+      {
+        "name": "dir",
+        "required": false,
+        "default": null,
+        "description": "directory to find package.json in"
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": null,
+        "description": "run action without publishing"
+      },
+      {
+        "name": "npm_args",
+        "required": false,
+        "default": null,
+        "description": "publish options & additional npm cli arguments"
+      },
+      {
+        "name": "release_tag",
+        "required": false,
+        "default": "latest",
+        "description": "Override tag to release package with"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{inputs.npm_args}}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Packaging",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "This action is focused on publishing projects to npm, which directly relates to the Publishing category. Additionally, it involves handling package.json files, linking it to Packaging and Dependency management.",
+        "tags": [
+          "npm",
+          "publish",
+          "GitHub Actions",
+          "Primer",
+          "design systems"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "2ae019a786572ed801eee7c80db6c9da93802b2a01f8d03367d2aed254207f22",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:35.578938Z"
+  }
+}

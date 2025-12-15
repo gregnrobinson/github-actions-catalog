@@ -1,0 +1,8 @@
+name: PR-kemon
+description: Adds a comment thanking the author when a PR is opened, with bonus pokemon information
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: message-circle
+  color: red

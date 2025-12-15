@@ -1,0 +1,68 @@
+{
+  "action_id": "marketplace/mheap/cascading-merge-action",
+  "version_id": "491656b1a967",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/cascading-merge-action/action.yml",
+    "origin": "github.com/mheap/cascading-merge-action",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "v1.0.1",
+      "published_at": "2022-11-07T22:31:22Z",
+      "html_url": "https://github.com/mheap/cascading-merge-action/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Cascading Merge",
+    "description": "Automatically merge branches in to each other when a base branch changes",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": "${{ github.token }}",
+        "description": "The GITHUB_TOKEN to use"
+      },
+      {
+        "name": "branches",
+        "required": true,
+        "default": null,
+        "description": "The branches to merge, one per line. The branches at the top will be merged into lower branches"
+      }
+    ],
+    "outputs": [],
+    "runs": {}
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Communication"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action automates the merging of branches, which is a deployment-related task, while also facilitating communication between branches by ensuring they are updated with changes from the base branch.",
+        "tags": [
+          "merge",
+          "branches",
+          "automation",
+          "GitHub Actions",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "491656b1a967a70e60039529dd3b378906ae2ff57a2e90f7b55e8d8e118ec4fc",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:19.425537Z"
+  }
+}

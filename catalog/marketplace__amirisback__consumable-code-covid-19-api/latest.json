@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/consumable-code-covid-19-api",
-  "version_id": "1e546eaa300f",
+  "version_id": "d7461bde42d9",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/consumable-code-covid-19-api/action.yml",
@@ -39,30 +39,30 @@
   },
   "annotations": {
     "categories": [
-      "Dependency management",
-      "Documentation"
+      "Documentation",
+      "Dependency management"
     ],
     "confidence": "medium",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Dependency management",
-        "reasoning": "The action appears to provide a consumable API for Android apps, which suggests it helps manage dependencies related to COVID-19 data. Documentation is also relevant as it likely requires some explanation for usage.",
+        "primary_category": "Documentation",
+        "reasoning": "The action provides a consumable API for Android apps, which suggests it is focused on documentation and usage of the API. It may also relate to dependency management as it could be used to manage API dependencies in projects.",
         "tags": [
           "API",
           "Android",
           "COVID-19",
-          "Dependency",
-          "Action"
+          "documentation",
+          "dependency"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "1e546eaa300fd5916dc67aefa65ddd2e9f74a691b9c52936d1bfe6a01ca28b88",
+    "source_hash": "d7461bde42d9841c5dff0bc3f065a5fba56512609b5bcf8b8a2c61f64ad0039b",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.774997Z"
+    "generated_at": "2025-12-15T05:22:53.647369Z"
   }
 }

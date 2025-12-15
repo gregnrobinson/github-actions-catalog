@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/lukka/run-vcpkg/action.yml",
     "origin": "github.com/lukka/run-vcpkg",
     "publisher": "lukka",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v11.5",
+      "name": "run-vcpkg@v11.5",
+      "published_at": "2024-02-11T16:20:06Z",
+      "html_url": "https://github.com/lukka/run-vcpkg/releases/tag/v11.5",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "run-vcpkg",
@@ -107,6 +115,6 @@
     "source_hash": "4a7461c89ae0bebdda75176c657052468ead822a5e9d86ddb47d963cdc417e06",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.251421Z"
+    "generated_at": "2025-12-15T05:22:06.725208Z"
   }
 }

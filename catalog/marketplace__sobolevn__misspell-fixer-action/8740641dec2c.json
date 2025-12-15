@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/sobolevn/misspell-fixer-action",
+  "version_id": "8740641dec2c",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/misspell-fixer-action/action.yml",
+    "origin": "github.com/sobolevn/misspell-fixer-action",
+    "publisher": "sobolevn",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.1.0",
+      "name": "Version 0.1.0",
+      "published_at": "2020-03-19T22:20:24Z",
+      "html_url": "https://github.com/sobolevn/misspell-fixer-action/releases/tag/0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "misspell-fixer-action",
+    "description": "Runs misspell-fixer as a GitHub Action",
+    "author": "",
+    "inputs": [
+      {
+        "name": "options",
+        "required": false,
+        "default": "-rsvn .",
+        "description": "Any options for misspell-fixes tool"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "output",
+        "description": "The output of misspell-fixer run"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.options }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "8740641dec2cb9f305d23f6f918e2840253ee13a5ac00b5386d7e2a1e736510b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:30.289807Z"
+  }
+}

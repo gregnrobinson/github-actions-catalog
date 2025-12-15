@@ -1,0 +1,136 @@
+{
+  "action_id": "marketplace/rhysd/rust-cache",
+  "version_id": "3896186190bd",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/rust-cache/action.yml",
+    "origin": "github.com/rhysd/rust-cache",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "Rust Cache",
+    "description": "A GitHub Action that implements smart caching for rust/cargo projects with sensible defaults.",
+    "author": "Arpad Borsos <swatinem@swatinem.de>",
+    "inputs": [
+      {
+        "name": "prefix-key",
+        "required": false,
+        "default": "v0-rust",
+        "description": "The prefix cache key, this can be changed to start a new cache manually."
+      },
+      {
+        "name": "shared-key",
+        "required": false,
+        "default": null,
+        "description": "A cache key that is used instead of the automatic `job`-based key, and is stable over multiple jobs."
+      },
+      {
+        "name": "key",
+        "required": false,
+        "default": null,
+        "description": "An additional cache key that is added alongside the automatic `job`-based cache key and can be used to further differentiate jobs."
+      },
+      {
+        "name": "env-vars",
+        "required": false,
+        "default": null,
+        "description": "Additional environment variables to include in the cache key, separated by spaces."
+      },
+      {
+        "name": "workspaces",
+        "required": false,
+        "default": null,
+        "description": "Paths to multiple Cargo workspaces and their target directories, separated by newlines."
+      },
+      {
+        "name": "cache-directories",
+        "required": false,
+        "default": null,
+        "description": "Additional non workspace directories to be cached, separated by newlines."
+      },
+      {
+        "name": "cache-targets",
+        "required": false,
+        "default": "true",
+        "description": "Determines whether workspace targets are cached. If `false`, only the cargo registry will be cached."
+      },
+      {
+        "name": "cache-on-failure",
+        "required": false,
+        "default": null,
+        "description": "Cache even if the build fails. Defaults to false."
+      },
+      {
+        "name": "cache-all-crates",
+        "required": false,
+        "default": "false",
+        "description": "Determines which crates are cached. If `true` all crates will be cached, otherwise only dependent crates will be cached."
+      },
+      {
+        "name": "save-if",
+        "required": false,
+        "default": "true",
+        "description": "Determiners whether the cache should be saved. If `false`, the cache is only restored."
+      },
+      {
+        "name": "cache-provider",
+        "required": false,
+        "default": "github",
+        "description": "Determines which provider to use for caching. Options are github or buildjet, defaults to github."
+      },
+      {
+        "name": "cache-bin",
+        "required": false,
+        "default": "true",
+        "description": "Determines whether to cache ${CARGO_HOME}/bin."
+      },
+      {
+        "name": "lookup-only",
+        "required": false,
+        "default": "false",
+        "description": "Check if a cache entry exists without downloading the cache"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "cache-hit",
+        "description": "A boolean value that indicates an exact match was found."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/restore/index.js",
+      "post": "dist/save/index.js",
+      "post-if": "success() || env.CACHE_ON_FAILURE == 'true'"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Caching"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The Rust Cache action is designed to implement smart caching for Rust/Cargo projects, which directly relates to managing dependencies efficiently by reducing build times.",
+        "tags": [
+          "rust",
+          "cargo",
+          "cache",
+          "dependency management",
+          "github action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "3896186190bdb6704deddb9d0005cbf1a9228703e2c00a31b6a4b33bf9d1b833",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:43.193931Z"
+  }
+}

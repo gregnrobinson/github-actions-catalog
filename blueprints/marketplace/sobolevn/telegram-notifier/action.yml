@@ -1,0 +1,67 @@
+name: "Telegram Issue Notifier"
+description: "Send Telegram notifications for new GitHub issues"
+author: "Sehat1137"
+
+inputs:
+  tg-bot-token:
+    description: "Telegram Bot Token"
+    required: true
+  tg-chat-id:
+    description: "Telegram Chat ID"
+    required: true
+  tg-message-thread-id:
+    description: "Telegram Message Thread ID"
+    required: false
+  github-token:
+    description: "GitHub Token for API access"
+    required: false
+  base-url:
+    description: "Base URL for sulguk"
+    required: false
+    default: "https://github.com"
+  python-version:
+    description: "Python version for action"
+    required: false
+    default: "3.10"
+  attempt-count:
+    description: "Telegram API attempt count"
+    required: false
+    default: "10"
+  html-template:
+    description: "HTML template for Telegram message"
+    required: false
+  md-template:
+    description: "Markdown template for Telegram message"
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install dependencies
+      shell: bash
+      run: |
+        pip install -r $GITHUB_ACTION_PATH/requirements.txt
+
+    - name: Send Telegram notification
+      shell: bash
+      env:
+        TELEGRAM_BOT_TOKEN: ${{ inputs.tg-bot-token }}
+        TELEGRAM_CHAT_ID: ${{ inputs.tg-chat-id }}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
+        EVENT_URL: ${{ github.event.issue.url || github.event.pull_request.url }}
+        BASE_URL: ${{ inputs.base-url }}
+        ATTEMPT_COUNT: ${{ inputs.attempt-count }}
+        HTML_TEMPLATE: ${{ inputs.html-template }}
+        MD_TEMPLATE: ${{ inputs.md-template }}
+        TELEGRAM_MESSAGE_THREAD_ID: ${{ inputs.tg-message-thread-id }}
+      run: |
+        python3 $GITHUB_ACTION_PATH/main.py
+
+branding:
+  icon: "message-circle"
+  color: "blue"

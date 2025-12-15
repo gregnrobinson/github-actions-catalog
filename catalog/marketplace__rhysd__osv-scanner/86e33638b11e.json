@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/rhysd/osv-scanner",
+  "version_id": "86e33638b11e",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/rhysd/osv-scanner/action.yml",
+    "origin": "github.com/rhysd/osv-scanner",
+    "publisher": "rhysd",
+    "verified": false
+  },
+  "definition": {
+    "name": "osv-scanner",
+    "description": "Scans your directory against the OSV database",
+    "author": "",
+    "inputs": [
+      {
+        "name": "to-scan",
+        "required": true,
+        "default": "/github/workspace",
+        "description": "Directory to scan"
+      },
+      {
+        "name": "version",
+        "required": true,
+        "default": null,
+        "description": "osv-scanner version to use"
+      },
+      {
+        "name": "arch",
+        "required": false,
+        "default": "amd64",
+        "description": "osv-scanner architecture"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "ghcr.io/google/osv-scanner:${{ inputs.version }}-${{ inputs.arch }}",
+      "args": [
+        "--skip-git",
+        "${{ inputs.to-scan }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "86e33638b11efe20b3be0dbd94ee831ce34fc3ff21d9a274dcb3e286b18dfa43",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:40.088576Z"
+  }
+}

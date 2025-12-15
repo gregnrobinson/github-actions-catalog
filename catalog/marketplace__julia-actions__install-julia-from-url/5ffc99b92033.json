@@ -1,0 +1,62 @@
+{
+  "action_id": "marketplace/julia-actions/install-julia-from-url",
+  "version_id": "5ffc99b92033",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/install-julia-from-url/action.yml",
+    "origin": "github.com/julia-actions/install-julia-from-url",
+    "publisher": "julia-actions",
+    "verified": false
+  },
+  "definition": {
+    "name": "Install Julia from URL",
+    "description": "Install Julia from a given URL.",
+    "author": "Sascha Mann",
+    "inputs": [
+      {
+        "name": "url",
+        "required": true,
+        "default": "",
+        "description": "URL pointing at the archive."
+      },
+      {
+        "name": "target-dir",
+        "required": false,
+        "default": "$HOME/julia",
+        "description": "Directory that Julia will be installed in"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Download and extract Julia",
+          "run": "mkdir -p \"${{ inputs.target-dir }}\"\ncurl -LsS \"${{ inputs.url }}\" | tar -xz --strip-components=1 -C \"${{ inputs.target-dir }}\"\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Add to PATH",
+          "run": "echo \"${{ inputs.target-dir }}/bin\" >> \"$GITHUB_PATH\"",
+          "shell": "bash"
+        },
+        {
+          "name": "Print Version",
+          "run": "julia --compile=min -O0 -e \"using InteractiveUtils; versioninfo()\"",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5ffc99b92033008972e1a7d9e3059e39299496e5f72d4554fb0f640a8bf92786",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:18.497881Z"
+  }
+}

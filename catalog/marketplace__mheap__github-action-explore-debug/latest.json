@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/mheap/github-action-explore-debug",
+  "version_id": "1c19f30881c3",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-explore-debug/action.yml",
+    "origin": "github.com/mheap/github-action-explore-debug",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Explore Debug",
+    "description": "Show available data for any Action run",
+    "author": "",
+    "inputs": [
+      {
+        "name": "jq_selector",
+        "required": false,
+        "default": ".",
+        "description": "The JQ selector to execute"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "Docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Monitoring",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Monitoring",
+        "reasoning": "The action is designed to show available data for any Action run, which falls under monitoring. Additionally, it helps in understanding the output and usage of actions, contributing to documentation.",
+        "tags": [
+          "debug",
+          "monitoring",
+          "github-actions",
+          "jq",
+          "explore"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "1c19f30881c39ab5a755ad4915911f100513af15d5d39e9818c66723b62d0ff2",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:27.144192Z"
+  }
+}

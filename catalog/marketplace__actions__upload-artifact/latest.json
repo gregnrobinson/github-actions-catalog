@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/actions/upload-artifact",
-  "version_id": "d0e7e4dd3a19",
+  "version_id": "3760874f860e",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/actions/upload-artifact/action.yml",
@@ -71,7 +71,7 @@
       },
       {
         "name": "artifact-url",
-        "description": "A download URL for the artifact that was just uploaded. Empty if the artifact upload failed.\nThis download URL only works for requests Authenticated with GitHub. Anonymous downloads will be prompted to first login. If an anonymous download URL is needed than a short time restricted URL can be generated using the download artifact API: https://docs.github.com/en/rest/actions/artifacts#download-an-artifact\nThis URL will be valid for as long as the artifact exists and the workflow run and repository exists. Once an artifact has expired this URL will no longer work. Common uses cases for such a download URL can be adding download links to artifacts in descriptions or comments on pull requests or issues.\n"
+        "description": "A download URL for the artifact that was just uploaded. Empty if the artifact upload failed.\nThis download URL only works for requests Authenticated with GitHub. Anonymous downloads will be prompted to first login.  If an anonymous download URL is needed than a short time restricted URL can be generated using the download artifact API: https://docs.github.com/en/rest/actions/artifacts#download-an-artifact    \nThis URL will be valid for as long as the artifact exists and the workflow run and repository exists. Once an artifact has expired this URL will no longer work. Common uses cases for such a download URL can be adding download links to artifacts in descriptions or comments on pull requests or issues.\n"
       },
       {
         "name": "artifact-digest",
@@ -87,7 +87,7 @@
     "categories": [
       "Packaging",
       "Build",
-      "Dependency management"
+      "Deployment"
     ],
     "confidence": "high",
     "evidence": [
@@ -95,7 +95,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Packaging",
-        "reasoning": "The action is primarily focused on uploading build artifacts, which is a key aspect of the packaging process in CI/CD workflows. It also relates to build management as it deals with outputs from the build process.",
+        "reasoning": "The action is primarily focused on uploading build artifacts, which is a key aspect of packaging in CI/CD workflows. It also supports deployment scenarios by allowing artifacts to be used in subsequent steps.",
         "tags": [
           "artifact",
           "upload",
@@ -107,9 +107,9 @@
     ]
   },
   "cache": {
-    "source_hash": "d0e7e4dd3a1910797aee2ac81249e2b1db2e7fe53e04ec85b5c8d03025383476",
+    "source_hash": "3760874f860e631be3d785d0589ade7cecb541eeac6f581989a814a2c99fc94f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T04:14:31.938699Z"
+    "generated_at": "2025-12-15T05:22:43.215301Z"
   }
 }

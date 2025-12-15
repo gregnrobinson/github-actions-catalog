@@ -1,0 +1,77 @@
+{
+  "action_id": "marketplace/wearerequired/slack-messaging-action",
+  "version_id": "93e05210777d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/wearerequired/slack-messaging-action/action.yml",
+    "origin": "github.com/wearerequired/slack-messaging-action",
+    "publisher": "wearerequired",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3.0.0",
+      "name": "v3.0.0",
+      "published_at": "2024-02-03T15:54:38Z",
+      "html_url": "https://github.com/wearerequired/slack-messaging-action/releases/tag/v3.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Slack Messaging",
+    "description": "Send any messages from GitHub Actions to Slack.",
+    "author": "",
+    "inputs": [
+      {
+        "name": "bot_token",
+        "required": true,
+        "default": null,
+        "description": "The Slack bot token."
+      },
+      {
+        "name": "channel",
+        "required": false,
+        "default": null,
+        "description": "The Slack channel name. Required if no `channel_id` provided."
+      },
+      {
+        "name": "channel_id",
+        "required": false,
+        "default": null,
+        "description": "The Slack channel ID. Required if no `channel` provided."
+      },
+      {
+        "name": "payload",
+        "required": true,
+        "default": null,
+        "description": "The JSON payload of a message to send. `channel` and `ts` are set to the values of the respective inputs."
+      },
+      {
+        "name": "message_id",
+        "required": false,
+        "default": null,
+        "description": "The ID of the existing Slack message to update."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "message_id",
+        "description": "The unique timestamp identifier of the Slack message sent."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "93e05210777d2a36b707be973b3b1ef88cc7a828cf92ebb3342ea48b4a15e8b0",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:13.669129Z"
+  }
+}

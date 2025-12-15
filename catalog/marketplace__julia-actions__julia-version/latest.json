@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/julia-actions/julia-version",
+  "version_id": "935c050a42b6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/julia-version/action.yml",
+    "origin": "github.com/julia-actions/julia-version",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v0.1.0",
+      "name": "v0.1.0",
+      "published_at": "2025-03-24T16:47:18Z",
+      "html_url": "https://github.com/julia-actions/julia-version/releases/tag/v0.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "julia-version",
+    "description": "Resolve version specifiers into Julia versions",
+    "author": "Curtis Vogt",
+    "inputs": [
+      {
+        "name": "versions",
+        "required": true,
+        "default": null,
+        "description": "The Julia version specifier or list of specifiers to resolve. Support formats include a scalar, JSON list, or a YAML list. When passing in a scalar prefer using a string instead of a numeric value to avoid unwanted YAML decimal conversions (e.g. `1.10` will be interpreted as `1.1`)."
+      },
+      {
+        "name": "project",
+        "required": false,
+        "default": "",
+        "description": "The path to the Julia project directory or file to use when resolving some specifiers (e.g. `min`). Defaults to using the environmental variable `JULIA_PROJECT` if set or otherwise `.`."
+      },
+      {
+        "name": "if-missing",
+        "required": false,
+        "default": "warn",
+        "description": "Determine the behavior if a version specifier cannot be resolved."
+      }
+    ],
+    "outputs": [
+      {
+        "name": "resolved-json",
+        "description": "The unique JSON list of resolved Julia versions. Any versions which could not be resolved will be excluded from this list."
+      },
+      {
+        "name": "resolved",
+        "description": "A single resolved Julia version when the input `versions` contains is a single version specifier. Will be an empty string if version cannot be resolved."
+      }
+    ],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action resolves version specifiers into specific Julia versions, which is a key aspect of managing dependencies in a project.",
+        "tags": [
+          "julia",
+          "versioning",
+          "dependency",
+          "actions",
+          "package management"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "935c050a42b605a6f74b785ab11459398c51c5354471597f7941f6ff510a8f65",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:23.171118Z"
+  }
+}

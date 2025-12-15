@@ -84,32 +84,14 @@
     }
   },
   "annotations": {
-    "categories": [
-      "Packaging",
-      "Build",
-      "Dependency management"
-    ],
-    "confidence": "high",
-    "evidence": [
-      {
-        "type": "llm_categorization",
-        "model": "gpt-4o-mini",
-        "primary_category": "Packaging",
-        "reasoning": "The action is primarily focused on uploading build artifacts, which falls under the Packaging category. It also relates to Build as it is used in the context of build processes and can be associated with Dependency management for managing artifacts.",
-        "tags": [
-          "artifact",
-          "upload",
-          "build",
-          "GitHub Actions",
-          "CI/CD"
-        ]
-      }
-    ]
+    "categories": [],
+    "confidence": null,
+    "evidence": []
   },
   "cache": {
     "source_hash": "3760874f860e631be3d785d0589ade7cecb541eeac6f581989a814a2c99fc94f",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.658360Z"
+    "generated_at": "2025-12-15T05:22:43.215301Z"
   }
 }

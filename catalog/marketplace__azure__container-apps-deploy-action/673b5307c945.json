@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/container-apps-deploy-action/action.yml",
     "origin": "github.com/azure/container-apps-deploy-action",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Azure Container Apps Build and Deploy - v2",
+      "published_at": "2023-10-17T20:47:52Z",
+      "html_url": "https://github.com/Azure/container-apps-deploy-action/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Container Apps Build and Deploy",
@@ -173,6 +181,6 @@
     "source_hash": "673b5307c9459305802286bddfe8c573e5f4f73d89911e0091d3b88d47b75fae",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.514430Z"
+    "generated_at": "2025-12-15T05:21:45.363281Z"
   }
 }

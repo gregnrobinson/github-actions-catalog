@@ -1,0 +1,102 @@
+{
+  "action_id": "marketplace/mheap/setup-go-cli",
+  "version_id": "4f4d42780520",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/setup-go-cli/action.yml",
+    "origin": "github.com/mheap/setup-go-cli",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1",
+      "name": "v1",
+      "published_at": "2024-04-12T08:18:36Z",
+      "html_url": "https://github.com/mheap/setup-go-cli/releases/tag/v1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Setup Go CLI",
+    "description": "Install any goreleaser based CLI in GitHub Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "owner",
+        "required": true,
+        "default": null,
+        "description": "The user/org name to fetch the tool from"
+      },
+      {
+        "name": "repo",
+        "required": true,
+        "default": null,
+        "description": "The repository name to fetch the tool from"
+      },
+      {
+        "name": "cli_name",
+        "required": true,
+        "default": null,
+        "description": "The name of the CLI (may be different to repo)"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": null,
+        "description": "The version to install"
+      },
+      {
+        "name": "package_name_template",
+        "required": false,
+        "default": null,
+        "description": "Allows you to customise the package name using a template"
+      },
+      {
+        "name": "package_type",
+        "required": false,
+        "default": null,
+        "description": "The package archive type (.tar.gz, .zip)"
+      },
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use when fetching the latest version of the tool"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Build",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action is focused on installing a CLI tool, which falls under dependency management, and it also supports building and packaging processes related to Go applications.",
+        "tags": [
+          "Go",
+          "CLI",
+          "Dependency Management",
+          "GitHub Actions",
+          "Goreleaser"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "4f4d427805204bce9e2dbe62eb2cf56a8cc6da975b1e331f48e7f32b66874d16",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:27.437685Z"
+  }
+}

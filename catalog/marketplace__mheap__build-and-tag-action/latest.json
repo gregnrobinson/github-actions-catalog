@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/mheap/build-and-tag-action",
+  "version_id": "592fe33cda4a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/build-and-tag-action/action.yml",
+    "origin": "github.com/mheap/build-and-tag-action",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Build and Tag",
+    "description": "Properly tags your GitHub Action",
+    "author": "",
+    "inputs": [
+      {
+        "name": "tag_name",
+        "required": false,
+        "default": null,
+        "description": "The tag to update. If the workflow event is `release`, it will use the `tag_name` from the event payload."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Tagging",
+      "Publishing"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is focused on building and tagging a GitHub Action, which primarily falls under the Build category, but also involves aspects of Publishing due to the tagging functionality.",
+        "tags": [
+          "build",
+          "tag",
+          "github action",
+          "publishing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "592fe33cda4a684452e42914ee8d8c3212c3b4a37254c150fdaafb60f0095fc1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:24.130135Z"
+  }
+}

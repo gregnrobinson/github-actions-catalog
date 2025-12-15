@@ -1,0 +1,99 @@
+{
+  "action_id": "marketplace/vsoch/uptodate",
+  "version_id": "c1435cd7f4fb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/uptodate/action.yml",
+    "origin": "github.com/vsoch/uptodate",
+    "publisher": "vsoch",
+    "verified": false
+  },
+  "definition": {
+    "name": "uptodate-action",
+    "description": "Check that repository assets are up to date",
+    "author": "Vanessa Sochat",
+    "inputs": [
+      {
+        "name": "root",
+        "required": false,
+        "default": "",
+        "description": "Root path to provide to command. Can be a Dockerfile or directory."
+      },
+      {
+        "name": "parser",
+        "required": true,
+        "default": null,
+        "description": "Parser to run, one of dockerfile, or dockerhierarchy"
+      },
+      {
+        "name": "dry_run",
+        "required": false,
+        "default": false,
+        "description": "Do a dry run (don't write, but show changes) one of true or false, defaults to false"
+      },
+      {
+        "name": "changes",
+        "required": false,
+        "default": false,
+        "description": "Only consider relevant changed files for the current git commit"
+      },
+      {
+        "name": "flags",
+        "required": false,
+        "default": "",
+        "description": "Extra flags for the parser (e.g., --no-build-args or --no-empty-build-args for dockerfilelist)"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "dockerfile_matrix",
+        "description": "A matrix of Dockerfile changes with name and filename set to the Dockerfile name"
+      },
+      {
+        "name": "dockerhierarchy_matrix",
+        "description": "A matrix of new Dockerfiles and the corresponding tag (Name)"
+      },
+      {
+        "name": "dockerfilelist_matrix",
+        "description": "A matrix of Dockerfiles listed with dockerfilelist"
+      },
+      {
+        "name": "dockerbuild_matrix",
+        "description": "A matrix of Docker builds"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "docker://ghcr.io/vsoch/uptodate:latest"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Code quality",
+      "Testing"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action checks if repository assets are up to date, which relates to managing dependencies and ensuring code quality. It also involves testing the current state against expected updates.",
+        "tags": [
+          "dependency",
+          "up-to-date",
+          "docker",
+          "code quality",
+          "testing"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "c1435cd7f4fbec7102f811c7e40ee56af12ce057ee68fae5cdaf2a453f11d48e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:34.955992Z"
+  }
+}

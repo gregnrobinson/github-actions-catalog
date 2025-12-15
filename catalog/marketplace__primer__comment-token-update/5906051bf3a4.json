@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/primer/comment-token-update",
+  "version_id": "5906051bf3a4",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/primer/comment-token-update/action.yml",
+    "origin": "github.com/primer/comment-token-update",
+    "publisher": "primer",
+    "verified": false
+  },
+  "definition": {
+    "name": "Comment Token Update",
+    "description": "Replaces a token in an existing comment with provided input",
+    "author": "",
+    "inputs": [
+      {
+        "name": "comment-token",
+        "required": true,
+        "default": "",
+        "description": "Token to replace in comment text"
+      },
+      {
+        "name": "script",
+        "required": true,
+        "default": "",
+        "description": "script to get output of"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5906051bf3a4cc5479436be39e9d013773fe50e5c91917a4ee74e93e2e7dc0a1",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:36.022015Z"
+  }
+}

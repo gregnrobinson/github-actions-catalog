@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/julia-actions/add-julia-registry",
+  "version_id": "27b3371e5447",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/add-julia-registry/action.yml",
+    "origin": "github.com/julia-actions/add-julia-registry",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.1.0",
+      "name": "v2.1.0",
+      "published_at": "2025-01-21T16:14:31Z",
+      "html_url": "https://github.com/julia-actions/add-julia-registry/releases/tag/v2.1.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Add Julia Registry",
+    "description": "Clone a private Julia registry and configure Pkg access",
+    "author": "Chris de Graaf",
+    "inputs": [
+      {
+        "name": "registry",
+        "required": true,
+        "default": null,
+        "description": "Registry to clone (owner/repo)"
+      },
+      {
+        "name": "protocol",
+        "required": false,
+        "default": "ssh",
+        "description": "Protocol to use when cloning GitHub repositories. Either `ssh` or `https`."
+      },
+      {
+        "name": "ssh-key",
+        "required": false,
+        "default": null,
+        "description": "SSH private key contents when cloning with SSH."
+      },
+      {
+        "name": "key",
+        "required": false,
+        "default": null,
+        "description": "Deprecated input which was replaced by `ssh-key`."
+      },
+      {
+        "name": "github-token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use when cloning with HTTPS."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "main.js",
+      "post": "post.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "The action is primarily focused on managing Julia package dependencies by configuring access to a private registry, while also involving authentication through SSH keys.",
+        "tags": [
+          "julia",
+          "registry",
+          "dependency management",
+          "authentication",
+          "pkg"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "27b3371e54479288c04753e73aacde74fb5077a5800c34a3709af9f18cf0344a",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:19.975926Z"
+  }
+}

@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/amirisback/keyboard/action.yml",
     "origin": "github.com/amirisback/keyboard",
     "publisher": "amirisback",
-    "verified": false
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.2.2",
+      "name": "1.2.2",
+      "published_at": "2025-11-09T03:15:30Z",
+      "html_url": "https://github.com/amirisback/keyboard/releases/tag/1.2.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Frogo-Keyboard-Open-Source",
@@ -38,6 +46,6 @@
     "source_hash": "4ddcc6da4905c799c6ae6e4c7974abfb51d4676adc7cf7c0dec7ee487798cee3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T00:47:39.636612Z"
+    "generated_at": "2025-12-15T05:23:06.972629Z"
   }
 }

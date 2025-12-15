@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/kick-start-android",
-  "version_id": "e85b92190505",
+  "version_id": "9562fd5cef65",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/kick-start-android/action.yml",
@@ -41,7 +41,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "The action is focused on providing an SDK to facilitate Android app development, which primarily falls under the Build category. It may also involve dependency management and documentation aspects.",
+        "reasoning": "The action is focused on providing an SDK to simplify Android app development, which primarily falls under the Build category. It may also involve dependency management and documentation as it provides tools for developers.",
         "tags": [
           "android",
           "sdk",
@@ -53,9 +53,9 @@
     ]
   },
   "cache": {
-    "source_hash": "e85b921905053075ed0432c71f59d295e6ded2365f64ff68dc1deedd2f64482b",
+    "source_hash": "9562fd5cef6529e6c05b3a0e8d5bca962ea21c56e3565dabe2504777b4e50e96",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.755593Z"
+    "generated_at": "2025-12-15T05:22:46.173908Z"
   }
 }

@@ -1,0 +1,56 @@
+{
+  "action_id": "marketplace/srt32/yaaas",
+  "version_id": "5f73b6ec519a",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/srt32/yaaas/action.yml",
+    "origin": "github.com/srt32/yaaas",
+    "publisher": "srt32",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "a",
+      "published_at": "2019-10-25T18:09:38Z",
+      "html_url": "https://github.com/srt32/yaaas/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Hello Worldoworld!",
+    "description": "Greet someone and record the time",
+    "author": "",
+    "inputs": [
+      {
+        "name": "who-to-greet",
+        "required": true,
+        "default": "World",
+        "description": "Who to greet"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "time",
+        "description": "The time we greeted you"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.who-to-greet }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "5f73b6ec519ac23836cfd0cf8bd06f852c7aa78ce8d97386db5795b5f2dc894e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:41.653136Z"
+  }
+}

@@ -1,0 +1,19 @@
+name: 'clover2lcov'
+description: 'Convert Clover files to LCOV reports'
+author: 'André Storhaug'
+branding:
+  icon: 'file-text'
+  color: 'purple'
+inputs:
+  src:
+    description: 'File path to clover report'
+    required: true
+  dst:
+    description:  'Destination path to final lcov report'
+    required: false
+outputs:
+  file:
+    description: 'The file path for the resulting lcov report file'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

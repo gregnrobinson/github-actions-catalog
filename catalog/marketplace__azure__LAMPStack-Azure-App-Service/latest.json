@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/LAMPStack-Azure-App-Service",
-  "version_id": "79c9e6d078d1",
+  "version_id": "af9df99e21fb",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/LAMPStack-Azure-App-Service/action.yml",
@@ -110,7 +110,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is primarily focused on deploying a LAMP stack to Azure App Service, which falls under the Deployment category. It also requires Azure authentication details, placing it in the Authentication and Infrastructure categories as well.",
+        "reasoning": "The action is primarily focused on deploying a LAMP stack to Azure App Service, which falls under the Deployment category. It also requires authentication details to log in to Azure, making Authentication and Infrastructure relevant as well.",
         "tags": [
           "Azure",
           "LAMP",
@@ -122,9 +122,9 @@
     ]
   },
   "cache": {
-    "source_hash": "79c9e6d078d10e4df434eb5d575b9d9c0d53af69420ecaa95a1a5c91d6711d06",
+    "source_hash": "af9df99e21fb8e6a7a1c2a46ee222d8aa5bff725979ade8ff7f7ad8b6d64031e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.846480Z"
+    "generated_at": "2025-12-15T05:21:49.487104Z"
   }
 }

@@ -1,0 +1,57 @@
+{
+  "action_id": "marketplace/mheap/review-go-dependency-updates-action",
+  "version_id": "ceb4de1bb554",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/review-go-dependency-updates-action/action.yml",
+    "origin": "github.com/mheap/review-go-dependency-updates-action",
+    "publisher": "mheap",
+    "verified": false
+  },
+  "definition": {
+    "name": "Review Go Dependency Updates",
+    "description": "Set the PR description to contain all release notes for updated libraries",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "A GitHub API token used to call the API"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Dependency management",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Dependency management",
+        "reasoning": "This action focuses on managing Go dependencies by updating PR descriptions with release notes, which falls under dependency management and also contributes to documentation.",
+        "tags": [
+          "Go",
+          "dependency",
+          "PR",
+          "release notes",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "ceb4de1bb55481a23f06b7b70f4cfd093981756ce6fa32e85b9e2e3b415e454f",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:26.014229Z"
+  }
+}

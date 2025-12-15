@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/AndreasAugustin/azure-login",
-  "version_id": "febf79778830",
+  "version_id": "6116cffd54b1",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/AndreasAugustin/azure-login/action.yml",
@@ -87,7 +87,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Authentication",
-        "reasoning": "The action is primarily focused on authenticating to Azure, which falls under the Authentication category, while also enabling actions related to Azure infrastructure.",
+        "reasoning": "The action is primarily focused on authenticating to Azure, which falls under the Authentication category, while also enabling infrastructure-related operations through Azure CLI or PowerShell scripts.",
         "tags": [
           "Azure",
           "Authentication",
@@ -99,9 +99,9 @@
     ]
   },
   "cache": {
-    "source_hash": "febf7977883024bab62bbf834c5f4b74bff9a9bc7c3b7a1bba3d2eba55159d8a",
+    "source_hash": "6116cffd54b1f8e54cad0af6b9eeaf3c0beedef56eb80f4458ffc6fae04f3702",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.773035Z"
+    "generated_at": "2025-12-15T05:21:39.571853Z"
   }
 }

@@ -1,0 +1,85 @@
+{
+  "action_id": "marketplace/jidicula/go-action",
+  "version_id": "ecc114700352",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/go-action/action.yml",
+    "origin": "github.com/jidicula/go-action",
+    "publisher": "jidicula",
+    "verified": false
+  },
+  "definition": {
+    "name": "Tweeter Action",
+    "description": "Simple action to send a tweet via an GitHub Action.",
+    "author": "devigned",
+    "inputs": [
+      {
+        "name": "message",
+        "required": true,
+        "default": null,
+        "description": "message you want to tweet"
+      },
+      {
+        "name": "apiKey",
+        "required": true,
+        "default": null,
+        "description": "api key for Twitter api"
+      },
+      {
+        "name": "apiKeySecret",
+        "required": true,
+        "default": null,
+        "description": "api key secret for Twitter api"
+      },
+      {
+        "name": "accessToken",
+        "required": true,
+        "default": null,
+        "description": "access token for Twitter api"
+      },
+      {
+        "name": "accessTokenSecret",
+        "required": true,
+        "default": null,
+        "description": "access token secret for Twitter api"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "errorMessage",
+        "description": "if something went wrong, the error message"
+      },
+      {
+        "name": "sentMessage",
+        "description": "message sent to Twitter"
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "--message",
+        "${{ inputs.message }}",
+        "--apiKey",
+        "${{ inputs.apiKey }}",
+        "--apiKeySecret",
+        "${{ inputs.apiKeySecret }}",
+        "--accessToken",
+        "${{ inputs.accessToken }}",
+        "--accessTokenSecret",
+        "${{ inputs.accessTokenSecret }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "ecc1147003520b1fbc50a734857f58a965c59c3e0285a1f0d603d36007437041",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:09.274089Z"
+  }
+}

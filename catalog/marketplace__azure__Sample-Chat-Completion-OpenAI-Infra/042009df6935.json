@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/Sample-Chat-Completion-OpenAI-Infra/action.yml",
     "origin": "github.com/azure/Sample-Chat-Completion-OpenAI-Infra",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v6",
+      "name": "",
+      "published_at": "2024-09-16T14:22:22Z",
+      "html_url": "https://github.com/Azure/Sample-Chat-Completion-OpenAI-Infra/releases/tag/v6",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Infrastructure for Open AI powered Chat",
@@ -109,6 +117,6 @@
     "source_hash": "042009df6935ee0f5776b4612b711ac5c69bd01f1a8000aa7cc0855628bfa6c1",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.556123Z"
+    "generated_at": "2025-12-15T05:21:48.406809Z"
   }
 }

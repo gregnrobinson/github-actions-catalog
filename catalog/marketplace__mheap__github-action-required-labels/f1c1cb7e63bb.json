@@ -1,0 +1,99 @@
+{
+  "action_id": "marketplace/mheap/github-action-required-labels",
+  "version_id": "f1c1cb7e63bb",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-required-labels/action.yml",
+    "origin": "github.com/mheap/github-action-required-labels",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v5.5.0",
+      "name": "v5.5.0",
+      "published_at": "2025-05-21T11:00:39Z",
+      "html_url": "https://github.com/mheap/github-action-required-labels/releases/tag/v5.5.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Require Labels",
+    "description": "Require labels to be added to a pull request before merging",
+    "author": "",
+    "inputs": [
+      {
+        "name": "token",
+        "required": false,
+        "default": "${{ github.token }}",
+        "description": "The GitHub token to use when calling the API"
+      },
+      {
+        "name": "labels",
+        "required": true,
+        "default": null,
+        "description": "Comma or new line separated list of labels to match"
+      },
+      {
+        "name": "mode",
+        "required": true,
+        "default": null,
+        "description": "The mode of comparison to use. One of: exactly, minimum, maximum"
+      },
+      {
+        "name": "count",
+        "required": true,
+        "default": null,
+        "description": "The required number of labels to match"
+      },
+      {
+        "name": "message",
+        "required": false,
+        "default": "Label error. Requires {{errorString}} {{count}} of: {{ provided }}. Found: {{ applied }}",
+        "description": "The message to log and to add to the PR (if add_comment is true). See the README for available placeholders"
+      },
+      {
+        "name": "add_comment",
+        "required": false,
+        "default": "false",
+        "description": "Add a comment to the PR if required labels are missing"
+      },
+      {
+        "name": "exit_type",
+        "required": false,
+        "default": null,
+        "description": "The exit type of the action. One of: failure, success"
+      },
+      {
+        "name": "use_regex",
+        "required": false,
+        "default": "false",
+        "description": "Evaluate the values in `labels` as regular expressions"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "labels",
+        "description": "The labels that were matched as a comma separated string"
+      },
+      {
+        "name": "status",
+        "description": "The status of the action."
+      }
+    ],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "f1c1cb7e63bb1df195a48fbbdd8f04b1dd508d247f2b39cc6d2dc6b105b0f0d4",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:19.125127Z"
+  }
+}

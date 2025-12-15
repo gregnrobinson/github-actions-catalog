@@ -1,0 +1,61 @@
+---
+name: "Deploy WordPress to WP Engine"
+branding:
+  icon: "upload-cloud"
+  color: "blue"
+description: "Deploy WordPress projects to a WP Engine account using SSH Gateway"
+inputs:
+  WPE_SSHG_KEY_PRIVATE:
+    description: "The private RSA key you will save in the Github Secrets"
+    required: true
+  PHP_LINT:
+    description: "optional php syntax check"
+    required: false
+    default: false
+  FLAGS:
+    description: "Optional flags for the deployment"
+    required: true
+    default: '-azvr --inplace --exclude=".*"'
+  CACHE_CLEAR:
+    description: "Optional WPE Clear cache"
+    required: false
+    default: true
+  SRC_PATH:
+    description: "An optional source directory to deploy other than the root directory that is being versioned."
+    default: "."
+    required: false
+  REMOTE_PATH:
+    description: "An optional destination directory to deploy to other than the WordPress root."
+    default: ""
+    required: false
+  WPE_ENV:
+    description: "Destination to deploy to WPE"
+    required: false
+  PRD_ENV:
+    description: "Destination to deploy to WPE Prod"
+    required: false
+  STG_ENV:
+    description: "Destination to deploy to WPE Stage"
+    required: false
+  DEV_ENV:
+    description: "Destination to deploy to WPE Dev"
+    required: false
+  SCRIPT:
+    description: "File containing custom scripts run after the rsync"
+    required: false
+
+runs:
+  using: "docker"
+  image: docker://wpengine/site-deploy:1.0.6
+  env:
+    WPE_SSHG_KEY_PRIVATE: ${{ inputs.WPE_SSHG_KEY_PRIVATE }}
+    WPE_ENV: ${{ inputs.WPE_ENV }}
+    PRD_ENV: ${{ inputs.PRD_ENV }}
+    STG_ENV: ${{ inputs.STG_ENV }}
+    DEV_ENV: ${{ inputs.DEV_ENV }}
+    REMOTE_PATH: ${{ inputs.REMOTE_PATH }}
+    SRC_PATH: ${{ inputs.SRC_PATH }}
+    FLAGS: ${{ inputs.FLAGS }}
+    PHP_LINT: ${{ inputs.PHP_LINT }}
+    CACHE_CLEAR: ${{ inputs.CACHE_CLEAR }}
+    SCRIPT: ${{ inputs.SCRIPT }}

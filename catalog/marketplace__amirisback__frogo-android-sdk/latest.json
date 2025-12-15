@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/frogo-android-sdk",
-  "version_id": "25c8a3a6e397",
+  "version_id": "9d47e7d9acd3",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-android-sdk/action.yml",
@@ -40,21 +40,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action provides an SDK that aids in developing Android apps, which suggests it is related to documentation and dependency management for Android development. However, without more specific details, the categorization is less certain.",
+        "reasoning": "The action is an SDK designed to facilitate Android app development, which implies it serves as a resource for developers, fitting into the Documentation category. It may also assist with Dependency management as it is likely to be included in projects as a library.",
         "tags": [
           "SDK",
           "Android",
-          "Development",
+          "development",
           "Frogobox",
-          "Dependency"
+          "library"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "25c8a3a6e3972c48ecf64bf58a81fc87b3c0cddfe3da36d30f43204960848a89",
+    "source_hash": "9d47e7d9acd32f65e921fc3c0e4cc66cceaa551038f3545b511a6c64aaad9a3a",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.780071Z"
+    "generated_at": "2025-12-15T05:22:55.581542Z"
   }
 }

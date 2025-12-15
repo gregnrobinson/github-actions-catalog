@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/bicep-build-action",
-  "version_id": "c7708c59e64d",
+  "version_id": "c46dc54280dd",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/bicep-build-action/action.yml",
@@ -48,7 +48,7 @@
   "annotations": {
     "categories": [
       "Build",
-      "Deployment"
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
@@ -56,21 +56,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Build",
-        "reasoning": "This action is focused on building an ARM template from a Bicep file, which falls under the Build category, and it also relates to Deployment as it prepares infrastructure as code.",
+        "reasoning": "The action is focused on building an ARM template from a Bicep file, which falls under the Build category, and it is related to infrastructure as it deals with Azure resource management.",
         "tags": [
           "Bicep",
           "ARM template",
-          "build",
           "Azure",
-          "infrastructure"
+          "Build",
+          "Infrastructure"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "c7708c59e64d4503e802d50ddd743a7ef22aeb4376401c646ba738ff1f482d3e",
+    "source_hash": "c46dc54280ddf5fc836f1ae4c75d632796958496b1545b5ecdaa72bbd1e314ec",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.798482Z"
+    "generated_at": "2025-12-15T05:21:46.335584Z"
   }
 }

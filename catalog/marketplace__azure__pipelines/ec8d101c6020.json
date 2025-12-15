@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/pipelines/action.yml",
     "origin": "github.com/azure/pipelines",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v1.2",
+      "name": "GitHub Action for Azure Pipelines",
+      "published_at": "2019-11-12T04:50:22Z",
+      "html_url": "https://github.com/Azure/pipelines/releases/tag/v1.2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Pipelines Action",
@@ -53,6 +61,6 @@
     "source_hash": "ec8d101c6020c0ad767abe63aeeef0a5c93d72d107344f2c9fd91cc698c75b4e",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.598244Z"
+    "generated_at": "2025-12-15T05:21:51.996288Z"
   }
 }

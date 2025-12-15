@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/amirisback/frogo-android-ui-kit",
-  "version_id": "87f89e0949d6",
+  "version_id": "565bfa33cc1f",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/amirisback/frogo-android-ui-kit/action.yml",
@@ -40,30 +40,29 @@
   "annotations": {
     "categories": [
       "Documentation",
-      "Code quality",
       "Packaging"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Documentation",
-        "reasoning": "The action is a library that provides a UI kit with full documentation, making documentation its primary focus. It also relates to code quality and packaging as it is a library intended for use in Android development.",
+        "reasoning": "The action is a UI kit library that emphasizes clear documentation, making Documentation the primary category. It also falls under Packaging as it is a library that can be packaged for use in projects.",
         "tags": [
           "UI Kit",
+          "Documentation",
           "Android",
           "Library",
-          "Documentation",
           "Design"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "87f89e0949d66daee1c5a45346b11a11167b7c096cb7caa5bf0e1ecf0bac73a2",
+    "source_hash": "565bfa33cc1f1c1a7bd7624897042e0dfb2e7d9d850550367d155e69b78930eb",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.757857Z"
+    "generated_at": "2025-12-15T05:22:47.044664Z"
   }
 }

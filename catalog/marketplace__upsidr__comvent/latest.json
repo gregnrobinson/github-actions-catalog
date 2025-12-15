@@ -1,0 +1,69 @@
+{
+  "action_id": "marketplace/upsidr/comvent",
+  "version_id": "8e07e5e39077",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/upsidr/comvent/action.yml",
+    "origin": "github.com/upsidr/comvent",
+    "publisher": "upsidr",
+    "verified": false
+  },
+  "definition": {
+    "name": "Comvent - Comment Event",
+    "description": "Comment Event \u26a1\ufe0f handler, which can be used as a building block of ChatBot like setup.",
+    "author": "rytswd",
+    "inputs": [
+      {
+        "name": "token",
+        "required": true,
+        "default": null,
+        "description": "Your GitHub Token, often specified with GITHUB_TOKEN"
+      },
+      {
+        "name": "config-path",
+        "required": false,
+        "default": ".github/comvent-setup.yaml",
+        "description": "The path to keyword setup"
+      },
+      {
+        "name": "config-check-only",
+        "required": false,
+        "default": "",
+        "description": "A flag to skip comment check so that you can check config validity only"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node16",
+      "main": "dist/index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Code quality"
+    ],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to handle comment events, which falls under communication, while also allowing for configuration checks that relate to code quality.",
+        "tags": [
+          "comment",
+          "chatbot",
+          "GitHub",
+          "event handler",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "8e07e5e390779e92d0c363329f281ad9fdffdeb8a4ec3b7313973040c9b0ad51",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:32.218889Z"
+  }
+}

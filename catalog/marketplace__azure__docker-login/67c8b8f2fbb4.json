@@ -6,7 +6,15 @@
     "action_yml_path": "blueprints/marketplace/azure/docker-login/action.yml",
     "origin": "github.com/azure/docker-login",
     "publisher": "azure",
-    "verified": true
+    "verified": true,
+    "latest_release": {
+      "tag_name": "v2",
+      "name": "Version 2.0",
+      "published_at": "2024-05-22T18:49:24Z",
+      "html_url": "https://github.com/Azure/docker-login/releases/tag/v2",
+      "prerelease": false,
+      "draft": false
+    }
   },
   "definition": {
     "name": "Azure Container Registry Login",
@@ -47,6 +55,6 @@
     "source_hash": "67c8b8f2fbb4d718d37afa6c1907dae87688cad141f41173f1b4a73db13bc60c",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-14T22:40:51.710948Z"
+    "generated_at": "2025-12-15T05:21:58.872492Z"
   }
 }

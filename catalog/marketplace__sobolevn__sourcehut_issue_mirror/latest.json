@@ -1,0 +1,87 @@
+{
+  "action_id": "marketplace/sobolevn/sourcehut_issue_mirror",
+  "version_id": "06d35a7af6c7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/sourcehut_issue_mirror/action.yml",
+    "origin": "github.com/sobolevn/sourcehut_issue_mirror",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "SourceHut Issue Maker",
+    "description": "Create a sr.ht issue",
+    "author": "",
+    "inputs": [
+      {
+        "name": "title",
+        "required": true,
+        "default": "Title not provided",
+        "description": "Title of the issue"
+      },
+      {
+        "name": "body",
+        "required": true,
+        "default": "No issue body",
+        "description": "Body of the issue"
+      },
+      {
+        "name": "submitter",
+        "required": true,
+        "default": null,
+        "description": "Username of issue submitter"
+      },
+      {
+        "name": "tracker-owner",
+        "required": true,
+        "default": null,
+        "description": "Account name of the trakcer owner. *Must be proceeded with \"~\"*"
+      },
+      {
+        "name": "tracker-name",
+        "required": true,
+        "default": null,
+        "description": "Name of the tracker"
+      },
+      {
+        "name": "oauth-token",
+        "required": true,
+        "default": null,
+        "description": "OAuth Token for sr.ht"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Communication",
+      "Documentation"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Communication",
+        "reasoning": "The action is designed to create issues on SourceHut, which facilitates communication about tasks or bugs, and it also serves a documentation purpose by tracking issues.",
+        "tags": [
+          "issue",
+          "sourcehut",
+          "communication",
+          "documentation",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "06d35a7af6c7890a5dcd1a4e6e6fe001ded903bd47c909aa10e735961fd9fe2b",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:34.084482Z"
+  }
+}

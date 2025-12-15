@@ -1,0 +1,50 @@
+{
+  "action_id": "marketplace/jidicula/humans.txt",
+  "version_id": "a320120f85e8",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/jidicula/humans.txt/action.yml",
+    "origin": "github.com/jidicula/humans.txt",
+    "publisher": "jidicula",
+    "verified": false
+  },
+  "definition": {
+    "name": "GitHub Actions humans.txt",
+    "description": "List out the humans who help feed and tend the robots of GitHub Actions",
+    "author": "",
+    "inputs": [
+      {
+        "name": "format",
+        "required": false,
+        "default": "ascii",
+        "description": "How to output the people of actions - txt, json, html or ascii"
+      },
+      {
+        "name": "output",
+        "required": false,
+        "default": null,
+        "description": "Where to output the file - stdout otherwise"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.format }}",
+        "${{ inputs.output }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "a320120f85e8294aac60e1e5c64e146bcfac98b34e0dfaee462cbdf61f82a961",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:08.751099Z"
+  }
+}

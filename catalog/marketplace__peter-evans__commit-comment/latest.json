@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/peter-evans/commit-comment",
-  "version_id": "9a790a0c87e7",
+  "version_id": "88812db9fb26",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/peter-evans/commit-comment/action.yml",
@@ -116,21 +116,21 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Communication",
-        "reasoning": "This action is primarily focused on creating comments for commits, which falls under communication within GitHub. It also serves as a notification mechanism for users tracking changes.",
+        "reasoning": "The action is designed to create comments on commits, which falls under communication within the GitHub ecosystem. It also serves as a notification mechanism for users interacting with the commit.",
         "tags": [
           "commit",
           "comment",
           "GitHub",
-          "notification",
-          "communication"
+          "communication",
+          "notification"
         ]
       }
     ]
   },
   "cache": {
-    "source_hash": "9a790a0c87e7a97c92edc51ce7b4f96643e2912015d677f324831d560c32401f",
+    "source_hash": "88812db9fb260e71e7f75f4d7934dbc84cb4cd3ab5b969de08bd430636ed4612",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:01.075090Z"
+    "generated_at": "2025-12-15T05:23:35.942228Z"
   }
 }

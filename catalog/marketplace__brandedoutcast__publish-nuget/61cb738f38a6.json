@@ -1,0 +1,141 @@
+{
+  "action_id": "marketplace/brandedoutcast/publish-nuget",
+  "version_id": "61cb738f38a6",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/brandedoutcast/publish-nuget/action.yml",
+    "origin": "github.com/brandedoutcast/publish-nuget",
+    "publisher": "brandedoutcast",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v2.5.5",
+      "name": "v2.5.5",
+      "published_at": "2020-07-18T05:40:23Z",
+      "html_url": "https://github.com/brandedoutcast/publish-nuget/releases/tag/v2.5.5",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Publish NuGet",
+    "description": "Build, Pack & Publish a NuGet package with dotnet core on project version change",
+    "author": "R2 (@brandedoutcast)",
+    "inputs": [
+      {
+        "name": "PROJECT_FILE_PATH",
+        "required": true,
+        "default": null,
+        "description": "Filepath of the project to be packaged, relative to root of repository"
+      },
+      {
+        "name": "BUILD_CONFIGURATION",
+        "required": false,
+        "default": "Release",
+        "description": "Configuration to build and package (default is Release)"
+      },
+      {
+        "name": "BUILD_PLATFORM",
+        "required": false,
+        "default": null,
+        "description": "Platform target to compile (default is empty/AnyCPU)"
+      },
+      {
+        "name": "NUSPEC_FILE",
+        "required": false,
+        "default": null,
+        "description": "file path to nuspec file"
+      },
+      {
+        "name": "PACKAGE_NAME",
+        "required": false,
+        "default": null,
+        "description": "NuGet package id, used for version detection & defaults to project name"
+      },
+      {
+        "name": "VERSION_FILE_PATH",
+        "required": false,
+        "default": null,
+        "description": "Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH"
+      },
+      {
+        "name": "VERSION_REGEX",
+        "required": false,
+        "default": "^\\s*<(Package|)Version>(.*)<\\/(Package|)Version>\\s*$",
+        "description": "Regex pattern to extract version info in a capturing group"
+      },
+      {
+        "name": "VERSION_STATIC",
+        "required": false,
+        "default": null,
+        "description": "Useful with external providers like Nerdbank.GitVersioning, ignores VERSION_FILE_PATH & VERSION_REGEX"
+      },
+      {
+        "name": "TAG_COMMIT",
+        "required": false,
+        "default": true,
+        "description": "Flag to toggle git tagging, enabled by default"
+      },
+      {
+        "name": "TAG_FORMAT",
+        "required": false,
+        "default": "v*",
+        "description": "Format of the git tag, [*] gets replaced with actual version"
+      },
+      {
+        "name": "NUGET_KEY",
+        "required": false,
+        "default": null,
+        "description": "API key to authenticate with NuGet server"
+      },
+      {
+        "name": "NUGET_SOURCE",
+        "required": false,
+        "default": "https://api.nuget.org",
+        "description": "NuGet server uri hosting the packages, defaults to https://api.nuget.org"
+      },
+      {
+        "name": "INCLUDE_SYMBOLS",
+        "required": false,
+        "default": false,
+        "description": "Flag to toggle pushing symbols along with nuget package to the server, disabled by default"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "VERSION",
+        "description": "Version of the associated git tag"
+      },
+      {
+        "name": "PACKAGE_NAME",
+        "description": "Name of the NuGet package generated"
+      },
+      {
+        "name": "PACKAGE_PATH",
+        "description": "Path to the generated NuGet package"
+      },
+      {
+        "name": "SYMBOLS_PACKAGE_NAME",
+        "description": "Name of the symbols package generated"
+      },
+      {
+        "name": "SYMBOLS_PACKAGE_PATH",
+        "description": "Path to the generated symbols package"
+      }
+    ],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "61cb738f38a6c345ef35faa6092990172e12a34b57fa6a85c760c8db2003580e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:10.841126Z"
+  }
+}

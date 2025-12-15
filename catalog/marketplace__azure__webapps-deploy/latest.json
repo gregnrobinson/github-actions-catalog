@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/webapps-deploy",
-  "version_id": "fee5ac13c29c",
+  "version_id": "c458d4360d07",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/webapps-deploy/action.yml",
@@ -122,7 +122,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Deployment",
-        "reasoning": "The action is specifically designed to deploy web applications to Azure, which falls under the Deployment category, and it also involves infrastructure management as it interacts with Azure services.",
+        "reasoning": "This action is specifically designed to deploy web applications to Azure, which clearly falls under the Deployment category, and it also involves infrastructure management in the Azure environment.",
         "tags": [
           "Azure",
           "WebApp",
@@ -134,9 +134,9 @@
     ]
   },
   "cache": {
-    "source_hash": "fee5ac13c29c8d93afff33cb4d030ecae6761b9031b73073a7c486aaeba4574e",
+    "source_hash": "c458d4360d07c061c3bd8dfe535f1032da4650dd2511f69874111b67864e6f56",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.804474Z"
+    "generated_at": "2025-12-15T05:21:46.887408Z"
   }
 }

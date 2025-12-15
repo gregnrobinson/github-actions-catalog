@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/azure/deployment-what-if-action",
-  "version_id": "e58391b5a7de",
+  "version_id": "e9f3c0760ff3",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/azure/deployment-what-if-action/action.yml",
@@ -65,20 +65,20 @@
   },
   "annotations": {
     "categories": [
-      "Infrastructure",
-      "Deployment"
+      "Deployment",
+      "Infrastructure"
     ],
     "confidence": "high",
     "evidence": [
       {
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
-        "primary_category": "Infrastructure",
-        "reasoning": "The action is focused on previewing infrastructure changes in Azure, which falls under the Infrastructure category, and it is related to the deployment process.",
+        "primary_category": "Deployment",
+        "reasoning": "The action is designed to preview Azure infrastructure changes before deployment, which directly relates to deployment activities and infrastructure management.",
         "tags": [
           "Azure",
-          "infrastructure",
           "deployment",
+          "infrastructure",
           "preview",
           "ARM template"
         ]
@@ -86,9 +86,9 @@
     ]
   },
   "cache": {
-    "source_hash": "e58391b5a7de5ba5518bb40982e94c31b2430039b8fbd12d9982d3882c5aa2f4",
+    "source_hash": "e9f3c0760ff3da384670b20641ff0dce49f5d50b6deeb60c488bc4a8b15f6955",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:18:59.907221Z"
+    "generated_at": "2025-12-15T05:21:53.331730Z"
   }
 }

@@ -1,0 +1,113 @@
+{
+  "action_id": "marketplace/Oval-Tutu/publish-to-itch-with-butler",
+  "version_id": "aa959bba12cd",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/Oval-Tutu/publish-to-itch-with-butler/action.yml",
+    "origin": "github.com/Oval-Tutu/publish-to-itch-with-butler",
+    "publisher": "Oval-Tutu",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "1.0.0",
+      "name": "1.0.0",
+      "published_at": "2025-03-07T00:31:00Z",
+      "html_url": "https://github.com/Oval-Tutu/publish-to-itch-with-butler/releases/tag/1.0.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Publish to Itch.io with Butler",
+    "description": "Automatically sets up Butler and provides a simple GitHub Action to publish releases to Itch.io",
+    "author": "Oval Tutu",
+    "inputs": [
+      {
+        "name": "api-key",
+        "required": true,
+        "default": null,
+        "description": "Butler API key"
+      },
+      {
+        "name": "channel",
+        "required": true,
+        "default": null,
+        "description": "itch.io channel name. For example: android, html, linux, osx or windows"
+      },
+      {
+        "name": "itch_user",
+        "required": true,
+        "default": null,
+        "description": "itch.io user name"
+      },
+      {
+        "name": "itch_game",
+        "required": true,
+        "default": null,
+        "description": "itch.io game name"
+      },
+      {
+        "name": "package",
+        "required": true,
+        "default": null,
+        "description": "The directory or file to upload"
+      },
+      {
+        "name": "version",
+        "required": false,
+        "default": "",
+        "description": "game version"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Download butler",
+          "env": {
+            "BUTLER_API_KEY": "${{ inputs.api-key }}"
+          },
+          "shell": "bash",
+          "run": "# Set butler platform based on runner OS\nBUTLER_PLATFORM=\"linux-amd64\"\nBUTLER_EXEC=\"butler\"\nif [ \"${{ runner.os }}\" = \"Windows\" ]; then\n  BUTLER_PLATFORM=\"windows-amd64\"\n  BUTLER_EXEC=\"butler.exe\"\nelif [ \"${{ runner.os }}\" = \"macOS\" ]; then\n  BUTLER_PLATFORM=\"darwin-amd64\"\nelse\n  echo \"Unsupported OS: ${{ runner.os }}\"\n  exit 1\nfi\nmkdir ./tools 2>/dev/null || true\npushd tools\n  curl -sSLfo ./butler.zip \"https://broth.itch.ovh/butler/${BUTLER_PLATFORM}/LATEST/archive/default\"\n  unzip butler.zip\n  chmod +x ./${BUTLER_EXEC}\npopd\n./tools/${BUTLER_EXEC} -V\n"
+        },
+        {
+          "name": "Upload to itch.io",
+          "env": {
+            "BUTLER_API_KEY": "${{ inputs.api-key }}"
+          },
+          "shell": "bash",
+          "run": "# Set butler executable name based on runner OS\nBUTLER_EXEC=\"butler\"\nif [ \"${{ runner.os }}\" = \"Windows\" ]; then\n  BUTLER_EXEC=\"butler.exe\"\nfi\nversionArgument=\"\"\nif [ -n \"${{ inputs.version }}\" ]; then\n  versionArgument=\"--userversion ${{ inputs.version }}\"\nfi\n./tools/${BUTLER_EXEC} push \\\n  \"${{ inputs.package }}\" \\\n  ${{ inputs.itch_user }}/${{ inputs.itch_game }}:${{ inputs.channel }} ${versionArgument}\n"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Deployment",
+      "Authentication"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is primarily focused on publishing releases to Itch.io, which falls under the Publishing category. It also requires an API key for authentication, making Authentication a relevant secondary category.",
+        "tags": [
+          "Itch.io",
+          "Butler",
+          "Publishing",
+          "Deployment",
+          "GitHub Action"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "aa959bba12cd0bfc232b57fe2589607c34d3b8cfed613f6f0e6d802450a89edd",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:36.975498Z"
+  }
+}

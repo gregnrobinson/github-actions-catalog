@@ -1,0 +1,41 @@
+{
+  "action_id": "marketplace/mheap/github-action-fail-at-weekend",
+  "version_id": "7f53f6d786ae",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/mheap/github-action-fail-at-weekend/action.yml",
+    "origin": "github.com/mheap/github-action-fail-at-weekend",
+    "publisher": "mheap",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v11",
+      "name": "v11",
+      "published_at": "2020-04-06T09:55:34Z",
+      "html_url": "https://github.com/mheap/github-action-fail-at-weekend/releases/tag/v11",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Fail at Weekend",
+    "description": "Fails all builds at the weekend",
+    "author": "",
+    "inputs": [],
+    "outputs": [],
+    "runs": {
+      "using": "node12",
+      "main": "index.js"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "7f53f6d786ae193227583b04db8c1eb58461a8e62dd01d8feb94f7224738d3d8",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:25.595744Z"
+  }
+}

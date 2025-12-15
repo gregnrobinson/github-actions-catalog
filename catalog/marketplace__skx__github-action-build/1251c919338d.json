@@ -1,0 +1,51 @@
+{
+  "action_id": "marketplace/skx/github-action-build",
+  "version_id": "1251c919338d",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/skx/github-action-build/action.yml",
+    "origin": "github.com/skx/github-action-build",
+    "publisher": "skx",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "release-0.6.1",
+      "name": "release-0.6.1",
+      "published_at": "2019-10-28T19:43:56Z",
+      "html_url": "https://github.com/skx/github-action-build/releases/tag/release-0.6.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "github-action-build",
+    "description": "Build a project, creating artifacts",
+    "author": "Steve Kemp",
+    "inputs": [
+      {
+        "name": "builder",
+        "required": false,
+        "default": ".github/build",
+        "description": "The path to the build-script to run, within the repository."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.builder }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "1251c919338db4ef40af8a1a056c61fc2885d36b3cfdff7035d07878f04c7b12",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:39.072790Z"
+  }
+}

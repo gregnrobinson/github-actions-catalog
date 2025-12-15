@@ -1,0 +1,95 @@
+{
+  "action_id": "marketplace/miloserdow/capistrano-deploy",
+  "version_id": "04003a3e7d20",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/miloserdow/capistrano-deploy/action.yml",
+    "origin": "github.com/miloserdow/capistrano-deploy",
+    "publisher": "miloserdow",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v3",
+      "name": "Major v3 capistrano-release",
+      "published_at": "2023-02-13T22:29:52Z",
+      "html_url": "https://github.com/miloserdow/capistrano-deploy/releases/tag/v3",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Capistrano deploy",
+    "description": "Deploy an application using capistrano to the given target",
+    "author": "",
+    "inputs": [
+      {
+        "name": "capistrano_commands",
+        "required": true,
+        "default": "[\"deploy\"]",
+        "description": "The Capistrano commands to run"
+      },
+      {
+        "name": "target",
+        "required": false,
+        "default": null,
+        "description": "Environment where deploy is to be performed to"
+      },
+      {
+        "name": "deploy_key",
+        "required": true,
+        "default": null,
+        "description": "Deployment key used for decryption of SSH RSA private key"
+      },
+      {
+        "name": "enc_rsa_key_pth",
+        "required": false,
+        "default": "config/deploy_id_rsa_enc",
+        "description": "Path to SSH private key encrypted with deploy_key"
+      },
+      {
+        "name": "enc_rsa_key_val",
+        "required": false,
+        "default": null,
+        "description": "Value of the SSH private key encrypted with deploy_key"
+      },
+      {
+        "name": "working-directory",
+        "required": false,
+        "default": "",
+        "description": "The directory from which to run the deploy command"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "node20",
+      "main": "lib/run.js"
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Deployment",
+      "Infrastructure"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Deployment",
+        "reasoning": "The action is specifically designed for deploying applications using Capistrano, which falls under the Deployment category. It also involves infrastructure elements as it targets specific environments for deployment.",
+        "tags": [
+          "deployment",
+          "capistrano",
+          "infrastructure",
+          "ssh",
+          "automation"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "04003a3e7d20e3f28c9695b9b4bee4ff9fd7100d0f6dc42122cc0f1f524d110e",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:23:17.346973Z"
+  }
+}

@@ -1,0 +1,31 @@
+name: 'Auto Merge Dependency Updates'
+description: 'Enable auto-merge for a PR that only contains dependency updates, based on some rules.'
+author: 'required gmbh'
+inputs:
+  github-token:
+    description: 'A personal access token used to authenticated with GitHub'
+    required: true
+  allowed-actors:
+    description: 'Comma-separated list of usernames auto merge is allowed for'
+    default: 'dependabot-preview[bot], dependabot[bot]'
+    required: false
+  allowed-update-types:
+    description: 'Comma-separated list of types of updates that are allowed. Supported: [devDependencies|dependencies]:[major|minor|patch]'
+    default: 'devDependencies:minor, devDependencies:patch'
+    required: false
+  package-block-list:
+    description: 'Comma-separated list of packages that auto merge should not be allowed for'
+    required: false
+  merge-method:
+    description: 'The merge method to use. Supported: MERGE, SQUASH, REBASE'
+    default: 'SQUASH'
+    required: false
+  merge-author-email:
+    description: 'The email address to associate with the auto-merge'
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'git-merge'
+  color: 'purple'

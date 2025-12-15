@@ -1,0 +1,97 @@
+{
+  "action_id": "marketplace/julia-actions/build-julia",
+  "version_id": "9cc3b5a7d8a7",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/julia-actions/build-julia/action.yml",
+    "origin": "github.com/julia-actions/build-julia",
+    "publisher": "julia-actions",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "v1.0.1",
+      "name": "Set JULIA_CPU_TARGET=x86_64 ",
+      "published_at": "2020-11-26T13:29:47Z",
+      "html_url": "https://github.com/julia-actions/build-julia/releases/tag/v1.0.1",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "Build Julia",
+    "description": "Build Julia from source for a given commit.",
+    "author": "Sascha Mann",
+    "inputs": [
+      {
+        "name": "ref",
+        "required": false,
+        "default": "master",
+        "description": "Value passed to git checkout."
+      },
+      {
+        "name": "source-repo",
+        "required": false,
+        "default": "https://github.com/JuliaLang/julia.git",
+        "description": "Value passed to git clone."
+      },
+      {
+        "name": "target-dir",
+        "required": false,
+        "default": "$HOME/julia",
+        "description": "Directory that Julia will be installed in"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "composite",
+      "steps": [
+        {
+          "name": "Clone Julia",
+          "run": "git clone ${{ inputs.source-repo }} \"${{ inputs.target-dir }}\"",
+          "shell": "bash"
+        },
+        {
+          "name": "Checkout ref",
+          "run": "cd \"${{ inputs.target-dir }}\"\ngit checkout ${{ inputs.ref }}\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Build Julia",
+          "run": "cd \"${{ inputs.target-dir }}\"\n\n# GHA runners don't all run on the same hardware\n# Not specifying a CPU target can lead to issues when caching the build output\necho \"JULIA_CPU_TARGET=x86_64\" >> Make.user\n\nmake -j 2\n",
+          "shell": "bash"
+        },
+        {
+          "name": "Print Version",
+          "run": "cd \"${{ inputs.target-dir }}\"\n./julia --version\n",
+          "shell": "bash"
+        }
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Build",
+      "Dependency management"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Build",
+        "reasoning": "The action is primarily focused on building Julia from source, which falls under the Build category. It also involves managing dependencies by cloning the source repository.",
+        "tags": [
+          "Julia",
+          "Build",
+          "Source",
+          "GitHub Actions"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "9cc3b5a7d8a7909ff9d3aff6db657ea110de213ac62de872bebbb69c371a6e2c",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:17.496925Z"
+  }
+}

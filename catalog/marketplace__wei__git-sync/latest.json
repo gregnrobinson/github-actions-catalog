@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/wei/git-sync",
-  "version_id": "ec2152d171fb",
+  "version_id": "5df66a6c471d",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/wei/git-sync/action.yml",
@@ -92,11 +92,11 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The Git Sync Action is primarily focused on syncing code between repositories, which falls under dependency management. It also facilitates communication between repositories by ensuring they are in sync.",
+        "reasoning": "The Git Sync Action is primarily focused on syncing code between repositories, which falls under dependency management. It also facilitates communication between two independent repositories.",
         "tags": [
           "git",
           "sync",
-          "repositories",
+          "repository",
           "dependency",
           "action"
         ]
@@ -104,9 +104,9 @@
     ]
   },
   "cache": {
-    "source_hash": "ec2152d171fb5873850a4d31511bf40489afdf58e5f9512a734168816a5b18eb",
+    "source_hash": "5df66a6c471dde94d0a9d83b7674301c797095c0521948cde4e09d45925a73a3",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.948994Z"
+    "generated_at": "2025-12-15T05:23:15.144500Z"
   }
 }

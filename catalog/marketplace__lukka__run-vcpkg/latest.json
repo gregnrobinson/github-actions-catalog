@@ -1,6 +1,6 @@
 {
   "action_id": "marketplace/lukka/run-vcpkg",
-  "version_id": "c3ae4901ecf9",
+  "version_id": "4a7461c89ae0",
   "source": {
     "type": "marketplace",
     "action_yml_path": "blueprints/marketplace/lukka/run-vcpkg/action.yml",
@@ -117,7 +117,7 @@
         "type": "llm_categorization",
         "model": "gpt-4o-mini",
         "primary_category": "Dependency management",
-        "reasoning": "The action is primarily focused on setting up and managing C/C++ dependencies using vcpkg, which falls under dependency management. Additionally, it involves building those dependencies, hence the secondary category of Build.",
+        "reasoning": "The action is focused on setting up and running vcpkg to manage C/C++ dependencies, which falls under dependency management. Additionally, it involves building those dependencies, placing it in the build category as well.",
         "tags": [
           "vcpkg",
           "C++",
@@ -129,9 +129,9 @@
     ]
   },
   "cache": {
-    "source_hash": "c3ae4901ecf9abcd7f8c128d973aab1b2865693eb3b7ead7fdb0a2e561ce8281",
+    "source_hash": "4a7461c89ae0bebdda75176c657052468ead822a5e9d86ddb47d963cdc417e06",
     "taxonomy_version": "0.0.1",
     "prompt_version": "v1",
-    "generated_at": "2025-12-15T02:19:00.132255Z"
+    "generated_at": "2025-12-15T05:22:06.725208Z"
   }
 }

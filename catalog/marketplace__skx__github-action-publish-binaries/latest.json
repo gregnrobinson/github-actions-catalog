@@ -1,0 +1,76 @@
+{
+  "action_id": "marketplace/skx/github-action-publish-binaries",
+  "version_id": "b57e5ef0d844",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/skx/github-action-publish-binaries/action.yml",
+    "origin": "github.com/skx/github-action-publish-binaries",
+    "publisher": "skx",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "release-2.0",
+      "name": "release-2.0",
+      "published_at": "2021-09-25T04:35:29Z",
+      "html_url": "https://github.com/skx/github-action-publish-binaries/releases/tag/release-2.0",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "github-action-publish-binaries",
+    "description": "Publish binaries when new releases are made.",
+    "author": "Steve Kemp",
+    "inputs": [
+      {
+        "name": "args",
+        "required": true,
+        "default": null,
+        "description": "The pattern of files to upload"
+      },
+      {
+        "name": "releaseId",
+        "required": false,
+        "default": null,
+        "description": "The release Id of the release to be targeted."
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile",
+      "args": [
+        "${{ inputs.args }}",
+        "${{ inputs.releaseId }}"
+      ]
+    }
+  },
+  "annotations": {
+    "categories": [
+      "Publishing",
+      "Deployment",
+      "Packaging"
+    ],
+    "confidence": "high",
+    "evidence": [
+      {
+        "type": "llm_categorization",
+        "model": "gpt-4o-mini",
+        "primary_category": "Publishing",
+        "reasoning": "The action is focused on publishing binaries during new releases, which aligns closely with the Publishing category. It also involves aspects of Deployment and Packaging as it deals with the distribution of compiled files.",
+        "tags": [
+          "publish",
+          "binaries",
+          "release",
+          "github-action",
+          "deployment"
+        ]
+      }
+    ]
+  },
+  "cache": {
+    "source_hash": "b57e5ef0d844dcd4a49cccf18b2aa30bfedffa2a7b071eee0c832ae6ceb33aa3",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:38.584238Z"
+  }
+}

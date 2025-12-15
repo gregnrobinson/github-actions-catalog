@@ -1,0 +1,46 @@
+{
+  "action_id": "marketplace/sobolevn/create-envfile",
+  "version_id": "52b282365903",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/sobolevn/create-envfile/action.yml",
+    "origin": "github.com/sobolevn/create-envfile",
+    "publisher": "sobolevn",
+    "verified": false
+  },
+  "definition": {
+    "name": "Create .env file",
+    "description": "Github Action to create a .env file with Github Secrets",
+    "author": "Forest Anderson",
+    "inputs": [
+      {
+        "name": "file_name",
+        "required": false,
+        "default": ".env",
+        "description": "The filename for the envfile"
+      },
+      {
+        "name": "directory",
+        "required": false,
+        "default": "",
+        "description": "The directory to put the envfile in"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "52b282365903578cbb7085507b11d94bd9f38aea7bf2f4092b5431f3b0b24161",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:21:30.924001Z"
+  }
+}

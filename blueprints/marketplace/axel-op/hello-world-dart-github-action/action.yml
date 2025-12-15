@@ -1,0 +1,18 @@
+name: "Hello World Dart Action"
+description: "A template to demonstrate how to build a Dart action. Greet someone and record the time."
+branding:
+  color: blue
+  icon: feather
+inputs:
+  who-to-greet: # id of input
+    description: "Who to greet"
+    required: true
+    default: "World"
+outputs:
+  time: # id of output
+    description: "The time we we greeted you"
+runs:
+  using: "node12"
+  pre: "scripts/setup.js" # Delete this line to not run the setup script
+  main: "scripts/index.js"
+  post: "scripts/cleanup.js" # Delete this line to not run the cleanup script

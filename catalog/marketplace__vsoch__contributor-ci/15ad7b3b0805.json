@@ -1,0 +1,90 @@
+{
+  "action_id": "marketplace/vsoch/contributor-ci",
+  "version_id": "15ad7b3b0805",
+  "source": {
+    "type": "marketplace",
+    "action_yml_path": "blueprints/marketplace/vsoch/contributor-ci/action.yml",
+    "origin": "github.com/vsoch/contributor-ci",
+    "publisher": "vsoch",
+    "verified": false,
+    "latest_release": {
+      "tag_name": "0.0.16",
+      "name": "Contributor CI v0.0.16 Release",
+      "published_at": "2022-12-17T23:59:34Z",
+      "html_url": "https://github.com/vsoch/contributor-ci/releases/tag/0.0.16",
+      "prerelease": false,
+      "draft": false
+    }
+  },
+  "definition": {
+    "name": "contributor-ci-action",
+    "description": "Extract repository contribution metadata.",
+    "author": "Vanessa Sochat",
+    "inputs": [
+      {
+        "name": "results_dir",
+        "required": false,
+        "default": null,
+        "description": "If doing an extraction, save results here. Defaults to .cci in $PWD"
+      },
+      {
+        "name": "extract",
+        "required": false,
+        "default": "repos",
+        "description": "Run this kind of extraction (e.g., repos or all)"
+      },
+      {
+        "name": "cfa",
+        "required": false,
+        "default": null,
+        "description": "Generate contributor friendliness assessment files for a repository instead."
+      },
+      {
+        "name": "update",
+        "required": false,
+        "default": null,
+        "description": "Update an existing Contributor CI interface."
+      },
+      {
+        "name": "update_random",
+        "required": false,
+        "default": null,
+        "description": "Only update a random selection of N extractors. This is intended for large projects."
+      },
+      {
+        "name": "update_cfa",
+        "required": false,
+        "default": null,
+        "description": "Find and generate CFAs for new repos."
+      },
+      {
+        "name": "config_file",
+        "required": true,
+        "default": "contributor-ci.yaml",
+        "description": "The contributor-ci.yaml file with organization metadata."
+      },
+      {
+        "name": "extract_save_format",
+        "required": false,
+        "default": null,
+        "description": "Given using extract, change the default save format / structure from year/month/day to something else.\nThis will force extraction of new data since we can't reliably say when it was last done. If you need\nto change the save format but want to use a cache, it's recommended to not change the format, but clean\nup directories you don't need after.\n"
+      }
+    ],
+    "outputs": [],
+    "runs": {
+      "using": "docker",
+      "image": "Dockerfile"
+    }
+  },
+  "annotations": {
+    "categories": [],
+    "confidence": null,
+    "evidence": []
+  },
+  "cache": {
+    "source_hash": "15ad7b3b08051b5ad24307d7025905fe3109c4423ab98a3d1085c2a20f645561",
+    "taxonomy_version": "0.0.1",
+    "prompt_version": "v1",
+    "generated_at": "2025-12-15T05:22:35.534514Z"
+  }
+}
