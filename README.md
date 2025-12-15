@@ -33,10 +33,10 @@ Create a `.env` file or export these variables:
 
 ```bash
 # Required for fetching GitHub release information
-export GITHUB_TOKEN="ghp_your_github_token_here"
+export GITHUB_TOKEN="ghp_your_github_token_here" # pragma: allowlist secret
 
 # Optional: Required only if using AI categorization
-export OPENAI_API_KEY="sk-your_openai_api_key_here"
+export OPENAI_API_KEY="sk-your_openai_api_key_here" # pragma: allowlist secret
 ```
 
 **Getting Tokens:**
@@ -272,13 +272,13 @@ python3 build_catalog.py --no-categorize
 
 ## Why GitHub Pages?
 
-✅ **Zero Infrastructure** - No servers to maintain
-✅ **Zero Cost** - Free for public repos
-✅ **Global CDN** - Fast worldwide access
-✅ **Auto SSL** - HTTPS by default
-✅ **Git-based Deployment** - Just commit and push
-✅ **High Availability** - Backed by GitHub's infrastructure
-✅ **Version Control** - Every change is tracked in git
+✅ **Zero Infrastructure** - No servers to maintain.<br>
+✅ **Zero Cost** - Free for public repos.<br>
+✅ **Global CDN** - Fast worldwide access.<br>
+✅ **Auto SSL** - HTTPS by default.<br>
+✅ **Git-based Deployment** - Just commit and push.<br>
+✅ **High Availability** - Backed by GitHub's infrastructure.<br>
+✅ **Version Control** - Every change is tracked in git.<br>
 
 ---
 
