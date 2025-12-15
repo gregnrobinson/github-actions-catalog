@@ -291,6 +291,21 @@ body {
     color: #c9d1d9;
 }
 
+.badge-release {
+    background: var(--success);
+    color: white;
+}
+
+.badge-prerelease {
+    background: #ffa657;
+    color: #0d1117;
+}
+
+.badge-draft {
+    background: var(--dark-border);
+    color: var(--dark-text);
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -375,6 +390,63 @@ body {
     text-decoration: underline;
 }
 
+.release-section {
+    background: var(--dark-bg-tertiary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--dark-border);
+}
+
+.release-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.release-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.release-title {
+    font-size: 1.1rem;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.release-title:hover {
+    text-decoration: underline;
+}
+
+.release-meta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: var(--dark-text-secondary);
+    font-size: 0.9rem;
+}
+
+.release-tag,
+.release-date {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.release-link {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 0.5rem;
+}
+
+.release-link:hover {
+    text-decoration: underline;
+}
+
 .section {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
@@ -388,6 +460,12 @@ body {
 .section h3 {
     margin: 0 0 1rem 0;
     color: var(--primary);
+}
+
+.input-default {
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--dark-text-secondary);
 }
 
 table {
@@ -472,5 +550,15 @@ footer {
     .navbar-btn {
         width: 100%;
         text-align: center;
+    }
+
+    .release-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .release-meta {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }
