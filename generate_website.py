@@ -260,8 +260,8 @@ def generate_action_modal(action):
             <div class="modal-section">
                 <p><strong>Action ID:</strong> <code>{escape_html(action_id)}</code></p>
                 <p><strong>Author:</strong> {escape_html(author or "Unknown")}</p>
-                {f'<p><strong>Publisher:</strong> {escape_html(publisher)}</p>' if publisher else ''}
-                {f'<p><strong>Repository:</strong> <a href="https://{escape_html(origin)}" target="_blank">{escape_html(origin)}</a></p>' if origin else ''}
+                <p><strong>Publisher:</strong> {escape_html(publisher or "internal")}</p>
+                <p><strong>Repository:</strong> <a href="https://{escape_html(origin)}" target="_blank">{escape_html(origin)}</a></p>
             </div>
 
             <div class="modal-section">
@@ -1330,6 +1330,25 @@ body {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--dark-border);
+}
+
+.modal-section p {
+    margin: 0.75rem 0;
+}
+
+.modal-section p:first-child {
+    margin-top: 0;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .modal-section:last-child {
