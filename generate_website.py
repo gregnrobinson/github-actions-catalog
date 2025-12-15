@@ -276,7 +276,7 @@ def generate_index():
 <body>
     <nav class="navbar">
         <div class="container">
-            <a href="index.html" class="navbar-brand">🚀 Actions Catalog</a>
+            <a href="index.html" class="navbar-brand">🚀 Github Actions Catalog</a>
             <p class="navbar-subtitle">Browse {stats['total']} GitHub Actions</p>
         </div>
     </nav>
@@ -435,6 +435,7 @@ def generate_styles():
     --dark-text: #c9d1d9;
     --dark-text-secondary: #8b949e;
     --gray-300: #d0d7de;
+    --code-blue: #79c0ff;
 }
 
 body {
@@ -720,6 +721,14 @@ body {
     color: var(--primary);
 }
 
+.modal-section a {
+    color: var(--code-blue);
+}
+
+.modal-section a:hover {
+    text-decoration: underline;
+}
+
 .section {
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
@@ -757,7 +766,7 @@ code {
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-family: monospace;
-    color: #79c0ff;
+    color: var(--code-blue);
 }
 
 pre {
